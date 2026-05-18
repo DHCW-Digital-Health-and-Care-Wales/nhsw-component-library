@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHSW Select Preview</title>
+  <link rel="stylesheet" href="../../dist/nhsw.css">
+  <link rel="stylesheet" href="../assets/preview.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+  <main class="nhsw-width-container">
+    <p class="nhsw-body-s"><a href="../index.html">? Back to preview index</a></p>
+
+    <h1 class="nhsw-h1">Select</h1>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">When to use select</h2>
+      <p class="nhsw-body">
+        Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.
+      </p>
+
+      <h2 class="nhsw-h3">When not to use select</h2>
+      <p class="nhsw-body">
+        Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using radios instead.
+      </p>
+
+      <h2 class="nhsw-h3">Select with hint</h2>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-default">Choose region</label>
+        <div class="nhsw-hint" id="select-default-hint">This can be different to what you selected before</div>
+
+        <select id="select-default" class="nhsw-select" aria-describedby="select-default-hint">
+          <option>Choose region</option>
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+          <option>West Wales</option>
+          <option>South Wales</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Select widths</h2>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-xs">Extra small</label>
+        <select id="select-xs" class="nhsw-select nhsw-select--xs">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-s">Small</label>
+        <select id="select-s" class="nhsw-select nhsw-select--s">
+          <option>Wales</option>
+          <option>England</option>
+          <option>Scotland</option>
+        </select>
+      </div>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-m">Medium</label>
+        <select id="select-m" class="nhsw-select nhsw-select--m">
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+          <option>West Wales</option>
+          <option>South Wales</option>
+        </select>
+      </div>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-l">Large</label>
+        <select id="select-l" class="nhsw-select nhsw-select--l">
+          <option>Longer select option</option>
+          <option>Another longer option</option>
+        </select>
+      </div>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-xl">Extra large</label>
+        <select id="select-xl" class="nhsw-select nhsw-select--xl">
+          <option>Very long select option for wider layouts</option>
+          <option>Another very long option</option>
+        </select>
+      </div>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-full">Full width</label>
+        <select id="select-full" class="nhsw-select nhsw-select--full">
+          <option>Full width select</option>
+          <option>Option one</option>
+          <option>Option two</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">States</h2>
+
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="select-disabled">Disabled</label>
+        <select id="select-disabled" class="nhsw-select" disabled>
+          <option>Disabled select</option>
+        </select>
+      </div>
+
+      <div class="nhsw-form-group nhsw-form-group--error">
+        <label class="nhsw-label" for="select-error">Choose region</label>
+        <div class="nhsw-hint" id="select-error-hint">This can be different to what you selected before</div>
+        <strong class="nhsw-error-message" id="select-error-message">Choose a region</strong>
+
+        <select id="select-error" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="select-error-hint select-error-message">
+          <option>Choose region</option>
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+          <option>West Wales</option>
+          <option>South Wales</option>
+        </select>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
