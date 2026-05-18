@@ -1,0 +1,6 @@
+﻿@use "../tokens/colours" as c;
+
+@mixin nhsw-focus-ring {
+    outline: 3px solid c.$nhsw-colour-input-focus;
+    outline-offset: 0;
+}

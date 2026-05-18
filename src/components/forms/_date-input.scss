@@ -1,0 +1,31 @@
+.nhsw-date-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin-top: 0.5rem;
+}
+
+.nhsw-date-input__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.nhsw-date-input__label {
+  margin-bottom: 0.25rem;
+}
+
+.nhsw-date-input__input {
+  width: auto;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
+.nhsw-date-input__input--day,
+.nhsw-date-input__input--month {
+  width: 3.25rem; // 52px
+}
+
+.nhsw-date-input__input--year {
+  width: 5rem; // 80px
+}

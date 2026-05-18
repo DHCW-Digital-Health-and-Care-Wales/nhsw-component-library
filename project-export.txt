@@ -1,0 +1,2681 @@
+
+PROJECT EXPORT
+Generated: 04/28/2026 13:29:59
+
+==================================================
+FILE: .vs\nhsw-style-library.slnx\v18\DocumentLayout.json
+==================================================
+
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\forms\\select.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:preview\\forms\\select.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\layout\\_grid.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\layout\\_grid.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\layout\\_index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\layout\\_index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_typography.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\foundations\\_typography.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\dist\\nhsw.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dist\\nhsw.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\forms\\_select.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\forms\\_select.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_input-base.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\foundations\\_input-base.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\tokens\\_typography.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\tokens\\_typography.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\layout\\grid.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:preview\\layout\\grid.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\actions\\button.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:preview\\actions\\button.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\content\\typography.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:preview\\content\\typography.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:preview\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\forms\\input.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:preview\\forms\\input.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\content\\_typography.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\content\\_typography.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_layout.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\foundations\\_layout.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\foundations\\_index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\tokens\\_colours.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\tokens\\_colours.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\_index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\_index.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_index.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\layout\\_index.scss",
+              "RelativeDocumentMoniker": "src\\components\\layout\\_index.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\layout\\_index.scss",
+              "RelativeToolTip": "src\\components\\layout\\_index.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T16:59:34.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "nhsw.css",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\dist\\nhsw.css",
+              "RelativeDocumentMoniker": "dist\\nhsw.css",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\dist\\nhsw.css",
+              "RelativeToolTip": "dist\\nhsw.css",
+              "ViewState": "AgIAAK4BAAAAAAAAAAAAAMEBAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-27T16:36:40.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_select.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\forms\\_select.scss",
+              "RelativeDocumentMoniker": "src\\components\\forms\\_select.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\forms\\_select.scss",
+              "RelativeToolTip": "src\\components\\forms\\_select.scss",
+              "ViewState": "AgIAACcAAAAAAAAAAAAQwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T16:13:17.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "select.html",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\forms\\select.html",
+              "RelativeDocumentMoniker": "preview\\forms\\select.html",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\forms\\select.html",
+              "RelativeToolTip": "preview\\forms\\select.html",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAQwHIAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-27T15:53:54.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "button.html",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\actions\\button.html",
+              "RelativeDocumentMoniker": "preview\\actions\\button.html",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\actions\\button.html",
+              "RelativeToolTip": "preview\\actions\\button.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-27T15:45:44.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "input.html",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\forms\\input.html",
+              "RelativeDocumentMoniker": "preview\\forms\\input.html",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\forms\\input.html",
+              "RelativeToolTip": "preview\\forms\\input.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-27T15:45:41.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "typography.html",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\content\\typography.html",
+              "RelativeDocumentMoniker": "preview\\content\\typography.html",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\content\\typography.html",
+              "RelativeToolTip": "preview\\content\\typography.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-27T15:45:32.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\index.html",
+              "RelativeDocumentMoniker": "preview\\index.html",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\index.html",
+              "RelativeToolTip": "preview\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-27T14:41:40.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "grid.html",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\layout\\grid.html",
+              "RelativeDocumentMoniker": "preview\\layout\\grid.html",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\preview\\layout\\grid.html",
+              "RelativeToolTip": "preview\\layout\\grid.html",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-27T14:55:03.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_typography.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\tokens\\_typography.scss",
+              "RelativeDocumentMoniker": "src\\tokens\\_typography.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\tokens\\_typography.scss",
+              "RelativeToolTip": "src\\tokens\\_typography.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:01:01.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_grid.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\layout\\_grid.scss",
+              "RelativeDocumentMoniker": "src\\components\\layout\\_grid.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\layout\\_grid.scss",
+              "RelativeToolTip": "src\\components\\layout\\_grid.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:43:09.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_typography.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_typography.scss",
+              "RelativeDocumentMoniker": "src\\foundations\\_typography.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_typography.scss",
+              "RelativeToolTip": "src\\foundations\\_typography.scss",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAlwGYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:01:11.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_typography.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\content\\_typography.scss",
+              "RelativeDocumentMoniker": "src\\components\\content\\_typography.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\content\\_typography.scss",
+              "RelativeToolTip": "src\\components\\content\\_typography.scss",
+              "ViewState": "AgIAABIAAAAAAAAAAAAQwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:02:04.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_input-base.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_input-base.scss",
+              "RelativeDocumentMoniker": "src\\foundations\\_input-base.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_input-base.scss",
+              "RelativeToolTip": "src\\foundations\\_input-base.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:01:38.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_layout.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_layout.scss",
+              "RelativeDocumentMoniker": "src\\foundations\\_layout.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_layout.scss",
+              "RelativeToolTip": "src\\foundations\\_layout.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:01:30.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_index.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_index.scss",
+              "RelativeDocumentMoniker": "src\\foundations\\_index.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\foundations\\_index.scss",
+              "RelativeToolTip": "src\\foundations\\_index.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T15:01:42.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_colours.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\tokens\\_colours.scss",
+              "RelativeDocumentMoniker": "src\\tokens\\_colours.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\tokens\\_colours.scss",
+              "RelativeToolTip": "src\\tokens\\_colours.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T14:56:30.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_index.scss",
+              "DocumentMoniker": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\_index.scss",
+              "RelativeDocumentMoniker": "src\\components\\_index.scss",
+              "ToolTip": "C:\\Users\\jo126787\\source\\repos\\nhswales-style-library\\nhsw-style-library\\nhsw-style-library\\src\\components\\_index.scss",
+              "RelativeToolTip": "src\\components\\_index.scss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2026-04-27T14:41:03.625Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+==================================================
+FILE: .\package.json
+==================================================
+
+{
+  "name": "nhsw-style-library",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:css": "sass src/index.scss dist/nhsw.css",
+    "watch:css": "sass --watch src/index.scss:dist/nhsw.css"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}
+
+
+==================================================
+FILE: .\package-lock.json
+==================================================
+
+{
+  "name": "nhsw-style-library",
+  "version": "0.1.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "nhsw-style-library",
+      "version": "0.1.0",
+      "devDependencies": {
+        "sass": "^1.93.2"
+      }
+    },
+    "node_modules/@parcel/watcher": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher/-/watcher-2.5.6.tgz",
+      "integrity": "sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ==",
+      "dev": true,
+      "hasInstallScript": true,
+      "license": "MIT",
+      "optional": true,
+      "dependencies": {
+        "detect-libc": "^2.0.3",
+        "is-glob": "^4.0.3",
+        "node-addon-api": "^7.0.0",
+        "picomatch": "^4.0.3"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      },
+      "optionalDependencies": {
+        "@parcel/watcher-android-arm64": "2.5.6",
+        "@parcel/watcher-darwin-arm64": "2.5.6",
+        "@parcel/watcher-darwin-x64": "2.5.6",
+        "@parcel/watcher-freebsd-x64": "2.5.6",
+        "@parcel/watcher-linux-arm-glibc": "2.5.6",
+        "@parcel/watcher-linux-arm-musl": "2.5.6",
+        "@parcel/watcher-linux-arm64-glibc": "2.5.6",
+        "@parcel/watcher-linux-arm64-musl": "2.5.6",
+        "@parcel/watcher-linux-x64-glibc": "2.5.6",
+        "@parcel/watcher-linux-x64-musl": "2.5.6",
+        "@parcel/watcher-win32-arm64": "2.5.6",
+        "@parcel/watcher-win32-ia32": "2.5.6",
+        "@parcel/watcher-win32-x64": "2.5.6"
+      }
+    },
+    "node_modules/@parcel/watcher-android-arm64": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-android-arm64/-/watcher-android-arm64-2.5.6.tgz",
+      "integrity": "sha512-YQxSS34tPF/6ZG7r/Ih9xy+kP/WwediEUsqmtf0cuCV5TPPKw/PQHRhueUo6JdeFJaqV3pyjm0GdYjZotbRt/A==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-darwin-arm64": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-darwin-arm64/-/watcher-darwin-arm64-2.5.6.tgz",
+      "integrity": "sha512-Z2ZdrnwyXvvvdtRHLmM4knydIdU9adO3D4n/0cVipF3rRiwP+3/sfzpAwA/qKFL6i1ModaabkU7IbpeMBgiVEA==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-darwin-x64": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-darwin-x64/-/watcher-darwin-x64-2.5.6.tgz",
+      "integrity": "sha512-HgvOf3W9dhithcwOWX9uDZyn1lW9R+7tPZ4sug+NGrGIo4Rk1hAXLEbcH1TQSqxts0NYXXlOWqVpvS1SFS4fRg==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-freebsd-x64": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-freebsd-x64/-/watcher-freebsd-x64-2.5.6.tgz",
+      "integrity": "sha512-vJVi8yd/qzJxEKHkeemh7w3YAn6RJCtYlE4HPMoVnCpIXEzSrxErBW5SJBgKLbXU3WdIpkjBTeUNtyBVn8TRng==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-linux-arm-glibc": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-linux-arm-glibc/-/watcher-linux-arm-glibc-2.5.6.tgz",
+      "integrity": "sha512-9JiYfB6h6BgV50CCfasfLf/uvOcJskMSwcdH1PHH9rvS1IrNy8zad6IUVPVUfmXr+u+Km9IxcfMLzgdOudz9EQ==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-linux-arm-musl": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-linux-arm-musl/-/watcher-linux-arm-musl-2.5.6.tgz",
+      "integrity": "sha512-Ve3gUCG57nuUUSyjBq/MAM0CzArtuIOxsBdQ+ftz6ho8n7s1i9E1Nmk/xmP323r2YL0SONs1EuwqBp2u1k5fxg==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-linux-arm64-glibc": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-linux-arm64-glibc/-/watcher-linux-arm64-glibc-2.5.6.tgz",
+      "integrity": "sha512-f2g/DT3NhGPdBmMWYoxixqYr3v/UXcmLOYy16Bx0TM20Tchduwr4EaCbmxh1321TABqPGDpS8D/ggOTaljijOA==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-linux-arm64-musl": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-linux-arm64-musl/-/watcher-linux-arm64-musl-2.5.6.tgz",
+      "integrity": "sha512-qb6naMDGlbCwdhLj6hgoVKJl2odL34z2sqkC7Z6kzir8b5W65WYDpLB6R06KabvZdgoHI/zxke4b3zR0wAbDTA==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-linux-x64-glibc": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-linux-x64-glibc/-/watcher-linux-x64-glibc-2.5.6.tgz",
+      "integrity": "sha512-kbT5wvNQlx7NaGjzPFu8nVIW1rWqV780O7ZtkjuWaPUgpv2NMFpjYERVi0UYj1msZNyCzGlaCWEtzc+exjMGbQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-linux-x64-musl": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-linux-x64-musl/-/watcher-linux-x64-musl-2.5.6.tgz",
+      "integrity": "sha512-1JRFeC+h7RdXwldHzTsmdtYR/Ku8SylLgTU/reMuqdVD7CtLwf0VR1FqeprZ0eHQkO0vqsbvFLXUmYm/uNKJBg==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-win32-arm64": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-win32-arm64/-/watcher-win32-arm64-2.5.6.tgz",
+      "integrity": "sha512-3ukyebjc6eGlw9yRt678DxVF7rjXatWiHvTXqphZLvo7aC5NdEgFufVwjFfY51ijYEWpXbqF5jtrK275z52D4Q==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-win32-ia32": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-win32-ia32/-/watcher-win32-ia32-2.5.6.tgz",
+      "integrity": "sha512-k35yLp1ZMwwee3Ez/pxBi5cf4AoBKYXj00CZ80jUz5h8prpiaQsiRPKQMxoLstNuqe2vR4RNPEAEcjEFzhEz/g==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/@parcel/watcher-win32-x64": {
+      "version": "2.5.6",
+      "resolved": "https://registry.npmjs.org/@parcel/watcher-win32-x64/-/watcher-win32-x64-2.5.6.tgz",
+      "integrity": "sha512-hbQlYcCq5dlAX9Qx+kFb0FHue6vbjlf0FrNzSKdYK2APUf7tGfGxQCk2ihEREmbR6ZMc0MVAD5RIX/41gpUzTw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/parcel"
+      }
+    },
+    "node_modules/chokidar": {
+      "version": "4.0.3",
+      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "readdirp": "^4.0.1"
+      },
+      "engines": {
+        "node": ">= 14.16.0"
+      },
+      "funding": {
+        "url": "https://paulmillr.com/funding/"
+      }
+    },
+    "node_modules/detect-libc": {
+      "version": "2.1.2",
+      "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz",
+      "integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==",
+      "dev": true,
+      "license": "Apache-2.0",
+      "optional": true,
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/immutable": {
+      "version": "5.1.5",
+      "resolved": "https://registry.npmjs.org/immutable/-/immutable-5.1.5.tgz",
+      "integrity": "sha512-t7xcm2siw+hlUM68I+UEOK+z84RzmN59as9DZ7P1l0994DKUWV7UXBMQZVxaoMSRQ+PBZbHCOoBt7a2wxOMt+A==",
+      "dev": true,
+      "license": "MIT"
+    },
+    "node_modules/is-extglob": {
+      "version": "2.1.1",
+      "resolved": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",
+      "integrity": "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==",
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-glob": {
+      "version": "4.0.3",
+      "resolved": "https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz",
+      "integrity": "sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==",
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "dependencies": {
+        "is-extglob": "^2.1.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/node-addon-api": {
+      "version": "7.1.1",
+      "resolved": "https://registry.npmjs.org/node-addon-api/-/node-addon-api-7.1.1.tgz",
+      "integrity": "sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==",
+      "dev": true,
+      "license": "MIT",
+      "optional": true
+    },
+    "node_modules/picomatch": {
+      "version": "4.0.4",
+      "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz",
+      "integrity": "sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==",
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/jonschlinkert"
+      }
+    },
+    "node_modules/readdirp": {
+      "version": "4.1.2",
+      "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+      "integrity": "sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">= 14.18.0"
+      },
+      "funding": {
+        "type": "individual",
+        "url": "https://paulmillr.com/funding/"
+      }
+    },
+    "node_modules/sass": {
+      "version": "1.99.0",
+      "resolved": "https://registry.npmjs.org/sass/-/sass-1.99.0.tgz",
+      "integrity": "sha512-kgW13M54DUB7IsIRM5LvJkNlpH+WhMpooUcaWGFARkF1Tc82v9mIWkCbCYf+MBvpIUBSeSOTilpZjEPr2VYE6Q==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "chokidar": "^4.0.0",
+        "immutable": "^5.1.5",
+        "source-map-js": ">=0.6.2 <2.0.0"
+      },
+      "bin": {
+        "sass": "sass.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "optionalDependencies": {
+        "@parcel/watcher": "^2.4.1"
+      }
+    },
+    "node_modules/source-map-js": {
+      "version": "1.2.1",
+      "resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz",
+      "integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==",
+      "dev": true,
+      "license": "BSD-3-Clause",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}
+
+
+==================================================
+FILE: .\preview\actions\button.html
+==================================================
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NHSW Button Preview</title>
+    <link rel="stylesheet" href="../../dist/nhsw.css">
+    <link rel="stylesheet" href="../assets/preview.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+  <main class="preview-layout">
+    <p><a href="../index.html">? Back to preview index</a></p>
+    <h1 class="nhsw-h1">Buttons</h1>
+
+    <section class="preview-section">
+        <h2 class="nhsw-h3">Desktop / inline</h2>
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">
+                Primary desktop
+            </button>
+        </div>
+        <br />
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button">
+                Secondary-white desktop
+            </button>
+        </div>
+        <br />
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--exceptional nhsw-button--inline" type="button">
+                Exception desktop
+            </button>
+        </div>
+        <br />
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--warning nhsw-button--inline" type="button">
+                Warning desktop
+            </button>
+        </div>
+        <br />
+    </section>
+
+    <section class="preview-section">
+        <h2 class="nhsw-h3">Mobile / full width default</h2>
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--primary" type="button">
+                Primary mobile
+            </button>
+        </div>
+        <br />
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--secondary" type="button">
+                Secondary mobile
+            </button>
+        </div>
+        <br />
+    </section>
+
+    <section class="preview-section">
+        <h2 class="nhsw-h3">States</h2>
+
+        <div class="preview-row">
+            <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button" disabled>
+                Disabled primary
+            </button>
+        </div>
+        <br />
+
+        <div class="preview-row">
+            <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="#">
+                Secondary link button
+            </a>
+        </div>
+    </section>
+  </main>
+</body>
+</html>
+
+
+==================================================
+FILE: .\preview\content\typography.html
+==================================================
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NHSW Typography Preview</title>
+    <link rel="stylesheet" href="../../dist/nhsw.css">
+    <link rel="stylesheet" href="../assets/preview.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+    <style>
+        .preview-type-spec {
+            margin-top: 8px;
+            color: #4c6272;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .preview-type-example {
+            padding: 24px 0;
+            border-bottom: 1px solid #d8dde0;
+        }
+
+            .preview-type-example:last-child {
+                border-bottom: 0;
+            }
+    </style>
+</head>
+<body>
+  <main class="preview-layout">
+    <p><a href="../index.html">? Back to preview index</a></p>
+
+    <h1 class="nhsw-h1">Typography</h1>
+    <p class="nhsw-body">
+      Typography examples based on the NHS Wales type scale.
+    </p>
+
+    <section class="preview-section">
+      <div class="preview-type-example">
+        <h1 class="nhsw-h1">H1 - Heading XL</h1>
+        <p class="preview-type-spec">Desktop: 48px / 54px / bold<br>Mobile: 32px / 38px / bold</p>
+      </div>
+
+      <div class="preview-type-example">
+        <h2 class="nhsw-h2">H2 - Heading L</h2>
+        <p class="preview-type-spec">Desktop: 36px / 42px / bold<br>Mobile: 27px / 33px / bold</p>
+      </div>
+
+      <div class="preview-type-example">
+        <h3 class="nhsw-h3">H3 - Heading M</h3>
+        <p class="preview-type-spec">Desktop: 26px / 32px / bold<br>Mobile: 22px / 29px / bold</p>
+      </div>
+
+      <div class="preview-type-example">
+        <h4 class="nhsw-h4">H4 - Heading S</h4>
+        <p class="preview-type-spec">Desktop: 22px / 30px / bold<br>Mobile: 19px / 27px / bold</p>
+      </div>
+
+      <div class="preview-type-example">
+        <h5 class="nhsw-h5">H5 - Heading XS</h5>
+        <p class="preview-type-spec">Desktop: 19px / 28px / bold<br>Mobile: 16px / 24px / bold</p>
+      </div>
+
+      <div class="preview-type-example">
+        <p class="nhsw-body">
+          Body text - This is an example paragraph showing standard body copy. It should be readable, comfortable, and suitable for most service content.
+        </p>
+        <p class="preview-type-spec">Desktop: 19px / 28px / regular<br>Mobile: 16px / 24px / regular</p>
+      </div>
+
+      <div class="preview-type-example">
+        <p class="nhsw-body-s">
+          Body small - This is smaller supporting text, useful for hints, metadata, and secondary information.
+        </p>
+        <p class="preview-type-spec">Desktop/Mobile: 16px / 24px / regular</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+
+==================================================
+FILE: .\preview\forms\input.html
+==================================================
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NHSW Input Preview</title>
+    <link rel="stylesheet" href="../../dist/nhsw.css">
+    <link rel="stylesheet" href="../assets/preview.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <main class="preview-layout">
+        <p><a href="../index.html">‚Üê Back to preview index</a></p>
+        <h1>Input</h1>
+
+        <section class="preview-section">
+            <div class="preview-row">
+                <label class="preview-label" for="input-full">Full width</label>
+                <span class="preview-hint">Hint text goes here</span>
+                <input id="input-full" class="nhsw-input nhsw-input--full" type="text" placeholder="Text">
+            </div>
+
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-three-quarters">3/4 width</label>
+                <span class="preview-hint">Hint text goes here</span>
+                <input id="input-three-quarters" class="nhsw-input nhsw-input--three-quarters" type="text" placeholder="Text">
+            </div>
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-two-thirds">2/3 width</label>
+                <span class="preview-hint">Hint text goes here</span>
+                <input id="input-two-thirds" class="nhsw-input nhsw-input--two-thirds" type="text" placeholder="Text">
+            </div>
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-half">1/2 width</label>
+                <span class="preview-hint">Hint text goes here</span>
+                <input id="input-half" class="nhsw-input nhsw-input--half" type="text" placeholder="Text">
+            </div>
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-quarter">1/4 width</label>
+                <span class="preview-hint">Hint text goes here</span>
+                <input id="input-quarter" class="nhsw-input nhsw-input--quarter" type="text" placeholder="Text">
+            </div>
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-third">1/3 width</label>
+                <span class="preview-hint">Hint text goes here</span>
+                <input id="input-third" class="nhsw-input nhsw-input--third" type="text" placeholder="Text">
+            </div>
+        </section>
+
+        <section class="preview-section">
+            <h2>States</h2>
+
+            <div class="preview-row">
+                <label class="preview-label" for="input-default">Default</label>
+                <input id="input-default" class="nhsw-input nhsw-input--half" type="text" placeholder="Text">
+            </div>
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-disabled">Disabled</label>
+                <input id="input-disabled" class="nhsw-input nhsw-input--half" type="text" value="Disabled input" disabled>
+            </div>
+            <br />
+            <div class="preview-row">
+                <label class="preview-label" for="input-invalid">Invalid</label>
+                <input id="input-invalid" class="nhsw-input nhsw-input--half nhsw-is-invalid" type="text" value="Invalid value">
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+==================================================
+FILE: .\preview\forms\select.html
+==================================================
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHSW Select Preview</title>
+  <link rel="stylesheet" href="../../dist/nhsw.css">
+  <link rel="stylesheet" href="../assets/preview.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+  <main class="nhsw-width-container">
+    <p class="nhsw-body-s"><a href="../index.html">? Back to preview index</a></p>
+
+    <h1 class="nhsw-h1">Select</h1>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">When to use select</h2>
+      <p class="nhsw-body">
+        Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.
+      </p>
+
+      <h2 class="nhsw-h3">When not to use select</h2>
+      <p class="nhsw-body">
+        Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using radios instead.
+      </p>
+
+      <h2 class="nhsw-h3">How to use select</h2>
+      <p class="nhsw-body">
+        If you use the component for settings, you can make an option pre-selected by default when users first see it.
+      </p>
+      <p class="nhsw-body">
+        If you use the component for questions, do not pre-select any options in case it influences usersÔøΩ answers.
+      </p>
+
+      <h2 class="nhsw-h3">Select with hint</h2>
+      <p class="nhsw-body">
+        You can add hint text to help the user understand the options and choose one of them.
+      </p>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-default">Choose region</label>
+        <span class="preview-hint">This can be different to what you selected before</span>
+        <select id="select-default" class="nhsw-input nhsw-select">
+          <option>Choose region</option>
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+          <option>West Wales</option>
+          <option>South Wales</option>
+        </select>
+      </div>
+
+      <h2 class="nhsw-h3">Error messages</h2>
+      <p class="nhsw-body">
+        Display an error message if the user has not selected an option.
+      </p>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-error">Choose region</label>
+        <span class="preview-hint">This can be different to what you selected before</span>
+        <strong class="preview-error">Choose a region</strong>
+        <select id="select-error" class="nhsw-input nhsw-select nhsw-is-invalid" aria-invalid="true">
+          <option>Choose region</option>
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+          <option>West Wales</option>
+          <option>South Wales</option>
+        </select>
+      </div>
+
+      <h2 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h2>
+      <p class="nhsw-body">
+        The select component does not support selecting multiple options, as there is a history of poor usability and assistive technology support for <code>&lt;select multiple&gt;</code>. If users need to pick more than one item from a list, it is usually better to use another method, such as checkboxes.
+      </p>
+
+      <h2 class="nhsw-h3">Accessibility guidance</h2>
+      <p class="nhsw-body">
+        Any input that is designed to let a user select multiple options must offer a way to do so without relying on click and drag movements or keyboard and mouse combination actions.
+      </p>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Select width examples</h2>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-xs">Extra small</label>
+        <select id="select-xs" class="nhsw-input nhsw-select nhsw-select--xs">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-s">Small</label>
+        <select id="select-s" class="nhsw-input nhsw-select nhsw-select--s">
+          <option>Wales</option>
+          <option>England</option>
+          <option>Scotland</option>
+        </select>
+      </div>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-m">Medium</label>
+        <select id="select-m" class="nhsw-input nhsw-select nhsw-select--m">
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+          <option>West Wales</option>
+          <option>South Wales</option>
+        </select>
+      </div>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-l">Large</label>
+        <select id="select-l" class="nhsw-input nhsw-select nhsw-select--l">
+          <option>Longer select option</option>
+          <option>Another longer option</option>
+        </select>
+      </div>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-xl">Extra large</label>
+        <select id="select-xl" class="nhsw-input nhsw-select nhsw-select--xl">
+          <option>Very long select option for wider layouts</option>
+          <option>Another very long option</option>
+        </select>
+      </div>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-full">Full width</label>
+        <select id="select-full" class="nhsw-input nhsw-select nhsw-select--full">
+          <option>Full width select</option>
+          <option>Option one</option>
+          <option>Option two</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Disabled select</h2>
+
+      <div class="preview-row">
+        <label class="preview-label" for="select-disabled">Disabled</label>
+        <select id="select-disabled" class="nhsw-input nhsw-select" disabled>
+          <option>Disabled select</option>
+        </select>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+
+==================================================
+FILE: .\preview\index.html
+==================================================
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NHSW Style Library Preview</title>
+    <link rel="stylesheet" href="../dist/nhsw.css">
+    <link rel="stylesheet" href="./assets/preview.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+  <main class="preview-layout">
+    <h1 class="nhsw-h1">NHSW Style Library</h1>
+    <p class="nhsw-body">Component preview pages.</p>
+
+    <section class="preview-card">
+      <h2 class="nhsw-h3">Forms</h2>
+      <ul>
+          <li><a href="./forms/input.html">Input</a></li>
+          <li><a href="./forms/textarea.html">Textarea</a></li>
+          <li><a href="./forms/select.html">Select</a></li>
+          <li><a href="./layout/grid.html">Grid</a></li>
+      </ul>
+    </section>
+
+    <section class="preview-card">
+      <h2 class="nhsw-h3">Content</h2>
+      <ul>
+        <li><a href="./content/typography.html">Typography</a></li>
+      </ul>
+    </section>
+
+    <section class="preview-card">
+      <h2 class="nhsw-h3">Actions</h2>
+      <ul>
+        <li><a href="./actions/button.html">Buttons</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
+
+
+==================================================
+FILE: .\preview\layout\grid.html
+==================================================
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NHSW Layout Preview</title>
+    <link rel="stylesheet" href="../../dist/nhsw.css">
+    <link rel="stylesheet" href="../assets/preview.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+    <style>
+        .preview-grid-box {
+            padding: 16px;
+            margin-bottom: 16px;
+            background: #f0f4f5;
+            border: 1px dashed #4c6272;
+            min-height: 72px;
+            box-sizing: border-box;
+        }
+
+        .preview-container-demo {
+            background: #ffffff;
+            border: 2px solid #d8dde0;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+  <main class="preview-layout">
+    <p><a href="../index.html">? Back to preview index</a></p>
+
+    <h1 class="nhsw-h1">Layout</h1>
+    <p class="nhsw-body">
+      Resize the browser to see fixed containers, fluid containers, and columns behave responsively.
+    </p>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Fixed width container</h2>
+      <p class="nhsw-body">
+        The fixed container has a maximum width and is centred on the page.
+      </p>
+
+      <div class="preview-container-demo">
+        <div class="nhsw-width-container">
+          <div class="preview-grid-box">
+            .nhsw-width-container
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Fluid container</h2>
+      <p class="nhsw-body">
+        The fluid container fills the available width but keeps consistent side padding.
+      </p>
+
+      <div class="preview-container-demo">
+        <div class="nhsw-fluid-container">
+          <div class="preview-grid-box">
+            .nhsw-fluid-container
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Full width column</h2>
+
+      <div class="nhsw-width-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-full">
+            <div class="preview-grid-box">Full</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Halves</h2>
+
+      <div class="nhsw-width-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-one-half">
+            <div class="preview-grid-box">One half</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-half">
+            <div class="preview-grid-box">One half</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Thirds</h2>
+
+      <div class="nhsw-width-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-one-third">
+            <div class="preview-grid-box">One third</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-third">
+            <div class="preview-grid-box">One third</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-third">
+            <div class="preview-grid-box">One third</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Two thirds / one third</h2>
+
+      <div class="nhsw-width-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-two-thirds">
+            <div class="preview-grid-box">Two thirds</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-third">
+            <div class="preview-grid-box">One third</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Quarters</h2>
+
+      <div class="nhsw-width-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-one-quarter">
+            <div class="preview-grid-box">One quarter</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-quarter">
+            <div class="preview-grid-box">One quarter</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-quarter">
+            <div class="preview-grid-box">One quarter</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-quarter">
+            <div class="preview-grid-box">One quarter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Three quarters / one quarter</h2>
+
+      <div class="nhsw-width-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-three-quarters">
+            <div class="preview-grid-box">Three quarters</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-quarter">
+            <div class="preview-grid-box">One quarter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="nhsw-h3">Fluid dashboard example</h2>
+      <p class="nhsw-body">
+        This example uses the fluid container for wide application-style layouts.
+      </p>
+
+      <div class="nhsw-fluid-container">
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-three-quarters">
+            <div class="preview-grid-box">Main content area</div>
+          </div>
+
+          <div class="nhsw-grid-column-one-quarter">
+            <div class="preview-grid-box">Sidebar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+
+==================================================
+FILE: .\README.md
+==================================================
+
+# NHSW Style Library
+
+A starter SCSS component library using Dart Sass, with all source files under src and a single compiled CSS output at dist/nhsw.css.
+
+## Folder structure
+
+`	ext
+nhsw-style-library/
++- package.json
++- .gitignore
++- README.md
++- dist/
+¶  +- nhsw.css
++- src/
+   +- index.scss
+   +- tokens/
+   ¶  +- _index.scss
+   ¶  +- _colours.scss
+   +- utilities/
+   ¶  +- _index.scss
+   ¶  +- _focus-ring.scss
+   +- foundations/
+   ¶  +- _index.scss
+   ¶  +- _input-base.scss
+   +- components/
+      +- _index.scss
+      +- forms/
+         +- _index.scss
+         +- _input.scss
+         +- _textarea.scss
+         +- _select.scss
+`
+
+## What each folder is for
+
+### src/
+Your authored Sass source code. Everything you write lives here.
+
+### src/tokens/
+Design tokens: reusable values such as colours, spacing, font sizes, borders, and other raw design values.
+
+### src/utilities/
+Small reusable helpers such as mixins, functions, and utility snippets.
+
+### src/foundations/
+Shared styling recipes used by multiple components. These are not directly used in markup.
+
+### src/components/
+Real UI components that you apply in markup.
+
+### src/components/forms/
+Form-related components such as inputs, textareas, and selects.
+
+### dist/
+Compiled output. Do not edit files here by hand.
+
+## What each file is for
+
+### src/index.scss
+The single Sass entry point that pulls everything together into one compiled CSS file.
+
+### src/tokens/_index.scss
+Barrel file that forwards token files.
+
+### src/tokens/_colours.scss
+Colour tokens and semantic aliases for components.
+
+### src/utilities/_index.scss
+Barrel file for utilities.
+
+### src/utilities/_focus-ring.scss
+Shared focus-ring mixin.
+
+### src/foundations/_index.scss
+Barrel file for shared foundations.
+
+### src/foundations/_input-base.scss
+Reusable base input mixin.
+
+### src/components/_index.scss
+Barrel file for component groups.
+
+### src/components/forms/_index.scss
+Barrel file for form components.
+
+### src/components/forms/_input.scss
+Defines the generic .nhsw-input component and includes the input base once.
+
+### src/components/forms/_textarea.scss
+Textarea-only overrides.
+
+### src/components/forms/_select.scss
+Select-only overrides.
+
+## Colour palette
+
+`scss
+-colour-text-primary: #212b32;
+-colour-text-secondary: #4c6272;
+-colour-text-exceptional: #ffffff;
+-colour-text-blue: #1b365d;
+
+-colour-link: #005aa8;
+
+-colour-button-primary: #1b365d;
+-colour-button-secondary: #4c6272;
+-colour-button-delete: #d5281b;
+-colour-button-exceptional-light: #f5bb66;
+
+-colour-background-grey: #f0f4f5;
+-colour-background-white: #ffffff;
+-colour-background-blue: #1b365d;
+
+-colour-border-primary: #212b32;
+-colour-border-secondary: #4c6272;
+-colour-border-grey: #d8dde0;
+-colour-border-gold: #aa8630;
+
+-colour-shadow-primary-button: #0e1b2f;
+-colour-shadow-exceptional-button: #554318;
+
+-colour-focus: #ffeb3b;
+`
+
+## Why .nhsw-input is better than repeating the mixin everywhere
+
+If you include the same mixin into many selectors, Sass will inline the CSS each time. That means repeated output.
+
+This is better:
+
+`scss
+.nhsw-input {
+  @include base.nhsw-input-base;
+}
+
+textarea.nhsw-input {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+select.nhsw-input {
+  padding-right: 2.5rem;
+}
+`
+
+That way the shared base CSS is emitted once, and only the differences are emitted separately.
+
+## Starter SCSS files
+
+### src/index.scss
+
+`scss
+@forward "tokens";
+@forward "utilities";
+@forward "foundations";
+@forward "components";
+`
+
+### src/tokens/_index.scss
+
+`scss
+@forward "colours";
+`
+
+### src/tokens/_colours.scss
+
+`scss
+-colour-text-primary: #212b32;
+-colour-text-secondary: #4c6272;
+-colour-text-exceptional: #ffffff;
+-colour-text-blue: #1b365d;
+
+-colour-link: #005aa8;
+
+-colour-button-primary: #1b365d;
+-colour-button-secondary: #4c6272;
+-colour-button-delete: #d5281b;
+-colour-button-exceptional-light: #f5bb66;
+
+-colour-background-grey: #f0f4f5;
+-colour-background-white: #ffffff;
+-colour-background-blue: #1b365d;
+
+-colour-border-primary: #212b32;
+-colour-border-secondary: #4c6272;
+-colour-border-grey: #d8dde0;
+-colour-border-gold: #aa8630;
+
+-colour-shadow-primary-button: #0e1b2f;
+-colour-shadow-exceptional-button: #554318;
+
+-colour-focus: #ffeb3b;
+
+// semantic aliases for form controls
+-colour-input-text: -colour-text-primary;
+-colour-input-placeholder: -colour-text-secondary;
+-colour-input-background: -colour-background-white;
+-colour-input-border: -colour-border-secondary;
+-colour-input-border-hover: -colour-border-primary;
+-colour-input-focus: -colour-focus;
+-colour-input-invalid: -colour-button-delete;
+-colour-input-disabled-background: -colour-background-grey;
+-colour-input-disabled-text: -colour-text-secondary;
+`
+
+### src/utilities/_index.scss
+
+`scss
+@forward "focus-ring";
+`
+
+### src/utilities/_focus-ring.scss
+
+`scss
+@use "../tokens/colours" as c;
+
+@mixin nhsw-focus-ring {
+  outline: 3px solid c.-colour-input-focus;
+  outline-offset: 0;
+}
+`
+
+### src/foundations/_index.scss
+
+`scss
+@forward "input-base";
+`
+
+### src/foundations/_input-base.scss
+
+`scss
+@use "../tokens/colours" as c;
+@use "../utilities/focus-ring" as u;
+
+@mixin nhsw-input-base {
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.625rem 0.75rem;
+  box-sizing: border-box;
+  border: 1px solid c.-colour-input-border;
+  border-radius: 0;
+  background-color: c.-colour-input-background;
+  color: c.-colour-input-text;
+  font: inherit;
+  line-height: 1.5;
+  appearance: none;
+
+  &::placeholder {
+    color: c.-colour-input-placeholder;
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: c.-colour-input-border-hover;
+  }
+
+  &:focus {
+    @include u.nhsw-focus-ring;
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: c.-colour-input-disabled-background;
+    color: c.-colour-input-disabled-text;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  &[aria-invalid="true"],
+  &.nhsw-is-invalid {
+    border-color: c.-colour-input-invalid;
+  }
+}
+`
+
+### src/components/_index.scss
+
+`scss
+@forward "forms";
+`
+
+### src/components/forms/_index.scss
+
+`scss
+@forward "input";
+@forward "textarea";
+@forward "select";
+`
+
+### src/components/forms/_input.scss
+
+`scss
+@use "../../foundations/input-base" as base;
+
+.nhsw-input {
+  @include base.nhsw-input-base;
+}
+`
+
+### src/components/forms/_textarea.scss
+
+`scss
+textarea.nhsw-input {
+  min-height: 6rem;
+  resize: vertical;
+}
+`
+
+### src/components/forms/_select.scss
+
+`scss
+select.nhsw-input {
+  padding-right: 2.5rem;
+}
+`
+
+## Setup and build
+
+Install dependencies:
+
+`powershell
+npm.cmd install
+`
+
+Build once:
+
+`powershell
+npm.cmd run build:css
+`
+
+Watch for changes:
+
+`powershell
+npm.cmd run watch:css
+`
+
+Use 
+pm.cmd in PowerShell if 
+pm.ps1 is blocked by execution policy.
+
+
+==================================================
+FILE: .\src\components\_index.scss
+==================================================
+
+@forward "forms";
+@forward "content";
+//@forward "icons";
+@forward "actions";
+@forward "layout";
+
+
+==================================================
+FILE: .\src\components\actions\_button.scss
+==================================================
+
+@use "../../tokens/colours" as c;
+@use "../../foundations/button-base" as base;
+
+.nhsw-button {
+    @include base.nhsw-button-base;
+    width: 100%;
+
+    &--inline {
+        width: auto;
+    }
+
+    &--primary {
+        background-color: c.$nhsw-colour-button-primary;
+        color: c.$nhsw-colour-text-exceptional;
+        border-color: c.$nhsw-colour-button-primary;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-primary-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-button-primary-active;
+            border: none;
+        }
+    }
+
+    &--secondary {
+        background-color: c.$nhsw-colour-background-white;
+        color: c.$nhsw-colour-text-primary;
+        border-color: c.$nhsw-colour-border-secondary;
+        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-secondary-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-background-white;
+        }
+    }
+
+    &--exceptional {
+        background-color: c.$nhsw-colour-button-exceptional-light;
+        color: c.$nhsw-colour-text-primary;
+        border-color: c.$nhsw-colour-button-exceptional-light;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-exceptional-light-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-secondary-hover-box-shadow;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-button-exceptional-light-active;
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    &--warning {
+        background-color: c.$nhsw-colour-button-delete;
+        color: c.$nhsw-colour-text-exceptional;
+        border-color: c.$nhsw-colour-button-delete;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-delete-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-delete-hover-box-shadow;
+            border: 1px solid c.$nhsw-colour-button-delete-hover;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-button-delete-active;
+        }
+    }
+
+    &--outline {
+        background-color: c.$nhsw-colour-button-outline;
+        color: c.$nhsw-colour-text-exceptional;
+        border-color: c.$nhsw-colour-button-outline;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-outline-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-outline-hover-box-shadow;
+            border: 1px solid c.$nhsw-colour-button-outline-hover-border;
+        }
+
+        &:not(:disabled):active {
+            box-shadow: none;
+            background-color: c.$nhsw-colour-button-outline;
+        }
+    }
+
+    &:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        transform: translateY(1px);
+    }
+
+    &--primary:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+    }
+
+    &--secondary:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+    }
+
+    &--exceptional:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+    }
+
+    &--warning:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+    }
+}
+
+@media (min-width: 40rem) {
+  .nhsw-button {
+    width: auto;
+  }
+
+  .nhsw-button--full {
+    width: 100%;
+  }
+}
+
+
+==================================================
+FILE: .\src\components\actions\_index.scss
+==================================================
+
+@forward "button";
+
+
+==================================================
+FILE: .\src\components\content\_index.scss
+==================================================
+
+@forward "typography";
+
+
+==================================================
+FILE: .\src\components\content\_typography.scss
+==================================================
+
+@use "../../foundations/typography" as type;
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  @include type.nhsw-page-base;
+  margin: 0;
+}
+
+.nhsw-h1 {
+  @include type.nhsw-heading-xl;
+}
+
+.nhsw-h2 {
+  @include type.nhsw-heading-l;
+}
+
+.nhsw-h3 {
+  @include type.nhsw-heading-m;
+}
+
+.nhsw-h4 {
+  @include type.nhsw-heading-s;
+}
+
+.nhsw-h5 {
+  @include type.nhsw-heading-xs;
+}
+
+.nhsw-body {
+  @include type.nhsw-body;
+}
+
+.nhsw-body-s {
+  @include type.nhsw-body-s;
+}
+
+
+==================================================
+FILE: .\src\components\forms\_index.scss
+==================================================
+
+@forward "input";
+@forward "textarea";
+@forward "select";
+
+
+==================================================
+FILE: .\src\components\forms\_input.scss
+==================================================
+
+@use "../../foundations/input-base" as base;
+
+.nhsw-input {
+    @include base.nhsw-input-base;
+
+    &--full {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    &--three-quarters {
+        width: 75%;
+        max-width: 75%;
+    }
+
+    &--two-thirds {
+        width: 66.6667%;
+        max-width: 66.6667%;
+    }
+
+    &--half {
+        width: 50%;
+        max-width: 50%;
+    }
+
+    &--quarter {
+        width: 25%;
+        max-width: 25%;
+    }
+
+    &--third {
+        width: 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+@media (max-width: 40rem) {
+    .nhsw-input {
+        &--three-quarters,
+        &--two-thirds,
+        &--half,
+        &--quarter,
+        &--third {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+
+==================================================
+FILE: .\src\components\forms\_select.scss
+==================================================
+
+@use "../../tokens/colours" as c;
+
+$nhsw-select-min-width: 12rem;
+$nhsw-select-icon-width: 10px;
+$nhsw-select-icon-height: 16px;
+$nhsw-select-icon-offset: 8px;
+$nhsw-select-padding-y: 6px;
+$nhsw-select-padding-left: 8px;
+$nhsw-select-padding-right: 32px;
+
+$nhsw-select-widths: (
+  "xs": 4rem,
+  "s": 8rem,
+  "m": 12rem,
+  "l": 16rem,
+  "xl": 24rem
+);
+
+@mixin nhsw-select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='16' viewBox='0 0 10 16'%3E%3Cpath fill='%23212B32' d='M5 2L1 6h8L5 2zM5 14l4-4H1l4 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $nhsw-select-icon-offset center;
+  background-size: $nhsw-select-icon-width $nhsw-select-icon-height;
+}
+
+.nhsw-select,
+select.nhsw-input {
+  width: auto;
+  min-width: $nhsw-select-min-width;
+  max-width: 100%;
+  min-height: 40px;
+  padding: $nhsw-select-padding-y $nhsw-select-padding-right $nhsw-select-padding-y $nhsw-select-padding-left;
+  background-color: c.$nhsw-colour-input-background;
+  color: c.$nhsw-colour-input-text;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  @include nhsw-select-arrow;
+
+  &--full {
+    width: 100%;
+  }
+
+  @each $name, $width in $nhsw-select-widths {
+    &--#{$name} {
+      min-width: $width;
+    }
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &[aria-invalid="true"],
+  &.nhsw-is-invalid {
+    border-color: c.$nhsw-colour-input-invalid;
+  }
+}
+
+
+==================================================
+FILE: .\src\components\forms\_textarea.scss
+==================================================
+
+textarea.nhsw-input {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+
+==================================================
+FILE: .\src\components\layout\_grid.scss
+==================================================
+
+@use "../../foundations/layout" as layout;
+@use "../../utilities/breakpoints" as b;
+
+.body {
+    background-color: #f0f4f5;
+}
+.nhsw-width-container {
+  @include layout.nhsw-container;
+}
+
+.nhsw-fluid-container {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+@include b.nhsw-from-tablet {
+  .nhsw-fluid-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.nhsw-grid-row {
+  @include layout.nhsw-grid-row;
+}
+
+.nhsw-grid-column-full,
+.nhsw-grid-column-one-half,
+.nhsw-grid-column-one-third,
+.nhsw-grid-column-two-thirds,
+.nhsw-grid-column-one-quarter,
+.nhsw-grid-column-three-quarters {
+  @include layout.nhsw-grid-column;
+}
+
+@include b.nhsw-from-tablet {
+  .nhsw-grid-column-full {
+    width: 100%;
+  }
+
+  .nhsw-grid-column-one-half {
+    width: 50%;
+  }
+
+  .nhsw-grid-column-one-third {
+    width: 33.3333%;
+  }
+
+  .nhsw-grid-column-two-thirds {
+    width: 66.6667%;
+  }
+
+  .nhsw-grid-column-one-quarter {
+    width: 25%;
+  }
+
+  .nhsw-grid-column-three-quarters {
+    width: 75%;
+  }
+}
+
+
+==================================================
+FILE: .\src\components\layout\_index.scss
+==================================================
+
+@forward "grid";
+
+
+==================================================
+FILE: .\src\foundations\_button-base.scss
+==================================================
+
+@use "../utilities/focus-ring" as u;
+@use "../tokens/colours" as c;
+
+@mixin nhsw-button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    vertical-align: top;
+
+    &:focus:not(:active) {
+        background-color: c.$nhsw-colour-focus;
+        color: c.$nhsw-colour-text-primary;
+        border: none;
+        box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
+    }
+
+    &:disabled,
+    &[disabled],
+    &.nhsw-button--disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+
+==================================================
+FILE: .\src\foundations\_index.scss
+==================================================
+
+@forward "input-base";
+@forward "typography";
+@forward "button-base";
+@forward "layout";
+
+
+==================================================
+FILE: .\src\foundations\_input-base.scss
+==================================================
+
+@use "../tokens/colours" as c;
+@use "../utilities/focus-ring" as u;
+
+@mixin nhsw-input-base {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 0;
+    padding: 6px 8px;
+    border: 2px solid c.$nhsw-colour-input-border;
+    border-radius: 0;
+    background-color: c.$nhsw-colour-input-background;
+    color: c.$nhsw-colour-input-text;
+    font-family: inherit;
+    font-size: 1.1875rem;
+    font-weight: 400;
+    line-height: 24px;
+
+    &::placeholder {
+        color: c.$nhsw-colour-input-placeholder;
+        opacity: 1;
+    }
+
+    &:hover {
+        border-color: c.$nhsw-colour-input-border-hover;
+    }
+
+    &:focus {
+        @include u.nhsw-focus-ring;
+    }
+
+    &:disabled,
+    &[disabled] {
+        background-color: c.$nhsw-colour-input-disabled-background;
+        color: c.$nhsw-colour-input-disabled-text;
+        cursor: not-allowed;
+        opacity: 1;
+    }
+
+    &[aria-invalid="true"],
+    &.nhsw-is-invalid {
+        border-color: c.$nhsw-colour-input-invalid;
+    }
+}
+
+
+==================================================
+FILE: .\src\foundations\_layout.scss
+==================================================
+
+@use "../utilities/breakpoints" as b;
+
+$nhsw-page-width: 960px;
+$nhsw-gutter: 16px;
+$nhsw-gutter-half: 8px;
+
+@mixin nhsw-container {
+  max-width: $nhsw-page-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $nhsw-gutter-half;
+  padding-right: $nhsw-gutter-half;
+
+  @include b.nhsw-from-tablet {
+    padding-left: $nhsw-gutter;
+    padding-right: $nhsw-gutter;
+  }
+}
+
+@mixin nhsw-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$nhsw-gutter-half;
+  margin-right: -$nhsw-gutter-half;
+}
+
+@mixin nhsw-grid-column {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: $nhsw-gutter-half;
+  padding-right: $nhsw-gutter-half;
+}
+
+
+==================================================
+FILE: .\src\foundations\_typography.scss
+==================================================
+
+@use "../tokens/colours" as c;
+@use "../tokens/typography" as t;
+@use "../utilities/breakpoints" as b;
+
+@mixin nhsw-font-base {
+  font-family: t.$nhsw-font-family-base;
+  color: c.$nhsw-colour-text-primary;
+}
+
+@mixin nhsw-page-base {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-body-mobile;
+  line-height: t.$nhsw-line-height-body-mobile;
+  font-weight: t.$nhsw-font-weight-regular;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-body;
+    line-height: t.$nhsw-line-height-body;
+  }
+}
+
+@mixin nhsw-heading-xl {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-h1-mobile;
+  line-height: t.$nhsw-line-height-h1-mobile;
+  font-weight: t.$nhsw-font-weight-bold;
+  margin: 0 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h1;
+    line-height: t.$nhsw-line-height-h1;
+  }
+}
+
+@mixin nhsw-heading-l {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-h2-mobile;
+  line-height: t.$nhsw-line-height-h2-mobile;
+  font-weight: t.$nhsw-font-weight-bold;
+  margin: 0 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h2;
+    line-height: t.$nhsw-line-height-h2;
+  }
+}
+
+@mixin nhsw-heading-m {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-h3-mobile;
+  line-height: t.$nhsw-line-height-h3-mobile;
+  font-weight: t.$nhsw-font-weight-bold;
+  margin: 0 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h3;
+    line-height: t.$nhsw-line-height-h3;
+  }
+}
+
+@mixin nhsw-heading-s {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-h4-mobile;
+  line-height: t.$nhsw-line-height-h4-mobile;
+  font-weight: t.$nhsw-font-weight-bold;
+  margin: 0 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h4;
+    line-height: t.$nhsw-line-height-h4;
+  }
+}
+
+@mixin nhsw-heading-xs {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-h5-mobile;
+  line-height: t.$nhsw-line-height-h5-mobile;
+  font-weight: t.$nhsw-font-weight-bold;
+  margin: 0 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h5;
+    line-height: t.$nhsw-line-height-h5;
+  }
+}
+
+@mixin nhsw-body {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-body-mobile;
+  line-height: t.$nhsw-line-height-body-mobile;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-body;
+    line-height: t.$nhsw-line-height-body;
+  }
+}
+
+@mixin nhsw-body-s {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-body-small;
+  line-height: t.$nhsw-line-height-body-small;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 1rem;
+}
+
+
+==================================================
+FILE: .\src\index.scss
+==================================================
+
+@forward "tokens";
+@forward "utilities";
+@forward "foundations";
+@forward "components";
+
+
+==================================================
+FILE: .\src\tokens\_colours.scss
+==================================================
+
+$nhsw-colour-text-primary: #212b32;
+$nhsw-colour-text-secondary: #4c6272;
+$nhsw-colour-text-exceptional: #ffffff;
+$nhsw-colour-text-blue: #1b365d;
+
+$nhsw-colour-link: #005aa8;
+
+$nhsw-colour-button-primary: #1b365d;
+$nhsw-colour-button-primary-hover: #1B2A49;
+$nhsw-colour-button-primary-hover-box-shadow: #1B2A49;
+$nhsw-colour-button-primary-active: #21355C;
+$nhsw-colour-button-secondary: #4c6272;
+$nhsw-colour-button-secondary-hover: #F2F2F2;
+$nhsw-colour-button-secondary-hover-box-shadow: #212B32;
+$nhsw-colour-button-secondary-active: #32414C;
+$nhsw-colour-button-outline: #FFFFFF;
+$nhsw-colour-button-outline-hover: #F2F2F2;
+$nhsw-colour-button-outline-hover-box-shadow: #4C6272;
+$nhsw-colour-button-outline-hover-border: #4C6272;
+$nhsw-colour-button-outline-active: #FFFFFF;
+$nhsw-colour-button-delete: #d5281b;
+$nhsw-colour-button-delete-hover: #902419;
+$nhsw-colour-button-delete-hover-box-shadow: #760000;
+
+$nhsw-colour-button-delete-active: #651911;
+$nhsw-colour-button-exceptional-light: #f5bb66;
+$nhsw-colour-button-exceptional-light-hover: #E3B36A;
+$nhsw-colour-button-exceptional-light-active: #EFBD70;
+
+$nhsw-colour-background-grey: #f0f4f5;
+$nhsw-colour-background-white: #ffffff;
+$nhsw-colour-background-blue: #1b365d;
+
+$nhsw-colour-border-primary: #212b32;
+$nhsw-colour-border-secondary: #4c6272;
+$nhsw-colour-border-grey: #d8dde0;
+$nhsw-colour-border-gold: #aa8630;
+
+$nhsw-colour-shadow-primary-button: #0e1b2f;
+$nhsw-colour-shadow-exceptional-button: #554318;
+
+$nhsw-colour-focus: #ffeb3b;
+
+$nhsw-colour-input-text: $nhsw-colour-text-primary;
+$nhsw-colour-input-placeholder: $nhsw-colour-text-secondary;
+$nhsw-colour-input-background: $nhsw-colour-background-white;
+$nhsw-colour-input-border: $nhsw-colour-border-secondary;
+$nhsw-colour-input-border-hover: $nhsw-colour-border-primary;
+$nhsw-colour-input-focus: $nhsw-colour-focus;
+$nhsw-colour-input-invalid: $nhsw-colour-button-delete;
+$nhsw-colour-input-disabled-background: $nhsw-colour-background-grey;
+$nhsw-colour-input-disabled-text: $nhsw-colour-text-secondary;
+
+
+==================================================
+FILE: .\src\tokens\_index.scss
+==================================================
+
+@forward "colours";
+@forward "typography";
+
+
+==================================================
+FILE: .\src\tokens\_typography.scss
+==================================================
+
+$nhsw-font-family-base: Roboto, Arial, sans-serif;
+
+$nhsw-font-weight-regular: 400;
+$nhsw-font-weight-bold: 700;
+
+// mobile
+$nhsw-font-size-h1-mobile: 2rem;
+$nhsw-line-height-h1-mobile: 2.375rem;
+
+$nhsw-font-size-h2-mobile: 1.6875rem;
+$nhsw-line-height-h2-mobile: 2.0625rem;
+
+$nhsw-font-size-h3-mobile: 1.375rem;
+$nhsw-line-height-h3-mobile: 1.8125rem;
+
+$nhsw-font-size-h4-mobile: 1.1875rem;
+$nhsw-line-height-h4-mobile: 1.6875rem;
+
+$nhsw-font-size-h5-mobile: 1rem;
+$nhsw-line-height-h5-mobile: 1.5rem;
+
+$nhsw-font-size-body-mobile: 1rem;
+$nhsw-line-height-body-mobile: 1.5rem;
+
+// desktop / tablet
+$nhsw-font-size-h1: 3rem;
+$nhsw-line-height-h1: 3.375rem;
+
+$nhsw-font-size-h2: 2.25rem;
+$nhsw-line-height-h2: 2.625rem;
+
+$nhsw-font-size-h3: 1.625rem;
+$nhsw-line-height-h3: 2rem;
+
+$nhsw-font-size-h4: 1.375rem;
+$nhsw-line-height-h4: 1.875rem;
+
+$nhsw-font-size-h5: 1.1875rem;
+$nhsw-line-height-h5: 1.75rem;
+
+$nhsw-font-size-body: 1.1875rem;
+$nhsw-line-height-body: 1.75rem;
+
+$nhsw-font-size-body-small: 1rem;
+$nhsw-line-height-body-small: 1.5rem;
+
+
+==================================================
+FILE: .\src\utilities\_breakpoints.scss
+==================================================
+
+$nhsw-breakpoint-tablet: 40rem;
+
+@mixin nhsw-from-tablet {
+  @media (min-width: $nhsw-breakpoint-tablet) {
+    @content;
+  }
+}
+
+
+==================================================
+FILE: .\src\utilities\_focus-ring.scss
+==================================================
+
+@use "../tokens/colours" as c;
+
+@mixin nhsw-focus-ring {
+    outline: 3px solid c.$nhsw-colour-input-focus;
+    outline-offset: 0;
+}
+
+
+==================================================
+FILE: .\src\utilities\_index.scss
+==================================================
+
+@forward "focus-ring";
+@forward "breakpoints";
+
+

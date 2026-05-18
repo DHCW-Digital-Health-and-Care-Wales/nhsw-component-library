@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHSW Form Text Preview</title>
+
+  <link rel="stylesheet" href="../../dist/nhsw.css">
+  <link rel="stylesheet" href="../assets/preview.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+
+<body>
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="../index.html">
+          <span class="nhsw-site-header__logo">
+            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+
+          <span class="nhsw-site-header__title">
+            Form text
+          </span>
+        </a>
+
+        <form class="nhsw-site-header__search" role="search">
+          <label class="nhsw-visually-hidden" for="site-search">Search</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+        </form>
+      </div>
+
+      <div class="nhsw-site-header__hero">
+        <h1 class="nhsw-site-header__hero-title">
+          Form text
+        </h1>
+
+        <p class="nhsw-site-header__hero-text">
+          Labels, hint text, error messages and form groups used consistently across form controls.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-width-container">
+      <p class="nhsw-body-s">
+        <a class="nhsw-link" href="../index.html">? Back to preview index</a>
+      </p>
+
+      <section class="preview-section">
+        <h2 class="nhsw-h2">Form text examples</h2>
+        <p class="nhsw-body">
+          Form text components help standardise labels, hints and validation messages across inputs, selects and textareas.
+        </p>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="nhsw-h3">Label</h2>
+
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="label-example">National Insurance number</label>
+          <input id="label-example" class="nhsw-input nhsw-input--half" type="text">
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="nhsw-h3">Label with hint text</h2>
+
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="hint-example">National Insurance number</label>
+          <div class="nhsw-hint" id="hint-example-hint">
+            It is on your National Insurance card, benefit letter, payslip or P60.
+          </div>
+          <input id="hint-example" class="nhsw-input nhsw-input--half" type="text" aria-describedby="hint-example-hint">
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="nhsw-h3">Error message</h2>
+
+        <div class="nhsw-form-group nhsw-form-group--error">
+          <label class="nhsw-label" for="error-example">National Insurance number</label>
+          <div class="nhsw-hint" id="error-example-hint">
+            It is on your National Insurance card, benefit letter, payslip or P60.
+          </div>
+          <strong class="nhsw-error-message" id="error-example-error">
+            Enter a National Insurance number
+          </strong>
+          <input
+            id="error-example"
+            class="nhsw-input nhsw-input--half nhsw-is-invalid"
+            type="text"
+            aria-invalid="true"
+            aria-describedby="error-example-hint error-example-error">
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="nhsw-h3">Textarea with label and hint</h2>
+
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="textarea-example">More detail</label>
+          <div class="nhsw-hint" id="textarea-example-hint">
+            Include anything that will help us understand your request.
+          </div>
+          <textarea id="textarea-example" class="nhsw-textarea" rows="5" aria-describedby="textarea-example-hint"></textarea>
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2 class="nhsw-h3">Select with label and hint</h2>
+
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="select-example">Choose region</label>
+          <div class="nhsw-hint" id="select-example-hint">
+            This can be different to what you selected before.
+          </div>
+          <select id="select-example" class="nhsw-select" aria-describedby="select-example-hint">
+            <option>Choose region</option>
+            <option>North Wales</option>
+            <option>Mid Wales</option>
+            <option>West Wales</option>
+            <option>South Wales</option>
+          </select>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <ul class="nhsw-site-footer__links">
+        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+        <li><a class="nhsw-link" href="#">Cookie policy</a></li>
+        <li><a class="nhsw-link" href="#">Terms and conditions</a></li>
+        <li><a class="nhsw-link" href="#">Your privacy</a></li>
+      </ul>
+
+      <p class="nhsw-body-s nhsw-site-footer__copyright">© NHS Wales</p>
+    </div>
+  </footer>
+</body>
+</html>

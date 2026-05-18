@@ -1,0 +1,12 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-inset-text {
+  margin: 0 0 2rem;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  border-left: 0.5rem solid #AA8630;
+  max-width: 40rem;
+}
+
+.nhsw-inset-text > :last-child {
+  margin-bottom: 0;
+}

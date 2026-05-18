@@ -1,0 +1,7 @@
+$nhsw-breakpoint-tablet: 40rem;
+
+@mixin nhsw-from-tablet {
+  @media (min-width: $nhsw-breakpoint-tablet) {
+    @content;
+  }
+}

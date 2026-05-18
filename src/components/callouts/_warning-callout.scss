@@ -1,0 +1,46 @@
+@use "../../tokens/colours" as c;
+@use "../../foundations/typography" as type;
+
+.nhsw-warning-callout {
+  position: relative;
+  max-width: 42rem;
+  margin: 0 0 2rem;
+  padding-top: 1.25rem;
+}
+
+.nhsw-warning-callout__heading {
+  @include type.nhsw-heading-s;
+
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  background-color: c.$nhsw-colour-warning-callout-heading;
+  color: c.$nhsw-colour-text-primary;
+}
+
+.nhsw-warning-callout__content {
+  position: relative;
+  z-index: 1;
+  margin-top: -1.25rem;
+  padding: 3rem 1.5rem 1.5rem;
+  border: 1px solid c.$nhsw-colour-warning-callout-heading;
+  background-color: c.$nhsw-colour-warning-callout-background;
+}
+
+.nhsw-warning-callout__content > :last-child {
+  margin-bottom: 0;
+}
+
+.nhsw-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

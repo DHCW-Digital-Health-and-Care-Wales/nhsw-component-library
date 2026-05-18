@@ -1,0 +1,38 @@
+@use "../utilities/breakpoints" as b;
+
+.nhsw-main-wrapper {
+  display: block;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@include b.nhsw-from-tablet {
+  .nhsw-main-wrapper {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.nhsw-main-wrapper--s {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+@include b.nhsw-from-tablet {
+  .nhsw-main-wrapper--s {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.nhsw-main-wrapper--l {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@include b.nhsw-from-tablet {
+  .nhsw-main-wrapper--l {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

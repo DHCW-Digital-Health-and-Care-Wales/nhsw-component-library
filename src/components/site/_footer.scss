@@ -1,0 +1,26 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-site-footer {
+  margin-top: 4rem;
+  border-top: 0.25rem solid #005eb8;
+  background-color: #d8dde0;
+}
+
+.nhsw-site-footer__container {
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.nhsw-site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.nhsw-site-footer__copyright {
+  margin: 0;
+}

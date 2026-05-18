@@ -1,0 +1,38 @@
+@use "../../foundations/typography" as type;
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  @include type.nhsw-page-base;
+  margin: 0;
+}
+
+.nhsw-h1 {
+  @include type.nhsw-heading-xl;
+}
+
+.nhsw-h2 {
+  @include type.nhsw-heading-l;
+}
+
+.nhsw-h3 {
+  @include type.nhsw-heading-m;
+}
+
+.nhsw-h4 {
+  @include type.nhsw-heading-s;
+}
+
+.nhsw-h5 {
+  @include type.nhsw-heading-xs;
+}
+
+.nhsw-body {
+  @include type.nhsw-body;
+}
+
+.nhsw-body-s {
+  @include type.nhsw-body-s;
+}

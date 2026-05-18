@@ -1,0 +1,32 @@
+@use "../utilities/breakpoints" as b;
+
+$nhsw-page-width: 960px;
+$nhsw-gutter: 16px;
+$nhsw-gutter-half: 8px;
+
+@mixin nhsw-container {
+  max-width: $nhsw-page-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $nhsw-gutter-half;
+  padding-right: $nhsw-gutter-half;
+
+  @include b.nhsw-from-tablet {
+    padding-left: $nhsw-gutter;
+    padding-right: $nhsw-gutter;
+  }
+}
+
+@mixin nhsw-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$nhsw-gutter-half;
+  margin-right: -$nhsw-gutter-half;
+}
+
+@mixin nhsw-grid-column {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: $nhsw-gutter-half;
+  padding-right: $nhsw-gutter-half;
+}

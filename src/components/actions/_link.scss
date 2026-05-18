@@ -1,0 +1,58 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-link {
+  position: relative;
+  display: inline-block;
+
+  color: c.$nhsw-colour-link;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+
+  &:visited {
+    color: c.$nhsw-colour-link-visited;
+  }
+
+  &:hover {
+    color: c.$nhsw-colour-link-hover;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: c.$nhsw-colour-focus;
+    color: c.$nhsw-colour-text-primary;
+    text-decoration: none;
+  }
+
+  &:focus::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 4px;
+    background: c.$nhsw-colour-text-primary;
+  }
+}
+
+.nhsw-link--visited-demo {
+  color: c.$nhsw-colour-link-visited;
+}
+
+.nhsw-link--focus-demo {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.15rem;
+  background-color: c.$nhsw-colour-focus;
+  color: c.$nhsw-colour-text-primary;
+  text-decoration: none;
+}
+
+.nhsw-link--focus-demo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 4px;
+  background: c.$nhsw-colour-text-primary;
+}

@@ -1,0 +1,127 @@
+@use "../../tokens/colours" as c;
+@use "../../foundations/button-base" as base;
+
+.nhsw-button {
+    @include base.nhsw-button-base;
+    width: 100%;
+
+    &--inline {
+        width: auto;
+    }
+
+    &--primary {
+        background-color: c.$nhsw-colour-button-primary;
+        color: c.$nhsw-colour-text-exceptional;
+        border-color: c.$nhsw-colour-button-primary;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-primary-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-button-primary-active;
+            border: none;
+        }
+    }
+
+    &--secondary {
+        background-color: c.$nhsw-colour-background-white;
+        color: c.$nhsw-colour-text-primary;
+        border-color: c.$nhsw-colour-border-secondary;
+        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-secondary-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-background-white;
+        }
+    }
+
+    &--exceptional {
+        background-color: c.$nhsw-colour-button-exceptional-light;
+        color: c.$nhsw-colour-text-primary;
+        border-color: c.$nhsw-colour-button-exceptional-light;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-exceptional-light-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-secondary-hover-box-shadow;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-button-exceptional-light-active;
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    &--warning {
+        background-color: c.$nhsw-colour-button-delete;
+        color: c.$nhsw-colour-text-exceptional;
+        border-color: c.$nhsw-colour-button-delete;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-delete-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-delete-hover-box-shadow;
+            border: 1px solid c.$nhsw-colour-button-delete-hover;
+        }
+
+        &:not(:disabled):active {
+            background-color: c.$nhsw-colour-button-delete-active;
+        }
+    }
+
+    &--outline {
+        background-color: c.$nhsw-colour-button-outline;
+        color: c.$nhsw-colour-text-exceptional;
+        border-color: c.$nhsw-colour-button-outline;
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+
+        &:not(:disabled):not(:focus):hover {
+            background-color: c.$nhsw-colour-button-outline-hover;
+            box-shadow: 0 2px 0 c.$nhsw-colour-button-outline-hover-box-shadow;
+            border: 1px solid c.$nhsw-colour-button-outline-hover-border;
+        }
+
+        &:not(:disabled):active {
+            box-shadow: none;
+            background-color: c.$nhsw-colour-button-outline;
+        }
+    }
+
+    &:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        transform: translateY(1px);
+    }
+
+    &--primary:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+    }
+
+    &--secondary:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+    }
+
+    &--exceptional:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+    }
+
+    &--warning:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+    }
+}
+
+@media (min-width: 40rem) {
+  .nhsw-button {
+    width: auto;
+  }
+
+  .nhsw-button--full {
+    width: 100%;
+  }
+}
