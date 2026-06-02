@@ -21,10 +21,33 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build CSS
+        run: npm run build:css
+
+      - name: Prepare docs site
+        run: |
+          rm -rf docs
+          mkdir -p docs
+          cp -r preview/. docs/
+          mkdir -p docs/dist
+          cp dist/nhsw.css docs/dist/nhsw.css
+          touch docs/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
