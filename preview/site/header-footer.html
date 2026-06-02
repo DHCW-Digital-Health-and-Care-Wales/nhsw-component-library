@@ -3,29 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NHSW Header and Footer Preview</title>
+  <title>Site navigation – NHSW Design System</title>
   <link rel="stylesheet" href="../../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
 </head>
 
 <!-- nhsw-has-bottom-nav adds bottom padding on mobile so the fixed bar does not obscure content -->
 <body class="nhsw-has-bottom-nav">
-
-  <!-- ═══════════════════════════════════════════════════════════
-       Header — with optional nav bar
-  ════════════════════════════════════════════════════════════════ -->
   <header class="nhsw-site-header">
     <div class="nhsw-site-header__container">
       <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html" target="_top">
+        <a class="nhsw-site-header__brand" href="../index.html">
           <span class="nhsw-site-header__logo">
             <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
           </span>
-          <span class="nhsw-site-header__title">Design System</span>
+          <span class="nhsw-site-header__title">Design system</span>
         </a>
         <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search</label>
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
           <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
           <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
         </form>
@@ -33,129 +29,154 @@
     </div>
   </header>
 
-  <!-- Optional nav — place as a sibling after </header>, not inside it.
-       The gold border-bottom on the header creates the separator line.
-       Remove this <nav> entirely on pages that do not need global navigation. -->
   <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
+    <div class="nhsw-site-header__nav-container">
       <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
+    <div class="nhsw-layout">
 
-      <p class="nhsw-body-s">
-        <a class="nhsw-link" href="../index.html" target="_top">&larr; Back to preview index</a>
-      </p>
+      <nav class="nhsw-side-nav" aria-label="Section navigation">
+        <ul class="nhsw-side-nav__list">
+          <li><a class="nhsw-side-nav__link" href="../actions/links.html">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
+          <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Radios</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../site/header-footer.html" aria-current="page">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
+        </ul>
+      </nav>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h2">Header</h2>
-        <p class="nhsw-body">
-          The site header uses the NHS Wales blue (<code>#005eb8</code>) as its background. The
-          search button uses the dark navy (<code>#1b365d</code>) to stand out against the blue bar.
-        </p>
+      <div class="nhsw-layout__content">
 
-        <h3 class="nhsw-h3">With navigation (shown above)</h3>
-        <p class="nhsw-body">
-          Include a <code>&lt;nav class="nhsw-site-header__nav"&gt;</code> element immediately after the
-          closing <code>&lt;/div&gt;</code> of <code>nhsw-site-header__container</code> to add a
-          navigation row below the top bar.
-        </p>
-        <p class="nhsw-body">
-          The nav row is automatically hidden on mobile (&lt; 40rem) — use the bottom navigation
-          component instead on small screens.
-        </p>
-        <p class="nhsw-body">
-          Mark the active link with <code>nhsw-site-header__nav-link--current</code> and
-          <code>aria-current="page"</code>.
-        </p>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Header</h2>
+          <p class="nhsw-body">
+            The site header uses the NHS Wales blue (<code>#005eb8</code>) as its background. The
+            search button uses the dark navy (<code>#1b365d</code>) to stand out against the blue bar.
+          </p>
 
-        <h3 class="nhsw-h3">Without navigation</h3>
-        <p class="nhsw-body">
-          Simply omit the <code>&lt;nav&gt;</code> element. The top bar works independently.
-        </p>
+          <h3 class="nhsw-h3">With navigation (shown above)</h3>
+          <p class="nhsw-body">
+            Include a <code>&lt;nav class="nhsw-site-header__nav"&gt;</code> element immediately after the
+            closing <code>&lt;/div&gt;</code> of <code>nhsw-site-header__container</code> to add a
+            navigation row below the top bar.
+          </p>
+          <p class="nhsw-body">
+            The nav row is automatically hidden on mobile (&lt; 40rem) — use the bottom navigation
+            component instead on small screens.
+          </p>
+          <p class="nhsw-body">
+            Mark the active link with <code>nhsw-site-header__nav-link--current</code> and
+            <code>aria-current="page"</code>.
+          </p>
 
-        <div style="border: 2px dashed #d8dde0; margin-top: 1rem;">
-          <header class="nhsw-site-header">
-            <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-              <div class="nhsw-site-header__top">
-                <a class="nhsw-site-header__brand" href="#">
-                  <span class="nhsw-site-header__logo">
-                    <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-                  </span>
-                  <span class="nhsw-site-header__title">Service name</span>
-                </a>
-                <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-                  <label class="nhsw-visually-hidden" for="site-search-2">Search</label>
-                  <input id="site-search-2" class="nhsw-site-header__search-input" type="search" placeholder="Search">
-                  <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-                </form>
+          <h3 class="nhsw-h3">Without navigation</h3>
+          <p class="nhsw-body">
+            Simply omit the <code>&lt;nav&gt;</code> element. The top bar works independently.
+          </p>
+
+          <div style="border: 2px dashed #d8dde0; margin-top: 1rem;">
+            <header class="nhsw-site-header">
+              <div class="nhsw-site-header__container nhsw-site-header__container--centered">
+                <div class="nhsw-site-header__top">
+                  <a class="nhsw-site-header__brand" href="#">
+                    <span class="nhsw-site-header__logo">
+                      <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+                    </span>
+                    <span class="nhsw-site-header__title">Service name</span>
+                  </a>
+                  <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+                    <label class="nhsw-visually-hidden" for="site-search-2">Search</label>
+                    <input id="site-search-2" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+                    <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+                  </form>
+                </div>
               </div>
-            </div>
-            <!-- No nav element — navigation row is absent -->
-          </header>
-        </div>
-      </section>
+              <!-- No nav element — navigation row is absent -->
+            </header>
+          </div>
+        </section>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h2">Mobile bottom navigation</h2>
-        <p class="nhsw-body">
-          On screens narrower than 40rem the header nav bar is hidden. Use
-          <code>nhsw-bottom-nav</code> to provide navigation at the bottom of the viewport instead,
-          following the mobile app pattern.
-        </p>
-        <p class="nhsw-body">
-          The bottom nav is always hidden on desktop — it is only ever visible on mobile. Resize
-          your browser window below 640px to see the bar at the bottom of this page.
-        </p>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Mobile bottom navigation</h2>
+          <p class="nhsw-body">
+            On screens narrower than 40rem the header nav bar is hidden. Use
+            <code>nhsw-bottom-nav</code> to provide navigation at the bottom of the viewport instead,
+            following the mobile app pattern.
+          </p>
+          <p class="nhsw-body">
+            The bottom nav is always hidden on desktop — it is only ever visible on mobile. Resize
+            your browser window below 640px to see the bar at the bottom of this page.
+          </p>
 
-        <h3 class="nhsw-h3">Preventing content overlap</h3>
-        <p class="nhsw-body">
-          Add <code>nhsw-has-bottom-nav</code> to <code>&lt;body&gt;</code> when the bottom nav is
-          present. This class adds <code>padding-bottom: 5rem</code> to
-          <code>nhsw-main-wrapper</code> on mobile so page content is never hidden behind the fixed bar.
-        </p>
+          <h3 class="nhsw-h3">Preventing content overlap</h3>
+          <p class="nhsw-body">
+            Add <code>nhsw-has-bottom-nav</code> to <code>&lt;body&gt;</code> when the bottom nav is
+            present. This class adds <code>padding-bottom: 5rem</code> to
+            <code>nhsw-main-wrapper</code> on mobile so page content is never hidden behind the fixed bar.
+          </p>
 
-        <h3 class="nhsw-h3">Active state</h3>
-        <p class="nhsw-body">
-          Mark the current page link with <code>nhsw-bottom-nav__link--current</code> and
-          <code>aria-current="page"</code>.
-        </p>
+          <h3 class="nhsw-h3">Active state</h3>
+          <p class="nhsw-body">
+            Mark the current page link with <code>nhsw-bottom-nav__link--current</code> and
+            <code>aria-current="page"</code>.
+          </p>
 
-        <h3 class="nhsw-h3">Icons</h3>
-        <p class="nhsw-body">
-          Place any inline SVG inside <code>nhsw-bottom-nav__icon</code>. Decorative icons should
-          carry <code>aria-hidden="true"</code>. The visible label text in
-          <code>nhsw-bottom-nav__label</code> provides the accessible name.
-        </p>
-      </section>
+          <h3 class="nhsw-h3">Icons</h3>
+          <p class="nhsw-body">
+            Place any inline SVG inside <code>nhsw-bottom-nav__icon</code>. Decorative icons should
+            carry <code>aria-hidden="true"</code>. The visible label text in
+            <code>nhsw-bottom-nav__label</code> provides the accessible name.
+          </p>
+        </section>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h2">Footer</h2>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Footer</h2>
 
-        <div style="border: 2px dashed #d8dde0;">
-          <footer class="nhsw-site-footer">
-            <div class="nhsw-site-footer__container">
-              <ul class="nhsw-site-footer__links">
-                <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-                <li><a class="nhsw-link" href="#">Cookie policy</a></li>
-                <li><a class="nhsw-link" href="#">Terms and conditions</a></li>
-                <li><a class="nhsw-link" href="#">Your privacy</a></li>
-              </ul>
-              <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; NHS Wales</p>
-            </div>
-          </footer>
-        </div>
-      </section>
+          <div style="border: 2px dashed #d8dde0;">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <ul class="nhsw-site-footer__links">
+                  <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+                  <li><a class="nhsw-link" href="#">Cookie policy</a></li>
+                  <li><a class="nhsw-link" href="#">Terms and conditions</a></li>
+                  <li><a class="nhsw-link" href="#">Your privacy</a></li>
+                </ul>
+                <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; NHS Wales</p>
+              </div>
+            </footer>
+          </div>
+        </section>
+
+      </div>
 
     </div>
   </main>
@@ -164,19 +185,13 @@
     <div class="nhsw-site-footer__container">
       <ul class="nhsw-site-footer__links">
         <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Cookie policy</a></li>
-        <li><a class="nhsw-link" href="#">Terms and conditions</a></li>
-        <li><a class="nhsw-link" href="#">Your privacy</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
       </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; NHS Wales</p>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       Mobile bottom navigation
-       Fixed to viewport bottom. Only visible below 40rem.
-       Resize your browser to a mobile width to preview.
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- Mobile bottom navigation — fixed to viewport bottom, only visible below 40rem -->
   <nav class="nhsw-bottom-nav" aria-label="Mobile navigation">
     <ul class="nhsw-bottom-nav__list">
 
