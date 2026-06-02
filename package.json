@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build:css": "sass src/index.scss preview/dist/nhsw.css",
+    "postbuild:css": "node -e \"const f=require('fs');f.mkdirSync('preview/dist',{recursive:true});f.copyFileSync('dist/nhsw-date-picker.js','preview/dist/nhsw-date-picker.js');\"",
     "watch:css": "sass --watch src/index.scss:preview/dist/nhsw.css"
   },
   "devDependencies": {
