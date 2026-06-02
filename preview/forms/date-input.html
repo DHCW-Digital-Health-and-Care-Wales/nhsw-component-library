@@ -3,135 +3,210 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NHSW Date Input Preview</title>
+  <title>Date input – NHSW Design System</title>
   <link rel="stylesheet" href="../../dist/nhsw.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
 </head>
 <body>
-  <main class="nhsw-width-container">
-    <p class="nhsw-body-s"><a href="../index.html">? Back to preview index</a></p>
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="../index.html">
+          <span class="nhsw-site-header__logo">
+            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+          <span class="nhsw-site-header__title">Design system</span>
+        </a>
+        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+        </form>
+      </div>
+    </div>
+  </header>
 
-    <h1 class="nhsw-h1">Date input</h1>
+  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+    <div class="nhsw-site-header__nav-container">
+      <ul class="nhsw-site-header__nav-list">
+        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section class="preview-section">
-      <h2 class="nhsw-h3">When to use date input</h2>
-      <p class="nhsw-body">
-        Use date input to help users enter a memorable date, like their date of birth.
-      </p>
-      <p class="nhsw-body">
-        Use date input when you�re asking users for a date they already know.
-      </p>
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-layout">
 
-      <h2 class="nhsw-h3">When not to use date input</h2>
-      <p class="nhsw-body">
-        Do not use date input if users are unlikely to know the exact date you're asking about.
-      </p>
+      <nav class="nhsw-side-nav" aria-label="Section navigation">
+        <ul class="nhsw-side-nav__list">
+          <li><a class="nhsw-side-nav__link" href="../actions/links.html">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
+          <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/date-input.html" aria-current="page">Date input</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Radios</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
+          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
+        </ul>
+      </nav>
 
-      <h2 class="nhsw-h3">How to use date input</h2>
-      <p class="nhsw-body">
-        Date input consists of 3 fields to let users enter a day, month and year.
-      </p>
-      <p class="nhsw-body">
-        Group the 3 date fields together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them.
-      </p>
-      <p class="nhsw-body">
-        Never automatically tab users between the fields.
-      </p>
-    </section>
+      <div class="nhsw-layout__content">
 
-    <section class="preview-section">
-      <div class="nhsw-form-group">
-        <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint">
-          <legend class="nhsw-fieldset__legend nhsw-h2">
-            What is your date of birth?
-          </legend>
+        <h1 class="nhsw-h1">Date input</h1>
 
-          <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
+        <section class="preview-section">
+          <h2 class="nhsw-h3">When to use date input</h2>
+          <p class="nhsw-body">
+            Use date input to help users enter a memorable date, like their date of birth.
+          </p>
+          <p class="nhsw-body">
+            Use date input when you're asking users for a date they already know.
+          </p>
 
-          <div class="nhsw-date-input">
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
-              <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
-            </div>
+          <h2 class="nhsw-h3">When not to use date input</h2>
+          <p class="nhsw-body">
+            Do not use date input if users are unlikely to know the exact date you're asking about.
+          </p>
 
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
-              <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
-            </div>
+          <h2 class="nhsw-h3">How to use date input</h2>
+          <p class="nhsw-body">
+            Date input consists of 3 fields to let users enter a day, month and year.
+          </p>
+          <p class="nhsw-body">
+            Group the 3 date fields together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them.
+          </p>
+          <p class="nhsw-body">
+            Never automatically tab users between the fields.
+          </p>
+        </section>
 
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
-              <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000">
-            </div>
+        <section class="preview-section">
+          <div class="nhsw-form-group">
+            <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint">
+              <legend class="nhsw-fieldset__legend nhsw-h2">
+                What is your date of birth?
+              </legend>
+
+              <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
+
+              <div class="nhsw-date-input">
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
+                  <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
+                </div>
+
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
+                  <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
+                </div>
+
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
+                  <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000">
+                </div>
+              </div>
+            </fieldset>
           </div>
-        </fieldset>
+
+          <div class="nhsw-form-group nhsw-form-group--error">
+            <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-error-hint dob-error-message">
+              <legend class="nhsw-fieldset__legend nhsw-h2">
+                What is your date of birth?
+              </legend>
+
+              <div class="nhsw-hint" id="dob-error-hint">For example, 15 3 1984</div>
+              <strong class="nhsw-error-message" id="dob-error-message">The date of birth must be in the past</strong>
+
+              <div class="nhsw-date-input">
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-error-day">Day</label>
+                  <input id="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="1" aria-invalid="true">
+                </div>
+
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-error-month">Month</label>
+                  <input id="dob-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="12" aria-invalid="true">
+                </div>
+
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-error-year">Year</label>
+                  <input id="dob-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" value="2000" aria-invalid="true">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="nhsw-form-group nhsw-form-group--error">
+            <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message">
+              <legend class="nhsw-fieldset__legend nhsw-h2">
+                What is your date of birth?
+              </legend>
+
+              <div class="nhsw-hint" id="dob-year-error-hint">For example, 15 3 1984</div>
+              <strong class="nhsw-error-message" id="dob-year-error-message">The date of birth must include a year</strong>
+
+              <div class="nhsw-date-input">
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day">Day</label>
+                  <input id="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+                </div>
+
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-month">Month</label>
+                  <input id="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+                </div>
+
+                <div class="nhsw-date-input__item">
+                  <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-year">Year</label>
+                  <input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h3">Autocomplete for date of birth</h2>
+          <p class="nhsw-body">
+            When asking for a date of birth, use <code>autocomplete="bday-day"</code>, <code>autocomplete="bday-month"</code> and <code>autocomplete="bday-year"</code>.
+          </p>
+        </section>
+
       </div>
 
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-error-hint dob-error-message">
-          <legend class="nhsw-fieldset__legend nhsw-h2">
-            What is your date of birth?
-          </legend>
-
-          <div class="nhsw-hint" id="dob-error-hint">For example, 15 3 1984</div>
-          <strong class="nhsw-error-message" id="dob-error-message">The date of birth must be in the past</strong>
-
-          <div class="nhsw-date-input">
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-error-day">Day</label>
-              <input id="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="1" aria-invalid="true">
-            </div>
-
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-error-month">Month</label>
-              <input id="dob-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="12" aria-invalid="true">
-            </div>
-
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-error-year">Year</label>
-              <input id="dob-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" value="2000" aria-invalid="true">
-            </div>
-          </div>
-        </fieldset>
-      </div>
-
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message">
-          <legend class="nhsw-fieldset__legend nhsw-h2">
-            What is your date of birth?
-          </legend>
-
-          <div class="nhsw-hint" id="dob-year-error-hint">For example, 15 3 1984</div>
-          <strong class="nhsw-error-message" id="dob-year-error-message">The date of birth must include a year</strong>
-
-          <div class="nhsw-date-input">
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day">Day</label>
-              <input id="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
-            </div>
-
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-month">Month</label>
-              <input id="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
-            </div>
-
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-year">Year</label>
-              <input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </section>
-
-    <section class="preview-section">
-      <h2 class="nhsw-h3">Autocomplete for date of birth</h2>
-      <p class="nhsw-body">
-        When asking for a date of birth, use <code>autocomplete="bday-day"</code>, <code>autocomplete="bday-month"</code> and <code>autocomplete="bday-year"</code>.
-      </p>
-    </section>
+    </div>
   </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <ul class="nhsw-site-footer__links">
+        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+      </ul>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    </div>
+  </footer>
 </body>
 </html>

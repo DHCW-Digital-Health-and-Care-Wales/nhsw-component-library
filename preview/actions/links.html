@@ -1,26 +1,101 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NHSW Links</title>
-<link rel="stylesheet" href="../../dist/nhsw.css">
-<link rel="stylesheet" href="../assets/preview.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Action link – NHSW Design System</title>
+  <link rel="stylesheet" href="../../dist/nhsw.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
 </head>
 <body>
-<main class="nhsw-width-container">
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="../index.html">
+          <span class="nhsw-site-header__logo">
+            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+          <span class="nhsw-site-header__title">Design system</span>
+        </a>
+        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+        </form>
+      </div>
+    </div>
+  </header>
 
-<p><a href="../index.html">? Back</a></p>
+  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+    <div class="nhsw-site-header__nav-container">
+      <ul class="nhsw-site-header__nav-list">
+        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<h1 class="nhsw-h1">Text links</h1>
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-layout">
 
-<section class="preview-section">
-  <p><a href="#" class="nhsw-link">Default link</a></p>
-  <p><a href="#" class="nhsw-link" style="color:#7c2855;">Visited link</a></p>
-  <p><a href="#" class="nhsw-link">Hover link</a></p>
-  <p><a href="#" class="nhsw-link" style="background:#ffeb3b;color:#0b0c0c;padding:.1rem .25rem;">Focus link</a></p>
-</section>
+      <nav class="nhsw-side-nav" aria-label="Section navigation">
+        <ul class="nhsw-side-nav__list">
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../actions/links.html" aria-current="page">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
+          <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Radios</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
+          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
+        </ul>
+      </nav>
 
-</main>
+      <div class="nhsw-layout__content">
+
+        <h1 class="nhsw-h1">Text links</h1>
+
+        <section class="preview-section">
+          <p><a href="#" class="nhsw-link">Default link</a></p>
+          <p><a href="#" class="nhsw-link" style="color:#7c2855;">Visited link</a></p>
+          <p><a href="#" class="nhsw-link">Hover link</a></p>
+          <p><a href="#" class="nhsw-link" style="background:#ffeb3b;color:#0b0c0c;padding:.1rem .25rem;">Focus link</a></p>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <ul class="nhsw-site-footer__links">
+        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+      </ul>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    </div>
+  </footer>
 </body>
 </html>

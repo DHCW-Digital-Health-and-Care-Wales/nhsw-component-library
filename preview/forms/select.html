@@ -3,125 +3,200 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NHSW Select Preview</title>
+  <title>Select – NHSW Design System</title>
   <link rel="stylesheet" href="../../dist/nhsw.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
 </head>
 <body>
-  <main class="nhsw-width-container">
-    <p class="nhsw-body-s"><a href="../index.html">? Back to preview index</a></p>
-
-    <h1 class="nhsw-h1">Select</h1>
-
-    <section class="preview-section">
-      <h2 class="nhsw-h3">When to use select</h2>
-      <p class="nhsw-body">
-        Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.
-      </p>
-
-      <h2 class="nhsw-h3">When not to use select</h2>
-      <p class="nhsw-body">
-        Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using radios instead.
-      </p>
-
-      <h2 class="nhsw-h3">Select with hint</h2>
-
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-default">Choose region</label>
-        <div class="nhsw-hint" id="select-default-hint">This can be different to what you selected before</div>
-
-        <select id="select-default" class="nhsw-select" aria-describedby="select-default-hint">
-          <option>Choose region</option>
-          <option>North Wales</option>
-          <option>Mid Wales</option>
-          <option>West Wales</option>
-          <option>South Wales</option>
-        </select>
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="../index.html">
+          <span class="nhsw-site-header__logo">
+            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+          <span class="nhsw-site-header__title">Design system</span>
+        </a>
+        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+        </form>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section class="preview-section">
-      <h2 class="nhsw-h3">Select widths</h2>
+  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+    <div class="nhsw-site-header__nav-container">
+      <ul class="nhsw-site-header__nav-list">
+        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-xs">Extra small</label>
-        <select id="select-xs" class="nhsw-select nhsw-select--xs">
-          <option>Yes</option>
-          <option>No</option>
-        </select>
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-layout">
+
+      <nav class="nhsw-side-nav" aria-label="Section navigation">
+        <ul class="nhsw-side-nav__list">
+          <li><a class="nhsw-side-nav__link" href="../actions/links.html">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
+          <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Radios</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/select.html" aria-current="page">Select</a></li>
+          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
+        </ul>
+      </nav>
+
+      <div class="nhsw-layout__content">
+
+        <h1 class="nhsw-h1">Select</h1>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h3">When to use select</h2>
+          <p class="nhsw-body">
+            Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.
+          </p>
+
+          <h2 class="nhsw-h3">When not to use select</h2>
+          <p class="nhsw-body">
+            Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using radios instead.
+          </p>
+
+          <h2 class="nhsw-h3">Select with hint</h2>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-default">Choose region</label>
+            <div class="nhsw-hint" id="select-default-hint">This can be different to what you selected before</div>
+
+            <select id="select-default" class="nhsw-select" aria-describedby="select-default-hint">
+              <option>Choose region</option>
+              <option>North Wales</option>
+              <option>Mid Wales</option>
+              <option>West Wales</option>
+              <option>South Wales</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h3">Select widths</h2>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-xs">Extra small</label>
+            <select id="select-xs" class="nhsw-select nhsw-select--xs">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-s">Small</label>
+            <select id="select-s" class="nhsw-select nhsw-select--s">
+              <option>Wales</option>
+              <option>England</option>
+              <option>Scotland</option>
+            </select>
+          </div>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-m">Medium</label>
+            <select id="select-m" class="nhsw-select nhsw-select--m">
+              <option>North Wales</option>
+              <option>Mid Wales</option>
+              <option>West Wales</option>
+              <option>South Wales</option>
+            </select>
+          </div>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-l">Large</label>
+            <select id="select-l" class="nhsw-select nhsw-select--l">
+              <option>Longer select option</option>
+              <option>Another longer option</option>
+            </select>
+          </div>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-xl">Extra large</label>
+            <select id="select-xl" class="nhsw-select nhsw-select--xl">
+              <option>Very long select option for wider layouts</option>
+              <option>Another very long option</option>
+            </select>
+          </div>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-full">Full width</label>
+            <select id="select-full" class="nhsw-select nhsw-select--full">
+              <option>Full width select</option>
+              <option>Option one</option>
+              <option>Option two</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h3">States</h2>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="select-disabled">Disabled</label>
+            <select id="select-disabled" class="nhsw-select" disabled>
+              <option>Disabled select</option>
+            </select>
+          </div>
+
+          <div class="nhsw-form-group nhsw-form-group--error">
+            <label class="nhsw-label" for="select-error">Choose region</label>
+            <div class="nhsw-hint" id="select-error-hint">This can be different to what you selected before</div>
+            <strong class="nhsw-error-message" id="select-error-message">Choose a region</strong>
+
+            <select id="select-error" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="select-error-hint select-error-message">
+              <option>Choose region</option>
+              <option>North Wales</option>
+              <option>Mid Wales</option>
+              <option>West Wales</option>
+              <option>South Wales</option>
+            </select>
+          </div>
+        </section>
+
       </div>
 
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-s">Small</label>
-        <select id="select-s" class="nhsw-select nhsw-select--s">
-          <option>Wales</option>
-          <option>England</option>
-          <option>Scotland</option>
-        </select>
-      </div>
-
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-m">Medium</label>
-        <select id="select-m" class="nhsw-select nhsw-select--m">
-          <option>North Wales</option>
-          <option>Mid Wales</option>
-          <option>West Wales</option>
-          <option>South Wales</option>
-        </select>
-      </div>
-
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-l">Large</label>
-        <select id="select-l" class="nhsw-select nhsw-select--l">
-          <option>Longer select option</option>
-          <option>Another longer option</option>
-        </select>
-      </div>
-
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-xl">Extra large</label>
-        <select id="select-xl" class="nhsw-select nhsw-select--xl">
-          <option>Very long select option for wider layouts</option>
-          <option>Another very long option</option>
-        </select>
-      </div>
-
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-full">Full width</label>
-        <select id="select-full" class="nhsw-select nhsw-select--full">
-          <option>Full width select</option>
-          <option>Option one</option>
-          <option>Option two</option>
-        </select>
-      </div>
-    </section>
-
-    <section class="preview-section">
-      <h2 class="nhsw-h3">States</h2>
-
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="select-disabled">Disabled</label>
-        <select id="select-disabled" class="nhsw-select" disabled>
-          <option>Disabled select</option>
-        </select>
-      </div>
-
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <label class="nhsw-label" for="select-error">Choose region</label>
-        <div class="nhsw-hint" id="select-error-hint">This can be different to what you selected before</div>
-        <strong class="nhsw-error-message" id="select-error-message">Choose a region</strong>
-
-        <select id="select-error" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="select-error-hint select-error-message">
-          <option>Choose region</option>
-          <option>North Wales</option>
-          <option>Mid Wales</option>
-          <option>West Wales</option>
-          <option>South Wales</option>
-        </select>
-      </div>
-    </section>
+    </div>
   </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <ul class="nhsw-site-footer__links">
+        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+      </ul>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    </div>
+  </footer>
 </body>
 </html>

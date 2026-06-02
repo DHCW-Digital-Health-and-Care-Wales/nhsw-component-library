@@ -3,105 +3,133 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NHSW Style Library Preview</title>
+  <title>NHSW Design System</title>
 
   <link rel="stylesheet" href="../dist/nhsw.css">
-  
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
 </head>
 
 <body>
   <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container">
+    <div class="nhsw-site-header__container nhsw-site-header__container">
       <div class="nhsw-site-header__top">
         <a class="nhsw-site-header__brand" href="./index.html">
           <span class="nhsw-site-header__logo">
             <img src="./assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
           </span>
-
-          <span class="nhsw-site-header__title">
-            Style Library
-          </span>
+          <span class="nhsw-site-header__title">Design system</span>
         </a>
 
-        <form class="nhsw-site-header__search" role="search">
-          <label class="nhsw-visually-hidden" for="site-search">Search</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
           <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
         </form>
-      </div>
-
-      <div class="nhsw-site-header__hero">
-        <h1 class="nhsw-site-header__hero-title">
-          NHSW Style Library
-        </h1>
-
-        <p class="nhsw-site-header__hero-text">
-          Preview reusable components, foundations and layout patterns for NHS Wales services.
-        </p>
       </div>
     </div>
   </header>
 
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
-      <section class="preview-section">
-        <h2 class="nhsw-h2">Component previews</h2>
-        <p class="nhsw-body">
-          Use these pages to review components, states, guidance and layout examples.
+  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container">
+      <ul class="nhsw-site-header__nav-list">
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="./index.html" aria-current="page">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="./components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="nhsw-site-header__hero-band">
+    <div class="nhsw-site-header__container nhsw-site-header__container">
+      <div class="nhsw-site-header__hero">
+        <h1 class="nhsw-site-header__hero-title">Design and build accessible digital services for NHS Wales</h1>
+        <p class="nhsw-site-header__hero-text">
+          This design system follows the NHS service manual with additional components, patterns, styles and templates developed by Digital Health and Care Wales (DHCW).
         </p>
+        <a href="#" class="nhsw-button nhsw-button--secondary nhsw-button--inline">Get started</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-fluid-container">
+
+      <!-- What's new -->
+      <section aria-labelledby="whats-new-heading" style="padding: 2.5rem 0; border-bottom: 1px solid #d8dde0;">
+        <h2 id="whats-new-heading" class="nhsw-h2">What's new</h2>
+        <p class="nhsw-body-s" style="margin-bottom: 1rem;"><strong>5 August 2026: DHCW design system release</strong></p>
+        <div class="nhsw-grid-row">
+          <div class="nhsw-grid-column-one-half">
+            <p class="nhsw-body">DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up.</p>
+          </div>
+          <div class="nhsw-grid-column-one-half">
+            <p class="nhsw-body">DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up. DHCW design system released as a code write up.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h3">Workshop</h2>
-        <ul class="nhsw-body">
-          <li><a class="nhsw-link" href="./workshop/demo.html">Workshop demo</a></li>
-        </ul>
+      <!-- Navigation cards -->
+      <section aria-label="Design system sections" style="padding: 2.5rem 0; border-bottom: 1px solid #d8dde0;">
+        <div class="nhsw-grid-row" style="gap: 1rem 0;">
+          <div class="nhsw-grid-column-one-third">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Design principles</a></h3>
+              <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim ipsum. Donec vel eros eu purus eleifend dapibus. Aenean at molestie dui.</p>
+            </div>
+          </div>
+          <div class="nhsw-grid-column-one-third">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">DHCW service standards</a></h3>
+              <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim ipsum. Donec vel eros eu purus eleifend dapibus. Aenean at molestie dui.</p>
+            </div>
+          </div>
+          <div class="nhsw-grid-column-one-third">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Content guide</a></h3>
+              <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim ipsum. Donec vel eros eu purus eleifend dapibus. Aenean at molestie dui.</p>
+            </div>
+          </div>
+          <div class="nhsw-grid-column-one-third">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Styles</a></h3>
+              <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim ipsum. Donec vel eros eu purus eleifend dapibus. Aenean at molestie dui.</p>
+            </div>
+          </div>
+          <div class="nhsw-grid-column-one-third">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Components</a></h3>
+              <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim ipsum. Donec vel eros eu purus eleifend dapibus. Aenean at molestie dui.</p>
+            </div>
+          </div>
+          <div class="nhsw-grid-column-one-third">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Patterns</a></h3>
+              <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim ipsum. Donec vel eros eu purus eleifend dapibus. Aenean at molestie dui.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h3">Site</h2>
-        <ul class="nhsw-body">
-          <li><a class="nhsw-link" href="./site/header-footer.html">Header and footer</a></li>
-        </ul>
+      <!-- Community and contribution -->
+      <section aria-labelledby="community-heading" style="padding: 2.5rem 0; border-bottom: 1px solid #d8dde0;">
+        <h2 id="community-heading" class="nhsw-h2">Community and contribution</h2>
+        <p class="nhsw-body">A write up about how people can contribute to the design system, how we engage with one another. Not sure if there should be a difference between community and contribution AND contact us/support. Discuss with Chae + Liam.</p>
       </section>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h3">Foundations</h2>
-        <ul class="nhsw-body">
-          <li><a class="nhsw-link" href="./content/typography.html">Typography</a></li>
-          <li><a class="nhsw-link" href="./layout/grid.html">Grid</a></li>
-        </ul>
+      <!-- Contact us -->
+      <section aria-labelledby="contact-heading" style="padding: 2.5rem 0;">
+        <h2 id="contact-heading" class="nhsw-h2">Contact us</h2>
+        <p class="nhsw-body">NHS E and GOV.UK both have a support heading that includes their contact us page. To discuss about the exact pages necessary for this.</p>
       </section>
 
-      <section class="preview-section">
-        <h2 class="nhsw-h3">Forms</h2>
-        <ul class="nhsw-body">
-          <li><a class="nhsw-link" href="./forms/form-text.html">Form text</a></li>
-          <li><a class="nhsw-link" href="./forms/input.html">Text input</a></li>
-          <li><a class="nhsw-link" href="./forms/textarea.html">Textarea</a></li>
-          <li><a class="nhsw-link" href="./forms/select.html">Select</a></li>
-          <li><a class="nhsw-link" href="./forms/date-input.html">Date input</a></li>
-        </ul>
-      </section>
-
-      <section class="preview-section">
-        <h2 class="nhsw-h3">Actions</h2>
-        <ul class="nhsw-body">
-          <li><a class="nhsw-link" href="./actions/button.html">Buttons</a></li>
-          <li><a class="nhsw-link" href="./actions/links.html">Text links</a></li>
-        </ul>
-      </section>
-
-      <section class="preview-section">
-        <h2 class="nhsw-h3">Content and callouts</h2>
-        <ul class="nhsw-body">
-          <li><a class="nhsw-link" href="./content/inset-text.html">Inset text</a></li>
-          <li><a class="nhsw-link" href="./callouts/warning-callout.html">Warning callout</a></li>
-        </ul>
-      </section>
     </div>
   </main>
 
@@ -109,12 +137,9 @@
     <div class="nhsw-site-footer__container">
       <ul class="nhsw-site-footer__links">
         <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Cookie policy</a></li>
-        <li><a class="nhsw-link" href="#">Terms and conditions</a></li>
-        <li><a class="nhsw-link" href="#">Your privacy</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
       </ul>
-
-      <p class="nhsw-body-s nhsw-site-footer__copyright">� NHS Wales</p>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
     </div>
   </footer>
 </body>

@@ -1,16 +1,31 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
 @use "../../utilities/breakpoints" as b;
+@use "../../utilities/focus-ring" as u;
+
+// ─── Top bar ──────────────────────────────────────────────────────────────────
+// The gold border-bottom sits between this element and the optional nav below.
+// Place <nav class="nhsw-site-header__nav"> as a sibling AFTER </header>,
+// not inside it, so the border spans the full viewport width.
 
 .nhsw-site-header {
-    background-color: c.$nhsw-colour-background-blue;
-    color: c.$nhsw-colour-background-white;
+  background-color: c.$nhsw-colour-background-blue;
+  color: #ffffff;
+  border-bottom: 4px solid c.$nhsw-colour-border-gold;
 }
 
 .nhsw-site-header__container {
-  max-width: 68.75rem;
-  margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    padding: 0 2rem;
+  }
+
+  // Add this modifier to constrain content to a centred max-width column
+  &--centered {
+    max-width: 68.75rem;
+    margin: 0 auto;
+  }
 }
 
 .nhsw-site-header__top {
@@ -18,14 +33,13 @@
   flex-flow: row wrap;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  min-height: 5.5rem; // 88px per Figma spec
 }
 
 .nhsw-site-header__brand {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.25rem;
   margin-right: auto;
   color: #ffffff;
   text-decoration: none;
@@ -40,16 +54,16 @@
 .nhsw-site-header__logo img,
 .nhsw-site-header__logo svg {
   display: block;
-  width: 15rem;
+  height: 3.125rem; // 50px — fits comfortably in the 88px bar
+  width: auto;
   max-width: 100%;
-  height: auto;
   border: 0;
 }
 
 .nhsw-site-header__title {
   display: inline-flex;
   align-items: center;
-  padding-left: 2.5rem;
+  padding-left: 1.25rem;
   border-left: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
   font-family: t.$nhsw-font-family-base;
@@ -84,11 +98,19 @@
   width: 3rem;
   min-height: 2.75rem;
   border: 0;
-  border-left: 1px solid #d8dde0;
   border-radius: 0 0.25rem 0.25rem 0;
-  background-color: #ffffff;
-  color: #005eb8;
+  background-color: c.$nhsw-colour-link;
+  color: #ffffff;
   cursor: pointer;
+
+  &:hover {
+    background-color: c.$nhsw-colour-link-hover;
+  }
+
+  &:focus {
+    @include u.nhsw-focus-ring;
+    outline-offset: 0;
+  }
 }
 
 .nhsw-site-header__search-button::before {
@@ -102,12 +124,92 @@
   mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.5 3a6.5 6.5 0 0 1 5.16 10.45l5.45 5.44-1.42 1.42-5.44-5.45A6.5 6.5 0 1 1 9.5 3Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+// ─── Optional nav bar ─────────────────────────────────────────────────────────
+// Place this as a sibling AFTER </header>, not inside it.
+// Omit entirely on pages that do not need global navigation.
+//
+// <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+//   <div class="nhsw-site-header__nav-container">
+//     <ul class="nhsw-site-header__nav-list">...</ul>
+//   </div>
+// </nav>
+
+.nhsw-site-header__nav {
+  background-color: c.$nhsw-colour-background-white;
+  border-bottom: 4px solid c.$nhsw-colour-border-grey;
+
+  @media (max-width: 40rem) {
+    display: none;
+  }
+}
+
+.nhsw-site-header__nav-container {
+  padding: 0 1rem;
+
+  @include b.nhsw-from-tablet {
+    padding: 0 2rem;
+  }
+
+  &--centered {
+    max-width: 68.75rem;
+    margin: 0 auto;
+  }
+}
+
+.nhsw-site-header__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+}
+
+.nhsw-site-header__nav-link {
+  display: block;
+  padding: 0.875rem 1rem;
+  color: c.$nhsw-colour-link;
+  font-size: t.$nhsw-font-size-body;
+  font-weight: t.$nhsw-font-weight-extrabold;
+  text-decoration: underline;
+  white-space: nowrap;
+
+  &:hover {
+    color: c.$nhsw-colour-link-hover;
+    text-decoration-thickness: 3px;
+  }
+
+  &:focus {
+    @include u.nhsw-focus-ring;
+    outline-offset: -3px;
+  }
+
+  &--current {
+    border-bottom: 4px solid c.$nhsw-colour-background-blue;
+    padding-bottom: calc(0.875rem - 4px);
+  }
+}
+
+// ─── Hero band ────────────────────────────────────────────────────────────────
+// Full-width navy band for landing-page heroes. Place after the nav:
+//
+// <div class="nhsw-site-header__hero-band">
+//   <div class="nhsw-site-header__container">
+//     <div class="nhsw-site-header__hero">...</div>
+//   </div>
+// </div>
+
+.nhsw-site-header__hero-band {
+  background-color: c.$nhsw-colour-background-blue;
+  color: #ffffff;
+}
+
 .nhsw-site-header__hero {
   padding: 3rem 0 4rem;
 }
 
 .nhsw-site-header__hero-title {
-  max-width: 17ch;
+  max-width: 38ch;
   margin: 0 0 1.5rem;
   color: #ffffff;
   font-size: t.$nhsw-font-size-h1-mobile;
@@ -117,11 +219,10 @@
 
 .nhsw-site-header__hero-text {
   max-width: 36rem;
-  margin: 0;
+  margin: 0 0 2rem;
   color: #ffffff;
   font-size: t.$nhsw-font-size-body-mobile;
   line-height: t.$nhsw-line-height-body-mobile;
-  font-weight: t.$nhsw-font-weight-bold;
 }
 
 @include b.nhsw-from-tablet {
@@ -131,16 +232,18 @@
   }
 
   .nhsw-site-header__hero-text {
-    font-size: t.$nhsw-font-size-h3;
-    line-height: t.$nhsw-line-height-h3;
+    font-size: t.$nhsw-font-size-body;
+    line-height: t.$nhsw-line-height-body;
   }
 }
+
+// ─── Mobile breakpoint ────────────────────────────────────────────────────────
 
 @media (max-width: 40rem) {
   .nhsw-site-header__brand {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .nhsw-site-header__title {
