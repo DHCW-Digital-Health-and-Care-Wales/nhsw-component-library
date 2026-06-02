@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:css": "sass src/index.scss dist/nhsw.css",
-    "watch:css": "sass --watch src/index.scss:dist/nhsw.css"
+    "build:css": "sass src/index.scss preview/dist/nhsw.css",
+    "watch:css": "sass --watch src/index.scss:preview/dist/nhsw.css"
   },
   "devDependencies": {
     "sass": "^1.93.2"

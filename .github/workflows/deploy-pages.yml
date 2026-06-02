@@ -40,14 +40,8 @@ jobs:
       - name: Build CSS
         run: npm run build:css
 
-      - name: Prepare docs site
-        run: |
-          rm -rf docs
-          mkdir -p docs
-          cp -r preview/. docs/
-          mkdir -p docs/dist
-          cp dist/nhsw.css docs/dist/nhsw.css
-          touch docs/.nojekyll
+      - name: Add nojekyll
+        run: touch preview/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
