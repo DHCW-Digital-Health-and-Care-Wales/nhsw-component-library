@@ -704,6 +704,7 @@ body {
 .nhsw-tabs__list {
   display: flex;
   align-items: flex-end;
+  gap: 0.25rem;
   list-style: none;
   margin: 0 0 0;
   padding: 0;
@@ -941,7 +942,7 @@ body {
 }
 
 .nhsw-width-container {
-  max-width: 960px;
+  max-width: 68.75rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 8px;
