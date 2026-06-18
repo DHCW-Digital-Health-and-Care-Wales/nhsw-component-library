@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inset text â€“ NHSW Design System</title>
+  <title>Inset text – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -54,7 +54,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
           <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/cards.html">Cards</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
@@ -87,32 +87,87 @@
           </p>
         </div>
 
-        <div class="nhsw-inset-text" style="max-width:18rem;">
-          <p class="nhsw-body-s">
-            Use inset text to help users identify and understand important content on the page.
-          </p>
+        <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+          <div class="nhsw-code-viewer__header">
+            <div class="nhsw-code-viewer__tabs" role="tablist">
+              <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-inset-default-html" id="cv-inset-default-html-tab">HTML</button>
+              <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-inset-default-njk" id="cv-inset-default-njk-tab">Nunjucks</button>
+            </div>
+            <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+          </div>
+          <div class="nhsw-code-viewer__panel" id="cv-inset-default-html" role="tabpanel" aria-labelledby="cv-inset-default-html-tab">
+            <pre><code>&lt;div class="nhsw-inset-text"&gt;
+  &lt;p class="nhsw-body"&gt;Your important content here.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-inset-default-njk" role="tabpanel" aria-labelledby="cv-inset-default-njk-tab">
+            <pre><code>{% from "inset-text/macro.njk" import nhswInsetText %}
+
+{{ nhswInsetText({
+  html: "&lt;p class=\"nhsw-body\"&gt;Your important content here.&lt;/p&gt;"
+}) }}</code></pre>
+          </div>
         </div>
 
         <h2 class="nhsw-h2">Colour variants</h2>
 
         <div class="nhsw-inset-text nhsw-inset-text--navy">
-          <p class="nhsw-body">Navy variant â€” <code>nhsw-inset-text--navy</code></p>
+          <p class="nhsw-body">Navy variant – <code>nhsw-inset-text--navy</code></p>
         </div>
 
         <div class="nhsw-inset-text nhsw-inset-text--blue">
-          <p class="nhsw-body">Blue variant â€” <code>nhsw-inset-text--blue</code></p>
+          <p class="nhsw-body">Blue variant – <code>nhsw-inset-text--blue</code></p>
         </div>
 
         <div class="nhsw-inset-text nhsw-inset-text--grey">
-          <p class="nhsw-body">Grey variant â€” <code>nhsw-inset-text--grey</code></p>
+          <p class="nhsw-body">Grey variant – <code>nhsw-inset-text--grey</code></p>
         </div>
 
         <div class="nhsw-inset-text nhsw-inset-text--red">
-          <p class="nhsw-body">Red variant â€” <code>nhsw-inset-text--red</code></p>
+          <p class="nhsw-body">Red variant – <code>nhsw-inset-text--red</code></p>
         </div>
 
         <div class="nhsw-inset-text nhsw-inset-text--yellow">
-          <p class="nhsw-body">Yellow variant â€” <code>nhsw-inset-text--yellow</code></p>
+          <p class="nhsw-body">Yellow variant – <code>nhsw-inset-text--yellow</code></p>
+        </div>
+
+        <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+          <div class="nhsw-code-viewer__header">
+            <div class="nhsw-code-viewer__tabs" role="tablist">
+              <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-inset-variants-html" id="cv-inset-variants-html-tab">HTML</button>
+              <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-inset-variants-njk" id="cv-inset-variants-njk-tab">Nunjucks</button>
+            </div>
+            <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+          </div>
+          <div class="nhsw-code-viewer__panel" id="cv-inset-variants-html" role="tabpanel" aria-labelledby="cv-inset-variants-html-tab">
+            <pre><code>&lt;!-- Colour modifier classes --&gt;
+&lt;div class="nhsw-inset-text nhsw-inset-text--navy"&gt;...&lt;/div&gt;
+&lt;div class="nhsw-inset-text nhsw-inset-text--blue"&gt;...&lt;/div&gt;
+&lt;div class="nhsw-inset-text nhsw-inset-text--grey"&gt;...&lt;/div&gt;
+&lt;div class="nhsw-inset-text nhsw-inset-text--red"&gt;...&lt;/div&gt;
+&lt;div class="nhsw-inset-text nhsw-inset-text--yellow"&gt;...&lt;/div&gt;</code></pre>
+          </div>
+          <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-inset-variants-njk" role="tabpanel" aria-labelledby="cv-inset-variants-njk-tab">
+            <pre><code>{% from "inset-text/macro.njk" import nhswInsetText %}
+
+{# Navy variant #}
+{{ nhswInsetText({
+  classes: "nhsw-inset-text--navy",
+  html: "&lt;p class=\"nhsw-body\"&gt;Navy variant content.&lt;/p&gt;"
+}) }}
+
+{# Blue variant #}
+{{ nhswInsetText({
+  classes: "nhsw-inset-text--blue",
+  html: "&lt;p class=\"nhsw-body\"&gt;Blue variant content.&lt;/p&gt;"
+}) }}
+
+{# Grey variant #}
+{{ nhswInsetText({
+  classes: "nhsw-inset-text--grey",
+  html: "&lt;p class=\"nhsw-body\"&gt;Grey variant content.&lt;/p&gt;"
+}) }}</code></pre>
+          </div>
         </div>
 
       </div>
@@ -130,5 +185,7 @@
       <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
     </div>
   </footer>
+
+  <script src="../assets/nhsw-docs.js"></script>
 </body>
 </html>

@@ -1241,8 +1241,10 @@ body {
 }
 
 .nhsw-pagination {
+  border-top: 1px solid #d8dde0;
   margin-top: 40px;
   margin-bottom: 40px;
+  padding-top: 8px;
 }
 @media (min-width: 40.0625em) {
   .nhsw-pagination {
@@ -1290,12 +1292,14 @@ body {
   position: relative;
   text-decoration: none;
   width: 100%;
+  color: #005eb8;
 }
 .nhsw-pagination__link .nhsw-icon {
   position: absolute;
   top: -2px;
   height: 34px;
   width: 34px;
+  fill: currentColor;
 }
 .nhsw-pagination__link:hover {
   color: #7c2855;
@@ -1331,6 +1335,7 @@ body {
 
 .nhsw-pagination__title {
   font-size: 1.25rem;
+  font-weight: 700;
   line-height: 1.4;
   display: block;
 }
@@ -1359,7 +1364,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 0;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -1373,6 +1378,7 @@ body {
 .nhsw-pagination--numbered .nhsw-pagination__next {
   display: inline-flex;
   align-items: center;
+  min-height: 45px;
   padding: 8px 12px;
   color: #005eb8;
   font-weight: 700;
@@ -1380,6 +1386,7 @@ body {
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous:hover,
 .nhsw-pagination--numbered .nhsw-pagination__next:hover {
+  background-color: #f0f4f5;
   color: #7c2855;
   text-decoration: underline;
 }
@@ -1403,24 +1410,33 @@ body {
 }
 .nhsw-pagination--numbered .nhsw-pagination__list {
   display: flex;
-  align-items: center;
-  gap: 4px;
+  align-items: stretch;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .nhsw-pagination--numbered .nhsw-pagination__list::after {
   display: none;
 }
 .nhsw-pagination--numbered .nhsw-pagination__item {
-  display: inline-block;
+  display: block;
 }
 .nhsw-pagination--numbered .nhsw-pagination__item--ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  min-height: 45px;
   padding: 8px 4px;
   color: #4c6272;
 }
 .nhsw-pagination--numbered .nhsw-pagination__number-link {
-  display: inline-block;
-  min-width: 40px;
-  padding: 8px 12px;
-  border: 1px solid #d8dde0;
+  display: block;
+  min-width: 45px;
+  min-height: 45px;
+  padding: 10px 8px;
+  box-sizing: border-box;
   color: #005eb8;
   font-weight: 400;
   text-align: center;
@@ -1434,12 +1450,10 @@ body {
   background-color: #ffeb3b;
   box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
   color: #212b32;
-  border-color: #ffeb3b;
   outline: 4px solid transparent;
 }
 .nhsw-pagination--numbered .nhsw-pagination__item--current .nhsw-pagination__number-link {
   background-color: #005eb8;
-  border-color: #005eb8;
   color: #ffffff;
   font-weight: 700;
 }
@@ -1664,6 +1678,110 @@ body {
     padding: 8px 32px;
     top: -16px;
   }
+}
+
+.nhsw-code-example {
+  margin-bottom: 24px;
+}
+.nhsw-code-example pre {
+  background-color: #f0f4f5;
+  border-left: 4px solid #d8dde0;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre;
+}
+.nhsw-code-example code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #212b32;
+}
+
+.nhsw-code-viewer {
+  margin-bottom: 32px;
+  border: 1px solid #d8dde0;
+}
+.nhsw-code-viewer__header {
+  display: flex;
+  align-items: stretch;
+  background-color: #212b32;
+  border-bottom: 1px solid #4c6272;
+}
+.nhsw-code-viewer__tabs {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+}
+.nhsw-code-viewer__tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: #adb9c4;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+}
+.nhsw-code-viewer__tab:hover {
+  color: #fff;
+}
+.nhsw-code-viewer__tab--active {
+  color: #fff;
+  border-bottom-color: #005eb8;
+}
+.nhsw-code-viewer__tab:focus {
+  outline: 3px solid #ffeb3b;
+  outline-offset: 0;
+}
+.nhsw-code-viewer__copy {
+  display: inline-flex;
+  align-items: center;
+  margin: 6px 8px 6px auto;
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  color: #adb9c4;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.nhsw-code-viewer__copy:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.nhsw-code-viewer__copy:focus {
+  outline: 3px solid #ffeb3b;
+  outline-offset: 0;
+}
+.nhsw-code-viewer__copy--copied {
+  color: #85994b;
+  border-color: #85994b;
+}
+.nhsw-code-viewer__panel {
+  background-color: #1b2733;
+  padding: 24px;
+  overflow-x: auto;
+}
+.nhsw-code-viewer__panel--hidden {
+  display: none;
+}
+.nhsw-code-viewer__panel pre {
+  margin: 0;
+  white-space: pre;
+}
+.nhsw-code-viewer__panel code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c8d3d9;
 }
 
 .nhsw-button {

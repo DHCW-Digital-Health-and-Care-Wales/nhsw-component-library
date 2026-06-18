@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Text input â€“ NHSW Design System</title>
+  <title>Text input – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -54,7 +54,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
           <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/cards.html">Cards</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
@@ -90,6 +90,34 @@
           <div class="nhsw-form-group">
             <label class="nhsw-label" for="example-name">Full name</label>
             <input id="example-name" class="nhsw-input nhsw-input--half" type="text">
+          </div>
+
+          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+            <div class="nhsw-code-viewer__header">
+              <div class="nhsw-code-viewer__tabs" role="tablist">
+                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-input-html" id="cv-input-html-tab">HTML</button>
+                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-input-njk" id="cv-input-njk-tab">Nunjucks</button>
+              </div>
+              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+            </div>
+            <div class="nhsw-code-viewer__panel" id="cv-input-html" role="tabpanel" aria-labelledby="cv-input-html-tab">
+              <pre><code>&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="field-id"&gt;Full name&lt;/label&gt;
+  &lt;input id="field-id" class="nhsw-input nhsw-input--half" type="text"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-input-njk" role="tabpanel" aria-labelledby="cv-input-njk-tab">
+              <pre><code>{% from "input/macro.njk" import nhswInput %}
+
+{{ nhswInput({
+  id: "field-id",
+  name: "field-name",
+  label: {
+    text: "Full name"
+  },
+  classes: "nhsw-input--half"
+}) }}</code></pre>
+            </div>
           </div>
 
           <h3 class="nhsw-h3">When not to use the text input component</h3>
@@ -341,5 +369,8 @@
       <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
     </div>
   </footer>
+
+  <script src="../assets/nhsw-docs.js"></script>
 </body>
 </html>
+

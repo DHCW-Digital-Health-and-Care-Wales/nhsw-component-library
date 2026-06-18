@@ -54,7 +54,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
           <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/cards.html">Cards</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
@@ -91,7 +91,7 @@
           <nav class="nhsw-pagination" role="navigation" aria-label="Pagination">
             <ul class="nhsw-pagination__list">
               <li class="nhsw-pagination-item--previous">
-                <a class="nhsw-pagination__link nhsw-pagination__link--prev" href="#">
+                <a class="nhsw-pagination__link" href="#">
                   <svg class="nhsw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" focusable="false" aria-hidden="true">
                     <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11.4c.2 0 .4-.2.4-.4v-1.2c0-.2-.2-.4-.4-.4H7.6V9c0-.2-.2-.4-.4-.4-.1 0-.3.1-.3.1l-2.7 3c-.2.2-.2.5 0 .6z"/>
                   </svg>
@@ -100,7 +100,7 @@
                 </a>
               </li>
               <li class="nhsw-pagination-item--next">
-                <a class="nhsw-pagination__link nhsw-pagination__link--next" href="#">
+                <a class="nhsw-pagination__link" href="#">
                   <svg class="nhsw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" focusable="false" aria-hidden="true">
                     <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H4.6a.4.4 0 0 0-.4.4v1.2a.4.4 0 0 0 .4.4H16v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"/>
                   </svg>
@@ -110,6 +110,52 @@
               </li>
             </ul>
           </nav>
+
+          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+            <div class="nhsw-code-viewer__header">
+              <div class="nhsw-code-viewer__tabs" role="tablist">
+                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-pagination-content-html" id="cv-pagination-content-html-tab">HTML</button>
+                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-pagination-content-njk" id="cv-pagination-content-njk-tab">Nunjucks</button>
+              </div>
+              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+            </div>
+            <div class="nhsw-code-viewer__panel" id="cv-pagination-content-html" role="tabpanel" aria-labelledby="cv-pagination-content-html-tab">
+              <pre><code>&lt;nav class="nhsw-pagination" role="navigation" aria-label="Pagination"&gt;
+  &lt;ul class="nhsw-pagination__list"&gt;
+    &lt;li class="nhsw-pagination-item--previous"&gt;
+      &lt;a class="nhsw-pagination__link" href="/previous-page"&gt;
+        &lt;svg class="nhsw-icon" ...&gt;&lt;/svg&gt;
+        &lt;span class="nhsw-pagination__title"&gt;Previous&lt;/span&gt;
+        &lt;span class="nhsw-pagination__page"&gt;Treatments&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nhsw-pagination-item--next"&gt;
+      &lt;a class="nhsw-pagination__link" href="/next-page"&gt;
+        &lt;svg class="nhsw-icon" ...&gt;&lt;/svg&gt;
+        &lt;span class="nhsw-pagination__title"&gt;Next&lt;/span&gt;
+        &lt;span class="nhsw-pagination__page"&gt;Symptoms&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-pagination-content-njk" role="tabpanel" aria-labelledby="cv-pagination-content-njk-tab">
+              <pre><code>{% from "pagination/macro.njk" import nhswPagination %}
+
+{{ nhswPagination({
+  previous: {
+    title: "Previous",
+    label: "Treatments",
+    href: "/treatments"
+  },
+  next: {
+    title: "Next",
+    label: "Symptoms",
+    href: "/symptoms"
+  }
+}) }}</code></pre>
+            </div>
+          </div>
         </section>
 
         <section class="preview-section">
@@ -118,7 +164,7 @@
           <nav class="nhsw-pagination" role="navigation" aria-label="Pagination">
             <ul class="nhsw-pagination__list">
               <li class="nhsw-pagination-item--next">
-                <a class="nhsw-pagination__link nhsw-pagination__link--next" href="#">
+                <a class="nhsw-pagination__link" href="#">
                   <svg class="nhsw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" focusable="false" aria-hidden="true">
                     <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H4.6a.4.4 0 0 0-.4.4v1.2a.4.4 0 0 0 .4.4H16v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"/>
                   </svg>
@@ -128,6 +174,40 @@
               </li>
             </ul>
           </nav>
+
+          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+            <div class="nhsw-code-viewer__header">
+              <div class="nhsw-code-viewer__tabs" role="tablist">
+                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-pagination-next-html" id="cv-pagination-next-html-tab">HTML</button>
+                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-pagination-next-njk" id="cv-pagination-next-njk-tab">Nunjucks</button>
+              </div>
+              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+            </div>
+            <div class="nhsw-code-viewer__panel" id="cv-pagination-next-html" role="tabpanel" aria-labelledby="cv-pagination-next-html-tab">
+              <pre><code>&lt;nav class="nhsw-pagination" role="navigation" aria-label="Pagination"&gt;
+  &lt;ul class="nhsw-pagination__list"&gt;
+    &lt;li class="nhsw-pagination-item--next"&gt;
+      &lt;a class="nhsw-pagination__link" href="/next-page"&gt;
+        &lt;svg class="nhsw-icon" ...&gt;&lt;/svg&gt;
+        &lt;span class="nhsw-pagination__title"&gt;Next&lt;/span&gt;
+        &lt;span class="nhsw-pagination__page"&gt;About the condition&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-pagination-next-njk" role="tabpanel" aria-labelledby="cv-pagination-next-njk-tab">
+              <pre><code>{% from "pagination/macro.njk" import nhswPagination %}
+
+{{ nhswPagination({
+  next: {
+    title: "Next",
+    label: "About the condition",
+    href: "/about-the-condition"
+  }
+}) }}</code></pre>
+            </div>
+          </div>
         </section>
 
         <section class="preview-section">
@@ -165,6 +245,55 @@
               </svg>
             </a>
           </nav>
+
+          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+            <div class="nhsw-code-viewer__header">
+              <div class="nhsw-code-viewer__tabs" role="tablist">
+                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-pagination-numbered-html" id="cv-pagination-numbered-html-tab">HTML</button>
+                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-pagination-numbered-njk" id="cv-pagination-numbered-njk-tab">Nunjucks</button>
+              </div>
+              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+            </div>
+            <div class="nhsw-code-viewer__panel" id="cv-pagination-numbered-html" role="tabpanel" aria-labelledby="cv-pagination-numbered-html-tab">
+              <pre><code>&lt;nav class="nhsw-pagination nhsw-pagination--numbered" role="navigation" aria-label="Pagination"&gt;
+  &lt;a href="/previous" class="nhsw-pagination__previous" rel="prev"&gt;
+    &lt;svg class="nhsw-pagination__icon" ...&gt;&lt;/svg&gt;
+    &lt;span class="nhsw-pagination__title"&gt;Previous&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class="nhsw-pagination__list"&gt;
+    &lt;li class="nhsw-pagination__item"&gt;
+      &lt;a class="nhsw-pagination__number-link" href="/page/1" aria-label="Page 1"&gt;1&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nhsw-pagination__item nhsw-pagination__item--current"&gt;
+      &lt;a class="nhsw-pagination__number-link" href="/page/2" aria-current="page" aria-label="Page 2"&gt;2&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;
+      &lt;a class="nhsw-pagination__number-link" href="/page/3" aria-label="Page 3"&gt;3&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;a href="/next" class="nhsw-pagination__next" rel="next"&gt;
+    &lt;span class="nhsw-pagination__title"&gt;Next&lt;/span&gt;
+    &lt;svg class="nhsw-pagination__icon" ...&gt;&lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-pagination-numbered-njk" role="tabpanel" aria-labelledby="cv-pagination-numbered-njk-tab">
+              <pre><code>{% from "pagination/macro.njk" import nhswPagination %}
+
+{{ nhswPagination({
+  variant: "numbered",
+  previous: { href: "/page/2" },
+  next: { href: "/page/4" },
+  items: [
+    { number: 1, href: "/page/1" },
+    { number: 2, href: "/page/2" },
+    { number: 3, href: "/page/3", current: true },
+    { number: 4, href: "/page/4" },
+    { number: 5, href: "/page/5" }
+  ]
+}) }}</code></pre>
+            </div>
+          </div>
         </section>
 
         <section class="preview-section">
@@ -203,6 +332,50 @@
               </svg>
             </a>
           </nav>
+
+          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+            <div class="nhsw-code-viewer__header">
+              <div class="nhsw-code-viewer__tabs" role="tablist">
+                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-pagination-ellipsis-html" id="cv-pagination-ellipsis-html-tab">HTML</button>
+                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-pagination-ellipsis-njk" id="cv-pagination-ellipsis-njk-tab">Nunjucks</button>
+              </div>
+              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+            </div>
+            <div class="nhsw-code-viewer__panel" id="cv-pagination-ellipsis-html" role="tabpanel" aria-labelledby="cv-pagination-ellipsis-html-tab">
+              <pre><code>&lt;!-- Use nhsw-pagination__item--ellipsis for truncated page ranges --&gt;
+&lt;ul class="nhsw-pagination__list"&gt;
+  &lt;li class="nhsw-pagination__item"&gt;
+    &lt;a class="nhsw-pagination__number-link" href="/page/1" aria-label="Page 1"&gt;1&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-pagination__item nhsw-pagination__item--ellipsis"&gt;&amp;ctdot;&lt;/li&gt;
+  &lt;li class="nhsw-pagination__item nhsw-pagination__item--current"&gt;
+    &lt;a class="nhsw-pagination__number-link" href="/page/10" aria-current="page" aria-label="Page 10"&gt;10&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-pagination__item nhsw-pagination__item--ellipsis"&gt;&amp;ctdot;&lt;/li&gt;
+  &lt;li class="nhsw-pagination__item"&gt;
+    &lt;a class="nhsw-pagination__number-link" href="/page/40" aria-label="Page 40"&gt;40&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-pagination-ellipsis-njk" role="tabpanel" aria-labelledby="cv-pagination-ellipsis-njk-tab">
+              <pre><code>{% from "pagination/macro.njk" import nhswPagination %}
+
+{{ nhswPagination({
+  variant: "numbered",
+  previous: { href: "/page/9" },
+  next: { href: "/page/11" },
+  items: [
+    { number: 1, href: "/page/1" },
+    { ellipsis: true },
+    { number: 9, href: "/page/9" },
+    { number: 10, href: "/page/10", current: true },
+    { number: 11, href: "/page/11" },
+    { ellipsis: true },
+    { number: 40, href: "/page/40" }
+  ]
+}) }}</code></pre>
+            </div>
+          </div>
         </section>
 
       </div>
@@ -220,5 +393,7 @@
       <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
     </div>
   </footer>
+
+  <script src="../assets/nhsw-docs.js"></script>
 </body>
 </html>

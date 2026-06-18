@@ -1,0 +1,101 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-code-viewer {
+  margin-bottom: 32px;
+  border: 1px solid c.$nhsw-colour-border-grey;
+
+  &__header {
+    display: flex;
+    align-items: stretch;
+    background-color: c.$nhsw-colour-text-primary;
+    border-bottom: 1px solid #4c6272;
+  }
+
+  &__tabs {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+  }
+
+  &__tab {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    background: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    color: #adb9c4;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &--active {
+      color: #fff;
+      border-bottom-color: c.$nhsw-colour-link;
+    }
+
+    &:focus {
+      outline: 3px solid c.$nhsw-colour-focus;
+      outline-offset: 0;
+    }
+  }
+
+  &__copy {
+    display: inline-flex;
+    align-items: center;
+    margin: 6px 8px 6px auto;
+    padding: 4px 12px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    color: #adb9c4;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    white-space: nowrap;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:focus {
+      outline: 3px solid c.$nhsw-colour-focus;
+      outline-offset: 0;
+    }
+
+    &--copied {
+      color: #85994b;
+      border-color: #85994b;
+    }
+  }
+
+  &__panel {
+    background-color: #1b2733;
+    padding: 24px;
+    overflow-x: auto;
+
+    &--hidden {
+      display: none;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #c8d3d9;
+    }
+  }
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Date picker â€“ NHSW Design System</title>
+  <title>Date picker – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -54,7 +54,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
           <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/cards.html">Cards</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/date-picker.html" aria-current="page">Date picker</a></li>
@@ -103,7 +103,7 @@
           <h2 class="nhsw-h2">Minimal markup</h2>
           <p class="nhsw-body">
             The recommended way to use the date picker. Add <code>data-module="nhsw-date-picker"</code>
-            and a few <code>data-*</code> attributes â€” the script builds and injects all the calendar
+            and a few <code>data-*</code> attributes – the script builds and injects all the calendar
             chrome automatically. The label and hint are written normally; the script reads the label
             text to generate accessible <code>aria-label</code> values on the toggle button and dialog.
           </p>
@@ -152,6 +152,22 @@
             <li><code>data-disabled</code> &mdash; presence of this attribute renders the input and toggle disabled</li>
             <li><code>data-describedby</code> &mdash; forwarded as <code>aria-describedby</code> on the generated input</li>
           </ul>
+
+          <div class="nhsw-code-example">
+            <pre><code>&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="my-date"&gt;Booking date&lt;/label&gt;
+  &lt;div class="nhsw-hint" id="my-date-hint"&gt;For example, 27-Jun-2025&lt;/div&gt;
+  &lt;div class="nhsw-date-picker"
+       data-module="nhsw-date-picker"
+       data-input-id="my-date"
+       data-input-name="my-date"
+       data-describedby="my-date-hint"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Include the date picker script --&gt;
+&lt;script src="dist/nhsw-date-picker.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
         </section>
 
         <!-- Default (full HTML reference) -->
@@ -525,3 +541,6 @@
   <script src="../dist/nhsw-date-picker.js"></script>
 </body>
 </html>
+
+
+

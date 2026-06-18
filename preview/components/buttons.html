@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Buttons â€“ Components â€“ NHSW Design System</title>
+  <title>Buttons – Components – NHSW Design System</title>
 
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,7 +57,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
           <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="./buttons.html" aria-current="page">Buttons</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/cards.html">Cards</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
@@ -121,14 +121,76 @@
             <p class="nhsw-body">Use a primary button for the main call to action on a page, for example to help users start an application or save their progress. Use only 1 primary button on a page.</p>
             <button class="nhsw-button nhsw-button--primary nhsw-button--inline">Save and continue</button>
 
+            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+              <div class="nhsw-code-viewer__header">
+                <div class="nhsw-code-viewer__tabs" role="tablist">
+                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-primary-html" id="cv-button-primary-html-tab">HTML</button>
+                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-primary-njk" id="cv-button-primary-njk-tab">Nunjucks</button>
+                </div>
+                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+              </div>
+              <div class="nhsw-code-viewer__panel" id="cv-button-primary-html" role="tabpanel" aria-labelledby="cv-button-primary-html-tab">
+                <pre><code>&lt;button class="nhsw-button nhsw-button--primary"&gt;Save and continue&lt;/button&gt;</code></pre>
+              </div>
+              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-primary-njk" role="tabpanel" aria-labelledby="cv-button-primary-njk-tab">
+                <pre><code>{% from "button/macro.njk" import nhswButton %}
+
+{{ nhswButton({
+  text: "Save and continue"
+}) }}</code></pre>
+              </div>
+            </div>
+
             <h2 class="nhsw-h2" id="secondary" style="margin-top: 2rem;">Secondary buttons</h2>
             <p class="nhsw-body"><strong>When to use a secondary button</strong></p>
             <p class="nhsw-body">Use a secondary button for secondary actions on a page or when an action needs less prominence.</p>
             <button class="nhsw-button nhsw-button--secondary nhsw-button--inline">Find address</button>
 
+            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+              <div class="nhsw-code-viewer__header">
+                <div class="nhsw-code-viewer__tabs" role="tablist">
+                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-secondary-html" id="cv-button-secondary-html-tab">HTML</button>
+                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-secondary-njk" id="cv-button-secondary-njk-tab">Nunjucks</button>
+                </div>
+                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+              </div>
+              <div class="nhsw-code-viewer__panel" id="cv-button-secondary-html" role="tabpanel" aria-labelledby="cv-button-secondary-html-tab">
+                <pre><code>&lt;button class="nhsw-button nhsw-button--secondary"&gt;Find address&lt;/button&gt;</code></pre>
+              </div>
+              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-secondary-njk" role="tabpanel" aria-labelledby="cv-button-secondary-njk-tab">
+                <pre><code>{% from "button/macro.njk" import nhswButton %}
+
+{{ nhswButton({
+  text: "Find address",
+  classes: "nhsw-button--secondary"
+}) }}</code></pre>
+              </div>
+            </div>
+
             <h2 class="nhsw-h2" id="warning" style="margin-top: 2rem;">Warning buttons</h2>
             <p class="nhsw-body">Warning buttons are designed to make users think carefully before they use them. Only use them for actions with serious destructive consequences.</p>
             <button class="nhsw-button nhsw-button--delete nhsw-button--inline">Delete account</button>
+
+            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+              <div class="nhsw-code-viewer__header">
+                <div class="nhsw-code-viewer__tabs" role="tablist">
+                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-delete-html" id="cv-button-delete-html-tab">HTML</button>
+                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-delete-njk" id="cv-button-delete-njk-tab">Nunjucks</button>
+                </div>
+                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+              </div>
+              <div class="nhsw-code-viewer__panel" id="cv-button-delete-html" role="tabpanel" aria-labelledby="cv-button-delete-html-tab">
+                <pre><code>&lt;button class="nhsw-button nhsw-button--delete"&gt;Delete account&lt;/button&gt;</code></pre>
+              </div>
+              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-delete-njk" role="tabpanel" aria-labelledby="cv-button-delete-njk-tab">
+                <pre><code>{% from "button/macro.njk" import nhswButton %}
+
+{{ nhswButton({
+  text: "Delete account",
+  classes: "nhsw-button--delete"
+}) }}</code></pre>
+              </div>
+            </div>
           </div>
 
           <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
@@ -167,6 +229,7 @@
     </div>
   </footer>
 
+  <script src="../assets/nhsw-docs.js"></script>
   <script>
     document.querySelectorAll('.nhsw-tabs').forEach(function(tabGroup) {
       var tabs = tabGroup.querySelectorAll('.nhsw-tabs__tab');
