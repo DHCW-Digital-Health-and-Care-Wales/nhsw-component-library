@@ -1,38 +1,41 @@
+@use "../tokens/spacing" as s;
 @use "../utilities/breakpoints" as b;
 
 .nhsw-main-wrapper {
   display: block;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
+  padding-top: s.$nhsw-main-wrapper-padding-mobile;
+  padding-bottom: s.$nhsw-main-wrapper-padding-mobile;
 
-@include b.nhsw-from-tablet {
-  .nhsw-main-wrapper {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  @include b.nhsw-from-tablet {
+    padding-top: s.$nhsw-main-wrapper-padding-tablet;
+    padding-bottom: s.$nhsw-main-wrapper-padding-tablet;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
 
 .nhsw-main-wrapper--s {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
+  padding-top: s.$nhsw-main-wrapper-padding-small-mobile;
+  padding-bottom: s.$nhsw-main-wrapper-padding-small-mobile;
 
-@include b.nhsw-from-tablet {
-  .nhsw-main-wrapper--s {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  @include b.nhsw-from-tablet {
+    padding-top: s.$nhsw-main-wrapper-padding-small-tablet;
+    padding-bottom: s.$nhsw-main-wrapper-padding-small-tablet;
   }
 }
 
 .nhsw-main-wrapper--l {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
+  padding-top: s.$nhsw-main-wrapper-padding-large-mobile;
+  padding-bottom: s.$nhsw-main-wrapper-padding-large-mobile;
 
-@include b.nhsw-from-tablet {
-  .nhsw-main-wrapper--l {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  @include b.nhsw-from-tablet {
+    padding-top: s.$nhsw-main-wrapper-padding-large-tablet;
+    padding-bottom: s.$nhsw-main-wrapper-padding-large-tablet;
   }
 }

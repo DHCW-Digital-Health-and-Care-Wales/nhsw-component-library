@@ -1,10 +1,17 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/spacing" as s;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-hint {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: s.$nhsw-hint-margin-bottom;
   color: c.$nhsw-colour-text-secondary;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.5;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+  }
 }

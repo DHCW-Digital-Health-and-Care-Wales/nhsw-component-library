@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inset text â€“ NHSW Design System</title>
+  <title>Notification banner – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -33,7 +33,7 @@
         <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page">Components</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
@@ -62,8 +62,8 @@
           <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
           <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/inset-text.html" aria-current="page">Inset text</a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../callouts/notification-banner.html" aria-current="page">Notification banner</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
@@ -79,41 +79,68 @@
 
       <div class="nhsw-layout__content">
 
-        <h1 class="nhsw-h1">Inset text</h1>
+        <section class="preview-section">
+          <h1 class="nhsw-h1">Notification banner</h1>
+          <p class="nhsw-body">Use a notification banner to tell the user about something they need to know about, but that is not directly related to the page content.</p>
+        </section>
 
-        <div class="nhsw-inset-text">
-          <p class="nhsw-body">
-            Use inset text to help users identify and understand important content on the page, even if they do not read the whole page.
-          </p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Default notification banner</h2>
+          <p class="nhsw-body">Use the default notification banner to tell the user about important information or a pending action.</p>
 
-        <div class="nhsw-inset-text" style="max-width:18rem;">
-          <p class="nhsw-body-s">
-            Use inset text to help users identify and understand important content on the page.
-          </p>
-        </div>
+          <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-1">
+            <div class="nhsw-notification-banner__header">
+              <h2 class="nhsw-notification-banner__title" id="notification-title-1">Important</h2>
+            </div>
+            <div class="nhsw-notification-banner__content">
+              <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+            </div>
+          </div>
+        </section>
 
-        <h2 class="nhsw-h2">Colour variants</h2>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Default banner with more content</h2>
 
-        <div class="nhsw-inset-text nhsw-inset-text--navy">
-          <p class="nhsw-body">Navy variant â€” <code>nhsw-inset-text--navy</code></p>
-        </div>
+          <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-2">
+            <div class="nhsw-notification-banner__header">
+              <h2 class="nhsw-notification-banner__title" id="notification-title-2">Important</h2>
+            </div>
+            <div class="nhsw-notification-banner__content">
+              <h3 class="nhsw-notification-banner__heading">Your GP surgery has moved</h3>
+              <p class="nhsw-body">Riverside Medical Practice has moved to a new location. The new address is 123 High Street, Cardiff, CF10 1AA.</p>
+              <p class="nhsw-body">Contact the surgery on <a class="nhsw-link nhsw-notification-banner__link" href="#">029 2000 0000</a> if you have any questions.</p>
+            </div>
+          </div>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--blue">
-          <p class="nhsw-body">Blue variant â€” <code>nhsw-inset-text--blue</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Success notification banner</h2>
+          <p class="nhsw-body">Use the success variant to confirm that something the user did was successful. The success banner uses <code>role="alert"</code> so it is immediately announced by screen readers.</p>
 
-        <div class="nhsw-inset-text nhsw-inset-text--grey">
-          <p class="nhsw-body">Grey variant â€” <code>nhsw-inset-text--grey</code></p>
-        </div>
+          <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-3">
+            <div class="nhsw-notification-banner__header">
+              <h2 class="nhsw-notification-banner__title" id="notification-title-3">Success</h2>
+            </div>
+            <div class="nhsw-notification-banner__content">
+              <h3 class="nhsw-notification-banner__heading">Appointment booked</h3>
+              <p class="nhsw-body">Your appointment has been confirmed for 15 July 2026 at 10:30am.</p>
+            </div>
+          </div>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--red">
-          <p class="nhsw-body">Red variant â€” <code>nhsw-inset-text--red</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Success with a link</h2>
 
-        <div class="nhsw-inset-text nhsw-inset-text--yellow">
-          <p class="nhsw-body">Yellow variant â€” <code>nhsw-inset-text--yellow</code></p>
-        </div>
+          <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-4">
+            <div class="nhsw-notification-banner__header">
+              <h2 class="nhsw-notification-banner__title" id="notification-title-4">Success</h2>
+            </div>
+            <div class="nhsw-notification-banner__content">
+              <h3 class="nhsw-notification-banner__heading">Training outcome recorded and trainee withdrawn</h3>
+              <p class="nhsw-body">Contact <a class="nhsw-link nhsw-notification-banner__link" href="#">support@example.nhs.wales</a> if you think there is a problem.</p>
+            </div>
+          </div>
+        </section>
 
       </div>
 

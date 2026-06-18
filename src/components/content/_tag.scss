@@ -1,0 +1,75 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #183154;
+  background-color: #183154;
+  color: c.$nhsw-colour-text-exceptional;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+
+  &--white {
+    background-color: #ffffff;
+    border-color: c.$nhsw-colour-text-primary;
+    color: c.$nhsw-colour-text-primary;
+  }
+
+  &--grey {
+    background-color: #dbe0e3;
+    border-color: #354550;
+    color: #354550;
+  }
+
+  &--green {
+    background-color: #cce5d8;
+    border-color: #004c23;
+    color: #004c23;
+  }
+
+  &--aqua-green {
+    background-color: #ccedeb;
+    border-color: #00524d;
+    color: #00524d;
+  }
+
+  &--blue {
+    background-color: #d1d7df;
+    border-color: #132641;
+    color: #132641;
+  }
+
+  &--purple {
+    background-color: #d6cce3;
+    border-color: #240050;
+    color: #240050;
+  }
+
+  &--pink {
+    background-color: #efd3e3;
+    border-color: #57133a;
+    color: #57133a;
+  }
+
+  &--red {
+    background-color: #f7d4d1;
+    border-color: #6b140e;
+    color: #6b140e;
+  }
+
+  &--orange {
+    background-color: #ffdc8e;
+    border-color: #4d3708;
+    color: #4d3708;
+  }
+
+  &--yellow {
+    background-color: #fff59d;
+    border-color: #4d4712;
+    color: #4d4712;
+  }
+}

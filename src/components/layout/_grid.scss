@@ -1,4 +1,5 @@
 @use "../../foundations/layout" as layout;
+@use "../../tokens/spacing" as s;
 @use "../../utilities/breakpoints" as b;
 
 body {
@@ -10,15 +11,13 @@ body {
 
 .nhsw-fluid-container {
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: s.$nhsw-container-margin-mobile;
+  padding-right: s.$nhsw-container-margin-mobile;
   box-sizing: border-box;
-}
 
-@include b.nhsw-from-tablet {
-  .nhsw-fluid-container {
-    padding-left: 32px;
-    padding-right: 32px;
+  @include b.nhsw-from-desktop {
+    padding-left: s.$nhsw-container-margin-desktop;
+    padding-right: s.$nhsw-container-margin-desktop;
   }
 }
 
@@ -35,7 +34,7 @@ body {
   @include layout.nhsw-grid-column;
 }
 
-@include b.nhsw-from-tablet {
+@include b.nhsw-from-desktop {
   .nhsw-grid-column-full {
     width: 100%;
   }

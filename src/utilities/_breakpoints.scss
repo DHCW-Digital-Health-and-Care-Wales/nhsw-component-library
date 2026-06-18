@@ -1,7 +1,21 @@
-$nhsw-breakpoint-tablet: 40rem;
+$nhsw-breakpoint-tablet: 40.0625em;
+$nhsw-breakpoint-desktop: 48.0625em;
+$nhsw-breakpoint-large-desktop: 61.875em;
 
 @mixin nhsw-from-tablet {
   @media (min-width: $nhsw-breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin nhsw-from-desktop {
+  @media (min-width: $nhsw-breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin nhsw-from-large-desktop {
+  @media (min-width: $nhsw-breakpoint-large-desktop) {
     @content;
   }
 }

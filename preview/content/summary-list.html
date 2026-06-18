@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Summary list – NHSW Design System</title>
+  <link rel="stylesheet" href="../dist/nhsw.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
+</head>
+<body>
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="../index.html">
+          <span class="nhsw-site-header__logo">
+            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+          <span class="nhsw-site-header__title">Design system</span>
+        </a>
+        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
+      <ul class="nhsw-site-header__nav-list">
+        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-width-container">
+      <div class="nhsw-layout">
+
+      <nav class="nhsw-side-nav" aria-label="Section navigation">
+        <ul class="nhsw-side-nav__list">
+          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
+          <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/details.html">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
+          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/summary-list.html" aria-current="page">Summary list</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/table.html">Table</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/tag.html">Tag</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
+        </ul>
+      </nav>
+
+      <div class="nhsw-layout__content">
+
+        <section class="preview-section">
+          <h1 class="nhsw-h1">Summary list</h1>
+          <p class="nhsw-body">Use the summary list to summarise information, for example, a user's responses at the end of a form.</p>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Summary list with actions</h2>
+          <p class="nhsw-body">You can add actions to a summary list, such as a "Change" link, to let users go back and edit their responses.</p>
+
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Name</dt>
+              <dd class="nhsw-summary-list__value">Karen Francis</dd>
+              <dd class="nhsw-summary-list__actions">
+                <a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Date of birth</dt>
+              <dd class="nhsw-summary-list__value">15 March 1984</dd>
+              <dd class="nhsw-summary-list__actions">
+                <a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Contact information</dt>
+              <dd class="nhsw-summary-list__value">
+                <p>07700 900362</p>
+                <p>karen.francis@example.com</p>
+              </dd>
+              <dd class="nhsw-summary-list__actions">
+                <a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> contact information</span></a>
+              </dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Address</dt>
+              <dd class="nhsw-summary-list__value">
+                <p>72 Guild Street</p>
+                <p>London</p>
+                <p>SE23 6FH</p>
+              </dd>
+              <dd class="nhsw-summary-list__actions">
+                <a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Summary list without actions</h2>
+          <p class="nhsw-body">Use this when the summary list is read-only and users cannot change their answers.</p>
+
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Name</dt>
+              <dd class="nhsw-summary-list__value">Karen Francis</dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Date of birth</dt>
+              <dd class="nhsw-summary-list__value">15 March 1984</dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">NHS number</dt>
+              <dd class="nhsw-summary-list__value">485 777 3456</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Summary list without borders</h2>
+
+          <dl class="nhsw-summary-list nhsw-summary-list--no-border">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Name</dt>
+              <dd class="nhsw-summary-list__value">Karen Francis</dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Date of birth</dt>
+              <dd class="nhsw-summary-list__value">15 March 1984</dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">NHS number</dt>
+              <dd class="nhsw-summary-list__value">485 777 3456</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Summary list in a card</h2>
+          <p class="nhsw-body">You can wrap a summary list in a card to visually group related information.</p>
+
+          <div class="nhsw-card">
+            <div class="nhsw-card__content">
+              <h3 class="nhsw-card__title">Patient details</h3>
+              <dl class="nhsw-summary-list nhsw-summary-list--no-border">
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">Name</dt>
+                  <dd class="nhsw-summary-list__value">Karen Francis</dd>
+                </div>
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">Date of birth</dt>
+                  <dd class="nhsw-summary-list__value">15 March 1984</dd>
+                </div>
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">NHS number</dt>
+                  <dd class="nhsw-summary-list__value">485 777 3456</dd>
+                </div>
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">GP surgery</dt>
+                  <dd class="nhsw-summary-list__value">Riverside Medical Practice</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <ul class="nhsw-site-footer__links">
+        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+      </ul>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    </div>
+  </footer>
+</body>
+</html>

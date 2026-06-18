@@ -49,24 +49,28 @@
 
       <nav class="nhsw-side-nav" aria-label="Section navigation">
         <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link" href="../actions/links.html">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html">Action link</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
           <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/details.html">Details</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
           <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Pagination</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Radios</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
           <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html">Summary list</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/table.html">Table</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/tag.html">Tag</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
           <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/input.html" aria-current="page">Text input</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
@@ -257,18 +261,42 @@
           <h2 class="nhsw-h2">Prefixes and suffixes</h2>
 
           <p class="nhsw-body">
-            Use prefixes and suffixes to help users enter things like currencies and measurements. Do not rely on them alone because screen readers will not read them out.
+            Use prefixes and suffixes to help users enter things like currencies and measurements. Do not rely on them alone because screen readers will not read them out. Make sure the label or hint text includes the unit.
           </p>
+
+          <h3 class="nhsw-h3">Prefix</h3>
+          <p class="nhsw-body">Use a prefix for units that come before the value, such as a currency symbol.</p>
 
           <div class="nhsw-form-group">
-            <label class="nhsw-label" for="example-cost">Cost, in pounds</label>
-            <div class="nhsw-hint" id="example-cost-hint">Enter the amount in pounds.</div>
-            <input id="example-cost" class="nhsw-input nhsw-input--width-5" type="text" inputmode="decimal" aria-describedby="example-cost-hint">
+            <label class="nhsw-label" for="prefix-cost">Cost, in pounds</label>
+            <div class="nhsw-hint" id="prefix-cost-hint">Enter the amount in pounds.</div>
+            <div class="nhsw-input-wrapper">
+              <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+              <input class="nhsw-input nhsw-input--width-5" id="prefix-cost" name="prefix-cost" type="text" inputmode="decimal" spellcheck="false" aria-describedby="prefix-cost-hint">
+            </div>
           </div>
 
-          <p class="nhsw-body">
-            Position prefixes and suffixes outside of their input, and allow for users entering the prefix or suffix themselves during validation.
-          </p>
+          <h3 class="nhsw-h3">Suffix</h3>
+          <p class="nhsw-body">Use a suffix for units that come after the value, such as a weight or measurement.</p>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="suffix-weight">Weight, in kilograms</label>
+            <div class="nhsw-input-wrapper">
+              <input class="nhsw-input nhsw-input--width-5" id="suffix-weight" name="suffix-weight" type="text" inputmode="decimal" spellcheck="false">
+              <div class="nhsw-input-wrapper__suffix" aria-hidden="true">kg</div>
+            </div>
+          </div>
+
+          <h3 class="nhsw-h3">Both prefix and suffix</h3>
+
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="both-cost">Cost per item, in pounds</label>
+            <div class="nhsw-input-wrapper">
+              <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+              <input class="nhsw-input nhsw-input--width-5" id="both-cost" name="both-cost" type="text" inputmode="decimal" spellcheck="false">
+              <div class="nhsw-input-wrapper__suffix" aria-hidden="true">per item</div>
+            </div>
+          </div>
         </section>
 
         <section class="preview-section">

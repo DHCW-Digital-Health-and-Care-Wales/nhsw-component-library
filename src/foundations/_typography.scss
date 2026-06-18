@@ -1,5 +1,6 @@
 @use "../tokens/colours" as c;
 @use "../tokens/typography" as t;
+@use "../tokens/spacing" as s;
 @use "../utilities/breakpoints" as b;
 
 @mixin nhsw-font-base {
@@ -24,11 +25,13 @@
   font-size: t.$nhsw-font-size-h1-mobile;
   line-height: t.$nhsw-line-height-h1-mobile;
   font-weight: t.$nhsw-font-weight-bold;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-heading-xl-margin-mobile;
+  display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-h1;
     line-height: t.$nhsw-line-height-h1;
+    margin-bottom: s.$nhsw-heading-xl-margin-tablet;
   }
 }
 
@@ -37,11 +40,13 @@
   font-size: t.$nhsw-font-size-h2-mobile;
   line-height: t.$nhsw-line-height-h2-mobile;
   font-weight: t.$nhsw-font-weight-bold;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-heading-margin-mobile;
+  display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-h2;
     line-height: t.$nhsw-line-height-h2;
+    margin-bottom: s.$nhsw-heading-margin-tablet;
   }
 }
 
@@ -50,11 +55,13 @@
   font-size: t.$nhsw-font-size-h3-mobile;
   line-height: t.$nhsw-line-height-h3-mobile;
   font-weight: t.$nhsw-font-weight-bold;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-heading-margin-mobile;
+  display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-h3;
     line-height: t.$nhsw-line-height-h3;
+    margin-bottom: s.$nhsw-heading-margin-tablet;
   }
 }
 
@@ -63,11 +70,13 @@
   font-size: t.$nhsw-font-size-h4-mobile;
   line-height: t.$nhsw-line-height-h4-mobile;
   font-weight: t.$nhsw-font-weight-bold;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-heading-margin-mobile;
+  display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-h4;
     line-height: t.$nhsw-line-height-h4;
+    margin-bottom: s.$nhsw-heading-margin-tablet;
   }
 }
 
@@ -76,11 +85,13 @@
   font-size: t.$nhsw-font-size-h5-mobile;
   line-height: t.$nhsw-line-height-h5-mobile;
   font-weight: t.$nhsw-font-weight-bold;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-heading-margin-mobile;
+  display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-h5;
     line-height: t.$nhsw-line-height-h5;
+    margin-bottom: s.$nhsw-heading-margin-tablet;
   }
 }
 
@@ -89,11 +100,13 @@
   font-size: t.$nhsw-font-size-body-mobile;
   line-height: t.$nhsw-line-height-body-mobile;
   font-weight: t.$nhsw-font-weight-regular;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-body-margin-mobile;
+  display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-body;
     line-height: t.$nhsw-line-height-body;
+    margin-bottom: s.$nhsw-body-margin-tablet;
   }
 }
 
@@ -102,5 +115,10 @@
   font-size: t.$nhsw-font-size-body-small;
   line-height: t.$nhsw-line-height-body-small;
   font-weight: t.$nhsw-font-weight-regular;
-  margin: 0 0 1rem;
+  margin: 0 0 s.$nhsw-body-margin-mobile;
+  display: block;
+
+  @include b.nhsw-from-tablet {
+    margin-bottom: s.$nhsw-body-margin-tablet;
+  }
 }

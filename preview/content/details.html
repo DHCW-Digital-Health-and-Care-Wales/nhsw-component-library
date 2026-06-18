@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inset text â€“ NHSW Design System</title>
+  <title>Details – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -33,7 +33,7 @@
         <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page">Components</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
@@ -58,11 +58,11 @@
           <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html">Details</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/details.html" aria-current="page">Details</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
           <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/inset-text.html" aria-current="page">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
@@ -79,41 +79,90 @@
 
       <div class="nhsw-layout__content">
 
-        <h1 class="nhsw-h1">Inset text</h1>
+        <section class="preview-section">
+          <h1 class="nhsw-h1">Details</h1>
+          <p class="nhsw-body">Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>
+        </section>
 
-        <div class="nhsw-inset-text">
-          <p class="nhsw-body">
-            Use inset text to help users identify and understand important content on the page, even if they do not read the whole page.
-          </p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Default details</h2>
+          <p class="nhsw-body">The details component uses the native HTML details element, which provides progressive enhancement without JavaScript.</p>
 
-        <div class="nhsw-inset-text" style="max-width:18rem;">
-          <p class="nhsw-body-s">
-            Use inset text to help users identify and understand important content on the page.
-          </p>
-        </div>
+          <details class="nhsw-details">
+            <summary class="nhsw-details__summary">
+              <span class="nhsw-details__summary-text">Where to find your NHS number</span>
+            </summary>
+            <div class="nhsw-details__text">
+              <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+              <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
+            </div>
+          </details>
+        </section>
 
-        <h2 class="nhsw-h2">Colour variants</h2>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Details with more content</h2>
 
-        <div class="nhsw-inset-text nhsw-inset-text--navy">
-          <p class="nhsw-body">Navy variant â€” <code>nhsw-inset-text--navy</code></p>
-        </div>
+          <details class="nhsw-details">
+            <summary class="nhsw-details__summary">
+              <span class="nhsw-details__summary-text">How to register with a GP surgery</span>
+            </summary>
+            <div class="nhsw-details__text">
+              <p class="nhsw-body">You can register with any GP surgery as long as you live in the area. Most surgeries accept registrations online, by phone, or in person.</p>
+              <p class="nhsw-body">When registering you will need:</p>
+              <ul>
+                <li>your name, address and date of birth</li>
+                <li>your NHS number (if you know it)</li>
+                <li>the name and address of your previous GP (if you had one)</li>
+              </ul>
+            </div>
+          </details>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--blue">
-          <p class="nhsw-body">Blue variant â€” <code>nhsw-inset-text--blue</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Open by default</h2>
+          <p class="nhsw-body">You can set the details element to be open on page load using the <code>open</code> attribute.</p>
 
-        <div class="nhsw-inset-text nhsw-inset-text--grey">
-          <p class="nhsw-body">Grey variant â€” <code>nhsw-inset-text--grey</code></p>
-        </div>
+          <details class="nhsw-details" open>
+            <summary class="nhsw-details__summary">
+              <span class="nhsw-details__summary-text">What happens after you apply</span>
+            </summary>
+            <div class="nhsw-details__text">
+              <p class="nhsw-body">We will review your application within 5 working days. You will receive a confirmation email with your reference number.</p>
+            </div>
+          </details>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--red">
-          <p class="nhsw-body">Red variant â€” <code>nhsw-inset-text--red</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Multiple details on a page</h2>
+          <p class="nhsw-body">You can use multiple details components on a single page. They operate independently.</p>
 
-        <div class="nhsw-inset-text nhsw-inset-text--yellow">
-          <p class="nhsw-body">Yellow variant â€” <code>nhsw-inset-text--yellow</code></p>
-        </div>
+          <details class="nhsw-details">
+            <summary class="nhsw-details__summary">
+              <span class="nhsw-details__summary-text">What is a prescription prepayment certificate?</span>
+            </summary>
+            <div class="nhsw-details__text">
+              <p class="nhsw-body">A prescription prepayment certificate (PPC) lets you get as many NHS prescriptions as you need for a set price.</p>
+            </div>
+          </details>
+
+          <details class="nhsw-details">
+            <summary class="nhsw-details__summary">
+              <span class="nhsw-details__summary-text">How much does it cost?</span>
+            </summary>
+            <div class="nhsw-details__text">
+              <p class="nhsw-body">A 3-month PPC costs a fixed price. A 12-month PPC is also available at a different rate.</p>
+            </div>
+          </details>
+
+          <details class="nhsw-details">
+            <summary class="nhsw-details__summary">
+              <span class="nhsw-details__summary-text">Who can get free prescriptions?</span>
+            </summary>
+            <div class="nhsw-details__text">
+              <p class="nhsw-body">In Wales, all prescriptions are free of charge for patients registered with a Welsh GP.</p>
+            </div>
+          </details>
+        </section>
 
       </div>
 

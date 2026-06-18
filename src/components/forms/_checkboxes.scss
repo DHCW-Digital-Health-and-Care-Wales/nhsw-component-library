@@ -1,0 +1,114 @@
+@use "../../tokens/colours" as c;
+@use "../../utilities/focus-ring" as u;
+
+.nhsw-checkboxes {
+  margin-bottom: 8px;
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    padding-left: 52px;
+    position: relative;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+
+    &:focus + .nhsw-checkboxes__label::before {
+      outline: 3px solid c.$nhsw-colour-focus;
+      outline-offset: 1px;
+      box-shadow: 0 0 0 4px c.$nhsw-colour-focus;
+    }
+
+    &:checked + .nhsw-checkboxes__label::after {
+      opacity: 1;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      + .nhsw-checkboxes__label {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 8px 16px 0 0;
+    cursor: pointer;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 1.1875rem;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      border: 2px solid c.$nhsw-colour-input-border;
+      border-radius: 0;
+      background: c.$nhsw-colour-input-background;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 6px;
+      box-sizing: border-box;
+      width: 23px;
+      height: 12px;
+      border-left: 3px solid c.$nhsw-colour-text-primary;
+      border-bottom: 3px solid c.$nhsw-colour-text-primary;
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  &__hint {
+    display: block;
+    width: 100%;
+    padding: 0 16px 4px 0;
+    margin: 0;
+    color: c.$nhsw-colour-text-secondary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__divider {
+    width: 40px;
+    margin-bottom: 16px;
+    color: c.$nhsw-colour-text-secondary;
+    font-size: 1.1875rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &__conditional {
+    margin-bottom: 16px;
+    margin-left: 18px;
+    padding-left: 20px;
+    border-left: 4px solid c.$nhsw-colour-border-secondary;
+
+    &--hidden {
+      display: none;
+    }
+  }
+}

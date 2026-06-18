@@ -1,0 +1,239 @@
+@use "../../tokens/colours" as c;
+@use "../../utilities/breakpoints" as b;
+
+.nhsw-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  line-height: 1.5;
+  vertical-align: top;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+    margin-bottom: 48px;
+  }
+
+  &__caption {
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.55556;
+    margin-bottom: 8px;
+
+    @include b.nhsw-from-tablet {
+      font-size: 1.375rem;
+      line-height: 1.45455;
+    }
+  }
+
+  &__head {
+    th {
+      border-bottom: 2px solid c.$nhsw-colour-border-grey;
+    }
+  }
+
+  &__header {
+    padding: 8px 16px 8px 0;
+    text-align: left;
+    font-weight: 700;
+    vertical-align: top;
+
+    @include b.nhsw-from-tablet {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-right: 24px;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &--numeric {
+      text-align: right;
+    }
+  }
+
+  &__body {
+    .nhsw-table__header {
+      font-weight: 400;
+      border-bottom: 1px solid c.$nhsw-colour-border-grey;
+    }
+  }
+
+  &__row {
+    &:hover {
+      background-color: c.$nhsw-colour-background-grey;
+    }
+  }
+
+  &__cell {
+    padding: 8px 16px 8px 0;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid c.$nhsw-colour-border-grey;
+
+    @include b.nhsw-from-tablet {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-right: 24px;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &--numeric {
+      text-align: right;
+    }
+  }
+}
+
+.nhsw-table-responsive {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+    margin-bottom: 48px;
+  }
+
+  .nhsw-table__head {
+    @media (max-width: 48rem) {
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    th {
+      border-bottom: 2px solid c.$nhsw-colour-border-grey;
+    }
+  }
+
+  .nhsw-table__header {
+    padding: 8px 16px 8px 0;
+    text-align: left;
+    font-weight: 700;
+    vertical-align: top;
+
+    @include b.nhsw-from-tablet {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-right: 24px;
+    }
+  }
+
+  .nhsw-table__body {
+    .nhsw-table__header {
+      font-weight: 400;
+      border-bottom: 1px solid c.$nhsw-colour-border-grey;
+    }
+
+    .nhsw-table__row {
+      @media (max-width: 48rem) {
+        display: block;
+        margin-bottom: 24px;
+      }
+
+      &:hover {
+        background-color: c.$nhsw-colour-background-grey;
+      }
+    }
+
+    td {
+      border-bottom: 1px solid c.$nhsw-colour-border-grey;
+
+      @media (max-width: 48rem) {
+        display: flex;
+        justify-content: space-between;
+        min-width: 1px;
+        padding-right: 0;
+        text-align: right;
+
+        &:last-child {
+          border-bottom: 3px solid c.$nhsw-colour-border-grey;
+        }
+      }
+    }
+  }
+
+  &__heading {
+    font-weight: 700;
+    padding-right: 16px;
+    text-align: left;
+
+    @media (min-width: 48.0625rem) {
+      display: none;
+    }
+  }
+
+  .nhsw-table__cell {
+    padding: 8px 16px 8px 0;
+    text-align: left;
+    vertical-align: top;
+
+    @include b.nhsw-from-tablet {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-right: 24px;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.nhsw-table__panel-with-heading-tab {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: c.$nhsw-colour-background-white;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  padding-top: 0 !important; // stylelint-disable-line
+
+  @include b.nhsw-from-tablet {
+    padding: 32px;
+    padding-top: 0 !important; // stylelint-disable-line
+    margin-bottom: 48px;
+    margin-top: 48px;
+  }
+
+  .nhsw-table {
+    margin: 0;
+  }
+}
+
+.nhsw-table__heading-tab {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background-color: c.$nhsw-colour-background-blue;
+  color: c.$nhsw-colour-text-exceptional;
+  display: inline-block;
+  margin: 0 0 8px -25px;
+  padding: 8px 24px;
+  position: relative;
+  top: -8px;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.5rem;
+    line-height: 1.33333;
+    margin-left: -33px;
+    padding: 8px 32px;
+    top: -16px;
+  }
+}

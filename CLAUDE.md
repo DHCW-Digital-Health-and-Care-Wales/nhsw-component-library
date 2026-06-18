@@ -34,6 +34,19 @@ When asked to create a page:
 - Do not invent colours, typography, spacing or one-off CSS.
 - Use existing tokens and classes.
 
+## Layout guidelines
+
+Follow the spacing and breakpoint rules in `.agent/design-system-rules.md`. Key rules:
+
+- Breakpoints: tablet 40.0625em, desktop 48.0625em, large desktop 61.875em
+- Max page width: 960px, container auto-centres above 1024px
+- Main wrapper: 32px padding (mobile), 48px (tablet+)
+- Container margins: 16px (mobile), 32px (desktop)
+- Grid gutter: 16px, columns stack below desktop breakpoint
+- H1 bottom margin: 40px/48px, H2–H5 and body: 16px/24px
+- Form group: 16px/24px, label-to-input gap: 4px
+- Use px for spacing, not rem/em
+
 ## Accessibility rules
 
 - Every input must have a visible label.
@@ -42,6 +55,8 @@ When asked to create a page:
 - Invalid fields must use `aria-invalid="true"`.
 - Date inputs must use `fieldset` and `legend`.
 - Do not use placeholder text as a label.
+- Focus styles must use yellow (#ffeb3b) indicator.
+- Decorative SVG icons must use `aria-hidden="true"`.
 
 ## Build command
 

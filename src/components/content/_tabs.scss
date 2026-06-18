@@ -20,7 +20,7 @@
 
 .nhsw-tabs__list {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   gap: 0.25rem;
   list-style: none;
   margin: 0 0 0;
@@ -29,7 +29,9 @@
 }
 
 .nhsw-tabs__tab {
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 100%;
   padding: 0.5rem 1rem;
   background-color: c.$nhsw-colour-border-grey;
   border: none;

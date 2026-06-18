@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inset text â€“ NHSW Design System</title>
+  <title>Tag – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -33,7 +33,7 @@
         <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page">Components</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
@@ -62,7 +62,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
           <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/inset-text.html" aria-current="page">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
@@ -70,7 +70,7 @@
           <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/summary-list.html">Summary list</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/table.html">Table</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/tag.html">Tag</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/tag.html" aria-current="page">Tag</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
@@ -79,41 +79,90 @@
 
       <div class="nhsw-layout__content">
 
-        <h1 class="nhsw-h1">Inset text</h1>
+        <section class="preview-section">
+          <h1 class="nhsw-h1">Tag</h1>
+          <p class="nhsw-body">Use the tag component to show users the status of something.</p>
+        </section>
 
-        <div class="nhsw-inset-text">
-          <p class="nhsw-body">
-            Use inset text to help users identify and understand important content on the page, even if they do not read the whole page.
-          </p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Default tag</h2>
+          <p class="nhsw-body">The default tag uses the primary navy background.</p>
+          <p class="nhsw-body"><strong class="nhsw-tag">Active</strong></p>
+        </section>
 
-        <div class="nhsw-inset-text" style="max-width:18rem;">
-          <p class="nhsw-body-s">
-            Use inset text to help users identify and understand important content on the page.
-          </p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Colour variants</h2>
+          <p class="nhsw-body">Use tag colours to convey meaning. Use adjectives rather than verbs for the labels.</p>
 
-        <h2 class="nhsw-h2">Colour variants</h2>
+          <table class="nhsw-body" role="presentation">
+            <tbody>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--white">Started</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--white</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--grey</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--green">New</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--green</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--aqua-green</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--blue</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--purple</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--pink</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--red</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--orange</td>
+              </tr>
+              <tr>
+                <td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td>
+                <td class="nhsw-body-s">nhsw-tag--yellow</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--navy">
-          <p class="nhsw-body">Navy variant â€” <code>nhsw-inset-text--navy</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Tags in context</h2>
+          <p class="nhsw-body">Tags work well alongside summary lists to show the status of items.</p>
 
-        <div class="nhsw-inset-text nhsw-inset-text--blue">
-          <p class="nhsw-body">Blue variant â€” <code>nhsw-inset-text--blue</code></p>
-        </div>
-
-        <div class="nhsw-inset-text nhsw-inset-text--grey">
-          <p class="nhsw-body">Grey variant â€” <code>nhsw-inset-text--grey</code></p>
-        </div>
-
-        <div class="nhsw-inset-text nhsw-inset-text--red">
-          <p class="nhsw-body">Red variant â€” <code>nhsw-inset-text--red</code></p>
-        </div>
-
-        <div class="nhsw-inset-text nhsw-inset-text--yellow">
-          <p class="nhsw-body">Yellow variant â€” <code>nhsw-inset-text--yellow</code></p>
-        </div>
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Blood test results</dt>
+              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--green">New</strong></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">GP referral</dt>
+              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Prescription</dt>
+              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--blue">Active</strong></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Vaccination record</dt>
+              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></dd>
+            </div>
+          </dl>
+        </section>
 
       </div>
 

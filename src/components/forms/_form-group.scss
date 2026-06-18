@@ -1,8 +1,24 @@
+@use "../../tokens/spacing" as s;
+@use "../../utilities/breakpoints" as b;
+
 .nhsw-form-group {
-  margin-bottom: 40px;
+  margin-bottom: s.$nhsw-form-group-margin-mobile;
+
+  @include b.nhsw-from-tablet {
+    margin-bottom: s.$nhsw-form-group-margin-tablet;
+  }
+
+  .nhsw-form-group:last-of-type {
+    margin-bottom: 0;
+  }
 
   &--error {
-    padding-left: 16px;
-    border-left: 4px solid #d5281b;
+    padding-left: s.$nhsw-form-group-error-padding;
+    border-left: s.$nhsw-form-group-error-border solid #d5281b;
+
+    .nhsw-form-group {
+      border: 0;
+      padding: 0;
+    }
   }
 }

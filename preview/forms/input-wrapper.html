@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inset text â€“ NHSW Design System</title>
+  <title>Text input with prefix and suffix – NHSW Design System</title>
   <link rel="stylesheet" href="../dist/nhsw.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
@@ -33,7 +33,7 @@
         <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page">Components</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
         <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
@@ -62,7 +62,7 @@
           <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
           <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
           <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/inset-text.html" aria-current="page">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
           <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
           <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
           <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
@@ -79,41 +79,65 @@
 
       <div class="nhsw-layout__content">
 
-        <h1 class="nhsw-h1">Inset text</h1>
+        <section class="preview-section">
+          <h1 class="nhsw-h1">Text input with prefix and suffix</h1>
+          <p class="nhsw-body">Use prefixes and suffixes to help users enter things like currencies and measurements. Do not rely on them alone because screen readers will not read them out. Make sure the label or hint text includes the unit.</p>
+        </section>
 
-        <div class="nhsw-inset-text">
-          <p class="nhsw-body">
-            Use inset text to help users identify and understand important content on the page, even if they do not read the whole page.
-          </p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Input with prefix</h2>
+          <p class="nhsw-body">Use a prefix for units that come before the value, such as a currency symbol.</p>
 
-        <div class="nhsw-inset-text" style="max-width:18rem;">
-          <p class="nhsw-body-s">
-            Use inset text to help users identify and understand important content on the page.
-          </p>
-        </div>
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="cost">Cost, in pounds</label>
+            <div class="nhsw-hint" id="cost-hint">Enter the amount in pounds.</div>
+            <div class="nhsw-input-wrapper">
+              <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+              <input class="nhsw-input nhsw-input--width-5" id="cost" name="cost" type="text" inputmode="decimal" spellcheck="false" aria-describedby="cost-hint">
+            </div>
+          </div>
+        </section>
 
-        <h2 class="nhsw-h2">Colour variants</h2>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Input with suffix</h2>
+          <p class="nhsw-body">Use a suffix for units that come after the value, such as a weight or measurement.</p>
 
-        <div class="nhsw-inset-text nhsw-inset-text--navy">
-          <p class="nhsw-body">Navy variant â€” <code>nhsw-inset-text--navy</code></p>
-        </div>
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="weight">Weight, in kilograms</label>
+            <div class="nhsw-input-wrapper">
+              <input class="nhsw-input nhsw-input--width-5" id="weight" name="weight" type="text" inputmode="decimal" spellcheck="false">
+              <div class="nhsw-input-wrapper__suffix" aria-hidden="true">kg</div>
+            </div>
+          </div>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--blue">
-          <p class="nhsw-body">Blue variant â€” <code>nhsw-inset-text--blue</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Input with both prefix and suffix</h2>
 
-        <div class="nhsw-inset-text nhsw-inset-text--grey">
-          <p class="nhsw-body">Grey variant â€” <code>nhsw-inset-text--grey</code></p>
-        </div>
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="cost-per-item">Cost per item, in pounds</label>
+            <div class="nhsw-input-wrapper">
+              <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+              <input class="nhsw-input nhsw-input--width-5" id="cost-per-item" name="cost-per-item" type="text" inputmode="decimal" spellcheck="false">
+              <div class="nhsw-input-wrapper__suffix" aria-hidden="true">per item</div>
+            </div>
+          </div>
+        </section>
 
-        <div class="nhsw-inset-text nhsw-inset-text--red">
-          <p class="nhsw-body">Red variant â€” <code>nhsw-inset-text--red</code></p>
-        </div>
+        <section class="preview-section">
+          <h2 class="nhsw-h2">With error state</h2>
 
-        <div class="nhsw-inset-text nhsw-inset-text--yellow">
-          <p class="nhsw-body">Yellow variant â€” <code>nhsw-inset-text--yellow</code></p>
-        </div>
+          <div class="nhsw-form-group nhsw-form-group--error">
+            <label class="nhsw-label" for="cost-error">Cost, in pounds</label>
+            <span class="nhsw-error-message" id="cost-error-msg">
+              <span class="nhsw-visually-hidden">Error:</span> Enter the cost in pounds
+            </span>
+            <div class="nhsw-input-wrapper">
+              <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+              <input class="nhsw-input nhsw-input--width-5 nhsw-is-invalid" id="cost-error" name="cost-error" type="text" inputmode="decimal" spellcheck="false" aria-invalid="true" aria-describedby="cost-error-msg">
+            </div>
+          </div>
+        </section>
 
       </div>
 

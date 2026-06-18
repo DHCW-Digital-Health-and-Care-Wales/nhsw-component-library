@@ -1,0 +1,51 @@
+@use "../../tokens/colours" as c;
+
+$nhsw-colour-notification-blue: c.$nhsw-colour-link;
+$nhsw-colour-notification-blue-border: #85b1d9;
+$nhsw-colour-notification-success: #00703c;
+$nhsw-colour-notification-success-border: #4da381;
+
+.nhsw-notification-banner {
+  margin-bottom: 32px;
+  border: 4px solid $nhsw-colour-notification-blue-border;
+  background-color: c.$nhsw-colour-background-white;
+
+  &__header {
+    padding: 8px 16px;
+    background-color: $nhsw-colour-notification-blue;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    color: c.$nhsw-colour-text-exceptional;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__content {
+    padding: 16px;
+    color: c.$nhsw-colour-text-primary;
+  }
+
+  &__heading {
+    margin: 0 0 8px;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__link {
+    color: c.$nhsw-colour-link;
+    font-weight: 700;
+  }
+
+  &--success {
+    border-color: $nhsw-colour-notification-success-border;
+
+    .nhsw-notification-banner__header {
+      background-color: $nhsw-colour-notification-success;
+    }
+  }
+}

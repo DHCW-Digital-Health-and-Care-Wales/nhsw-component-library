@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radios – NHSW Design System</title>
+  <link rel="stylesheet" href="../dist/nhsw.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
+</head>
+<body>
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="../index.html">
+          <span class="nhsw-site-header__logo">
+            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+          <span class="nhsw-site-header__title">Design system</span>
+        </a>
+        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
+      <ul class="nhsw-site-header__nav-list">
+        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
+        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page">Components</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
+        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-width-container">
+      <div class="nhsw-layout">
+
+      <nav class="nhsw-side-nav" aria-label="Section navigation">
+        <ul class="nhsw-side-nav__list">
+          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html">Action link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
+          <li><a class="nhsw-side-nav__link" href="../components/buttons.html">Buttons</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Cards</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/details.html">Details</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
+          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/radios.html" aria-current="page">Radios</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
+          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html">Summary list</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/table.html">Table</a></li>
+          <li><a class="nhsw-side-nav__link" href="../content/tag.html">Tag</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
+          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
+          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
+        </ul>
+      </nav>
+
+      <div class="nhsw-layout__content">
+
+        <section class="preview-section">
+          <h1 class="nhsw-h1">Radios</h1>
+          <p class="nhsw-body">Use radios when users can only select one option from a list.</p>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Standard radios</h2>
+          <p class="nhsw-body">Use radios when you want users to select a single answer from a list of options.</p>
+
+          <div class="nhsw-form-group">
+            <fieldset class="nhsw-fieldset" aria-describedby="changed-name-hint">
+              <legend class="nhsw-fieldset__legend">
+                <h3 class="nhsw-h3">Have you changed your name?</h3>
+              </legend>
+              <div class="nhsw-hint" id="changed-name-hint">This includes a change of name by deed poll.</div>
+              <div class="nhsw-radios">
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes">
+                  <label class="nhsw-label nhsw-radios__label" for="changed-name-1">Yes</label>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                  <label class="nhsw-label nhsw-radios__label" for="changed-name-2">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Inline radios</h2>
+          <p class="nhsw-body">Use inline radios when there are only 2 options to choose from, such as yes or no.</p>
+
+          <div class="nhsw-form-group">
+            <fieldset class="nhsw-fieldset">
+              <legend class="nhsw-fieldset__legend">
+                <h3 class="nhsw-h3">Have you changed your name?</h3>
+              </legend>
+              <div class="nhsw-radios nhsw-radios--inline">
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="inline-radio-1" name="inline-radio" type="radio" value="yes">
+                  <label class="nhsw-label nhsw-radios__label" for="inline-radio-1">Yes</label>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="inline-radio-2" name="inline-radio" type="radio" value="no">
+                  <label class="nhsw-label nhsw-radios__label" for="inline-radio-2">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Radios with hints</h2>
+          <p class="nhsw-body">You can add hints to radio items to provide additional information about the options.</p>
+
+          <div class="nhsw-form-group">
+            <fieldset class="nhsw-fieldset" aria-describedby="contact-hint">
+              <legend class="nhsw-fieldset__legend">
+                <h3 class="nhsw-h3">How do you want to be contacted?</h3>
+              </legend>
+              <div class="nhsw-hint" id="contact-hint">Select one option.</div>
+              <div class="nhsw-radios">
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-describedby="contact-1-hint">
+                  <label class="nhsw-label nhsw-radios__label" for="contact-1">Email</label>
+                  <div class="nhsw-hint nhsw-radios__hint" id="contact-1-hint">We will send you a confirmation email.</div>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-describedby="contact-2-hint">
+                  <label class="nhsw-label nhsw-radios__label" for="contact-2">Phone</label>
+                  <div class="nhsw-hint nhsw-radios__hint" id="contact-2-hint">We will call you between 9am and 5pm.</div>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-describedby="contact-3-hint">
+                  <label class="nhsw-label nhsw-radios__label" for="contact-3">Text message</label>
+                  <div class="nhsw-hint nhsw-radios__hint" id="contact-3-hint">We will text you a confirmation code.</div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Radios with a divider</h2>
+          <p class="nhsw-body">If one or more options is different from the others, you can separate them using a divider such as "or".</p>
+
+          <div class="nhsw-form-group">
+            <fieldset class="nhsw-fieldset">
+              <legend class="nhsw-fieldset__legend">
+                <h3 class="nhsw-h3">Where do you live?</h3>
+              </legend>
+              <div class="nhsw-radios">
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="where-1" name="where" type="radio" value="england">
+                  <label class="nhsw-label nhsw-radios__label" for="where-1">England</label>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="where-2" name="where" type="radio" value="scotland">
+                  <label class="nhsw-label nhsw-radios__label" for="where-2">Scotland</label>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="where-3" name="where" type="radio" value="wales">
+                  <label class="nhsw-label nhsw-radios__label" for="where-3">Wales</label>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="where-4" name="where" type="radio" value="northern-ireland">
+                  <label class="nhsw-label nhsw-radios__label" for="where-4">Northern Ireland</label>
+                </div>
+                <div class="nhsw-radios__divider">or</div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="where-5" name="where" type="radio" value="abroad">
+                  <label class="nhsw-label nhsw-radios__label" for="where-5">I am a British citizen living abroad</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Conditional radios (reveal)</h2>
+          <p class="nhsw-body">You can reveal additional questions when a user selects a particular radio option.</p>
+
+          <div class="nhsw-form-group">
+            <fieldset class="nhsw-fieldset" aria-describedby="contact-pref-hint">
+              <legend class="nhsw-fieldset__legend">
+                <h3 class="nhsw-h3">How would you prefer to be contacted?</h3>
+              </legend>
+              <div class="nhsw-hint" id="contact-pref-hint">Select one option.</div>
+              <div class="nhsw-radios">
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="contact-pref-1" name="contact-pref" type="radio" value="email" data-aria-controls="conditional-contact-pref-1">
+                  <label class="nhsw-label nhsw-radios__label" for="contact-pref-1">Email</label>
+                </div>
+                <div class="nhsw-radios__conditional" id="conditional-contact-pref-1">
+                  <div class="nhsw-form-group">
+                    <label class="nhsw-label" for="contact-pref-email">Email address</label>
+                    <input class="nhsw-input nhsw-input--two-thirds" id="contact-pref-email" name="contact-pref-email" type="email">
+                  </div>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="contact-pref-2" name="contact-pref" type="radio" value="phone" data-aria-controls="conditional-contact-pref-2">
+                  <label class="nhsw-label nhsw-radios__label" for="contact-pref-2">Phone</label>
+                </div>
+                <div class="nhsw-radios__conditional nhsw-radios__conditional--hidden" id="conditional-contact-pref-2">
+                  <div class="nhsw-form-group">
+                    <label class="nhsw-label" for="contact-pref-phone">Phone number</label>
+                    <input class="nhsw-input nhsw-input--two-thirds" id="contact-pref-phone" name="contact-pref-phone" type="tel">
+                  </div>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="contact-pref-3" name="contact-pref" type="radio" value="text" data-aria-controls="conditional-contact-pref-3">
+                  <label class="nhsw-label nhsw-radios__label" for="contact-pref-3">Text message</label>
+                </div>
+                <div class="nhsw-radios__conditional nhsw-radios__conditional--hidden" id="conditional-contact-pref-3">
+                  <div class="nhsw-form-group">
+                    <label class="nhsw-label" for="contact-pref-text">Mobile number</label>
+                    <input class="nhsw-input nhsw-input--two-thirds" id="contact-pref-text" name="contact-pref-text" type="tel">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2 class="nhsw-h2">Error state</h2>
+          <p class="nhsw-body">Radio groups use the form group error pattern with a red left border and an error message.</p>
+
+          <div class="nhsw-form-group nhsw-form-group--error">
+            <fieldset class="nhsw-fieldset" aria-describedby="name-change-error">
+              <legend class="nhsw-fieldset__legend">
+                <h3 class="nhsw-h3">Have you changed your name?</h3>
+              </legend>
+              <span class="nhsw-error-message" id="name-change-error">
+                <span class="nhsw-visually-hidden">Error:</span> Select yes if you have changed your name
+              </span>
+              <div class="nhsw-radios">
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="error-radio-1" name="error-radio" type="radio" value="yes" aria-invalid="true">
+                  <label class="nhsw-label nhsw-radios__label" for="error-radio-1">Yes</label>
+                </div>
+                <div class="nhsw-radios__item">
+                  <input class="nhsw-radios__input" id="error-radio-2" name="error-radio" type="radio" value="no" aria-invalid="true">
+                  <label class="nhsw-label nhsw-radios__label" for="error-radio-2">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+      </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <ul class="nhsw-site-footer__links">
+        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+      </ul>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    </div>
+  </footer>
+</body>
+</html>
