@@ -1698,7 +1698,17 @@ body {
   color: #212b32;
 }
 
+.preview-section {
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #d8dde0;
+}
+.preview-section:last-child {
+  border-bottom: none;
+}
+
 .nhsw-code-viewer {
+  margin-top: 24px;
   margin-bottom: 32px;
   border: 1px solid #d8dde0;
 }

@@ -1,6 +1,17 @@
 @use "../../tokens/colours" as c;
 
+.preview-section {
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
 .nhsw-code-viewer {
+  margin-top: 24px;
   margin-bottom: 32px;
   border: 1px solid c.$nhsw-colour-border-grey;
 
