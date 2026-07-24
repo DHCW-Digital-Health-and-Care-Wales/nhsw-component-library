@@ -31,29 +31,46 @@
 
 .nhsw-side-nav__link {
   display: block;
+  position: relative;
   padding: 1rem 1rem 1rem 1.5rem;
   border-left: 4px solid transparent;
   color: c.$nhsw-colour-link;
   font-size: t.$nhsw-font-size-body;
   font-weight: t.$nhsw-font-weight-regular;
-  line-height: t.$nhsw-line-height-body;
-  text-decoration: underline;
+  line-height: 1.4;
+  text-decoration: none;
 
   &:hover {
     color: c.$nhsw-colour-link-hover;
-    text-decoration-thickness: 3px;
+    text-decoration: none;
   }
 
   &:focus {
-    @include u.nhsw-focus-ring;
-    outline-offset: -3px;
+    outline: none;
+
+    span {
+      background-color: c.$nhsw-colour-focus;
+      color: c.$nhsw-colour-focus-text;
+      box-shadow: 0 4px 0 0 c.$nhsw-colour-focus-text;
+    }
   }
 
   &--current {
-    border-left-color: c.$nhsw-colour-link;
     color: c.$nhsw-colour-link;
     font-weight: t.$nhsw-font-weight-bold;
     text-decoration: none;
+
+    // Left indicator bar sized to text height, not full block height
+    &::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 1.75rem;
+      background-color: c.$nhsw-colour-link;
+    }
   }
 }
 

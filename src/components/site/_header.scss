@@ -91,6 +91,22 @@
   border-radius: 0.25rem 0 0 0.25rem;
   box-sizing: border-box;
   font: inherit;
+
+  &::placeholder {
+    font-size: t.$nhsw-font-size-body-small;
+  }
+
+  &:focus {
+    outline: 3px solid c.$nhsw-colour-focus;
+    outline-offset: 0;
+  }
+
+  // Remove native browser clear button on search inputs
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+    display: none;
+  }
 }
 
 .nhsw-site-header__search-button {
@@ -166,27 +182,43 @@
 }
 
 .nhsw-site-header__nav-link {
-  display: block;
+  display: inline-block;
   padding: 0.875rem 1rem;
   color: c.$nhsw-colour-link;
   font-size: t.$nhsw-font-size-body;
   font-weight: t.$nhsw-font-weight-extrabold;
-  text-decoration: underline;
+  text-decoration: none;
   white-space: nowrap;
 
   &:hover {
     color: c.$nhsw-colour-link-hover;
-    text-decoration-thickness: 3px;
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: underline;
   }
 
   &:focus {
-    @include u.nhsw-focus-ring;
-    outline-offset: -3px;
+    outline: none;
+
+    span {
+      background-color: c.$nhsw-colour-focus;
+      color: c.$nhsw-colour-focus-text;
+      text-decoration: none;
+      box-shadow: 0 4px 0 0 c.$nhsw-colour-focus-text;
+    }
   }
 
   &--current {
     border-bottom: 4px solid c.$nhsw-colour-background-blue;
     padding-bottom: calc(0.875rem - 4px);
+    color: c.$nhsw-colour-text-primary;
+    cursor: default;
+
+    &:hover {
+      color: c.$nhsw-colour-text-primary;
+    }
   }
 }
 

@@ -1939,6 +1939,7 @@ body {
 }
 .nhsw-link:hover {
   color: #003087;
+  text-decoration: none;
 }
 .nhsw-link:focus {
   outline: none;
@@ -2217,12 +2218,22 @@ body {
 }
 
 .nhsw-card {
+  position: relative;
   background-color: #ffffff;
   border: 1px solid #d8dde0;
   box-shadow: 0 4px 0 #d8dde0;
   padding: 2rem;
   height: 100%;
   box-sizing: border-box;
+}
+.nhsw-card:has(.nhsw-card__title-link:hover) {
+  border-color: #212b32;
+  box-shadow: 0 4px 0 #212b32;
+  cursor: pointer;
+}
+.nhsw-card:focus-within {
+  outline: 3px solid #ffeb3b;
+  outline-offset: 0;
 }
 
 .nhsw-card__title {
@@ -2236,13 +2247,17 @@ body {
   color: #005eb8;
   text-decoration: underline;
 }
+.nhsw-card__title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
 .nhsw-card__title-link:hover {
   color: #003087;
   text-decoration-thickness: 3px;
 }
 .nhsw-card__title-link:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
+  outline: none;
 }
 
 .nhsw-card__description {
@@ -2334,6 +2349,17 @@ body {
   box-sizing: border-box;
   font: inherit;
 }
+.nhsw-site-header__search-input::placeholder {
+  font-size: 1rem;
+}
+.nhsw-site-header__search-input:focus {
+  outline: 3px solid #ffeb3b;
+  outline-offset: 0;
+}
+.nhsw-site-header__search-input::-webkit-search-cancel-button, .nhsw-site-header__search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
 
 .nhsw-site-header__search-button {
   position: relative;
@@ -2398,26 +2424,38 @@ body {
 }
 
 .nhsw-site-header__nav-link {
-  display: block;
+  display: inline-block;
   padding: 0.875rem 1rem;
   color: #005eb8;
   font-size: 1.1875rem;
   font-weight: 800;
-  text-decoration: underline;
+  text-decoration: none;
   white-space: nowrap;
 }
 .nhsw-site-header__nav-link:hover {
   color: #003087;
-  text-decoration-thickness: 3px;
+  text-decoration: none;
+}
+.nhsw-site-header__nav-link:active {
+  text-decoration: underline;
 }
 .nhsw-site-header__nav-link:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
-  outline-offset: -3px;
+  outline: none;
+}
+.nhsw-site-header__nav-link:focus span {
+  background-color: #ffeb3b;
+  color: #0b0c0c;
+  text-decoration: none;
+  box-shadow: 0 4px 0 0 #0b0c0c;
 }
 .nhsw-site-header__nav-link--current {
   border-bottom: 4px solid #1b365d;
   padding-bottom: calc(0.875rem - 4px);
+  color: #212b32;
+  cursor: default;
+}
+.nhsw-site-header__nav-link--current:hover {
+  color: #212b32;
 }
 
 .nhsw-site-header__hero-band {
@@ -2593,28 +2631,41 @@ body {
 
 .nhsw-side-nav__link {
   display: block;
+  position: relative;
   padding: 1rem 1rem 1rem 1.5rem;
   border-left: 4px solid transparent;
   color: #005eb8;
   font-size: 1.1875rem;
   font-weight: 400;
-  line-height: 1.75rem;
-  text-decoration: underline;
+  line-height: 1.4;
+  text-decoration: none;
 }
 .nhsw-side-nav__link:hover {
   color: #003087;
-  text-decoration-thickness: 3px;
+  text-decoration: none;
 }
 .nhsw-side-nav__link:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
-  outline-offset: -3px;
+  outline: none;
+}
+.nhsw-side-nav__link:focus span {
+  background-color: #ffeb3b;
+  color: #0b0c0c;
+  box-shadow: 0 4px 0 0 #0b0c0c;
 }
 .nhsw-side-nav__link--current {
-  border-left-color: #005eb8;
   color: #005eb8;
   font-weight: 700;
   text-decoration: none;
+}
+.nhsw-side-nav__link--current::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1.75rem;
+  background-color: #005eb8;
 }
 
 .nhsw-layout {

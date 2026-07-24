@@ -1,256 +1,231 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Buttons – Components – NHSW Design System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buttons – Components – NHSW Design System</title>
 
-  <link rel="stylesheet" href="../dist/nhsw.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
+    <link rel="stylesheet" href="../dist/nhsw.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
 </head>
 
 <body>
-  <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-      <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html">
-          <span class="nhsw-site-header__logo">
-            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-          </span>
-          <span class="nhsw-site-header__title">Design system</span>
-        </a>
+    <header class="nhsw-site-header">
+        <div class="nhsw-site-header__container nhsw-site-header__container--centered">
+            <div class="nhsw-site-header__top">
+                <a class="nhsw-site-header__brand" href="../index.html">
+                    <span class="nhsw-site-header__logo">
+                        <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
+                    </span>
+                    <span class="nhsw-site-header__title">Design system</span>
+                </a>
 
-        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
-          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-        </form>
-      </div>
-    </div>
-  </header>
+                <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+                    <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
+                    <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+                    <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+                </form>
+            </div>
+        </div>
+    </header>
 
-  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
-      <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link" href="../index.html">Get started</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">DHCW service standards</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Styles</a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="./index.html" aria-current="page">Components</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Patterns</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Accessibility</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Content guide</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Community and contribution</a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#">Contact us</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
-      <div class="nhsw-layout">
-
-      <nav class="nhsw-side-nav" aria-label="Section navigation">
-        <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html">Action link</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Back link</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Breadcrumb</a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="./buttons.html" aria-current="page">Buttons</a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html">Callout</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/cards.html">Cards</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html">Checkboxes</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html">Date input</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html">Date picker</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html">Details</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Error summary</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">File upload</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Filter</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html">Inset text</a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html">Notification banner</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/pagination.html">Pagination</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/radios.html">Radios</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/select.html">Select</a></li>
-          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html">Site navigation</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html">Summary list</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/table.html">Table</a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/tag.html">Tag</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html">Text area</a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/input.html">Text input</a></li>
-          <li><a class="nhsw-side-nav__link" href="#">Warning text</a></li>
-        </ul>
-      </nav>
-
-      <div class="nhsw-layout__content">
-        <h1 class="nhsw-h1">Buttons</h1>
-        <p class="nhsw-body" style="color: #4c6272;">Updated in March 2026</p>
-        <p class="nhsw-body">Use buttons to help users carry out an action on a page like starting an application or saving their progress.</p>
-
-        <div class="nhsw-tabs" id="buttons-tabs">
-          <ul class="nhsw-tabs__list" role="tablist" aria-label="Buttons documentation">
-            <li role="presentation">
-              <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-overview" id="tab-overview">Overview</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-how-to-use" id="tab-how-to-use">Button variants: how to use</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-examples" id="tab-examples">Examples</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-accessibility" id="tab-accessibility">Accessibility</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-contribute" id="tab-contribute">Get help and contribute</button>
-            </li>
-          </ul>
-
-          <div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
-            <h2 class="nhsw-h2">How to use buttons</h2>
-            <p class="nhsw-body">We have 5 types of buttons:</p>
-            <ul class="nhsw-body">
-              <li><a class="nhsw-link" href="#primary">primary buttons</a></li>
-              <li><a class="nhsw-link" href="#secondary">secondary buttons</a></li>
-              <li><a class="nhsw-link" href="#exception">exception buttons</a></li>
-              <li><a class="nhsw-link" href="#warning">warning buttons</a></li>
-              <li><a class="nhsw-link" href="#link">button styled as a link</a></li>
+    <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+        <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
+            <ul class="nhsw-site-header__nav-list">
+                <li><a class="nhsw-site-header__nav-link" href="../index.html"><span>Get started</span></a></li>
+                <li><a class="nhsw-site-header__nav-link" href="#"><span>Content guide</span></a></li>
+                <li><a class="nhsw-site-header__nav-link" href="#"><span>Styles</span></a></li>
+                <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="./index.html" aria-current="page"><span>Components</span></a></li>
+                <li><a class="nhsw-site-header__nav-link" href="#"><span>Patterns</span></a></li>
+                <li><a class="nhsw-site-header__nav-link" href="#"><span>Community and contribution</span></a></li>
             </ul>
-            <p class="nhsw-body">Align the primary action button to the left edge of your form. On smaller screens, such as on mobile, buttons stretch across the screen's width.</p>
+        </div>
+    </nav>
 
-            <h2 class="nhsw-h2" id="primary">Primary buttons</h2>
-            <p class="nhsw-body"><strong>When to use a primary button</strong></p>
-            <p class="nhsw-body">Use a primary button for the main call to action on a page, for example to help users start an application or save their progress. Use only 1 primary button on a page.</p>
-            <button class="nhsw-button nhsw-button--primary nhsw-button--inline">Save and continue</button>
+    <main class="nhsw-main-wrapper" id="maincontent">
+        <div class="nhsw-width-container">
+            <div class="nhsw-layout">
 
-            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
-              <div class="nhsw-code-viewer__header">
-                <div class="nhsw-code-viewer__tabs" role="tablist">
-                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-primary-html" id="cv-button-primary-html-tab">HTML</button>
-                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-primary-njk" id="cv-button-primary-njk-tab">Nunjucks</button>
-                </div>
-                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-              </div>
-              <div class="nhsw-code-viewer__panel" id="cv-button-primary-html" role="tabpanel" aria-labelledby="cv-button-primary-html-tab">
-                <pre><code>&lt;button class="nhsw-button nhsw-button--primary"&gt;Save and continue&lt;/button&gt;</code></pre>
-              </div>
-              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-primary-njk" role="tabpanel" aria-labelledby="cv-button-primary-njk-tab">
-                <pre><code>{% from "button/macro.njk" import nhswButton %}
+                <nav class="nhsw-side-nav" aria-label="Section navigation">
+                    <ul class="nhsw-side-nav__list">
+                        <li><a class="nhsw-side-nav__link" href="../actions/action-link.html"><span>Action link</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="#"><span>Back link</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="#"><span>Breadcrumb</span></a></li>
+                        <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="./buttons.html" aria-current="page"><span>Buttons</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html"><span>Callout</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/cards.html"><span>Cards</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html"><span>Checkboxes</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/date-input.html"><span>Date input</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html"><span>Date picker</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/details.html"><span>Details</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="#"><span>Error summary</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="#"><span>File upload</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="#"><span>Filter</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/inset-text.html"><span>Inset text</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html"><span>Notification banner</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/pagination.html"><span>Pagination</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/radios.html"><span>Radios</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/select.html"><span>Select</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../site/header-footer.html"><span>Site navigation</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/summary-list.html"><span>Summary list</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/table.html"><span>Table</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../content/tag.html"><span>Tag</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/textarea.html"><span>Text area</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="../forms/input.html"><span>Text input</span></a></li>
+                        <li><a class="nhsw-side-nav__link" href="#"><span>Warning text</span></a></li>
+                    </ul>
+                </nav>
+
+                <div class="nhsw-layout__content">
+                    <h1 class="nhsw-h1">Buttons</h1>
+                    <p class="nhsw-body" style="color: #4c6272;">Updated in March 2026</p>
+                    <p class="nhsw-body">Use buttons to help users carry out an action on a page like starting an application or saving their progress.</p>
+
+                    <div class="nhsw-tabs" id="buttons-tabs">
+                        <ul class="nhsw-tabs__list" role="tablist" aria-label="Buttons documentation">
+                            <li role="presentation">
+                                <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-overview" id="tab-overview">Overview</button>
+                            </li>
+                            <li role="presentation">
+                                <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-how-to-use" id="tab-how-to-use">Button variants: how to use</button>
+                            </li>
+                            <li role="presentation">
+                                <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-examples" id="tab-examples">Examples</button>
+                            </li>
+                            <li role="presentation">
+                                <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-accessibility" id="tab-accessibility">Accessibility</button>
+                            </li>
+                            <li role="presentation">
+                                <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-contribute" id="tab-contribute">Get help and contribute</button>
+                            </li>
+                        </ul>
+
+                        <div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+                            <h2 class="nhsw-h2">How to use buttons</h2>
+                            <p class="nhsw-body">We have 5 types of buttons:</p>
+                            <ul class="nhsw-body">
+                                <li><a class="nhsw-link" href="#primary">primary buttons</a></li>
+                                <li><a class="nhsw-link" href="#secondary">secondary buttons</a></li>
+                                <li><a class="nhsw-link" href="#exception">exception buttons</a></li>
+                                <li><a class="nhsw-link" href="#warning">warning buttons</a></li>
+                                <li><a class="nhsw-link" href="#link">button styled as a link</a></li>
+                            </ul>
+                            <p class="nhsw-body">Align the primary action button to the left edge of your form. On smaller screens, such as on mobile, buttons stretch across the screen's width.</p>
+
+                            <h2 class="nhsw-h2" id="primary">Primary buttons</h2>
+                            <p class="nhsw-body"><strong>When to use a primary button</strong></p>
+                            <p class="nhsw-body">Use a primary button for the main call to action on a page, for example to help users start an application or save their progress. Use only 1 primary button on a page.</p>
+                            <button class="nhsw-button nhsw-button--primary nhsw-button--inline">Save and continue</button>
+
+                            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+                                <div class="nhsw-code-viewer__header">
+                                    <div class="nhsw-code-viewer__tabs" role="tablist">
+                                        <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-primary-html" id="cv-button-primary-html-tab">HTML</button>
+                                        <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-primary-njk" id="cv-button-primary-njk-tab">Nunjucks</button>
+                                    </div>
+                                    <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+                                </div>
+                                <div class="nhsw-code-viewer__panel" id="cv-button-primary-html" role="tabpanel" aria-labelledby="cv-button-primary-html-tab">
+                                    <pre><code>&lt;button class="nhsw-button nhsw-button--primary"&gt;Save and continue&lt;/button&gt;</code></pre>
+                                </div>
+                                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-primary-njk" role="tabpanel" aria-labelledby="cv-button-primary-njk-tab">
+                                    <pre><code>{% from "button/macro.njk" import nhswButton %}
 
 {{ nhswButton({
   text: "Save and continue"
 }) }}</code></pre>
-              </div>
-            </div>
+                                </div>
+                            </div>
 
-            <h2 class="nhsw-h2" id="secondary" style="margin-top: 2rem;">Secondary buttons</h2>
-            <p class="nhsw-body"><strong>When to use a secondary button</strong></p>
-            <p class="nhsw-body">Use a secondary button for secondary actions on a page or when an action needs less prominence.</p>
-            <button class="nhsw-button nhsw-button--secondary nhsw-button--inline">Find address</button>
+                            <h2 class="nhsw-h2" id="secondary" style="margin-top: 2rem;">Secondary buttons</h2>
+                            <p class="nhsw-body"><strong>When to use a secondary button</strong></p>
+                            <p class="nhsw-body">Use a secondary button for secondary actions on a page or when an action needs less prominence.</p>
+                            <button class="nhsw-button nhsw-button--secondary nhsw-button--inline">Find address</button>
 
-            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
-              <div class="nhsw-code-viewer__header">
-                <div class="nhsw-code-viewer__tabs" role="tablist">
-                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-secondary-html" id="cv-button-secondary-html-tab">HTML</button>
-                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-secondary-njk" id="cv-button-secondary-njk-tab">Nunjucks</button>
-                </div>
-                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-              </div>
-              <div class="nhsw-code-viewer__panel" id="cv-button-secondary-html" role="tabpanel" aria-labelledby="cv-button-secondary-html-tab">
-                <pre><code>&lt;button class="nhsw-button nhsw-button--secondary"&gt;Find address&lt;/button&gt;</code></pre>
-              </div>
-              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-secondary-njk" role="tabpanel" aria-labelledby="cv-button-secondary-njk-tab">
-                <pre><code>{% from "button/macro.njk" import nhswButton %}
+                            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+                                <div class="nhsw-code-viewer__header">
+                                    <div class="nhsw-code-viewer__tabs" role="tablist">
+                                        <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-secondary-html" id="cv-button-secondary-html-tab">HTML</button>
+                                        <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-secondary-njk" id="cv-button-secondary-njk-tab">Nunjucks</button>
+                                    </div>
+                                    <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+                                </div>
+                                <div class="nhsw-code-viewer__panel" id="cv-button-secondary-html" role="tabpanel" aria-labelledby="cv-button-secondary-html-tab">
+                                    <pre><code>&lt;button class="nhsw-button nhsw-button--secondary"&gt;Find address&lt;/button&gt;</code></pre>
+                                </div>
+                                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-secondary-njk" role="tabpanel" aria-labelledby="cv-button-secondary-njk-tab">
+                                    <pre><code>{% from "button/macro.njk" import nhswButton %}
 
 {{ nhswButton({
   text: "Find address",
   classes: "nhsw-button--secondary"
 }) }}</code></pre>
-              </div>
-            </div>
+                                </div>
+                            </div>
 
-            <h2 class="nhsw-h2" id="warning" style="margin-top: 2rem;">Warning buttons</h2>
-            <p class="nhsw-body">Warning buttons are designed to make users think carefully before they use them. Only use them for actions with serious destructive consequences.</p>
-            <button class="nhsw-button nhsw-button--delete nhsw-button--inline">Delete account</button>
+                            <h2 class="nhsw-h2" id="warning" style="margin-top: 2rem;">Warning buttons</h2>
+                            <p class="nhsw-body">Warning buttons are designed to make users think carefully before they use them. Only use them for actions with serious destructive consequences.</p>
+                            <button class="nhsw-button nhsw-button--delete nhsw-button--inline">Delete account</button>
 
-            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
-              <div class="nhsw-code-viewer__header">
-                <div class="nhsw-code-viewer__tabs" role="tablist">
-                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-delete-html" id="cv-button-delete-html-tab">HTML</button>
-                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-delete-njk" id="cv-button-delete-njk-tab">Nunjucks</button>
-                </div>
-                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-              </div>
-              <div class="nhsw-code-viewer__panel" id="cv-button-delete-html" role="tabpanel" aria-labelledby="cv-button-delete-html-tab">
-                <pre><code>&lt;button class="nhsw-button nhsw-button--delete"&gt;Delete account&lt;/button&gt;</code></pre>
-              </div>
-              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-delete-njk" role="tabpanel" aria-labelledby="cv-button-delete-njk-tab">
-                <pre><code>{% from "button/macro.njk" import nhswButton %}
+                            <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
+                                <div class="nhsw-code-viewer__header">
+                                    <div class="nhsw-code-viewer__tabs" role="tablist">
+                                        <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-button-delete-html" id="cv-button-delete-html-tab">HTML</button>
+                                        <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-button-delete-njk" id="cv-button-delete-njk-tab">Nunjucks</button>
+                                    </div>
+                                    <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+                                </div>
+                                <div class="nhsw-code-viewer__panel" id="cv-button-delete-html" role="tabpanel" aria-labelledby="cv-button-delete-html-tab">
+                                    <pre><code>&lt;button class="nhsw-button nhsw-button--delete"&gt;Delete account&lt;/button&gt;</code></pre>
+                                </div>
+                                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-button-delete-njk" role="tabpanel" aria-labelledby="cv-button-delete-njk-tab">
+                                    <pre><code>{% from "button/macro.njk" import nhswButton %}
 
 {{ nhswButton({
   text: "Delete account",
   classes: "nhsw-button--delete"
 }) }}</code></pre>
-              </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+                            <h2 class="nhsw-h2">Button variants: how to use</h2>
+                            <p class="nhsw-body">Detailed guidance on each button variant and when to use them.</p>
+                        </div>
+
+                        <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+                            <h2 class="nhsw-h2">Examples</h2>
+                            <p class="nhsw-body">Coded examples of all button variants.</p>
+                        </div>
+
+                        <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+                            <h2 class="nhsw-h2">Accessibility</h2>
+                            <p class="nhsw-body">Buttons must have a visible label and must not rely on colour alone to communicate their purpose. Ensure sufficient colour contrast between button background and text.</p>
+                        </div>
+
+                        <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-contribute" role="tabpanel" aria-labelledby="tab-contribute">
+                            <h2 class="nhsw-h2">Get help and contribute</h2>
+                            <p class="nhsw-body">If you have questions about this component or want to suggest an improvement, contact the DHCW design system team.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-            <h2 class="nhsw-h2">Button variants: how to use</h2>
-            <p class="nhsw-body">Detailed guidance on each button variant and when to use them.</p>
-          </div>
-
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
-            <h2 class="nhsw-h2">Examples</h2>
-            <p class="nhsw-body">Coded examples of all button variants.</p>
-          </div>
-
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-            <h2 class="nhsw-h2">Accessibility</h2>
-            <p class="nhsw-body">Buttons must have a visible label and must not rely on colour alone to communicate their purpose. Ensure sufficient colour contrast between button background and text.</p>
-          </div>
-
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-contribute" role="tabpanel" aria-labelledby="tab-contribute">
-            <h2 class="nhsw-h2">Get help and contribute</h2>
-            <p class="nhsw-body">If you have questions about this component or want to suggest an improvement, contact the DHCW design system team.</p>
-          </div>
         </div>
-      </div>
+    </main>
 
-      </div>
-    </div>
-  </main>
+    <footer class="nhsw-site-footer">
+        <div class="nhsw-site-footer__container">
+            <ul class="nhsw-site-footer__links">
+                <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+                <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+            </ul>
+            <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+        </div>
+    </footer>
 
-  <footer class="nhsw-site-footer">
-    <div class="nhsw-site-footer__container">
-      <ul class="nhsw-site-footer__links">
-        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-      </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
-    </div>
-  </footer>
-
-  <script src="../assets/nhsw-docs.js"></script>
-  <script>
-    document.querySelectorAll('.nhsw-tabs').forEach(function(tabGroup) {
-      var tabs = tabGroup.querySelectorAll('.nhsw-tabs__tab');
-      var panels = tabGroup.querySelectorAll('.nhsw-tabs__panel');
-
-      tabs.forEach(function(tab) {
-        tab.addEventListener('click', function() {
-          tabs.forEach(function(t) {
-            t.classList.remove('nhsw-tabs__tab--selected');
-            t.setAttribute('aria-selected', 'false');
-          });
-          panels.forEach(function(p) {
-            p.classList.add('nhsw-tabs__panel--hidden');
-          });
-
-          tab.classList.add('nhsw-tabs__tab--selected');
-          tab.setAttribute('aria-selected', 'true');
-          tabGroup.querySelector('#' + tab.getAttribute('aria-controls')).classList.remove('nhsw-tabs__panel--hidden');
-        });
-      });
-    });
-  </script>
+    <script src="../assets/nhsw-docs.js"></script>
 </body>
 </html>

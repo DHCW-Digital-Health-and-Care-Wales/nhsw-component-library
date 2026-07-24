@@ -61,4 +61,25 @@
       });
     }
   });
+
+    document.querySelectorAll('.nhsw-tabs').forEach(function (tabGroup) {
+        var tabs = tabGroup.querySelectorAll('.nhsw-tabs__tab');
+        var panels = tabGroup.querySelectorAll('.nhsw-tabs__panel');
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                tabs.forEach(function (t) {
+                    t.classList.remove('nhsw-tabs__tab--selected');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                panels.forEach(function (p) {
+                    p.classList.add('nhsw-tabs__panel--hidden');
+                });
+
+                tab.classList.add('nhsw-tabs__tab--selected');
+                tab.setAttribute('aria-selected', 'true');
+                tabGroup.querySelector('#' + tab.getAttribute('aria-controls')).classList.remove('nhsw-tabs__panel--hidden');
+            });
+        });
+    });
 }());

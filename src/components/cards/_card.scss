@@ -3,12 +3,24 @@
 @use "../../utilities/focus-ring" as u;
 
 .nhsw-card {
+  position: relative;
   background-color: c.$nhsw-colour-background-white;
   border: 1px solid c.$nhsw-colour-border-grey;
   box-shadow: 0 4px 0 c.$nhsw-colour-border-grey;
   padding: 2rem;
   height: 100%;
   box-sizing: border-box;
+
+  &:has(.nhsw-card__title-link:hover) {
+    border-color: c.$nhsw-colour-border-primary;
+    box-shadow: 0 4px 0 c.$nhsw-colour-border-primary;
+    cursor: pointer;
+  }
+
+  &:focus-within {
+    outline: 3px solid c.$nhsw-colour-focus;
+    outline-offset: 0;
+  }
 }
 
 .nhsw-card__title {
@@ -22,13 +34,19 @@
   color: c.$nhsw-colour-link;
   text-decoration: underline;
 
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
   &:hover {
     color: c.$nhsw-colour-link-hover;
     text-decoration-thickness: 3px;
   }
 
   &:focus {
-    @include u.nhsw-focus-ring;
+    outline: none;
   }
 }
 
