@@ -338,3 +338,17 @@ npm.cmd run watch:css
 Use 
 pm.cmd in PowerShell if 
 pm.ps1 is blocked by execution policy.
+
+## Preview site (Jekyll)
+
+The docs/preview site under `preview/` is built with Jekyll (source: `preview/`, output: `_site/`). Layouts, includes and data live under `preview/_layouts`, `preview/_includes` and `preview/_data`; every page is a normal file with front matter.
+
+Install Ruby 2.7+ (the system Ruby on some machines is too old) and Bundler, then:
+
+```bash
+bundle install
+npm run build:css   # regenerates preview/dist/nhsw.css — Jekyll treats it as a static asset
+bundle exec jekyll serve
+```
+
+The CSS build is a separate manual step from the Jekyll build (same as CI) — if styles look missing locally, run `npm run build:css` first.

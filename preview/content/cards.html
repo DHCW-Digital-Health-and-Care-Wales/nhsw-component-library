@@ -1,198 +1,91 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cards – NHSW Design System</title>
-  <link rel="stylesheet" href="../dist/nhsw.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
-</head>
-<body>
-  <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-      <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html">
-          <span class="nhsw-site-header__logo">
-            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-          </span>
-          <span class="nhsw-site-header__title">Design system</span>
-        </a>
-        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
-          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-        </form>
-      </div>
-    </div>
-  </header>
+---
+layout: simple
+title: Cards
+---
+<h1 class="nhsw-h1">Cards</h1>
+<p class="nhsw-body">Use cards to display a summary of content and link users to more detail.</p>
 
-  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
-      <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link" href="../index.html"><span>Get started</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Content guide</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Styles</span></a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html"><span>Components</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Patterns</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Community and contribution</span></a></li>
-      </ul>
-    </div>
-  </nav>
+<section class="preview-section">
+  <h2 class="nhsw-h2">Basic card</h2>
+  <p class="nhsw-body">A simple card with a title and description.</p>
 
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
-      <div class="nhsw-layout">
+  <div class="nhsw-card">
+    <h3 class="nhsw-card__title">Card title</h3>
+    <p class="nhsw-card__description">Card description text. Use this to summarise the content that the card links to.</p>
+  </div>
 
-      <nav class="nhsw-side-nav" aria-label="Section navigation">
-        <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html"><span>Action link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Back link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Breadcrumb</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../components/buttons.html"><span>Buttons</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html"><span>Callout</span></a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/cards.html" aria-current="page"><span>Cards</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html"><span>Checkboxes</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html"><span>Date input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html"><span>Date picker</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html"><span>Details</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Error summary</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>File upload</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Filter</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html"><span>Inset text</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html"><span>Notification banner</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/pagination.html"><span>Pagination</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/radios.html"><span>Radios</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/select.html"><span>Select</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html"><span>Site navigation</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html"><span>Summary list</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/table.html"><span>Table</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/tag.html"><span>Tag</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html"><span>Text area</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/input.html"><span>Text input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Warning text</span></a></li>
-        </ul>
-      </nav>
-
-      <div class="nhsw-layout__content">
-
-        <h1 class="nhsw-h1">Cards</h1>
-        <p class="nhsw-body">Use cards to display a summary of content and link users to more detail.</p>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Basic card</h2>
-          <p class="nhsw-body">A simple card with a title and description.</p>
-
-          <div class="nhsw-card">
-            <h3 class="nhsw-card__title">Card title</h3>
-            <p class="nhsw-card__description">Card description text. Use this to summarise the content that the card links to.</p>
-          </div>
-
-          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
-            <div class="nhsw-code-viewer__header">
-              <div class="nhsw-code-viewer__tabs" role="tablist">
-                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-card-basic-html" id="cv-card-basic-html-tab">HTML</button>
-                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-card-basic-njk" id="cv-card-basic-njk-tab">Nunjucks</button>
-              </div>
-              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-            </div>
-            <div class="nhsw-code-viewer__panel" id="cv-card-basic-html" role="tabpanel" aria-labelledby="cv-card-basic-html-tab">
-              <pre><code>&lt;div class="nhsw-card"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
   &lt;h3 class="nhsw-card__title"&gt;Card title&lt;/h3&gt;
   &lt;p class="nhsw-card__description"&gt;Card description text.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-card-basic-njk" role="tabpanel" aria-labelledby="cv-card-basic-njk-tab">
-              <pre><code>{% from "card/macro.njk" import nhswCard %}
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "card/macro.njk" import nhswCard %}
 
 {{ nhswCard({
   title: "Card title",
   description: "Card description text."
-}) }}</code></pre>
-            </div>
-          </div>
-        </section>
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="card-basic" html=html_sample njk=njk_sample %}
+</section>
 
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Card with link</h2>
-          <p class="nhsw-body">Make the card title a link to direct users to the related page.</p>
+<section class="preview-section">
+  <h2 class="nhsw-h2">Card with link</h2>
+  <p class="nhsw-body">Make the card title a link to direct users to the related page.</p>
 
-          <div class="nhsw-card">
-            <h3 class="nhsw-card__title">
-              <a class="nhsw-card__title-link" href="#">Find a GP</a>
-            </h3>
-            <p class="nhsw-card__description">Search for a GP surgery by name or location to find contact details and opening times.</p>
-          </div>
+  <div class="nhsw-card">
+    <h3 class="nhsw-card__title">
+      <a class="nhsw-card__title-link" href="#">Find a GP</a>
+    </h3>
+    <p class="nhsw-card__description">Search for a GP surgery by name or location to find contact details and opening times.</p>
+  </div>
 
-          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
-            <div class="nhsw-code-viewer__header">
-              <div class="nhsw-code-viewer__tabs" role="tablist">
-                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-card-link-html" id="cv-card-link-html-tab">HTML</button>
-                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-card-link-njk" id="cv-card-link-njk-tab">Nunjucks</button>
-              </div>
-              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-            </div>
-            <div class="nhsw-code-viewer__panel" id="cv-card-link-html" role="tabpanel" aria-labelledby="cv-card-link-html-tab">
-              <pre><code>&lt;div class="nhsw-card"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
   &lt;h3 class="nhsw-card__title"&gt;
     &lt;a class="nhsw-card__title-link" href="/destination"&gt;Card title&lt;/a&gt;
   &lt;/h3&gt;
   &lt;p class="nhsw-card__description"&gt;Card description text.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-card-link-njk" role="tabpanel" aria-labelledby="cv-card-link-njk-tab">
-              <pre><code>{% from "card/macro.njk" import nhswCard %}
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "card/macro.njk" import nhswCard %}
 
 {{ nhswCard({
   title: "Card title",
   titleHref: "/destination",
   description: "Card description text."
-}) }}</code></pre>
-            </div>
-          </div>
-        </section>
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="card-link" html=html_sample njk=njk_sample %}
+</section>
 
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Cards in a grid</h2>
-          <p class="nhsw-body">Use the grid system to display multiple cards in a row. Cards are equal height within a row.</p>
+<section class="preview-section">
+  <h2 class="nhsw-h2">Cards in a grid</h2>
+  <p class="nhsw-body">Use the grid system to display multiple cards in a row. Cards are equal height within a row.</p>
 
-          <div class="nhsw-grid-row">
-            <div class="nhsw-grid-column-one-third">
-              <div class="nhsw-card">
-                <h3 class="nhsw-card__title">
-                  <a class="nhsw-card__title-link" href="#">Book an appointment</a>
-                </h3>
-                <p class="nhsw-card__description">Book, change or cancel a GP, hospital or other health appointment online.</p>
-              </div>
-            </div>
-            <div class="nhsw-grid-column-one-third">
-              <div class="nhsw-card">
-                <h3 class="nhsw-card__title">
-                  <a class="nhsw-card__title-link" href="#">Order a repeat prescription</a>
-                </h3>
-                <p class="nhsw-card__description">Request repeat prescriptions from your GP and see your medication history.</p>
-              </div>
-            </div>
-            <div class="nhsw-grid-column-one-third">
-              <div class="nhsw-card">
-                <h3 class="nhsw-card__title">
-                  <a class="nhsw-card__title-link" href="#">View your health record</a>
-                </h3>
-                <p class="nhsw-card__description">Access your GP health record, including allergies, medications and test results.</p>
-              </div>
-            </div>
-          </div>
+  <div class="nhsw-grid-row">
+    <div class="nhsw-grid-column-one-third">
+      <div class="nhsw-card">
+        <h3 class="nhsw-card__title">
+          <a class="nhsw-card__title-link" href="#">Book an appointment</a>
+        </h3>
+        <p class="nhsw-card__description">Book, change or cancel a GP, hospital or other health appointment online.</p>
+      </div>
+    </div>
+    <div class="nhsw-grid-column-one-third">
+      <div class="nhsw-card">
+        <h3 class="nhsw-card__title">
+          <a class="nhsw-card__title-link" href="#">Order a repeat prescription</a>
+        </h3>
+        <p class="nhsw-card__description">Request repeat prescriptions from your GP and see your medication history.</p>
+      </div>
+    </div>
+    <div class="nhsw-grid-column-one-third">
+      <div class="nhsw-card">
+        <h3 class="nhsw-card__title">
+          <a class="nhsw-card__title-link" href="#">View your health record</a>
+        </h3>
+        <p class="nhsw-card__description">Access your GP health record, including allergies, medications and test results.</p>
+      </div>
+    </div>
+  </div>
 
-          <div class="nhsw-code-viewer" data-module="nhsw-code-viewer">
-            <div class="nhsw-code-viewer__header">
-              <div class="nhsw-code-viewer__tabs" role="tablist">
-                <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-card-grid-html" id="cv-card-grid-html-tab">HTML</button>
-                <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-card-grid-njk" id="cv-card-grid-njk-tab">Nunjucks</button>
-              </div>
-              <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-            </div>
-            <div class="nhsw-code-viewer__panel" id="cv-card-grid-html" role="tabpanel" aria-labelledby="cv-card-grid-html-tab">
-              <pre><code>&lt;div class="nhsw-grid-row"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-grid-row"&gt;
   &lt;div class="nhsw-grid-column-one-third"&gt;
     &lt;div class="nhsw-card"&gt;
       &lt;h3 class="nhsw-card__title"&gt;
@@ -217,10 +110,8 @@
       &lt;p class="nhsw-card__description"&gt;Description text.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-            <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-card-grid-njk" role="tabpanel" aria-labelledby="cv-card-grid-njk-tab">
-              <pre><code>{% from "card/macro.njk" import nhswCard %}
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "card/macro.njk" import nhswCard %}
 
 &lt;div class="nhsw-grid-row"&gt;
   {% for card in cards %}
@@ -232,27 +123,6 @@
     }) }}
   &lt;/div&gt;
   {% endfor %}
-&lt;/div&gt;</code></pre>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      </div>
-    </div>
-  </main>
-
-  <footer class="nhsw-site-footer">
-    <div class="nhsw-site-footer__container">
-      <ul class="nhsw-site-footer__links">
-        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-      </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
-    </div>
-  </footer>
-
-  <script src="../assets/nhsw-docs.js"></script>
-</body>
-</html>
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="card-grid" html=html_sample njk=njk_sample %}
+</section>

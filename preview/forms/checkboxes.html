@@ -1,254 +1,161 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Checkboxes – NHSW Design System</title>
-  <link rel="stylesheet" href="../dist/nhsw.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
-</head>
-<body>
-  <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-      <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html">
-          <span class="nhsw-site-header__logo">
-            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-          </span>
-          <span class="nhsw-site-header__title">Design system</span>
-        </a>
-        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
-          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-        </form>
+---
+layout: simple
+title: Checkboxes
+---
+<section class="preview-section">
+  <h1 class="nhsw-h1">Checkboxes</h1>
+  <p class="nhsw-body">Use checkboxes to let users select one or more options from a list.</p>
+</section>
+
+<section class="preview-section">
+  <h2 class="nhsw-h2">Standard checkboxes</h2>
+
+  <div class="nhsw-form-group">
+    <fieldset class="nhsw-fieldset" aria-describedby="nationality-hint">
+      <legend class="nhsw-fieldset__legend">
+        <h3 class="nhsw-h3">What is your nationality?</h3>
+      </legend>
+      <div class="nhsw-hint" id="nationality-hint">Select all that apply.</div>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+          <label class="nhsw-label nhsw-checkboxes__label" for="nationality-1">British</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+          <label class="nhsw-label nhsw-checkboxes__label" for="nationality-2">Irish</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+          <label class="nhsw-label nhsw-checkboxes__label" for="nationality-3">Citizen of another country</label>
+        </div>
       </div>
-    </div>
-  </header>
+    </fieldset>
+  </div>
+</section>
 
-  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
-      <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link" href="../index.html"><span>Get started</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Content guide</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Styles</span></a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page"><span>Components</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Patterns</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Community and contribution</span></a></li>
-      </ul>
-    </div>
-  </nav>
+<section class="preview-section">
+  <h2 class="nhsw-h2">Checkboxes with hints</h2>
 
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
-      <div class="nhsw-layout">
-
-      <nav class="nhsw-side-nav" aria-label="Section navigation">
-        <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html"><span>Action link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Back link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Breadcrumb</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../components/buttons.html"><span>Buttons</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html"><span>Callout</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/cards.html"><span>Cards</span></a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/checkboxes.html" aria-current="page"><span>Checkboxes</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html"><span>Date input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html"><span>Date picker</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html"><span>Details</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Error summary</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>File upload</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Filter</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html"><span>Inset text</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html"><span>Notification banner</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/pagination.html"><span>Pagination</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/radios.html"><span>Radios</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/select.html"><span>Select</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html"><span>Site navigation</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html"><span>Summary list</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/table.html"><span>Table</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/tag.html"><span>Tag</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html"><span>Text area</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/input.html"><span>Text input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Warning text</span></a></li>
-        </ul>
-      </nav>
-
-      <div class="nhsw-layout__content">
-
-        <section class="preview-section">
-          <h1 class="nhsw-h1">Checkboxes</h1>
-          <p class="nhsw-body">Use checkboxes to let users select one or more options from a list.</p>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Standard checkboxes</h2>
-
-          <div class="nhsw-form-group">
-            <fieldset class="nhsw-fieldset" aria-describedby="nationality-hint">
-              <legend class="nhsw-fieldset__legend">
-                <h3 class="nhsw-h3">What is your nationality?</h3>
-              </legend>
-              <div class="nhsw-hint" id="nationality-hint">Select all that apply.</div>
-              <div class="nhsw-checkboxes">
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="nationality-1">British</label>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="nationality-2">Irish</label>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="nationality-3">Citizen of another country</label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Checkboxes with hints</h2>
-
-          <div class="nhsw-form-group">
-            <fieldset class="nhsw-fieldset" aria-describedby="waste-hint">
-              <legend class="nhsw-fieldset__legend">
-                <h3 class="nhsw-h3">Which types of waste do you transport?</h3>
-              </legend>
-              <div class="nhsw-hint" id="waste-hint">Select all that apply.</div>
-              <div class="nhsw-checkboxes">
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal" aria-describedby="waste-1-hint">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="waste-1">Waste from animal carcasses</label>
-                  <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-1-hint">Includes all fallen stock.</div>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines" aria-describedby="waste-2-hint">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="waste-2">Waste from mines or quarries</label>
-                  <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-2-hint">Rock,ite orite byproducts.</div>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm" aria-describedby="waste-3-hint">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="waste-3">Farm or agricultural waste</label>
-                  <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-3-hint">Excludes waste from mines and quarries.</div>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Checkboxes with "none" option</h2>
-          <p class="nhsw-body">Use the divider and an exclusive "none" option when appropriate.</p>
-
-          <div class="nhsw-form-group">
-            <fieldset class="nhsw-fieldset">
-              <legend class="nhsw-fieldset__legend">
-                <h3 class="nhsw-h3">Do you have any of these symptoms?</h3>
-              </legend>
-              <div class="nhsw-checkboxes">
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="symptoms-1" name="symptoms" type="checkbox" value="sore-throat">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1">Sore throat</label>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="symptoms-2" name="symptoms" type="checkbox" value="runny-nose">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2">Runny nose</label>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="symptoms-3" name="symptoms" type="checkbox" value="cough">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3">Cough</label>
-                </div>
-                <div class="nhsw-checkboxes__divider">or</div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive>
-                  <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none">No, I do not have any of these symptoms</label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Conditional checkboxes (reveal)</h2>
-          <p class="nhsw-body">Reveal additional content when a checkbox is selected.</p>
-
-          <div class="nhsw-form-group">
-            <fieldset class="nhsw-fieldset">
-              <legend class="nhsw-fieldset__legend">
-                <h3 class="nhsw-h3">How would you like to be contacted?</h3>
-              </legend>
-              <div class="nhsw-checkboxes">
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="cb-contact-1" name="cb-contact" type="checkbox" value="email" data-aria-controls="conditional-cb-1">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact-1">Email</label>
-                </div>
-                <div class="nhsw-checkboxes__conditional" id="conditional-cb-1">
-                  <div class="nhsw-form-group">
-                    <label class="nhsw-label" for="cb-email">Email address</label>
-                    <input class="nhsw-input nhsw-input--two-thirds" id="cb-email" name="cb-email" type="email">
-                  </div>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="cb-contact-2" name="cb-contact" type="checkbox" value="phone" data-aria-controls="conditional-cb-2">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact-2">Phone</label>
-                </div>
-                <div class="nhsw-checkboxes__conditional nhsw-checkboxes__conditional--hidden" id="conditional-cb-2">
-                  <div class="nhsw-form-group">
-                    <label class="nhsw-label" for="cb-phone">Phone number</label>
-                    <input class="nhsw-input nhsw-input--two-thirds" id="cb-phone" name="cb-phone" type="tel">
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Error state</h2>
-
-          <div class="nhsw-form-group nhsw-form-group--error">
-            <fieldset class="nhsw-fieldset" aria-describedby="nationality-error-error">
-              <legend class="nhsw-fieldset__legend">
-                <h3 class="nhsw-h3">What is your nationality?</h3>
-              </legend>
-              <span class="nhsw-error-message" id="nationality-error-error">
-                <span class="nhsw-visually-hidden">Error:</span> Select your nationality
-              </span>
-              <div class="nhsw-checkboxes">
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="nat-err-1" name="nat-err" type="checkbox" value="british" aria-invalid="true">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-1">British</label>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="nat-err-2" name="nat-err" type="checkbox" value="irish" aria-invalid="true">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-2">Irish</label>
-                </div>
-                <div class="nhsw-checkboxes__item">
-                  <input class="nhsw-checkboxes__input" id="nat-err-3" name="nat-err" type="checkbox" value="other" aria-invalid="true">
-                  <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-3">Citizen of another country</label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </section>
-
+  <div class="nhsw-form-group">
+    <fieldset class="nhsw-fieldset" aria-describedby="waste-hint">
+      <legend class="nhsw-fieldset__legend">
+        <h3 class="nhsw-h3">Which types of waste do you transport?</h3>
+      </legend>
+      <div class="nhsw-hint" id="waste-hint">Select all that apply.</div>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal" aria-describedby="waste-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="waste-1">Waste from animal carcasses</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-1-hint">Includes all fallen stock.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines" aria-describedby="waste-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="waste-2">Waste from mines or quarries</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-2-hint">Rock,ite orite byproducts.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm" aria-describedby="waste-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="waste-3">Farm or agricultural waste</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-3-hint">Excludes waste from mines and quarries.</div>
+        </div>
       </div>
+    </fieldset>
+  </div>
+</section>
 
+<section class="preview-section">
+  <h2 class="nhsw-h2">Checkboxes with "none" option</h2>
+  <p class="nhsw-body">Use the divider and an exclusive "none" option when appropriate.</p>
+
+  <div class="nhsw-form-group">
+    <fieldset class="nhsw-fieldset">
+      <legend class="nhsw-fieldset__legend">
+        <h3 class="nhsw-h3">Do you have any of these symptoms?</h3>
+      </legend>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="symptoms-1" name="symptoms" type="checkbox" value="sore-throat">
+          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1">Sore throat</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="symptoms-2" name="symptoms" type="checkbox" value="runny-nose">
+          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2">Runny nose</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="symptoms-3" name="symptoms" type="checkbox" value="cough">
+          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3">Cough</label>
+        </div>
+        <div class="nhsw-checkboxes__divider">or</div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive>
+          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none">No, I do not have any of these symptoms</label>
+        </div>
       </div>
-    </div>
-  </main>
+    </fieldset>
+  </div>
+</section>
 
-  <footer class="nhsw-site-footer">
-    <div class="nhsw-site-footer__container">
-      <ul class="nhsw-site-footer__links">
-        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-      </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
-    </div>
-  </footer>
-</body>
-</html>
+<section class="preview-section">
+  <h2 class="nhsw-h2">Conditional checkboxes (reveal)</h2>
+  <p class="nhsw-body">Reveal additional content when a checkbox is selected.</p>
 
+  <div class="nhsw-form-group">
+    <fieldset class="nhsw-fieldset">
+      <legend class="nhsw-fieldset__legend">
+        <h3 class="nhsw-h3">How would you like to be contacted?</h3>
+      </legend>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cb-contact-1" name="cb-contact" type="checkbox" value="email" data-aria-controls="conditional-cb-1">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact-1">Email</label>
+        </div>
+        <div class="nhsw-checkboxes__conditional" id="conditional-cb-1">
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="cb-email">Email address</label>
+            <input class="nhsw-input nhsw-input--two-thirds" id="cb-email" name="cb-email" type="email">
+          </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cb-contact-2" name="cb-contact" type="checkbox" value="phone" data-aria-controls="conditional-cb-2">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact-2">Phone</label>
+        </div>
+        <div class="nhsw-checkboxes__conditional nhsw-checkboxes__conditional--hidden" id="conditional-cb-2">
+          <div class="nhsw-form-group">
+            <label class="nhsw-label" for="cb-phone">Phone number</label>
+            <input class="nhsw-input nhsw-input--two-thirds" id="cb-phone" name="cb-phone" type="tel">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</section>
+
+<section class="preview-section">
+  <h2 class="nhsw-h2">Error state</h2>
+
+  <div class="nhsw-form-group nhsw-form-group--error">
+    <fieldset class="nhsw-fieldset" aria-describedby="nationality-error-error">
+      <legend class="nhsw-fieldset__legend">
+        <h3 class="nhsw-h3">What is your nationality?</h3>
+      </legend>
+      <span class="nhsw-error-message" id="nationality-error-error">
+        <span class="nhsw-visually-hidden">Error:</span> Select your nationality
+      </span>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="nat-err-1" name="nat-err" type="checkbox" value="british" aria-invalid="true">
+          <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-1">British</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="nat-err-2" name="nat-err" type="checkbox" value="irish" aria-invalid="true">
+          <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-2">Irish</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="nat-err-3" name="nat-err" type="checkbox" value="other" aria-invalid="true">
+          <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-3">Citizen of another country</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</section>

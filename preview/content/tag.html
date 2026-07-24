@@ -1,181 +1,88 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tag – NHSW Design System</title>
-  <link rel="stylesheet" href="../dist/nhsw.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
-</head>
-<body>
-  <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-      <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html">
-          <span class="nhsw-site-header__logo">
-            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-          </span>
-          <span class="nhsw-site-header__title">Design system</span>
-        </a>
-        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
-          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-        </form>
-      </div>
+---
+layout: simple
+title: Tag
+---
+<section class="preview-section">
+  <h1 class="nhsw-h1">Tag</h1>
+  <p class="nhsw-body">Use the tag component to show users the status of something.</p>
+</section>
+
+<section class="preview-section">
+  <h2 class="nhsw-h2">Default tag</h2>
+  <p class="nhsw-body">The default tag uses the primary navy background.</p>
+  <p class="nhsw-body"><strong class="nhsw-tag">Active</strong></p>
+</section>
+
+<section class="preview-section">
+  <h2 class="nhsw-h2">Colour variants</h2>
+  <p class="nhsw-body">Use tag colours to convey meaning. Use adjectives rather than verbs for the labels.</p>
+
+  <table class="nhsw-body" role="presentation">
+    <tbody>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--white">Started</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--white</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--grey</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--green">New</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--green</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--aqua-green</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--blue</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--purple</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--pink</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--red</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--orange</td>
+      </tr>
+      <tr>
+        <td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td>
+        <td class="nhsw-body-s">nhsw-tag--yellow</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="preview-section">
+  <h2 class="nhsw-h2">Tags in context</h2>
+  <p class="nhsw-body">Tags work well alongside summary lists to show the status of items.</p>
+
+  <dl class="nhsw-summary-list">
+    <div class="nhsw-summary-list__row">
+      <dt class="nhsw-summary-list__key">Blood test results</dt>
+      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--green">New</strong></dd>
     </div>
-  </header>
-
-  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
-      <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link" href="../index.html"><span>Get started</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Content guide</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Styles</span></a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page"><span>Components</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Patterns</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Community and contribution</span></a></li>
-      </ul>
+    <div class="nhsw-summary-list__row">
+      <dt class="nhsw-summary-list__key">GP referral</dt>
+      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></dd>
     </div>
-  </nav>
-
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
-      <div class="nhsw-layout">
-
-      <nav class="nhsw-side-nav" aria-label="Section navigation">
-        <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html"><span>Action link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Back link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Breadcrumb</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../components/buttons.html"><span>Buttons</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html"><span>Callout</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/cards.html"><span>Cards</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html"><span>Checkboxes</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html"><span>Date input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html"><span>Date picker</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html"><span>Details</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Error summary</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>File upload</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Filter</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html"><span>Inset text</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html"><span>Notification banner</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/pagination.html"><span>Pagination</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/radios.html"><span>Radios</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/select.html"><span>Select</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html"><span>Site navigation</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html"><span>Summary list</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/table.html"><span>Table</span></a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../content/tag.html" aria-current="page"><span>Tag</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html"><span>Text area</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/input.html"><span>Text input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Warning text</span></a></li>
-        </ul>
-      </nav>
-
-      <div class="nhsw-layout__content">
-
-        <section class="preview-section">
-          <h1 class="nhsw-h1">Tag</h1>
-          <p class="nhsw-body">Use the tag component to show users the status of something.</p>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Default tag</h2>
-          <p class="nhsw-body">The default tag uses the primary navy background.</p>
-          <p class="nhsw-body"><strong class="nhsw-tag">Active</strong></p>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Colour variants</h2>
-          <p class="nhsw-body">Use tag colours to convey meaning. Use adjectives rather than verbs for the labels.</p>
-
-          <table class="nhsw-body" role="presentation">
-            <tbody>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--white">Started</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--white</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--grey</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--green">New</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--green</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--aqua-green</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--blue</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--purple</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--pink</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--red</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--orange</td>
-              </tr>
-              <tr>
-                <td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td>
-                <td class="nhsw-body-s">nhsw-tag--yellow</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Tags in context</h2>
-          <p class="nhsw-body">Tags work well alongside summary lists to show the status of items.</p>
-
-          <dl class="nhsw-summary-list">
-            <div class="nhsw-summary-list__row">
-              <dt class="nhsw-summary-list__key">Blood test results</dt>
-              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--green">New</strong></dd>
-            </div>
-            <div class="nhsw-summary-list__row">
-              <dt class="nhsw-summary-list__key">GP referral</dt>
-              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></dd>
-            </div>
-            <div class="nhsw-summary-list__row">
-              <dt class="nhsw-summary-list__key">Prescription</dt>
-              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--blue">Active</strong></dd>
-            </div>
-            <div class="nhsw-summary-list__row">
-              <dt class="nhsw-summary-list__key">Vaccination record</dt>
-              <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></dd>
-            </div>
-          </dl>
-        </section>
-
-      </div>
-
-      </div>
+    <div class="nhsw-summary-list__row">
+      <dt class="nhsw-summary-list__key">Prescription</dt>
+      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--blue">Active</strong></dd>
     </div>
-  </main>
-
-  <footer class="nhsw-site-footer">
-    <div class="nhsw-site-footer__container">
-      <ul class="nhsw-site-footer__links">
-        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-      </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    <div class="nhsw-summary-list__row">
+      <dt class="nhsw-summary-list__key">Vaccination record</dt>
+      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></dd>
     </div>
-  </footer>
-</body>
-</html>
-
+  </dl>
+</section>

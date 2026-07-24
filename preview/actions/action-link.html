@@ -1,474 +1,143 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Action link – NHSW Design System</title>
-  <link rel="stylesheet" href="../dist/nhsw.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
-</head>
-<body>
-  <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-      <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html">
-          <span class="nhsw-site-header__logo">
-            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-          </span>
-          <span class="nhsw-site-header__title">Design system</span>
-        </a>
-        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
-          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-        </form>
-      </div>
-    </div>
-  </header>
+---
+layout: component
+title: Action link
+container: fluid
+updated: March 2026
+intro: Use action links to signpost the start of a digital service.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Action link variants: How to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
+---
 
-  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
-      <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link" href="../index.html"><span>Get started</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Content guide</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Styles</span></a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html" aria-current="page"><span>Components</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Patterns</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Community and contribution</span></a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-fluid-container">
+  {% capture example_body %}{% raw %}
+    <a class="nhsw-action-link" href="#">
+      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+      </svg>
+      <span class="nhsw-action-link__text">Action link</span>
+    </a>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="al-overview" open_url="/examples/action-link-default.html" body=example_body %}
 
-      <div class="nhsw-layout">
-
-      <nav class="nhsw-side-nav" aria-label="Section navigation">
-        <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../actions/action-link.html" aria-current="page"><span>Action link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Back link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Breadcrumb</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../components/buttons.html"><span>Buttons</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html"><span>Callout</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/cards.html"><span>Cards</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html"><span>Checkboxes</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html"><span>Date input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-picker.html"><span>Date picker</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html"><span>Details</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Error summary</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>File upload</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Filter</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html"><span>Inset text</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html"><span>Notification banner</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/pagination.html"><span>Pagination</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/radios.html"><span>Radios</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/select.html"><span>Select</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html"><span>Site navigation</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html"><span>Summary list</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/table.html"><span>Table</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/tag.html"><span>Tag</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html"><span>Text area</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/input.html"><span>Text input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Warning text</span></a></li>
-        </ul>
-      </nav>
-
-      <div class="nhsw-layout__content">
-
-        <p class="nhsw-body-s">
-          <a class="nhsw-link" href="../index.html">Home</a>
-          <span aria-hidden="true"> &rsaquo; </span>
-          <a class="nhsw-link" href="../components/index.html">Components</a>
-        </p>
-
-        <h1 class="nhsw-h1">Action link</h1>
-        <p class="nhsw-body nhsw-body--secondary">Updated in March 2026</p>
-        <p class="nhsw-body">Use action links to signpost the start of a digital service.</p>
-
-        <div class="nhsw-tabs" id="action-link-tabs">
-          <ul class="nhsw-tabs__list" role="tablist" aria-label="Action link documentation">
-            <li role="presentation">
-              <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-overview" id="tab-overview">Overview</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-how-to-use" id="tab-how-to-use">Action link variants: How to use</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-examples" id="tab-examples">Examples</button>
-            </li>
-            <li role="presentation">
-              <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-accessibility" id="tab-accessibility">Accessibility</button>
-            </li>
-          </ul>
-
-          <!-- Overview -->
-          <div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
-
-            <div class="nhsw-example-preview">
-              <div class="nhsw-example-preview__toolbar">
-                <a class="nhsw-link" href="../examples/action-link-default.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-              </div>
-              <div class="nhsw-example-preview__body">
-                <a class="nhsw-action-link" href="#">
-                  <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                    <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                  </svg>
-                  <span class="nhsw-action-link__text">Action link</span>
-                </a>
-              </div>
-              <div class="nhsw-example-preview__footer">
-                <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-overview" aria-controls="code-al-overview" aria-expanded="false">HTML</button>
-                <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-              </div>
-            </div>
-
-            <div class="nhsw-code-viewer" id="code-al-overview" data-module="nhsw-code-viewer" hidden>
-              <div class="nhsw-code-viewer__header">
-                <div class="nhsw-code-viewer__tabs" role="tablist">
-                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-action-link-html" id="cv-action-link-html-tab">HTML</button>
-                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-action-link-njk" id="cv-action-link-njk-tab">Nunjucks</button>
-                </div>
-                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-              </div>
-              <div class="nhsw-code-viewer__panel" id="cv-action-link-html" role="tabpanel" aria-labelledby="cv-action-link-html-tab">
-                <pre><code>&lt;a class="nhsw-action-link" href="/apply"&gt;
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link" href="/apply"&gt;
   &lt;svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" /&gt;
   &lt;/svg&gt;
   &lt;span class="nhsw-action-link__text"&gt;Action link&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-              </div>
-              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-action-link-njk" role="tabpanel" aria-labelledby="cv-action-link-njk-tab">
-                <pre><code>{% from "action-link/macro.njk" import nhswActionLink %}
+&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "action-link/macro.njk" import nhswActionLink %}
 
 {{ nhswActionLink({
   text: "Action link",
   href: "/apply"
-}) }}</code></pre>
-              </div>
-            </div>
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="al-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-            <h2 class="nhsw-h2">Overview</h2>
+  <h2 class="nhsw-h2">Overview</h2>
 
-            <h3 class="nhsw-h3">When not to use action links</h3>
-            <p class="nhsw-body">Do not use action links in forms. Use a <a class="nhsw-link" href="../components/buttons.html">button</a> instead.</p>
-            <p class="nhsw-body">We don't use action links just to link to another page or site. If you need a link to stand out, you can use <a class="nhsw-link" href="../content/inset-text.html">inset text</a>.</p>
+  <h3 class="nhsw-h3">When not to use action links</h3>
+  <p class="nhsw-body">Do not use action links in forms. Use a <a class="nhsw-link" href="{{ '/components/buttons.html' | relative_url }}">button</a> instead.</p>
+  <p class="nhsw-body">We don't use action links just to link to another page or site. If you need a link to stand out, you can use <a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a>.</p>
 
-            <h3 class="nhsw-h3">Source</h3>
-            <p class="nhsw-body">Learn more on the <a class="nhsw-link" href="#">Action link in NHS England Design System</a>.</p>
-            <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Action Link on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more on the <a class="nhsw-link" href="#">Action link in NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Action Link on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
-            <div class="nhsw-tabs__pagination">
-              <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-                Next &rarr;<br>
-                <span class="nhsw-body-s">Action link variants: how to use</span>
-              </a>
-            </div>
-          </div>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Action link variants: how to use</span>
+    </a>
+  </div>
+</div>
 
-          <!-- Action link variants: how to use -->
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-            <h2 class="nhsw-h2">Action link variants: how to use</h2>
+<!-- Action link variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Action link variants: how to use</h2>
 
-            <p class="nhsw-body">Keep the words on the action link short. Start with a verb, for example: "Book an appointment" or "Apply for an EHIC card".</p>
-            <p class="nhsw-body">Action links usually sit in a block of text. You can also put one in a care card. (Find out more about helping users decide <a class="nhsw-link" href="#">when and where to get care, with care cards</a>.)</p>
-            <p class="nhsw-body">You can have more than one action link on a page but avoid putting them near each other.</p>
-            <p class="nhsw-body">The link colour and background colour contrast ratio is 5.76:1, which passes AAA guidelines at that font size.</p>
+  <p class="nhsw-body">Keep the words on the action link short. Start with a verb, for example: "Book an appointment" or "Apply for an EHIC card".</p>
+  <p class="nhsw-body">Action links usually sit in a block of text. You can also put one in a care card. (Find out more about helping users decide <a class="nhsw-link" href="#">when and where to get care, with care cards</a>.)</p>
+  <p class="nhsw-body">You can have more than one action link on a page but avoid putting them near each other.</p>
+  <p class="nhsw-body">The link colour and background colour contrast ratio is 5.76:1, which passes AAA guidelines at that font size.</p>
 
-            <section class="preview-section">
-              <h3 class="nhsw-h3">Action link on dark backgrounds</h3>
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Action link on dark backgrounds</h3>
 
-              <div class="nhsw-example-preview">
-                <div class="nhsw-example-preview__toolbar">
-                  <a class="nhsw-link" href="../examples/action-link-dark.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-                </div>
-                <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
-                  <a class="nhsw-action-link nhsw-action-link--on-dark" href="#">
-                    <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                      <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                    </svg>
-                    <span class="nhsw-action-link__text">Action link</span>
-                  </a>
-                </div>
-                <div class="nhsw-example-preview__footer">
-                  <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-dark" aria-controls="code-al-dark" aria-expanded="false">HTML</button>
-                  <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-                </div>
-              </div>
+    {% capture example_body %}{% raw %}
+      <a class="nhsw-action-link nhsw-action-link--on-dark" href="#">
+        <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+        </svg>
+        <span class="nhsw-action-link__text">Action link</span>
+      </a>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="al-dark" open_url="/examples/action-link-dark.html" body=example_body dark=true %}
 
-              <div class="nhsw-code-viewer" id="code-al-dark" data-module="nhsw-code-viewer" hidden>
-                <div class="nhsw-code-viewer__header">
-                  <div class="nhsw-code-viewer__tabs" role="tablist">
-                    <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-al-dark-html" id="cv-al-dark-html-tab">HTML</button>
-                    <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-al-dark-njk" id="cv-al-dark-njk-tab">Nunjucks</button>
-                  </div>
-                  <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-                </div>
-                <div class="nhsw-code-viewer__panel" id="cv-al-dark-html" role="tabpanel" aria-labelledby="cv-al-dark-html-tab">
-                  <pre><code>&lt;a class="nhsw-action-link nhsw-action-link--on-dark" href="/apply"&gt;
+    {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link nhsw-action-link--on-dark" href="/apply"&gt;
   &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
   &lt;span class="nhsw-action-link__text"&gt;Action link&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-                </div>
-                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-al-dark-njk" role="tabpanel" aria-labelledby="cv-al-dark-njk-tab">
-                  <pre><code>{{ nhswActionLink({
+&lt;/a&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswActionLink({
   text: "Action link",
   href: "/apply",
   classes: "nhsw-action-link--on-dark"
-}) }}</code></pre>
-                </div>
-              </div>
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="al-dark" html=html_sample njk=njk_sample toggleable=true %}
 
-              <p class="nhsw-body">Make sure all users can see the action link. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="#">WCAG 2.2 success criterion 1.4.3 Contrast (minimum), level AA (W3C)</a>.</p>
-            </section>
+    <p class="nhsw-body">Make sure all users can see the action link. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="#">WCAG 2.2 success criterion 1.4.3 Contrast (minimum), level AA (W3C)</a>.</p>
+  </section>
 
-            <h3 class="nhsw-h3">Colour variants</h3>
-            <p class="nhsw-body">Action links also have 4 colour variants for use on light backgrounds. Choose a variant based on the context the link sits in, not to add visual variety to a page.</p>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
 
-            <section class="preview-section">
-              <h3 class="nhsw-h3">Default (green)</h3>
-              <p class="nhsw-body">Use the default green action link to signpost the start of a digital service, such as starting an application or checking a symptom.</p>
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+  <p class="nhsw-body">Action links are often grouped together on a landing page to signpost several related digital services.</p>
 
-              <div class="nhsw-example-preview">
-                <div class="nhsw-example-preview__toolbar">
-                  <a class="nhsw-link" href="../examples/action-link-default.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-                </div>
-                <div class="nhsw-example-preview__body">
-                  <a class="nhsw-action-link" href="#">
-                    <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                      <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                    </svg>
-                    <span class="nhsw-action-link__text">Check your symptoms</span>
-                  </a>
-                </div>
-                <div class="nhsw-example-preview__footer">
-                  <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-default" aria-controls="code-al-default" aria-expanded="false">HTML</button>
-                  <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-                </div>
-              </div>
+  <h3 class="nhsw-h3">Group of action links</h3>
 
-              <div class="nhsw-code-viewer" id="code-al-default" data-module="nhsw-code-viewer" hidden>
-                <div class="nhsw-code-viewer__header">
-                  <div class="nhsw-code-viewer__tabs" role="tablist">
-                    <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-al-default-html" id="cv-al-default-html-tab">HTML</button>
-                    <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-al-default-njk" id="cv-al-default-njk-tab">Nunjucks</button>
-                  </div>
-                  <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-                </div>
-                <div class="nhsw-code-viewer__panel" id="cv-al-default-html" role="tabpanel" aria-labelledby="cv-al-default-html-tab">
-                  <pre><code>&lt;a class="nhsw-action-link" href="/symptoms"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Check your symptoms&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-                </div>
-                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-al-default-njk" role="tabpanel" aria-labelledby="cv-al-default-njk-tab">
-                  <pre><code>{{ nhswActionLink({
-  text: "Check your symptoms",
-  href: "/symptoms"
-}) }}</code></pre>
-                </div>
-              </div>
-            </section>
+  {% capture example_body %}{% raw %}
+    <a class="nhsw-action-link" href="#">
+      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+      </svg>
+      <span class="nhsw-action-link__text">Order a repeat prescription</span>
+    </a>
+    <a class="nhsw-action-link" href="#">
+      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+      </svg>
+      <span class="nhsw-action-link__text">Book a COVID-19 vaccination</span>
+    </a>
+    <a class="nhsw-action-link" href="#">
+      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+      </svg>
+      <span class="nhsw-action-link__text">Find your NHS number</span>
+    </a>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="al-group" open_url="/examples/action-link-group.html" body=example_body %}
 
-            <section class="preview-section">
-              <h3 class="nhsw-h3">Blue</h3>
-              <p class="nhsw-body">Use the blue variant when the action link sits alongside standard body links, so the icon colour matches the surrounding link colour.</p>
-
-              <div class="nhsw-example-preview">
-                <div class="nhsw-example-preview__toolbar">
-                  <a class="nhsw-link" href="../examples/action-link-blue.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-                </div>
-                <div class="nhsw-example-preview__body">
-                  <a class="nhsw-action-link nhsw-action-link--blue" href="#">
-                    <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                      <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                    </svg>
-                    <span class="nhsw-action-link__text">Find your local GP surgery</span>
-                  </a>
-                </div>
-                <div class="nhsw-example-preview__footer">
-                  <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-blue" aria-controls="code-al-blue" aria-expanded="false">HTML</button>
-                  <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-                </div>
-              </div>
-
-              <div class="nhsw-code-viewer" id="code-al-blue" data-module="nhsw-code-viewer" hidden>
-                <div class="nhsw-code-viewer__header">
-                  <div class="nhsw-code-viewer__tabs" role="tablist">
-                    <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-al-blue-html" id="cv-al-blue-html-tab">HTML</button>
-                    <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-al-blue-njk" id="cv-al-blue-njk-tab">Nunjucks</button>
-                  </div>
-                  <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-                </div>
-                <div class="nhsw-code-viewer__panel" id="cv-al-blue-html" role="tabpanel" aria-labelledby="cv-al-blue-html-tab">
-                  <pre><code>&lt;a class="nhsw-action-link nhsw-action-link--blue" href="/find-a-gp"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Find your local GP surgery&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-                </div>
-                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-al-blue-njk" role="tabpanel" aria-labelledby="cv-al-blue-njk-tab">
-                  <pre><code>{{ nhswActionLink({
-  text: "Find your local GP surgery",
-  href: "/find-a-gp",
-  classes: "nhsw-action-link--blue"
-}) }}</code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section class="preview-section">
-              <h3 class="nhsw-h3">Navy</h3>
-              <p class="nhsw-body">Use the navy variant when the action link needs to match a primary button on the same page, keeping the two calls to action visually aligned.</p>
-
-              <div class="nhsw-example-preview">
-                <div class="nhsw-example-preview__toolbar">
-                  <a class="nhsw-link" href="../examples/action-link-navy.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-                </div>
-                <div class="nhsw-example-preview__body">
-                  <a class="nhsw-action-link nhsw-action-link--navy" href="#">
-                    <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                      <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                    </svg>
-                    <span class="nhsw-action-link__text">Register for an NHS account</span>
-                  </a>
-                </div>
-                <div class="nhsw-example-preview__footer">
-                  <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-navy" aria-controls="code-al-navy" aria-expanded="false">HTML</button>
-                  <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-                </div>
-              </div>
-
-              <div class="nhsw-code-viewer" id="code-al-navy" data-module="nhsw-code-viewer" hidden>
-                <div class="nhsw-code-viewer__header">
-                  <div class="nhsw-code-viewer__tabs" role="tablist">
-                    <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-al-navy-html" id="cv-al-navy-html-tab">HTML</button>
-                    <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-al-navy-njk" id="cv-al-navy-njk-tab">Nunjucks</button>
-                  </div>
-                  <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-                </div>
-                <div class="nhsw-code-viewer__panel" id="cv-al-navy-html" role="tabpanel" aria-labelledby="cv-al-navy-html-tab">
-                  <pre><code>&lt;a class="nhsw-action-link nhsw-action-link--navy" href="/register"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Register for an NHS account&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-                </div>
-                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-al-navy-njk" role="tabpanel" aria-labelledby="cv-al-navy-njk-tab">
-                  <pre><code>{{ nhswActionLink({
-  text: "Register for an NHS account",
-  href: "/register",
-  classes: "nhsw-action-link--navy"
-}) }}</code></pre>
-                </div>
-              </div>
-            </section>
-
-            <section class="preview-section">
-              <h3 class="nhsw-h3">Red</h3>
-              <p class="nhsw-body">Use the red variant sparingly, only where the destination itself carries urgency or risk, such as an emergency or safeguarding service. Do not use red simply to make a link stand out.</p>
-
-              <div class="nhsw-example-preview">
-                <div class="nhsw-example-preview__toolbar">
-                  <a class="nhsw-link" href="../examples/action-link-red.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-                </div>
-                <div class="nhsw-example-preview__body">
-                  <a class="nhsw-action-link nhsw-action-link--red" href="#">
-                    <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                      <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                    </svg>
-                    <span class="nhsw-action-link__text">Get urgent help now</span>
-                  </a>
-                </div>
-                <div class="nhsw-example-preview__footer">
-                  <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-red" aria-controls="code-al-red" aria-expanded="false">HTML</button>
-                  <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-                </div>
-              </div>
-
-              <div class="nhsw-code-viewer" id="code-al-red" data-module="nhsw-code-viewer" hidden>
-                <div class="nhsw-code-viewer__header">
-                  <div class="nhsw-code-viewer__tabs" role="tablist">
-                    <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-al-red-html" id="cv-al-red-html-tab">HTML</button>
-                    <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-al-red-njk" id="cv-al-red-njk-tab">Nunjucks</button>
-                  </div>
-                  <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-                </div>
-                <div class="nhsw-code-viewer__panel" id="cv-al-red-html" role="tabpanel" aria-labelledby="cv-al-red-html-tab">
-                  <pre><code>&lt;a class="nhsw-action-link nhsw-action-link--red" href="/urgent-help"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Get urgent help now&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-                </div>
-                <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-al-red-njk" role="tabpanel" aria-labelledby="cv-al-red-njk-tab">
-                  <pre><code>{{ nhswActionLink({
-  text: "Get urgent help now",
-  href: "/urgent-help",
-  classes: "nhsw-action-link--red"
-}) }}</code></pre>
-                </div>
-              </div>
-            </section>
-
-            <div class="nhsw-tabs__pagination">
-              <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
-                &larr; Previous<br>
-                <span class="nhsw-body-s">Overview</span>
-              </a>
-              <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-                Next &rarr;<br>
-                <span class="nhsw-body-s">Examples</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Examples -->
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
-            <h2 class="nhsw-h2">Examples</h2>
-            <p class="nhsw-body">Action links are often grouped together on a landing page to signpost several related digital services.</p>
-
-            <h3 class="nhsw-h3">Group of action links</h3>
-
-            <div class="nhsw-example-preview">
-              <div class="nhsw-example-preview__toolbar">
-                <a class="nhsw-link" href="../examples/action-link-group.html" target="_blank" rel="noopener">Open this example in a new tab</a>
-              </div>
-              <div class="nhsw-example-preview__body">
-                <a class="nhsw-action-link" href="#">
-                  <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                    <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                  </svg>
-                  <span class="nhsw-action-link__text">Order a repeat prescription</span>
-                </a>
-                <a class="nhsw-action-link" href="#">
-                  <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                    <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                  </svg>
-                  <span class="nhsw-action-link__text">Book a COVID-19 vaccination</span>
-                </a>
-                <a class="nhsw-action-link" href="#">
-                  <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-                    <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-                  </svg>
-                  <span class="nhsw-action-link__text">Find your NHS number</span>
-                </a>
-              </div>
-              <div class="nhsw-example-preview__footer">
-                <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-al-group" aria-controls="code-al-group" aria-expanded="false">HTML</button>
-                <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
-              </div>
-            </div>
-
-            <div class="nhsw-code-viewer" id="code-al-group" data-module="nhsw-code-viewer" hidden>
-              <div class="nhsw-code-viewer__header">
-                <div class="nhsw-code-viewer__tabs" role="tablist">
-                  <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-al-group-html" id="cv-al-group-html-tab">HTML</button>
-                  <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-al-group-njk" id="cv-al-group-njk-tab">Nunjucks</button>
-                </div>
-                <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
-              </div>
-              <div class="nhsw-code-viewer__panel" id="cv-al-group-html" role="tabpanel" aria-labelledby="cv-al-group-html-tab">
-                <pre><code>&lt;a class="nhsw-action-link" href="/repeat-prescription"&gt;
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link" href="/repeat-prescription"&gt;
   &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
   &lt;span class="nhsw-action-link__text"&gt;Order a repeat prescription&lt;/span&gt;
 &lt;/a&gt;
@@ -479,74 +148,49 @@
 &lt;a class="nhsw-action-link" href="/find-nhs-number"&gt;
   &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
   &lt;span class="nhsw-action-link__text"&gt;Find your NHS number&lt;/span&gt;
-&lt;/a&gt;</code></pre>
-              </div>
-              <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-al-group-njk" role="tabpanel" aria-labelledby="cv-al-group-njk-tab">
-                <pre><code>{% for link in [
+&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% for link in [
   { text: "Order a repeat prescription", href: "/repeat-prescription" },
   { text: "Book a COVID-19 vaccination", href: "/covid-vaccination" },
   { text: "Find your NHS number", href: "/find-nhs-number" }
 ] %}
   {{ nhswActionLink(link) }}
-{% endfor %}</code></pre>
-              </div>
-            </div>
+{% endfor %}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="al-group" html=html_sample njk=njk_sample toggleable=true %}
 
-            <div class="nhsw-tabs__pagination">
-              <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-                &larr; Previous<br>
-                <span class="nhsw-body-s">Action link variants: how to use</span>
-              </a>
-              <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-                Next &rarr;<br>
-                <span class="nhsw-body-s">Accessibility</span>
-              </a>
-            </div>
-          </div>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Action link variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
+</div>
 
-          <!-- Accessibility -->
-          <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-            <h2 class="nhsw-h2">Accessibility</h2>
-            <p class="nhsw-body">Action links are built from a native <code>&lt;a&gt;</code> element, so they are keyboard focusable and operable with assistive technology without any extra scripting.</p>
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+  <p class="nhsw-body">Action links are built from a native <code>&lt;a&gt;</code> element, so they are keyboard focusable and operable with assistive technology without any extra scripting.</p>
 
-            <h3 class="nhsw-h3">Icon</h3>
-            <p class="nhsw-body">The arrow icon is decorative. It must always carry <code>aria-hidden="true"</code> and <code>focusable="false"</code> so screen readers announce only the link text, never the SVG.</p>
+  <h3 class="nhsw-h3">Icon</h3>
+  <p class="nhsw-body">The arrow icon is decorative. It must always carry <code>aria-hidden="true"</code> and <code>focusable="false"</code> so screen readers announce only the link text, never the SVG.</p>
 
-            <h3 class="nhsw-h3">Colour</h3>
-            <p class="nhsw-body">Colour is never the only way an action link is identified — the bold text label and underline-on-hover carry the same meaning in every variant. All variant colours meet WCAG AA contrast against a white background.</p>
+  <h3 class="nhsw-h3">Colour</h3>
+  <p class="nhsw-body">Colour is never the only way an action link is identified — the bold text label and underline-on-hover carry the same meaning in every variant. All variant colours meet WCAG AA contrast against a white background.</p>
 
-            <h3 class="nhsw-h3">Focus state</h3>
-            <p class="nhsw-body">On keyboard focus, the action link shows the standard yellow focus indicator with a dark focus text colour, matching the focus style used across the rest of the design system.</p>
+  <h3 class="nhsw-h3">Focus state</h3>
+  <p class="nhsw-body">On keyboard focus, the action link shows the standard yellow focus indicator with a dark focus text colour, matching the focus style used across the rest of the design system.</p>
 
-            <h3 class="nhsw-h3">Visited links</h3>
-            <p class="nhsw-body">Visited action links keep the same text colour as unvisited ones, so the bold label and icon remain easy to read once a user has already followed the link.</p>
+  <h3 class="nhsw-h3">Visited links</h3>
+  <p class="nhsw-body">Visited action links keep the same text colour as unvisited ones, so the bold label and icon remain easy to read once a user has already followed the link.</p>
 
-            <div class="nhsw-tabs__pagination">
-              <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-                &larr; Previous<br>
-                <span class="nhsw-body-s">Examples</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      </div>
-    </div>
-  </main>
-
-  <footer class="nhsw-site-footer">
-    <div class="nhsw-site-footer__container">
-      <ul class="nhsw-site-footer__links">
-        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-      </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
-    </div>
-  </footer>
-
-  <script src="../assets/nhsw-docs.js"></script>
-</body>
-</html>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

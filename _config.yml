@@ -1,0 +1,9 @@
+title: NHSW Design System
+source: preview
+destination: _site
+
+# baseurl is left empty for local development (bundle exec jekyll serve).
+# The deploy workflow passes --baseurl explicitly from the Pages metadata
+# step, so this stays correct whether the repo is renamed or gets a custom
+# domain later.
+baseurl: ""

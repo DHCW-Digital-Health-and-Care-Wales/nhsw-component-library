@@ -1,157 +1,85 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Date picker – NHSW Design System</title>
-  <link rel="stylesheet" href="../dist/nhsw.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
-</head>
-<body>
-  <header class="nhsw-site-header">
-    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
-      <div class="nhsw-site-header__top">
-        <a class="nhsw-site-header__brand" href="../index.html">
-          <span class="nhsw-site-header__logo">
-            <img src="../assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales">
-          </span>
-          <span class="nhsw-site-header__title">Design system</span>
-        </a>
-        <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
-          <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-          <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
-          <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
-        </form>
-      </div>
+---
+layout: simple
+title: Date picker
+extra_scripts:
+  - /dist/nhsw-date-picker.js
+---
+<section class="preview-section">
+  <h2 class="nhsw-h2">When to use a date picker</h2>
+  <p class="nhsw-body">
+    Use a date picker when users need to select a date they may not know off the top of their head,
+    such as an appointment or a deadline. For memorable dates like a date of birth, use the
+    <a class="nhsw-link" href="{{ '/forms/date-input.html' | relative_url }}">date input</a> component instead.
+  </p>
+
+  <h3 class="nhsw-h3">Keyboard controls</h3>
+  <ul class="nhsw-body">
+    <li><strong>Arrow keys</strong> &mdash; move focus between days</li>
+    <li><strong>Home / End</strong> &mdash; first or last day of the current week</li>
+    <li><strong>Page Up / Down</strong> &mdash; previous or next month</li>
+    <li><strong>Shift + Page Up / Down</strong> &mdash; previous or next year</li>
+    <li><strong>Enter</strong> &mdash; confirm the focused day</li>
+    <li><strong>Escape</strong> &mdash; close without selecting</li>
+  </ul>
+</section>
+
+<!-- Minimal hook -->
+<section class="preview-section">
+  <h2 class="nhsw-h2">Minimal markup</h2>
+  <p class="nhsw-body">
+    The recommended way to use the date picker. Add <code>data-module="nhsw-date-picker"</code>
+    and a few <code>data-*</code> attributes – the script builds and injects all the calendar
+    chrome automatically. The label and hint are written normally; the script reads the label
+    text to generate accessible <code>aria-label</code> values on the toggle button and dialog.
+  </p>
+
+  <div class="nhsw-form-group">
+    <label class="nhsw-label" for="booking-date">Booking date</label>
+    <div class="nhsw-hint" id="booking-date-hint">For example, 27-Jun-2025</div>
+    <div class="nhsw-date-picker"
+         data-module="nhsw-date-picker"
+         data-input-id="booking-date"
+         data-input-name="booking-date"
+         data-describedby="booking-date-hint">
     </div>
-  </header>
+  </div>
 
-  <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-    <div class="nhsw-site-header__nav-container nhsw-site-header__nav-container--centered">
-      <ul class="nhsw-site-header__nav-list">
-        <li><a class="nhsw-site-header__nav-link" href="../index.html"><span>Get started</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Content guide</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Styles</span></a></li>
-        <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="../components/index.html"><span>Components</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Patterns</span></a></li>
-        <li><a class="nhsw-site-header__nav-link" href="#"><span>Community and contribution</span></a></li>
-      </ul>
+  <div class="nhsw-form-group">
+    <label class="nhsw-label" for="booking-date-pre">Review date</label>
+    <div class="nhsw-hint" id="booking-date-pre-hint">For example, 15-Sep-2025</div>
+    <div class="nhsw-date-picker"
+         data-module="nhsw-date-picker"
+         data-input-id="booking-date-pre"
+         data-input-name="booking-date-pre"
+         data-value="15-Sep-2025"
+         data-describedby="booking-date-pre-hint">
     </div>
-  </nav>
+  </div>
 
-  <main class="nhsw-main-wrapper" id="maincontent">
-    <div class="nhsw-width-container">
-      <div class="nhsw-layout">
+  <div class="nhsw-form-group">
+    <label class="nhsw-label" for="booking-date-dis">Locked date</label>
+    <div class="nhsw-hint" id="booking-date-dis-hint">This date cannot be changed.</div>
+    <div class="nhsw-date-picker"
+         data-module="nhsw-date-picker"
+         data-input-id="booking-date-dis"
+         data-input-name="booking-date-dis"
+         data-value="01-Jan-2025"
+         data-disabled
+         data-describedby="booking-date-dis-hint">
+    </div>
+  </div>
 
-      <nav class="nhsw-side-nav" aria-label="Section navigation">
-        <ul class="nhsw-side-nav__list">
-          <li><a class="nhsw-side-nav__link" href="../actions/action-link.html"><span>Action link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Back link</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Breadcrumb</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../components/buttons.html"><span>Buttons</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/warning-callout.html"><span>Callout</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/cards.html"><span>Cards</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/checkboxes.html"><span>Checkboxes</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/date-input.html"><span>Date input</span></a></li>
-          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="../forms/date-picker.html" aria-current="page"><span>Date picker</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/details.html"><span>Details</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Error summary</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>File upload</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Filter</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/inset-text.html"><span>Inset text</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../callouts/notification-banner.html"><span>Notification banner</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/pagination.html"><span>Pagination</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/radios.html"><span>Radios</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/select.html"><span>Select</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../site/header-footer.html"><span>Site navigation</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/summary-list.html"><span>Summary list</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/table.html"><span>Table</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../content/tag.html"><span>Tag</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/textarea.html"><span>Text area</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="../forms/input.html"><span>Text input</span></a></li>
-          <li><a class="nhsw-side-nav__link" href="#"><span>Warning text</span></a></li>
-        </ul>
-      </nav>
+  <h3 class="nhsw-h3">Available data attributes</h3>
+  <ul class="nhsw-body">
+    <li><code>data-input-id</code> &mdash; sets the <code>id</code> and <code>name</code> on the generated input (required)</li>
+    <li><code>data-input-name</code> &mdash; overrides the <code>name</code> if it differs from the id</li>
+    <li><code>data-value</code> &mdash; pre-populates the input in <code>DD-MMM-YYYY</code> format</li>
+    <li><code>data-disabled</code> &mdash; presence of this attribute renders the input and toggle disabled</li>
+    <li><code>data-describedby</code> &mdash; forwarded as <code>aria-describedby</code> on the generated input</li>
+  </ul>
 
-      <div class="nhsw-layout__content">
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">When to use a date picker</h2>
-          <p class="nhsw-body">
-            Use a date picker when users need to select a date they may not know off the top of their head,
-            such as an appointment or a deadline. For memorable dates like a date of birth, use the
-            <a class="nhsw-link" href="./date-input.html">date input</a> component instead.
-          </p>
-
-          <h3 class="nhsw-h3">Keyboard controls</h3>
-          <ul class="nhsw-body">
-            <li><strong>Arrow keys</strong> &mdash; move focus between days</li>
-            <li><strong>Home / End</strong> &mdash; first or last day of the current week</li>
-            <li><strong>Page Up / Down</strong> &mdash; previous or next month</li>
-            <li><strong>Shift + Page Up / Down</strong> &mdash; previous or next year</li>
-            <li><strong>Enter</strong> &mdash; confirm the focused day</li>
-            <li><strong>Escape</strong> &mdash; close without selecting</li>
-          </ul>
-        </section>
-
-        <!-- Minimal hook -->
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Minimal markup</h2>
-          <p class="nhsw-body">
-            The recommended way to use the date picker. Add <code>data-module="nhsw-date-picker"</code>
-            and a few <code>data-*</code> attributes – the script builds and injects all the calendar
-            chrome automatically. The label and hint are written normally; the script reads the label
-            text to generate accessible <code>aria-label</code> values on the toggle button and dialog.
-          </p>
-
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="booking-date">Booking date</label>
-            <div class="nhsw-hint" id="booking-date-hint">For example, 27-Jun-2025</div>
-            <div class="nhsw-date-picker"
-                 data-module="nhsw-date-picker"
-                 data-input-id="booking-date"
-                 data-input-name="booking-date"
-                 data-describedby="booking-date-hint">
-            </div>
-          </div>
-
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="booking-date-pre">Review date</label>
-            <div class="nhsw-hint" id="booking-date-pre-hint">For example, 15-Sep-2025</div>
-            <div class="nhsw-date-picker"
-                 data-module="nhsw-date-picker"
-                 data-input-id="booking-date-pre"
-                 data-input-name="booking-date-pre"
-                 data-value="15-Sep-2025"
-                 data-describedby="booking-date-pre-hint">
-            </div>
-          </div>
-
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="booking-date-dis">Locked date</label>
-            <div class="nhsw-hint" id="booking-date-dis-hint">This date cannot be changed.</div>
-            <div class="nhsw-date-picker"
-                 data-module="nhsw-date-picker"
-                 data-input-id="booking-date-dis"
-                 data-input-name="booking-date-dis"
-                 data-value="01-Jan-2025"
-                 data-disabled
-                 data-describedby="booking-date-dis-hint">
-            </div>
-          </div>
-
-          <h3 class="nhsw-h3">Available data attributes</h3>
-          <ul class="nhsw-body">
-            <li><code>data-input-id</code> &mdash; sets the <code>id</code> and <code>name</code> on the generated input (required)</li>
-            <li><code>data-input-name</code> &mdash; overrides the <code>name</code> if it differs from the id</li>
-            <li><code>data-value</code> &mdash; pre-populates the input in <code>DD-MMM-YYYY</code> format</li>
-            <li><code>data-disabled</code> &mdash; presence of this attribute renders the input and toggle disabled</li>
-            <li><code>data-describedby</code> &mdash; forwarded as <code>aria-describedby</code> on the generated input</li>
-          </ul>
-
-          <div class="nhsw-code-example">
-            <pre><code>&lt;div class="nhsw-form-group"&gt;
+  <div class="nhsw-code-example">
+    <pre><code>&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label" for="my-date"&gt;Booking date&lt;/label&gt;
   &lt;div class="nhsw-hint" id="my-date-hint"&gt;For example, 27-Jun-2025&lt;/div&gt;
   &lt;div class="nhsw-date-picker"
@@ -164,380 +92,357 @@
 
 &lt;!-- Include the date picker script --&gt;
 &lt;script src="dist/nhsw-date-picker.js"&gt;&lt;/script&gt;</code></pre>
-          </div>
-        </section>
+  </div>
+</section>
 
-        <!-- Default (full HTML reference) -->
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Full HTML reference</h2>
-          <p class="nhsw-body">
-            If you need to customise the shortcuts, swap out SVG icons, or render server-side,
-            you can write the full HTML yourself. The script detects that the chrome is already
-            present and skips the build step.
-          </p>
+<!-- Default (full HTML reference) -->
+<section class="preview-section">
+  <h2 class="nhsw-h2">Full HTML reference</h2>
+  <p class="nhsw-body">
+    If you need to customise the shortcuts, swap out SVG icons, or render server-side,
+    you can write the full HTML yourself. The script detects that the chrome is already
+    present and skips the build step.
+  </p>
 
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="appointment-date">Appointment date</label>
-            <div class="nhsw-hint" id="appointment-date-hint">For example, 27-Jun-2025</div>
+  <div class="nhsw-form-group">
+    <label class="nhsw-label" for="appointment-date">Appointment date</label>
+    <div class="nhsw-hint" id="appointment-date-hint">For example, 27-Jun-2025</div>
 
-            <div class="nhsw-date-picker" data-module="nhsw-date-picker">
-              <div class="nhsw-date-picker__input-group">
-                <input
-                  class="nhsw-input nhsw-date-picker__input"
-                  id="appointment-date"
-                  name="appointment-date"
-                  type="text"
-                  aria-describedby="appointment-date-hint"
-                  autocomplete="off"
-                  placeholder="DD-MMM-YYYY"
-                >
-                <button
-                  class="nhsw-date-picker__toggle"
-                  type="button"
-                  aria-label="Open calendar for appointment date"
-                  aria-expanded="false"
-                  aria-haspopup="dialog"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
-                  </svg>
-                </button>
-              </div>
-
-              <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose appointment date" hidden>
-                <div class="nhsw-date-picker__dialog-header">
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                  </button>
-                  <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                  </button>
-                </div>
-
-                <table class="nhsw-date-picker__calendar" role="grid">
-                  <thead>
-                    <tr>
-                      <th scope="col" abbr="Monday">Mo</th>
-                      <th scope="col" abbr="Tuesday">Tu</th>
-                      <th scope="col" abbr="Wednesday">We</th>
-                      <th scope="col" abbr="Thursday">Th</th>
-                      <th scope="col" abbr="Friday">Fr</th>
-                      <th scope="col" abbr="Saturday">Sa</th>
-                      <th scope="col" abbr="Sunday">Su</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-
-                <div class="nhsw-date-picker__shortcuts">
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
-                </div>
-
-                <div class="nhsw-date-picker__dialog-footer">
-                  <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
-                  <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Pre-selected value -->
-        <section class="preview-section">
-          <h2 class="nhsw-h2">With a pre-selected date</h2>
-          <p class="nhsw-body">
-            A value typed into the input in <code>DD-MMM-YYYY</code> format is parsed when the calendar
-            opens, and that date is highlighted and focused.
-          </p>
-
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="review-date">Review date</label>
-            <div class="nhsw-hint" id="review-date-hint">For example, 15-Sep-2025</div>
-
-            <div class="nhsw-date-picker" data-module="nhsw-date-picker">
-              <div class="nhsw-date-picker__input-group">
-                <input
-                  class="nhsw-input nhsw-date-picker__input"
-                  id="review-date"
-                  name="review-date"
-                  type="text"
-                  value="15-Sep-2025"
-                  aria-describedby="review-date-hint"
-                  autocomplete="off"
-                  placeholder="DD-MMM-YYYY"
-                >
-                <button
-                  class="nhsw-date-picker__toggle"
-                  type="button"
-                  aria-label="Open calendar for review date"
-                  aria-expanded="false"
-                  aria-haspopup="dialog"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
-                  </svg>
-                </button>
-              </div>
-
-              <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose review date" hidden>
-                <div class="nhsw-date-picker__dialog-header">
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                  </button>
-                  <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                  </button>
-                </div>
-
-                <table class="nhsw-date-picker__calendar" role="grid">
-                  <thead>
-                    <tr>
-                      <th scope="col" abbr="Monday">Mo</th>
-                      <th scope="col" abbr="Tuesday">Tu</th>
-                      <th scope="col" abbr="Wednesday">We</th>
-                      <th scope="col" abbr="Thursday">Th</th>
-                      <th scope="col" abbr="Friday">Fr</th>
-                      <th scope="col" abbr="Saturday">Sa</th>
-                      <th scope="col" abbr="Sunday">Su</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-
-                <div class="nhsw-date-picker__shortcuts">
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
-                </div>
-
-                <div class="nhsw-date-picker__dialog-footer">
-                  <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
-                  <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Error state -->
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Error state</h2>
-
-          <div class="nhsw-form-group nhsw-form-group--error">
-            <label class="nhsw-label" for="discharge-date">Discharge date</label>
-            <div class="nhsw-hint" id="discharge-date-hint">For example, 01-Mar-2025</div>
-            <strong class="nhsw-error-message" id="discharge-date-error">Enter a discharge date</strong>
-
-            <div class="nhsw-date-picker" data-module="nhsw-date-picker">
-              <div class="nhsw-date-picker__input-group">
-                <input
-                  class="nhsw-input nhsw-date-picker__input nhsw-is-invalid"
-                  id="discharge-date"
-                  name="discharge-date"
-                  type="text"
-                  aria-describedby="discharge-date-hint discharge-date-error"
-                  aria-invalid="true"
-                  autocomplete="off"
-                  placeholder="DD-MMM-YYYY"
-                >
-                <button
-                  class="nhsw-date-picker__toggle"
-                  type="button"
-                  aria-label="Open calendar for discharge date"
-                  aria-expanded="false"
-                  aria-haspopup="dialog"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
-                  </svg>
-                </button>
-              </div>
-
-              <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose discharge date" hidden>
-                <div class="nhsw-date-picker__dialog-header">
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                  </button>
-                  <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                  </button>
-                </div>
-
-                <table class="nhsw-date-picker__calendar" role="grid">
-                  <thead>
-                    <tr>
-                      <th scope="col" abbr="Monday">Mo</th>
-                      <th scope="col" abbr="Tuesday">Tu</th>
-                      <th scope="col" abbr="Wednesday">We</th>
-                      <th scope="col" abbr="Thursday">Th</th>
-                      <th scope="col" abbr="Friday">Fr</th>
-                      <th scope="col" abbr="Saturday">Sa</th>
-                      <th scope="col" abbr="Sunday">Su</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-
-                <div class="nhsw-date-picker__shortcuts">
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
-                </div>
-
-                <div class="nhsw-date-picker__dialog-footer">
-                  <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
-                  <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Disabled state -->
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Disabled state</h2>
-
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="locked-date">Locked date</label>
-            <div class="nhsw-hint" id="locked-date-hint">This date cannot be changed.</div>
-
-            <div class="nhsw-date-picker" data-module="nhsw-date-picker">
-              <div class="nhsw-date-picker__input-group">
-                <input
-                  class="nhsw-input nhsw-date-picker__input"
-                  id="locked-date"
-                  name="locked-date"
-                  type="text"
-                  value="01-Jan-2025"
-                  aria-describedby="locked-date-hint"
-                  autocomplete="off"
-                  placeholder="DD-MMM-YYYY"
-                  disabled
-                >
-                <button
-                  class="nhsw-date-picker__toggle"
-                  type="button"
-                  aria-label="Open calendar for locked date"
-                  aria-expanded="false"
-                  aria-haspopup="dialog"
-                  disabled
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
-                  </svg>
-                </button>
-              </div>
-
-              <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose locked date" hidden>
-                <div class="nhsw-date-picker__dialog-header">
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                  </button>
-                  <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                  </button>
-                  <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                  </button>
-                </div>
-
-                <table class="nhsw-date-picker__calendar" role="grid">
-                  <thead>
-                    <tr>
-                      <th scope="col" abbr="Monday">Mo</th>
-                      <th scope="col" abbr="Tuesday">Tu</th>
-                      <th scope="col" abbr="Wednesday">We</th>
-                      <th scope="col" abbr="Thursday">Th</th>
-                      <th scope="col" abbr="Friday">Fr</th>
-                      <th scope="col" abbr="Saturday">Sa</th>
-                      <th scope="col" abbr="Sunday">Su</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-
-                <div class="nhsw-date-picker__shortcuts">
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
-                  <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
-                </div>
-
-                <div class="nhsw-date-picker__dialog-footer">
-                  <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
-                  <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="preview-section">
-          <h2 class="nhsw-h2">Usage</h2>
-          <p class="nhsw-body">
-            Include <code>nhsw.css</code> for styles, then add the script before the closing
-            <code>&lt;/body&gt;</code> tag. All elements with <code>data-module="nhsw-date-picker"</code>
-            are initialised automatically. For dynamically inserted content, call
-            <code>NhswDatePicker.initAll(containerEl)</code>.
-          </p>
-          <div class="nhsw-inset-text">
-            <code>&lt;script src="dist/nhsw-date-picker.js"&gt;&lt;/script&gt;</code>
-          </div>
-        </section>
-
+    <div class="nhsw-date-picker" data-module="nhsw-date-picker">
+      <div class="nhsw-date-picker__input-group">
+        <input
+          class="nhsw-input nhsw-date-picker__input"
+          id="appointment-date"
+          name="appointment-date"
+          type="text"
+          aria-describedby="appointment-date-hint"
+          autocomplete="off"
+          placeholder="DD-MMM-YYYY"
+        >
+        <button
+          class="nhsw-date-picker__toggle"
+          type="button"
+          aria-label="Open calendar for appointment date"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
+          </svg>
+        </button>
       </div>
 
+      <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose appointment date" hidden>
+        <div class="nhsw-date-picker__dialog-header">
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+          </button>
+        </div>
+
+        <table class="nhsw-date-picker__calendar" role="grid">
+          <thead>
+            <tr>
+              <th scope="col" abbr="Monday">Mo</th>
+              <th scope="col" abbr="Tuesday">Tu</th>
+              <th scope="col" abbr="Wednesday">We</th>
+              <th scope="col" abbr="Thursday">Th</th>
+              <th scope="col" abbr="Friday">Fr</th>
+              <th scope="col" abbr="Saturday">Sa</th>
+              <th scope="col" abbr="Sunday">Su</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="nhsw-date-picker__shortcuts">
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
+        </div>
+
+        <div class="nhsw-date-picker__dialog-footer">
+          <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
+          <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
+        </div>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <footer class="nhsw-site-footer">
-    <div class="nhsw-site-footer__container">
-      <ul class="nhsw-site-footer__links">
-        <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-        <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-      </ul>
-      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+<!-- Pre-selected value -->
+<section class="preview-section">
+  <h2 class="nhsw-h2">With a pre-selected date</h2>
+  <p class="nhsw-body">
+    A value typed into the input in <code>DD-MMM-YYYY</code> format is parsed when the calendar
+    opens, and that date is highlighted and focused.
+  </p>
+
+  <div class="nhsw-form-group">
+    <label class="nhsw-label" for="review-date">Review date</label>
+    <div class="nhsw-hint" id="review-date-hint">For example, 15-Sep-2025</div>
+
+    <div class="nhsw-date-picker" data-module="nhsw-date-picker">
+      <div class="nhsw-date-picker__input-group">
+        <input
+          class="nhsw-input nhsw-date-picker__input"
+          id="review-date"
+          name="review-date"
+          type="text"
+          value="15-Sep-2025"
+          aria-describedby="review-date-hint"
+          autocomplete="off"
+          placeholder="DD-MMM-YYYY"
+        >
+        <button
+          class="nhsw-date-picker__toggle"
+          type="button"
+          aria-label="Open calendar for review date"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose review date" hidden>
+        <div class="nhsw-date-picker__dialog-header">
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+          </button>
+        </div>
+
+        <table class="nhsw-date-picker__calendar" role="grid">
+          <thead>
+            <tr>
+              <th scope="col" abbr="Monday">Mo</th>
+              <th scope="col" abbr="Tuesday">Tu</th>
+              <th scope="col" abbr="Wednesday">We</th>
+              <th scope="col" abbr="Thursday">Th</th>
+              <th scope="col" abbr="Friday">Fr</th>
+              <th scope="col" abbr="Saturday">Sa</th>
+              <th scope="col" abbr="Sunday">Su</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="nhsw-date-picker__shortcuts">
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
+        </div>
+
+        <div class="nhsw-date-picker__dialog-footer">
+          <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
+          <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="../dist/nhsw-date-picker.js"></script>
-</body>
-</html>
+<!-- Error state -->
+<section class="preview-section">
+  <h2 class="nhsw-h2">Error state</h2>
 
+  <div class="nhsw-form-group nhsw-form-group--error">
+    <label class="nhsw-label" for="discharge-date">Discharge date</label>
+    <div class="nhsw-hint" id="discharge-date-hint">For example, 01-Mar-2025</div>
+    <strong class="nhsw-error-message" id="discharge-date-error">Enter a discharge date</strong>
 
+    <div class="nhsw-date-picker" data-module="nhsw-date-picker">
+      <div class="nhsw-date-picker__input-group">
+        <input
+          class="nhsw-input nhsw-date-picker__input nhsw-is-invalid"
+          id="discharge-date"
+          name="discharge-date"
+          type="text"
+          aria-describedby="discharge-date-hint discharge-date-error"
+          aria-invalid="true"
+          autocomplete="off"
+          placeholder="DD-MMM-YYYY"
+        >
+        <button
+          class="nhsw-date-picker__toggle"
+          type="button"
+          aria-label="Open calendar for discharge date"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
+          </svg>
+        </button>
+      </div>
 
+      <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose discharge date" hidden>
+        <div class="nhsw-date-picker__dialog-header">
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+          </button>
+        </div>
+
+        <table class="nhsw-date-picker__calendar" role="grid">
+          <thead>
+            <tr>
+              <th scope="col" abbr="Monday">Mo</th>
+              <th scope="col" abbr="Tuesday">Tu</th>
+              <th scope="col" abbr="Wednesday">We</th>
+              <th scope="col" abbr="Thursday">Th</th>
+              <th scope="col" abbr="Friday">Fr</th>
+              <th scope="col" abbr="Saturday">Sa</th>
+              <th scope="col" abbr="Sunday">Su</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="nhsw-date-picker__shortcuts">
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
+        </div>
+
+        <div class="nhsw-date-picker__dialog-footer">
+          <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
+          <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Disabled state -->
+<section class="preview-section">
+  <h2 class="nhsw-h2">Disabled state</h2>
+
+  <div class="nhsw-form-group">
+    <label class="nhsw-label" for="locked-date">Locked date</label>
+    <div class="nhsw-hint" id="locked-date-hint">This date cannot be changed.</div>
+
+    <div class="nhsw-date-picker" data-module="nhsw-date-picker">
+      <div class="nhsw-date-picker__input-group">
+        <input
+          class="nhsw-input nhsw-date-picker__input"
+          id="locked-date"
+          name="locked-date"
+          type="text"
+          value="01-Jan-2025"
+          aria-describedby="locked-date-hint"
+          autocomplete="off"
+          placeholder="DD-MMM-YYYY"
+          disabled
+        >
+        <button
+          class="nhsw-date-picker__toggle"
+          type="button"
+          aria-label="Open calendar for locked date"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          disabled
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1a1 1 0 0 1 1 1v1h6V2a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2a1 1 0 0 1 1-1zm7 3H7v1a1 1 0 0 1-2 0V4H4a1 1 0 0 0-1 1v2h14V5a1 1 0 0 0-1-1h-1v1a1 1 0 1 1-2 0V4zm2 5H5v6h10V9z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="nhsw-date-picker__dialog" role="dialog" aria-modal="true" aria-label="Choose locked date" hidden>
+        <div class="nhsw-date-picker__dialog-header">
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-year-button" type="button" aria-label="Previous year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__prev-button" type="button" aria-label="Previous month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="nhsw-date-picker__month-year" aria-live="polite"></span>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-button" type="button" aria-label="Next month">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button class="nhsw-date-picker__nav-button nhsw-date-picker__next-year-button" type="button" aria-label="Next year">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+          </button>
+        </div>
+
+        <table class="nhsw-date-picker__calendar" role="grid">
+          <thead>
+            <tr>
+              <th scope="col" abbr="Monday">Mo</th>
+              <th scope="col" abbr="Tuesday">Tu</th>
+              <th scope="col" abbr="Wednesday">We</th>
+              <th scope="col" abbr="Thursday">Th</th>
+              <th scope="col" abbr="Friday">Fr</th>
+              <th scope="col" abbr="Saturday">Sa</th>
+              <th scope="col" abbr="Sunday">Su</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="nhsw-date-picker__shortcuts">
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="0">Today</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="7">+1 week</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="14">+2 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-days="28">+4 weeks</button>
+          <button type="button" class="nhsw-date-picker__shortcut" data-offset-months="1">+1 month</button>
+        </div>
+
+        <div class="nhsw-date-picker__dialog-footer">
+          <button class="nhsw-button nhsw-button--secondary nhsw-date-picker__cancel-button" type="button">Cancel</button>
+          <button class="nhsw-button nhsw-button--primary nhsw-date-picker__ok-button" type="button">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="preview-section">
+  <h2 class="nhsw-h2">Usage</h2>
+  <p class="nhsw-body">
+    Include <code>nhsw.css</code> for styles, then add the script before the closing
+    <code>&lt;/body&gt;</code> tag. All elements with <code>data-module="nhsw-date-picker"</code>
+    are initialised automatically. For dynamically inserted content, call
+    <code>NhswDatePicker.initAll(containerEl)</code>.
+  </p>
+  <div class="nhsw-inset-text">
+    <code>&lt;script src="dist/nhsw-date-picker.js"&gt;&lt;/script&gt;</code>
+  </div>
+</section>
