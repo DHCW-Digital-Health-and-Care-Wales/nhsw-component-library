@@ -20,7 +20,7 @@
 
 .nhsw-tabs__list {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 0.25rem;
   list-style: none;
   margin: 0 0 0;
@@ -32,7 +32,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1rem;
   background-color: c.$nhsw-colour-border-grey;
   border: none;
   color: c.$nhsw-colour-text-primary;
@@ -71,5 +71,27 @@
 
   &--hidden {
     display: none;
+  }
+}
+
+.nhsw-tabs__pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid c.$nhsw-colour-border-grey;
+}
+
+.nhsw-tabs__pagination-link {
+  display: inline-block;
+
+  &--prev {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  &--next {
+    text-align: right;
   }
 }

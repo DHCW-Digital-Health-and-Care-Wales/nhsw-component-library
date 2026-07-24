@@ -1,4 +1,5 @@
 @use "../../foundations/typography" as type;
+@use "../../tokens/colours" as c;
 
 html {
   font-size: 1rem;
@@ -35,4 +36,8 @@ body {
 
 .nhsw-body-s {
   @include type.nhsw-body-s;
+}
+
+.nhsw-body--secondary {
+  color: c.$nhsw-colour-text-secondary;
 }

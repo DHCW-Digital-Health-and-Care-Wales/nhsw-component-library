@@ -93,4 +93,22 @@ $nhsw-colour-action-green-hover: #00662f;
       fill: c.$nhsw-colour-button-delete-hover;
     }
   }
+
+  &--on-dark {
+    .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-background-white;
+    }
+
+    .nhsw-action-link__text {
+      color: c.$nhsw-colour-text-exceptional;
+    }
+
+    &:visited .nhsw-action-link__text {
+      color: c.$nhsw-colour-text-exceptional;
+    }
+
+    &:hover .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-background-white;
+    }
+  }
 }

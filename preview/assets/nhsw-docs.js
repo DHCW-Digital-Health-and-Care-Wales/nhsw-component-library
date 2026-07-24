@@ -62,6 +62,16 @@
     }
   });
 
+    document.querySelectorAll('.nhsw-example-preview__footer-button[data-toggle]').forEach(function (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+            var target = document.getElementById(toggleBtn.getAttribute('data-toggle'));
+            if (!target) return;
+            var expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+            toggleBtn.setAttribute('aria-expanded', String(!expanded));
+            target.hidden = expanded;
+        });
+    });
+
     document.querySelectorAll('.nhsw-tabs').forEach(function (tabGroup) {
         var tabs = tabGroup.querySelectorAll('.nhsw-tabs__tab');
         var panels = tabGroup.querySelectorAll('.nhsw-tabs__panel');
