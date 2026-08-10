@@ -1,0 +1,32 @@
+---
+layout: example
+title: Error summary linking to a date input example
+---
+<div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title">There is a problem</h2>
+  <ul class="nhsw-error-summary__list">
+    <li><a class="nhsw-link nhsw-error-summary__link" href="#dob-year">Date of birth must include a year</a></li>
+  </ul>
+</div>
+
+<div class="nhsw-form-group nhsw-form-group--error">
+  <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint dob-error">
+    <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+    <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
+    <p class="nhsw-error-message" id="dob-error">The date of birth must include a year</p>
+    <div class="nhsw-date-input">
+      <div class="nhsw-date-input__item">
+        <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
+        <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+      </div>
+      <div class="nhsw-date-input__item">
+        <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
+        <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+      </div>
+      <div class="nhsw-date-input__item">
+        <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
+        <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+      </div>
+    </div>
+  </fieldset>
+</div>

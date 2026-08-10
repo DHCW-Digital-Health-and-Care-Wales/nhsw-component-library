@@ -7,6 +7,11 @@
 }
 
 .nhsw-site-footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
   max-width: 68.75rem;
   margin: 0 auto;
   padding: 2rem 1rem;
@@ -16,11 +21,60 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
-  margin: 0 0 2rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .nhsw-site-footer__copyright {
   margin: 0;
+}
+
+.nhsw-site-footer__org {
+  margin: 0;
+  color: c.$nhsw-colour-text-primary;
+  font-weight: 700;
+}
+
+.nhsw-site-footer__version {
+  margin: 0;
+  color: c.$nhsw-colour-text-secondary;
+}
+
+.nhsw-site-footer__nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  margin: 0 0 2rem;
+  padding: 0 0 2rem;
+  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+}
+
+.nhsw-site-footer__nav-column {
+  min-width: 10rem;
+}
+
+.nhsw-site-footer__nav-heading {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+.nhsw-site-footer__nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.nhsw-site-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  width: 100%;
 }

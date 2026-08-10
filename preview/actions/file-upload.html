@@ -1,0 +1,171 @@
+---
+layout: component
+title: File upload
+container: fluid
+updated: March 2026
+intro: Help users select and upload a file.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "File upload variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
+---
+
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Upload a file</h2>
+    <div class="nhsw-file-upload">
+      <span class="nhsw-file-upload__status">No file chosen</span>
+      <div class="nhsw-file-upload__actions">
+        <input class="nhsw-file-upload__input" id="file-upload-overview" name="file-upload-overview" type="file">
+        <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-overview">Choose file</label>
+        <span class="nhsw-file-upload__hint">or drop file</span>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="fu-overview" open_url="/examples/file-upload-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-file-upload"&gt;
+  &lt;span class="nhsw-file-upload__status"&gt;No file chosen&lt;/span&gt;
+  &lt;div class="nhsw-file-upload__actions"&gt;
+    &lt;input class="nhsw-file-upload__input" id="file-upload-1" name="file-upload-1" type="file"&gt;
+    &lt;label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-1"&gt;Choose file&lt;/label&gt;
+    &lt;span class="nhsw-file-upload__hint"&gt;or drop file&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "file-upload/macro.njk" import nhswFileUpload %}
+
+{{ nhswFileUpload({
+  id: "file-upload-1",
+  name: "file-upload-1",
+  chooseFilesButtonText: "Choose file"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="fu-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use file upload</h3>
+  <p class="nhsw-body">You should only ask users to upload something if it's critical to the delivery of your service.</p>
+  <p class="nhsw-body">Read a <a class="nhsw-link" href="#">blog post about design tips for uploading things (GOV.UK)</a>.</p>
+
+  <h3 class="nhsw-h3">How to use file upload</h3>
+  <p class="nhsw-body">To upload a file, the user can either:</p>
+  <ul class="nhsw-body">
+    <li>use the "Choose file" button</li>
+    <li>drag and drop a file into the file upload input area</li>
+  </ul>
+
+  <h3 class="nhsw-h3">Let users reuse uploaded files</h3>
+  <p class="nhsw-body">Make sure users can easily reuse a previously uploaded file within a single journey, unless doing so would be a major security or privacy concern.</p>
+  <p class="nhsw-body">For example, a user might need to upload a photo of their driving licence to prove their identity, and again to prove their address.</p>
+  <p class="nhsw-body">You can make it easier for the user to reuse a file by showing it as an option for the user to select. Consider users on public devices before choosing to make the file available to preview or download.</p>
+
+  <h3 class="nhsw-h3">Changing the button text</h3>
+  <p class="nhsw-body">You can change the text on the button and in the "No file chosen" message. This text is changeable so you can translate it or be specific about the file to upload.</p>
+  <p class="nhsw-body">Keep the text as short as possible. Screen reader users, for example, might find it difficult to use the component if the text is too long.</p>
+  <p class="nhsw-body">All the text in the component can be translated to match the language of the page content when JavaScript is running.</p>
+
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">File upload in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">File upload on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">File upload variants: how to use</span>
+    </a>
+  </div>
+</div>
+
+<!-- File upload variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Using the mobile version of the file upload</h2>
+  <p class="nhsw-body">On smaller screens such as on mobile, you can use the smaller file upload version.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Upload a file</h2>
+    <div class="nhsw-file-upload nhsw-file-upload--reverse">
+      <span class="nhsw-file-upload__status">No file chosen</span>
+      <div class="nhsw-file-upload__actions">
+        <input class="nhsw-file-upload__input" id="file-upload-mobile" name="file-upload-mobile" type="file">
+        <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-mobile">Choose file</label>
+        <span class="nhsw-file-upload__hint">or drop file</span>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="fu-mobile" open_url="/examples/file-upload-reverse.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-file-upload nhsw-file-upload--reverse"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswFileUpload({
+  id: "file-upload-mobile",
+  name: "file-upload-mobile",
+  classes: "nhsw-file-upload--reverse"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="fu-mobile" html=html_sample njk=njk_sample toggleable=true %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows the file upload component used to attach a signed consent form.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Upload your signed consent form</h2>
+    <div class="nhsw-file-upload">
+      <span class="nhsw-file-upload__status">No file chosen</span>
+      <div class="nhsw-file-upload__actions">
+        <input class="nhsw-file-upload__input" id="file-upload-consent" name="file-upload-consent" type="file">
+        <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-consent">Choose file</label>
+        <span class="nhsw-file-upload__hint">or drop file</span>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="fu-example" open_url="/examples/file-upload-default.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">File upload variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <p class="nhsw-body">Users of Dragon, a speech recognition tool, may not be able to interact with the component until they have first interacted with another part of the page. For example, they could click the mouse in an empty area or they could say "press tab" to move the focus. After that, the Dragon user should be able to interact successfully with the file upload component.</p>
+  <p class="nhsw-body">If they need to use the component more than once (for example, to correct a mistake), they may need to perform another action again before using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

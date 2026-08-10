@@ -1,0 +1,253 @@
+---
+layout: component
+title: Footer
+container: fluid
+updated: March 2026
+intro: Use the footer to show users they are on an NHS service and to help them find links they expect at the bottom of our pages.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Footer variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
+---
+
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+
+  {% capture example_body %}{% raw %}
+    <footer class="nhsw-site-footer">
+      <div class="nhsw-site-footer__container">
+        <ul class="nhsw-site-footer__links">
+          <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+          <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+        </ul>
+        <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+      </div>
+    </footer>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ft-overview" open_url="/examples/footer-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/accessibility"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/guidance"&gt;Service guidance (opens in a new tab)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p class="nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "footer/macro.njk" import nhswFooter %}
+
+{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "/accessibility" },
+    { text: "Service guidance (opens in a new tab)", href: "/guidance" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ft-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use the footer</h3>
+  <p class="nhsw-body">For public-facing services, use the footer designed for public-facing services to show users they are on an NHS service and to help them find links they expect at the bottom of our pages. Use the footer at the bottom of every page of your website or service but not on a mobile app.</p>
+  <p class="nhsw-body">For internal-facing services, Use the footer designed for internal services not hosted on service.nhs.wales domains.</p>
+  <p class="nhsw-body">If you use the page template, you'll also get the footer without having to add it, as it's included by default. However, if you want to customise the default footer, read the <a class="nhsw-link" href="#">page template guidance about customising components</a>.</p>
+
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Footers in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Footers on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Footer variants: how to use</span>
+    </a>
+  </div>
+</div>
+
+<!-- Footer variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Footer variants: how to use</h2>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Footer without links</h3>
+
+    {% capture example_body %}{% raw %}
+      <footer class="nhsw-site-footer">
+        <div class="nhsw-site-footer__container">
+          <p class="nhsw-body-s nhsw-site-footer__org">Digital Health and Care Wales</p>
+          <p class="nhsw-body-s nhsw-site-footer__version">Product version information</p>
+        </div>
+      </footer>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="ft-no-links" open_url="/examples/footer-no-links.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container"&gt;
+    &lt;p class="nhsw-site-footer__org"&gt;Digital Health and Care Wales&lt;/p&gt;
+    &lt;p class="nhsw-site-footer__version"&gt;Product version information&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswFooter({
+  organisation: "Digital Health and Care Wales",
+  versionText: "Product version information"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="ft-no-links" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h3 class="nhsw-h3">Adding links</h3>
+  <p class="nhsw-body">You can add links to:</p>
+  <ul class="nhsw-body">
+    <li>your service's privacy notice</li>
+    <li>your service's accessibility statement</li>
+    <li>your service's Cookies page</li>
+    <li>terms and conditions</li>
+    <li>other language options</li>
+    <li>help content</li>
+  </ul>
+  <p class="nhsw-body">Use 'Privacy', 'Accessibility', 'Cookies' and 'Terms and conditions' for the link text.</p>
+  <p class="nhsw-body">If you include links to 'help' pages within the GOV.UK footer component, make sure to place those links consistently within the footer content.</p>
+  <p class="nhsw-body">Also make sure that 'help' links always function in a similar way across each page. This is to comply with <a class="nhsw-link" href="#">WCAG 2.2 success criterion 3.2.6 Consistent help</a>.</p>
+  <p class="nhsw-body">Keep links to a minimum, especially in a transactional journey. Too many links can distract users. Link to specific policies for the transaction, if appropriate.</p>
+  <p class="nhsw-body">If your total number of links is less than 7, arrange them horizontally in lines.</p>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Footer with navigation links</h3>
+    <p class="nhsw-body">If your users need lots of footer links to help them navigate a complex information architecture, include navigation links and arrange the links in columns.</p>
+    <p class="nhsw-body">The navigation links give users another route to the most visited content on the site. They act as a safety net for users who have not found content through the main navigation.</p>
+    <p class="nhsw-body">There is a line below the columns to separate them from the meta information, for example the copyright notice.</p>
+
+    {% capture example_body %}{% raw %}
+      <footer class="nhsw-site-footer">
+        <div class="nhsw-site-footer__container">
+          <div class="nhsw-site-footer__nav">
+            <div class="nhsw-site-footer__nav-column">
+              <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+              <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                <li><a class="nhsw-link" href="#">Book an appointment</a></li>
+                <li><a class="nhsw-link" href="#">Order a repeat prescription</a></li>
+              </ul>
+            </div>
+            <div class="nhsw-site-footer__nav-column">
+              <p class="nhsw-body-s nhsw-site-footer__nav-heading">Support</p>
+              <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                <li><a class="nhsw-link" href="#">Contact us</a></li>
+                <li><a class="nhsw-link" href="#">Help using this service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="nhsw-site-footer__meta">
+            <ul class="nhsw-site-footer__links">
+              <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+              <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+            </ul>
+            <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+          </div>
+        </div>
+      </footer>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="ft-nav" open_url="/examples/footer-navigation.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container"&gt;
+    &lt;div class="nhsw-site-footer__nav"&gt;
+      &lt;div class="nhsw-site-footer__nav-column"&gt;
+        &lt;p class="nhsw-site-footer__nav-heading"&gt;Services&lt;/p&gt;
+        &lt;ul class="nhsw-site-footer__nav-list"&gt;
+          &lt;li&gt;&lt;a href="/appointments"&gt;Book an appointment&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    ...
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswFooter({
+  navigation: [
+    { heading: "Services", items: [{ text: "Book an appointment", href: "/appointments" }] }
+  ],
+  links: [
+    { text: "Accessibility statement", href: "/accessibility" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="ft-nav" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h3 class="nhsw-h3">Copyright</h3>
+  <p class="nhsw-body">Your copyright statement must reflect the ownership of your website or service. The <a class="nhsw-link" href="#">NHS website</a> is (c) Crown copyright but the NHS generally does not have Crown status. The service manual footer, for example, says (c) NHS England.</p>
+  <p class="nhsw-body">Include a reference to the <a class="nhsw-link" href="#">Open Government Licence</a> if your organisation or service encourages people to reuse and adapt its information under the licence. Contact your legal team for advice.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example shows a public-facing consent page from the School-age Immunisations service featuring a standardised footer at the very bottom of the screen. It establishes trust by confirming it is an official NHS Wales digital service while providing a predictable, out-of-the-way location for essential resources like the accessibility statement and service guidance.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Has your child already had a flu vaccine this autumn/winter?</h2>
+    <div class="nhsw-radios">
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="flu-yes" name="flu" type="radio" value="yes">
+        <label class="nhsw-label nhsw-radios__label" for="flu-yes">Yes</label>
+      </div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="flu-no" name="flu" type="radio" value="no">
+        <label class="nhsw-label nhsw-radios__label" for="flu-no">No</label>
+      </div>
+    </div>
+    <button class="nhsw-button" type="submit">Continue</button>
+    <footer class="nhsw-site-footer">
+      <div class="nhsw-site-footer__container">
+        <ul class="nhsw-site-footer__links">
+          <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+          <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+        </ul>
+        <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+      </div>
+    </footer>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ft-example" open_url="/examples/footer-default.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Footer variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure that users can successfully <a class="nhsw-link" href="#">find help links in a consistent place on each page</a>.</p>
+  <p class="nhsw-body">If you include links to "help" pages in a footer, make sure to place those links consistently in the footer content. Also make sure that "help" links always work in a similar way across each page. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.2.6 Consistent Help, level A</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

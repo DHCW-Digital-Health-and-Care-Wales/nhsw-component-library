@@ -1,88 +1,224 @@
 ---
-layout: simple
+layout: component
 title: Tag
+container: fluid
+updated: March 2026
+intro: Use the Tag component to show users the status of something.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Tag variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
 ---
-<section class="preview-section">
-  <h1 class="nhsw-h1">Tag</h1>
-  <p class="nhsw-body">Use the tag component to show users the status of something.</p>
-</section>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Default tag</h2>
-  <p class="nhsw-body">The default tag uses the primary navy background.</p>
-  <p class="nhsw-body"><strong class="nhsw-tag">Active</strong></p>
-</section>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Colour variants</h2>
-  <p class="nhsw-body">Use tag colours to convey meaning. Use adjectives rather than verbs for the labels.</p>
+  {% capture example_body %}{% raw %}
+    <table class="nhsw-body" role="presentation">
+      <thead><tr><th>Application</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td></tr>
+        <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
+        <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
+        <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
+        <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--green">Finished</strong></td></tr>
+        <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--yellow">Waiting on</strong></td></tr>
+      </tbody>
+    </table>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tag-overview" open_url="/examples/tag-status.html" body=example_body %}
 
-  <table class="nhsw-body" role="presentation">
-    <tbody>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--white">Started</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--white</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--grey</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--green">New</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--green</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--aqua-green</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--blue</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--purple</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--pink</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--red</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--orange</td>
-      </tr>
-      <tr>
-        <td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td>
-        <td class="nhsw-body-s">nhsw-tag--yellow</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--red"&gt;Urgent&lt;/strong&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTag %}
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Tags in context</h2>
-  <p class="nhsw-body">Tags work well alongside summary lists to show the status of items.</p>
+{{ nhswTag({
+  text: "Urgent",
+  classes: "nhsw-tag--red"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tag-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <dl class="nhsw-summary-list">
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">Blood test results</dt>
-      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--green">New</strong></dd>
-    </div>
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">GP referral</dt>
-      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></dd>
-    </div>
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">Prescription</dt>
-      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--blue">Active</strong></dd>
-    </div>
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">Vaccination record</dt>
-      <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></dd>
-    </div>
-  </dl>
-</section>
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use tabs</h3>
+  <p class="nhsw-body">Use the tag component when it's possible for something to have more than 1 status and it's useful for the user to know about that status. For example, you can use a tag to show whether an item in a task list has been "completed".</p>
+
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tags in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Tags on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Tag variants: how to use</span>
+    </a>
+  </div>
+</div>
+
+<!-- Tag variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Tag variants: how to use</h2>
+
+  <p class="nhsw-body">Tags should just be used to indicate a status. Do not add links. Use adjectives rather than verbs for the names of your tags. Using a verb might make a user think that clicking on them will do something.</p>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Showing 1 or 2 statuses</h3>
+    <p class="nhsw-body">Sometimes a single status is enough. For example, if you need to tell users which parts of an application they've finished and which they have not, you may only need a "Completed" tag. Because the user understands that if something does not have a tag, that means it's incomplete.</p>
+    <p class="nhsw-body">Or it can make sense to have 2 statuses. For example, you may find that you need 1 tag for "Active" users and 1 for "Inactive" users.</p>
+
+    {% capture example_body %}{% raw %}
+      <table class="nhsw-body" role="presentation">
+        <thead><tr><th>Application</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+          <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+          <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+        </tbody>
+      </table>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="tag-two-status" open_url="/examples/tag-two-status.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
+&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }}
+{{ nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="tag-two-status" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Showing multiple statuses</h3>
+    <p class="nhsw-body">If you need more tag colours, you can use the following tints.</p>
+    <p class="nhsw-body">Tags should be helpful to users. The more you add, the harder it is for users to remember them. So start with the smallest number of statuses you think might work, then add more if your user research shows there's a need for them.</p>
+
+    {% capture example_body %}{% raw %}
+      <table class="nhsw-body" role="presentation">
+        <thead><tr><th>Class name</th><th>Tag</th></tr></thead>
+        <tbody>
+          <tr><td><code>nhsw-tag--white</code></td><td><strong class="nhsw-tag nhsw-tag--white">In progress</strong></td></tr>
+          <tr><td><code>nhsw-tag--grey</code></td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr><td><code>nhsw-tag--aqua-green</code></td><td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td></tr>
+          <tr><td><code>nhsw-tag--blue</code></td><td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td></tr>
+          <tr><td><code>nhsw-tag--green</code></td><td><strong class="nhsw-tag nhsw-tag--green">New</strong></td></tr>
+          <tr><td><code>nhsw-tag--orange</code></td><td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td></tr>
+          <tr><td><code>nhsw-tag--pink</code></td><td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td></tr>
+          <tr><td><code>nhsw-tag--purple</code></td><td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td></tr>
+          <tr><td><code>nhsw-tag--red</code></td><td><strong class="nhsw-tag nhsw-tag--red">Rejected</strong></td></tr>
+          <tr><td><code>nhsw-tag--yellow</code></td><td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td></tr>
+          <tr><td><code>nhsw-tag--dhcw-blue</code></td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+        </tbody>
+      </table>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="tag-all-colours" open_url="/examples/tag-all-colours.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--white"&gt;In progress&lt;/strong&gt;
+&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
+&lt;strong class="nhsw-tag nhsw-tag--aqua-green"&gt;Pending&lt;/strong&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "In progress", classes: "nhsw-tag--white" }) }}
+{{ nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }}
+{{ nhswTag({ text: "Pending", classes: "nhsw-tag--aqua-green" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="tag-all-colours" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h3 class="nhsw-h3">Using colour with tags</h3>
+  <p class="nhsw-body">You can use colour to help distinguish between different tags &mdash; or to help draw the user's attention to a tag if it's especially important. For example, it makes sense to use <code>nhsw-tag--red</code> for a tag that reads "Urgent".</p>
+  <p class="nhsw-body">Do not rely on colour alone to convey information because it's not accessible. If you use the same tag in more than 1 place, make sure you keep the colour consistent.</p>
+  <p class="nhsw-body">Because tags with solid colours tend to stand out more, it's usually best to avoid mixing solid colours and tints: use one or the other. This matters less if you're only using 2 colours. For example, it's okay to use the <code>nhsw-tag--grey</code> and solid blue tags together if you only need 2 statuses.</p>
+  <p class="nhsw-body">We use a border of the same colour as the tag text to stand out against the NHS page background colour.</p>
+
+  {% capture example_body %}{% raw %}
+    <p class="nhsw-body">
+      <strong class="nhsw-tag nhsw-tag--white">Status<br>21 of 87</strong>
+      <strong class="nhsw-tag nhsw-tag--grey">Status<br>21 of 87</strong>
+      <strong class="nhsw-tag nhsw-tag--dhcw-blue">Status<br>21 of 87</strong>
+      <strong class="nhsw-tag nhsw-tag--green">Status<br>21 of 87</strong>
+    </p>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tag-solid" open_url="/examples/tag-colour-solid.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Status&lt;br&gt;21 of 87&lt;/strong&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Status<br>21 of 87", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tag-solid" html=html_sample njk=njk_sample toggleable=true %}
+
+  {% capture example_body %}{% raw %}
+    <p class="nhsw-body">
+      <strong class="nhsw-tag nhsw-tag--white">Flu</strong> <strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong><br><br>
+      <strong class="nhsw-tag nhsw-tag--white">HPV</strong> <strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong><br><br>
+      <strong class="nhsw-tag nhsw-tag--white">MMRV</strong> <strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong><br><br>
+      <strong class="nhsw-tag nhsw-tag--white">MMRV</strong> <strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong>
+    </p>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tag-tint" open_url="/examples/tag-colour-tint.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--white"&gt;Flu&lt;/strong&gt;
+&lt;strong class="nhsw-tag nhsw-tag--green"&gt;Due vaccination&lt;/strong&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "Flu", classes: "nhsw-tag--white" }) }}
+{{ nhswTag({ text: "Due vaccination", classes: "nhsw-tag--green" }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example shows a session results page from the School-age Immunisations service. It uses tags within the search list to clearly indicate the progress or state of a child's record.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">CHRISTIANSEN, Angelena</h2>
+    <p class="nhsw-body">Date of birth: 6 December 2014 (aged 11)</p>
+    <p class="nhsw-body">Year groups: Year 7</p>
+    <p class="nhsw-body">
+      <strong class="nhsw-tag nhsw-tag--white">Flu</strong> <strong class="nhsw-tag nhsw-tag--yellow">Pending consent</strong> Follow-up requested<br><br>
+      <strong class="nhsw-tag nhsw-tag--white">HPV</strong> <strong class="nhsw-tag nhsw-tag--blue">Needs consent</strong>
+    </p>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tag-example" open_url="/examples/tag-summary-list.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Tag variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">All text and background colour combinations meet high colour contrast standards, supporting <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3: Contrast (Enhanced), level AAA</a>. Read more about <a class="nhsw-link" href="#">accessibility and colour</a>.</p>
+  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use clear text labels so all users can understand the purpose of a tag, regardless of how they perceive colour. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">If users can change the order of tags, provide an alternative to dragging and dropping. Users should be able to reorder tags using another method, such as buttons or keyboard controls. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements level AA</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

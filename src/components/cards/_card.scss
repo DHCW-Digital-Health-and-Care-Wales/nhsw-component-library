@@ -56,3 +56,60 @@
   font-size: t.$nhsw-font-size-body;
   line-height: t.$nhsw-line-height-body;
 }
+
+.nhsw-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background-color: c.$nhsw-colour-link;
+  color: c.$nhsw-colour-background-white;
+  font-size: 0.875rem;
+  font-weight: t.$nhsw-font-weight-bold;
+  vertical-align: middle;
+}
+
+.nhsw-card__stat {
+  display: block;
+  margin: 0 0 0.5rem;
+  color: c.$nhsw-colour-text-primary;
+  font-size: 2.5rem;
+  font-weight: t.$nhsw-font-weight-bold;
+  line-height: 1.1;
+}
+
+.nhsw-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+}
+
+.nhsw-card__actions {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  list-style: none;
+  font-size: t.$nhsw-font-size-body-small;
+}
+
+.nhsw-card--chevron {
+  padding-right: 3rem;
+
+  .nhsw-card__title-link::before {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    border-top: 3px solid c.$nhsw-colour-link;
+    border-right: 3px solid c.$nhsw-colour-link;
+    transform: rotate(45deg);
+  }
+}

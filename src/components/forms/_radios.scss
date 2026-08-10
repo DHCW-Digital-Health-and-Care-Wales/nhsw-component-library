@@ -119,4 +119,34 @@
       margin-right: 16px;
     }
   }
+
+  &--small {
+    .nhsw-radios__item {
+      min-height: 24px;
+      padding-left: 32px;
+      margin-bottom: 8px;
+    }
+
+    .nhsw-radios__input {
+      width: 24px;
+      height: 24px;
+    }
+
+    .nhsw-radios__label {
+      padding-top: 2px;
+      font-size: 1rem;
+
+      &::before {
+        width: 24px;
+        height: 24px;
+      }
+
+      &::after {
+        top: 6px;
+        left: 6px;
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
 }

@@ -1,161 +1,474 @@
 ---
-layout: simple
+layout: component
 title: Checkboxes
+container: fluid
+updated: March 2026
+intro: Use checkboxes to let users select 1 or more options on a form.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Checkboxes variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
 ---
-<section class="preview-section">
-  <h1 class="nhsw-h1">Checkboxes</h1>
-  <p class="nhsw-body">Use checkboxes to let users select one or more options from a list.</p>
-</section>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Standard checkboxes</h2>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset" aria-describedby="nationality-hint">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">What is your nationality?</h3>
-      </legend>
-      <div class="nhsw-hint" id="nationality-hint">Select all that apply.</div>
+  {% capture example_body %}{% raw %}
+    <fieldset class="nhsw-fieldset" aria-describedby="cb-ov-hint">
+      <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+      <div class="nhsw-hint" id="cb-ov-hint">Select all options that are relevant to you</div>
       <div class="nhsw-checkboxes">
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
-          <label class="nhsw-label nhsw-checkboxes__label" for="nationality-1">British</label>
+          <input class="nhsw-checkboxes__input" id="cb-ov-1" name="cb-ov" type="checkbox" value="email">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-ov-1">Email</label>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
-          <label class="nhsw-label nhsw-checkboxes__label" for="nationality-2">Irish</label>
+          <input class="nhsw-checkboxes__input" id="cb-ov-2" name="cb-ov" type="checkbox" value="phone">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-ov-2">Phone</label>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
-          <label class="nhsw-label nhsw-checkboxes__label" for="nationality-3">Citizen of another country</label>
+          <input class="nhsw-checkboxes__input" id="cb-ov-3" name="cb-ov" type="checkbox" value="text">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-ov-3">Test message</label>
         </div>
       </div>
     </fieldset>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="cb-overview" open_url="/examples/checkboxes-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
+  &lt;div class="nhsw-checkboxes"&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "checkboxes/macro.njk" import nhswCheckboxes %}
+
+{{ nhswCheckboxes({
+  fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  hint: { text: "Select all options that are relevant to you" },
+  items: [
+    { text: "Email", value: "email" },
+    { text: "Phone", value: "phone" },
+    { text: "Test message", value: "text" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="cb-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use checkboxes</h3>
+  <p class="nhsw-body">Use checkboxes when you need to help users:</p>
+  <ul class="nhsw-body">
+    <li>select more than 1 option from a list</li>
+    <li>toggle a single option on or off</li>
+  </ul>
+
+  <h3 class="nhsw-h3">When not to use checkboxes</h3>
+  <p class="nhsw-body">Do not use the checkboxes component if users can only choose 1 option from a selection. In this case, use a radio.</p>
+
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Checkboxes in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Checkboxes on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Checkboxes variants: how to use</span>
+    </a>
   </div>
-</section>
+</div>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Checkboxes with hints</h2>
+<!-- Checkboxes variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Checkboxes variants: how to use</h2>
 
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset" aria-describedby="waste-hint">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">Which types of waste do you transport?</h3>
-      </legend>
-      <div class="nhsw-hint" id="waste-hint">Select all that apply.</div>
-      <div class="nhsw-checkboxes">
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="animal" aria-describedby="waste-1-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="waste-1">Waste from animal carcasses</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-1-hint">Includes all fallen stock.</div>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines" aria-describedby="waste-2-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="waste-2">Waste from mines or quarries</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-2-hint">Rock,ite orite byproducts.</div>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm" aria-describedby="waste-3-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="waste-3">Farm or agricultural waste</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="waste-3-hint">Excludes waste from mines and quarries.</div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</section>
+  <p class="nhsw-body">Position checkboxes to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.</p>
+  <p class="nhsw-body">Do not pre-select checkbox options as this makes it more likely that users will:</p>
+  <ul class="nhsw-body">
+    <li>not realise they've missed a question</li>
+    <li>submit the wrong answer</li>
+  </ul>
+  <p class="nhsw-body">Order checkbox options alphabetically by default. In some cases, it's helpful to order them from most-to-least common options, for example, by population size. But be careful, as this can reinforce bias. If in doubt, order alphabetically.</p>
+  <p class="nhsw-body">Group checkboxes together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this banner. The legend is usually a question, like "How do you want to be contacted about this?".</p>
+  <p class="nhsw-body">Read more about using <a class="nhsw-link" href="#">fieldset</a>.</p>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Checkboxes with "none" option</h2>
-  <p class="nhsw-body">Use the divider and an exclusive "none" option when appropriate.</p>
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Inline checkboxes</h3>
+    <p class="nhsw-body">In some cases, you can choose to display checkboxes "inline" beside one another (horizontally).</p>
+    <p class="nhsw-body">Only use inline checkboxes when:</p>
+    <ul class="nhsw-body">
+      <li>the question only has 2 options</li>
+      <li>both options are short</li>
+    </ul>
+    <p class="nhsw-body">On small screens such as mobile devices, the checkboxes will still be "stacked" on top of one another (vertically).</p>
 
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">Do you have any of these symptoms?</h3>
-      </legend>
-      <div class="nhsw-checkboxes">
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="symptoms-1" name="symptoms" type="checkbox" value="sore-throat">
-          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1">Sore throat</label>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="symptoms-2" name="symptoms" type="checkbox" value="runny-nose">
-          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2">Runny nose</label>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="symptoms-3" name="symptoms" type="checkbox" value="cough">
-          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3">Cough</label>
-        </div>
-        <div class="nhsw-checkboxes__divider">or</div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive>
-          <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none">No, I do not have any of these symptoms</label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</section>
-
-<section class="preview-section">
-  <h2 class="nhsw-h2">Conditional checkboxes (reveal)</h2>
-  <p class="nhsw-body">Reveal additional content when a checkbox is selected.</p>
-
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">How would you like to be contacted?</h3>
-      </legend>
-      <div class="nhsw-checkboxes">
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="cb-contact-1" name="cb-contact" type="checkbox" value="email" data-aria-controls="conditional-cb-1">
-          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact-1">Email</label>
-        </div>
-        <div class="nhsw-checkboxes__conditional" id="conditional-cb-1">
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="cb-email">Email address</label>
-            <input class="nhsw-input nhsw-input--two-thirds" id="cb-email" name="cb-email" type="email">
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Which nipple has changed?</legend>
+        <div class="nhsw-checkboxes nhsw-checkboxes--inline">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="nipple-right" name="nipple" type="checkbox" value="right">
+            <label class="nhsw-label nhsw-checkboxes__label" for="nipple-right">Right nipple</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="nipple-left" name="nipple" type="checkbox" value="left">
+            <label class="nhsw-label nhsw-checkboxes__label" for="nipple-left">Left nipple</label>
           </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="cb-contact-2" name="cb-contact" type="checkbox" value="phone" data-aria-controls="conditional-cb-2">
-          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact-2">Phone</label>
-        </div>
-        <div class="nhsw-checkboxes__conditional nhsw-checkboxes__conditional--hidden" id="conditional-cb-2">
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="cb-phone">Phone number</label>
-            <input class="nhsw-input nhsw-input--two-thirds" id="cb-phone" name="cb-phone" type="tel">
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="cb-inline" open_url="/examples/checkboxes-inline.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes nhsw-checkboxes--inline"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
+  fieldset: { legend: { text: "Which nipple has changed?" } },
+  classes: "nhsw-checkboxes--inline",
+  items: [
+    { text: "Right nipple", value: "right" },
+    { text: "Left nipple", value: "left" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="cb-inline" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h3 class="nhsw-h3">Checkboxes with hint text</h3>
+  <p class="nhsw-body">Unlike with <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a>, users can select more than 1 option from list of checkboxes. Do not assume that users will know how many options they can select.</p>
+  <p class="nhsw-body">Use hint text to <a class="nhsw-link" href="#">give users help in context</a>. For example, say "Select all the options that are relevant to you". Read more about <a class="nhsw-link" href="#">hint text</a>.</p>
+
+  <section class="preview-section">
+    <h4 class="nhsw-h4">Checkbox items with hints</h4>
+    <p class="nhsw-body">You can add hints to checkbox items to provide additional information about the options.</p>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="conditions-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">What medical conditions do you have?</legend>
+        <div class="nhsw-hint" id="conditions-hint">Select 1 or more</div>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="condition-1" name="condition" type="checkbox" value="alzheimers">
+            <label class="nhsw-label nhsw-checkboxes__label" for="condition-1">Alzheimer's disease or dementia</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="condition-2" name="condition" type="checkbox" value="asthma">
+            <label class="nhsw-label nhsw-checkboxes__label" for="condition-2">Asthma</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="condition-3" name="condition" type="checkbox" value="cancer">
+            <label class="nhsw-label nhsw-checkboxes__label" for="condition-3">Cancer</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="condition-4" name="condition" type="checkbox" value="diabetes" aria-describedby="condition-4-hint">
+            <label class="nhsw-label nhsw-checkboxes__label" for="condition-4">Diabetes</label>
+            <div class="nhsw-hint nhsw-checkboxes__hint" id="condition-4-hint">including type 1, type 2, and gestational diabetes</div>
           </div>
         </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="cb-hints" open_url="/examples/checkboxes-hints.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes__item"&gt;
+  &lt;input class="nhsw-checkboxes__input" id="condition-4" name="condition" type="checkbox" value="diabetes" aria-describedby="condition-4-hint"&gt;
+  &lt;label class="nhsw-label nhsw-checkboxes__label" for="condition-4"&gt;Diabetes&lt;/label&gt;
+  &lt;div class="nhsw-hint nhsw-checkboxes__hint" id="condition-4-hint"&gt;including type 1, type 2, and gestational diabetes&lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
+  fieldset: { legend: { text: "What medical conditions do you have?" } },
+  hint: { text: "Select 1 or more" },
+  items: [
+    { text: "Alzheimer's disease or dementia", value: "alzheimers" },
+    { text: "Asthma", value: "asthma" },
+    { text: "Cancer", value: "cancer" },
+    { text: "Diabetes", value: "diabetes", hint: { text: "including type 1, type 2, and gestational diabetes" } }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="cb-hints" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Add an option for "none"</h3>
+    <p class="nhsw-body">You can give users the option to say none of the other options apply to them.</p>
+    <p class="nhsw-body">This option means users need to actively select "none" rather than leave all the boxes unchecked, which makes sure they do not skip the question by accident.</p>
+    <p class="nhsw-body">Remember to start by asking 1 question per page. You might be able to remove the need for a "none" option by asking the user a better question or by <a class="nhsw-link" href="#">using filter questions</a> to filter users out beforehand.</p>
+    <p class="nhsw-body">Show the "none" option last. Separate it from the other options using a divider, normally the word "or".</p>
+    <p class="nhsw-body">Write a label that repeats the key part of the question. For example, for the question "Do you have any of these symptoms?", say "No, I do not have any of these symptoms". Avoid phrases like "none of the above" because this is a visual reference and might be hard for people who use screen readers to understand.</p>
+    <p class="nhsw-body">To enable some JavaScript that unchecks all other checkboxes when the user clicks "none", add the <code>data-checkbox-exclusive</code> behaviour to the "none" checkbox.</p>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="symptoms-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Do you have any of these symptoms?</legend>
+        <div class="nhsw-hint" id="symptoms-hint">Select all the symptoms you have</div>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="symptoms-1" name="symptoms" type="checkbox" value="sore-throat">
+            <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1">Sore throat</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="symptoms-2" name="symptoms" type="checkbox" value="runny-nose">
+            <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2">Runny nose</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="symptoms-3" name="symptoms" type="checkbox" value="joint-pain">
+            <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3">Muscle or joint pain</label>
+          </div>
+          <div class="nhsw-checkboxes__divider">or</div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive>
+            <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none">No, I do not have any of these symptoms</label>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="cb-none" open_url="/examples/checkboxes-none.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes__divider"&gt;or&lt;/div&gt;
+&lt;div class="nhsw-checkboxes__item"&gt;
+  &lt;input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive&gt;
+  &lt;label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none"&gt;No, I do not have any of these symptoms&lt;/label&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
+  fieldset: { legend: { text: "Do you have any of these symptoms?" } },
+  hint: { text: "Select all the symptoms you have" },
+  items: [
+    { text: "Sore throat", value: "sore-throat" },
+    { text: "Runny nose", value: "runny-nose" },
+    { text: "Muscle or joint pain", value: "joint-pain" },
+    { divider: "or" },
+    { text: "No, I do not have any of these symptoms", value: "none", behaviour: "exclusive" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="cb-none" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">If JavaScript is unavailable, and a user selects both the "none" checkbox and another checkbox, display an error message.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Conditionally revealing a related question</h3>
+    <p class="nhsw-body">You can add a conditionally revealing related question to checkboxes, so users only see the question when it's relevant to them.</p>
+    <p class="nhsw-body">For example, you could reveal a phone number input only when a user chooses to be contacted by phone.</p>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="cb-contact2-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="cb-contact2-hint">Select all options that are relevant to you</div>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact2-1" name="cb-contact2" type="checkbox" value="email" data-aria-controls="conditional-cb2-1" checked>
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-1">Email</label>
+          </div>
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="cb2-email">Email address</label>
+              <input class="nhsw-input" id="cb2-email" name="cb2-email" type="email">
+            </div>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact2-2" name="cb-contact2" type="checkbox" value="phone" data-aria-controls="conditional-cb2-2" checked>
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-2">Phone</label>
+          </div>
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="cb2-phone">Phone number</label>
+              <input class="nhsw-input" id="cb2-phone" name="cb2-phone" type="tel">
+            </div>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact2-3" name="cb-contact2" type="checkbox" value="text" data-aria-controls="conditional-cb2-3" checked>
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-3">Text message</label>
+          </div>
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="cb2-mobile">Mobile phone number</label>
+              <input class="nhsw-input" id="cb2-mobile" name="cb2-mobile" type="tel">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="cb-conditional" open_url="/examples/checkboxes-conditional.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes__item"&gt;
+  &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" data-aria-controls="conditional-1"&gt;
+  &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-checkboxes__conditional" id="conditional-1"&gt;
+  &lt;div class="nhsw-form-group"&gt;
+    &lt;label class="nhsw-label" for="email"&gt;Email address&lt;/label&gt;
+    &lt;input class="nhsw-input" id="email" name="email" type="email"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
+  fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  items: [
+    { text: "Email", value: "email", conditional: { html: "..." } }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="cb-conditional" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Keep it simple. If you need to add a lot of content, consider showing it on the next page in the process instead.</p>
+    <p class="nhsw-body">Only conditionally reveal questions. Do not show or hide anything that is not a question.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Smaller checkboxes</h3>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Care setting</legend>
+        <div class="nhsw-checkboxes nhsw-checkboxes--small">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="setting-1" name="setting" type="checkbox" value="ambulance">
+            <label class="nhsw-label nhsw-checkboxes__label" for="setting-1">Ambulance or urgent and emergency care</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="setting-2" name="setting" type="checkbox" value="care-home">
+            <label class="nhsw-label nhsw-checkboxes__label" for="setting-2">Care home</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="setting-3" name="setting" type="checkbox" value="community">
+            <label class="nhsw-label nhsw-checkboxes__label" for="setting-3">Community health</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="setting-4" name="setting" type="checkbox" value="dentistry">
+            <label class="nhsw-label nhsw-checkboxes__label" for="setting-4">Dentistry</label>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="cb-small" open_url="/examples/checkboxes-small.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes nhsw-checkboxes--small"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
+  fieldset: { legend: { text: "Care setting" } },
+  classes: "nhsw-checkboxes--small",
+  items: [
+    { text: "Ambulance or urgent and emergency care", value: "ambulance" },
+    { text: "Care home", value: "care-home" },
+    { text: "Community health", value: "community" },
+    { text: "Dentistry", value: "dentistry" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="cb-small" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use standard-sized checkboxes in most cases.</p>
+    <p class="nhsw-body">You can use small checkboxes where you need something less visually prominent. For example, on:</p>
+    <ul class="nhsw-body">
+      <li>a page of search results where users need to see and change search filters without distracting them from the results</li>
+      <li>information-dense screens in services designed for repeat use, like staff-facing systems</li>
+    </ul>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Error messages</h3>
+    <p class="nhsw-body">Style error messages like this.</p>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
+        <p class="nhsw-error-message" id="cb-contact3-error">Select how you want to be contacted</p>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-1">Email</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact3-2" name="cb-contact3" type="checkbox" value="phone" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-2">Phone</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact3-3" name="cb-contact3" type="checkbox" value="text" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-3">Text message</label>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="cb-error" open_url="/examples/checkboxes-error.html" body=example_body %}
+
+    <p class="nhsw-body">Follow:</p>
+    <ul class="nhsw-body">
+      <li>our guidance on error messages</li>
+      <li><a class="nhsw-link" href="#">GOV.UK design system guidance on error messages for checkboxes</a></li>
+    </ul>
+  </section>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
   </div>
-</section>
+</div>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Error state</h2>
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
 
-  <div class="nhsw-form-group nhsw-form-group--error">
-    <fieldset class="nhsw-fieldset" aria-describedby="nationality-error-error">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">What is your nationality?</h3>
-      </legend>
-      <span class="nhsw-error-message" id="nationality-error-error">
-        <span class="nhsw-visually-hidden">Error:</span> Select your nationality
-      </span>
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows multiple options that users can select 1 or more options from a list.</p>
+
+  {% capture example_body %}{% raw %}
+    <fieldset class="nhsw-fieldset">
+      <legend class="nhsw-fieldset__legend nhsw-h2">Which year groups do you want to include for the MenACWY and Td/IPV session?</legend>
       <div class="nhsw-checkboxes">
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="nat-err-1" name="nat-err" type="checkbox" value="british" aria-invalid="true">
-          <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-1">British</label>
+          <input class="nhsw-checkboxes__input" id="year-8" name="years-menacwy" type="checkbox" value="8">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-8">Year 8</label>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="nat-err-2" name="nat-err" type="checkbox" value="irish" aria-invalid="true">
-          <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-2">Irish</label>
+          <input class="nhsw-checkboxes__input" id="year-9" name="years-menacwy" type="checkbox" value="9">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-9">Year 9</label>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="nat-err-3" name="nat-err" type="checkbox" value="other" aria-invalid="true">
-          <label class="nhsw-label nhsw-checkboxes__label" for="nat-err-3">Citizen of another country</label>
+          <input class="nhsw-checkboxes__input" id="year-10" name="years-menacwy" type="checkbox" value="10">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-10">Year 10</label>
         </div>
       </div>
     </fieldset>
+    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="cb-example" open_url="/examples/checkboxes-default.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Checkboxes variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
   </div>
-</section>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Users are not always notified when a conditionally revealed question is shown or hidden. This fails <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value, level A</a>.</p>
+  <p class="nhsw-body">However, <a class="nhsw-link" href="#">GOV.UK research into conditionally revealed questions</a> found that this was less of an issue when questions were simple and easy to understand. Complex questions are more likely to cause confusion for users.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

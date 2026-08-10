@@ -19,13 +19,41 @@
   &__caption {
     text-align: left;
     font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 1.55556;
     margin-bottom: 8px;
 
-    @include b.nhsw-from-tablet {
+    &--s {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    &--m {
+      font-size: 1.125rem;
+      line-height: 1.55556;
+
+      @include b.nhsw-from-tablet {
+        font-size: 1.375rem;
+        line-height: 1.45455;
+      }
+    }
+
+    &--l {
       font-size: 1.375rem;
       line-height: 1.45455;
+
+      @include b.nhsw-from-tablet {
+        font-size: 1.625rem;
+        line-height: 1.34615;
+      }
+    }
+
+    &--xl {
+      font-size: 1.625rem;
+      line-height: 1.34615;
+
+      @include b.nhsw-from-tablet {
+        font-size: 2rem;
+        line-height: 1.25;
+      }
     }
   }
 

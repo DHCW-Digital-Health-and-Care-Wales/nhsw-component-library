@@ -1,9 +1,9 @@
 - title: Action link
   url: /actions/action-link.html
 - title: Back link
-  url: "#"
+  url: /actions/back-link.html
 - title: Breadcrumb
-  url: "#"
+  url: /actions/breadcrumb.html
 - title: Buttons
   url: /components/buttons.html
 - title: Callout
@@ -19,32 +19,46 @@
 - title: Details
   url: /content/details.html
 - title: Error summary
-  url: "#"
+  url: /actions/error-summary.html
+- title: Expander
+  url: /actions/expander.html
 - title: File upload
-  url: "#"
+  url: /actions/file-upload.html
 - title: Filter
   url: "#"
+- title: Footer
+  url: /site/footer.html
+- title: Header
+  url: /site/header-footer.html
 - title: Inset text
   url: /content/inset-text.html
 - title: Notification banner
   url: /callouts/notification-banner.html
 - title: Pagination
   url: /content/pagination.html
+- title: Panel
+  url: /content/panel.html
 - title: Radios
   url: /forms/radios.html
 - title: Select
   url: /forms/select.html
 - title: Site navigation
-  url: /site/header-footer.html
+  url: /site/site-navigation.html
+- title: Skip link
+  url: /actions/skip-link.html
 - title: Summary list
   url: /content/summary-list.html
 - title: Table
   url: /content/table.html
+- title: Tabs
+  url: /content/tabs.html
 - title: Tag
   url: /content/tag.html
 - title: Text area
   url: /forms/textarea.html
 - title: Text input
   url: /forms/input.html
+- title: Timeout
+  url: /content/timeout.html
 - title: Warning text
-  url: "#"
+  url: /callouts/warning-text.html

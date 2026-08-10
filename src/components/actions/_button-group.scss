@@ -1,0 +1,18 @@
+@use "../../utilities/breakpoints" as b;
+
+.nhsw-button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  @include b.nhsw-from-tablet {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .nhsw-button {
+    margin: 0;
+  }
+}

@@ -1,6 +1,7 @@
 ---
 layout: component
 title: Buttons
+container: fluid
 updated: March 2026
 intro: Use buttons to help users carry out an action on a page like starting an application or saving their progress.
 tabs:
@@ -12,90 +13,355 @@ tabs:
     label: Examples
   - id: accessibility
     label: Accessibility
-  - id: contribute
-    label: Get help and contribute
 ---
 
 <!-- Overview -->
 <div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
-  <h2 class="nhsw-h2">How to use buttons</h2>
-  <p class="nhsw-body">We have 5 types of buttons:</p>
+
+  {% capture example_body %}{% raw %}
+    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="btn-overview" open_url="/examples/button-primary.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButton %}
+
+{{ nhswButton({
+  text: "Save and continue",
+  classes: "nhsw-button--primary"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="btn-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use a button</h3>
+  <p class="nhsw-body">Use buttons to start transactional journeys and carry out actions, like saving information.</p>
+
+  <h3 class="nhsw-h3">When not to use a button</h3>
+  <p class="nhsw-body">Do not use buttons as links:</p>
   <ul class="nhsw-body">
-    <li><a class="nhsw-link" href="#primary">primary buttons</a></li>
-    <li><a class="nhsw-link" href="#secondary">secondary buttons</a></li>
-    <li><a class="nhsw-link" href="#exception">exception buttons</a></li>
-    <li><a class="nhsw-link" href="#warning">warning buttons</a></li>
-    <li><a class="nhsw-link" href="#link">button styled as a link</a></li>
+    <li>to pages which are not part of your user journey</li>
+    <li>from 1 flat content page to another</li>
+    <li>to external websites</li>
   </ul>
-  <p class="nhsw-body">Align the primary action button to the left edge of your form. On smaller screens, such as on mobile, buttons stretch across the screen's width.</p>
+  <p class="nhsw-body">Try not to have multiple buttons on a page. Follow <a class="nhsw-link" href="#">GOV.UK guidance on structuring forms and starting with one thing per page</a>.</p>
 
-  <section class="preview-section">
-    <h2 class="nhsw-h2" id="primary">Primary buttons</h2>
-    <p class="nhsw-body"><strong>When to use a primary button</strong></p>
-    <p class="nhsw-body">Use a primary button for the main call to action on a page, for example to help users start an application or save their progress. Use only 1 primary button on a page.</p>
-    <button class="nhsw-button nhsw-button--primary nhsw-button--inline">Save and continue</button>
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Buttons in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Buttons on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButton %}
-
-{{ nhswButton({
-  text: "Save and continue"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="button-primary" html=html_sample njk=njk_sample %}
-  </section>
-
-  <section class="preview-section">
-    <h2 class="nhsw-h2" id="secondary">Secondary buttons</h2>
-    <p class="nhsw-body"><strong>When to use a secondary button</strong></p>
-    <p class="nhsw-body">Use a secondary button for secondary actions on a page or when an action needs less prominence.</p>
-    <button class="nhsw-button nhsw-button--secondary nhsw-button--inline">Find address</button>
-
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--secondary"&gt;Find address&lt;/button&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButton %}
-
-{{ nhswButton({
-  text: "Find address",
-  classes: "nhsw-button--secondary"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="button-secondary" html=html_sample njk=njk_sample %}
-  </section>
-
-  <section class="preview-section">
-    <h2 class="nhsw-h2" id="warning">Warning buttons</h2>
-    <p class="nhsw-body">Warning buttons are designed to make users think carefully before they use them. Only use them for actions with serious destructive consequences.</p>
-    <button class="nhsw-button nhsw-button--delete nhsw-button--inline">Delete account</button>
-
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--delete"&gt;Delete account&lt;/button&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButton %}
-
-{{ nhswButton({
-  text: "Delete account",
-  classes: "nhsw-button--delete"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="button-delete" html=html_sample njk=njk_sample %}
-  </section>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Button variants: how to use</span>
+    </a>
+  </div>
 </div>
 
 <!-- Button variants: how to use -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
   <h2 class="nhsw-h2">Button variants: how to use</h2>
-  <p class="nhsw-body">Detailed guidance on each button variant and when to use them.</p>
+  <p class="nhsw-body">Align the primary action button to the left edge of your form. On smaller screens, such as on mobile, buttons stretch across the screen's width.</p>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Primary buttons</h3>
+
+    {% capture example_body %}{% raw %}
+      <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-primary" open_url="/examples/button-primary.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({
+  text: "Save and continue",
+  classes: "nhsw-button--primary"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-primary" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use a primary button</h4>
+    <p class="nhsw-body">Use a primary button for the main call to action on a page, for example to help users start an application or save their progress.</p>
+    <p class="nhsw-body">Use only 1 primary button on a page. Having more than 1 reduces their impact and makes it harder for users to know what to do next.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Secondary buttons</h3>
+
+    {% capture example_body %}{% raw %}
+      <button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button">Continue</button>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-secondary" open_url="/examples/button-secondary.html" body=example_body dark=true %}
+
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--outline" type="button"&gt;Continue&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({
+  text: "Continue",
+  classes: "nhsw-button--outline"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-secondary" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use a secondary button</h4>
+    <p class="nhsw-body">Use a secondary button either:</p>
+    <ul class="nhsw-body">
+      <li>for secondary actions on a page</li>
+      <li>when an action needs less prominence, for example because it is optional</li>
+    </ul>
+    <p class="nhsw-body">Pages with too many calls to action make it hard for users to know what to do next. Before adding lots of secondary buttons, try to simplify the page or break the content down across multiple pages.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Exception buttons</h3>
+
+    {% capture example_body %}{% raw %}
+      <button class="nhsw-button nhsw-button--exceptional nhsw-button--inline" type="button">Exception desktop</button>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-exceptional" open_url="/examples/button-exceptional.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--exceptional" type="button"&gt;Exception desktop&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({
+  text: "Exception desktop",
+  classes: "nhsw-button--exceptional"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-exceptional" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use an exception button to flag, report, or override an unexpected issue, error, or violation of a standard rule. For example, rare edge cases.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Warning buttons</h3>
+
+    {% capture example_body %}{% raw %}
+      <button class="nhsw-button nhsw-button--warning nhsw-button--inline" type="button">Archive record</button>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-warning" open_url="/examples/button-warning.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--warning" type="button"&gt;Archive record&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({
+  text: "Archive record",
+  classes: "nhsw-button--warning"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-warning" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use a warning button</h4>
+    <p class="nhsw-body">Warning buttons are designed to make users think carefully before they use them. They are only effective if used very sparingly. Most services should not need one.</p>
+    <p class="nhsw-body">Only use warning buttons for actions with serious destructive consequences that a user cannot easily undo, for example permanently deleting an account.</p>
+    <p class="nhsw-body">For important destructive actions like this, include an additional step to confirm it. Use another style of button for the initial call to action, then a warning button for the final confirmation.</p>
+    <p class="nhsw-body">Do not only rely on the red colour of a warning button to communicate the serious nature of the action. This is because not all users will be able to see the colour or understand what it means. Make sure the context and button text make clear what will happen if the user selects it.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Smaller buttons</h3>
+    <p class="nhsw-body">Use them sparingly. First try using a standard button.</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-button-group">
+        <button class="nhsw-button nhsw-button--primary nhsw-button--small nhsw-button--inline" type="button">Update results</button>
+        <button class="nhsw-button nhsw-button--secondary nhsw-button--small nhsw-button--inline" type="button">Clear filters</button>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-small" open_url="/examples/button-small.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
+  &lt;button class="nhsw-button nhsw-button--primary nhsw-button--small" type="button"&gt;Update results&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button"&gt;Clear filters&lt;/button&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Update results", classes: "nhsw-button--primary nhsw-button--small" }) }}
+{{ nhswButton({ text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-small" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Only use smaller buttons when one of these applies:</p>
+    <ul class="nhsw-body">
+      <li>space is limited, for example in a card or panel</li>
+      <li>there are several actions of a similar priority that a user can take, for example on a staff-facing system</li>
+    </ul>
+    <p class="nhsw-body">Do not mix up button sizes within button groups. For example, do not group a smaller button with a standard button. Only use 1 primary button in a group.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Button styled as a link</h3>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-button-group">
+        <button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button">Continue</button>
+        <button class="nhsw-button nhsw-button--link nhsw-button--on-dark" type="button">Cancel</button>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-link" open_url="/examples/button-link.html" body=example_body dark=true %}
+
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--outline" type="button"&gt;Continue&lt;/button&gt;
+&lt;button class="nhsw-button nhsw-button--link nhsw-button--on-dark" type="button"&gt;Cancel&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--outline" }) }}
+{{ nhswButton({ text: "Cancel", classes: "nhsw-button--link nhsw-button--on-dark" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-link" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Buttons can be styled as links. However, you should avoid using these, except if:</p>
+    <ul class="nhsw-body">
+      <li>all other button types would be too visually prominent</li>
+      <li>the user is being taken to another page to perform an action</li>
+    </ul>
+    <p class="nhsw-body">For example, the <a class="nhsw-link" href="#">add more fields pattern</a> uses buttons styled as links for users to change or delete fields.</p>
+
+    <h4 class="nhsw-h4">When to use a button versus a hyperlink</h4>
+    <p class="nhsw-body">You should use a:</p>
+    <ul class="nhsw-body">
+      <li>button when the user is performing an action (either primary or secondary)</li>
+      <li>standard hyperlink when the user is navigating to a different webpage &mdash; for example, to find out more about a topic on GOV.UK</li>
+    </ul>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Grouping buttons</h3>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-button-group">
+        <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
+        <button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button">Secondary-white desktop</button>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="btn-grouping" open_url="/examples/button-grouping.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
+  &lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Continue&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--secondary" type="button"&gt;Secondary-white desktop&lt;/button&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
+{{ nhswButton({ text: "Secondary-white desktop", classes: "nhsw-button--secondary" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="btn-grouping" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use a button group when 2 or more buttons are placed together. The buttons will display side by side on wider screens. On smaller screens, such as on mobile, they'll appear stacked.</p>
+  </section>
+
+  <h3 class="nhsw-h3">Button text</h3>
+  <p class="nhsw-body">Write button text in sentence case, describing the action it performs. For example:</p>
+  <ul class="nhsw-body">
+    <li>"Start now" on the <a class="nhsw-link" href="#">start page</a> of your service</li>
+    <li>"Log in" to an account a user has already created</li>
+    <li>"Continue" whether the service saves or does not save a user's information</li>
+    <li>"Save and continue" when the service saves a user's information but your research shows you need to reassure them that it does</li>
+    <li>"Save and come back later" when a user can save their information and come back later</li>
+    <li>"Add another" to add another item to a list or group</li>
+    <li>"Pay" to make a payment</li>
+    <li>"Confirm and send" on a <a class="nhsw-link" href="#">check answers page</a> that does not have any legal content a user must agree to</li>
+    <li>"Confirm and save" on a <a class="nhsw-link" href="#">check answers page</a> on a staff-facing service where data is not being sent to another person or system</li>
+    <li>"Accept and send" on a <a class="nhsw-link" href="#">check answers page</a> that has legal content a user must agree to</li>
+    <li>"Log out" when a user is logged in to an account</li>
+  </ul>
+  <p class="nhsw-body">You may need to include more different words to better describe the action. For example, "Add another address" and "Accept and book the appointment".</p>
+
+  <h3 class="nhsw-h3">Stop users from accidentally sending information more than once</h3>
+  <p class="nhsw-body">Sometimes, users double click buttons because they:</p>
+  <ul class="nhsw-body">
+    <li>have used operating systems where they have to double click items to make them work</li>
+    <li>are experiencing a slow connection, which means they are not getting feedback on their action quickly enough</li>
+    <li>have motor impairments such as hand tremors which cause them to click the button involuntarily</li>
+  </ul>
+  <p class="nhsw-body">In some cases, this can mean their information is sent twice.</p>
+  <p class="nhsw-body">If your research shows that users are frequently sending information twice, you can configure the button to ignore the 2nd click. To do this, set the data-prevent-double-click attribute to true. You can do this directly in the HTML.</p>
+  <p class="nhsw-body">This feature will prevent double clicks for buttons that have JavaScript enabled. However, you should also think about the issue server-side to protect against attacks.</p>
+  <p class="nhsw-body">In the case of slow connections, aim to give the user information about what's happening, for example by showing a loading spinner or a modal, before using data-prevent-double-click.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
 </div>
 
 <!-- Examples -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
-  <p class="nhsw-body">Coded examples of all button variants.</p>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows a "Continue" button used as the primary action on a form. The button appears after all form fields and moves the user to the next step.</p>
+
+  {% capture example_body %}{% raw %}
+    <fieldset class="nhsw-fieldset">
+      <legend class="nhsw-fieldset__legend nhsw-h2">Which year groups do you want to include for the HPV session?</legend>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="year-7" name="years" type="checkbox" value="7">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-7">Year 7</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="year-8" name="years" type="checkbox" value="8">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-8">Year 8</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="year-9" name="years" type="checkbox" value="9">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-9">Year 9</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="year-10" name="years" type="checkbox" value="10">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-10">Year 10</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="year-11" name="years" type="checkbox" value="11">
+          <label class="nhsw-label nhsw-checkboxes__label" for="year-11">Year 11</label>
+        </div>
+      </div>
+    </fieldset>
+    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="btn-example-1" open_url="/examples/button-primary.html" body=example_body %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows a page from the Choose Pharmacy service with three actions:</p>
+  <ul class="nhsw-body">
+    <li>"Save and continue" to move forwards in the process (primary action)</li>
+    <li>"Previous" to go back a step (secondary action)</li>
+    <li>"Cancel and exit" to leave the journey (tertiary action)</li>
+  </ul>
+  <p class="nhsw-body">The actions are grouped to support clear and predictable navigation.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Reason for supply</h2>
+    <div class="nhsw-radios">
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="reason-1" name="reason" type="radio" value="not-ordered">
+        <label class="nhsw-label nhsw-radios__label" for="reason-1">Not ordered in time</label>
+      </div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="reason-2" name="reason" type="radio" value="lost">
+        <label class="nhsw-label nhsw-radios__label" for="reason-2">Lost or misplaced medicine</label>
+      </div>
+    </div>
+    <div class="nhsw-button-group">
+      <button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button">Previous</button>
+      <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
+    </div>
+    <p class="nhsw-body"><button class="nhsw-button nhsw-button--link" type="button">Cancel and exit</button></p>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="btn-example-2" open_url="/examples/button-grouping.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Button variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
 </div>
 
 <!-- Accessibility -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
   <h2 class="nhsw-h2">Accessibility</h2>
-  <p class="nhsw-body">Buttons must have a visible label and must not rely on colour alone to communicate their purpose. Ensure sufficient colour contrast between button background and text.</p>
-</div>
 
-<!-- Get help and contribute -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-contribute" role="tabpanel" aria-labelledby="tab-contribute">
-  <h2 class="nhsw-h2">Get help and contribute</h2>
-  <p class="nhsw-body">If you have questions about this component or want to suggest an improvement, contact the DHCW design system team.</p>
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Do not decrease the height or clickable area of buttons. Larger touch targets help users select buttons accurately. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.8 Target Size, level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure all users can see the button. The background colour must have a contrast ratio of at least 3:1 with white. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11 Non-text Contrast, level AA</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
 </div>

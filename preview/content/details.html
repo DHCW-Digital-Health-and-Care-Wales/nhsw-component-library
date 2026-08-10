@@ -1,88 +1,165 @@
 ---
-layout: simple
+layout: component
 title: Details
+container: fluid
+updated: March 2026
+intro: Make a page easier to scan by letting users reveal more detailed information only if they need it.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Details variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
 ---
-<section class="preview-section">
-  <h1 class="nhsw-h1">Details</h1>
-  <p class="nhsw-body">Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>
-</section>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Default details</h2>
-  <p class="nhsw-body">The details component uses the native HTML details element, which provides progressive enhancement without JavaScript.</p>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-  <details class="nhsw-details">
-    <summary class="nhsw-details__summary">
-      <span class="nhsw-details__summary-text">Where to find your NHS number</span>
-    </summary>
-    <div class="nhsw-details__text">
-      <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
-      <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
-    </div>
-  </details>
-</section>
+  {% capture example_body %}{% raw %}
+    <details class="nhsw-details">
+      <summary class="nhsw-details__summary">
+        <span class="nhsw-details__summary-text">How to find your NHS number</span>
+      </summary>
+      <div class="nhsw-details__text">
+        <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+        <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
+      </div>
+    </details>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="details-overview" open_url="/examples/details-default.html" body=example_body %}
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Details with more content</h2>
+  {% capture html_sample %}{% raw %}&lt;details class="nhsw-details"&gt;
+  &lt;summary class="nhsw-details__summary"&gt;
+    &lt;span class="nhsw-details__summary-text"&gt;How to find your NHS number&lt;/span&gt;
+  &lt;/summary&gt;
+  &lt;div class="nhsw-details__text"&gt;
+    &lt;p class="nhsw-body"&gt;An NHS number is a 10 digit number, like 485 777 3456.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "details/macro.njk" import nhswDetails %}
 
-  <details class="nhsw-details">
-    <summary class="nhsw-details__summary">
-      <span class="nhsw-details__summary-text">How to register with a GP surgery</span>
-    </summary>
-    <div class="nhsw-details__text">
-      <p class="nhsw-body">You can register with any GP surgery as long as you live in the area. Most surgeries accept registrations online, by phone, or in person.</p>
-      <p class="nhsw-body">When registering you will need:</p>
-      <ul>
-        <li>your name, address and date of birth</li>
-        <li>your NHS number (if you know it)</li>
-        <li>the name and address of your previous GP (if you had one)</li>
-      </ul>
-    </div>
-  </details>
-</section>
+{{ nhswDetails({
+  summaryText: "How to find your NHS number",
+  text: "An NHS number is a 10 digit number, like 485 777 3456."
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="details-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Open by default</h2>
-  <p class="nhsw-body">You can set the details element to be open on page load using the <code>open</code> attribute.</p>
+  <h2 class="nhsw-h2">Overview</h2>
 
-  <details class="nhsw-details" open>
-    <summary class="nhsw-details__summary">
-      <span class="nhsw-details__summary-text">What happens after you apply</span>
-    </summary>
-    <div class="nhsw-details__text">
-      <p class="nhsw-body">We will review your application within 5 working days. You will receive a confirmation email with your reference number.</p>
-    </div>
-  </details>
-</section>
+  <h3 class="nhsw-h3">When to use details</h3>
+  <p class="nhsw-body">The details component is a short link that expands to show more text when a user clicks on it.</p>
+  <p class="nhsw-body">Use the component to make a page easier to scan when it contains information that only some users will need. For example, use it to <a class="nhsw-link" href="#">give users help in context</a>.</p>
+  <p class="nhsw-body">There are 2 ways to let users reveal more information:</p>
+  <ul class="nhsw-body">
+    <li>details</li>
+    <li><a class="nhsw-link" href="{{ '/actions/expander.html' | relative_url }}">expander</a></li>
+  </ul>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Multiple details on a page</h2>
-  <p class="nhsw-body">You can use multiple details components on a single page. They operate independently.</p>
+  <h3 class="nhsw-h3">When not to use details</h3>
+  <p class="nhsw-body">Do not use details to hide information that most users will need.</p>
 
-  <details class="nhsw-details">
-    <summary class="nhsw-details__summary">
-      <span class="nhsw-details__summary-text">What is a prescription prepayment certificate?</span>
-    </summary>
-    <div class="nhsw-details__text">
-      <p class="nhsw-body">A prescription prepayment certificate (PPC) lets you get as many NHS prescriptions as you need for a set price.</p>
-    </div>
-  </details>
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Details in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Details on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
-  <details class="nhsw-details">
-    <summary class="nhsw-details__summary">
-      <span class="nhsw-details__summary-text">How much does it cost?</span>
-    </summary>
-    <div class="nhsw-details__text">
-      <p class="nhsw-body">A 3-month PPC costs a fixed price. A 12-month PPC is also available at a different rate.</p>
-    </div>
-  </details>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Details variants: how to use</span>
+    </a>
+  </div>
+</div>
 
-  <details class="nhsw-details">
-    <summary class="nhsw-details__summary">
-      <span class="nhsw-details__summary-text">Who can get free prescriptions?</span>
-    </summary>
-    <div class="nhsw-details__text">
-      <p class="nhsw-body">In Wales, all prescriptions are free of charge for patients registered with a Welsh GP.</p>
-    </div>
-  </details>
-</section>
+<!-- Details variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Details variants: how to use</h2>
+
+  <p class="nhsw-body">Make the link text short and descriptive so users can quickly work out if they need to click on it.</p>
+
+  <h3 class="nhsw-h3">Details and expanders</h3>
+  <p class="nhsw-body">The details component and expanders component both hide sections of content which a user can choose to reveal.</p>
+  <p class="nhsw-body">The details component is less visually prominent than an expander, so tends to work better for content which is not as important to users.</p>
+  <p class="nhsw-body">Users may be reluctant to click on the details component in forms. Read more in the research section below.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example shows a page from the School-age Immunisations service where an administrator is reviewing a new child record before final submission. It uses the details component under the introductory text ("How to resolve potential duplicate records in the future") to optimise the page layout.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Review the new child record</h2>
+    <p class="nhsw-body">No matches were found on WDS or PDS. You can create a temporary record on WIS with the details below, and resolve later.</p>
+    <details class="nhsw-details">
+      <summary class="nhsw-details__summary">
+        <span class="nhsw-details__summary-text">How to resolve potential duplicate records in the future</span>
+      </summary>
+      <div class="nhsw-details__text">
+        <p class="nhsw-body">If a matching record is later found on WDS or PDS, the temporary record can be merged by a data quality administrator.</p>
+      </div>
+    </details>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="details-example-1" open_url="/examples/details-default.html" body=example_body %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows a "Select condition" page from a consultation journey within the Choose Pharmacy service. It uses the details component under the primary text field ("List of common conditions") to provide secondary guidance for clinicians.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Select condition</h2>
+    <p class="nhsw-body">Begin typing the name of the condition you believe is most appropriate</p>
+    <details class="nhsw-details">
+      <summary class="nhsw-details__summary">
+        <span class="nhsw-details__summary-text">List of common conditions</span>
+      </summary>
+      <div class="nhsw-details__text">
+        <p class="nhsw-body">View the Common Ailments Service formulary to learn more about ailments, possible complications, when to refer to GP, treatments, and advice for patients.</p>
+      </div>
+    </details>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="details-example-2" open_url="/examples/details-default.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Details variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure all users can see the details. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3 Contrast (Minimum), level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Use descriptive summary link text that clearly sets expectations about the hidden content. Avoid vague phrases such as "More information" or "Read more". Instead, use specific text like "How to find your NHS number" so users can understand where the link will take them. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.4 Link Purpose (In Context), level A</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

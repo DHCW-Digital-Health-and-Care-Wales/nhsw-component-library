@@ -79,7 +79,7 @@
 
     &--outline {
         background-color: c.$nhsw-colour-button-outline;
-        color: c.$nhsw-colour-text-exceptional;
+        color: c.$nhsw-colour-text-primary;
         border-color: c.$nhsw-colour-button-outline;
         box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
 
@@ -92,6 +92,39 @@
         &:not(:disabled):active {
             box-shadow: none;
             background-color: c.$nhsw-colour-button-outline;
+        }
+    }
+
+    &--small {
+        min-height: 36px;
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+
+    &--link {
+        min-height: 0;
+        padding: 0;
+        background: none;
+        border: 0;
+        box-shadow: none;
+        color: c.$nhsw-colour-link;
+        text-decoration: underline;
+
+        &:not(:disabled):not(:focus):hover {
+            background: none;
+            color: c.$nhsw-colour-link-hover;
+        }
+
+        &:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+            box-shadow: none;
+        }
+
+        &.nhsw-button--on-dark {
+            color: c.$nhsw-colour-background-white;
+
+            &:not(:disabled):not(:focus):hover {
+                color: c.$nhsw-colour-background-white;
+            }
         }
     }
 

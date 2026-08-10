@@ -1,0 +1,17 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 100;
+  padding: 12px 16px;
+  background-color: c.$nhsw-colour-focus;
+  color: c.$nhsw-colour-focus-text;
+  font-weight: 700;
+  text-decoration: underline;
+
+  &:focus {
+    top: 0;
+  }
+}

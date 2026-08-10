@@ -1,66 +1,238 @@
 ---
-layout: simple
-title: Notification banner
+layout: component
+title: Notification banners
+container: fluid
+updated: March 2026
+intro: Use a notification banner to tell the user something they need to know that's not directly related to the page content.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Notification banner variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
 ---
-<section class="preview-section">
-  <h1 class="nhsw-h1">Notification banner</h1>
-  <p class="nhsw-body">Use a notification banner to tell the user about something they need to know about, but that is not directly related to the page content.</p>
-</section>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Default notification banner</h2>
-  <p class="nhsw-body">Use the default notification banner to tell the user about important information or a pending action.</p>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-  <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-1">
-    <div class="nhsw-notification-banner__header">
-      <h2 class="nhsw-notification-banner__title" id="notification-title-1">Important</h2>
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title">
+      <div class="nhsw-notification-banner__header">
+        <h2 class="nhsw-notification-banner__title" id="notification-title">Important</h2>
+      </div>
+      <div class="nhsw-notification-banner__content">
+        <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+      </div>
     </div>
-    <div class="nhsw-notification-banner__content">
-      <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
-    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="nb-overview" open_url="/examples/notification-banner-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner" data-module="nhsw-notification-banner" role="region" aria-labelledby="nhsw-notification-banner-title"&gt;
+  &lt;div class="nhsw-notification-banner__header"&gt;
+    &lt;h2 class="nhsw-notification-banner__title" id="nhsw-notification-banner-title"&gt;
+      Important
+    &lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-notification-banner__content"&gt;
+    &lt;p class="nhsw-notification-banner__heading"&gt;
+      You have 7 days left to send your application.
+      &lt;a class="nhsw-notification-banner__link" href="#"&gt;View application&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "notification-banner/macro.njk" import nhswNotificationBanner %}
+
+{{ nhswNotificationBanner({
+  titleText: "Important",
+  html: "You have 7 days left to send your application. <a class=\"nhsw-notification-banner__link\" href=\"#\">View application</a>."
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="nb-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use a notification banner</h3>
+  <p class="nhsw-body">A notification banner lets you tell the user about something that's not directly relevant to the thing they're trying to do on that page of the service.</p>
+  <p class="nhsw-body">There are 2 versions of the notification banner:</p>
+  <ul class="nhsw-body">
+    <li>the information banner (blue)</li>
+    <li>the success banner (green)</li>
+  </ul>
+  <p class="nhsw-body">Use the information banner to tell the user about:</p>
+  <ul class="nhsw-body">
+    <li>something that affects the service as a whole (such as delays in processing applications or planned downtime)</li>
+    <li>something that affects them in particular (for example, an approaching deadline they need to meet)</li>
+  </ul>
+  <p class="nhsw-body">Use the success banner to tell the user that something they've just done on a previous page was successful (for example, confirming that an email has been sent).</p>
+
+  <h3 class="nhsw-h3">When not to use a notification banner</h3>
+  <p class="nhsw-body">Use notification banners sparingly. There's evidence that people often miss banners. Using them too often is likely to make this problem worse. See <a class="nhsw-link" href="#">Banner blindness revisited by Nielsen Norman Group</a>.</p>
+  <p class="nhsw-body">Avoid showing more than 1 notification banner on the same page. Instead, combine the messages in a single notification banner. If the messages are too different to combine, decide which is your highest priority message and show that one.</p>
+  <p class="nhsw-body">If the information is directly relevant to the thing the user is doing on that page, put the information in the main page content instead. If it needs to stand out, use:</p>
+  <ul class="nhsw-body">
+    <li><a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text component</a></li>
+    <li><a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}">warning callout</a></li>
+  </ul>
+  <p class="nhsw-body">Do not use a notification banner to tell the user about validation errors. Use an <a class="nhsw-link" href="#">error message component</a> and <a class="nhsw-link" href="{{ '/actions/error-summary.html' | relative_url }}">error summary component</a> instead.</p>
+  <p class="nhsw-body">Do not show a notification banner and an error summary component on the same page. Just show the error summary.</p>
+
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Notification banners in GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Notification banners on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Notification banner variants: how to use</span>
+    </a>
   </div>
-</section>
+</div>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Default banner with more content</h2>
+<!-- Notification banner variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Notification banner variants: how to use</h2>
 
-  <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-2">
-    <div class="nhsw-notification-banner__header">
-      <h2 class="nhsw-notification-banner__title" id="notification-title-2">Important</h2>
-    </div>
-    <div class="nhsw-notification-banner__content">
-      <h3 class="nhsw-notification-banner__heading">Your GP surgery has moved</h3>
-      <p class="nhsw-body">Riverside Medical Practice has moved to a new location. The new address is 123 High Street, Cardiff, CF10 1AA.</p>
-      <p class="nhsw-body">Contact the surgery on <a class="nhsw-link nhsw-notification-banner__link" href="#">029 2000 0000</a> if you have any questions.</p>
-    </div>
+  <p class="nhsw-body">Put the notification banner at top of the main container. If your page includes breadcrumbs or a back link, place it below these but before the h1.</p>
+  <p class="nhsw-body">The notification banner should be the same width as the page's other content, such as components, headings and body text. For example, if the other content takes up two-thirds of the screen on desktop devices, then the notification banner should also take up two-thirds. <a class="nhsw-link" href="#">Read about how to lay out pages</a>.</p>
+  <p class="nhsw-body">Use <code>role="region"</code> and <code>aria-labelledby="nhsw-notification-banners-title"</code> (with <code>id="nhsw-notification-banners-title"</code> on <code>nhsw-notification-banners__title</code>) so that screen reader users can navigate to the notification banner.</p>
+
+  <h3 class="nhsw-h3">Notification banner headings</h3>
+  <p class="nhsw-body">The notification banner starts with a heading like "Important" or "Success". This is usually an <code>&lt;h2&gt;</code>.</p>
+  <p class="nhsw-body">If you need a heading in the banner content, place it in <code>&lt;div class="nhsw-notification-banner__content"&gt;</code>. It will normally be an <code>&lt;h3&gt;</code>.</p>
+  <p class="nhsw-body">Do not use a heading for single line notifications. You can apply the <code>nhsw-notification-banners__heading</code> class to a paragraph to make it stand out.</p>
+
+  <h3 class="nhsw-h3">Using the information banner</h3>
+  <p class="nhsw-body">Use an information banner to tell users about something that affects the service as a whole.</p>
+  <p class="nhsw-body">For example:</p>
+  <ul class="nhsw-body">
+    <li>in a service that lets the user apply for something, they might need to know that it's taking longer than usual to process applications</li>
+    <li>in an account-type service, the user might need to know that the service will be down for scheduled maintenance</li>
+  </ul>
+
+  <section class="preview-section">
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-service">
+        <div class="nhsw-notification-banner__header">
+          <h2 class="nhsw-notification-banner__title" id="notification-title-service">Important</h2>
+        </div>
+        <div class="nhsw-notification-banner__content">
+          <p class="nhsw-notification-banner__heading">The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027.</p>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="nb-service" open_url="/examples/notification-banner-service.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;p class="nhsw-notification-banner__heading"&gt;The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027.&lt;/p&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswNotificationBanner({
+  titleText: "Important",
+  text: "The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027."
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="nb-service" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <p class="nhsw-body">If your service is getting more demand than usual, check that you've set up <a class="nhsw-link" href="#">There is a problem with the service pages</a> and <a class="nhsw-link" href="#">Service unavailable pages</a>, and the wording is up to date.</p>
+  <p class="nhsw-body">You can also use the information banner to tell users information about something that's happening elsewhere in the service. For example:</p>
+  <ul class="nhsw-body">
+    <li>in a case working system, the user might need to know that there are new cases waiting for their attention</li>
+    <li>in an account-type service, you might need to tell the user that there's a deadline approaching or that a payment is overdue</li>
+  </ul>
+
+  <h3 class="nhsw-h3">Using the success banner</h3>
+  <p class="nhsw-body">Use a success banner to confirm an action on a previous page was successful. For example, for steps in a long journey or small repeated tasks.</p>
+
+  <section class="preview-section">
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success">
+        <div class="nhsw-notification-banner__header">
+          <h2 class="nhsw-notification-banner__title" id="notification-title-success">Success</h2>
+        </div>
+        <div class="nhsw-notification-banner__content">
+          <h3 class="nhsw-notification-banner__heading">Vaccination outcome recorded for HPV</h3>
+          <p class="nhsw-body">Contact <a class="nhsw-link nhsw-notification-banner__link" href="#">example@wales.nhs.uk</a> if you think there's a problem.</p>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="nb-success" open_url="/examples/notification-banner-success.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswNotificationBanner({
+  type: "success",
+  titleText: "Success",
+  titleHeadingLevel: "3",
+  text: "Vaccination outcome recorded for HPV"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="nb-success" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <p class="nhsw-body">Remove the success banner when the user moves to a new page.</p>
+  <p class="nhsw-body">When the user finishes an entire journey, for example, a service that lets the user register for a thing, use a <a class="nhsw-link" href="{{ '/content/panel.html' | relative_url }}">panel component</a> instead of a success banner.</p>
+  <p class="nhsw-body">For long, complex services, use the <a class="nhsw-link" href="#">task list component</a>. You are unlikely to need a success banner on a page with a task list.</p>
+  <p class="nhsw-body">Since you're using the notification banner to tell the user about the outcome of something they've just done, add <code>role="alert"</code> so focus shifts to the notification banner on page load.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
   </div>
-</section>
+</div>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Success notification banner</h2>
-  <p class="nhsw-body">Use the success variant to confirm that something the user did was successful. The success banner uses <code>role="alert"</code> so it is immediately announced by screen readers.</p>
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
 
-  <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-3">
-    <div class="nhsw-notification-banner__header">
-      <h2 class="nhsw-notification-banner__title" id="notification-title-3">Success</h2>
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows a notification banner used to highlight success with adding an NHS number.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-nhs">
+      <div class="nhsw-notification-banner__header">
+        <h2 class="nhsw-notification-banner__title" id="notification-title-nhs">Success</h2>
+      </div>
+      <div class="nhsw-notification-banner__content">
+        <p class="nhsw-notification-banner__heading">NHS number is added for <a class="nhsw-link nhsw-notification-banner__link" href="#">BROWN, Emily</a></p>
+      </div>
     </div>
-    <div class="nhsw-notification-banner__content">
-      <h3 class="nhsw-notification-banner__heading">Appointment booked</h3>
-      <p class="nhsw-body">Your appointment has been confirmed for 15 July 2026 at 10:30am.</p>
-    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="nb-example" open_url="/examples/notification-banner-nhs.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Notification banner variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
   </div>
-</section>
+</div>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Success with a link</h2>
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
 
-  <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-4">
-    <div class="nhsw-notification-banner__header">
-      <h2 class="nhsw-notification-banner__title" id="notification-title-4">Success</h2>
-    </div>
-    <div class="nhsw-notification-banner__content">
-      <h3 class="nhsw-notification-banner__heading">Training outcome recorded and trainee withdrawn</h3>
-      <p class="nhsw-body">Contact <a class="nhsw-link nhsw-notification-banner__link" href="#">support@example.nhs.wales</a> if you think there is a problem.</p>
-    </div>
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Use a heading like "Success" so users do not need to rely on colour alone to understand the meaning of the banner. Some users may not perceive colour differences, so the heading gives a clear text alternative. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Use the same heading for banners throughout a service so users learn to recognise and understand them consistently. Reusing the same language for components that perform the same function helps reduce cognitive effort and creates predictable user experiences. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.2.4 Consistent Identification, level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">The success banner should include <code>role="alert"</code> to shift the <a class="nhsw-link" href="#">focus state</a> and ensure assistive technologies announce the message automatically when it appears. This helps to make users aware of important updates without needing to locate the banner themselves. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.3: Status Messages at level AA</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
   </div>
-</section>
+</div>

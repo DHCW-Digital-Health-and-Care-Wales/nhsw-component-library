@@ -111,4 +111,44 @@
       display: none;
     }
   }
+
+  &--inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 16px;
+
+    .nhsw-checkboxes__item {
+      margin-right: 16px;
+    }
+  }
+
+  &--small {
+    .nhsw-checkboxes__item {
+      min-height: 24px;
+      padding-left: 32px;
+      margin-bottom: 8px;
+    }
+
+    .nhsw-checkboxes__input {
+      width: 24px;
+      height: 24px;
+    }
+
+    .nhsw-checkboxes__label {
+      padding-top: 2px;
+      font-size: 1rem;
+
+      &::before {
+        width: 24px;
+        height: 24px;
+      }
+
+      &::after {
+        left: 6px;
+        top: 4px;
+        width: 12px;
+        height: 6px;
+      }
+    }
+  }
 }

@@ -1,0 +1,25 @@
+---
+layout: example
+title: Date input error message 2 example
+---
+<div class="nhsw-form-group nhsw-form-group--error">
+  <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message">
+    <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+    <div class="nhsw-hint" id="dob-year-error-hint">For example, 15 3 1984</div>
+    <p class="nhsw-error-message" id="dob-year-error-message">The date of birth must include a year</p>
+    <div class="nhsw-date-input">
+      <div class="nhsw-date-input__item">
+        <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day">Day</label>
+        <input id="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+      </div>
+      <div class="nhsw-date-input__item">
+        <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-month">Month</label>
+        <input id="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+      </div>
+      <div class="nhsw-date-input__item">
+        <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-year">Year</label>
+        <input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+      </div>
+    </div>
+  </fieldset>
+</div>

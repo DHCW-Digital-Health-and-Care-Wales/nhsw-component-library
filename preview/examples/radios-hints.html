@@ -1,0 +1,21 @@
+---
+layout: example
+title: Radio items with hints example
+---
+<div class="nhsw-form-group">
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Do you have a mobile phone with signal?</legend>
+    <div class="nhsw-radios">
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint">
+        <label class="nhsw-label nhsw-radios__label" for="mobile-yes">Yes, I have a mobile phone with signal</label>
+        <div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint">We will text you a 6 digit security code</div>
+      </div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="mobile-no" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint">
+        <label class="nhsw-label nhsw-radios__label" for="mobile-no">No, I want to use my landline</label>
+        <div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint">We will call you to give you a 6 digit security code</div>
+      </div>
+    </div>
+  </fieldset>
+</div>

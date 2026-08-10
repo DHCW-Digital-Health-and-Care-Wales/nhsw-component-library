@@ -1,194 +1,475 @@
 ---
-layout: simple
+layout: component
 title: Radios
+container: fluid
+updated: March 2026
+intro: Use radios when you want users to select only 1 option from a list.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Radios variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
 ---
-<section class="preview-section">
-  <h1 class="nhsw-h1">Radios</h1>
-  <p class="nhsw-body">Use radios when users can only select one option from a list.</p>
-</section>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Standard radios</h2>
-  <p class="nhsw-body">Use radios when you want users to select a single answer from a list of options.</p>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset" aria-describedby="changed-name-hint">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">Have you changed your name?</h3>
-      </legend>
-      <div class="nhsw-hint" id="changed-name-hint">This includes a change of name by deed poll.</div>
+  {% capture example_body %}{% raw %}
+    <fieldset class="nhsw-fieldset" aria-describedby="rd-contact-hint">
+      <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+      <div class="nhsw-hint" id="rd-contact-hint">Select 1 option</div>
       <div class="nhsw-radios">
         <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes">
-          <label class="nhsw-label nhsw-radios__label" for="changed-name-1">Yes</label>
+          <input class="nhsw-radios__input" id="rd-contact-1" name="rd-contact" type="radio" value="email">
+          <label class="nhsw-label nhsw-radios__label" for="rd-contact-1">Email</label>
         </div>
         <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-          <label class="nhsw-label nhsw-radios__label" for="changed-name-2">No</label>
+          <input class="nhsw-radios__input" id="rd-contact-2" name="rd-contact" type="radio" value="phone">
+          <label class="nhsw-label nhsw-radios__label" for="rd-contact-2">Phone</label>
+        </div>
+        <div class="nhsw-radios__item">
+          <input class="nhsw-radios__input" id="rd-contact-3" name="rd-contact" type="radio" value="text">
+          <label class="nhsw-label nhsw-radios__label" for="rd-contact-3">Text message</label>
         </div>
       </div>
     </fieldset>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="rd-overview" open_url="/examples/radios-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;
+  &lt;div class="nhsw-radios"&gt;
+    &lt;div class="nhsw-radios__item"&gt;
+      &lt;input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email"&gt;
+      &lt;label class="nhsw-label nhsw-radios__label" for="contact-1"&gt;Email&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
+
+{{ nhswRadios({
+  fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  hint: { text: "Select 1 option" },
+  items: [
+    { text: "Email", value: "email" },
+    { text: "Phone", value: "phone" },
+    { text: "Text message", value: "text" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="rd-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use radios</h3>
+  <p class="nhsw-body">Use radios when you want users to select only 1 option from a list.</p>
+  <p class="nhsw-body">This component is used interchangeably across devices.</p>
+
+  <h3 class="nhsw-h3">When not to use radios</h3>
+  <p class="nhsw-body">Do not use radios if users might need to select more than 1 option. Use <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a> instead.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Radios variants: how to use</span>
+    </a>
   </div>
-</section>
+</div>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Inline radios</h2>
-  <p class="nhsw-body">Use inline radios when there are only 2 options to choose from, such as yes or no.</p>
+<!-- Radios variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Radios variants: how to use</h2>
 
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">Have you changed your name?</h3>
-      </legend>
-      <div class="nhsw-radios nhsw-radios--inline">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="inline-radio-1" name="inline-radio" type="radio" value="yes">
-          <label class="nhsw-label nhsw-radios__label" for="inline-radio-1">Yes</label>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="inline-radio-2" name="inline-radio" type="radio" value="no">
-          <label class="nhsw-label nhsw-radios__label" for="inline-radio-2">No</label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</section>
+  <p class="nhsw-body">Position radios to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.</p>
+  <p class="nhsw-body">Unlike with checkboxes, users can only select 1 option from a list of radios. Do not assume that users will know how many options they can select based on the visual difference between radios and checkboxes alone. If needed, add a hint explaining this, for example, "Select 1 option".</p>
+  <p class="nhsw-body">Do not pre-select radio options as this makes it more likely that users will:</p>
+  <ul class="nhsw-body">
+    <li>not realise they've missed a question</li>
+    <li>submit the wrong answer</li>
+  </ul>
+  <p class="nhsw-body">Users cannot go back to having no option selected once they have selected an option, without refreshing their browser window. So you should include "None of these" or "I do not know" if these are valid options. In any case, it's best to remove binary choices.</p>
+  <p class="nhsw-body">Order radio options alphabetically by default. In some cases, it's helpful to order them from most-to-least common options, for example, by population size. But be careful, as this can reinforce bias. If in doubt, order alphabetically.</p>
+  <p class="nhsw-body">Group radios together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. This is usually a question, like "Are you 18 or over?". Read more about using fieldset.</p>
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Radios with hints</h2>
-  <p class="nhsw-body">You can add hints to radio items to provide additional information about the options.</p>
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Inline radios</h3>
 
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset" aria-describedby="contact-hint">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">How do you want to be contacted?</h3>
-      </legend>
-      <div class="nhsw-hint" id="contact-hint">Select one option.</div>
-      <div class="nhsw-radios">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-describedby="contact-1-hint">
-          <label class="nhsw-label nhsw-radios__label" for="contact-1">Email</label>
-          <div class="nhsw-hint nhsw-radios__hint" id="contact-1-hint">We will send you a confirmation email.</div>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-describedby="contact-2-hint">
-          <label class="nhsw-label nhsw-radios__label" for="contact-2">Phone</label>
-          <div class="nhsw-hint nhsw-radios__hint" id="contact-2-hint">We will call you between 9am and 5pm.</div>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-describedby="contact-3-hint">
-          <label class="nhsw-label nhsw-radios__label" for="contact-3">Text message</label>
-          <div class="nhsw-hint nhsw-radios__hint" id="contact-3-hint">We will text you a confirmation code.</div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</section>
-
-<section class="preview-section">
-  <h2 class="nhsw-h2">Radios with a divider</h2>
-  <p class="nhsw-body">If one or more options is different from the others, you can separate them using a divider such as "or".</p>
-
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">Where do you live?</h3>
-      </legend>
-      <div class="nhsw-radios">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="where-1" name="where" type="radio" value="england">
-          <label class="nhsw-label nhsw-radios__label" for="where-1">England</label>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="where-2" name="where" type="radio" value="scotland">
-          <label class="nhsw-label nhsw-radios__label" for="where-2">Scotland</label>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="where-3" name="where" type="radio" value="wales">
-          <label class="nhsw-label nhsw-radios__label" for="where-3">Wales</label>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="where-4" name="where" type="radio" value="northern-ireland">
-          <label class="nhsw-label nhsw-radios__label" for="where-4">Northern Ireland</label>
-        </div>
-        <div class="nhsw-radios__divider">or</div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="where-5" name="where" type="radio" value="abroad">
-          <label class="nhsw-label nhsw-radios__label" for="where-5">I am a British citizen living abroad</label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</section>
-
-<section class="preview-section">
-  <h2 class="nhsw-h2">Conditional radios (reveal)</h2>
-  <p class="nhsw-body">You can reveal additional questions when a user selects a particular radio option.</p>
-
-  <div class="nhsw-form-group">
-    <fieldset class="nhsw-fieldset" aria-describedby="contact-pref-hint">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">How would you prefer to be contacted?</h3>
-      </legend>
-      <div class="nhsw-hint" id="contact-pref-hint">Select one option.</div>
-      <div class="nhsw-radios">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="contact-pref-1" name="contact-pref" type="radio" value="email" data-aria-controls="conditional-contact-pref-1">
-          <label class="nhsw-label nhsw-radios__label" for="contact-pref-1">Email</label>
-        </div>
-        <div class="nhsw-radios__conditional" id="conditional-contact-pref-1">
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="contact-pref-email">Email address</label>
-            <input class="nhsw-input nhsw-input--two-thirds" id="contact-pref-email" name="contact-pref-email" type="email">
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Are you 18 or over?</legend>
+        <div class="nhsw-radios nhsw-radios--inline">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="over18-yes" name="over18" type="radio" value="yes">
+            <label class="nhsw-label nhsw-radios__label" for="over18-yes">Yes</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="over18-no" name="over18" type="radio" value="no">
+            <label class="nhsw-label nhsw-radios__label" for="over18-no">No</label>
           </div>
         </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="contact-pref-2" name="contact-pref" type="radio" value="phone" data-aria-controls="conditional-contact-pref-2">
-          <label class="nhsw-label nhsw-radios__label" for="contact-pref-2">Phone</label>
-        </div>
-        <div class="nhsw-radios__conditional nhsw-radios__conditional--hidden" id="conditional-contact-pref-2">
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="contact-pref-phone">Phone number</label>
-            <input class="nhsw-input nhsw-input--two-thirds" id="contact-pref-phone" name="contact-pref-phone" type="tel">
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-inline" open_url="/examples/radios-inline.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios nhsw-radios--inline"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "Are you 18 or over?" } },
+  classes: "nhsw-radios--inline",
+  items: [ { text: "Yes", value: "yes" }, { text: "No", value: "no" } ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-inline" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use inline radios</h4>
+    <p class="nhsw-body">If there are only 2 short options, you can either stack the radios vertically or display them horizontally (inline).</p>
+    <p class="nhsw-body">On small screens such as mobile devices, the radios will still stack vertically.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Radios with hints</h3>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="rd-contact2-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="rd-contact2-hint">Select 1 option</div>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-contact2-1" name="rd-contact2" type="radio" value="email">
+            <label class="nhsw-label nhsw-radios__label" for="rd-contact2-1">Email</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-contact2-2" name="rd-contact2" type="radio" value="phone">
+            <label class="nhsw-label nhsw-radios__label" for="rd-contact2-2">Phone</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-contact2-3" name="rd-contact2" type="radio" value="text">
+            <label class="nhsw-label nhsw-radios__label" for="rd-contact2-3">Text message</label>
           </div>
         </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="contact-pref-3" name="contact-pref" type="radio" value="text" data-aria-controls="conditional-contact-pref-3">
-          <label class="nhsw-label nhsw-radios__label" for="contact-pref-3">Text message</label>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-hints-heading" open_url="/examples/radios-default.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  hint: { text: "Select 1 option" },
+  items: [ ... ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-hints-heading" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use radios with hints</h4>
+    <p class="nhsw-body">Use hint text to give users help in context. Read more about hint text.</p>
+    <p class="nhsw-body">Do not assume that users will know that they can only select 1 option based on the visual difference between radios and checkboxes. If needed, add a hint explaining this, for example, "Select 1 option".</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Radio items with hints</h3>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Do you have a mobile phone with signal?</legend>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint">
+            <label class="nhsw-label nhsw-radios__label" for="mobile-yes">Yes, I have a mobile phone with signal</label>
+            <div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint">We will text you a 6 digit security code</div>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="mobile-no" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint">
+            <label class="nhsw-label nhsw-radios__label" for="mobile-no">No, I want to use my landline</label>
+            <div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint">We will call you to give you a 6 digit security code</div>
+          </div>
         </div>
-        <div class="nhsw-radios__conditional nhsw-radios__conditional--hidden" id="conditional-contact-pref-3">
-          <div class="nhsw-form-group">
-            <label class="nhsw-label" for="contact-pref-text">Mobile number</label>
-            <input class="nhsw-input nhsw-input--two-thirds" id="contact-pref-text" name="contact-pref-text" type="tel">
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-item-hints" open_url="/examples/radios-hints.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios__item"&gt;
+  &lt;input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint"&gt;
+  &lt;label class="nhsw-label nhsw-radios__label" for="mobile-yes"&gt;Yes, I have a mobile phone with signal&lt;/label&gt;
+  &lt;div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint"&gt;We will text you a 6 digit security code&lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "Do you have a mobile phone with signal?" } },
+  items: [
+    { text: "Yes, I have a mobile phone with signal", value: "yes", hint: { text: "We will text you a 6 digit security code" } },
+    { text: "No, I want to use my landline", value: "no", hint: { text: "We will call you to give you a 6 digit security code" } }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-item-hints" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use radio items with hints</h4>
+    <p class="nhsw-body">You can add hints to radios to give more information about the options.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Radio items with a text divider</h3>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="vacc-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Have you had all the vaccinations you're eligible for in the UK?</legend>
+        <div class="nhsw-hint" id="vacc-hint">You would have got these vaccinations at school, from your GP surgery or another healthcare provider</div>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="vacc-yes" name="vacc" type="radio" value="yes">
+            <label class="nhsw-label nhsw-radios__label" for="vacc-yes">Yes</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="vacc-no" name="vacc" type="radio" value="no">
+            <label class="nhsw-label nhsw-radios__label" for="vacc-no">No</label>
+          </div>
+          <div class="nhsw-radios__divider">or</div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="vacc-dontknow" name="vacc" type="radio" value="dont-know">
+            <label class="nhsw-label nhsw-radios__label" for="vacc-dontknow">I do not know</label>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-divider" open_url="/examples/radios-divider.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios__divider"&gt;or&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "Have you had all the vaccinations you're eligible for in the UK?" } },
+  hint: { text: "You would have got these vaccinations at school, from your GP surgery or another healthcare provider" },
+  items: [
+    { text: "Yes", value: "yes" },
+    { text: "No", value: "no" },
+    { divider: "or" },
+    { text: "I do not know", value: "dont-know" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-divider" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use radio items with a text divider</h4>
+    <p class="nhsw-body">If 1 or more of your radio options is different from the others, it can help users if you separate them using a text divider. The text is usually the word "or".</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Conditionally revealing a related question</h3>
+    <p class="nhsw-body">You can add a conditionally revealing question to radios, so users only see the question when it's relevant to them. For example, you could reveal an email address input only when a user chooses to be contacted by email.</p>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Is Sam ready for their HPV vaccination?</legend>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="hpv-ready-yes" name="hpv-ready" type="radio" value="yes">
+            <label class="nhsw-label nhsw-radios__label" for="hpv-ready-yes">Yes</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="hpv-ready-no" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready">
+            <label class="nhsw-label nhsw-radios__label" for="hpv-ready-no">No</label>
+          </div>
+          <div class="nhsw-radios__conditional" id="conditional-hpv-ready">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="hpv-ready-reason">Give details</label>
+              <textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-conditional" open_url="/examples/radios-conditional.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios__conditional" id="conditional-hpv-ready"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "Is Sam ready for their HPV vaccination?" } },
+  items: [
+    { text: "Yes", value: "yes" },
+    { text: "No", value: "no", conditional: { html: "..." } }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-conditional" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Keep it simple. If you need to add a lot of content, consider showing it on the next page in the process instead.</p>
+    <p class="nhsw-body">Only conditionally reveal questions. Do not show or hide anything that is not a question.</p>
+
+    <h4 class="nhsw-h4">Known issues</h4>
+    <p class="nhsw-body">Users are not always notified when a conditionally revealed question is shown or hidden. This fails <a class="nhsw-link" href="#">WCAG 2.2 success criterion 4.1.2 name, role, value (W3C)</a>.</p>
+    <p class="nhsw-body">However, GOV.UK found that screen reader users did not have difficulty answering a conditionally revealed question as long as its simple. It confused users when they conditionally revealed complicated questions, particularly questions with more than 1 part.</p>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Smaller radios</h3>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Filter</legend>
+        <div class="nhsw-radios nhsw-radios--small">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="filter-monthly" name="filter" type="radio" value="monthly">
+            <label class="nhsw-label nhsw-radios__label" for="filter-monthly">Monthly</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="filter-yearly" name="filter" type="radio" value="yearly">
+            <label class="nhsw-label nhsw-radios__label" for="filter-yearly">Yearly</label>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-small" open_url="/examples/radios-small.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios nhsw-radios--small"&gt;
+  ...
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "Filter" } },
+  classes: "nhsw-radios--small",
+  items: [ { text: "Monthly", value: "monthly" }, { text: "Yearly", value: "yearly" } ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-small" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h4 class="nhsw-h4">When to use smaller radios</h4>
+    <p class="nhsw-body">You should use standard-sized radios in most cases.</p>
+    <p class="nhsw-body">Use small radios where you need something to be less visually prominent. For example, on:</p>
+    <ul class="nhsw-body">
+      <li>a page of search results where users need to see and change search filters without distracting them from the results</li>
+      <li>information-dense screens in services designed for repeat use, like staff-facing systems</li>
+    </ul>
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Error messages</h3>
+    <p class="nhsw-body">Display an error message if the user has not:</p>
+    <ul class="nhsw-body">
+      <li>selected any radios</li>
+      <li>answered a conditionally revealed question</li>
+    </ul>
+    <p class="nhsw-body">Style error messages like this.</p>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" aria-describedby="name-change-hint name-change-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
+        <div class="nhsw-hint" id="name-change-hint">This includes changing your last name or spelling your name differently</div>
+        <p class="nhsw-error-message" id="name-change-error">Select yes if you have changed your name</p>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="name-change-yes" name="name-change" type="radio" value="yes" aria-invalid="true">
+            <label class="nhsw-label nhsw-radios__label" for="name-change-yes">Yes</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="name-change-no" name="name-change" type="radio" value="no" aria-invalid="true">
+            <label class="nhsw-label nhsw-radios__label" for="name-change-no">No</label>
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="rd-error" open_url="/examples/radios-error.html" body=example_body %}
+
+    <p class="nhsw-body">Follow:</p>
+    <ul class="nhsw-body">
+      <li>our guidance on error messages</li>
+      <li><a class="nhsw-link" href="#">GOV.UK design system guidance on error messages for radios</a></li>
+    </ul>
+  </section>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows a basic set of radio buttons where users select one option. The options are mutually exclusive, allowing users to answer a single question before continuing.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Does the child agree to receiving the HPV vaccination?</h2>
+    <div class="nhsw-radios">
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="hpv-agree-yes" name="hpv-agree" type="radio" value="yes">
+        <label class="nhsw-label nhsw-radios__label" for="hpv-agree-yes">Yes, they agree</label>
+      </div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="hpv-agree-no" name="hpv-agree" type="radio" value="no">
+        <label class="nhsw-label nhsw-radios__label" for="hpv-agree-no">No, they do not agree</label>
+      </div>
+    </div>
+    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="rd-example-1" open_url="/examples/radios-default.html" body=example_body %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example is from the Choose Pharmacy service. It shows radio buttons with conditionally revealed content. When the user selects "No", additional options appear to help them give more detail. This keeps the initial question simple while allowing users to provide more information when needed.</p>
+
+  {% capture example_body %}{% raw %}
+    <h2 class="nhsw-h2">Does the patient meet the eligibility criteria for an emergency supply of medicines?</h2>
+    <div class="nhsw-radios">
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="emsc-yes" name="emsc" type="radio" value="yes">
+        <label class="nhsw-label nhsw-radios__label" for="emsc-yes">Yes</label>
+      </div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="emsc-no" name="emsc" type="radio" value="no" data-aria-controls="conditional-emsc">
+        <label class="nhsw-label nhsw-radios__label" for="emsc-no">No</label>
+      </div>
+      <div class="nhsw-radios__conditional" id="conditional-emsc">
+        <div class="nhsw-radios nhsw-radios--small">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="emsc-reason-1" name="emsc-reason" type="radio" value="not-applicable">
+            <label class="nhsw-label nhsw-radios__label" for="emsc-reason-1">Not applicable</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="emsc-reason-2" name="emsc-reason" type="radio" value="not-eligible">
+            <label class="nhsw-label nhsw-radios__label" for="emsc-reason-2">Not eligible under EMS</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="emsc-reason-3" name="emsc-reason" type="radio" value="other">
+            <label class="nhsw-label nhsw-radios__label" for="emsc-reason-3">Other</label>
           </div>
         </div>
       </div>
-    </fieldset>
-  </div>
-</section>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="rd-example-2" open_url="/examples/radios-conditional.html" body=example_body %}
 
-<section class="preview-section">
-  <h2 class="nhsw-h2">Error state</h2>
-  <p class="nhsw-body">Radio groups use the form group error pattern with a red left border and an error message.</p>
-
-  <div class="nhsw-form-group nhsw-form-group--error">
-    <fieldset class="nhsw-fieldset" aria-describedby="name-change-error">
-      <legend class="nhsw-fieldset__legend">
-        <h3 class="nhsw-h3">Have you changed your name?</h3>
-      </legend>
-      <span class="nhsw-error-message" id="name-change-error">
-        <span class="nhsw-visually-hidden">Error:</span> Select yes if you have changed your name
-      </span>
-      <div class="nhsw-radios">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="error-radio-1" name="error-radio" type="radio" value="yes" aria-invalid="true">
-          <label class="nhsw-label nhsw-radios__label" for="error-radio-1">Yes</label>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="error-radio-2" name="error-radio" type="radio" value="no" aria-invalid="true">
-          <label class="nhsw-label nhsw-radios__label" for="error-radio-2">No</label>
-        </div>
-      </div>
-    </fieldset>
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Radios variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
   </div>
-</section>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Position radios to the left of their labels. This makes them easier to find, especially for users of screen magnifiers. This supports <a class="nhsw-link" href="#">WCAG Success Criterion 1.4.10 Reflow, level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Users should not be expected to infer that only one option can be selected. GOV.UK recommends hint text such as "Select one option" where necessary. This supports <a class="nhsw-link" href="#">WCAG Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Group radios together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. This is usually a question, like "Are you 18 or over?". This supports <a class="nhsw-link" href="#">WCAG Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>

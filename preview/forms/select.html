@@ -1,143 +1,237 @@
 ---
-layout: simple
+layout: component
 title: Select
+container: fluid
+updated: March 2026
+intro: Use select to let users choose an option from a long list but only use it as a last resort.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Select variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
 ---
-<h1 class="nhsw-h1">Select</h1>
 
-<section class="preview-section">
-  <h2 class="nhsw-h3">When to use select</h2>
-  <p class="nhsw-body">
-    Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.
-  </p>
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 
-  <h2 class="nhsw-h3">When not to use select</h2>
-  <p class="nhsw-body">
-    Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using radios instead.
-  </p>
-
-  <h2 class="nhsw-h3">Select with hint</h2>
-
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-default">Choose region</label>
-    <div class="nhsw-hint" id="select-default-hint">This can be different to what you selected before</div>
-
-    <select id="select-default" class="nhsw-select" aria-describedby="select-default-hint">
-      <option>Choose region</option>
-      <option>North Wales</option>
-      <option>Mid Wales</option>
-      <option>West Wales</option>
-      <option>South Wales</option>
-    </select>
-  </div>
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="sel-ov">Choose region</label>
+      <select id="sel-ov" class="nhsw-select">
+        <option>Choose region</option>
+        <option>North Wales</option>
+        <option>Mid Wales</option>
+        <option>West Wales</option>
+        <option>South Wales</option>
+      </select>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="sel-overview" open_url="/examples/select-hint.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
-  &lt;label class="nhsw-label" for="field-id"&gt;Choose region&lt;/label&gt;
-  &lt;div class="nhsw-hint" id="field-id-hint"&gt;Hint text here&lt;/div&gt;
-  &lt;select id="field-id" class="nhsw-select" aria-describedby="field-id-hint"&gt;
-    &lt;option&gt;Choose an option&lt;/option&gt;
-    &lt;option&gt;Option one&lt;/option&gt;
-    &lt;option&gt;Option two&lt;/option&gt;
+  &lt;label class="nhsw-label" for="region"&gt;Choose region&lt;/label&gt;
+  &lt;select id="region" name="region" class="nhsw-select"&gt;
+    &lt;option&gt;Choose region&lt;/option&gt;
+    &lt;option&gt;North Wales&lt;/option&gt;
+    &lt;option&gt;Mid Wales&lt;/option&gt;
   &lt;/select&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "select/macro.njk" import nhswSelect %}
 
 {{ nhswSelect({
-  id: "field-id",
-  name: "field-name",
-  label: {
-    text: "Choose region"
-  },
-  hint: {
-    text: "This can be different to what you selected before"
-  },
+  id: "region",
+  name: "region",
+  label: { text: "Choose region" },
   items: [
     { value: "", text: "Choose region", selected: true },
     { value: "north-wales", text: "North Wales" },
-    { value: "mid-wales", text: "Mid Wales" },
-    { value: "west-wales", text: "West Wales" },
-    { value: "south-wales", text: "South Wales" }
+    { value: "mid-wales", text: "Mid Wales" }
   ]
 }) }}{% endraw %}{% endcapture %}
-  {% include code-viewer.html id="select" html=html_sample njk=njk_sample %}
-</section>
+  {% include code-viewer.html id="sel-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-<section class="preview-section">
-  <h2 class="nhsw-h3">Select widths</h2>
+  <h2 class="nhsw-h2">Overview</h2>
 
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-xs">Extra small</label>
-    <select id="select-xs" class="nhsw-select nhsw-select--xs">
-      <option>Yes</option>
-      <option>No</option>
-    </select>
+  <h3 class="nhsw-h3">When to use select</h3>
+  <p class="nhsw-body">Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.</p>
+
+  <h3 class="nhsw-h3">When not to use select</h3>
+  <p class="nhsw-body">Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using a different solution, such as radios.</p>
+
+  <h3 class="nhsw-h3">How to use select</h3>
+  <p class="nhsw-body">If you use the component for settings, you can make an option pre-selected by default when users first see it.</p>
+  <p class="nhsw-body">If you use the component for questions, do not pre-select any of the options in case it influences users' answers.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Select variants: how to use</span>
+    </a>
   </div>
+</div>
 
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-s">Small</label>
-    <select id="select-s" class="nhsw-select nhsw-select--s">
-      <option>Wales</option>
-      <option>England</option>
-      <option>Scotland</option>
-    </select>
+<!-- Select variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Select variants: how to use</h2>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Select with hint</h3>
+    <p class="nhsw-body">You can add hint text to help the user understand the options and choose 1 of them.</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="sel-hint">Choose region</label>
+        <div class="nhsw-hint" id="sel-hint-hint">Hint text goes here</div>
+        <select id="sel-hint" class="nhsw-select" aria-describedby="sel-hint-hint">
+          <option>Choose region</option>
+        </select>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sel-hint" open_url="/examples/select-hint.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="region-hint"&gt;Hint text goes here&lt;/div&gt;
+&lt;select id="region" class="nhsw-select" aria-describedby="region-hint"&gt;
+  ...
+&lt;/select&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSelect({
+  id: "region",
+  label: { text: "Choose region" },
+  hint: { text: "Hint text goes here" },
+  items: [ ... ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sel-hint" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Error messages</h3>
+    <p class="nhsw-body">Display an error message if the user has not selected an option.</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-form-group nhsw-form-group--error">
+        <label class="nhsw-label" for="sel-err">Choose region</label>
+        <div class="nhsw-hint" id="sel-err-hint">Hint text goes here</div>
+        <p class="nhsw-error-message" id="sel-err-error">Error message goes here</p>
+        <select id="sel-err" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="sel-err-hint sel-err-error">
+          <option>Choose region</option>
+        </select>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sel-error" open_url="/examples/select-error.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;p class="nhsw-error-message" id="region-error"&gt;Error message goes here&lt;/p&gt;
+&lt;select id="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
+  ...
+&lt;/select&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSelect({
+  id: "region",
+  label: { text: "Choose region" },
+  hint: { text: "Hint text goes here" },
+  errorMessage: { text: "Error message goes here" },
+  items: [ ... ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sel-error" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h3 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h3>
+  <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code>&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
+  <p class="nhsw-body">Read <a class="nhsw-link" href="#">Select your poison (24 Accessibility)</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
   </div>
+</div>
 
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-m">Medium</label>
-    <select id="select-m" class="nhsw-select nhsw-select--m">
-      <option>North Wales</option>
-      <option>Mid Wales</option>
-      <option>West Wales</option>
-      <option>South Wales</option>
-    </select>
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Select widths</h3>
+  <p class="nhsw-body">Choose the width that best fits the content in the select.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="sel-xs">Extra small</label>
+      <select id="sel-xs" class="nhsw-select nhsw-select--xs">
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="sel-s">Small</label>
+      <select id="sel-s" class="nhsw-select nhsw-select--s">
+        <option>Wales</option>
+        <option>England</option>
+        <option>Scotland</option>
+      </select>
+    </div>
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="sel-m">Medium</label>
+      <select id="sel-m" class="nhsw-select nhsw-select--m">
+        <option>North Wales</option>
+        <option>Mid Wales</option>
+      </select>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="sel-widths" open_url="/examples/select-widths.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;select class="nhsw-select nhsw-select--xs"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--s"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--m"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--l"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--xl"&gt;...&lt;/select&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswSelect({ classes: "nhsw-select--s", items: [...] }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="sel-widths" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example is from the Choose Pharmacy service. It uses a select to let clinicians choose the point of care test from a long, structured list of options.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="sel-condition">Name of Point of Care Test</label>
+      <select id="sel-condition" class="nhsw-select">
+        <option>Please select</option>
+        <option>Glucose</option>
+        <option>Cholesterol</option>
+        <option>HbA1c</option>
+      </select>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="sel-example" open_url="/examples/select-service.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Select variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
   </div>
+</div>
 
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-l">Large</label>
-    <select id="select-l" class="nhsw-select nhsw-select--l">
-      <option>Longer select option</option>
-      <option>Another longer option</option>
-    </select>
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Any input that's designed to let a user select multiple options must offer a way to do so without relying on click and drag movements or keyboard and mouse combination actions. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements, level AA</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
   </div>
-
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-xl">Extra large</label>
-    <select id="select-xl" class="nhsw-select nhsw-select--xl">
-      <option>Very long select option for wider layouts</option>
-      <option>Another very long option</option>
-    </select>
-  </div>
-
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-full">Full width</label>
-    <select id="select-full" class="nhsw-select nhsw-select--full">
-      <option>Full width select</option>
-      <option>Option one</option>
-      <option>Option two</option>
-    </select>
-  </div>
-</section>
-
-<section class="preview-section">
-  <h2 class="nhsw-h3">States</h2>
-
-  <div class="nhsw-form-group">
-    <label class="nhsw-label" for="select-disabled">Disabled</label>
-    <select id="select-disabled" class="nhsw-select" disabled>
-      <option>Disabled select</option>
-    </select>
-  </div>
-
-  <div class="nhsw-form-group nhsw-form-group--error">
-    <label class="nhsw-label" for="select-error">Choose region</label>
-    <div class="nhsw-hint" id="select-error-hint">This can be different to what you selected before</div>
-    <strong class="nhsw-error-message" id="select-error-message">Choose a region</strong>
-
-    <select id="select-error" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="select-error-hint select-error-message">
-      <option>Choose region</option>
-      <option>North Wales</option>
-      <option>Mid Wales</option>
-      <option>West Wales</option>
-      <option>South Wales</option>
-    </select>
-  </div>
-</section>
+</div>

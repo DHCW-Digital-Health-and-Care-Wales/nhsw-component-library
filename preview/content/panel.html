@@ -1,0 +1,224 @@
+---
+layout: component
+title: Panel
+container: fluid
+updated: March 2026
+intro: The panel component is a visible container used on confirmation or results pages to highlight important content.
+tabs:
+  - id: overview
+    label: Overview
+  - id: how-to-use
+    label: "Panel variants: how to use"
+  - id: examples
+    label: Examples
+  - id: accessibility
+    label: Accessibility
+---
+
+<!-- Overview -->
+<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-panel">
+      <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+        <path d="M4 12l5 5L20 6" />
+      </svg>
+      <h1 class="nhsw-panel__title">Application complete</h1>
+      <div class="nhsw-panel__body">
+        Your reference number<br>
+        <strong>HDJ2123F</strong>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="pn-overview" open_url="/examples/panel-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
+  &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
+    &lt;path d="M4 12l5 5L20 6" /&gt;
+  &lt;/svg&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;div class="nhsw-panel__body"&gt;
+    Your reference number&lt;br&gt;
+    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "panel/macro.njk" import nhswPanel %}
+
+{{ nhswPanel({
+  titleText: "Application complete",
+  html: "Your reference number<br><strong>HDJ2123F</strong>"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="pn-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Overview</h2>
+
+  <h3 class="nhsw-h3">When to use a panel</h3>
+  <p class="nhsw-body">Use a panel to:</p>
+  <ul class="nhsw-body">
+    <li>highlight that users have done something successfully</li>
+    <li>display important information when a transaction has been completed</li>
+  </ul>
+  <p class="nhsw-body">In most cases, the panel component is used on <a class="nhsw-link" href="#">confirmation pages</a>, to tell the user they have successfully completed the transaction.</p>
+
+  <h3 class="nhsw-h3">When not to use a panel</h3>
+  <p class="nhsw-body">Never use the panel component to highlight important information in body content. Instead consider using:</p>
+  <ul class="nhsw-body">
+    <li><a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a></li>
+    <li><a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}">warning callout</a></li>
+    <li>the pattern to help users decide when and where to get care (care cards)</li>
+  </ul>
+
+  <h3 class="nhsw-h3">Source</h3>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Panels in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Panels on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Panel variants: how to use</span>
+    </a>
+  </div>
+</div>
+
+<!-- Panel variants: how to use -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+  <h2 class="nhsw-h2">Panel variants: how to use</h2>
+
+  <p class="nhsw-body">A panel is made up of:</p>
+  <ul class="nhsw-body">
+    <li>a heading that confirms what has happened</li>
+    <li>description text, which is optional</li>
+  </ul>
+
+  <h3 class="nhsw-h3">How to write panel text</h3>
+  <p class="nhsw-body">Keep your panel heading text brief. It only needs to summarise what has happened. For example, "Application complete".</p>
+  <p class="nhsw-body">Use short words and phrases to make sure highlighted information is easy to read at different screen sizes. Shorter text is less likely to wrap around the panel, which can happen when using the zoom function on mobiles.</p>
+  <p class="nhsw-body">If the panel heading needs to be longer, you can reduce the text size by adding the <code>nhsw-panel__title--l</code> class or setting the <code>titleSize: "l"</code> Nunjucks macro option.</p>
+  <p class="nhsw-body">You can add more context or details by using additional text under the heading.</p>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Without icon (large)</h3>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-panel">
+        <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+        <div class="nhsw-panel__body">
+          Your reference number<br>
+          <strong>HDJ2123F</strong>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="pn-no-icon" open_url="/examples/panel-no-icon.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
+  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
+  &lt;div class="nhsw-panel__body"&gt;
+    Your reference number&lt;br&gt;
+    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswPanel({
+  titleText: "Application complete",
+  titleSize: "l",
+  html: "Your reference number<br><strong>HDJ2123F</strong>"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="pn-no-icon" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-panel nhsw-panel--navy">
+        <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+        <div class="nhsw-panel__body">
+          Your reference number<br>
+          <strong>HDJ2123F</strong>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="pn-navy" open_url="/examples/panel-navy.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
+  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
+  &lt;div class="nhsw-panel__body"&gt;
+    Your reference number&lt;br&gt;
+    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswPanel({
+  titleText: "Application complete",
+  titleSize: "l",
+  html: "Your reference number<br><strong>HDJ2123F</strong>",
+  classes: "nhsw-panel--navy"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="pn-navy" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Overview</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <p class="nhsw-body">This example shows a confirmation page from the public-facing section of the School-age Immunisations service. It uses a solid green panel to reassure parents or guardians that their action was successful.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-panel">
+      <h1 class="nhsw-panel__title nhsw-panel__title--l">Consent confirmed</h1>
+      <div class="nhsw-panel__body">Matthew Smith is due to get the nasal spray flu vaccination at school on Monday 31 August</div>
+    </div>
+    <p class="nhsw-body">We've sent a confirmation to cerys.williams@example.com</p>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="pn-example-1" open_url="/examples/panel-no-icon.html" body=example_body %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows the final screen of a clinical workflow within the Choose Pharmacy service. It uses a solid green panel to give clinicians immediate clarity at the end of a consultation.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-panel">
+      <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+        <path d="M4 12l5 5L20 6" />
+      </svg>
+      <h1 class="nhsw-panel__title">Consultation complete</h1>
+      <div class="nhsw-panel__body">The patient's consultation record has been updated and summary sent to GP</div>
+    </div>
+    <p class="nhsw-body">You can find the consultation record in <a class="nhsw-link" href="#">patient history</a>.</p>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="pn-example-2" open_url="/examples/panel-default.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Panel variants: how to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Accessibility</span>
+    </a>
+  </div>
+</div>
+
+<!-- Accessibility -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Keep text short and concise to ensure it remains fully readable at all zoom levels, including when users apply browser or mobile device zoom. Content must not clip, overlap, truncate or become obscured when users zoom the page or resize text. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.4 Resizing Text, level AA</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
