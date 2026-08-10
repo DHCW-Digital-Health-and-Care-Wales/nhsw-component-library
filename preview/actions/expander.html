@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Expander variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-expander">
@@ -48,9 +46,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ex-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use expanders</h3>
+  <h2 class="nhsw-h2">When to use expanders</h2>
   <p class="nhsw-body">The expander is a short link in a box that expands into more detailed text when a user clicks on it.</p>
   <p class="nhsw-body">There are 2 ways to let users reveal more information:</p>
   <ul class="nhsw-body">
@@ -71,7 +67,7 @@ tabs:
     <li>use a list of links to let users navigate quickly to specific sections of content</li>
   </ul>
 
-  <h3 class="nhsw-h3">When not to use expanders</h3>
+  <h2 class="nhsw-h2">When not to use expanders</h2>
   <p class="nhsw-body">Do not use an expander:</p>
   <ul class="nhsw-body">
     <li>if only some of your users will need the information – use <a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}">details</a> instead</li>
@@ -80,29 +76,42 @@ tabs:
     <li>inside other patterns, for example to help users decide when and where to get care (care cards)</li>
   </ul>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Expanders in the NHS England Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Expanders on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Expander variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Expander variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Expander variants: how to use</h2>
+  <h2 class="nhsw-h2">How to use expanders</h2>
 
   <h3 class="nhsw-h3">Write clear link text</h3>
   <p class="nhsw-body">Make the link text short and descriptive so users can quickly work out if they need to click on it.</p>
 
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">The box border outline and the plus/minus toggle icon must have a contrast ratio of at least 3:1 against their background to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11 Non-Text Contrast, level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure assistive technologies accurately announce whether the information panel is open or closed. The toggle button element must dynamically manage state using appropriate structural attributes, such as aria-expanded, to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Expanders in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Expanders on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Expander variants</h2>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the design system team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -175,31 +184,9 @@ tabs:
   {% include example-preview.html id="ex-faq" open_url="/examples/expander-default.html" body=example_body %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Expander variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">The box border outline and the plus/minus toggle icon must have a contrast ratio of at least 3:1 against their background to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11 Non-Text Contrast, level AA</a>.</p>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Make sure assistive technologies accurately announce whether the information panel is open or closed. The toggle button element must dynamically manage state using appropriate structural attributes, such as aria-expanded, to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value, level A</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

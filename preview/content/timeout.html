@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: A timeout warning that lets users extend the amount of time they have to complete a task.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Timeout variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="to-title-overview" aria-describedby="to-desc-overview">
@@ -51,9 +49,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="to-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use a timeout</h3>
+  <h2 class="nhsw-h2">When to use a timeout</h2>
   <p class="nhsw-body">Use this component when a service sets a session expiry time to protect the user's information. The modal contains a button which allows users to extend the time they have to complete the task.</p>
   <p class="nhsw-body">A service with sessions will normally end a session automatically after a certain amount of time if the user takes no action. If your service has an automatic timeout you should use this pattern to warn users and allow them to extend the session if they want to.</p>
   <p class="nhsw-body">You should warn a user at least 2 minutes before the end of this time. This will give them time to decide if they want to keep using the service.</p>
@@ -65,7 +61,7 @@ tabs:
   </ul>
   <p class="nhsw-body">If the user does nothing within the time limit, redirect them to a timeout page. This page explains what has happened and gives them options for how to continue.</p>
 
-  <h3 class="nhsw-h3">How to use this component</h3>
+  <h2 class="nhsw-h2">How to use this component</h2>
   <p class="nhsw-body">The content of the timeout modal is set using the parameters shown in the macro options table in the previous example.</p>
   <p class="nhsw-body">You will also need to set the parameters:</p>
   <ul class="nhsw-body">
@@ -95,82 +91,6 @@ tabs:
   <p class="nhsw-body">If the response status does not have a successful 200 code, the component will handle the response as a session expiry and redirect the user to the url set in the <code>redirectUrl</code> parameter.</p>
   <p class="nhsw-body">A request to get the current expiry time will be sent when the following happens:</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Timeout modals in the ONS Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Timeout modals on ONS GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Timeout variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Timeout variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Using the mobile version of the timeout</h2>
-  <p class="nhsw-body">On smaller screens such as on mobile, you can use the smaller mobile version.</p>
-
-  {% capture example_body %}{% raw %}
-    <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="to-title-mobile" aria-describedby="to-desc-mobile">
-      <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="to-title-mobile">You will be logged out soon</h2>
-      <p class="nhsw-body nhsw-timeout-modal__text" id="to-desc-mobile">
-        For your security, you will be logged out in
-        <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="109">1 minute and 49 seconds</span>.
-        <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
-      </p>
-      <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>Stay logged in</button>
-    </dialog>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="to-mobile" open_url="/examples/timeout-mobile.html" body=example_body %}
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Examples</span>
-    </a>
-  </div>
-</div>
-
-<!-- Examples -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
-  <h2 class="nhsw-h2">Examples</h2>
-
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows a timeout component warning users they will be logged out.</p>
-
-  {% capture example_body %}{% raw %}
-    <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="to-title-example" aria-describedby="to-desc-example">
-      <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="to-title-example">You will be logged out soon</h2>
-      <p class="nhsw-body nhsw-timeout-modal__text" id="to-desc-example">
-        For your security, you will be logged out in
-        <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="109">1 minute and 49 seconds</span>.
-        <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
-      </p>
-      <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>Stay logged in</button>
-    </dialog>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="to-example" open_url="/examples/timeout-default.html" body=example_body dark=true %}
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Timeout variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
   <h2 class="nhsw-h2">Accessibility</h2>
 
   <span class="nhsw-tag nhsw-tag--blue">WCAG 2.1</span>
@@ -232,10 +152,62 @@ tabs:
     </tbody>
   </table>
 
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Timeout modals in the ONS Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Timeout modals on ONS GitHub</a> to see the latest updates and resolved issues.</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Timeout variants</h2>
+
+  <h3 class="nhsw-h3">Using the mobile version of the timeout</h3>
+  <p class="nhsw-body">On smaller screens such as on mobile, you can use the smaller mobile version.</p>
+
+  {% capture example_body %}{% raw %}
+    <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="to-title-mobile" aria-describedby="to-desc-mobile">
+      <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="to-title-mobile">You will be logged out soon</h2>
+      <p class="nhsw-body nhsw-timeout-modal__text" id="to-desc-mobile">
+        For your security, you will be logged out in
+        <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="109">1 minute and 49 seconds</span>.
+        <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
+      </p>
+      <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>Stay logged in</button>
+    </dialog>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="to-mobile" open_url="/examples/timeout-mobile.html" body=example_body %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
+      <span class="nhsw-body-s">How to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
       <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows a timeout component warning users they will be logged out.</p>
+  {% include screenshot-placeholder.html text="School-age Immunisations dashboard with a timeout warning modal" %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

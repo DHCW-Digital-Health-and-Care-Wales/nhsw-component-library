@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use the skip link component to help keyboard-only users skip to the start of the content on a page.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Skip link variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">Click into this box, then press Tab to reveal the link.</p>
@@ -36,9 +34,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sl-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use a skip link</h3>
+  <h2 class="nhsw-h2">When to use a skip link</h2>
   <p class="nhsw-body">Some people use a keyboard to navigate through the links and form elements on a web page. Using the skip link component gives users the option to:</p>
   <ul class="nhsw-body">
     <li>bypass repeated elements such as top level navigation links and breadcrumbs</li>
@@ -49,22 +45,7 @@ tabs:
   <p class="nhsw-body">Usually, you should place the skip link immediately after the opening <code>&lt;body&gt;</code> tag. If you're using a <a class="nhsw-link" href="#">cookie banner component</a>, place the skip link immediately after the cookie banner.</p>
   <p class="nhsw-body">Some automated accessibility testing tools may warn that the skip link element is not inside a landmark. This warning does not apply to skip links, so you can ignore it. Do not wrap the skip link in a <code>&lt;nav&gt;</code> region, or move it inside the header.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Skip links in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Skip links on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Skip link variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Skip link variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Skip link variants: how to use</h2>
-
+  <h2 class="nhsw-h2">How to use a skip link</h2>
   <p class="nhsw-body">Some people use the tab key on their keyboard to navigate through the links and form elements on a web page. Including a skip link gives users the option to bypass the top-level navigation links and jump to the main content on the page.</p>
   <p class="nhsw-body">The skip link component is visually hidden until a keyboard press activates it.</p>
 
@@ -72,10 +53,35 @@ tabs:
   <p class="nhsw-body">We recommend the label "Skip to main content." This tells users exactly what clicking on the skip link will do. This includes those who do not use a mouse and use the keyboard only.</p>
   <p class="nhsw-body">Screen readers mispronounce "Skip to content" by stressing the second syllable in "content". This gives the phrase the incorrect meaning (content as in satisfied). "Skip to main content" avoids this.</p>
 
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">When a user tabs to the skip link, it should move focus directly to the target content. This helps keyboard users bypass repeated navigation and access the main content more quickly.</p>
+  <p class="nhsw-body">Do not make the target element focusable by default. For example, avoid adding tabindex="-1". This can make it easier for a user to mistakenly click anywhere in the element's area and give it focus when they do not intend to. This is to support both <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.1 Bypass Blocks, level A</a> and <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.7 Focus Visible, level AA</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Skip links in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Skip links on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Skip link variants</h2>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the design system team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -87,40 +93,12 @@ tabs:
 <!-- Examples -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
-
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example shows the skip link used on the School-age Immunisations service, placed immediately after the opening <code>&lt;body&gt;</code> tag so it is the first focusable element on the page.</p>
-
-  {% capture example_body %}{% raw %}
-    <p class="nhsw-body">Click into this box, then press Tab to reveal the link.</p>
-    <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="sl-example" open_url="/examples/skip-link-default.html" body=example_body %}
+  <p class="nhsw-body">There are no examples available for this component.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Skip link variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">When a user tabs to the skip link, it should move focus directly to the target content. This helps keyboard users bypass repeated navigation and access the main content more quickly.</p>
-  <p class="nhsw-body">Do not make the target element focusable by default. For example, avoid adding tabindex="-1". This can make it easier for a user to mistakenly click anywhere in the element's area and give it focus when they do not intend to. This is to support both <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.1 Bypass Blocks, level A</a> and <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.7 Focus Visible, level AA</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

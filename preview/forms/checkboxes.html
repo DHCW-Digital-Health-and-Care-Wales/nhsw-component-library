@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use checkboxes to let users select 1 or more options on a form.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Checkboxes variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <fieldset class="nhsw-fieldset" aria-describedby="cb-ov-hint">
@@ -63,34 +61,17 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="cb-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use checkboxes</h3>
+  <h2 class="nhsw-h2">When to use checkboxes</h2>
   <p class="nhsw-body">Use checkboxes when you need to help users:</p>
   <ul class="nhsw-body">
     <li>select more than 1 option from a list</li>
     <li>toggle a single option on or off</li>
   </ul>
 
-  <h3 class="nhsw-h3">When not to use checkboxes</h3>
+  <h2 class="nhsw-h2">When not to use checkboxes</h2>
   <p class="nhsw-body">Do not use the checkboxes component if users can only choose 1 option from a selection. In this case, use a radio.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Checkboxes in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Checkboxes on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Checkboxes variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Checkboxes variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Checkboxes variants: how to use</h2>
-
+  <h2 class="nhsw-h2">How to use checkboxes</h2>
   <p class="nhsw-body">Position checkboxes to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.</p>
   <p class="nhsw-body">Do not pre-select checkbox options as this makes it more likely that users will:</p>
   <ul class="nhsw-body">
@@ -98,8 +79,62 @@ tabs:
     <li>submit the wrong answer</li>
   </ul>
   <p class="nhsw-body">Order checkbox options alphabetically by default. In some cases, it's helpful to order them from most-to-least common options, for example, by population size. But be careful, as this can reinforce bias. If in doubt, order alphabetically.</p>
-  <p class="nhsw-body">Group checkboxes together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this banner. The legend is usually a question, like "How do you want to be contacted about this?".</p>
+  <p class="nhsw-body">Group checkboxes together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "How do you want to be contacted about this?".</p>
   <p class="nhsw-body">Read more about using <a class="nhsw-link" href="#">fieldset</a>.</p>
+
+  <h3 class="nhsw-h3">Error messages</h3>
+  <p class="nhsw-body">Style error messages like this.</p>
+
+  {% capture example_body %}{% raw %}
+    <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
+      <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+      <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
+      <p class="nhsw-error-message" id="cb-contact3-error">Select how you want to be contacted</p>
+      <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-1">Email</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cb-contact3-2" name="cb-contact3" type="checkbox" value="phone" aria-invalid="true">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-2">Phone</label>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cb-contact3-3" name="cb-contact3" type="checkbox" value="text" aria-invalid="true">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-3">Text message</label>
+        </div>
+      </div>
+    </fieldset>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="cb-error" open_url="/examples/checkboxes-error.html" body=example_body %}
+
+  <p class="nhsw-body">Follow:</p>
+  <ul class="nhsw-body">
+    <li><a class="nhsw-link" href="#">our guidance on error messages</a></li>
+    <li><a class="nhsw-link" href="#">GOV.UK design system guidance on error messages for checkboxes</a></li>
+  </ul>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Users are not always notified when a conditionally revealed question is shown or hidden. This fails <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value, level A</a>.</p>
+  <p class="nhsw-body">However, <a class="nhsw-link" href="#">GOV.UK research into conditionally revealed questions</a> found that this was less of an issue when questions were simple and easy to understand. Complex questions are more likely to cause confusion for users.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Checkboxes in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Checkboxes on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Checkboxes variants</h2>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Inline checkboxes</h3>
@@ -143,7 +178,7 @@ tabs:
   </section>
 
   <h3 class="nhsw-h3">Checkboxes with hint text</h3>
-  <p class="nhsw-body">Unlike with <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a>, users can select more than 1 option from list of checkboxes. Do not assume that users will know how many options they can select.</p>
+  <p class="nhsw-body">Unlike with <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a>, users can select more than 1 option from a list of checkboxes. Do not assume that users will know how many options they can select.</p>
   <p class="nhsw-body">Use hint text to <a class="nhsw-link" href="#">give users help in context</a>. For example, say "Select all the options that are relevant to you". Read more about <a class="nhsw-link" href="#">hint text</a>.</p>
 
   <section class="preview-section">
@@ -370,44 +405,10 @@ tabs:
     </ul>
   </section>
 
-  <section class="preview-section">
-    <h3 class="nhsw-h3">Error messages</h3>
-    <p class="nhsw-body">Style error messages like this.</p>
-
-    {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
-        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
-        <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
-        <p class="nhsw-error-message" id="cb-contact3-error">Select how you want to be contacted</p>
-        <div class="nhsw-checkboxes">
-          <div class="nhsw-checkboxes__item">
-            <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
-            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-1">Email</label>
-          </div>
-          <div class="nhsw-checkboxes__item">
-            <input class="nhsw-checkboxes__input" id="cb-contact3-2" name="cb-contact3" type="checkbox" value="phone" aria-invalid="true">
-            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-2">Phone</label>
-          </div>
-          <div class="nhsw-checkboxes__item">
-            <input class="nhsw-checkboxes__input" id="cb-contact3-3" name="cb-contact3" type="checkbox" value="text" aria-invalid="true">
-            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-3">Text message</label>
-          </div>
-        </div>
-      </fieldset>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="cb-error" open_url="/examples/checkboxes-error.html" body=example_body %}
-
-    <p class="nhsw-body">Follow:</p>
-    <ul class="nhsw-body">
-      <li>our guidance on error messages</li>
-      <li><a class="nhsw-link" href="#">GOV.UK design system guidance on error messages for checkboxes</a></li>
-    </ul>
-  </section>
-
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -420,55 +421,14 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows multiple options that users can select 1 or more options from a list.</p>
-
-  {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset">
-      <legend class="nhsw-fieldset__legend nhsw-h2">Which year groups do you want to include for the MenACWY and Td/IPV session?</legend>
-      <div class="nhsw-checkboxes">
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="year-8" name="years-menacwy" type="checkbox" value="8">
-          <label class="nhsw-label nhsw-checkboxes__label" for="year-8">Year 8</label>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="year-9" name="years-menacwy" type="checkbox" value="9">
-          <label class="nhsw-label nhsw-checkboxes__label" for="year-9">Year 9</label>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="year-10" name="years-menacwy" type="checkbox" value="10">
-          <label class="nhsw-label nhsw-checkboxes__label" for="year-10">Year 10</label>
-        </div>
-      </div>
-    </fieldset>
-    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="cb-example" open_url="/examples/checkboxes-default.html" body=example_body %}
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows a set of checkboxes that allow users to select one or more options from a list as part of a multi-page form.</p>
+  {% include screenshot-placeholder.html text="Year group checkboxes for a MenACWY and Td/IPV session" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Checkboxes variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Users are not always notified when a conditionally revealed question is shown or hidden. This fails <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value, level A</a>.</p>
-  <p class="nhsw-body">However, <a class="nhsw-link" href="#">GOV.UK research into conditionally revealed questions</a> found that this was less of an issue when questions were simple and easy to understand. Complex questions are more likely to cause confusion for users.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

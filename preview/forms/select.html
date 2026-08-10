@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use select to let users choose an option from a long list but only use it as a last resort.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Select variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
@@ -54,29 +52,36 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sel-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use select</h3>
+  <h2 class="nhsw-h2">When to use select</h2>
   <p class="nhsw-body">Use select to let users choose an option from a long list. The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.</p>
 
-  <h3 class="nhsw-h3">When not to use select</h3>
+  <h2 class="nhsw-h2">When not to use select</h2>
   <p class="nhsw-body">Before using the select component, try asking users other questions which will allow you to present them with fewer options. Consider using a different solution, such as radios.</p>
 
-  <h3 class="nhsw-h3">How to use select</h3>
+  <h2 class="nhsw-h2">How to use select</h2>
   <p class="nhsw-body">If you use the component for settings, you can make an option pre-selected by default when users first see it.</p>
   <p class="nhsw-body">If you use the component for questions, do not pre-select any of the options in case it influences users' answers.</p>
 
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Any input that's designed to let a user select multiple options must offer a way to do so without relying on click and drag movements or keyboard and mouse combination actions. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements, level AA</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Select in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Select on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Select variants: how to use</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
 
-<!-- Select variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Select variants: how to use</h2>
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Select variants</h2>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Select with hint</h3>
@@ -136,14 +141,53 @@ tabs:
     {% include code-viewer.html id="sel-error" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Select widths</h3>
+    <p class="nhsw-body">Choose the width that best fits the content in the select.</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="sel-xs">Extra small</label>
+        <select id="sel-xs" class="nhsw-select nhsw-select--xs">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="sel-s">Small</label>
+        <select id="sel-s" class="nhsw-select nhsw-select--s">
+          <option>Wales</option>
+          <option>England</option>
+          <option>Scotland</option>
+        </select>
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="sel-m">Medium</label>
+        <select id="sel-m" class="nhsw-select nhsw-select--m">
+          <option>North Wales</option>
+          <option>Mid Wales</option>
+        </select>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sel-widths" open_url="/examples/select-widths.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;select class="nhsw-select nhsw-select--xs"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--s"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--m"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--l"&gt;...&lt;/select&gt;
+&lt;select class="nhsw-select nhsw-select--xl"&gt;...&lt;/select&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSelect({ classes: "nhsw-select--s", items: [...] }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sel-widths" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
   <h3 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h3>
   <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code>&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
   <p class="nhsw-body">Read <a class="nhsw-link" href="#">Select your poison (24 Accessibility)</a>.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -156,82 +200,14 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">Select widths</h3>
-  <p class="nhsw-body">Choose the width that best fits the content in the select.</p>
-
-  {% capture example_body %}{% raw %}
-    <div class="nhsw-form-group">
-      <label class="nhsw-label" for="sel-xs">Extra small</label>
-      <select id="sel-xs" class="nhsw-select nhsw-select--xs">
-        <option>Yes</option>
-        <option>No</option>
-      </select>
-    </div>
-    <div class="nhsw-form-group">
-      <label class="nhsw-label" for="sel-s">Small</label>
-      <select id="sel-s" class="nhsw-select nhsw-select--s">
-        <option>Wales</option>
-        <option>England</option>
-        <option>Scotland</option>
-      </select>
-    </div>
-    <div class="nhsw-form-group">
-      <label class="nhsw-label" for="sel-m">Medium</label>
-      <select id="sel-m" class="nhsw-select nhsw-select--m">
-        <option>North Wales</option>
-        <option>Mid Wales</option>
-      </select>
-    </div>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="sel-widths" open_url="/examples/select-widths.html" body=example_body %}
-
-  {% capture html_sample %}{% raw %}&lt;select class="nhsw-select nhsw-select--xs"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--s"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--m"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--l"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--xl"&gt;...&lt;/select&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswSelect({ classes: "nhsw-select--s", items: [...] }) }}{% endraw %}{% endcapture %}
-  {% include code-viewer.html id="sel-widths" html=html_sample njk=njk_sample toggleable=true %}
-
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example is from the Choose Pharmacy service. It uses a select to let clinicians choose the point of care test from a long, structured list of options.</p>
-
-  {% capture example_body %}{% raw %}
-    <div class="nhsw-form-group">
-      <label class="nhsw-label" for="sel-condition">Name of Point of Care Test</label>
-      <select id="sel-condition" class="nhsw-select">
-        <option>Please select</option>
-        <option>Glucose</option>
-        <option>Cholesterol</option>
-        <option>HbA1c</option>
-      </select>
-    </div>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="sel-example" open_url="/examples/select-service.html" body=example_body %}
+  {% include screenshot-placeholder.html text="Point of Care Test form with a Name of Point of Care Test select" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Select variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Any input that's designed to let a user select multiple options must offer a way to do so without relying on click and drag movements or keyboard and mouse combination actions. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements, level AA</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

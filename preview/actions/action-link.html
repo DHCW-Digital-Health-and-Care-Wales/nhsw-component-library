@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use action links to signpost the start of a digital service.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Action link variants: How to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <a class="nhsw-action-link" href="#">
@@ -42,64 +40,72 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="al-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
+  <h2 class="nhsw-h2">When to use action links</h2>
+  <p class="nhsw-body">Use action links to signpost the start of a digital service.</p>
 
-  <h3 class="nhsw-h3">When not to use action links</h3>
+  <h2 class="nhsw-h2">When not to use action links</h2>
   <p class="nhsw-body">Do not use action links in forms. Use a <a class="nhsw-link" href="{{ '/components/buttons.html' | relative_url }}">button</a> instead.</p>
   <p class="nhsw-body">We don't use action links just to link to another page or site. If you need a link to stand out, you can use <a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a>.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more on the <a class="nhsw-link" href="#">Action link in NHS England Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Action Link on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+  <h2 class="nhsw-h2">How to use action links</h2>
+  <p class="nhsw-body">Keep the words on the action link short. Start with a verb, for example: "Book an appointment" or "Register with an NHS dentist".</p>
+  <p class="nhsw-body">Action links usually sit in a block of text. You can also put one in a care card. (Find out more about helping users decide <a class="nhsw-link" href="#">when and where to get care with care cards</a>.)</p>
+  <p class="nhsw-body">You can have more than one action link on a page but avoid putting them near each other. Spacing them apart makes it easier for users to quickly identify each action and select the right one.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">The link colour and background colour contrast ratio is 5.76:1. This passes <a class="nhsw-link" href="#">WCAG 2.2 success criterion 1.4.3 Contrast (Minimum), level AAA</a> guidelines at that font size.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">When using an action link on dark backgrounds, make sure all users are able to see the link. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3 Contrast (Minimum), level AA (W3C)</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Action links in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Action links on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Action link variants: how to use</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
 
-<!-- Action link variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Action link variants: how to use</h2>
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Action link variants</h2>
 
-  <p class="nhsw-body">Keep the words on the action link short. Start with a verb, for example: "Book an appointment" or "Apply for an EHIC card".</p>
-  <p class="nhsw-body">Action links usually sit in a block of text. You can also put one in a care card. (Find out more about helping users decide <a class="nhsw-link" href="#">when and where to get care, with care cards</a>.)</p>
-  <p class="nhsw-body">You can have more than one action link on a page but avoid putting them near each other.</p>
-  <p class="nhsw-body">The link colour and background colour contrast ratio is 5.76:1, which passes AAA guidelines at that font size.</p>
+  <h3 class="nhsw-h3">Action link on dark backgrounds</h3>
 
-  <section class="preview-section">
-    <h3 class="nhsw-h3">Action link on dark backgrounds</h3>
+  {% capture example_body %}{% raw %}
+    <a class="nhsw-action-link nhsw-action-link--on-dark" href="#">
+      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+      </svg>
+      <span class="nhsw-action-link__text">Action link</span>
+    </a>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="al-dark" open_url="/examples/action-link-dark.html" body=example_body dark=true %}
 
-    {% capture example_body %}{% raw %}
-      <a class="nhsw-action-link nhsw-action-link--on-dark" href="#">
-        <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-          <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-        </svg>
-        <span class="nhsw-action-link__text">Action link</span>
-      </a>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="al-dark" open_url="/examples/action-link-dark.html" body=example_body dark=true %}
-
-    {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link nhsw-action-link--on-dark" href="/apply"&gt;
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link nhsw-action-link--on-dark" href="/apply"&gt;
   &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
   &lt;span class="nhsw-action-link__text"&gt;Action link&lt;/span&gt;
 &lt;/a&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswActionLink({
+  {% capture njk_sample %}{% raw %}{{ nhswActionLink({
   text: "Action link",
   href: "/apply",
   classes: "nhsw-action-link--on-dark"
 }) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="al-dark" html=html_sample njk=njk_sample toggleable=true %}
+  {% include code-viewer.html id="al-dark" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Make sure all users can see the action link. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="#">WCAG 2.2 success criterion 1.4.3 Contrast (minimum), level AA (W3C)</a>.</p>
-  </section>
+  <p class="nhsw-body">This variant of the action link is designed for use on dark backgrounds, where the standard version may not provide enough contrast.</p>
+  <p class="nhsw-body">To make sure all users can see the action link, the background colour must have a contrast ratio of at least 4.5:1 against white to meet <a class="nhsw-link" href="#">WCAG 2.2 success criterion 1.4.3 Contrast (minimum), level AA (W3C)</a>.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -111,86 +117,19 @@ tabs:
 <!-- Examples -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
-  <p class="nhsw-body">Action links are often grouped together on a landing page to signpost several related digital services.</p>
 
-  <h3 class="nhsw-h3">Group of action links</h3>
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows the action link at the top left of the page to signpost the start of the digital service.</p>
+  {% include screenshot-placeholder.html text="Sessions page with an action link to add a new session" %}
 
-  {% capture example_body %}{% raw %}
-    <a class="nhsw-action-link" href="#">
-      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-      </svg>
-      <span class="nhsw-action-link__text">Order a repeat prescription</span>
-    </a>
-    <a class="nhsw-action-link" href="#">
-      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-      </svg>
-      <span class="nhsw-action-link__text">Book a COVID-19 vaccination</span>
-    </a>
-    <a class="nhsw-action-link" href="#">
-      <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-        <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
-      </svg>
-      <span class="nhsw-action-link__text">Find your NHS number</span>
-    </a>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="al-group" open_url="/examples/action-link-group.html" body=example_body %}
-
-  {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link" href="/repeat-prescription"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Order a repeat prescription&lt;/span&gt;
-&lt;/a&gt;
-&lt;a class="nhsw-action-link" href="/covid-vaccination"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Book a COVID-19 vaccination&lt;/span&gt;
-&lt;/a&gt;
-&lt;a class="nhsw-action-link" href="/find-nhs-number"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
-  &lt;span class="nhsw-action-link__text"&gt;Find your NHS number&lt;/span&gt;
-&lt;/a&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{% for link in [
-  { text: "Order a repeat prescription", href: "/repeat-prescription" },
-  { text: "Book a COVID-19 vaccination", href: "/covid-vaccination" },
-  { text: "Find your NHS number", href: "/find-nhs-number" }
-] %}
-  {{ nhswActionLink(link) }}
-{% endfor %}{% endraw %}{% endcapture %}
-  {% include code-viewer.html id="al-group" html=html_sample njk=njk_sample toggleable=true %}
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows the "All appointments" overview page from Mass Vaccination Service within WIS. It uses inline action links (the "Start" links accompanied by an arrow icon) within the appointments table to launch specific workflows.</p>
+  {% include screenshot-placeholder.html text="All appointments table with inline Start action links" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Action link variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-  <p class="nhsw-body">Action links are built from a native <code>&lt;a&gt;</code> element, so they are keyboard focusable and operable with assistive technology without any extra scripting.</p>
-
-  <h3 class="nhsw-h3">Icon</h3>
-  <p class="nhsw-body">The arrow icon is decorative. It must always carry <code>aria-hidden="true"</code> and <code>focusable="false"</code> so screen readers announce only the link text, never the SVG.</p>
-
-  <h3 class="nhsw-h3">Colour</h3>
-  <p class="nhsw-body">Colour is never the only way an action link is identified — the bold text label and underline-on-hover carry the same meaning in every variant. All variant colours meet WCAG AA contrast against a white background.</p>
-
-  <h3 class="nhsw-h3">Focus state</h3>
-  <p class="nhsw-body">On keyboard focus, the action link shows the standard yellow focus indicator with a dark focus text colour, matching the focus style used across the rest of the design system.</p>
-
-  <h3 class="nhsw-h3">Visited links</h3>
-  <p class="nhsw-body">Visited action links keep the same text colour as unvisited ones, so the bold label and icon remain easy to read once a user has already followed the link.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

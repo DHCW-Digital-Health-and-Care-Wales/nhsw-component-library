@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use the summary list to summarise information, for example, a user's responses at the end of a form.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Summary list variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-summary-card">
@@ -75,9 +73,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sl-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use summary lists</h3>
+  <h2 class="nhsw-h2">When to use summary lists</h2>
   <p class="nhsw-body">Use the summary list component to present pairs of related information, known as key-value pairs, in a list, where:</p>
   <ul class="nhsw-body">
     <li>the key is a label, like "Name"</li>
@@ -85,32 +81,39 @@ tabs:
   </ul>
   <p class="nhsw-body">Think about how you can use the summary list along with other components or patterns to give users a sense of control. You can use it to summarise a user's responses at the end of a form, for example as part of the check answers pattern.</p>
 
-  <h3 class="nhsw-h3">When not to use summary lists</h3>
+  <h2 class="nhsw-h2">When not to use summary lists</h2>
   <p class="nhsw-body">The summary list uses the description list <code>&lt;dl&gt;</code> HTML element, so only use it to present information that has a key and at least 1 value.</p>
   <p class="nhsw-body">Do not use it for tabular data or a simple list of information or tasks, like a task list page. (See the complete multiple tasks pattern.) For those, use a <code>&lt;table&gt;</code>, <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure any "Change" or other action links are at least 24px by 24px in size, or have adequate spacing. This is to make sure users can easily interact with the links. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.8 Target Size, level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">When users go back to a previous answer through a link, pre-populate any information they have already entered.</p>
+  <p class="nhsw-body">Do not pre-populate information that is no longer valid, or where doing so would create a safety or security risk. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.7 Redundant Entry, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Summary lists in the GOV.UK Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Summary lists on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Summary list variants: how to use</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
 
-<!-- Summary list variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Summary list variants: how to use</h2>
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Summary list variants</h2>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Summary card with actions</h3>
     <p class="nhsw-body">You can add actions to a summary list, like a "Change" link to let users go back and edit their answer.</p>
     <p class="nhsw-body">People who use assistive technology, like a screen reader, may hear the links out of context and not know what they do. To give more context, add visually hidden text to the links. This means a screen reader user will hear a meaningful action, like "Change name" or "Change date of birth".</p>
-    <p class="nhsw-body">Some people use the tab key on their keyboard to navigate through the links and form elements on a web page. Including a skip link gives users the option to bypass the top-level navigation links and jump to the main content on the page.</p>
-    <p class="nhsw-body">The skip link component is visually hidden until keyboard press activates it.</p>
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-summary-card">
@@ -355,9 +358,9 @@ tabs:
   </section>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -370,83 +373,18 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example shows a "Check and confirm" page from the public-facing section of the School-age Immunisations service where a parent or guardian is completing a vaccination consent form. It uses a series of summary lists to organise complex user responses clearly.</p>
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a "Check and confirm" page from the public-facing section of the School-age Immunisations service within WIS where a parent or guardian is completing a vaccination consent form. It uses a series of summary lists to organise complex user responses clearly.</p>
+  {% include screenshot-placeholder.html text="Check and confirm page with summary cards for consent and child details" %}
 
-  {% capture example_body %}{% raw %}
-    <h2 class="nhsw-h2">Check and confirm</h2>
-    <div class="nhsw-summary-card">
-      <div class="nhsw-summary-card__header">
-        <h3 class="nhsw-h3 nhsw-summary-card__title">Consent for the flu vaccination</h3>
-      </div>
-      <div class="nhsw-summary-card__body">
-        <dl class="nhsw-summary-list">
-          <div class="nhsw-summary-list__row">
-            <dt class="nhsw-summary-list__key">Decision</dt>
-            <dd class="nhsw-summary-list__value">Consent refused</dd>
-            <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
-          </div>
-          <div class="nhsw-summary-list__row">
-            <dt class="nhsw-summary-list__key">Refusal reason</dt>
-            <dd class="nhsw-summary-list__value">Personal choice</dd>
-            <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-    <div class="nhsw-summary-card">
-      <div class="nhsw-summary-card__header">
-        <h3 class="nhsw-h3 nhsw-summary-card__title">About your child</h3>
-      </div>
-      <div class="nhsw-summary-card__body">
-        <dl class="nhsw-summary-list">
-          <div class="nhsw-summary-list__row">
-            <dt class="nhsw-summary-list__key">Child's name</dt>
-            <dd class="nhsw-summary-list__value">Matt Smith</dd>
-          </div>
-          <div class="nhsw-summary-list__row">
-            <dt class="nhsw-summary-list__key">Date of birth</dt>
-            <dd class="nhsw-summary-list__value">1 December 2014</dd>
-          </div>
-          <div class="nhsw-summary-list__row">
-            <dt class="nhsw-summary-list__key">School</dt>
-            <dd class="nhsw-summary-list__value">Bassaleg School</dd>
-            <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Confirm</button>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="sl-example" open_url="/examples/summary-list-immunisations.html" body=example_body %}
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows a "Consultation summary" screen within the clinical workflow of the Choose Pharmacy service. It demonstrates a comprehensive summary list used by clinicians to review all collected patient and clinical data before finalising the record.</p>
+  {% include screenshot-placeholder.html text="Consultation summary screen with multiple summary list sections" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Summary list variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Make sure any "Change" or other action links are at least 24px by 24px in size, or have adequate spacing. This is to make sure users can easily interact with the links. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.8 Target Size, level AA</a>.</p>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">When users go back to a previous answer through a link, pre-populate any information they have already entered.</p>
-  <p class="nhsw-body">Do not pre-populate information that is no longer valid, or where doing so would create a safety or security risk. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.7 Redundant Entry, level A</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

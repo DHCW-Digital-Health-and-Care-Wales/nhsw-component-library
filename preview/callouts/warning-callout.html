@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use a warning callout to help users identify very important content on the page, even if they do not read the whole page.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Warning callouts variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-warning-callout">
@@ -48,9 +46,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="wc-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use a warning callout</h3>
+  <h2 class="nhsw-h2">When to use a warning callout</h2>
   <p class="nhsw-body">Use this callout for important information that:</p>
   <ul class="nhsw-body">
     <li>someone needs to be aware of before doing anything else</li>
@@ -59,14 +55,14 @@ tabs:
     <li>addresses a common or significant misconception or mistake</li>
   </ul>
 
-  <h3 class="nhsw-h3">When not to use a warning callout</h3>
+  <h2 class="nhsw-h2">When not to use a warning callout</h2>
   <p class="nhsw-body">Do not use a warning callout:</p>
   <ul class="nhsw-body">
     <li>in transactional pages &mdash; NHS England hasn't tested them there yet</li>
     <li>if the information is not important enough for a warning callout &mdash; use <a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a> or <a class="nhsw-link" href="#">important information</a></li>
   </ul>
 
-  <h3 class="nhsw-h3">How to use a warning callout</h3>
+  <h2 class="nhsw-h2">How to use a warning callout</h2>
   <p class="nhsw-body">Try to give the callout a short, clearly worded heading, such as 'warning'. Headings help people scan the page for warnings and understand what's relevant to them.</p>
   <p class="nhsw-body">Make the callout concise, specific and self-contained. For example, do not introduce a callout with the words "If this happens...". Explain the circumstances.</p>
   <p class="nhsw-body">Avoid having more than 2 callouts on a page. We want to reassure people, not to scare them.</p>
@@ -76,42 +72,41 @@ tabs:
   <p class="nhsw-body">If possible, put at least 1 short paragraph of text between 2 callouts or between an action link and a callout.</p>
   <p class="nhsw-body">Finish sentences in components with a full stop, unless it's a full sentence link.</p>
 
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">The heading and background contrast ratio is 11.92:1 and the content and background contrast ratio is 13.69:1. These exceed the requirements of <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level AAA</a>.</p>
+
   <h3 class="nhsw-h3">Headings</h3>
   <p class="nhsw-body">The callout should have a specific heading, for example "School, nursery or work", prefixed with the visually hidden text <code>Important:</code>. This will help users with screen readers understand that the information is important.</p>
   <p class="nhsw-body">If the heading is simply the word "Important" or it includes the word "important", you do not need to use visually hidden text.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Do not rely on colour alone to communicate a warning. Use text and icons to ensure all users can recognise important information. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Ensure warning icons and visual indicators have sufficient contrast against surrounding colours. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11: Non-text Contrast, level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Include hidden text such as "Warning" so assistive technologies can identify the content as a warning. You might need to rewrite the hidden text to make it appropriate for your context. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Warning callout in the NHS England Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Warning callout on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Warning callouts variants: how to use</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
 
-<!-- Warning callouts variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Warning callout variants: how to use</h2>
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Warning callout variants</h2>
 
   <section class="preview-section">
-    <h3 class="nhsw-h3">Using important information</h3>
-    <p class="nhsw-body">Use important information for information that:</p>
-    <ul class="nhsw-body">
-      <li>is not time critical</li>
-      <li>someone needs to be aware of before doing anything else</li>
-      <li>would not have a significant effect on someone's health</li>
-    </ul>
-
-    <h4 class="nhsw-h4">When not to use important information</h4>
-    <p class="nhsw-body">Do not use a important information</p>
-    <ul class="nhsw-body">
-      <li>if the information is critical, use the warning callout</li>
-      <li>in transactional pages &mdash; NHS England hasn't tested them there yet</li>
-    </ul>
-
     {% capture example_body %}{% raw %}
       <div class="nhsw-warning-callout nhsw-warning-callout--important">
         <h3 class="nhsw-warning-callout__heading">
@@ -141,30 +136,23 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="wc-important" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Example of important information</p>
+    <h3 class="nhsw-h3">Using important information</h3>
+    <p class="nhsw-body">Use important information for information that:</p>
+    <ul class="nhsw-body">
+      <li>is not time critical</li>
+      <li>someone needs to be aware of before doing anything else</li>
+      <li>would not have a significant effect on someone's health</li>
+    </ul>
+
+    <h4 class="nhsw-h4">When not to use important information</h4>
+    <p class="nhsw-body">Do not use a important information</p>
+    <ul class="nhsw-body">
+      <li>if the information is critical, use the warning callout</li>
+      <li>in transactional pages &mdash; NHS England hasn't tested them there yet</li>
+    </ul>
   </section>
 
   <section class="preview-section">
-    <h3 class="nhsw-h3">Using warning text</h3>
-    <p class="nhsw-body">Use the warning text component when you need to warn users about something important, such as legal consequences of an action, or lack of action, that they might take.</p>
-    <p class="nhsw-body">To use warning text effectively:</p>
-    <ul class="nhsw-body">
-      <li>place it close to the action or decision it relates to so users see it at the right moment</li>
-      <li>state the risk clearly and concisely &mdash; say what might happen and why it matters</li>
-      <li>keep the message brief and focused on the key consequence</li>
-      <li>test the placement and wording with users to ensure the warning is noticed and understood</li>
-    </ul>
-
-    <h4 class="nhsw-h4">When not to use a warning text</h4>
-    <p class="nhsw-body">Do not use a warning text when:</p>
-    <ul class="nhsw-body">
-      <li>the information is helpful but not critical &mdash; use body text, inset text or a hint instead</li>
-      <li>you're describing routine risks that people already expect or understand</li>
-      <li>the consequence is minor, reversible or low-impact</li>
-      <li>you need to highlight an error &mdash; use an <a class="nhsw-link" href="{{ '/actions/error-summary.html' | relative_url }}">error summary</a> or error status instead</li>
-      <li>repeating warnings across the page would dilute their impact or overwhelm the user</li>
-    </ul>
-
     {% capture example_body %}{% raw %}
       <div class="nhsw-warning-text">
         <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
@@ -190,16 +178,63 @@ tabs:
   iconFallbackText: "Warning"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="wc-text" html=html_sample njk=njk_sample toggleable=true %}
+
+    <h3 class="nhsw-h3">Using warning text</h3>
+    <p class="nhsw-body">Use the warning text component when you need to warn users about something important, such as legal consequences of an action, or lack of action, that they might take.</p>
+    <p class="nhsw-body">To use warning text effectively:</p>
+    <ul class="nhsw-body">
+      <li>place it close to the action or decision it relates to so users see it at the right moment</li>
+      <li>state the risk clearly and concisely &mdash; say what might happen and why it matters</li>
+      <li>keep the message brief and focused on the key consequence</li>
+      <li>test the placement and wording with users to ensure the warning is noticed and understood</li>
+    </ul>
+
+    <h4 class="nhsw-h4">When not to use a warning text</h4>
+    <p class="nhsw-body">Do not use a warning text when:</p>
+    <ul class="nhsw-body">
+      <li>the information is helpful but not critical &mdash; use body text, inset text or a hint instead</li>
+      <li>you're describing routine risks that people already expect or understand</li>
+      <li>the consequence is minor, reversible or low-impact</li>
+      <li>you need to highlight an error &mdash; use an <a class="nhsw-link" href="{{ '/actions/error-summary.html' | relative_url }}">error summary</a> or error status instead</li>
+      <li>repeating warnings across the page would dilute their impact or overwhelm the user</li>
+    </ul>
+
+    <h4 class="nhsw-h4">Warning text on dark backgrounds</h4>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-warning-text nhsw-warning-text--on-dark">
+        <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="nhsw-warning-text__text">
+          <span class="nhsw-visually-hidden">Warning</span>
+          You must appeal within 1 year of getting your decision letter.
+        </strong>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="wc-text-dark" open_url="/examples/warning-callout-text.html" body=example_body dark=true %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-warning-text nhsw-warning-text--on-dark"&gt;
+  &lt;span class="nhsw-warning-text__icon" aria-hidden="true"&gt;!&lt;/span&gt;
+  &lt;strong class="nhsw-warning-text__text"&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;Warning&lt;/span&gt;
+    You must appeal within 1 year of getting your decision letter.
+  &lt;/strong&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswWarningText({
+  text: "You must appeal within 1 year of getting your decision letter.",
+  iconFallbackText: "Warning",
+  classes: "nhsw-warning-text--on-dark"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="wc-text-dark" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Warning text in the GOV.UK Design System</a>.</p>
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more on the <a class="nhsw-link" href="#">Warning text in GOV.UK Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Warning text on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -212,65 +247,18 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example shows a session overview page from the School-age Immunisations service. It uses a warning callout at the top of the search results area to draw immediate attention to data that requires urgent administrator action.</p>
-
-  {% capture example_body %}{% raw %}
-    <h2 class="nhsw-h2">Search results</h2>
-    <p class="nhsw-body">No children matching search criteria found</p>
-    <div class="nhsw-warning-callout">
-      <h3 class="nhsw-warning-callout__heading">
-        <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-        Needs review
-      </h3>
-      <div class="nhsw-warning-callout__content">
-        <p class="nhsw-body"><a class="nhsw-link" href="#">6 children without an NHS number</a></p>
-      </div>
-    </div>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="wc-example-1" open_url="/examples/warning-callout-default.html" body=example_body %}
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a session overview page from the School-age Immunisations service within WIS. It uses a warning callout at the top of the search results area to draw immediate attention to data that requires urgent administrator action.</p>
+  {% include screenshot-placeholder.html text="Session overview page with a Needs review warning callout" %}
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
-  <p class="nhsw-body">This example shows an "All appointments" page for a medical centre within the Welsh Immunisation System. It uses a warning callout to remind clinicians of the informed consent requirements before recording a vaccination.</p>
-
-  {% capture example_body %}{% raw %}
-    <h2 class="nhsw-h2">All appointments</h2>
-    <div class="nhsw-warning-callout">
-      <h3 class="nhsw-warning-callout__heading">
-        <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-        Taking consent
-      </h3>
-      <div class="nhsw-warning-callout__content">
-        <p class="nhsw-body">The patient has been informed of the benefits and risks of vaccination, including potential adverse reactions. Their vaccination history has been reviewed, and a clinical assessment has been completed.</p>
-        <p class="nhsw-body">The patient is currently fit and well for vaccination, has capacity to consent, is not pregnant and has given informed consent for the vaccine(s) offered.</p>
-      </div>
-    </div>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="wc-example-2" open_url="/examples/warning-callout-default.html" body=example_body %}
+  <p class="nhsw-body">This example shows the "All appointments" page from the Mass Vaccination service within WIS. It uses a warning callout component directly above the appointment list to draw immediate attention to critical guidance.</p>
+  {% include screenshot-placeholder.html text="All appointments page with a Taking consent warning callout" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Warning callouts variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">The heading and background contrast ratio is 11.92:1 and the content and background contrast ratio is 13.69:1. These exceed the requirements of <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level AAA</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

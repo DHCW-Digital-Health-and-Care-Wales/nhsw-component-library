@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Site navigation gives users an overview of a site's content by outlining its main categories. It can also help users find key content.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Site navigation variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
@@ -51,38 +49,45 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sn-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use a site navigation</h3>
+  <h2 class="nhsw-h2">When to use a site navigation</h2>
   <p class="nhsw-body">Help users find what they need quickly by providing consistent navigation.</p>
   <p class="nhsw-body">Site navigation gives users an overview of a site's content by outlining its main categories. It can also help users find key content.</p>
   <p class="nhsw-body">Site navigation helps users understand that they're using your service and lets them navigate around your service.</p>
   <p class="nhsw-body">Use the site navigation to help users understand that they're using your service.</p>
   <p class="nhsw-body">To decide when to use navigation links in your service, see the <a class="nhsw-link" href="#">Help users to navigate a service pattern</a>.</p>
 
-  <h3 class="nhsw-h3">When not to use a site navigation</h3>
+  <h2 class="nhsw-h2">When not to use a site navigation</h2>
   <p class="nhsw-body">If your service is a linear end-to-end journey, you probably do not need navigation links. You can use the <a class="nhsw-link" href="#">Complete multiple tasks pattern</a>.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Site navigation in the GOV.Scot Design System</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Site navigation variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Site navigation variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Site navigation variants: how to use</h2>
-
+  <h2 class="nhsw-h2">How to use a site navigation</h2>
   <p class="nhsw-body">The main navigation on a website, site navigation is a set of links that appears on every page.</p>
   <p class="nhsw-body">Site navigation arranges key links into a row and should go at the top of a website.</p>
   <p class="nhsw-body">Site navigation displays as an expandable 'menu' button on small devices.</p>
   <p class="nhsw-body">Place links to your most important top-level sections first. When there is not enough space to show all links, they will be moved into the "More" drop-down list.</p>
   <p class="nhsw-body">You can highlight the section the user is currently in.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Do not allow expanded menus to cover focused content. Avoid fixed or sticky elements that obscure the currently focused element or its focus indicator. Keyboard users must be able to see where focus is at all times. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.11 Focus Not Obscured (Minimum), level AA</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure assistive technologies can identify the list of links as a structural roadmap. The element must use a semantic HTML <code>&lt;nav&gt;</code> or a <code>navigation</code> ARIA landmark role to ensure screen readers can announce the block correctly to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Site navigation in the GOV.Scot Design System</a>.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Site navigation variants</h2>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Site navigation on dark backgrounds</h3>
@@ -138,12 +143,39 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-tag" html=html_sample njk=njk_sample toggleable=true %}
+
+    {% capture example_body %}{% raw %}
+      <nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation">
+        <div class="nhsw-site-header__nav-container">
+          <ul class="nhsw-site-header__nav-list">
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-site-header__nav-badge">5</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sn-tag-dark" open_url="/examples/site-navigation-tag.html" body=example_body dark=true %}
+
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation"&gt;
+  ...
+  &lt;span class="nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
+  items: [
+    { text: "Navigation Item 1", href: "/item-1", current: true },
+    { text: "Navigation Item 2", href: "/item-2" },
+    { text: "Navigation Item 3", href: "/item-3", badge: 5 }
+  ],
+  classes: "nhsw-site-header__nav--on-dark"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sn-tag-dark" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -156,68 +188,18 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example shows a main workflow page within the School-age Immunisations service. It uses a site navigation bar across the top of the interface to outline the primary areas of the application.</p>
-
-  {% capture example_body %}{% raw %}
-    <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
-      <div class="nhsw-site-header__nav-container">
-        <ul class="nhsw-site-header__nav-list">
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Schools</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Children</span></a></li>
-          <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Sessions</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Vaccines</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Unmatched responses</span><span class="nhsw-site-header__nav-badge">6</span></a></li>
-        </ul>
-      </div>
-    </nav>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="sn-example-1" open_url="/examples/site-navigation-default.html" body=example_body %}
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a main workflow page within the School-age Immunisations service within WIS. It uses a site navigation bar across the top of the interface to outline the primary areas of the application.</p>
+  {% include screenshot-placeholder.html text="School-age Immunisations workflow page with a primary site navigation bar" %}
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows an active patient record screen from within the Choose Pharmacy service. It demonstrates how a secondary navigation bar is placed directly below the patient information header to manage contextual sub-sections.</p>
-
-  {% capture example_body %}{% raw %}
-    <nav class="nhsw-site-header__nav" aria-label="Secondary navigation">
-      <div class="nhsw-site-header__nav-container">
-        <ul class="nhsw-site-header__nav-list">
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Overview</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Patient details</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Adverse reactions</span></a></li>
-          <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Consultation</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Notes</span></a></li>
-        </ul>
-      </div>
-    </nav>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="sn-example-2" open_url="/examples/site-navigation-default.html" body=example_body %}
+  {% include screenshot-placeholder.html text="Patient record screen with a secondary navigation bar below the header" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Site navigation variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Do not allow expanded menus to cover focused content. Avoid fixed or sticky elements that obscure the currently focused element or its focus indicator. Keyboard users must be able to see where focus is at all times. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.11 Focus Not Obscured (Minimum), level AA</a>.</p>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Make sure assistive technologies can identify the list of links as a structural roadmap. The element must use a semantic HTML <code>&lt;nav&gt;</code> or a <code>navigation</code> ARIA landmark role to ensure screen readers can announce the block correctly to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

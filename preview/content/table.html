@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use a table to make it easier for users to compare and scan information.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Table variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
@@ -76,29 +74,13 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use a table</h3>
+  <h2 class="nhsw-h2">When to use a table</h2>
   <p class="nhsw-body">Use a table to make it easier for users to compare and scan information.</p>
 
-  <h3 class="nhsw-h3">When to not use a table</h3>
+  <h2 class="nhsw-h2">When to not use a table</h2>
   <p class="nhsw-body">Never use the table component to layout content on a page. Instead, use the <a class="nhsw-link" href="#">grid system</a>.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tables in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Table on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Table variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Table variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Table variants: how to use</h2>
+  <h2 class="nhsw-h2">How to use a table</h2>
 
   <h3 class="nhsw-h3">Basic tables</h3>
   <h4 class="nhsw-h4">Table captions</h4>
@@ -180,6 +162,40 @@ tabs:
   rows: [ [ { text: "3-month" }, { text: "£31.25", format: "numeric" }, { text: "£32.05", format: "numeric" } ] ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-numeric" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Follow <a class="nhsw-link" href="#">WebAIM's guidance for tables</a> and:</p>
+  <ul class="nhsw-body">
+    <li>give tables captions</li>
+    <li>use the scope attribute to associate the data cells with the appropriate headers</li>
+    <li>let the browser window determine the width of the table whenever possible to reduce horizontal scrolling, this supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.10 Reflow, level AA</a></li>
+  </ul>
+
+  <h3 class="nhsw-h3">Table captions</h3>
+  <p class="nhsw-body">Use the <code>&lt;caption&gt;</code> element to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a> and <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.6 Headings and Labels, level AA</a>.</p>
+  <p class="nhsw-body">Style table captions to match the visual hierarchy of your page's content. If using Nunjucks, use the <code>captionSize</code> macro option. In HTML add the <code>nhsw-table__caption--l</code> class. You can use sizes <code>s</code>, <code>m</code>, <code>l</code>, <code>xl</code>.</p>
+
+  <h3 class="nhsw-h3">Table headers</h3>
+  <p class="nhsw-body">Use table headers (<code>&lt;th&gt;</code>) to tell users what sort of data the rows and columns contain. The combination of row and column headers helps screen reader users identify the data in each cell. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">If users need to refer to the first column to understand the context of a cell, for example a name or day of the week, make sure this column's cells are table headers with the <code>scope="row"</code> attribute.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tables in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Table on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Table variants</h2>
 
   <h3 class="nhsw-h3">Tables with a lot of data</h3>
   <p class="nhsw-body">If possible, you should aim to have less data in your tables. If you have a lot of data, try to organise it into multiple tables or multiple pages.</p>
@@ -310,26 +326,11 @@ tabs:
     {% include code-viewer.html id="tbl-session-loc" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Examples</span>
-    </a>
-  </div>
-</div>
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Responsive table</h3>
+    <p class="nhsw-body">The responsive table stacks vertically on small screens, using inline headings to label each cell.</p>
 
-<!-- Examples -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
-  <h2 class="nhsw-h2">Examples</h2>
-
-  <h3 class="nhsw-h3">Responsive table</h3>
-  <p class="nhsw-body">The responsive table stacks vertically on small screens, using inline headings to label each cell.</p>
-
-  {% capture example_body %}{% raw %}
+    {% capture example_body %}{% raw %}
     <table class="nhsw-table-responsive" role="table">
       <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccination schedule</caption>
       <thead class="nhsw-table__head" role="rowgroup">
@@ -357,44 +358,37 @@ tabs:
       </tbody>
     </table>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tbl-responsive" open_url="/examples/table-responsive.html" body=example_body %}
+    {% include example-preview.html id="tbl-responsive" open_url="/examples/table-responsive.html" body=example_body %}
+  </section>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Table variants: how to use</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
+      <span class="nhsw-body-s">Examples</span>
     </a>
   </div>
 </div>
 
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
 
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Follow <a class="nhsw-link" href="#">WebAIM's guidance for tables</a> and:</p>
-  <ul class="nhsw-body">
-    <li>give tables captions</li>
-    <li>use the scope attribute to associate the data cells with the appropriate headers</li>
-    <li>let the browser window determine the width of the table whenever possible to reduce horizontal scrolling, this supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.10 Reflow, level AA</a></li>
-  </ul>
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows the "Transfers in" view under Stock management within WIS. It uses a table component to display structured inventory data in rows and columns.</p>
+  {% include screenshot-placeholder.html text="Transfers in table with vaccine transfer records" %}
 
-  <h3 class="nhsw-h3">Table captions</h3>
-  <p class="nhsw-body">Use the <code>&lt;caption&gt;</code> element to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a> and <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.6 Headings and Labels, level AA</a>.</p>
-  <p class="nhsw-body">Style table captions to match the visual hierarchy of your page's content. If using Nunjucks, use the <code>captionSize</code> macro option. In HTML add the <code>nhsw-table__caption--l</code> class. You can use sizes <code>s</code>, <code>m</code>, <code>l</code>, <code>xl</code>.</p>
-
-  <h3 class="nhsw-h3">Table headers</h3>
-  <p class="nhsw-body">Use table headers (<code>&lt;th&gt;</code>) to tell users what sort of data the rows and columns contain. The combination of row and column headers helps screen reader users identify the data in each cell. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a>.</p>
-  <p class="nhsw-body">If users need to refer to the first column to understand the context of a cell, for example a name or day of the week, make sure this column's cells are table headers with the <code>scope="row"</code> attribute.</p>
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows the "Outcome: Supply" screen within a consultation in Choose Pharmacy. It uses an interactive table component to present formulary options and record medication supplies.</p>
+  {% include screenshot-placeholder.html text="Outcome: Supply table with formulary medicine rows" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

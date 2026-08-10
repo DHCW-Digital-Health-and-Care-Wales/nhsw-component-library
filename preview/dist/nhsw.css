@@ -2285,6 +2285,32 @@ body {
   outline-offset: 0;
 }
 
+.nhsw-screenshot-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 220px;
+  padding: 24px;
+  background-color: #f0f4f5;
+  border: 1px dashed #d8dde0;
+  color: #4c6272;
+  text-align: center;
+}
+.nhsw-screenshot-placeholder__icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.nhsw-screenshot-placeholder__icon svg {
+  width: 100%;
+  height: 100%;
+}
+.nhsw-screenshot-placeholder__text {
+  font-size: 0.9375rem;
+}
+
 .nhsw-button {
   display: inline-flex;
   align-items: center;

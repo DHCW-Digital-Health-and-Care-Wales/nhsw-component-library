@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use the footer to show users they are on an NHS service and to help them find links they expect at the bottom of our pages.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Footer variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <footer class="nhsw-site-footer">
@@ -50,28 +48,32 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ft-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use the footer</h3>
+  <h2 class="nhsw-h2">When to use the footer</h2>
   <p class="nhsw-body">For public-facing services, use the footer designed for public-facing services to show users they are on an NHS service and to help them find links they expect at the bottom of our pages. Use the footer at the bottom of every page of your website or service but not on a mobile app.</p>
   <p class="nhsw-body">For internal-facing services, Use the footer designed for internal services not hosted on service.nhs.wales domains.</p>
   <p class="nhsw-body">If you use the page template, you'll also get the footer without having to add it, as it's included by default. However, if you want to customise the default footer, read the <a class="nhsw-link" href="#">page template guidance about customising components</a>.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Make sure that users can successfully <a class="nhsw-link" href="#">find help links in a consistent place on each page</a>.</p>
+  <p class="nhsw-body">If you include links to "help" pages in a footer, make sure to place those links consistently in the footer content. Also make sure that "help" links always work in a similar way across each page. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.2.6 Consistent Help, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Footers in the NHS England Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Footers on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Footer variants: how to use</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
 
-<!-- Footer variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Footer variants: how to use</h2>
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Footer variants</h2>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Footer without links</h3>
@@ -181,9 +183,9 @@ tabs:
   <p class="nhsw-body">Include a reference to the <a class="nhsw-link" href="#">Open Government Licence</a> if your organisation or service encourages people to reuse and adapt its information under the licence. Contact your legal team for advice.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -196,8 +198,8 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example shows a public-facing consent page from the School-age Immunisations service featuring a standardised footer at the very bottom of the screen. It establishes trust by confirming it is an official NHS Wales digital service while providing a predictable, out-of-the-way location for essential resources like the accessibility statement and service guidance.</p>
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a public-facing consent page from the School-age Immunisations service within WIS featuring a standardised footer at the very bottom of the screen. It establishes trust by confirming it is an official NHS Wales digital service while providing a predictable, out-of-the-way location for essential resources like the accessibility statement and service guidance.</p>
 
   {% capture example_body %}{% raw %}
     <h2 class="nhsw-h2">Has your child already had a flu vaccine this autumn/winter?</h2>
@@ -225,29 +227,9 @@ tabs:
   {% include example-preview.html id="ft-example" open_url="/examples/footer-default.html" body=example_body %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Footer variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Make sure that users can successfully <a class="nhsw-link" href="#">find help links in a consistent place on each page</a>.</p>
-  <p class="nhsw-body">If you include links to "help" pages in a footer, make sure to place those links consistently in the footer content. Also make sure that "help" links always work in a similar way across each page. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.2.6 Consistent Help, level A</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

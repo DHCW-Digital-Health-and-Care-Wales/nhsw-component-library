@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use the Tag component to show users the status of something.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Tag variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-body" role="presentation">
@@ -42,28 +40,36 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use tabs</h3>
+  <h2 class="nhsw-h2">When to use tags</h2>
   <p class="nhsw-body">Use the tag component when it's possible for something to have more than 1 status and it's useful for the user to know about that status. For example, you can use a tag to show whether an item in a task list has been "completed".</p>
 
-  <h3 class="nhsw-h3">Source</h3>
+  <h2 class="nhsw-h2">How to use tags</h2>
+  <p class="nhsw-body">Tags should just be used to indicate a status. Do not add links. Use adjectives rather than verbs for the names of your tags. Using a verb might make a user think that clicking on them will do something.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">All text and background colour combinations meet high colour contrast standards, supporting <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3: Contrast (Enhanced), level AAA</a>. Read more about <a class="nhsw-link" href="#">accessibility and colour</a>.</p>
+  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use clear text labels so all users can understand the purpose of a tag, regardless of how they perceive colour. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">If users can change the order of tags, provide an alternative to dragging and dropping. Users should be able to reorder tags using another method, such as buttons or keyboard controls. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements level AA</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tags in the GOV.UK Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Tags on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       Next &rarr;<br>
-      <span class="nhsw-body-s">Tag variants: how to use</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
 
-<!-- Tag variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Tag variants: how to use</h2>
-
-  <p class="nhsw-body">Tags should just be used to indicate a status. Do not add links. Use adjectives rather than verbs for the names of your tags. Using a verb might make a user think that clicking on them will do something.</p>
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Tag variants</h2>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Showing 1 or 2 statuses</h3>
@@ -162,10 +168,12 @@ tabs:
 {{ nhswTag({ text: "Due vaccination", classes: "nhsw-tag--green" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
 
+  <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its specific status. It works well for complex views like vaccination tracking, where a standard label on the left (e.g., "Flu", "HPV", "MMRV") is paired with a distinct status badge on the right (e.g., "Due vaccination", "Vaccinated", "Needs triage", "Had a refusal").</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -178,47 +186,14 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example shows a session results page from the School-age Immunisations service. It uses tags within the search list to clearly indicate the progress or state of a child's record.</p>
-
-  {% capture example_body %}{% raw %}
-    <h2 class="nhsw-h2">CHRISTIANSEN, Angelena</h2>
-    <p class="nhsw-body">Date of birth: 6 December 2014 (aged 11)</p>
-    <p class="nhsw-body">Year groups: Year 7</p>
-    <p class="nhsw-body">
-      <strong class="nhsw-tag nhsw-tag--white">Flu</strong> <strong class="nhsw-tag nhsw-tag--yellow">Pending consent</strong> Follow-up requested<br><br>
-      <strong class="nhsw-tag nhsw-tag--white">HPV</strong> <strong class="nhsw-tag nhsw-tag--blue">Needs consent</strong>
-    </p>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-example" open_url="/examples/tag-summary-list.html" body=example_body %}
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a session results page from the School-age Immunisations service within WIS. It uses tags within the search list to clearly indicate the progress or state of a child's record.</p>
+  {% include screenshot-placeholder.html text="Session results search list with consent status tags" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Tag variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">All text and background colour combinations meet high colour contrast standards, supporting <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3: Contrast (Enhanced), level AAA</a>. Read more about <a class="nhsw-link" href="#">accessibility and colour</a>.</p>
-  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use clear text labels so all users can understand the purpose of a tag, regardless of how they perceive colour. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">If users can change the order of tags, provide an alternative to dragging and dropping. Users should be able to reorder tags using another method, such as buttons or keyboard controls. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements level AA</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use date input to help users enter a memorable date, like their date of birth.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Date input variants: how to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint">
@@ -68,31 +66,13 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="di-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
+  <h2 class="nhsw-h2">When to use date input</h2>
+  <p class="nhsw-body">Use date input to help users enter a date they are likely to know, like their date of birth.</p>
 
-  <h3 class="nhsw-h3">When to use date input</h3>
-  <p class="nhsw-body">Use date input to help users enter a memorable date, like their date of birth.</p>
-  <p class="nhsw-body">We follow the GOV.UK Design System. Use date input when you're asking users for a date they already know.</p>
-
-  <h3 class="nhsw-h3">When not to use date input</h3>
+  <h2 class="nhsw-h2">When not to use date input</h2>
   <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about. Read more in the <a class="nhsw-link" href="#">Ask users for dates pattern</a>.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Date inputs in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Date inputs on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Date input variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Date input variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">Date input variants: how to use</h2>
-
+  <h2 class="nhsw-h2">How to use date input</h2>
   <p class="nhsw-body">Date input consists of 3 fields to let users enter a day, month and year.</p>
   <p class="nhsw-body">Group the 3 date fields together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "What is your date of birth?".</p>
   <p class="nhsw-body">If you are asking just <a class="nhsw-link" href="#">1 question per page</a> as we recommend, you can set the contents of the <code>&lt;legend&gt;</code> as the page heading. This is good practice as it means that screen reader users will only hear the contents once.</p>
@@ -107,8 +87,10 @@ tabs:
   <p class="nhsw-body">Use the <code>autocomplete</code> attribute on the date input component when you're asking for a date of birth. This lets browsers autofill the information on a user's behalf if they've entered it previously.</p>
   <p class="nhsw-body">To do this, set the autocomplete attribute on the 3 fields to <code>bday-day</code>, <code>bday-month</code> and <code>bday-year</code>.</p>
 
+  <h3 class="nhsw-h3">Error messages</h3>
+
   <section class="preview-section">
-    <h3 class="nhsw-h3">Error message 1</h3>
+    <h4 class="nhsw-h4">Error message 1</h4>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-error-hint dob-error-message">
@@ -145,7 +127,7 @@ tabs:
   </section>
 
   <section class="preview-section">
-    <h3 class="nhsw-h3">Error message 2</h3>
+    <h4 class="nhsw-h4">Error message 2</h4>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message">
@@ -181,10 +163,34 @@ tabs:
     {% include code-viewer.html id="di-error-2" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">When implemented in production, fields should identify their purpose so browsers and assistive technologies can support features such as autofill and reduce user effort. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.5 Identify Input Purpose, level AA</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Date inputs in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Date inputs on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Date input variants</h2>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the design system team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -197,76 +203,18 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows a public-facing page from the School-age Immunisations service where a parent or guardian is providing consent. It uses the standard three-field date input to collect a specific, memorable date.</p>
-
-  {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset" role="group" aria-describedby="child-dob-hint">
-      <legend class="nhsw-fieldset__legend nhsw-h2">What is your child's date of birth?</legend>
-      <div class="nhsw-hint" id="child-dob-hint">For example, 27 4 2012</div>
-      <div class="nhsw-date-input">
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="child-dob-day">Day</label>
-          <input id="child-dob-day" name="child-dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2">
-        </div>
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="child-dob-month">Month</label>
-          <input id="child-dob-month" name="child-dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2">
-        </div>
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="child-dob-year">Year</label>
-          <input id="child-dob-year" name="child-dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4">
-        </div>
-      </div>
-    </fieldset>
-    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="di-example-1" open_url="/examples/date-input-default.html" body=example_body %}
+  {% include screenshot-placeholder.html text="Child's date of birth question with day, month and year fields" %}
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows a form from a Point of Care Test entry page within the Choose Pharmacy service. It uses input fields for dates, such as the "Expiry date" fields for the test batch and test result, to ensure accurate entry.</p>
-
-  {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset" role="group" aria-describedby="expiry-hint">
-      <legend class="nhsw-fieldset__legend nhsw-h2">Expiry date</legend>
-      <div class="nhsw-hint" id="expiry-hint">For example, 3 2028</div>
-      <div class="nhsw-date-input">
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="expiry-month">Month</label>
-          <input id="expiry-month" name="expiry-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2">
-        </div>
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="expiry-year">Year</label>
-          <input id="expiry-year" name="expiry-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4">
-        </div>
-      </div>
-    </fieldset>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="di-example-2" open_url="/examples/date-input-default.html" body=example_body %}
+  {% include screenshot-placeholder.html text="Point of Care Test form with month and year expiry date fields" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Date input variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">When implemented in production, fields should identify their purpose so browsers and assistive technologies can support features such as autofill and reduce user effort. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.5 Identify Input Purpose, level AA</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>

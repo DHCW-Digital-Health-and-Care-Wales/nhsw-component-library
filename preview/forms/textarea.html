@@ -5,18 +5,16 @@ container: fluid
 updated: March 2026
 intro: Use textarea to let users enter more than 1 line of text.
 tabs:
-  - id: overview
-    label: Overview
   - id: how-to-use
-    label: "Textarea variants: How to use"
+    label: "How to use"
+  - id: variants
+    label: "Variants"
   - id: examples
-    label: Examples
-  - id: accessibility
-    label: Accessibility
+    label: "Examples"
 ---
 
-<!-- Overview -->
-<div class="nhsw-tabs__panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
@@ -45,9 +43,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ta-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">Overview</h2>
-
-  <h3 class="nhsw-h3">When to use a button</h3>
+  <h2 class="nhsw-h2">When to use textarea</h2>
   <p class="nhsw-body">Use textarea when you want users to enter multiple lines of text.</p>
   <p class="nhsw-body">Use it when you are confident that users will:</p>
   <ul class="nhsw-body">
@@ -75,25 +71,11 @@ tabs:
   <p class="nhsw-body">They may ignore messages in hint text such as "Do not include personal information like your name, date of birth or NHS number".</p>
   <p class="nhsw-body">Consider other ways to collect the information you need. Use structured, closed questions if possible. For example, let users select from options using <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a> or <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
 
-  <h3 class="nhsw-h3">When not to use textarea</h3>
+  <h2 class="nhsw-h2">When not to use textarea</h2>
   <p class="nhsw-body">If you want users to enter a single line answer, such as a phone number or name, use <a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}">text input</a>.</p>
   <p class="nhsw-body">Only use textarea if your team has considered the alternatives and agreed that it's the best way to meet user and business needs.</p>
 
-  <h3 class="nhsw-h3">Source</h3>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Textarea in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Textarea on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Textarea variants: how to use</span>
-    </a>
-  </div>
-</div>
-
-<!-- Textarea variants: how to use -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
-  <h2 class="nhsw-h2">How to use</h2>
+  <h2 class="nhsw-h2">How to use textarea</h2>
 
   <h3 class="nhsw-h3">Understand and manage the risks</h3>
   <p class="nhsw-body">Users sometimes use open text boxes to report health concerns or difficult circumstances that are not relevant to your service, even if you ask them not to. Your team must monitor and respond to any clinical safety or safeguarding concerns.</p>
@@ -174,10 +156,34 @@ tabs:
     <li><a class="nhsw-link" href="#">GOV.UK design system guidance on textarea error messages</a></li>
   </ul>
 
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
+  <p class="nhsw-body">Do not use placeholder text as a label for a textarea. It disappears when users click inside the textarea and may not be announced consistently by assistive technologies. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Textarea in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Textarea on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-overview" onclick="document.getElementById('tab-overview').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Textarea variants</h2>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the design system team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Overview</span>
+      <span class="nhsw-body-s">How to use</span>
     </a>
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
       Next &rarr;<br>
@@ -190,45 +196,14 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
 
-  <h3 class="nhsw-h3">School-age Immunisations</h3>
-  <p class="nhsw-body">This example is from the School-age Immunisations service. It shows the textarea allowing a maximum 150 characters for a clinical service.</p>
-
-  {% capture example_body %}{% raw %}
-    <p class="nhsw-body-s nhsw-body--secondary">Consent response from Sharon Kelly</p>
-    <h2 class="nhsw-h2">Mark as consent given</h2>
-    <p class="nhsw-body">This operation cannot be undone.</p>
-    <div class="nhsw-form-group">
-      <label class="nhsw-label" for="ta-notes">Notes</label>
-      <textarea id="ta-notes" name="ta-notes" class="nhsw-textarea" data-max-length="150" data-max-length-target="ta-notes-count"></textarea>
-      <div class="nhsw-hint" id="ta-notes-count">You have 150 characters remaining</div>
-    </div>
-    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Mark as consent given</button>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="ta-example" open_url="/examples/textarea-consent.html" body=example_body %}
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows the textarea allowing a maximum 150 characters for a clinical service.</p>
+  {% include screenshot-placeholder.html text="Mark as consent given page with a 150 character notes textarea" %}
 
   <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
       &larr; Previous<br>
-      <span class="nhsw-body-s">Textarea variants: how to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-accessibility" onclick="document.getElementById('tab-accessibility').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Accessibility</span>
-    </a>
-  </div>
-</div>
-
-<!-- Accessibility -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility">
-  <h2 class="nhsw-h2">Accessibility</h2>
-
-  <span class="nhsw-tag nhsw-tag--blue">WCAG 2.2</span>
-  <p class="nhsw-body">Do not use placeholder text as a label for a textarea. It disappears when users click inside the textarea and may not be announced consistently by assistive technologies. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
-
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Examples</span>
+      <span class="nhsw-body-s">Variants</span>
     </a>
   </div>
 </div>
