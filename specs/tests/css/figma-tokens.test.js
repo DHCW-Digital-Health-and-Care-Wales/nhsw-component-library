@@ -1,0 +1,182 @@
+import { describe, it, expect, beforeAll } from 'vitest';
+import { compileProbe, readCustomProperty } from '../support/compile-scss.js';
+
+// Every expected value below was read directly out of the Figma source of
+// truth for this design system:
+// https://www.figma.com/design/RplwUuFizhzeH1ng7M0SMO/DHCW-Design-System-V2
+//   - Colours: Pages > STYLES > Colours (a literal swatch chart with each
+//     $nhswales-* token name and hex value written out as text).
+//   - Typography: Properties panel > Styles > Text styles, expanded for both
+//     the "Tablet and Desktop" and "Mobile" groups (each entry lists size/line-height in px).
+//   - Button spacing: selected the Button/Default > Primary/Default node and
+//     read its Layout panel (padding, radius).
+// Checked 2026-08-11. If the Figma file changes, update BOTH the expectations
+// here and the token files in src/tokens/ — this suite exists specifically to
+// catch the two drifting from each other.
+
+let colourCss = '';
+let typographyCss = '';
+
+beforeAll(() => {
+  colourCss = compileProbe(`
+    @use "tokens/colours" as c;
+    :root {
+      --primary-text: #{c.$nhsw-colour-text-primary};
+      --secondary-text: #{c.$nhsw-colour-text-secondary};
+      --exceptional-text: #{c.$nhsw-colour-text-exceptional};
+      --blue-text: #{c.$nhsw-colour-text-blue};
+      --link: #{c.$nhsw-colour-link};
+      --primary-button: #{c.$nhsw-colour-button-primary};
+      --secondary-button: #{c.$nhsw-colour-button-secondary};
+      --delete-button: #{c.$nhsw-colour-button-delete};
+      --exceptional-button-light: #{c.$nhsw-colour-button-exceptional-light};
+      --page-background-grey: #{c.$nhsw-colour-background-grey};
+      --page-background-white: #{c.$nhsw-colour-background-white};
+      --page-background-blue: #{c.$nhsw-colour-background-blue};
+      --primary-border: #{c.$nhsw-colour-border-primary};
+      --secondary-border: #{c.$nhsw-colour-border-secondary};
+      --grey-border: #{c.$nhsw-colour-border-grey};
+      --gold-border: #{c.$nhsw-colour-border-gold};
+      --primary-button-shadow: #{c.$nhsw-colour-shadow-primary-button};
+      --exceptional-button-shadow: #{c.$nhsw-colour-shadow-exceptional-button};
+      --focus: #{c.$nhsw-colour-focus};
+    }
+  `);
+
+  typographyCss = compileProbe(`
+    @use "tokens/typography" as t;
+    :root {
+      --font-family: #{t.$nhsw-font-family-base};
+      --weight-bold: #{t.$nhsw-font-weight-bold};
+
+      --h1-size: #{t.$nhsw-font-size-h1};
+      --h1-line: #{t.$nhsw-line-height-h1};
+      --h2-size: #{t.$nhsw-font-size-h2};
+      --h2-line: #{t.$nhsw-line-height-h2};
+      --h3-size: #{t.$nhsw-font-size-h3};
+      --h3-line: #{t.$nhsw-line-height-h3};
+      --h4-size: #{t.$nhsw-font-size-h4};
+      --h4-line: #{t.$nhsw-line-height-h4};
+      --h5-size: #{t.$nhsw-font-size-h5};
+      --h5-line: #{t.$nhsw-line-height-h5};
+      --body-size: #{t.$nhsw-font-size-body};
+      --body-line: #{t.$nhsw-line-height-body};
+      --body-small-size: #{t.$nhsw-font-size-body-small};
+      --body-small-line: #{t.$nhsw-line-height-body-small};
+
+      --h1-size-mobile: #{t.$nhsw-font-size-h1-mobile};
+      --h1-line-mobile: #{t.$nhsw-line-height-h1-mobile};
+      --h2-size-mobile: #{t.$nhsw-font-size-h2-mobile};
+      --h2-line-mobile: #{t.$nhsw-line-height-h2-mobile};
+      --h3-size-mobile: #{t.$nhsw-font-size-h3-mobile};
+      --h3-line-mobile: #{t.$nhsw-line-height-h3-mobile};
+      --h4-size-mobile: #{t.$nhsw-font-size-h4-mobile};
+      --h4-line-mobile: #{t.$nhsw-line-height-h4-mobile};
+      --h5-size-mobile: #{t.$nhsw-font-size-h5-mobile};
+      --h5-line-mobile: #{t.$nhsw-line-height-h5-mobile};
+      --body-size-mobile: #{t.$nhsw-font-size-body-mobile};
+      --body-line-mobile: #{t.$nhsw-line-height-body-mobile};
+    }
+  `);
+});
+
+describe('colour tokens match Figma STYLES > Colours', () => {
+  const expected = {
+    '--primary-text': '#212b32',
+    '--secondary-text': '#4c6272',
+    '--exceptional-text': '#ffffff',
+    '--blue-text': '#1b365d',
+    '--link': '#005aa8',
+    '--primary-button': '#1b365d',
+    '--secondary-button': '#4c6272',
+    '--delete-button': '#d5281b',
+    '--exceptional-button-light': '#f5bb6b',
+    '--page-background-grey': '#f0f4f5',
+    '--page-background-white': '#ffffff',
+    '--page-background-blue': '#1b365d',
+    '--primary-border': '#212b32',
+    '--secondary-border': '#4c6272',
+    '--grey-border': '#d8dde0',
+    '--gold-border': '#aa8630',
+    '--primary-button-shadow': '#0e1b2f',
+    '--exceptional-button-shadow': '#554318',
+    '--focus': '#ffeb3b',
+  };
+
+  it.each(Object.entries(expected))('%s resolves to %s', (name, hex) => {
+    const actual = readCustomProperty(colourCss, name.replace('--', '--'));
+    expect(actual?.toLowerCase()).toBe(hex);
+  });
+});
+
+describe('type scale matches Figma Text styles — Tablet and Desktop', () => {
+  // Figma lists sizes in px "size/line-height"; our tokens are in rem at a
+  // 16px root, so 1px == 1/16 rem == 0.0625rem.
+  const px = (n) => `${n / 16}rem`;
+  const scale = {
+    h1: { size: 48, line: 54 },
+    h2: { size: 36, line: 42 },
+    h3: { size: 26, line: 32 },
+    h4: { size: 22, line: 30 },
+    h5: { size: 19, line: 28 },
+    body: { size: 19, line: 28 },
+    'body-small': { size: 16, line: 24 },
+  };
+
+  it.each(Object.entries(scale))('%s is %spx/%spx line-height', (name, { size, line }) => {
+    expect(readCustomProperty(typographyCss, `--${name}-size`)).toBe(px(size));
+    expect(readCustomProperty(typographyCss, `--${name}-line`)).toBe(px(line));
+  });
+});
+
+describe('type scale matches Figma Text styles — Mobile', () => {
+  const px = (n) => `${n / 16}rem`;
+  const scale = {
+    h1: { size: 32, line: 38 }, // Heading-extra-large
+    h2: { size: 27, line: 33 }, // Heading-large
+    h3: { size: 22, line: 29 }, // Heading-medium
+    h4: { size: 19, line: 27 }, // Heading-small
+    h5: { size: 16, line: 24 }, // Heading-extra-small
+    body: { size: 16, line: 24 },
+  };
+
+  it.each(Object.entries(scale))('%s-mobile is %spx/%spx line-height', (name, { size, line }) => {
+    expect(readCustomProperty(typographyCss, `--${name}-size-mobile`)).toBe(px(size));
+    expect(readCustomProperty(typographyCss, `--${name}-line-mobile`)).toBe(px(line));
+  });
+});
+
+describe('base font matches Figma (Roboto, bold = 700)', () => {
+  it('font family leads with Roboto', () => {
+    expect(readCustomProperty(typographyCss, '--font-family')).toMatch(/^Roboto/);
+  });
+
+  it('bold weight is 700', () => {
+    expect(readCustomProperty(typographyCss, '--weight-bold')).toBe('700');
+  });
+});
+
+describe('button spacing matches Figma Button/Default > Primary/Default', () => {
+  let buttonCss = '';
+
+  beforeAll(() => {
+    buttonCss = compileProbe(`
+      @use "foundations/button-base" as b;
+      .probe { @include b.nhsw-button-base; }
+    `);
+  });
+
+  it('has 12px vertical / 16px horizontal padding', () => {
+    expect(buttonCss).toMatch(/padding:\s*12px 16px/);
+  });
+
+  it('has a 4px corner radius', () => {
+    expect(buttonCss).toMatch(/border-radius:\s*4px/);
+  });
+
+  it('has a 12px gap between icon and label (Button/Icon > Icon - Discard or cancel > Default)', () => {
+    // No icon+text button is wired up anywhere in the docs yet, so this gap
+    // is currently dormant, but it must be correct for whenever one is built.
+    expect(buttonCss).toMatch(/gap:\s*12px/);
+  });
+});

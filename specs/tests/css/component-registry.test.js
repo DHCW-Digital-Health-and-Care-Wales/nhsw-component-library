@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import sass from 'sass';
+import * as sass from 'sass';
 
 const projectRoot = path.resolve(import.meta.dirname, '../../..');
 

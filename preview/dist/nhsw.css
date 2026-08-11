@@ -360,7 +360,7 @@
 .nhsw-date-input {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 1rem;
+  gap: 0 1.5rem;
   margin-top: 0.5rem;
 }
 
@@ -1093,7 +1093,7 @@ body {
 }
 
 .nhsw-inset-text--blue {
-  border-left-color: #005eb8;
+  border-left-color: #005aa8;
 }
 
 .nhsw-inset-text--grey {
@@ -1105,7 +1105,7 @@ body {
 }
 
 .nhsw-inset-text--yellow {
-  border-left-color: #facc15;
+  border-left-color: #ffeb3b;
 }
 
 .nhsw-tabs__list {
@@ -1336,9 +1336,9 @@ body {
   color: #00524d;
 }
 .nhsw-tag--blue {
-  background-color: #cfe0f5;
-  border-color: #132641;
-  color: #132641;
+  background-color: #ccdff1;
+  border-color: #004281;
+  color: #004281;
 }
 .nhsw-tag--purple {
   background-color: #d6cce3;
@@ -1386,7 +1386,7 @@ body {
   }
 }
 .nhsw-details__summary {
-  color: #005eb8;
+  color: #005aa8;
   cursor: pointer;
   display: inline-block;
   padding-left: 24px;
@@ -1480,7 +1480,7 @@ body {
   height: 24px;
   margin-right: 12px;
   border-radius: 50%;
-  background-color: #005eb8;
+  background-color: #005aa8;
   color: #ffffff;
 }
 .nhsw-expander__icon::before {
@@ -1494,7 +1494,7 @@ body {
 }
 
 .nhsw-expander__link-text {
-  color: #005eb8;
+  color: #005aa8;
   text-decoration: underline;
 }
 
@@ -1504,7 +1504,7 @@ body {
 
 .nhsw-panel {
   margin-bottom: 24px;
-  padding: 32px;
+  padding: 32px 40px;
   background-color: #007f3b;
   color: #ffffff;
   text-align: center;
@@ -1650,7 +1650,7 @@ body {
   position: relative;
   text-decoration: none;
   width: 100%;
-  color: #005eb8;
+  color: #005aa8;
 }
 .nhsw-pagination__link .nhsw-icon {
   position: absolute;
@@ -1738,7 +1738,7 @@ body {
   align-items: center;
   min-height: 45px;
   padding: 8px 12px;
-  color: #005eb8;
+  color: #005aa8;
   font-weight: 700;
   text-decoration: none;
 }
@@ -1795,7 +1795,7 @@ body {
   min-height: 45px;
   padding: 10px 8px;
   box-sizing: border-box;
-  color: #005eb8;
+  color: #005aa8;
   font-weight: 400;
   text-align: center;
   text-decoration: none;
@@ -1811,12 +1811,12 @@ body {
   outline: 4px solid transparent;
 }
 .nhsw-pagination--numbered .nhsw-pagination__item--current .nhsw-pagination__number-link {
-  background-color: #005eb8;
+  background-color: #005aa8;
   color: #ffffff;
   font-weight: 700;
 }
 .nhsw-pagination--numbered .nhsw-pagination__item--current .nhsw-pagination__number-link:hover {
-  background-color: #005eb8;
+  background-color: #005aa8;
   color: #ffffff;
 }
 
@@ -2086,7 +2086,7 @@ body {
 .nhsw-session-row__title {
   display: block;
   margin: 0 0 4px;
-  color: #005eb8;
+  color: #005aa8;
   font-weight: 700;
 }
 
@@ -2189,7 +2189,7 @@ body {
 }
 .nhsw-code-viewer__tab--active {
   color: #fff;
-  border-bottom-color: #005eb8;
+  border-bottom-color: #005aa8;
 }
 .nhsw-code-viewer__tab:focus {
   outline: 3px solid #ffeb3b;
@@ -2270,7 +2270,7 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  color: #005eb8;
+  color: #005aa8;
   font-family: inherit;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -2315,7 +2315,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 12px;
   min-height: 44px;
   padding: 12px 16px;
   border: 1px solid transparent;
@@ -2377,9 +2377,9 @@ body {
   background-color: #ffffff;
 }
 .nhsw-button--exceptional {
-  background-color: #f5bb66;
+  background-color: #f5bb6b;
   color: #212b32;
-  border-color: #f5bb66;
+  border-color: #f5bb6b;
   box-shadow: 0 2px 0 #554318;
 }
 .nhsw-button--exceptional:not(:disabled):not(:focus):hover {
@@ -2431,7 +2431,7 @@ body {
   background: none;
   border: 0;
   box-shadow: none;
-  color: #005eb8;
+  color: #005aa8;
   text-decoration: underline;
 }
 .nhsw-button--link:not(:disabled):not(:focus):hover {
@@ -2491,7 +2491,7 @@ body {
 .nhsw-link {
   position: relative;
   display: inline-block;
-  color: #005eb8;
+  color: #005aa8;
   text-decoration: underline;
   text-underline-offset: 0.12em;
 }
@@ -2590,7 +2590,7 @@ body {
   }
 }
 .nhsw-action-link--blue .nhsw-action-link__icon {
-  fill: #005eb8;
+  fill: #005aa8;
 }
 .nhsw-action-link--blue:hover .nhsw-action-link__icon {
   fill: #003087;
@@ -2625,7 +2625,7 @@ body {
   align-items: center;
   position: relative;
   padding-left: 14px;
-  color: #005eb8;
+  color: #005aa8;
   font-size: 1.1875rem;
   text-decoration: underline;
 }
@@ -2765,10 +2765,10 @@ body {
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   margin: 0;
-  padding: 0.5rem 1.5rem;
-  background-color: #facc15;
+  padding: 0.5rem 2rem;
+  background-color: #ffeb3b;
   color: #212b32;
 }
 
@@ -2781,7 +2781,7 @@ body {
   height: 1.5rem;
   border-radius: 50%;
   background-color: #212b32;
-  color: #facc15;
+  color: #ffeb3b;
   font-size: 1rem;
   font-weight: 700;
   font-style: normal;
@@ -2791,9 +2791,9 @@ body {
   position: relative;
   z-index: 1;
   margin-top: -1.25rem;
-  padding: 3rem 1.5rem 1.5rem;
-  border: 1px solid #facc15;
-  background-color: #fef9c3;
+  padding: 3rem 2rem 2rem;
+  border: 1px solid #ffeb3b;
+  background-color: #fff9c4;
 }
 
 .nhsw-warning-callout__content > :last-child {
@@ -2832,7 +2832,7 @@ body {
 }
 .nhsw-notification-banner__header {
   padding: 8px 16px;
-  background-color: #005eb8;
+  background-color: #004281;
 }
 .nhsw-notification-banner__title {
   margin: 0;
@@ -2853,7 +2853,7 @@ body {
   line-height: 1.5;
 }
 .nhsw-notification-banner__link {
-  color: #005eb8;
+  color: #005aa8;
   font-weight: 700;
 }
 .nhsw-notification-banner--success {
@@ -2891,7 +2891,7 @@ body {
 }
 
 .nhsw-card__title-link {
-  color: #005eb8;
+  color: #005aa8;
   text-decoration: underline;
 }
 .nhsw-card__title-link::after {
@@ -2922,7 +2922,7 @@ body {
   height: 1.5rem;
   margin-right: 0.5rem;
   border-radius: 50%;
-  background-color: #005eb8;
+  background-color: #005aa8;
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
@@ -2993,8 +2993,8 @@ body {
   width: 12px;
   height: 12px;
   margin-top: -6px;
-  border-top: 3px solid #005eb8;
-  border-right: 3px solid #005eb8;
+  border-top: 3px solid #005aa8;
+  border-right: 3px solid #005aa8;
   transform: rotate(45deg);
 }
 
@@ -3098,7 +3098,7 @@ body {
   min-height: 2.75rem;
   border: 0;
   border-radius: 0 0.25rem 0.25rem 0;
-  background-color: #005eb8;
+  background-color: #005aa8;
   color: #ffffff;
   cursor: pointer;
 }
@@ -3157,7 +3157,7 @@ body {
 .nhsw-site-header__nav-link {
   display: inline-block;
   padding: 0.875rem 1rem;
-  color: #005eb8;
+  color: #005aa8;
   font-size: 1.1875rem;
   font-weight: 800;
   text-decoration: none;
@@ -3396,7 +3396,7 @@ body {
   text-decoration: none;
 }
 .nhsw-bottom-nav__link:hover {
-  color: #005eb8;
+  color: #005aa8;
   background-color: #f0f4f5;
 }
 .nhsw-bottom-nav__link:focus {
@@ -3405,8 +3405,8 @@ body {
   outline-offset: -3px;
 }
 .nhsw-bottom-nav__link--current {
-  color: #005eb8;
-  border-top: 3px solid #005eb8;
+  color: #005aa8;
+  border-top: 3px solid #005aa8;
   padding-top: calc(0.625rem - 3px);
 }
 
@@ -3458,7 +3458,7 @@ body {
   position: relative;
   padding: 1rem 1rem 1rem 1.5rem;
   border-left: 4px solid transparent;
-  color: #005eb8;
+  color: #005aa8;
   font-size: 1.1875rem;
   font-weight: 400;
   line-height: 1.4;
@@ -3477,7 +3477,7 @@ body {
   box-shadow: 0 4px 0 0 #0b0c0c;
 }
 .nhsw-side-nav__link--current {
-  color: #005eb8;
+  color: #005aa8;
   font-weight: 700;
   text-decoration: none;
 }
@@ -3489,7 +3489,7 @@ body {
   transform: translateY(-50%);
   width: 4px;
   height: 1.75rem;
-  background-color: #005eb8;
+  background-color: #005aa8;
 }
 
 .nhsw-layout {
@@ -3538,7 +3538,7 @@ body {
   color: #4c6272;
 }
 .nhsw-breadcrumb__link {
-  color: #005eb8;
+  color: #005aa8;
 }
 .nhsw-breadcrumb--reverse .nhsw-breadcrumb__item,
 .nhsw-breadcrumb--reverse .nhsw-breadcrumb__item:not(:last-child)::after {
