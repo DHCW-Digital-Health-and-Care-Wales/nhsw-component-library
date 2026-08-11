@@ -61,7 +61,7 @@ Please note that our organisation is called Digital Health and Care Wales, so br
 - nhsw-checkboxes (__hint, __divider, __conditional)
 - nhsw-summary-list (--no-border, __actions)
 - nhsw-tag (--white, --grey, --green, --aqua-green, --blue, --purple, --pink, --red, --orange, --yellow)
-- nhsw-action-link (--blue, --navy, --red)
+- nhsw-action-link (--navy, --red)
 - nhsw-details
 - nhsw-pagination, nhsw-pagination--numbered
 - nhsw-table, nhsw-table-responsive, nhsw-table__panel-with-heading-tab

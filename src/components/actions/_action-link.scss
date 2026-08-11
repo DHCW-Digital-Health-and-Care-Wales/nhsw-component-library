@@ -3,8 +3,9 @@
 @use "../../utilities/focus-ring" as u;
 @use "../../utilities/breakpoints" as b;
 
-$nhsw-colour-action-green: #007f3b;
-$nhsw-colour-action-green-hover: #00662f;
+// Matches Figma's "Links/link-hover" swatch for this component's hover
+// state — the icon stays link-blue on hover; only the text recolours.
+$nhsw-colour-action-link-hover-text: #7c2855;
 
 .nhsw-action-link {
   display: flex;
@@ -14,13 +15,10 @@ $nhsw-colour-action-green-hover: #00662f;
 
   &:hover {
     .nhsw-action-link__text {
+      color: $nhsw-colour-action-link-hover-text;
       text-decoration: underline;
       text-decoration-thickness: max(3px, 0.1875rem);
       text-underline-offset: 0.12em;
-    }
-
-    .nhsw-action-link__icon {
-      fill: $nhsw-colour-action-green-hover;
     }
   }
 
@@ -46,14 +44,14 @@ $nhsw-colour-action-green-hover: #00662f;
 
   &__icon {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    margin-right: 12px;
-    fill: $nhsw-colour-action-green;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    fill: c.$nhsw-colour-link;
   }
 
   &__text {
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhsw-colour-link;
     font-size: t.$nhsw-font-size-h4-mobile;
     font-weight: t.$nhsw-font-weight-bold;
     line-height: t.$nhsw-line-height-h4-mobile;
@@ -61,16 +59,6 @@ $nhsw-colour-action-green-hover: #00662f;
     @include b.nhsw-from-tablet {
       font-size: t.$nhsw-font-size-h4;
       line-height: t.$nhsw-line-height-h4;
-    }
-  }
-
-  &--blue {
-    .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-link;
-    }
-
-    &:hover .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-link-hover;
     }
   }
 

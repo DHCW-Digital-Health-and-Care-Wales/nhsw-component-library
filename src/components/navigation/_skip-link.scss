@@ -2,7 +2,7 @@
 
 .nhsw-skip-link {
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 0;
   z-index: 100;
   padding: 12px 16px;
@@ -10,8 +10,9 @@
   color: c.$nhsw-colour-focus-text;
   font-weight: 700;
   text-decoration: underline;
+  transform: translateY(-100%);
 
   &:focus {
-    top: 0;
+    transform: translateY(0);
   }
 }

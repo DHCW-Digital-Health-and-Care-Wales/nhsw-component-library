@@ -82,12 +82,11 @@ Supports:
 - nhsw-tag--yellow
 
 ## nhsw-action-link
-Prominent link with green circle arrow icon for signposting services.
+Prominent link with blue circle arrow icon for signposting services.
 
 Supports:
 - nhsw-action-link__icon
 - nhsw-action-link__text
-- nhsw-action-link--blue
 - nhsw-action-link--navy
 - nhsw-action-link--red
 

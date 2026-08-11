@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 16px;
+  padding: 24px;
   background: none;
   border: 0;
   cursor: pointer;
@@ -27,8 +27,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   margin-right: 12px;
   border-radius: 50%;
   background-color: c.$nhsw-colour-link;
@@ -51,5 +51,5 @@
 }
 
 .nhsw-expander__content {
-  padding: 0 16px 16px 52px;
+  padding: 0 24px 24px;
 }

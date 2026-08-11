@@ -4,14 +4,14 @@
 .nhsw-file-upload {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-  border: 2px dashed c.$nhsw-colour-border-grey;
+  gap: 20px;
+  padding: 28px;
+  border: 1px dashed c.$nhsw-colour-border-secondary;
 }
 
 .nhsw-file-upload__status {
   display: block;
-  padding: 10px 12px;
+  padding: 10px;
   background-color: c.$nhsw-colour-background-grey;
   color: c.$nhsw-colour-text-secondary;
 }
@@ -19,7 +19,7 @@
 .nhsw-file-upload__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .nhsw-file-upload__button {

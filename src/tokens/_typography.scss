@@ -44,3 +44,8 @@ $nhsw-line-height-body: 1.75rem;
 
 $nhsw-font-size-body-small: 1rem;
 $nhsw-line-height-body-small: 1.5rem;
+
+// Matches Figma's Tablet/Desktop "Body-extra-small" (14/20) and Mobile
+// "Body-small" (14/20) — same value at both breakpoints, so one token covers both.
+$nhsw-font-size-body-extra-small: 0.875rem;
+$nhsw-line-height-body-extra-small: 1.25rem;

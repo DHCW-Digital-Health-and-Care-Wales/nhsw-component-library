@@ -178,12 +178,12 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .nhsw-site-header__nav-link {
   display: inline-block;
-  padding: 0.875rem 1rem;
+  padding: 1rem 0.25rem;
   color: c.$nhsw-colour-link;
   font-size: t.$nhsw-font-size-body;
   font-weight: t.$nhsw-font-weight-extrabold;
@@ -212,7 +212,7 @@
 
   &--current {
     border-bottom: 4px solid c.$nhsw-colour-background-blue;
-    padding-bottom: calc(0.875rem - 4px);
+    padding-bottom: calc(1rem - 4px);
     color: c.$nhsw-colour-text-primary;
     cursor: default;
 

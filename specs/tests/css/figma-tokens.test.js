@@ -63,6 +63,8 @@ beforeAll(() => {
       --body-line: #{t.$nhsw-line-height-body};
       --body-small-size: #{t.$nhsw-font-size-body-small};
       --body-small-line: #{t.$nhsw-line-height-body-small};
+      --body-extra-small-size: #{t.$nhsw-font-size-body-extra-small};
+      --body-extra-small-line: #{t.$nhsw-line-height-body-extra-small};
 
       --h1-size-mobile: #{t.$nhsw-font-size-h1-mobile};
       --h1-line-mobile: #{t.$nhsw-line-height-h1-mobile};
@@ -121,6 +123,7 @@ describe('type scale matches Figma Text styles — Tablet and Desktop', () => {
     h5: { size: 19, line: 28 },
     body: { size: 19, line: 28 },
     'body-small': { size: 16, line: 24 },
+    'body-extra-small': { size: 14, line: 20 },
   };
 
   it.each(Object.entries(scale))('%s is %spx/%spx line-height', (name, { size, line }) => {
@@ -143,6 +146,11 @@ describe('type scale matches Figma Text styles — Mobile', () => {
   it.each(Object.entries(scale))('%s-mobile is %spx/%spx line-height', (name, { size, line }) => {
     expect(readCustomProperty(typographyCss, `--${name}-size-mobile`)).toBe(px(size));
     expect(readCustomProperty(typographyCss, `--${name}-line-mobile`)).toBe(px(line));
+  });
+
+  it('Mobile "Body-small" (14/20) matches the same value as Tablet/Desktop "Body-extra-small" — one token covers both, since there is no separate mobile tier for it', () => {
+    expect(readCustomProperty(typographyCss, '--body-extra-small-size')).toBe(px(14));
+    expect(readCustomProperty(typographyCss, '--body-extra-small-line')).toBe(px(20));
   });
 });
 
