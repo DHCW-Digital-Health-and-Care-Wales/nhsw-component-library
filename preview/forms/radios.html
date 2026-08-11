@@ -377,6 +377,32 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-error" open_url="/examples/radios-error.html" body=example_body %}
 
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="name-change-hint name-change-error"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you changed your name?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="name-change-hint"&gt;This includes changing your last name or spelling your name differently&lt;/div&gt;
+  &lt;p class="nhsw-error-message" id="name-change-error"&gt;Select yes if you have changed your name&lt;/p&gt;
+  &lt;div class="nhsw-radios"&gt;
+    &lt;div class="nhsw-radios__item"&gt;
+      &lt;input class="nhsw-radios__input" id="name-change-yes" name="name-change" type="radio" value="yes" aria-invalid="true"&gt;
+      &lt;label class="nhsw-label nhsw-radios__label" for="name-change-yes"&gt;Yes&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-radios__item"&gt;
+      &lt;input class="nhsw-radios__input" id="name-change-no" name="name-change" type="radio" value="no" aria-invalid="true"&gt;
+      &lt;label class="nhsw-label nhsw-radios__label" for="name-change-no"&gt;No&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  fieldset: { legend: { text: "Have you changed your name?" } },
+  hint: { text: "This includes changing your last name or spelling your name differently" },
+  errorMessage: { text: "Select yes if you have changed your name" },
+  items: [
+    { text: "Yes", value: "yes" },
+    { text: "No", value: "no" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="rd-error" html=html_sample njk=njk_sample toggleable=true %}
+
     <p class="nhsw-body">Follow:</p>
     <ul class="nhsw-body">
       <li><a class="nhsw-link" href="#">our guidance on error messages</a></li>

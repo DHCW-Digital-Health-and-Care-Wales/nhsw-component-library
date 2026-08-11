@@ -138,17 +138,7 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows warning text used on the School-age Immunisations service within WIS to highlight an important consequence of not responding.</p>
-
-  {% capture example_body %}{% raw %}
-    <div class="nhsw-warning-text">
-      <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="nhsw-warning-text__text">
-        <span class="nhsw-visually-hidden">Warning</span>
-        If we do not hear from you, your child will not be vaccinated at school.
-      </strong>
-    </div>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="wt-example" open_url="/examples/warning-text-default.html" body=example_body %}
+  {% include screenshot-placeholder.html text="Consent question page with warning text explaining the consequence of not responding" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

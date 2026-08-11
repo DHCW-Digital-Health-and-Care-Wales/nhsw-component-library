@@ -20,8 +20,8 @@ tabs:
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ta-ov-mobility">Can you provide more detail about how you move about (your mobility)?</label>
       <div class="nhsw-hint" id="ta-ov-mobility-hint">For example, if you use crutches, sticks, or a walking frame</div>
-      <textarea id="ta-ov-mobility" name="ta-ov-mobility" class="nhsw-textarea" aria-describedby="ta-ov-mobility-hint" data-max-length="150" data-max-length-target="ta-ov-mobility-count"></textarea>
-      <div class="nhsw-hint" id="ta-ov-mobility-count">You have 150 characters remaining</div>
+      <textarea id="ta-ov-mobility" name="ta-ov-mobility" class="nhsw-textarea" aria-describedby="ta-ov-mobility-hint ta-ov-mobility-count" data-max-length="150" data-max-length-target="ta-ov-mobility-count"></textarea>
+      <div class="nhsw-hint" id="ta-ov-mobility-count" aria-live="polite">You have 150 characters remaining</div>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ta-overview" open_url="/examples/textarea-default.html" body=example_body %}
@@ -29,8 +29,8 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label" for="mobility"&gt;Can you provide more detail about how you move about (your mobility)?&lt;/label&gt;
   &lt;div class="nhsw-hint" id="mobility-hint"&gt;For example, if you use crutches, sticks, or a walking frame&lt;/div&gt;
-  &lt;textarea id="mobility" name="mobility" class="nhsw-textarea" aria-describedby="mobility-hint" maxlength="150"&gt;&lt;/textarea&gt;
-  &lt;div class="nhsw-hint"&gt;You have 150 characters remaining&lt;/div&gt;
+  &lt;textarea id="mobility" name="mobility" class="nhsw-textarea" aria-describedby="mobility-hint mobility-count" maxlength="150"&gt;&lt;/textarea&gt;
+  &lt;div class="nhsw-hint" id="mobility-count" aria-live="polite"&gt;You have 150 characters remaining&lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "textarea/macro.njk" import nhswTextarea %}
 
@@ -135,8 +135,8 @@ tabs:
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="ta-reason-err">Provide a reason for continuing</label>
       <p class="nhsw-error-message" id="ta-reason-err-error">Error the clinical decision</p>
-      <textarea id="ta-reason-err" name="ta-reason-err" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="ta-reason-err-error" data-max-length="150" data-max-length-target="ta-reason-err-count"></textarea>
-      <div class="nhsw-hint" id="ta-reason-err-count">You have 150 characters remaining</div>
+      <textarea id="ta-reason-err" name="ta-reason-err" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="ta-reason-err-error ta-reason-err-count" data-max-length="150" data-max-length-target="ta-reason-err-count"></textarea>
+      <div class="nhsw-hint" id="ta-reason-err-count" aria-live="polite">You have 150 characters remaining</div>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ta-error" open_url="/examples/textarea-error.html" body=example_body %}
@@ -177,7 +177,7 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Textarea variants</h2>
   <p class="nhsw-body">There are no variants available for this component.</p>
-  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the design system team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
   <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
 
   <div class="nhsw-tabs__pagination">

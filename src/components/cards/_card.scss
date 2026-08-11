@@ -8,7 +8,8 @@
   border: 1px solid c.$nhsw-colour-border-grey;
   box-shadow: 0 4px 0 c.$nhsw-colour-border-grey;
   padding: 2rem;
-  height: 100%;
+  height: calc(100% - 2rem);
+  margin-bottom: 2rem;
   box-sizing: border-box;
 
   &:has(.nhsw-card__title-link:hover) {
@@ -88,6 +89,27 @@
   margin: 0 0 1rem;
 }
 
+.nhsw-card__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  background-color: c.$nhsw-colour-background-white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.nhsw-card__preview-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
 .nhsw-card__actions {
   display: flex;
   gap: 1rem;
@@ -95,6 +117,15 @@
   padding: 0;
   list-style: none;
   font-size: t.$nhsw-font-size-body-small;
+}
+
+// Use for card grids where only the preview image sits in a bordered box —
+// title, description and link render directly on the page background.
+.nhsw-card--flat {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .nhsw-card--chevron {

@@ -108,6 +108,29 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="cb-error" open_url="/examples/checkboxes-error.html" body=example_body %}
 
+  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
+  &lt;p class="nhsw-error-message" id="contact-error"&gt;Select how you want to be contacted&lt;/p&gt;
+  &lt;div class="nhsw-checkboxes"&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-invalid="true"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
+  fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  hint: { text: "Select all options that are relevant to you" },
+  errorMessage: { text: "Select how you want to be contacted" },
+  items: [
+    { text: "Email", value: "email" },
+    { text: "Phone", value: "phone" },
+    { text: "Test message", value: "text" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="cb-error" html=html_sample njk=njk_sample toggleable=true %}
+
   <p class="nhsw-body">Follow:</p>
   <ul class="nhsw-body">
     <li><a class="nhsw-link" href="#">our guidance on error messages</a></li>

@@ -359,6 +359,42 @@ tabs:
     </table>
   {% endraw %}{% endcapture %}
     {% include example-preview.html id="tbl-responsive" open_url="/examples/table-responsive.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;table class="nhsw-table-responsive" role="table"&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccination schedule&lt;/caption&gt;
+  &lt;thead class="nhsw-table__head" role="rowgroup"&gt;
+    &lt;tr class="nhsw-table__row" role="row"&gt;
+      &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Age&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Vaccine&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;How it is given&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body" role="rowgroup"&gt;
+    &lt;tr class="nhsw-table__row" role="row"&gt;
+      &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+        &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Age &lt;/span&gt;
+        8 weeks
+      &lt;/th&gt;
+      &lt;td class="nhsw-table__cell" role="cell"&gt;
+        &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Vaccine &lt;/span&gt;
+        6-in-1 vaccine
+      &lt;/td&gt;
+      &lt;td class="nhsw-table__cell" role="cell"&gt;
+        &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;How it is given &lt;/span&gt;
+        Injection into the thigh
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswTable({
+  caption: { text: "Vaccination schedule", size: "m" },
+  responsive: true,
+  head: [ "Age", "Vaccine", "How it is given" ],
+  rows: [
+    [ "8 weeks", "6-in-1 vaccine", "Injection into the thigh" ]
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="tbl-responsive" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
   <div class="nhsw-tabs__pagination">

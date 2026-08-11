@@ -3,7 +3,7 @@ layout: component
 title: Error summary
 container: fluid
 updated: March 2026
-intro: Include an error summary at the top of a page to summarise any mistakes a user has made.
+intro: Include an error summary at the top of a page to help users identify and fix mistakes they've made.
 tabs:
   - id: how-to-use
     label: "How to use"
@@ -66,8 +66,126 @@ tabs:
   </ul>
   <p class="nhsw-body">Follow GOV.UK Design System guidance on <a class="nhsw-link" href="#">writing good error messages</a>.</p>
 
+  <h3 class="nhsw-h3">Linking from the error summary to each answer</h3>
+  <p class="nhsw-body">You must link the errors in the error summary to the answer they relate to.</p>
+  <p class="nhsw-body">For questions that require a user to answer using a single field, like a select, textarea or text input, link to the field.</p>
+  <p class="nhsw-body">When a user has to enter their answer into multiple fields, such as the day, month and year fields in the date input component, link to the 1st field that contains an error.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-error-summary" aria-labelledby="error-summary-title-date" role="alert" tabindex="-1">
+      <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-date">There is a problem</h2>
+      <ul class="nhsw-error-summary__list">
+        <li><a class="nhsw-link nhsw-error-summary__link" href="#dob-year">Date of birth must include a year</a></li>
+      </ul>
+    </div>
+
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint dob-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+        <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
+        <p class="nhsw-error-message" id="dob-error">The date of birth must include a year</p>
+        <div class="nhsw-date-input">
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
+            <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
+            <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
+            <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="es-date" open_url="/examples/error-summary-date.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-error-summary__link" href="#dob-year"&gt;Date of birth must include a year&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    { text: "Date of birth must include a year", href: "#dob-year" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="es-date" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">If you do not know which field contains an error, link to the 1st field.</p>
+  <p class="nhsw-body">For questions that require a user to select one or more options from a list using radios or checkboxes, link to the 1st radio or checkbox.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-error-summary" aria-labelledby="error-summary-title-checkboxes" role="alert" tabindex="-1">
+      <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-checkboxes">There is a problem</h2>
+      <ul class="nhsw-error-summary__list">
+        <li><a class="nhsw-link nhsw-error-summary__link" href="#contact-1">Select how you want to be contacted</a></li>
+      </ul>
+    </div>
+
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="contact-hint">Select all options that are relevant to you</div>
+        <p class="nhsw-error-message" id="contact-error">Select how you want to be contacted</p>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email">
+            <label class="nhsw-label nhsw-checkboxes__label" for="contact-1">Email</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone">
+            <label class="nhsw-label nhsw-checkboxes__label" for="contact-2">Phone</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text">
+            <label class="nhsw-label nhsw-checkboxes__label" for="contact-3">Text message</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="es-checkboxes" open_url="/examples/error-summary-checkboxes.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-error-summary__link" href="#contact-1"&gt;Select how you want to be contacted&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    { text: "Select how you want to be contacted", href: "#contact-1" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="es-checkboxes" html=html_sample njk=njk_sample toggleable=true %}
+
   <h3 class="nhsw-h3">Where to put the error summary</h3>
   <p class="nhsw-body">Put the error summary at the top of the <code>main</code> container. If your page includes breadcrumbs or a back link, place it below these, but above the <code>&lt;h1&gt;</code>.</p>
+
+  <h3 class="nhsw-h3">Timeout</h3>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1">
+      <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-timeout">There is a problem</h2>
+      <ul class="nhsw-error-summary__list">
+        <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name">Your login attempt timed out. Login will start from the beginning.</a></li>
+      </ul>
+    </div>
+
+    <h2 class="nhsw-h2">Your details</h2>
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <label class="nhsw-label" for="full-name">Full name</label>
+      <p class="nhsw-error-message" id="full-name-error">Enter your full name</p>
+      <input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="es-timeout" open_url="/examples/error-summary-timeout.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-error-summary__link" href="#full-name"&gt;Your login attempt timed out. Login will start from the beginning.&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    { text: "Your login attempt timed out. Login will start from the beginning.", href: "#full-name" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="es-timeout" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -95,128 +213,9 @@ tabs:
 <!-- Variants -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Error summary variants</h2>
-
-  <section class="preview-section">
-    <h3 class="nhsw-h3">Linking from the error summary to each answer</h3>
-    <p class="nhsw-body">You must link the errors in the error summary to the answer they relate to.</p>
-    <p class="nhsw-body">For questions that require a user to answer using a single field, like a select, textarea or text input, link to the field.</p>
-    <p class="nhsw-body">When a user has to enter their answer into multiple fields, such as the day, month and year fields in the date input component, link to the 1st field that contains an error.</p>
-
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-error-summary" aria-labelledby="error-summary-title-date" role="alert" tabindex="-1">
-        <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-date">There is a problem</h2>
-        <ul class="nhsw-error-summary__list">
-          <li><a class="nhsw-link nhsw-error-summary__link" href="#dob-year">Date of birth must include a year</a></li>
-        </ul>
-      </div>
-
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint dob-error">
-          <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
-          <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
-          <p class="nhsw-error-message" id="dob-error">The date of birth must include a year</p>
-          <div class="nhsw-date-input">
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
-              <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
-            </div>
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
-              <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
-            </div>
-            <div class="nhsw-date-input__item">
-              <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
-              <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="es-date" open_url="/examples/error-summary-date.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;a class="nhsw-error-summary__link" href="#dob-year"&gt;Date of birth must include a year&lt;/a&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    { text: "Date of birth must include a year", href: "#dob-year" }
-  ]
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="es-date" html=html_sample njk=njk_sample toggleable=true %}
-
-    <p class="nhsw-body">If you do not know which field contains an error, link to the 1st field.</p>
-    <p class="nhsw-body">For questions that require a user to select one or more options from a list using radios or checkboxes, link to the 1st radio or checkbox.</p>
-
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-error-summary" aria-labelledby="error-summary-title-checkboxes" role="alert" tabindex="-1">
-        <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-checkboxes">There is a problem</h2>
-        <ul class="nhsw-error-summary__list">
-          <li><a class="nhsw-link nhsw-error-summary__link" href="#contact-1">Select how you want to be contacted</a></li>
-        </ul>
-      </div>
-
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error">
-          <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
-          <div class="nhsw-hint" id="contact-hint">Select all options that are relevant to you</div>
-          <p class="nhsw-error-message" id="contact-error">Select how you want to be contacted</p>
-          <div class="nhsw-checkboxes">
-            <div class="nhsw-checkboxes__item">
-              <input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email">
-              <label class="nhsw-label nhsw-checkboxes__label" for="contact-1">Email</label>
-            </div>
-            <div class="nhsw-checkboxes__item">
-              <input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone">
-              <label class="nhsw-label nhsw-checkboxes__label" for="contact-2">Phone</label>
-            </div>
-            <div class="nhsw-checkboxes__item">
-              <input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text">
-              <label class="nhsw-label nhsw-checkboxes__label" for="contact-3">Text message</label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="es-checkboxes" open_url="/examples/error-summary-checkboxes.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;a class="nhsw-error-summary__link" href="#contact-1"&gt;Select how you want to be contacted&lt;/a&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    { text: "Select how you want to be contacted", href: "#contact-1" }
-  ]
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="es-checkboxes" html=html_sample njk=njk_sample toggleable=true %}
-  </section>
-
-  <section class="preview-section">
-    <h3 class="nhsw-h3">Timeout</h3>
-
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1">
-        <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-timeout">There is a problem</h2>
-        <ul class="nhsw-error-summary__list">
-          <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name">Your login attempt timed out. Login will start from the beginning.</a></li>
-        </ul>
-      </div>
-
-      <h2 class="nhsw-h2">Your details</h2>
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <label class="nhsw-label" for="full-name">Full name</label>
-        <p class="nhsw-error-message" id="full-name-error">Enter your full name</p>
-        <input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="es-timeout" open_url="/examples/error-summary-timeout.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;a class="nhsw-error-summary__link" href="#full-name"&gt;Your login attempt timed out. Login will start from the beginning.&lt;/a&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
-  titleText: "There is a problem",
-  errorList: [
-    { text: "Your login attempt timed out. Login will start from the beginning.", href: "#full-name" }
-  ]
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="es-timeout" html=html_sample njk=njk_sample toggleable=true %}
-  </section>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
@@ -235,8 +234,12 @@ tabs:
   <h2 class="nhsw-h2">Examples</h2>
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
-  <p class="nhsw-body">This example shows an error summary linking to a single required field on a consent form within WIS.</p>
-  {% include screenshot-placeholder.html text="Your details form with an error summary and full name field error" %}
+  <p class="nhsw-body">This example shows the "Add COVID-19 vaccine wastage details" screen within WIS. It uses an error summary component at the top of the main content area to immediately highlight where there has been an input error.</p>
+  {% include screenshot-placeholder.html text="Add COVID-19 vaccine wastage details screen with an error summary" %}
+
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows the "Choose vaccine for delivery" screen within WIS. It uses an error summary component at the top of the page to highlight form validation errors clearly.</p>
+  {% include screenshot-placeholder.html text="Choose vaccine for delivery screen with an error summary" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

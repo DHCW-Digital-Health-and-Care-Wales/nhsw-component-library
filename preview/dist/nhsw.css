@@ -1336,7 +1336,7 @@ body {
   color: #00524d;
 }
 .nhsw-tag--blue {
-  background-color: #d1d7df;
+  background-color: #cfe0f5;
   border-color: #132641;
   color: #132641;
 }
@@ -2869,7 +2869,8 @@ body {
   border: 1px solid #d8dde0;
   box-shadow: 0 4px 0 #d8dde0;
   padding: 2rem;
-  height: 100%;
+  height: calc(100% - 2rem);
+  margin-bottom: 2rem;
   box-sizing: border-box;
 }
 .nhsw-card:has(.nhsw-card__title-link:hover) {
@@ -2944,6 +2945,27 @@ body {
   margin: 0 0 1rem;
 }
 
+.nhsw-card__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid #d8dde0;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.nhsw-card__preview-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
 .nhsw-card__actions {
   display: flex;
   gap: 1rem;
@@ -2951,6 +2973,13 @@ body {
   padding: 0;
   list-style: none;
   font-size: 1rem;
+}
+
+.nhsw-card--flat {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .nhsw-card--chevron {
@@ -3260,9 +3289,11 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem 2rem;
+  padding: 2rem 1rem;
+}
+.nhsw-site-footer__container--centered {
   max-width: 68.75rem;
   margin: 0 auto;
-  padding: 2rem 1rem;
 }
 
 .nhsw-site-footer__links {

@@ -12,9 +12,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem 2rem;
-  max-width: 68.75rem;
-  margin: 0 auto;
   padding: 2rem 1rem;
+
+  // Add this modifier to constrain content to a centred max-width column
+  &--centered {
+    max-width: 68.75rem;
+    margin: 0 auto;
+  }
 }
 
 .nhsw-site-footer__links {

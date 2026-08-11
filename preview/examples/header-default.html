@@ -1,0 +1,21 @@
+---
+layout: example
+title: Header example
+---
+<header class="nhsw-site-header">
+  <div class="nhsw-site-header__container">
+    <div class="nhsw-site-header__top">
+      <a class="nhsw-site-header__brand" href="#">
+        <span class="nhsw-site-header__logo">
+          <img src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="NHS Wales Digital Health and Care Wales">
+        </span>
+        <span class="nhsw-site-header__title">Service name</span>
+      </a>
+      <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+        <label class="nhsw-visually-hidden" for="site-search-example">Search</label>
+        <input id="site-search-example" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+        <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+      </form>
+    </div>
+  </div>
+</header>

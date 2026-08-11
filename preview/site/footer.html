@@ -3,7 +3,7 @@ layout: component
 title: Footer
 container: fluid
 updated: March 2026
-intro: Use the footer to show users they are on an NHS service and to help them find links they expect at the bottom of our pages.
+intro: Use the footer to provide consistent navigation and access to supporting information that users expect to find across NHS Wales services.
 tabs:
   - id: how-to-use
     label: "How to use"
@@ -49,9 +49,30 @@ tabs:
   {% include code-viewer.html id="ft-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use the footer</h2>
-  <p class="nhsw-body">For public-facing services, use the footer designed for public-facing services to show users they are on an NHS service and to help them find links they expect at the bottom of our pages. Use the footer at the bottom of every page of your website or service but not on a mobile app.</p>
-  <p class="nhsw-body">For internal-facing services, Use the footer designed for internal services not hosted on service.nhs.wales domains.</p>
-  <p class="nhsw-body">If you use the page template, you'll also get the footer without having to add it, as it's included by default. However, if you want to customise the default footer, read the <a class="nhsw-link" href="#">page template guidance about customising components</a>.</p>
+  <p class="nhsw-body">Use the public-facing footer on websites and services used by members of the public. It helps users recognise they are on an NHS Wales service and provides links they expect to find at the bottom of a page. Do not use this footer in mobile apps.</p>
+  <p class="nhsw-body">For internal-facing services, use the footer designed for services that are not hosted on a service.nhs.wales domain.</p>
+  <p class="nhsw-body">If you use the page template, the footer is included automatically and does not need to be added separately. To customise the default footer, read the <a class="nhsw-link" href="#">page template guidance about customising components</a>.</p>
+
+  <h2 class="nhsw-h2">How to use the footer</h2>
+
+  <h3 class="nhsw-h3">Adding links</h3>
+  <p class="nhsw-body">You can add links to:</p>
+  <ul class="nhsw-body">
+    <li>your service's privacy notice</li>
+    <li>your service's accessibility statement</li>
+    <li>your service's cookies page</li>
+    <li>terms and conditions</li>
+    <li>help and support content</li>
+  </ul>
+  <p class="nhsw-body">Use 'Privacy', 'Accessibility', 'Cookies' and 'Terms and conditions' for the link text.</p>
+  <p class="nhsw-body">Do not use generic content for these pages. You must make sure the content reflects the specific needs, users and context of your service.</p>
+  <p class="nhsw-body">If you include links to 'help' pages within the footer component, make sure to place those links consistently within the footer content.</p>
+  <p class="nhsw-body">Keep links to a minimum, especially in a transactional journey. Too many links can distract users. Link to specific policies for the transaction, if appropriate.</p>
+  <p class="nhsw-body">If your total number of links is less than 7, arrange them horizontally in lines.</p>
+
+  <h3 class="nhsw-h3">Copyright</h3>
+  <p class="nhsw-body">Your copyright statement must reflect the ownership of your website or service.</p>
+  <p class="nhsw-body">Include a reference to the <a class="nhsw-link" href="#">Open Government Licence</a> if your organisation or service encourages people to reuse and adapt its information under the licence. Contact your legal team for advice.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -100,22 +121,6 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ft-no-links" html=html_sample njk=njk_sample toggleable=true %}
   </section>
-
-  <h3 class="nhsw-h3">Adding links</h3>
-  <p class="nhsw-body">You can add links to:</p>
-  <ul class="nhsw-body">
-    <li>your service's privacy notice</li>
-    <li>your service's accessibility statement</li>
-    <li>your service's Cookies page</li>
-    <li>terms and conditions</li>
-    <li>other language options</li>
-    <li>help content</li>
-  </ul>
-  <p class="nhsw-body">Use 'Privacy', 'Accessibility', 'Cookies' and 'Terms and conditions' for the link text.</p>
-  <p class="nhsw-body">If you include links to 'help' pages within the GOV.UK footer component, make sure to place those links consistently within the footer content.</p>
-  <p class="nhsw-body">Also make sure that 'help' links always function in a similar way across each page. This is to comply with <a class="nhsw-link" href="#">WCAG 2.2 success criterion 3.2.6 Consistent help</a>.</p>
-  <p class="nhsw-body">Keep links to a minimum, especially in a transactional journey. Too many links can distract users. Link to specific policies for the transaction, if appropriate.</p>
-  <p class="nhsw-body">If your total number of links is less than 7, arrange them horizontally in lines.</p>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Footer with navigation links</h3>
@@ -178,10 +183,6 @@ tabs:
     {% include code-viewer.html id="ft-nav" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
-  <h3 class="nhsw-h3">Copyright</h3>
-  <p class="nhsw-body">Your copyright statement must reflect the ownership of your website or service. The <a class="nhsw-link" href="#">NHS website</a> is (c) Crown copyright but the NHS generally does not have Crown status. The service manual footer, for example, says (c) NHS England.</p>
-  <p class="nhsw-body">Include a reference to the <a class="nhsw-link" href="#">Open Government Licence</a> if your organisation or service encourages people to reuse and adapt its information under the licence. Contact your legal team for advice.</p>
-
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>
@@ -199,32 +200,8 @@ tabs:
   <h2 class="nhsw-h2">Examples</h2>
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
-  <p class="nhsw-body">This example shows a public-facing consent page from the School-age Immunisations service within WIS featuring a standardised footer at the very bottom of the screen. It establishes trust by confirming it is an official NHS Wales digital service while providing a predictable, out-of-the-way location for essential resources like the accessibility statement and service guidance.</p>
-
-  {% capture example_body %}{% raw %}
-    <h2 class="nhsw-h2">Has your child already had a flu vaccine this autumn/winter?</h2>
-    <div class="nhsw-radios">
-      <div class="nhsw-radios__item">
-        <input class="nhsw-radios__input" id="flu-yes" name="flu" type="radio" value="yes">
-        <label class="nhsw-label nhsw-radios__label" for="flu-yes">Yes</label>
-      </div>
-      <div class="nhsw-radios__item">
-        <input class="nhsw-radios__input" id="flu-no" name="flu" type="radio" value="no">
-        <label class="nhsw-label nhsw-radios__label" for="flu-no">No</label>
-      </div>
-    </div>
-    <button class="nhsw-button" type="submit">Continue</button>
-    <footer class="nhsw-site-footer">
-      <div class="nhsw-site-footer__container">
-        <ul class="nhsw-site-footer__links">
-          <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
-          <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
-        </ul>
-        <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
-      </div>
-    </footer>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="ft-example" open_url="/examples/footer-default.html" body=example_body %}
+  <p class="nhsw-body">This example shows a public-facing consent page from the School-age Immunisations service featuring a standardised footer at the very bottom of the screen. It establishes trust by confirming it is an official NHS Wales digital service while providing a predictable, out-of-the-way location for essential resources like the accessibility statement and service guidance.</p>
+  {% include screenshot-placeholder.html text="Consent question page with a standardised footer at the bottom" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

@@ -322,11 +322,11 @@
   NhswDatePicker.prototype._focusDate = function (date) {
     if (!date) return;
 
-    if (date.getFullYear() !== this.viewYear || date.getMonth() !== this.viewMonth) {
-      this.viewYear = date.getFullYear();
-      this.viewMonth = date.getMonth();
-      this._renderCalendar();
-    }
+    this.viewYear = date.getFullYear();
+    this.viewMonth = date.getMonth();
+    // Always re-render so the --pending class and aria-selected stay in sync
+    // with pendingDate on every arrow-key move, not just month/year changes.
+    this._renderCalendar();
 
     var dataDate = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
     var btn = this.calendarBody.querySelector('[data-date="' + dataDate + '"]');
