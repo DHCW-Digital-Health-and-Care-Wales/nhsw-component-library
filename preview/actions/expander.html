@@ -3,7 +3,7 @@ layout: component
 title: Expander
 container: fluid
 updated: March 2026
-intro: Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.
+intro: Use an expander to let users reveal detailed information only when they need it.
 tabs:
   - id: how-to-use
     label: "How to use"
@@ -47,7 +47,7 @@ tabs:
   {% include code-viewer.html id="ex-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use expanders</h2>
-  <p class="nhsw-body">The expander is a short link in a box that expands into more detailed text when a user clicks on it.</p>
+  <p class="nhsw-body">The expander is a short link in a box that expands into more detailed text when a user clicks on it. It can help to make complex information easier to understand by allowing users to reveal additional details when they need it.</p>
   <p class="nhsw-body">There are 2 ways to let users reveal more information:</p>
   <ul class="nhsw-body">
     <li><a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}">details</a></li>
@@ -55,7 +55,7 @@ tabs:
   </ul>
   <p class="nhsw-body">You can use expanders:</p>
   <ul class="nhsw-body">
-    <li>on pages where users find the amount of information overwhelming, they break down information into bite size pieces which the user can "expand" when they're ready to do so</li>
+    <li>on pages where users find the amount of information overwhelming, as they help to break down information into bite size pieces which the user can "expand" when they're ready to do so</li>
     <li>for information for a wide audience, unlike the details component</li>
     <li>when you see a clear user need for them</li>
   </ul>
@@ -71,14 +71,12 @@ tabs:
   <p class="nhsw-body">Do not use an expander:</p>
   <ul class="nhsw-body">
     <li>if only some of your users will need the information – use <a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}">details</a> instead</li>
-    <li>to give users help in forms – instead, add hint text as a part of other form inputs, such as <a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}">text inputs</a>, <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a> and <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a> or use details</li>
+    <li>in forms – instead, add hint text as a part of other form inputs, such as <a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}">text inputs</a>, <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a> and <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a> or use details</li>
     <li>on pages with other interactive elements, such as <a class="nhsw-link" href="{{ '/components/buttons.html' | relative_url }}">buttons</a> or <a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}">text input</a> – there's a risk that expanders will distract users</li>
-    <li>inside other patterns, for example to help users decide when and where to get care (care cards)</li>
+    <li>inside other patterns, for example to <a class="nhsw-link" href="#">help users decide when and where to get care (care cards)</a></li>
   </ul>
 
   <h2 class="nhsw-h2">How to use expanders</h2>
-
-  <h3 class="nhsw-h3">Write clear link text</h3>
   <p class="nhsw-body">Make the link text short and descriptive so users can quickly work out if they need to click on it.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>

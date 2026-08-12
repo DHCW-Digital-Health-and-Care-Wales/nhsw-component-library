@@ -15,7 +15,7 @@
 // </nav>
 
 .nhsw-side-nav {
-  flex: 0 0 17.5rem;
+  flex: 0 0 13.8125rem; // 221px
   border-right: 1px solid c.$nhsw-colour-border-grey;
 
   @media (max-width: 40rem) {
@@ -24,6 +24,9 @@
 }
 
 .nhsw-side-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,7 +35,7 @@
 .nhsw-side-nav__link {
   display: block;
   position: relative;
-  padding: 1rem 1rem 1rem 1.5rem;
+  padding: 0 0 0 12px;
   border-left: 4px solid transparent;
   color: c.$nhsw-colour-link;
   font-size: t.$nhsw-font-size-body;
@@ -91,5 +94,5 @@
 .nhsw-layout__content {
   flex: 1;
   min-width: 0;
-  padding: 2rem 2.5rem;
+  padding: 2.5rem 2.5rem 2.5rem 1.25rem;
 }

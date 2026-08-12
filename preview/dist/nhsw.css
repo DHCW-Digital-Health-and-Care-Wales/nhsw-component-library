@@ -3430,7 +3430,7 @@ body {
 }
 
 .nhsw-side-nav {
-  flex: 0 0 17.5rem;
+  flex: 0 0 13.8125rem;
   border-right: 1px solid #d8dde0;
 }
 @media (max-width: 40rem) {
@@ -3440,6 +3440,9 @@ body {
 }
 
 .nhsw-side-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -3448,7 +3451,7 @@ body {
 .nhsw-side-nav__link {
   display: block;
   position: relative;
-  padding: 1rem 1rem 1rem 1.5rem;
+  padding: 0 0 0 12px;
   border-left: 4px solid transparent;
   color: #005aa8;
   font-size: 1.1875rem;
@@ -3493,7 +3496,7 @@ body {
 .nhsw-layout__content {
   flex: 1;
   min-width: 0;
-  padding: 2rem 2.5rem;
+  padding: 2.5rem 2.5rem 2.5rem 1.25rem;
 }
 
 .nhsw-breadcrumb {

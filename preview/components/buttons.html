@@ -199,7 +199,6 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Smaller buttons</h3>
-    <p class="nhsw-body">Use smaller buttons sparingly. First try using a standard button.</p>
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-button-group">
@@ -217,6 +216,7 @@ tabs:
 {{ nhswButton({ text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-small" html=html_sample njk=njk_sample toggleable=true %}
 
+    <p class="nhsw-body">Use smaller buttons sparingly. First try using a standard button.</p>
     <p class="nhsw-body">Only use smaller buttons when:</p>
     <ul class="nhsw-body">
       <li>space is limited, for example in a card or panel</li>
