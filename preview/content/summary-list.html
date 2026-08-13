@@ -74,16 +74,19 @@ tabs:
   {% include code-viewer.html id="sl-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use summary lists</h2>
+  <p class="nhsw-body">Use a summary list to present key information in a clear, easy-to-scan format. Summary lists are often used to help users review information before taking an action, such as submitting a form.</p>
+
+  <h2 class="nhsw-h2">When not to use summary lists</h2>
+  <p class="nhsw-body">The summary list uses the description list <code>&lt;dl&gt;</code> HTML element, so only use it to present information that has a key and at least 1 value.</p>
+  <p class="nhsw-body">Do not use it for tabular data or a simple list of information or tasks, like a task list page. For those, use a <code>&lt;table&gt;</code>, <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. Read more about the <a class="nhsw-link" href="#">Complete multiple tasks pattern in the NHS England Design System</a>.</p>
+
+  <h2 class="nhsw-h2">How to use summary lists</h2>
   <p class="nhsw-body">Use the summary list component to present pairs of related information, known as key-value pairs, in a list, where:</p>
   <ul class="nhsw-body">
     <li>the key is a label, like "Name"</li>
     <li>the value is the piece of information itself, like "John Smith"</li>
   </ul>
-  <p class="nhsw-body">Think about how you can use the summary list along with other components or patterns to give users a sense of control. You can use it to summarise a user's responses at the end of a form, for example as part of the check answers pattern.</p>
-
-  <h2 class="nhsw-h2">When not to use summary lists</h2>
-  <p class="nhsw-body">The summary list uses the description list <code>&lt;dl&gt;</code> HTML element, so only use it to present information that has a key and at least 1 value.</p>
-  <p class="nhsw-body">Do not use it for tabular data or a simple list of information or tasks, like a task list page. (See the complete multiple tasks pattern.) For those, use a <code>&lt;table&gt;</code>, <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</p>
+  <p class="nhsw-body">Summary lists help users review information quickly and can be used alongside other components and patterns, such as the <a class="nhsw-link" href="#">Check answers pattern from the NHS England Design System</a>, to give users confidence and control before they continue.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -93,8 +96,8 @@ tabs:
   <p class="nhsw-body">Do not pre-populate information that is no longer valid, or where doing so would create a safety or security risk. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.7 Redundant Entry, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Summary lists in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Summary lists on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Summary lists in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Summary lists on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -226,7 +229,7 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Summary list without actions or borders</h3>
-    <p class="nhsw-body">If you do not include actions in your summary list and it would be better for your design to remove the separating borders.</p>
+    <p class="nhsw-body">The borderless summary list may be helpful when your summary list does not include actions and the borders do not add value to the content.</p>
 
     {% capture example_body %}{% raw %}
       <dl class="nhsw-summary-list nhsw-summary-list--no-border">
@@ -322,7 +325,7 @@ tabs:
       <li>actions that will apply to all the items in a list</li>
     </ul>
     <p class="nhsw-body">Summary cards are often used in case working systems to help users quickly view a set of information and related actions.</p>
-    <p class="nhsw-body">Do not use summary cards if you only need to show a small amount of related information. Use summary lists instead, and structure them with headings if needed.</p>
+    <p class="nhsw-body">Do not use summary cards if you only need to show a small amount of related information. Use summary lists instead and structure them with headings if needed.</p>
     <p class="nhsw-body">If you're showing summary cards at the end of a longer journey, you might want to familiarise the user with them earlier on, such as when the user reviews individual sections.</p>
 
     <h4 class="nhsw-h4">Card titles</h4>

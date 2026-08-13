@@ -40,17 +40,15 @@ tabs:
     <li>bypass repeated elements such as top level navigation links and breadcrumbs</li>
     <li>jump to the page's main heading where the content starts</li>
   </ul>
-  <p class="nhsw-body">The skip link component is visually hidden on page load. The user reveals the link when they navigate to it with their keyboard.</p>
-  <p class="nhsw-body">All nhs.uk pages include a skip link in the header <a class="nhsw-link" href="#">following guidance in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Usually, you should place the skip link immediately after the opening <code>&lt;body&gt;</code> tag. If you're using a <a class="nhsw-link" href="#">cookie banner component</a>, place the skip link immediately after the cookie banner.</p>
-  <p class="nhsw-body">Some automated accessibility testing tools may warn that the skip link element is not inside a landmark. This warning does not apply to skip links, so you can ignore it. Do not wrap the skip link in a <code>&lt;nav&gt;</code> region, or move it inside the header.</p>
 
   <h2 class="nhsw-h2">How to use a skip link</h2>
-  <p class="nhsw-body">Some people use the tab key on their keyboard to navigate through the links and form elements on a web page. Including a skip link gives users the option to bypass the top-level navigation links and jump to the main content on the page.</p>
-  <p class="nhsw-body">The skip link component is visually hidden until a keyboard press activates it.</p>
+  <p class="nhsw-body">The skip link is visually hidden when the page loads and becomes visible when a user navigates to it using a keyboard.</p>
+  <p class="nhsw-body">Place the skip link immediately after the opening <code>&lt;body&gt;</code> tag. If your page includes a cookie banner, place the skip link immediately after the cookie banner.</p>
+  <p class="nhsw-body">Some automated accessibility testing tools may warn that the skip link is not contained within a landmark region. This warning can be ignored for skip links. Do not place the skip link inside a <code>&lt;nav&gt;</code> element or move it into the page header.</p>
+  <p class="nhsw-body">For more information, <a class="nhsw-link" href="#">follow the guidance in the GOV.UK Design System</a>.</p>
 
   <h3 class="nhsw-h3">Component labelling</h3>
-  <p class="nhsw-body">We recommend the label "Skip to main content." This tells users exactly what clicking on the skip link will do. This includes those who do not use a mouse and use the keyboard only.</p>
+  <p class="nhsw-body">GOV.UK recommends the label "Skip to main content." This tells users exactly what clicking on the skip link will do. This includes those who do not use a mouse and use the keyboard only.</p>
   <p class="nhsw-body">Screen readers mispronounce "Skip to content" by stressing the second syllable in "content". This gives the phrase the incorrect meaning (content as in satisfied). "Skip to main content" avoids this.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>

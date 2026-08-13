@@ -16,6 +16,16 @@ tabs:
 <!-- How to use -->
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
+  <div class="nhsw-warning-callout">
+    <h3 class="nhsw-warning-callout__heading">
+      <span class="nhsw-visually-hidden">Important: </span>
+      Consider the risks
+    </h3>
+    <div class="nhsw-warning-callout__content">
+      <p class="nhsw-body">Use select to let users choose an option from a long list but only use it as a last resort.</p>
+    </div>
+  </div>
+
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="sel-ov">Choose region</label>
@@ -61,6 +71,37 @@ tabs:
   <h2 class="nhsw-h2">How to use select</h2>
   <p class="nhsw-body">If you use the component for settings, you can make an option pre-selected by default when users first see it.</p>
   <p class="nhsw-body">If you use the component for questions, do not pre-select any of the options in case it influences users' answers.</p>
+
+  <h3 class="nhsw-h3">Error messages</h3>
+  <p class="nhsw-body">Display an error message if the user has not selected an option.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <label class="nhsw-label" for="sel-htu-err">Label desktop</label>
+      <div class="nhsw-hint" id="sel-htu-err-hint">Hint text goes here</div>
+      <p class="nhsw-error-message" id="sel-htu-err-error">Error message goes here</p>
+      <select id="sel-htu-err" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="sel-htu-err-hint sel-htu-err-error">
+        <option>Choose region</option>
+      </select>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="sel-htu-error" open_url="/examples/select-error.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;p class="nhsw-error-message" id="region-error"&gt;Error message goes here&lt;/p&gt;
+&lt;select id="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
+  ...
+&lt;/select&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswSelect({
+  id: "region",
+  label: { text: "Label desktop" },
+  hint: { text: "Hint text goes here" },
+  errorMessage: { text: "Error message goes here" },
+  items: [ ... ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="sel-htu-error" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code>&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
+  <p class="nhsw-body">Read <a class="nhsw-link" href="#">Select your poison (24 Accessibility)</a>.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -109,79 +150,6 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sel-hint" html=html_sample njk=njk_sample toggleable=true %}
   </section>
-
-  <section class="preview-section">
-    <h3 class="nhsw-h3">Error messages</h3>
-    <p class="nhsw-body">Display an error message if the user has not selected an option.</p>
-
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-form-group nhsw-form-group--error">
-        <label class="nhsw-label" for="sel-err">Choose region</label>
-        <div class="nhsw-hint" id="sel-err-hint">Hint text goes here</div>
-        <p class="nhsw-error-message" id="sel-err-error">Error message goes here</p>
-        <select id="sel-err" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="sel-err-hint sel-err-error">
-          <option>Choose region</option>
-        </select>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="sel-error" open_url="/examples/select-error.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;p class="nhsw-error-message" id="region-error"&gt;Error message goes here&lt;/p&gt;
-&lt;select id="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
-  ...
-&lt;/select&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswSelect({
-  id: "region",
-  label: { text: "Choose region" },
-  hint: { text: "Hint text goes here" },
-  errorMessage: { text: "Error message goes here" },
-  items: [ ... ]
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="sel-error" html=html_sample njk=njk_sample toggleable=true %}
-  </section>
-
-  <section class="preview-section">
-    <h3 class="nhsw-h3">Select widths</h3>
-    <p class="nhsw-body">Choose the width that best fits the content in the select.</p>
-
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="sel-xs">Extra small</label>
-        <select id="sel-xs" class="nhsw-select nhsw-select--xs">
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </div>
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="sel-s">Small</label>
-        <select id="sel-s" class="nhsw-select nhsw-select--s">
-          <option>Wales</option>
-          <option>England</option>
-          <option>Scotland</option>
-        </select>
-      </div>
-      <div class="nhsw-form-group">
-        <label class="nhsw-label" for="sel-m">Medium</label>
-        <select id="sel-m" class="nhsw-select nhsw-select--m">
-          <option>North Wales</option>
-          <option>Mid Wales</option>
-        </select>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="sel-widths" open_url="/examples/select-widths.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;select class="nhsw-select nhsw-select--xs"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--s"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--m"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--l"&gt;...&lt;/select&gt;
-&lt;select class="nhsw-select nhsw-select--xl"&gt;...&lt;/select&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswSelect({ classes: "nhsw-select--s", items: [...] }) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="sel-widths" html=html_sample njk=njk_sample toggleable=true %}
-  </section>
-
-  <h3 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h3>
-  <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code>&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
-  <p class="nhsw-body">Read <a class="nhsw-link" href="#">Select your poison (24 Accessibility)</a>.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">

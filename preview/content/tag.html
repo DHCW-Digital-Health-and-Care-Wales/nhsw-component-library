@@ -48,14 +48,14 @@ tabs:
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
+  <p class="nhsw-body">If users can change the order of tags, provide an alternative to dragging and dropping. Users should be able to reorder tags using another method, such as buttons or keyboard controls. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements level AA</a>.</p>
+
   <p class="nhsw-body">All text and background colour combinations meet high colour contrast standards, supporting <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3: Contrast (Enhanced), level AAA</a>. Read more about <a class="nhsw-link" href="#">accessibility and colour</a>.</p>
   <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use clear text labels so all users can understand the purpose of a tag, regardless of how they perceive colour. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
 
-  <p class="nhsw-body">If users can change the order of tags, provide an alternative to dragging and dropping. Users should be able to reorder tags using another method, such as buttons or keyboard controls. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.7 Dragging Movements level AA</a>.</p>
-
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tags in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Tags on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tags in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Tags on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -70,7 +70,7 @@ tabs:
   <h2 class="nhsw-h2">Tag variants</h2>
 
   <section class="preview-section">
-    <h3 class="nhsw-h3">Showing 1 or 2 statuses</h3>
+    <h3 class="nhsw-h3">Showing 1 or 2 tags</h3>
     <p class="nhsw-body">Sometimes a single status is enough. For example, if you need to tell users which parts of an application they've finished and which they have not, you may only need a "Completed" tag. Because the user understands that if something does not have a tag, that means it's incomplete.</p>
     <p class="nhsw-body">Or it can make sense to have 2 statuses. For example, you may find that you need 1 tag for "Active" users and 1 for "Inactive" users.</p>
 
@@ -97,9 +97,9 @@ tabs:
   </section>
 
   <section class="preview-section">
-    <h3 class="nhsw-h3">Showing multiple statuses</h3>
-    <p class="nhsw-body">If you need more tag colours, you can use the following tints.</p>
+    <h3 class="nhsw-h3">Showing multiple tags</h3>
     <p class="nhsw-body">Tags should be helpful to users. The more you add, the harder it is for users to remember them. So start with the smallest number of statuses you think might work, then add more if your user research shows there's a need for them.</p>
+    <p class="nhsw-body">If you need more tag colours, you can use the following tints.</p>
 
     {% capture example_body %}{% raw %}
       <table class="nhsw-body" role="presentation">
@@ -130,25 +130,33 @@ tabs:
     {% include code-viewer.html id="tag-all-colours" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
-  <h3 class="nhsw-h3">Using colour with tags</h3>
-  <p class="nhsw-body">You can use colour to help distinguish between different tags &mdash; or to help draw the user's attention to a tag if it's especially important. For example, it makes sense to use <code>nhsw-tag--red</code> for a tag that reads "Urgent".</p>
+  <h3 class="nhsw-h3">Tags and colour</h3>
+  <p class="nhsw-body">You can use colour to help distinguish between different tags, or to help draw the user's attention to a tag if it's especially important. For example, it makes sense to use <code>nhsw-tag--red</code> for a tag that reads "Urgent".</p>
   <p class="nhsw-body">Do not rely on colour alone to convey information because it's not accessible. If you use the same tag in more than 1 place, make sure you keep the colour consistent.</p>
   <p class="nhsw-body">Because tags with solid colours tend to stand out more, it's usually best to avoid mixing solid colours and tints: use one or the other. This matters less if you're only using 2 colours. For example, it's okay to use the <code>nhsw-tag--grey</code> and solid blue tags together if you only need 2 statuses.</p>
   <p class="nhsw-body">We use a border of the same colour as the tag text to stand out against the NHS page background colour.</p>
 
+  <h3 class="nhsw-h3">Tags and subtext</h3>
+  <p class="nhsw-body">Use the subtext under the status tag to show key supporting information. This can help users understand the status at a glance without needing to view additional details.</p>
+  <p class="nhsw-body">For example, the subtext could show how many items are in a particular state, such as "21 of 80", to give users context about progress or workload.</p>
+
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">
-      <strong class="nhsw-tag nhsw-tag--white">Status<br>21 of 87</strong>
-      <strong class="nhsw-tag nhsw-tag--grey">Status<br>21 of 87</strong>
-      <strong class="nhsw-tag nhsw-tag--dhcw-blue">Status<br>21 of 87</strong>
-      <strong class="nhsw-tag nhsw-tag--green">Status<br>21 of 87</strong>
+      <strong class="nhsw-tag nhsw-tag--white">In progress<br>21 of 80</strong>
+      <strong class="nhsw-tag nhsw-tag--grey">Inactive<br>9 of 80</strong>
+      <strong class="nhsw-tag nhsw-tag--dhcw-blue">Active<br>28 of 80</strong>
+      <strong class="nhsw-tag nhsw-tag--green">New<br>22 of 80</strong>
     </p>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tag-solid" open_url="/examples/tag-colour-solid.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Status&lt;br&gt;21 of 87&lt;/strong&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Status<br>21 of 87", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;br&gt;28 of 80&lt;/strong&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Active<br>28 of 80", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-solid" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h3 class="nhsw-h3">Two-part tags</h3>
+  <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its status. They are useful in complex views where users need to quickly understand both what something is and its current state.</p>
+  <p class="nhsw-body">For example, in a vaccination service, a tag could show a vaccine type on the left, such as "Flu", "HPV" or "MMRV", and its status on the right, such as "Due vaccination", "Vaccinated", "Needs triage" or "Had a refusal".</p>
 
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">
@@ -165,8 +173,6 @@ tabs:
   {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "Flu", classes: "nhsw-tag--white" }) }}
 {{ nhswTag({ text: "Due vaccination", classes: "nhsw-tag--green" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
-
-  <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its specific status. It works well for complex views like vaccination tracking, where a standard label on the left (e.g., "Flu", "HPV", "MMRV") is paired with a distinct status badge on the right (e.g., "Due vaccination", "Vaccinated", "Needs triage", "Had a refusal").</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
