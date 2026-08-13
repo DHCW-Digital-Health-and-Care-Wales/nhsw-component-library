@@ -47,12 +47,6 @@ Practical checks — look at the component and try it, no special tools needed u
 Feature: Pagination — manual verification
 
   @manual
-  Scenario: Previous/Next and page-number links all take you to the right page
-    Given a pagination component
-    When a previous, next, or numbered link is selected
-    Then it takes you to exactly the right page
-
-  @manual
   Scenario: Current page is clearly marked, visually and for screen readers (WCAG 2.2 SC 1.3.1)
     Given the numbered pagination variant
     Then the current page is visually distinct
@@ -75,3 +69,9 @@ Feature: Pagination — manual verification
     Given the next-only pagination variant
     Then a user can move forward through content without any numbered list showing
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Previous/Next and page-number links all take you to the right page** — every link in the fixtures here is `href="#"`; whether it actually lands on the right page depends on the URLs the consuming app supplies, not the component itself.

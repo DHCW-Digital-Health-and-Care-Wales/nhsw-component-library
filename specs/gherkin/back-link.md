@@ -35,19 +35,6 @@ Feature: Back link — manual verification
     Then a "<" arrow appears immediately before the word "Back"
 
   @manual
-  Scenario: Takes you back to the previous page
-    Given a user is on a page reached via a back link
-    When they select it
-    Then they land back on the previous page
-
-  @manual
-  Scenario: Previously entered answers are still there when you go back (WCAG 2.2 SC 3.3.7)
-    Given a user filled in a form and used the back link to leave the page
-    When they return to that page
-    Then their answers are still filled in
-    And this doesn't apply if the data is no longer valid, or restoring it would be unsafe
-
-  @manual
   Scenario: Stays readable on a dark background (WCAG 2.2 SC 1.4.3)
     Given the dark-background variant of the back link
     Then the text remains clearly visible against the dark background
@@ -63,3 +50,10 @@ Feature: Back link — manual verification
     When it's activated
     Then it performs an action (e.g. clears something) rather than loading a new page
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Takes you back to the previous page** — the component only ships a styled `<a>` (or `<button>` for the "as a button" variant); there's no built-in "go back" behaviour. Whether it actually lands on the previous page depends entirely on the `href` (or JS) the consuming app wires up. In every fixture here it's `href="#"`, so this genuinely can't be demonstrated in isolation — check it in the real service instead.
+- **Previously entered answers are still there when you go back** (WCAG 2.2 SC 3.3.7) — when a user goes back to a previous page, the service must pre-populate fields with what they already entered (unless the data's no longer valid, or restoring it would be unsafe). This depends on how the surrounding page/service manages form state — it can't be verified against the back link component alone.

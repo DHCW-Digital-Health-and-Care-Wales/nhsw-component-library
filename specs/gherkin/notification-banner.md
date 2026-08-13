@@ -45,13 +45,13 @@ Feature: Notification banner — manual verification
     Then a screen reader announces it without the user needing to go and find it
 
   @manual
-  Scenario: Link inside the banner is clearly distinguishable and works
+  Scenario: Link inside the banner is visually distinguishable from surrounding text
     Given a notification banner containing a link
-    When the link is selected
-    Then it's visually distinct from the surrounding text and navigates correctly
-
-  @manual
-  Scenario: Same heading text reused consistently across a service (WCAG 2.2 SC 3.2.4)
-    Given this banner type appears on more than one page
-    Then it uses the same heading text each time, so users learn to recognise it
+    Then it's clearly distinguishable from the surrounding text — not relying on colour alone
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Same heading text reused consistently across a service** (WCAG 2.2 SC 3.2.4) — consistency across pages depends on how the service uses the banner over time, not a single rendered instance.

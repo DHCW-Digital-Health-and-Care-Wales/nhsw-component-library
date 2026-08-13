@@ -35,11 +35,6 @@ Practical checks — look at the component and try it, no special tools needed u
 Feature: Footer — manual verification
 
   @manual
-  Scenario: Help links sit in the same place and behave the same on every page (WCAG 2.2 SC 3.2.6)
-    Given a service using this footer on multiple pages
-    Then "help" links appear in the same footer position and behave consistently everywhere
-
-  @manual
   Scenario: "No links" variant still looks tidy
     Given the footer variant with no navigation links
     Then the copyright/branding content is well-spaced, with no leftover empty gaps
@@ -50,3 +45,9 @@ Feature: Footer — manual verification
     When a user tabs through it
     Then every link receives visible focus in a sensible order
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Help links sit in the same place and behave the same on every page** (WCAG 2.2 SC 3.2.6) — a cross-page consistency concern for the service as a whole, not verifiable from a single footer instance.

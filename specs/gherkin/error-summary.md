@@ -76,16 +76,11 @@ Feature: Error summary — manual verification
     Given the error summary's list of links
     When one is selected
     Then focus moves straight to the matching field on the page
-
-  @manual
-  Scenario: Submitting an invalid form doesn't clear what you already typed (WCAG 2.2 SC 3.3.7)
-    Given a user has filled in some fields and left others invalid
-    When they submit the form
-    Then everything they already typed is still there
-
-  @manual
-  Scenario: Keyboard focus jumps to the error summary automatically (WCAG 2.2 SC 3.3.1)
-    Given a form submission produces validation errors
-    When the page reloads with the error summary showing
-    Then keyboard focus moves to the error summary heading without the user needing to scroll up and find it
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Submitting an invalid form doesn't clear what you already typed** (WCAG 2.2 SC 3.3.7) — requires the service to correctly persist submitted values when it re-renders the page with errors. That's a server/form-handling concern, not something the error summary markup can guarantee on its own.
+- **Keyboard focus jumps to the error summary automatically** (WCAG 2.2 SC 3.3.1) — the component ships `tabindex="-1"` on the error summary so it's programmatically focusable, but actually calling `.focus()` on page load after a failed submission is something the service's own JS/server-rendering needs to do.

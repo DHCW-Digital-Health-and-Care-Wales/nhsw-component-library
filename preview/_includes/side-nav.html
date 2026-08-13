@@ -1,12 +1,25 @@
 <nav class="nhsw-side-nav" aria-label="Section navigation">
   <ul class="nhsw-side-nav__list">
+    {% assign in_testing = false %}
+    {% if page.url contains "/testing/" %}{% assign in_testing = true %}{% endif %}
     {% for item in site.data.side_nav %}
       {% if item.url == "#" %}
         <li><a class="nhsw-side-nav__link" href="#"><span>{{ item.title }}</span></a></li>
-      {% elsif item.url == page.url %}
-        <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="{{ item.url | relative_url }}" aria-current="page"><span>{{ item.title }}</span></a></li>
       {% else %}
-        <li><a class="nhsw-side-nav__link" href="{{ item.url | relative_url }}"><span>{{ item.title }}</span></a></li>
+        {% assign target_url = item.url %}
+        {% if in_testing %}
+          {% assign basename = item.url | split: "/" | last | remove: ".html" %}
+          {% if basename == "index" %}
+            {% assign target_url = "/testing/index.html" %}
+          {% else %}
+            {% assign target_url = "/testing/" | append: basename | append: ".html" %}
+          {% endif %}
+        {% endif %}
+        {% if target_url == page.url %}
+          <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="{{ target_url | relative_url }}" aria-current="page"><span>{{ item.title }}</span></a></li>
+        {% else %}
+          <li><a class="nhsw-side-nav__link" href="{{ target_url | relative_url }}"><span>{{ item.title }}</span></a></li>
+        {% endif %}
       {% endif %}
     {% endfor %}
   </ul>

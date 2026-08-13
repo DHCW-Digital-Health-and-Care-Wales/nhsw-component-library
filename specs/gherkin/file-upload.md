@@ -60,12 +60,6 @@ Feature: File upload — manual verification
     Then the selected file's name appears in the status area
 
   @manual
-  Scenario: Reusing a previously uploaded file works, without re-uploading from disk
-    Given the "let users reuse uploaded files" pattern
-    When a user returns to the upload step
-    Then they can pick a file they uploaded earlier instead of browsing their device again
-
-  @manual
   Scenario: Mobile version stays usable on a small screen
     Given the mobile version of the file upload
     Then all its controls remain reachable and readable without odd wrapping or overlap
@@ -76,3 +70,9 @@ Feature: File upload — manual verification
     When they land on the page containing the file upload for the first time
     Then they may need to first click/tap elsewhere on the page once before the upload control responds — check this doesn't block them entirely
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Reusing a previously uploaded file works, without re-uploading from disk** — requires the service to track and offer previously uploaded files. That's a feature of the surrounding application, not the file upload component itself.

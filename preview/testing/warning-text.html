@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Warning text — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Warning text</h1>
-<p class="nhsw-body">Manual QA checklist for the warning text component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/warning-text.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the warning text component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/warning-text.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/warning-text-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see warning text used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/callouts/warning-text.html' | relative_url }}" target="_blank" rel="noopener">Open the Warning text documentation page</a></p>
@@ -24,16 +30,51 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="warning-text-manual-1" name="warning-text-manual-tests" type="checkbox" aria-describedby="warning-text-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="warning-text-manual-1">Doesn't rely on colour alone to signal a warning (WCAG 2.2 SC 1.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-text-manual-1-hint">Given warning text on a page. Then it combines an icon and text, not just colour. And hidden "Warning" text is present for screen reader users.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-warning-text">
+              <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="nhsw-warning-text__text">
+                <span class="nhsw-visually-hidden">Warning</span>
+                You must appeal within 1 year of getting your decision letter.
+              </strong>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="warning-text-manual-2" name="warning-text-manual-tests" type="checkbox" aria-describedby="warning-text-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="warning-text-manual-2">Icon is easy to see against its background (WCAG 2.2 SC 1.4.11)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-text-manual-2-hint">Given the warning icon. Then it has clear contrast against its surrounding colours.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-warning-text">
+              <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="nhsw-warning-text__text">
+                <span class="nhsw-visually-hidden">Warning</span>
+                You must appeal within 1 year of getting your decision letter.
+              </strong>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="warning-text-manual-3" name="warning-text-manual-tests" type="checkbox" aria-describedby="warning-text-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="warning-text-manual-3">Stays readable on a dark background</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-text-manual-3-hint">Given the dark-background variant of warning text. Then both the icon and text remain clearly visible.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <div class="nhsw-warning-text nhsw-warning-text--on-dark">
+                <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="nhsw-warning-text__text">
+                  <span class="nhsw-visually-hidden">Warning</span>
+                  You must appeal within 1 year of getting your decision letter.
+                </strong>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

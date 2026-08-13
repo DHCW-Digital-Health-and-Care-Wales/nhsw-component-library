@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Inset text — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Inset text</h1>
-<p class="nhsw-body">Manual QA checklist for the inset text component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/inset-text.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the inset text component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/inset-text.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/inset-text-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see inset text used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}" target="_blank" rel="noopener">Open the Inset text documentation page</a></p>
@@ -24,16 +30,38 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="inset-text-manual-1" name="inset-text-manual-tests" type="checkbox" aria-describedby="inset-text-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="inset-text-manual-1">Visually stands out clearly from surrounding body text</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="inset-text-manual-1-hint">Given inset text on a page. Then its border and indent make it clearly distinct from ordinary paragraphs.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-inset-text">
+              <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="inset-text-manual-2" name="inset-text-manual-tests" type="checkbox" aria-describedby="inset-text-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="inset-text-manual-2">Screen reader users are told it's set apart, not just shown visually (WCAG 2.2 SC 1.3.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="inset-text-manual-2-hint">Given inset text that relies on its border and indent to stand out. When a screen reader reads it. Then the user is told this content is set apart from the main body copy.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-inset-text">
+              <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="inset-text-manual-3" name="inset-text-manual-tests" type="checkbox" aria-describedby="inset-text-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="inset-text-manual-3">"With heading" variant renders the heading clearly</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="inset-text-manual-3-hint">Given inset text with a heading. Then the heading is visually distinct from the body text inside the block.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-inset-text">
+              <h3 class="nhsw-h3">Note</h3>
+              <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
+            </div>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

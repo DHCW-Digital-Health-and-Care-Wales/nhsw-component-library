@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Notification banner — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Notification banner</h1>
-<p class="nhsw-body">Manual QA checklist for the notification banner component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/notification-banner.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the notification banner component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/notification-banner.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/notification-banner-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see notification banner used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/callouts/notification-banner.html' | relative_url }}" target="_blank" rel="noopener">Open the Notification banner documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="notification-banner">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,21 +30,53 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="notification-banner-manual-1" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-1">Heading plus colour, not colour alone, shows what kind of banner it is (WCAG 2.2 SC 1.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-1-hint">Given a notification banner (default or success). Then it has a text heading ("Important"/"Success") as well as its colour treatment.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-notification-banner-s1">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-notification-banner-s1">Important</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="notification-banner-manual-2" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-2">Success banner is announced automatically to screen readers</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-2-hint">Given a success banner appears after an action, e.g. a form submission. Then a screen reader announces it without the user needing to go and find it.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success-notification-banner-s2">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-success-notification-banner-s2">Success</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <h3 class="nhsw-notification-banner__heading">Vaccination outcome recorded for HPV</h3>
+                <p class="nhsw-body">Contact <a class="nhsw-link nhsw-notification-banner__link" href="#">example@wales.nhs.uk</a> if you think there's a problem.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="notification-banner-manual-3" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-3-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-3">Link inside the banner is clearly distinguishable and works</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-3-hint">Given a notification banner containing a link. When the link is selected. Then it's visually distinct from the surrounding text and navigates correctly.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-3">Link inside the banner is visually distinguishable from surrounding text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-3-hint">Given a notification banner containing a link. Then it's clearly distinguishable from the surrounding text — not relying on colour alone.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-notification-banner-s3">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-notification-banner-s3">Important</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="notification-banner-manual-4" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-4">Same heading text reused consistently across a service (WCAG 2.2 SC 3.2.4)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-4-hint">Given this banner type appears on more than one page. Then it uses the same heading text each time, so users learn to recognise it.</div>
         </div>
     </div>
   </fieldset>
@@ -46,4 +84,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Same heading text reused consistently across a service</strong> (WCAG 2.2 SC 3.2.4) — consistency across pages depends on how the service uses the banner over time, not a single rendered instance.</li>
+  </ul>
 </div>

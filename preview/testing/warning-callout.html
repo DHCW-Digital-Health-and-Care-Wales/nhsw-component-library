@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Warning callout — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Warning callout</h1>
-<p class="nhsw-body">Manual QA checklist for the warning callout component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/warning-callout.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the warning callout component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/warning-callout.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/warning-callout-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see warning callout used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}" target="_blank" rel="noopener">Open the Warning callout documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="warning-callout">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,21 +30,55 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="warning-callout-manual-1" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-1">Heading and body text are clearly readable against the yellow background (WCAG 2.2 SC 1.4.3)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-1-hint">Given a warning callout. Then the heading and body text are easy to read against their background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-warning-callout">
+              <h3 class="nhsw-warning-callout__heading">
+                <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
+                School, nursery or work
+              </h3>
+              <div class="nhsw-warning-callout__content">
+                <p class="nhsw-body">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="warning-callout-manual-2" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-2">Doesn't rely on colour alone to signal a warning (WCAG 2.2 SC 1.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-2-hint">Given a warning callout. Then it combines an icon and text with the yellow colouring, not colour by itself. And hidden "Warning" text is present for screen reader users.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-warning-callout">
+              <h3 class="nhsw-warning-callout__heading">
+                <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
+                School, nursery or work
+              </h3>
+              <div class="nhsw-warning-callout__content">
+                <p class="nhsw-body">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="warning-callout-manual-3" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-3">Warning icon is easy to see against its background (WCAG 2.2 SC 1.4.11)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-3-hint">Given the warning icon. Then it has clear contrast against its background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-warning-callout">
+              <h3 class="nhsw-warning-callout__heading">
+                <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
+                School, nursery or work
+              </h3>
+              <div class="nhsw-warning-callout__content">
+                <p class="nhsw-body">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="warning-callout-manual-4" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-4">Used sparingly, not on every section of a page</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-4-hint">Given a page with one or more warning callouts. Then they're used at the frequency described in the doc page's guidance, not overused.</div>
         </div>
     </div>
   </fieldset>
@@ -46,4 +86,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Used sparingly, not on every section of a page</strong> — an editorial/content-governance concern about how often a service chooses to use the component, not something the component itself controls.</li>
+  </ul>
 </div>

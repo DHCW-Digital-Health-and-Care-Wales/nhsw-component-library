@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: File upload — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">File upload</h1>
-<p class="nhsw-body">Manual QA checklist for the file upload component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/file-upload.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the file upload component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/file-upload.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/file-upload-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see file upload used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/file-upload.html' | relative_url }}" target="_blank" rel="noopener">Open the File upload documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="file-upload">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,21 +30,55 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="file-upload-manual-1" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-1">Choosing a file opens the OS file picker and shows the file name after</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-1-hint">Given an empty file upload. When a file is chosen via the OS file picker. Then the selected file's name appears in the status area.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <h2 class="nhsw-h2">Upload a file</h2>
+            <div class="nhsw-file-upload">
+              <span class="nhsw-file-upload__status">No file chosen</span>
+              <div class="nhsw-file-upload__actions">
+                <input class="nhsw-file-upload__input" id="file-upload-1-file-upload-s1" name="file-upload-1-file-upload-s1" type="file">
+                <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-1-file-upload-s1">Choose file</label>
+                <span class="nhsw-file-upload__hint">or drop file</span>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="file-upload-manual-2" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-2-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-2">Reusing a previously uploaded file works, without re-uploading from disk</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-2-hint">Given the "let users reuse uploaded files" pattern. When a user returns to the upload step. Then they can pick a file they uploaded earlier instead of browsing their device again.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-2">Mobile version stays usable on a small screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-2-hint">Given the mobile version of the file upload. Then all its controls remain reachable and readable without odd wrapping or overlap.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <h2 class="nhsw-h2">Upload a file</h2>
+            <div class="nhsw-file-upload nhsw-file-upload--reverse">
+              <span class="nhsw-file-upload__status">No file chosen</span>
+              <div class="nhsw-file-upload__actions">
+                <input class="nhsw-file-upload__input" id="file-upload-2-file-upload-s2" name="file-upload-2-file-upload-s2" type="file">
+                <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-2-file-upload-s2">Reverse mobile</label>
+                <span class="nhsw-file-upload__hint">or drop file</span>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="file-upload-manual-3" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-3-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-3">Mobile version stays usable on a small screen</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-3-hint">Given the mobile version of the file upload. Then all its controls remain reachable and readable without odd wrapping or overlap.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-3">Works for speech-recognition (Dragon) users after one extra interaction</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-3-hint">Given a user operating with Dragon NaturallySpeaking. When they land on the page containing the file upload for the first time. Then they may need to first click/tap elsewhere on the page once before the upload control responds — check this doesn't block them entirely.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <h2 class="nhsw-h2">Upload a file</h2>
+            <div class="nhsw-file-upload">
+              <span class="nhsw-file-upload__status">No file chosen</span>
+              <div class="nhsw-file-upload__actions">
+                <input class="nhsw-file-upload__input" id="file-upload-1-file-upload-s3" name="file-upload-1-file-upload-s3" type="file">
+                <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-1-file-upload-s3">Choose file</label>
+                <span class="nhsw-file-upload__hint">or drop file</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="file-upload-manual-4" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-4">Works for speech-recognition (Dragon) users after one extra interaction</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-4-hint">Given a user operating with Dragon NaturallySpeaking. When they land on the page containing the file upload for the first time. Then they may need to first click/tap elsewhere on the page once before the upload control responds — check this doesn't block them entirely.</div>
         </div>
     </div>
   </fieldset>
@@ -46,4 +86,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Reusing a previously uploaded file works, without re-uploading from disk</strong> — requires the service to track and offer previously uploaded files. That's a feature of the surrounding application, not the file upload component itself.</li>
+  </ul>
 </div>

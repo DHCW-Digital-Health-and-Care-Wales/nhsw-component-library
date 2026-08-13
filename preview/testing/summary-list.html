@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Summary list — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Summary list</h1>
-<p class="nhsw-body">Manual QA checklist for the summary list component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/summary-list.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the summary list component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/summary-list.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/summary-card-actions.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see summary list used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/summary-list.html' | relative_url }}" target="_blank" rel="noopener">Open the Summary list documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="summary-list">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,21 +30,119 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="summary-list-manual-1" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-1">"Change" links are easy to tap accurately (WCAG 2.2 SC 2.5.8)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-1-hint">Given a summary list row with a Change link. Then it's large enough, or has enough space around it, to tap without missing.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-summary-card">
+              <div class="nhsw-summary-card__header">
+                <h2 class="nhsw-h3 nhsw-summary-card__title">Karen Francis</h2>
+                <ul class="nhsw-summary-card__actions">
+                  <li><a class="nhsw-link" href="#">Cancel</a></li>
+                  <li><a class="nhsw-link" href="#">Reschedule</a></li>
+                </ul>
+              </div>
+              <div class="nhsw-summary-card__body">
+                <dl class="nhsw-summary-list">
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Name</dt>
+                    <dd class="nhsw-summary-list__value">Karen Francis</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a></dd>
+                  </div>
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Appointment date</dt>
+                    <dd class="nhsw-summary-list__value">15 March 2027</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> appointment date</span></a></dd>
+                  </div>
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Contact details</dt>
+                    <dd class="nhsw-summary-list__value">
+                      <p>07700 900362</p>
+                      <p>karen.francis@example.com</p>
+                    </dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> contact details</span></a></dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="summary-list-manual-2" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-2-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-2">Selecting "Change" pre-fills your previous answer (WCAG 2.2 SC 3.3.7)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-2-hint">Given a user selects "Change" against a previously answered question. Then the field is pre-filled with what they entered before. And this doesn't apply if the answer is no longer valid or restoring it would be unsafe.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-2">Screen reader reads each row's label and value as a pair</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-2-hint">Given a summary list row, e.g. "Name: Karen Francis". When a screen reader reads it. Then the label and value are announced together, clearly associated.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dl class="nhsw-summary-list nhsw-summary-list--no-border">
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Name</dt>
+                <dd class="nhsw-summary-list__value">Karen Francis</dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Date of birth</dt>
+                <dd class="nhsw-summary-list__value">15 March 1984</dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Contact information</dt>
+                <dd class="nhsw-summary-list__value">
+                  <p>73 Roman Rd</p>
+                  <p>Leeds</p>
+                  <p>LS2 5ZN</p>
+                </dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Contact details</dt>
+                <dd class="nhsw-summary-list__value">
+                  <p>07700 900362</p>
+                  <p>karen.francis@example.com</p>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="summary-list-manual-3" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-3-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-3">Screen reader reads each row's label and value as a pair</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-3-hint">Given a summary list row, e.g. "Name: Karen Francis". When a screen reader reads it. Then the label and value are announced together, clearly associated.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-3">Grouped summary cards are easy to tell apart</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-3-hint">Given several summary cards grouped on one page. Then a user can clearly tell them apart and move between them.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-summary-card">
+              <div class="nhsw-summary-card__header">
+                <h2 class="nhsw-h3 nhsw-summary-card__title">Summary card header</h2>
+              </div>
+              <p class="nhsw-summary-card__subheader nhsw-body"><strong>Sub header</strong></p>
+              <div class="nhsw-summary-card__body">
+                <dl class="nhsw-summary-list">
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Key</dt>
+                    <dd class="nhsw-summary-list__value">Details</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+                  </div>
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Key</dt>
+                    <dd class="nhsw-summary-list__value">Details</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+                  </div>
+                </dl>
+              </div>
+              <p class="nhsw-summary-card__subheader nhsw-body"><strong>Sub header</strong></p>
+              <div class="nhsw-summary-card__body">
+                <dl class="nhsw-summary-list">
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Key</dt>
+                    <dd class="nhsw-summary-list__value">Details</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+                  </div>
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Key</dt>
+                    <dd class="nhsw-summary-list__value">Details</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="summary-list-manual-4" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-4">Grouped summary cards are easy to tell apart</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-4-hint">Given several summary cards grouped on one page. Then a user can clearly tell them apart and move between them.</div>
         </div>
     </div>
   </fieldset>
@@ -46,4 +150,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Selecting "Change" pre-fills your previous answer</strong> (WCAG 2.2 SC 3.3.7) — depends on the service's own form-state handling when a user returns to change an answer. The summary list only provides the link.</li>
+  </ul>
 </div>

@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Tag — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Tag</h1>
-<p class="nhsw-body">Manual QA checklist for the tag component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/tag.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the tag component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/tag.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/tag-status.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see tag used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/tag.html' | relative_url }}" target="_blank" rel="noopener">Open the Tag documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="tag">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,26 +30,99 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="tag-manual-1" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-1">All 10 colour variants are easy to read (WCAG 2.2 SC 1.4.3)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-1-hint">Given each of the 10 tag colours. Then the text is clearly readable against its background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-body" role="presentation">
+              <thead>
+                <tr><th>Class name</th><th>Tag</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>nhsw-tag--white</code></td><td><strong class="nhsw-tag nhsw-tag--white">In progress</strong></td></tr>
+                <tr><td><code>nhsw-tag--grey</code></td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td><code>nhsw-tag--aqua-green</code></td><td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td></tr>
+                <tr><td><code>nhsw-tag--blue</code></td><td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td></tr>
+                <tr><td><code>nhsw-tag--green</code></td><td><strong class="nhsw-tag nhsw-tag--green">New</strong></td></tr>
+                <tr><td><code>nhsw-tag--orange</code></td><td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td></tr>
+                <tr><td><code>nhsw-tag--pink</code></td><td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td></tr>
+                <tr><td><code>nhsw-tag--purple</code></td><td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td></tr>
+                <tr><td><code>nhsw-tag--red</code></td><td><strong class="nhsw-tag nhsw-tag--red">Rejected</strong></td></tr>
+                <tr><td><code>nhsw-tag--yellow</code></td><td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td></tr>
+                <tr><td><code>nhsw-tag--dhcw-blue</code></td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="tag-manual-2" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-2">Status is understandable from the text alone, not just the colour (WCAG 2.2 SC 1.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-2-hint">Given a status tag, e.g. "Complete" in green or "Overdue" in red. Then the text label alone tells you the status, without needing to know what the colour means.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-body" role="presentation">
+              <thead>
+                <tr><th>Application</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+                <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+                <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="tag-manual-3" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-3">Two-part tag reads sensibly together</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-3-hint">Given a two-part tag. When a screen reader reads it. Then both parts are announced in a way that makes sense together.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-body" role="presentation">
+              <thead>
+                <tr><th>Application</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+                <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+                <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+                <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="tag-manual-4" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-4">Tags inside a summary list stay aligned</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-4-hint">Given a tag placed inside a summary list row. Then it stays aligned correctly and doesn't break the row's layout.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dl class="nhsw-summary-list">
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Blood test results</dt>
+                <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--green">New</strong></dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">GP referral</dt>
+                <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Prescription</dt>
+                <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--blue">Active</strong></dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Vaccination record</dt>
+                <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></dd>
+              </div>
+            </dl>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="tag-manual-5" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-5-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-5">Reordering tags doesn't require drag-and-drop (WCAG 2.2 SC 2.5.7)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-5-hint">Given a UI that lets users reorder tags. Then there's a way to do it other than dragging, e.g. buttons or keyboard controls.</div>
         </div>
     </div>
   </fieldset>
@@ -51,4 +130,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Reordering tags doesn't require drag-and-drop</strong> (WCAG 2.2 SC 2.5.7) — only applies if a service builds a tag-reordering feature; the tag component itself has no reordering behaviour to test.</li>
+  </ul>
 </div>

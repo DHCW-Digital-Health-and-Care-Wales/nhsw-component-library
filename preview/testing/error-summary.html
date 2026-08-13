@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Error summary — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Error summary</h1>
-<p class="nhsw-body">Manual QA checklist for the error summary component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/error-summary.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the error summary component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/error-summary.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/error-summary-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see error summary used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/error-summary.html' | relative_url }}" target="_blank" rel="noopener">Open the Error summary documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="error-summary">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 2 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,21 +30,45 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="error-summary-manual-1" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-1">Shows a clear "There is a problem" heading with a list of errors</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-1-hint">Given a form submitted with invalid answers. Then an error summary appears with a heading and a list of what's wrong.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s1" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s1">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s1">Enter your full name</a></li>
+              </ul>
+            </div>
+            
+            <h2 class="nhsw-h2">Your details</h2>
+            <div class="nhsw-form-group nhsw-form-group--error">
+              <label class="nhsw-label" for="full-name-error-summary-s1">Full name</label>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s1">Enter your full name</p>
+              <input class="nhsw-input" id="full-name-error-summary-s1" name="full-name-error-summary-s1" type="text" aria-describedby="full-name-error-error-summary-s1" aria-invalid="true-error-summary-s1">
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="error-summary-manual-2" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-2">Each error links to its field, and clicking it jumps you there (WCAG 2.2 SC 2.4.3)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-2-hint">Given the error summary's list of links. When one is selected. Then focus moves straight to the matching field on the page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s2" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s2">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s2">Enter your full name</a></li>
+              </ul>
+            </div>
+            
+            <h2 class="nhsw-h2">Your details</h2>
+            <div class="nhsw-form-group nhsw-form-group--error">
+              <label class="nhsw-label" for="full-name-error-summary-s2">Full name</label>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s2">Enter your full name</p>
+              <input class="nhsw-input" id="full-name-error-summary-s2" name="full-name-error-summary-s2" type="text" aria-describedby="full-name-error-error-summary-s2" aria-invalid="true-error-summary-s2">
+            </div>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="error-summary-manual-3" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-3-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-3">Submitting an invalid form doesn't clear what you already typed (WCAG 2.2 SC 3.3.7)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-3-hint">Given a user has filled in some fields and left others invalid. When they submit the form. Then everything they already typed is still there.</div>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="error-summary-manual-4" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-4">Keyboard focus jumps to the error summary automatically (WCAG 2.2 SC 3.3.1)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-4-hint">Given a form submission produces validation errors. When the page reloads with the error summary showing. Then keyboard focus moves to the error summary heading without the user needing to scroll up and find it.</div>
         </div>
     </div>
   </fieldset>
@@ -46,4 +76,13 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Submitting an invalid form doesn't clear what you already typed</strong> (WCAG 2.2 SC 3.3.7) — requires the service to correctly persist submitted values when it re-renders the page with errors. That's a server/form-handling concern, not something the error summary markup can guarantee on its own.</li>
+        <li><strong>Keyboard focus jumps to the error summary automatically</strong> (WCAG 2.2 SC 3.3.1) — the component ships <code>tabindex="-1"</code> on the error summary so it's programmatically focusable, but actually calling <code>.focus()</code> on page load after a failed submission is something the service's own JS/server-rendering needs to do.</li>
+  </ul>
 </div>

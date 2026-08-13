@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Details — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Details</h1>
-<p class="nhsw-body">Manual QA checklist for the details component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/details.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the details component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/details.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/details-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see details used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}" target="_blank" rel="noopener">Open the Details documentation page</a></p>
@@ -24,26 +30,105 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="details-manual-1" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-1">Clicking the summary opens and closes the hidden content</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-1-hint">Given a details component. When the summary line is clicked. Then the hidden content shows or hides accordingly.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+                <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
+              </div>
+            </details>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="details-manual-2" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-2">Multiple details on a page work independently</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-2-hint">Given a page with several details components. When one is opened. Then the others stay in whatever state they were in.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">What is a prescription prepayment certificate?</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">A prescription prepayment certificate (PPC) lets you get as many NHS prescriptions as you need for a set price.</p>
+              </div>
+            </details>
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How much does it cost?</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">A 3-month PPC costs a fixed price. A 12-month PPC is also available at a different rate.</p>
+              </div>
+            </details>
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">Who can get free prescriptions?</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">In Wales, all prescriptions are free of charge for patients registered with a Welsh GP.</p>
+              </div>
+            </details>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="details-manual-3" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-3">Pre-opened variant is visible immediately</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-3-hint">Given a details component set to start open. Then its content is visible as soon as the page loads, with no interaction needed.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details" open>
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">What happens after you apply</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">We will review your application within 5 working days. You will receive a confirmation email with your reference number.</p>
+              </div>
+            </details>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="details-manual-4" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-4">Background is easy to read against the page (WCAG 2.2 SC 1.4.3)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-4-hint">Given a details component. Then its background gives clear contrast against the page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+                <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
+              </div>
+            </details>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="details-manual-5" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-5-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-5">Summary text says what's actually inside (WCAG 2.2 SC 2.4.4)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-5-hint">Given the summary link text. Then it clearly describes what you'll find inside, rather than something vague like "More information".</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+                <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
+              </div>
+            </details>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

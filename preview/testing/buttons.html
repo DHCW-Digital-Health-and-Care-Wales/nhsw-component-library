@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Buttons — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Buttons</h1>
-<p class="nhsw-body">Manual QA checklist for the buttons component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/buttons.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the buttons component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/buttons.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/button-primary.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see buttons used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/components/buttons.html' | relative_url }}" target="_blank" rel="noopener">Open the Buttons documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="buttons">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 7 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,36 +30,72 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="buttons-manual-1" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-1">Every variant is clearly clickable, not shrunk down (WCAG 2.2 SC 2.5.8)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-1-hint">Given a primary, secondary, exceptional or warning button. Then its clickable area is comfortably large, matching its visible size.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="buttons-manual-2" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-2">Each variant makes sense from its text alone, not just its colour (WCAG 2.2 SC 1.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-2-hint">Given the warning (red) and exceptional (amber) buttons sitting near a primary button. Then each has a clear text label so its purpose doesn't depend on the colour.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <button class="nhsw-button nhsw-button--warning nhsw-button--inline" type="button">Archive record</button>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="buttons-manual-3" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-3">Button colour is easy to see against the page (WCAG 2.2 SC 1.4.11)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-3-hint">Given any button variant. Then it's clearly visible against a white page background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button">Continue</button>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="buttons-manual-4" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-4">Double-clicking submit (or a slow connection) doesn't send the form twice</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-4-hint">Given a primary button that submits a form. When a user double-clicks it, or the network is slow. Then the information is not sent twice.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-4">Smaller button variant stays legible and tappable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-4-hint">Given the smaller button variant. Then the text stays legible and it's still comfortable to tap on mobile.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-button-group">
+              <button class="nhsw-button nhsw-button--primary nhsw-button--small nhsw-button--inline" type="button">Update results</button>
+              <button class="nhsw-button nhsw-button--secondary nhsw-button--small nhsw-button--inline" type="button">Clear filters</button>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="buttons-manual-5" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-5-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-5">Smaller button variant stays legible and tappable</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-5-hint">Given the smaller button variant. Then the text stays legible and it's still comfortable to tap on mobile.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-5">A group of buttons wraps sensibly on a narrow screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-5-hint">Given a group of buttons. When viewed on a mobile-width screen. Then they stack or wrap without overlapping or getting cut off.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-button-group">
+              <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
+              <button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button">Secondary-white desktop</button>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="buttons-manual-6" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-6-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-6">A group of buttons wraps sensibly on a narrow screen</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-6-hint">Given a group of buttons. When viewed on a mobile-width screen. Then they stack or wrap without overlapping or getting cut off.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-6">Tabbing between buttons shows a visible focus outline</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-6-hint">Given a group of buttons. When a user tabs through them. Then each one shows a clear yellow focus outline as it's reached.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-button-group">
+              <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
+              <button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button">Secondary-white desktop</button>
+            </div>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="buttons-manual-7" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-7-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-7">Tabbing between buttons shows a visible focus outline</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-7-hint">Given a group of buttons. When a user tabs through them. Then each one shows a clear yellow focus outline as it's reached.</div>
         </div>
     </div>
   </fieldset>
@@ -61,4 +103,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Double-clicking submit (or a slow connection) doesn't send the form twice</strong> — needs debounce/disable-on-submit logic in the consuming form's own JS. The button component itself doesn't ship this behaviour.</li>
+  </ul>
 </div>

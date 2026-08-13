@@ -46,9 +46,10 @@ Feature: Skip link — manual verification
   Scenario: Is visible on screen once focused
     Given a keyboard user tabs to the skip link
     Then it becomes visible on screen with a clear focus outline, rather than staying hidden
-
-  @manual
-  Scenario: Link text accurately describes where it goes
-    Given a page with more than one skip link (e.g. "Skip to main content", "Skip to navigation")
-    Then each one's text correctly describes what it skips to
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Link text accurately describes where it goes** — only relevant if a service adds more than one skip link (e.g. "Skip to navigation"); wording accuracy for those extra links is a content decision made by whoever builds the page.

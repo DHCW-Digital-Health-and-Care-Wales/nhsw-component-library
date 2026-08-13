@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Radios — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Radios</h1>
-<p class="nhsw-body">Manual QA checklist for the radios component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/radios.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the radios component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/radios.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/radios-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see radios used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}" target="_blank" rel="noopener">Open the Radios documentation page</a></p>
@@ -24,26 +30,140 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="radios-manual-1" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-1">Selecting one radio deselects any other in the group</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-1-hint">Given a group of radios. When one is selected, then another. Then only the most recently selected one stays selected.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset" aria-describedby="rd-contact-hint-radios-s1">
+                <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+                <div class="nhsw-hint" id="rd-contact-hint-radios-s1">Select 1 option</div>
+                <div class="nhsw-radios">
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="rd-contact-1-radios-s1" name="rd-contact" type="radio" value="email">
+                    <label class="nhsw-label nhsw-radios__label" for="rd-contact-1-radios-s1">Email</label>
+                  </div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="rd-contact-2-radios-s1" name="rd-contact" type="radio" value="phone">
+                    <label class="nhsw-label nhsw-radios__label" for="rd-contact-2-radios-s1">Phone</label>
+                  </div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="rd-contact-3-radios-s1" name="rd-contact" type="radio" value="text">
+                    <label class="nhsw-label nhsw-radios__label" for="rd-contact-3-radios-s1">Text message</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="radios-manual-2" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-2">Conditional follow-up question appears/disappears correctly</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-2-hint">Given a radio that reveals a follow-up question when selected. When it's selected. Then the follow-up question appears. And selecting a different radio in the group hides it again.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Is Sam ready for their HPV vaccination?</legend>
+                <div class="nhsw-radios">
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="hpv-ready-yes-radios-s2" name="hpv-ready" type="radio" value="yes">
+                    <label class="nhsw-label nhsw-radios__label" for="hpv-ready-yes-radios-s2">Yes</label>
+                  </div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="hpv-ready-no-radios-s2" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready-radios-s2">
+                    <label class="nhsw-label nhsw-radios__label" for="hpv-ready-no-radios-s2">No</label>
+                  </div>
+                  <div class="nhsw-radios__conditional" id="conditional-hpv-ready-radios-s2">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="hpv-ready-reason-radios-s2">Give details</label>
+                      <textarea class="nhsw-textarea" id="hpv-ready-reason-radios-s2" name="hpv-ready-reason-radios-s2" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="radios-manual-3" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-3">Divider option ("or") isn't mistaken for a selectable option</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-3-hint">Given a radio group with a text divider, e.g. "or". Then the divider is clearly not one of the selectable options.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset" aria-describedby="vacc-hint-radios-s3">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Have you had all the vaccinations you're eligible for in the UK?</legend>
+                <div class="nhsw-hint" id="vacc-hint-radios-s3">You would have got these vaccinations at school, from your GP surgery or another healthcare provider</div>
+                <div class="nhsw-radios">
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="vacc-yes-radios-s3" name="vacc" type="radio" value="yes">
+                    <label class="nhsw-label nhsw-radios__label" for="vacc-yes-radios-s3">Yes</label>
+                  </div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="vacc-no-radios-s3" name="vacc" type="radio" value="no">
+                    <label class="nhsw-label nhsw-radios__label" for="vacc-no-radios-s3">No</label>
+                  </div>
+                  <div class="nhsw-radios__divider">or</div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="vacc-dontknow-radios-s3" name="vacc" type="radio" value="dont-know">
+                    <label class="nhsw-label nhsw-radios__label" for="vacc-dontknow-radios-s3">I do not know</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="radios-manual-4" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-4">Smaller variant is still easy to select accurately</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-4-hint">Given the smaller radios variant. Then the circle and its hit area are still comfortable to select.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Filter</legend>
+                <div class="nhsw-radios nhsw-radios--small">
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="filter-monthly-radios-s4" name="filter" type="radio" value="monthly">
+                    <label class="nhsw-label nhsw-radios__label" for="filter-monthly-radios-s4">Monthly</label>
+                  </div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="filter-yearly-radios-s4" name="filter" type="radio" value="yearly">
+                    <label class="nhsw-label nhsw-radios__label" for="filter-yearly-radios-s4">Yearly</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="radios-manual-5" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-5-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-5">Hint text makes clear only one option can be chosen, where needed (WCAG 2.2 SC 3.3.2)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-5-hint">Given a radio group where it isn't obvious only one option can be picked. Then hint text such as "Select one option" is present.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Do you have a mobile phone with signal?</legend>
+                <div class="nhsw-radios">
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="mobile-yes-radios-s5" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint-radios-s5">
+                    <label class="nhsw-label nhsw-radios__label" for="mobile-yes-radios-s5">Yes, I have a mobile phone with signal</label>
+                    <div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint-radios-s5">We will text you a 6 digit security code</div>
+                  </div>
+                  <div class="nhsw-radios__item">
+                    <input class="nhsw-radios__input" id="mobile-no-radios-s5" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint-radios-s5">
+                    <label class="nhsw-label nhsw-radios__label" for="mobile-no-radios-s5">No, I want to use my landline</label>
+                    <div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint-radios-s5">We will call you to give you a 6 digit security code</div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

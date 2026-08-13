@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Checkboxes — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Checkboxes</h1>
-<p class="nhsw-body">Manual QA checklist for the checkboxes component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/checkboxes.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the checkboxes component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/checkboxes.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/checkboxes-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see checkboxes used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}" target="_blank" rel="noopener">Open the Checkboxes documentation page</a></p>
@@ -24,26 +30,185 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="checkboxes-manual-1" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-1">Ticking a checkbox reveals its conditional follow-up question correctly</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-1-hint">Given a checkbox that reveals a follow-up question when ticked. When it's ticked. Then the follow-up question appears. And unticking it hides the question again.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset" aria-describedby="cb-contact2-hint-checkboxes-s1">
+                <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+                <div class="nhsw-hint" id="cb-contact2-hint-checkboxes-s1">Select all options that are relevant to you</div>
+                <div class="nhsw-checkboxes">
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="cb-contact2-1-checkboxes-s1" name="cb-contact2" type="checkbox" value="email" data-aria-controls="conditional-cb2-1-checkboxes-s1">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-1-checkboxes-s1">Email</label>
+                  </div>
+                  <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1-checkboxes-s1">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="cb2-email-checkboxes-s1">Email address</label>
+                      <input class="nhsw-input" id="cb2-email-checkboxes-s1" name="cb2-email-checkboxes-s1" type="email">
+                    </div>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="cb-contact2-2-checkboxes-s1" name="cb-contact2" type="checkbox" value="phone" data-aria-controls="conditional-cb2-2-checkboxes-s1">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-2-checkboxes-s1">Phone</label>
+                  </div>
+                  <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2-checkboxes-s1">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="cb2-phone-checkboxes-s1">Phone number</label>
+                      <input class="nhsw-input" id="cb2-phone-checkboxes-s1" name="cb2-phone-checkboxes-s1" type="tel">
+                    </div>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="cb-contact2-3-checkboxes-s1" name="cb-contact2" type="checkbox" value="text" data-aria-controls="conditional-cb2-3-checkboxes-s1">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-3-checkboxes-s1">Text message</label>
+                  </div>
+                  <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3-checkboxes-s1">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="cb2-mobile-checkboxes-s1">Mobile phone number</label>
+                      <input class="nhsw-input" id="cb2-mobile-checkboxes-s1" name="cb2-mobile-checkboxes-s1" type="tel">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="checkboxes-manual-2" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-2">"None of these" clears other ticked boxes, and vice versa</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-2-hint">Given a group of checkboxes with a "None of these" option. When "None of these" is ticked. Then any other ticked boxes in the group are cleared. And ticking any other option afterwards clears "None of these".</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset" aria-describedby="symptoms-hint-checkboxes-s2">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Do you have any of these symptoms?</legend>
+                <div class="nhsw-hint" id="symptoms-hint-checkboxes-s2">Select all the symptoms you have</div>
+                <div class="nhsw-checkboxes">
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="symptoms-1-checkboxes-s2" name="symptoms" type="checkbox" value="sore-throat">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1-checkboxes-s2">Sore throat</label>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="symptoms-2-checkboxes-s2" name="symptoms" type="checkbox" value="runny-nose">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2-checkboxes-s2">Runny nose</label>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="symptoms-3-checkboxes-s2" name="symptoms" type="checkbox" value="joint-pain">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3-checkboxes-s2">Muscle or joint pain</label>
+                  </div>
+                  <div class="nhsw-checkboxes__divider">or</div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="symptoms-none-checkboxes-s2" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive>
+                    <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none-checkboxes-s2">No, I do not have any of these symptoms</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="checkboxes-manual-3" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-3">Smaller variant is still easy to tick accurately</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-3-hint">Given the smaller checkboxes variant. Then the box and its hit area are still comfortable to tick.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Care setting</legend>
+                <div class="nhsw-checkboxes nhsw-checkboxes--small">
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="setting-1-checkboxes-s3" name="setting" type="checkbox" value="ambulance">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="setting-1-checkboxes-s3">Ambulance or urgent and emergency care</label>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="setting-2-checkboxes-s3" name="setting" type="checkbox" value="care-home">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="setting-2-checkboxes-s3">Care home</label>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="setting-3-checkboxes-s3" name="setting" type="checkbox" value="community">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="setting-3-checkboxes-s3">Community health</label>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="setting-4-checkboxes-s3" name="setting" type="checkbox" value="dentistry">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="setting-4-checkboxes-s3">Dentistry</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="checkboxes-manual-4" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-4">Inline layout wraps sensibly on a narrow screen</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-4-hint">Given the inline checkboxes variant. When viewed on a mobile-width screen. Then the options wrap onto new lines without overlapping.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset">
+                <legend class="nhsw-fieldset__legend nhsw-h2">Which nipple has changed?</legend>
+                <div class="nhsw-checkboxes nhsw-checkboxes--inline">
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="nipple-right-checkboxes-s4" name="nipple" type="checkbox" value="right">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="nipple-right-checkboxes-s4">Right nipple</label>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="nipple-left-checkboxes-s4" name="nipple" type="checkbox" value="left">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="nipple-left-checkboxes-s4">Left nipple</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="checkboxes-manual-5" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-5-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-5">Screen reader users are made aware when a conditional question appears (WCAG 2.2 SC 4.1.2)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-5-hint">Given a checkbox that reveals a conditional follow-up question. When it's ticked while using a screen reader. Then the user is made aware new content has appeared. And this is a known limitation — only expect it to work well for simple, easy-to-understand questions.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <fieldset class="nhsw-fieldset" aria-describedby="cb-contact2-hint-checkboxes-s5">
+                <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+                <div class="nhsw-hint" id="cb-contact2-hint-checkboxes-s5">Select all options that are relevant to you</div>
+                <div class="nhsw-checkboxes">
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="cb-contact2-1-checkboxes-s5" name="cb-contact2" type="checkbox" value="email" data-aria-controls="conditional-cb2-1-checkboxes-s5">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-1-checkboxes-s5">Email</label>
+                  </div>
+                  <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1-checkboxes-s5">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="cb2-email-checkboxes-s5">Email address</label>
+                      <input class="nhsw-input" id="cb2-email-checkboxes-s5" name="cb2-email-checkboxes-s5" type="email">
+                    </div>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="cb-contact2-2-checkboxes-s5" name="cb-contact2" type="checkbox" value="phone" data-aria-controls="conditional-cb2-2-checkboxes-s5">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-2-checkboxes-s5">Phone</label>
+                  </div>
+                  <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2-checkboxes-s5">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="cb2-phone-checkboxes-s5">Phone number</label>
+                      <input class="nhsw-input" id="cb2-phone-checkboxes-s5" name="cb2-phone-checkboxes-s5" type="tel">
+                    </div>
+                  </div>
+                  <div class="nhsw-checkboxes__item">
+                    <input class="nhsw-checkboxes__input" id="cb-contact2-3-checkboxes-s5" name="cb-contact2" type="checkbox" value="text" data-aria-controls="conditional-cb2-3-checkboxes-s5">
+                    <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-3-checkboxes-s5">Text message</label>
+                  </div>
+                  <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3-checkboxes-s5">
+                    <div class="nhsw-form-group">
+                      <label class="nhsw-label" for="cb2-mobile-checkboxes-s5">Mobile phone number</label>
+                      <input class="nhsw-input" id="cb2-mobile-checkboxes-s5" name="cb2-mobile-checkboxes-s5" type="tel">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

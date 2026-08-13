@@ -30,17 +30,6 @@ Practical checks — look at the component and try it, no special tools needed u
 Feature: Breadcrumb — manual verification
 
   @manual
-  Scenario: Trail matches where you actually are on the site
-    Given a user is on a nested page
-    Then the breadcrumb lists each parent page in order, ending at or just before the current page
-
-  @manual
-  Scenario: Each link in the trail goes to the right page
-    Given a breadcrumb with several links
-    When a link partway through the trail is selected
-    Then it lands on exactly that page
-
-  @manual
   Scenario: Enough space around the links that you don't tap the wrong one (WCAG 2.2 SC 2.5.8)
     Given a breadcrumb trail
     Then there is enough space between links that you can't easily tap the wrong one
@@ -56,3 +45,10 @@ Feature: Breadcrumb — manual verification
     When a screen reader reads it out
     Then each link is announced by its page name, not just "link, link, link"
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Trail matches where you actually are on the site** — whether the breadcrumb accurately reflects the current page's place in the site hierarchy depends on the page data the service passes in, not the breadcrumb component itself.
+- **Each link in the trail goes to the right page** — every link in the fixtures here is `href="#"`; whether it actually lands on the right page depends on the URLs the consuming app supplies, not the component itself.

@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Header — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Header</h1>
-<p class="nhsw-body">Manual QA checklist for the header component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/header.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the header component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/header.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/header-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see header used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/site/header.html' | relative_url }}" target="_blank" rel="noopener">Open the Header documentation page</a></p>
@@ -24,11 +30,48 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="header-manual-1" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-1">Search box has a real label, not just placeholder text (WCAG 2.2 SC 3.3.2)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-1-hint">Given the header's search field. Then it has a visible or properly linked label, not just placeholder text.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <header class="nhsw-site-header">
+              <div class="nhsw-site-header__container">
+                <div class="nhsw-site-header__top">
+                  <a class="nhsw-site-header__brand" href="#">
+                    <span class="nhsw-site-header__logo">
+                      <img src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="NHS Wales Digital Health and Care Wales">
+                    </span>
+                    <span class="nhsw-site-header__title">Service name</span>
+                  </a>
+                  <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+                    <label class="nhsw-visually-hidden" for="site-search-example-header-s1">Search</label>
+                    <input id="site-search-example-header-s1" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+                    <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+                  </form>
+                </div>
+              </div>
+            </header>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="header-manual-2" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-2">"No search bar" variant still lays out cleanly</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-2-hint">Given the header variant without a search bar. Then the remaining elements are positioned without an awkward gap.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <header class="nhsw-site-header">
+              <div class="nhsw-site-header__container">
+                <div class="nhsw-site-header__top">
+                  <a class="nhsw-site-header__brand" href="#">
+                    <span class="nhsw-site-header__logo">
+                      <img src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="NHS Wales Digital Health and Care Wales">
+                    </span>
+                    <span class="nhsw-site-header__title">Service name</span>
+                  </a>
+                </div>
+              </div>
+            </header>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="header-manual-3" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-3-hint">
@@ -39,6 +82,27 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="header-manual-4" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-4">Navigation toggle works with keyboard and doesn't trap focus</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-4-hint">Given the header on a mobile-width screen. When any nav toggle is used via keyboard. Then it opens/closes correctly and focus is never trapped inside it.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <header class="nhsw-site-header">
+              <div class="nhsw-site-header__container">
+                <div class="nhsw-site-header__top">
+                  <a class="nhsw-site-header__brand" href="#">
+                    <span class="nhsw-site-header__logo">
+                      <img src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="NHS Wales Digital Health and Care Wales">
+                    </span>
+                    <span class="nhsw-site-header__title">Service name</span>
+                  </a>
+                  <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+                    <label class="nhsw-visually-hidden" for="site-search-example-header-s4">Search</label>
+                    <input id="site-search-example-header-s4" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+                    <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+                  </form>
+                </div>
+              </div>
+            </header>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

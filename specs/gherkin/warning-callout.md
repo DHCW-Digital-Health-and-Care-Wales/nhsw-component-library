@@ -71,9 +71,10 @@ Feature: Warning callout — manual verification
   Scenario: Warning icon is easy to see against its background (WCAG 2.2 SC 1.4.11)
     Given the warning icon
     Then it has clear contrast against its background
-
-  @manual
-  Scenario: Used sparingly, not on every section of a page
-    Given a page with one or more warning callouts
-    Then they're used at the frequency described in the doc page's guidance, not overused
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Used sparingly, not on every section of a page** — an editorial/content-governance concern about how often a service chooses to use the component, not something the component itself controls.

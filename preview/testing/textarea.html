@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Textarea — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Textarea</h1>
-<p class="nhsw-body">Manual QA checklist for the textarea component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/textarea.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the textarea component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/textarea.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/textarea-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see textarea used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/textarea.html' | relative_url }}" target="_blank" rel="noopener">Open the Textarea documentation page</a></p>
@@ -24,21 +30,60 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="textarea-manual-1" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-1">You can click in and type across multiple lines</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-1-hint">Given a textarea. When a user clicks into it and types multiple lines. Then the text wraps and appears as expected.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ta-mobility-textarea-s1">Can you provide more detail about how you move about (your mobility)?</label>
+              <div class="nhsw-hint" id="ta-mobility-hint-textarea-s1">For example, if you use crutches, sticks, or a walking frame</div>
+              <textarea id="ta-mobility-textarea-s1" name="ta-mobility-textarea-s1" class="nhsw-textarea" aria-describedby="ta-mobility-hint-textarea-s1 ta-mobility-count-textarea-s1" data-max-length="150" data-max-length-target="ta-mobility-count-textarea-s1"></textarea>
+              <div class="nhsw-hint" id="ta-mobility-count-textarea-s1" aria-live="polite">You have 150 characters remaining</div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="textarea-manual-2" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-2">Pasting into the field works</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-2-hint">Given a textarea. When a user pastes text into it. Then the pasted text appears correctly — paste is never blocked.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ta-mobility-textarea-s2">Can you provide more detail about how you move about (your mobility)?</label>
+              <div class="nhsw-hint" id="ta-mobility-hint-textarea-s2">For example, if you use crutches, sticks, or a walking frame</div>
+              <textarea id="ta-mobility-textarea-s2" name="ta-mobility-textarea-s2" class="nhsw-textarea" aria-describedby="ta-mobility-hint-textarea-s2 ta-mobility-count-textarea-s2" data-max-length="150" data-max-length-target="ta-mobility-count-textarea-s2"></textarea>
+              <div class="nhsw-hint" id="ta-mobility-count-textarea-s2" aria-live="polite">You have 150 characters remaining</div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="textarea-manual-3" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-3">Character counter counts down correctly, and doesn't break when you go over</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-3-hint">Given a textarea with a character limit and live counter. When a user types past the limit. Then the counter keeps counting (going negative) without breaking or freezing.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ta-mobility-textarea-s3">Can you provide more detail about how you move about (your mobility)?</label>
+              <div class="nhsw-hint" id="ta-mobility-hint-textarea-s3">For example, if you use crutches, sticks, or a walking frame</div>
+              <textarea id="ta-mobility-textarea-s3" name="ta-mobility-textarea-s3" class="nhsw-textarea" aria-describedby="ta-mobility-hint-textarea-s3 ta-mobility-count-textarea-s3" data-max-length="150" data-max-length-target="ta-mobility-count-textarea-s3"></textarea>
+              <div class="nhsw-hint" id="ta-mobility-count-textarea-s3" aria-live="polite">You have 150 characters remaining</div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="textarea-manual-4" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-4">Field height suits the amount of content someone is likely to write</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-4-hint">Given the sized textarea variant. Then its visible height roughly matches how much someone is expected to write.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ta-reason-textarea-s4">Provide a reason for continuing</label>
+              <div class="nhsw-hint" id="ta-reason-hint-textarea-s4">Explain the clinical decision for continuing despite a recent mammogram</div>
+              <textarea id="ta-reason-textarea-s4" name="ta-reason-textarea-s4" class="nhsw-textarea" aria-describedby="ta-reason-hint-textarea-s4" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

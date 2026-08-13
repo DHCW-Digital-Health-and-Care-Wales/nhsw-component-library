@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Skip link — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Skip link</h1>
-<p class="nhsw-body">Manual QA checklist for the skip link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/skip-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the skip link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/skip-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/skip-link-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see skip link used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/skip-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Skip link documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="skip-link">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,21 +30,34 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="skip-link-manual-1" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-1">Is the first thing focused on a fresh page load</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-1-hint">Given a page has just loaded. And you have not clicked anywhere on the page content — clicking content first moves the browser's "next Tab" starting point past the skip link, making it look skipped when it isn't. When you press Tab (the very first press may land in the browser's own address bar instead of the page — that's normal browser behaviour, not a site bug; press Tab again if so). Then the skip link is the first thing focused within the page, before the header navigation.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <p class="nhsw-body">Press Tab to reveal the skip link at the top of this page.</p>
+            <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="skip-link-manual-2" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-2">Activating it jumps straight to the main content (WCAG 2.2 SC 2.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-2-hint">Given the skip link is focused. When Enter is pressed. Then focus moves straight to the main content, skipping the header and navigation.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <p class="nhsw-body">Press Tab to reveal the skip link at the top of this page.</p>
+            <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="skip-link-manual-3" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-3">Is visible on screen once focused</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-3-hint">Given a keyboard user tabs to the skip link. Then it becomes visible on screen with a clear focus outline, rather than staying hidden.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <p class="nhsw-body">Press Tab to reveal the skip link at the top of this page.</p>
+            <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="skip-link-manual-4" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-4">Link text accurately describes where it goes</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-4-hint">Given a page with more than one skip link (e.g. "Skip to main content", "Skip to navigation"). Then each one's text correctly describes what it skips to.</div>
         </div>
     </div>
   </fieldset>
@@ -46,4 +65,12 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Link text accurately describes where it goes</strong> — only relevant if a service adds more than one skip link (e.g. "Skip to navigation"); wording accuracy for those extra links is a content decision made by whoever builds the page.</li>
+  </ul>
 </div>

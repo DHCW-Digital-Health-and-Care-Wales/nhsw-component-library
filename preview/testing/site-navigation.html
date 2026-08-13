@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Site navigation — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Site navigation</h1>
-<p class="nhsw-body">Manual QA checklist for the site navigation component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/site-navigation.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the site navigation component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/site-navigation.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/site-navigation-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see site navigation used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/site/site-navigation.html' | relative_url }}" target="_blank" rel="noopener">Open the Site navigation documentation page</a></p>
@@ -24,21 +30,73 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="site-navigation-manual-1" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-1">Current page is clearly marked, visually and for screen readers</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-1-hint">Given a nav link pointing at the current page. Then it's visually distinguished from the other links. And a screen reader announces it as the current page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="site-navigation-manual-2" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-2-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-2">Expanded menus never cover whatever has keyboard focus (WCAG 2.2 SC 2.4.11)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-2-hint">Given a navigation with an expandable menu. When a submenu is open. Then it doesn't cover the element that currently has keyboard focus.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="site-navigation-manual-3" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-3">Stays readable on a dark background</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-3-hint">Given the dark-background navigation variant. Then the links remain clearly readable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="site-navigation-manual-4" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-4">Tag next to a nav item doesn't break the layout or shrink its click area</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-4-hint">Given a nav item with a tag next to it. Then the tag sits correctly alongside the link without reducing the link's clickable area.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-site-header__nav-badge">0</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

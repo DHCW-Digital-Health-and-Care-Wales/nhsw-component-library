@@ -1,13 +1,19 @@
 ---
 layout: simple
 title: Timeout — manual test checklist
+container: fluid
 extra_scripts:
   - /assets/nhsw-test-tracker.js
 ---
 <p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
 
 <h1 class="nhsw-h1">Timeout</h1>
-<p class="nhsw-body">Manual QA checklist for the timeout component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/timeout.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+<p class="nhsw-body">Manual QA checklist for the timeout component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/timeout.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/timeout-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see timeout used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
 
 <div class="nhsw-inset-text">
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/timeout.html' | relative_url }}" target="_blank" rel="noopener">Open the Timeout documentation page</a></p>
@@ -15,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="timeout">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -24,26 +30,55 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="timeout-manual-1" name="timeout-manual-tests" type="checkbox" aria-describedby="timeout-manual-1-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-1">Users can extend their session as many times as they need (WCAG 2.2 SC 2.2.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-1-hint">Given a user repeatedly hits the timeout warning. Then they can dismiss/extend it every time, with no limit on how many times.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="timeout-title-timeout-s1" aria-describedby="timeout-description-timeout-s1">
+              <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="timeout-title-timeout-s1">You will be logged out soon</h2>
+              <p class="nhsw-body nhsw-timeout-modal__text" id="timeout-description-timeout-s1">
+                For your security, you will be logged out in
+                <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="109">1 minute and 49 seconds</span>.
+                <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
+              </p>
+              <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>Stay logged in</button>
+            </dialog>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="timeout-manual-2" name="timeout-manual-tests" type="checkbox" aria-describedby="timeout-manual-2-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-2">Focus returns to what the user was doing before the modal appeared</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-2-hint">Given a user was focused on a form field when the timeout modal opened. When they dismiss the modal. Then focus returns to that same field.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-2">Dialog heading is announced when it opens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-2-hint">Given the timeout modal opens. When a screen reader user is on the page. Then they hear the modal's heading announced as its title.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="timeout-title-timeout-s2" aria-describedby="timeout-description-timeout-s2">
+              <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="timeout-title-timeout-s2">You will be logged out soon</h2>
+              <p class="nhsw-body nhsw-timeout-modal__text" id="timeout-description-timeout-s2">
+                For your security, you will be logged out in
+                <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="109">1 minute and 49 seconds</span>.
+                <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
+              </p>
+              <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>Stay logged in</button>
+            </dialog>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="timeout-manual-3" name="timeout-manual-tests" type="checkbox" aria-describedby="timeout-manual-3-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-3">Dialog heading is announced when it opens</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-3-hint">Given the timeout modal opens. When a screen reader user is on the page. Then they hear the modal's heading announced as its title.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-3">Mobile version stays usable on a small screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-3-hint">Given the mobile version of the timeout modal. Then the countdown, message and dismiss button all stay visible and usable without scrolling issues.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dialog class="nhsw-timeout-modal" open role="dialog" aria-labelledby="timeout-title-mobile-timeout-s3" aria-describedby="timeout-description-mobile-timeout-s3">
+              <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="timeout-title-mobile-timeout-s3">You will be logged out soon</h2>
+              <p class="nhsw-body nhsw-timeout-modal__text" id="timeout-description-mobile-timeout-s3">
+                For your security, you will be logged out in
+                <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="109">1 minute and 49 seconds</span>.
+                <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
+              </p>
+              <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>Stay logged in</button>
+            </dialog>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="timeout-manual-4" name="timeout-manual-tests" type="checkbox" aria-describedby="timeout-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-4">Mobile version stays usable on a small screen</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-4-hint">Given the mobile version of the timeout modal. Then the countdown, message and dismiss button all stay visible and usable without scrolling issues.</div>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="timeout-manual-5" name="timeout-manual-tests" type="checkbox" aria-describedby="timeout-manual-5-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="timeout-manual-5">Server session length gives enough time for the on-screen warning to work</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="timeout-manual-5-hint">Given the "server requirements" guidance on the doc page. Then the real server session expiry allows enough time for the warning-and-extend flow to complete.</div>
         </div>
     </div>
   </fieldset>
@@ -51,4 +86,13 @@ extra_scripts:
   <p class="nhsw-body">
     <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
   </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Focus returns to what the user was doing before the modal appeared</strong> — requires the surrounding page to track and restore focus correctly. Only testable in a real, integrated flow, not the isolated timeout modal.</li>
+        <li><strong>Server session length gives enough time for the on-screen warning to work</strong> — a backend/session-configuration concern, not a front-end component behaviour.</li>
+  </ul>
 </div>

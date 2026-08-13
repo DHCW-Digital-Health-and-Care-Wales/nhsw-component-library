@@ -91,10 +91,10 @@ Feature: Text input — manual verification
     Then each is roughly wide enough to show that many characters comfortably, not noticeably bigger or smaller
 
   @manual
-  Scenario: Prefix/suffix wrapper puts your cursor straight into the real input
-    Given the prefix/suffix variant, e.g. a "£" prefix
-    When a user clicks anywhere in the wrapper, including near the prefix
-    Then the text cursor lands in the actual input field
+  Scenario: Format is explained in words, not just via the prefix/suffix symbol
+    Given the prefix/suffix variant, e.g. a "£" prefix on a "Cost per item, in pounds" field
+    Then the label or hint text also explains the expected format in words
+    And this isn't left to the prefix/suffix alone, since aria-hidden="true" means screen readers never announce it
 
   @manual
   Scenario: Numeric fields show a numeric keyboard on mobile

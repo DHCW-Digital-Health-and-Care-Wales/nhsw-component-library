@@ -42,12 +42,6 @@ Feature: Summary list — manual verification
     Then it's large enough, or has enough space around it, to tap without missing
 
   @manual
-  Scenario: Selecting "Change" pre-fills your previous answer (WCAG 2.2 SC 3.3.7)
-    Given a user selects "Change" against a previously answered question
-    Then the field is pre-filled with what they entered before
-    And this doesn't apply if the answer is no longer valid or restoring it would be unsafe
-
-  @manual
   Scenario: Screen reader reads each row's label and value as a pair
     Given a summary list row, e.g. "Name: Karen Francis"
     When a screen reader reads it
@@ -58,3 +52,9 @@ Feature: Summary list — manual verification
     Given several summary cards grouped on one page
     Then a user can clearly tell them apart and move between them
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Selecting "Change" pre-fills your previous answer** (WCAG 2.2 SC 3.3.7) — depends on the service's own form-state handling when a user returns to change an answer. The summary list only provides the link.

@@ -58,12 +58,6 @@ Feature: Timeout — manual verification
     Then they can dismiss/extend it every time, with no limit on how many times
 
   @manual
-  Scenario: Focus returns to what the user was doing before the modal appeared
-    Given a user was focused on a form field when the timeout modal opened
-    When they dismiss the modal
-    Then focus returns to that same field
-
-  @manual
   Scenario: Dialog heading is announced when it opens
     Given the timeout modal opens
     When a screen reader user is on the page
@@ -73,9 +67,11 @@ Feature: Timeout — manual verification
   Scenario: Mobile version stays usable on a small screen
     Given the mobile version of the timeout modal
     Then the countdown, message and dismiss button all stay visible and usable without scrolling issues
-
-  @manual
-  Scenario: Server session length gives enough time for the on-screen warning to work
-    Given the "server requirements" guidance on the doc page
-    Then the real server session expiry allows enough time for the warning-and-extend flow to complete
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Focus returns to what the user was doing before the modal appeared** — requires the surrounding page to track and restore focus correctly. Only testable in a real, integrated flow, not the isolated timeout modal.
+- **Server session length gives enough time for the on-screen warning to work** — a backend/session-configuration concern, not a front-end component behaviour.

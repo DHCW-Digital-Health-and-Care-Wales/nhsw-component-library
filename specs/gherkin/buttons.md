@@ -68,12 +68,6 @@ Feature: Buttons — manual verification
     Then it's clearly visible against a white page background
 
   @manual
-  Scenario: Double-clicking submit (or a slow connection) doesn't send the form twice
-    Given a primary button that submits a form
-    When a user double-clicks it, or the network is slow
-    Then the information is not sent twice
-
-  @manual
   Scenario: Smaller button variant stays legible and tappable
     Given the smaller button variant
     Then the text stays legible and it's still comfortable to tap on mobile
@@ -90,3 +84,9 @@ Feature: Buttons — manual verification
     When a user tabs through them
     Then each one shows a clear yellow focus outline as it's reached
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Double-clicking submit (or a slow connection) doesn't send the form twice** — needs debounce/disable-on-submit logic in the consuming form's own JS. The button component itself doesn't ship this behaviour.

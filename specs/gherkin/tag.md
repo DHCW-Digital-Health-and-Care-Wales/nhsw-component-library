@@ -80,9 +80,10 @@ Feature: Tag — manual verification
   Scenario: Tags inside a summary list stay aligned
     Given a tag placed inside a summary list row
     Then it stays aligned correctly and doesn't break the row's layout
-
-  @manual
-  Scenario: Reordering tags doesn't require drag-and-drop (WCAG 2.2 SC 2.5.7)
-    Given a UI that lets users reorder tags
-    Then there's a way to do it other than dragging, e.g. buttons or keyboard controls
 ```
+
+## Additional implementation advice
+
+These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
+
+- **Reordering tags doesn't require drag-and-drop** (WCAG 2.2 SC 2.5.7) — only applies if a service builds a tag-reordering feature; the tag component itself has no reordering behaviour to test.
