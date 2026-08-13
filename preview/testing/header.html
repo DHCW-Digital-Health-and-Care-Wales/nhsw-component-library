@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Header — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Header</h1>
+<p class="nhsw-body">Manual QA checklist for the header component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/header.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/site/header.html' | relative_url }}" target="_blank" rel="noopener">Open the Header documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/header-default.html' | relative_url }}" target="_blank" rel="noopener">header-default.html</a>, <a class="nhsw-link" href="{{ '/examples/header-no-search.html' | relative_url }}" target="_blank" rel="noopener">header-no-search.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="header">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="header-manual-1" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-1">Search box has a real label, not just placeholder text (WCAG 2.2 SC 3.3.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-1-hint">Given the header's search field. Then it has a visible or properly linked label, not just placeholder text.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="header-manual-2" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-2">"No search bar" variant still lays out cleanly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-2-hint">Given the header variant without a search bar. Then the remaining elements are positioned without an awkward gap.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="header-manual-3" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-3">Mobile bottom navigation stays visible and doesn't cover content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-3-hint">Given the mobile bottom navigation variant. When viewed on a small screen. Then it stays visible and tappable without overlapping page content.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="header-manual-4" name="header-manual-tests" type="checkbox" aria-describedby="header-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="header-manual-4">Navigation toggle works with keyboard and doesn't trap focus</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="header-manual-4-hint">Given the header on a mobile-width screen. When any nav toggle is used via keyboard. Then it opens/closes correctly and focus is never trapped inside it.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

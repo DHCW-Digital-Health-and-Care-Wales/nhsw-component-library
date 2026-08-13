@@ -4,6 +4,10 @@
 .nhsw-expander {
   margin-bottom: 24px;
   border: 1px solid c.$nhsw-colour-border-grey;
+
+  &:focus-within {
+    @include u.nhsw-focus-ring;
+  }
 }
 
 .nhsw-expander__button {
@@ -16,10 +20,6 @@
   cursor: pointer;
   font: inherit;
   text-align: left;
-
-  &:focus {
-    @include u.nhsw-focus-ring;
-  }
 }
 
 .nhsw-expander__icon {

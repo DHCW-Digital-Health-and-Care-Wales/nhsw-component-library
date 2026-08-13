@@ -1,0 +1,59 @@
+---
+layout: simple
+title: Cards — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Cards</h1>
+<p class="nhsw-body">Manual QA checklist for the cards component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/cards.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/cards.html' | relative_url }}" target="_blank" rel="noopener">Open the Cards documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/card-basic.html' | relative_url }}" target="_blank" rel="noopener">card-basic.html</a>, <a class="nhsw-link" href="{{ '/examples/card-chevron.html' | relative_url }}" target="_blank" rel="noopener">card-chevron.html</a>, <a class="nhsw-link" href="{{ '/examples/card-icon.html' | relative_url }}" target="_blank" rel="noopener">card-icon.html</a>, <a class="nhsw-link" href="{{ '/examples/card-image.html' | relative_url }}" target="_blank" rel="noopener">card-image.html</a>, <a class="nhsw-link" href="{{ '/examples/card-links.html' | relative_url }}" target="_blank" rel="noopener">card-links.html</a>, <a class="nhsw-link" href="{{ '/examples/card-actions.html' | relative_url }}" target="_blank" rel="noopener">card-actions.html</a>, <a class="nhsw-link" href="{{ '/examples/card-grid.html' | relative_url }}" target="_blank" rel="noopener">card-grid.html</a>, <a class="nhsw-link" href="{{ '/examples/card-nonclickable.html' | relative_url }}" target="_blank" rel="noopener">card-nonclickable.html</a>, <a class="nhsw-link" href="{{ '/examples/card-stat.html' | relative_url }}" target="_blank" rel="noopener">card-stat.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="cards">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-1" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-1">The whole card is clickable, not just the title</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-1-hint">Given a clickable card. When anywhere within the card is clicked. Then it takes you to the card's destination.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-2" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-2">Non-clickable cards aren't announced as links</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-2-hint">Given a non-clickable card. When a screen reader reads it. Then it isn't announced as a link.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-3" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-3">Card grid stacks sensibly on mobile</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-3-hint">Given a grid of cards. When viewed on a mobile-width screen. Then they stack into a single column without overlapping or clipped text.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-4" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-4">Decorative icon content isn't read aloud by a screen reader</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-4-hint">Given a card using the small icon-badge variant. When a screen reader reads the card. Then the icon glyph itself isn't read out as text.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-5" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-5">A group of cards used for navigation reads as a list of options</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-5-hint">Given cards grouped together for navigation. When a screen reader reads them. Then they're announced as a list of options, not as unrelated content.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-6" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-6">Heading level matches the surrounding page structure</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-6-hint">Given a card with its heading level overridden (e.g. h3 instead of h2). Then the rendered heading tag matches what was specified, keeping the page outline correct.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

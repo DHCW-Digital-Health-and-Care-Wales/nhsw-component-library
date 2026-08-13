@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Expander — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Expander</h1>
+<p class="nhsw-body">Manual QA checklist for the expander component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/expander.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/expander.html' | relative_url }}" target="_blank" rel="noopener">Open the Expander documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/expander-default.html' | relative_url }}" target="_blank" rel="noopener">expander-default.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="expander">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-1" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-1">Clicking the button opens and closes the section, with the icon flipping</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-1-hint">Given a closed expander. When the button is clicked. Then the section opens and the icon switches to its "open" state. And clicking again closes it and switches the icon back.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-2" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-2">Border and icon are easy to see against the background (WCAG 2.2 SC 1.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-2-hint">Given an expander. Then its border and toggle icon are clearly visible against the surrounding page.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-3" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-3">Works the same with keyboard only as with a mouse (WCAG 2.2 SC 2.1.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-3-hint">Given an expander button is focused via keyboard. When Enter or Space is pressed. Then it opens or closes exactly as a mouse click would.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-4" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-4">Screen reader announces whether it's open or closed (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-4-hint">Given a screen reader user activates an expander. Then the announced state (expanded/collapsed) matches what's actually shown on screen.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

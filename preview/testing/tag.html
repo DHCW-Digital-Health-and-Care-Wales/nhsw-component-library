@@ -1,0 +1,54 @@
+---
+layout: simple
+title: Tag — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Tag</h1>
+<p class="nhsw-body">Manual QA checklist for the tag component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/tag.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/tag.html' | relative_url }}" target="_blank" rel="noopener">Open the Tag documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/tag-status.html' | relative_url }}" target="_blank" rel="noopener">tag-status.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-two-status.html' | relative_url }}" target="_blank" rel="noopener">tag-two-status.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-all-colours.html' | relative_url }}" target="_blank" rel="noopener">tag-all-colours.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-colour-solid.html' | relative_url }}" target="_blank" rel="noopener">tag-colour-solid.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-colour-tint.html' | relative_url }}" target="_blank" rel="noopener">tag-colour-tint.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-summary-list.html' | relative_url }}" target="_blank" rel="noopener">tag-summary-list.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="tag">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-1" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-1">All 10 colour variants are easy to read (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-1-hint">Given each of the 10 tag colours. Then the text is clearly readable against its background.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-2" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-2">Status is understandable from the text alone, not just the colour (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-2-hint">Given a status tag, e.g. "Complete" in green or "Overdue" in red. Then the text label alone tells you the status, without needing to know what the colour means.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-3" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-3">Two-part tag reads sensibly together</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-3-hint">Given a two-part tag. When a screen reader reads it. Then both parts are announced in a way that makes sense together.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-4" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-4">Tags inside a summary list stay aligned</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-4-hint">Given a tag placed inside a summary list row. Then it stays aligned correctly and doesn't break the row's layout.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-5" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-5">Reordering tags doesn't require drag-and-drop (WCAG 2.2 SC 2.5.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-5-hint">Given a UI that lets users reorder tags. Then there's a way to do it other than dragging, e.g. buttons or keyboard controls.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

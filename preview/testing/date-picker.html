@@ -1,0 +1,53 @@
+---
+layout: simple
+title: Date picker — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Date picker</h1>
+<p class="nhsw-body">Manual QA checklist for the date picker component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/date-picker.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/date-picker.html' | relative_url }}" target="_blank" rel="noopener">Open the Date picker documentation page</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="date-picker">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-picker-manual-1" name="date-picker-manual-tests" type="checkbox" aria-describedby="date-picker-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-picker-manual-1">Opening the calendar is announced correctly by a screen reader</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-picker-manual-1-hint">Given a user opens the calendar with a screen reader running. Then it's announced as a dialog, and the toggle button's open/closed state is announced correctly.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-picker-manual-2" name="date-picker-manual-tests" type="checkbox" aria-describedby="date-picker-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-picker-manual-2">A date can be picked using only the keyboard</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-picker-manual-2-hint">Given a user tabs to the date picker toggle. When they open it, move around with arrow keys, and press Enter. Then the chosen date is written into the input, with no mouse needed.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-picker-manual-3" name="date-picker-manual-tests" type="checkbox" aria-describedby="date-picker-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-picker-manual-3">Error state clearly shows what's wrong</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-picker-manual-3-hint">Given the error-state variant. Then a visible error message is shown next to the field, connected to it.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-picker-manual-4" name="date-picker-manual-tests" type="checkbox" aria-describedby="date-picker-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-picker-manual-4">Disabled state can't be opened by mouse or keyboard</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-picker-manual-4-hint">Given the disabled-state variant. Then the toggle looks visibly greyed out and doesn't open the calendar either way.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-picker-manual-5" name="date-picker-manual-tests" type="checkbox" aria-describedby="date-picker-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-picker-manual-5">Tabbing while the calendar is open stays inside the dialog</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-picker-manual-5-hint">Given the calendar dialog is open. When a user tabs repeatedly. Then focus cycles among the dialog's own controls and doesn't escape to the page behind it.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

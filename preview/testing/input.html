@@ -1,0 +1,59 @@
+---
+layout: simple
+title: Text input — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Text input</h1>
+<p class="nhsw-body">Manual QA checklist for the text input component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/input.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}" target="_blank" rel="noopener">Open the Text input documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/input-page-question.html' | relative_url }}" target="_blank" rel="noopener">input-page-question.html</a>, <a class="nhsw-link" href="{{ '/examples/input-multi-question.html' | relative_url }}" target="_blank" rel="noopener">input-multi-question.html</a>, <a class="nhsw-link" href="{{ '/examples/input-fixed-widths.html' | relative_url }}" target="_blank" rel="noopener">input-fixed-widths.html</a>, <a class="nhsw-link" href="{{ '/examples/input-fluid-widths.html' | relative_url }}" target="_blank" rel="noopener">input-fluid-widths.html</a>, <a class="nhsw-link" href="{{ '/examples/input-hint.html' | relative_url }}" target="_blank" rel="noopener">input-hint.html</a>, <a class="nhsw-link" href="{{ '/examples/input-account-number.html' | relative_url }}" target="_blank" rel="noopener">input-account-number.html</a>, <a class="nhsw-link" href="{{ '/examples/input-prefix-suffix.html' | relative_url }}" target="_blank" rel="noopener">input-prefix-suffix.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="input">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-1" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-1">You can click into the field and type</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-1-hint">Given a text input. When a user clicks into it and types. Then the text appears in the field as expected.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-2" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-2">Typed text stays fully visible as you type</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-2-hint">Given a text input. When a user types past the visible width. Then the field scrolls sensibly and the text doesn't get cut off or hidden.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-3" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-3">Pasting into the field works</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-3-hint">Given a text input. When a user pastes text into it. Then the pasted text appears correctly — paste is never blocked.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-4" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-4">Fixed-width variants are roughly the right size for their expected content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-4-hint">Given the fixed-width variants, e.g. "10 characters" and "20 characters". Then each is roughly wide enough to show that many characters comfortably, not noticeably bigger or smaller.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-5" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-5">Prefix/suffix wrapper puts your cursor straight into the real input</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-5-hint">Given the prefix/suffix variant, e.g. a "£" prefix. When a user clicks anywhere in the wrapper, including near the prefix. Then the text cursor lands in the actual input field.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-6" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-6">Numeric fields show a numeric keyboard on mobile</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-6-hint">Given a numeric-only field, e.g. an account number. When opened on a mobile device. Then the numeric keyboard is shown rather than the full keyboard.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

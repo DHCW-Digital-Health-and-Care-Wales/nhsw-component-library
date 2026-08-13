@@ -1,0 +1,59 @@
+---
+layout: simple
+title: Action link — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Action link</h1>
+<p class="nhsw-body">Manual QA checklist for the action link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/action-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/action-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Action link documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/action-link-default.html' | relative_url }}" target="_blank" rel="noopener">action-link-default.html</a>, <a class="nhsw-link" href="{{ '/examples/action-link-dark.html' | relative_url }}" target="_blank" rel="noopener">action-link-dark.html</a>, <a class="nhsw-link" href="{{ '/examples/action-link-group.html' | relative_url }}" target="_blank" rel="noopener">action-link-group.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="action-link">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-1" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-1">Icon and label read as one action, with a clear gap between them</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-1-hint">Given an action link. Then a blue circular arrow icon sits immediately before the text. And there is a clear gap between the icon and the text, not crammed together.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-2" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-2">Default colour is consistent — icon and text match</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-2-hint">Given an action link in its default state. Then the icon and the text are the same link-blue colour.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-3" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-3">Hover only recolours the text, not the icon</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-3-hint">Given an action link. When you hover over it with a mouse. Then the text changes colour. And the icon stays link-blue.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-4" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-4">Text is easy to read against its background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-4-hint">Given an action link in its default state. Then the text is clearly readable against the white page background.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-5" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-5">Stays readable on a dark background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-5-hint">Given an action link placed on a dark/navy background. Then both the icon and the text remain clearly visible.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-6" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-6">Screen reader only announces the link text, not the icon (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-6-hint">Given an action link with a decorative icon. When a screen reader reads it out. Then only the link text is announced, with no extra description of the icon.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Warning callout — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Warning callout</h1>
+<p class="nhsw-body">Manual QA checklist for the warning callout component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/warning-callout.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}" target="_blank" rel="noopener">Open the Warning callout documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/warning-callout-default.html' | relative_url }}" target="_blank" rel="noopener">warning-callout-default.html</a>, <a class="nhsw-link" href="{{ '/examples/warning-callout-important.html' | relative_url }}" target="_blank" rel="noopener">warning-callout-important.html</a>, <a class="nhsw-link" href="{{ '/examples/warning-callout-text.html' | relative_url }}" target="_blank" rel="noopener">warning-callout-text.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="warning-callout">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="warning-callout-manual-1" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-1">Heading and body text are clearly readable against the yellow background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-1-hint">Given a warning callout. Then the heading and body text are easy to read against their background.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="warning-callout-manual-2" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-2">Doesn't rely on colour alone to signal a warning (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-2-hint">Given a warning callout. Then it combines an icon and text with the yellow colouring, not colour by itself. And hidden "Warning" text is present for screen reader users.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="warning-callout-manual-3" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-3">Warning icon is easy to see against its background (WCAG 2.2 SC 1.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-3-hint">Given the warning icon. Then it has clear contrast against its background.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="warning-callout-manual-4" name="warning-callout-manual-tests" type="checkbox" aria-describedby="warning-callout-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="warning-callout-manual-4">Used sparingly, not on every section of a page</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-callout-manual-4-hint">Given a page with one or more warning callouts. Then they're used at the frequency described in the doc page's guidance, not overused.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

@@ -1,0 +1,44 @@
+---
+layout: simple
+title: Select — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Select</h1>
+<p class="nhsw-body">Manual QA checklist for the select component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/select.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/select.html' | relative_url }}" target="_blank" rel="noopener">Open the Select documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/select-hint.html' | relative_url }}" target="_blank" rel="noopener">select-hint.html</a>, <a class="nhsw-link" href="{{ '/examples/select-error.html' | relative_url }}" target="_blank" rel="noopener">select-error.html</a>, <a class="nhsw-link" href="{{ '/examples/select-service.html' | relative_url }}" target="_blank" rel="noopener">select-service.html</a>, <a class="nhsw-link" href="{{ '/examples/select-widths.html' | relative_url }}" target="_blank" rel="noopener">select-widths.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="select">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-1" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-1">Opening and choosing an option works with keyboard alone (WCAG 2.2 SC 2.5.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-1-hint">Given a select field. When a user opens it and chooses an option using only the keyboard. Then it works without needing a mouse.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-2" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-2">Long option lists are easy to scroll and choose from</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-2-hint">Given a select with many options, e.g. "Choose Pharmacy". Then a user can find and pick the right option without excessive difficulty.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-3" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-3">Size variants are visibly different, sensible widths</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-3-hint">Given the s/m/l select size variants. Then each is a clearly different, sensible width for its content.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

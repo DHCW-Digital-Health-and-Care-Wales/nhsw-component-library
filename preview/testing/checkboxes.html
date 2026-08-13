@@ -1,0 +1,54 @@
+---
+layout: simple
+title: Checkboxes — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Checkboxes</h1>
+<p class="nhsw-body">Manual QA checklist for the checkboxes component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/checkboxes.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}" target="_blank" rel="noopener">Open the Checkboxes documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/checkboxes-default.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-default.html</a>, <a class="nhsw-link" href="{{ '/examples/checkboxes-error.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-error.html</a>, <a class="nhsw-link" href="{{ '/examples/checkboxes-inline.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-inline.html</a>, <a class="nhsw-link" href="{{ '/examples/checkboxes-hints.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-hints.html</a>, <a class="nhsw-link" href="{{ '/examples/checkboxes-none.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-none.html</a>, <a class="nhsw-link" href="{{ '/examples/checkboxes-conditional.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-conditional.html</a>, <a class="nhsw-link" href="{{ '/examples/checkboxes-small.html' | relative_url }}" target="_blank" rel="noopener">checkboxes-small.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="checkboxes">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="checkboxes-manual-1" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-1">Ticking a checkbox reveals its conditional follow-up question correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-1-hint">Given a checkbox that reveals a follow-up question when ticked. When it's ticked. Then the follow-up question appears. And unticking it hides the question again.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="checkboxes-manual-2" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-2">"None of these" clears other ticked boxes, and vice versa</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-2-hint">Given a group of checkboxes with a "None of these" option. When "None of these" is ticked. Then any other ticked boxes in the group are cleared. And ticking any other option afterwards clears "None of these".</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="checkboxes-manual-3" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-3">Smaller variant is still easy to tick accurately</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-3-hint">Given the smaller checkboxes variant. Then the box and its hit area are still comfortable to tick.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="checkboxes-manual-4" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-4">Inline layout wraps sensibly on a narrow screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-4-hint">Given the inline checkboxes variant. When viewed on a mobile-width screen. Then the options wrap onto new lines without overlapping.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="checkboxes-manual-5" name="checkboxes-manual-tests" type="checkbox" aria-describedby="checkboxes-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="checkboxes-manual-5">Screen reader users are made aware when a conditional question appears (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="checkboxes-manual-5-hint">Given a checkbox that reveals a conditional follow-up question. When it's ticked while using a screen reader. Then the user is made aware new content has appeared. And this is a known limitation — only expect it to work well for simple, easy-to-understand questions.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

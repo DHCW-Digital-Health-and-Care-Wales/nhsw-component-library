@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Error summary — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Error summary</h1>
+<p class="nhsw-body">Manual QA checklist for the error summary component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/error-summary.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/error-summary.html' | relative_url }}" target="_blank" rel="noopener">Open the Error summary documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/error-summary-default.html' | relative_url }}" target="_blank" rel="noopener">error-summary-default.html</a>, <a class="nhsw-link" href="{{ '/examples/error-summary-date.html' | relative_url }}" target="_blank" rel="noopener">error-summary-date.html</a>, <a class="nhsw-link" href="{{ '/examples/error-summary-checkboxes.html' | relative_url }}" target="_blank" rel="noopener">error-summary-checkboxes.html</a>, <a class="nhsw-link" href="{{ '/examples/error-summary-timeout.html' | relative_url }}" target="_blank" rel="noopener">error-summary-timeout.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="error-summary">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-1" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-1">Shows a clear "There is a problem" heading with a list of errors</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-1-hint">Given a form submitted with invalid answers. Then an error summary appears with a heading and a list of what's wrong.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-2" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-2">Each error links to its field, and clicking it jumps you there (WCAG 2.2 SC 2.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-2-hint">Given the error summary's list of links. When one is selected. Then focus moves straight to the matching field on the page.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-3" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-3">Submitting an invalid form doesn't clear what you already typed (WCAG 2.2 SC 3.3.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-3-hint">Given a user has filled in some fields and left others invalid. When they submit the form. Then everything they already typed is still there.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-4" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-4">Keyboard focus jumps to the error summary automatically (WCAG 2.2 SC 3.3.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-4-hint">Given a form submission produces validation errors. When the page reloads with the error summary showing. Then keyboard focus moves to the error summary heading without the user needing to scroll up and find it.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

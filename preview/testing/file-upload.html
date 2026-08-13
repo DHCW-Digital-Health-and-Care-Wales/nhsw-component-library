@@ -1,0 +1,49 @@
+---
+layout: simple
+title: File upload — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">File upload</h1>
+<p class="nhsw-body">Manual QA checklist for the file upload component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/file-upload.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/file-upload.html' | relative_url }}" target="_blank" rel="noopener">Open the File upload documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/file-upload-default.html' | relative_url }}" target="_blank" rel="noopener">file-upload-default.html</a>, <a class="nhsw-link" href="{{ '/examples/file-upload-reverse.html' | relative_url }}" target="_blank" rel="noopener">file-upload-reverse.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="file-upload">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="file-upload-manual-1" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-1">Choosing a file opens the OS file picker and shows the file name after</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-1-hint">Given an empty file upload. When a file is chosen via the OS file picker. Then the selected file's name appears in the status area.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="file-upload-manual-2" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-2">Reusing a previously uploaded file works, without re-uploading from disk</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-2-hint">Given the "let users reuse uploaded files" pattern. When a user returns to the upload step. Then they can pick a file they uploaded earlier instead of browsing their device again.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="file-upload-manual-3" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-3">Mobile version stays usable on a small screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-3-hint">Given the mobile version of the file upload. Then all its controls remain reachable and readable without odd wrapping or overlap.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="file-upload-manual-4" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-4">Works for speech-recognition (Dragon) users after one extra interaction</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-4-hint">Given a user operating with Dragon NaturallySpeaking. When they land on the page containing the file upload for the first time. Then they may need to first click/tap elsewhere on the page once before the upload control responds — check this doesn't block them entirely.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

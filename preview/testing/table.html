@@ -1,0 +1,59 @@
+---
+layout: simple
+title: Table — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Table</h1>
+<p class="nhsw-body">Manual QA checklist for the table component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/table.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/table.html' | relative_url }}" target="_blank" rel="noopener">Open the Table documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/table-basic.html' | relative_url }}" target="_blank" rel="noopener">table-basic.html</a>, <a class="nhsw-link" href="{{ '/examples/table-caption.html' | relative_url }}" target="_blank" rel="noopener">table-caption.html</a>, <a class="nhsw-link" href="{{ '/examples/table-numeric.html' | relative_url }}" target="_blank" rel="noopener">table-numeric.html</a>, <a class="nhsw-link" href="{{ '/examples/table-missing-data.html' | relative_url }}" target="_blank" rel="noopener">table-missing-data.html</a>, <a class="nhsw-link" href="{{ '/examples/table-session-row.html' | relative_url }}" target="_blank" rel="noopener">table-session-row.html</a>, <a class="nhsw-link" href="{{ '/examples/table-session-row-location.html' | relative_url }}" target="_blank" rel="noopener">table-session-row-location.html</a>, <a class="nhsw-link" href="{{ '/examples/table-responsive.html' | relative_url }}" target="_blank" rel="noopener">table-responsive.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="table">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-1" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-1">Every table has a visible caption</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-1-hint">Given any table variant. Then it has a caption describing what the table is for.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-2" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-2">Column/row headers are correctly linked to their data</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-2-hint">Given a table with row and/or column headers. When a screen reader reads a data cell. Then the correct header is announced alongside it.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-3" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-3">Missing data is shown explicitly, not left blank</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-3-hint">Given a table with some missing data. Then empty cells show something explicit like "No data" rather than being silently empty.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-4" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-4">Numeric columns are right-aligned and easy to scan</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-4-hint">Given a table with numeric columns. Then the numbers are right-aligned, making them easy to compare down the column.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-5" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-5">Responsive variant stays usable on a narrow screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-5-hint">Given the responsive table variant. When viewed on a narrow screen. Then each row's data is still clearly labelled and readable, not just a wall of numbers.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-6" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-6">Session-row icons aren't read aloud by a screen reader</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-6-hint">Given a table using the session-row icon variant. When a screen reader reads a row. Then the decorative icon isn't read out as text.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

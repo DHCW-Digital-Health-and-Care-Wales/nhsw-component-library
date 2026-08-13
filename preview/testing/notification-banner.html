@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Notification banner — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Notification banner</h1>
+<p class="nhsw-body">Manual QA checklist for the notification banner component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/notification-banner.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/callouts/notification-banner.html' | relative_url }}" target="_blank" rel="noopener">Open the Notification banner documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/notification-banner-default.html' | relative_url }}" target="_blank" rel="noopener">notification-banner-default.html</a>, <a class="nhsw-link" href="{{ '/examples/notification-banner-service.html' | relative_url }}" target="_blank" rel="noopener">notification-banner-service.html</a>, <a class="nhsw-link" href="{{ '/examples/notification-banner-success.html' | relative_url }}" target="_blank" rel="noopener">notification-banner-success.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="notification-banner">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-1" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-1">Heading plus colour, not colour alone, shows what kind of banner it is (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-1-hint">Given a notification banner (default or success). Then it has a text heading ("Important"/"Success") as well as its colour treatment.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-2" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-2">Success banner is announced automatically to screen readers</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-2-hint">Given a success banner appears after an action, e.g. a form submission. Then a screen reader announces it without the user needing to go and find it.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-3" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-3">Link inside the banner is clearly distinguishable and works</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-3-hint">Given a notification banner containing a link. When the link is selected. Then it's visually distinct from the surrounding text and navigates correctly.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-4" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-4">Same heading text reused consistently across a service (WCAG 2.2 SC 3.2.4)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-4-hint">Given this banner type appears on more than one page. Then it uses the same heading text each time, so users learn to recognise it.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

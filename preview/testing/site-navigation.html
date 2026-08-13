@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Site navigation — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Site navigation</h1>
+<p class="nhsw-body">Manual QA checklist for the site navigation component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/site-navigation.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/site/site-navigation.html' | relative_url }}" target="_blank" rel="noopener">Open the Site navigation documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/site-navigation-default.html' | relative_url }}" target="_blank" rel="noopener">site-navigation-default.html</a>, <a class="nhsw-link" href="{{ '/examples/site-navigation-dark.html' | relative_url }}" target="_blank" rel="noopener">site-navigation-dark.html</a>, <a class="nhsw-link" href="{{ '/examples/site-navigation-tag.html' | relative_url }}" target="_blank" rel="noopener">site-navigation-tag.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="site-navigation">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-1" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-1">Current page is clearly marked, visually and for screen readers</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-1-hint">Given a nav link pointing at the current page. Then it's visually distinguished from the other links. And a screen reader announces it as the current page.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-2" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-2">Expanded menus never cover whatever has keyboard focus (WCAG 2.2 SC 2.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-2-hint">Given a navigation with an expandable menu. When a submenu is open. Then it doesn't cover the element that currently has keyboard focus.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-3" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-3">Stays readable on a dark background</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-3-hint">Given the dark-background navigation variant. Then the links remain clearly readable.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-4" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-4">Tag next to a nav item doesn't break the layout or shrink its click area</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-4-hint">Given a nav item with a tag next to it. Then the tag sits correctly alongside the link without reducing the link's clickable area.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

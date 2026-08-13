@@ -1,0 +1,54 @@
+---
+layout: simple
+title: Tabs — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Tabs</h1>
+<p class="nhsw-body">Manual QA checklist for the tabs component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/tabs.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/tabs.html' | relative_url }}" target="_blank" rel="noopener">Open the Tabs documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/tabs-default.html' | relative_url }}" target="_blank" rel="noopener">tabs-default.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="tabs">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-1" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-1">Clicking a tab shows only that tab's content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-1-hint">Given a set of tabs. When a different tab is clicked. Then only that tab's panel is shown, and the others are hidden.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-2" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-2">Arrow keys move between tabs and wrap around at the ends</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-2-hint">Given a tab is focused via keyboard. When the right or left arrow key is pressed repeatedly. Then focus moves to each tab in turn and wraps back around at the start/end.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-3" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-3">Screen reader announces which tab is selected, and how many there are (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-3-hint">Given a set of tabs. When a screen reader user focuses one. Then they hear its name, its position (e.g. "2 of 4"), and whether it's selected.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-4" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-4">Tab labels never wrap onto a second line</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-4-hint">Given a set of tabs with realistic label lengths. Then the row of tabs stays on a single line at normal viewport widths.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-5" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-5">No tab is ever shown disabled</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-5-hint">Given a set of tabs. Then none of them are greyed out or disabled.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

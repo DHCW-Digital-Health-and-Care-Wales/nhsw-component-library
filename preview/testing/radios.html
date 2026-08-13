@@ -1,0 +1,54 @@
+---
+layout: simple
+title: Radios — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Radios</h1>
+<p class="nhsw-body">Manual QA checklist for the radios component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/radios.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}" target="_blank" rel="noopener">Open the Radios documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/radios-default.html' | relative_url }}" target="_blank" rel="noopener">radios-default.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-error.html' | relative_url }}" target="_blank" rel="noopener">radios-error.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-inline.html' | relative_url }}" target="_blank" rel="noopener">radios-inline.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-hints.html' | relative_url }}" target="_blank" rel="noopener">radios-hints.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-divider.html' | relative_url }}" target="_blank" rel="noopener">radios-divider.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-conditional.html' | relative_url }}" target="_blank" rel="noopener">radios-conditional.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-small.html' | relative_url }}" target="_blank" rel="noopener">radios-small.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="radios">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="radios-manual-1" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-1">Selecting one radio deselects any other in the group</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-1-hint">Given a group of radios. When one is selected, then another. Then only the most recently selected one stays selected.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="radios-manual-2" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-2">Conditional follow-up question appears/disappears correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-2-hint">Given a radio that reveals a follow-up question when selected. When it's selected. Then the follow-up question appears. And selecting a different radio in the group hides it again.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="radios-manual-3" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-3">Divider option ("or") isn't mistaken for a selectable option</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-3-hint">Given a radio group with a text divider, e.g. "or". Then the divider is clearly not one of the selectable options.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="radios-manual-4" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-4">Smaller variant is still easy to select accurately</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-4-hint">Given the smaller radios variant. Then the circle and its hit area are still comfortable to select.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="radios-manual-5" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-5">Hint text makes clear only one option can be chosen, where needed (WCAG 2.2 SC 3.3.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-5-hint">Given a radio group where it isn't obvious only one option can be picked. Then hint text such as "Select one option" is present.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

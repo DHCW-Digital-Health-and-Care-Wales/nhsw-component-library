@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Skip link — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Skip link</h1>
+<p class="nhsw-body">Manual QA checklist for the skip link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/skip-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/skip-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Skip link documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/skip-link-default.html' | relative_url }}" target="_blank" rel="noopener">skip-link-default.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="skip-link">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="skip-link-manual-1" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-1">Is the first thing focused on a fresh page load</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-1-hint">Given a page has just loaded. And you have not clicked anywhere on the page content — clicking content first moves the browser's "next Tab" starting point past the skip link, making it look skipped when it isn't. When you press Tab (the very first press may land in the browser's own address bar instead of the page — that's normal browser behaviour, not a site bug; press Tab again if so). Then the skip link is the first thing focused within the page, before the header navigation.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="skip-link-manual-2" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-2">Activating it jumps straight to the main content (WCAG 2.2 SC 2.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-2-hint">Given the skip link is focused. When Enter is pressed. Then focus moves straight to the main content, skipping the header and navigation.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="skip-link-manual-3" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-3">Is visible on screen once focused</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-3-hint">Given a keyboard user tabs to the skip link. Then it becomes visible on screen with a clear focus outline, rather than staying hidden.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="skip-link-manual-4" name="skip-link-manual-tests" type="checkbox" aria-describedby="skip-link-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="skip-link-manual-4">Link text accurately describes where it goes</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="skip-link-manual-4-hint">Given a page with more than one skip link (e.g. "Skip to main content", "Skip to navigation"). Then each one's text correctly describes what it skips to.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

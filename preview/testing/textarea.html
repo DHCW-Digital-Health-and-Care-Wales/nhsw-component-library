@@ -1,0 +1,49 @@
+---
+layout: simple
+title: Textarea — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Textarea</h1>
+<p class="nhsw-body">Manual QA checklist for the textarea component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/textarea.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/textarea.html' | relative_url }}" target="_blank" rel="noopener">Open the Textarea documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/textarea-default.html' | relative_url }}" target="_blank" rel="noopener">textarea-default.html</a>, <a class="nhsw-link" href="{{ '/examples/textarea-sized.html' | relative_url }}" target="_blank" rel="noopener">textarea-sized.html</a>, <a class="nhsw-link" href="{{ '/examples/textarea-error.html' | relative_url }}" target="_blank" rel="noopener">textarea-error.html</a>, <a class="nhsw-link" href="{{ '/examples/textarea-consent.html' | relative_url }}" target="_blank" rel="noopener">textarea-consent.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="textarea">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="textarea-manual-1" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-1">You can click in and type across multiple lines</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-1-hint">Given a textarea. When a user clicks into it and types multiple lines. Then the text wraps and appears as expected.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="textarea-manual-2" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-2">Pasting into the field works</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-2-hint">Given a textarea. When a user pastes text into it. Then the pasted text appears correctly — paste is never blocked.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="textarea-manual-3" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-3">Character counter counts down correctly, and doesn't break when you go over</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-3-hint">Given a textarea with a character limit and live counter. When a user types past the limit. Then the counter keeps counting (going negative) without breaking or freezing.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="textarea-manual-4" name="textarea-manual-tests" type="checkbox" aria-describedby="textarea-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="textarea-manual-4">Field height suits the amount of content someone is likely to write</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="textarea-manual-4-hint">Given the sized textarea variant. Then its visible height roughly matches how much someone is expected to write.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

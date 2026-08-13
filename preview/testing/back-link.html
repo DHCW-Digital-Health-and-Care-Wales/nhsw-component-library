@@ -1,0 +1,59 @@
+---
+layout: simple
+title: Back link — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Back link</h1>
+<p class="nhsw-body">Manual QA checklist for the back link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/back-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/back-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Back link documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/back-link-default.html' | relative_url }}" target="_blank" rel="noopener">back-link-default.html</a>, <a class="nhsw-link" href="{{ '/examples/back-link-dark.html' | relative_url }}" target="_blank" rel="noopener">back-link-dark.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="back-link">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-1" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-1">Shows a "&lt;" arrow before the text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-1-hint">Given a back link. Then a "&lt;" arrow appears immediately before the word "Back".</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-2" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-2">Takes you back to the previous page</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-2-hint">Given a user is on a page reached via a back link. When they select it. Then they land back on the previous page.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-3" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-3">Previously entered answers are still there when you go back (WCAG 2.2 SC 3.3.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-3-hint">Given a user filled in a form and used the back link to leave the page. When they return to that page. Then their answers are still filled in. And this doesn't apply if the data is no longer valid, or restoring it would be unsafe.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-4" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-4">Stays readable on a dark background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-4-hint">Given the dark-background variant of the back link. Then the text remains clearly visible against the dark background.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-5" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-5">Enough space around it that you don't tap the wrong thing (WCAG 2.2 SC 2.5.8)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-5-hint">Given a back link placed near other links or buttons. Then there is enough space that you can't easily tap the wrong one.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-6" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-6">"Back link as a button" performs an action, not a navigation</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-6-hint">Given the "back link as a button" variant. When it's activated. Then it performs an action (e.g. clears something) rather than loading a new page.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

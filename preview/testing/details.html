@@ -1,0 +1,54 @@
+---
+layout: simple
+title: Details — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Details</h1>
+<p class="nhsw-body">Manual QA checklist for the details component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/details.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}" target="_blank" rel="noopener">Open the Details documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/details-default.html' | relative_url }}" target="_blank" rel="noopener">details-default.html</a>, <a class="nhsw-link" href="{{ '/examples/details-multiple.html' | relative_url }}" target="_blank" rel="noopener">details-multiple.html</a>, <a class="nhsw-link" href="{{ '/examples/details-open.html' | relative_url }}" target="_blank" rel="noopener">details-open.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="details">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-1" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-1">Clicking the summary opens and closes the hidden content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-1-hint">Given a details component. When the summary line is clicked. Then the hidden content shows or hides accordingly.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-2" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-2">Multiple details on a page work independently</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-2-hint">Given a page with several details components. When one is opened. Then the others stay in whatever state they were in.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-3" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-3">Pre-opened variant is visible immediately</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-3-hint">Given a details component set to start open. Then its content is visible as soon as the page loads, with no interaction needed.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-4" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-4">Background is easy to read against the page (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-4-hint">Given a details component. Then its background gives clear contrast against the page.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-5" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-5">Summary text says what's actually inside (WCAG 2.2 SC 2.4.4)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-5-hint">Given the summary link text. Then it clearly describes what you'll find inside, rather than something vague like "More information".</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

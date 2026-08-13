@@ -1,0 +1,64 @@
+---
+layout: simple
+title: Buttons — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Buttons</h1>
+<p class="nhsw-body">Manual QA checklist for the buttons component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/buttons.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/components/buttons.html' | relative_url }}" target="_blank" rel="noopener">Open the Buttons documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/button-primary.html' | relative_url }}" target="_blank" rel="noopener">button-primary.html</a>, <a class="nhsw-link" href="{{ '/examples/button-secondary.html' | relative_url }}" target="_blank" rel="noopener">button-secondary.html</a>, <a class="nhsw-link" href="{{ '/examples/button-exceptional.html' | relative_url }}" target="_blank" rel="noopener">button-exceptional.html</a>, <a class="nhsw-link" href="{{ '/examples/button-warning.html' | relative_url }}" target="_blank" rel="noopener">button-warning.html</a>, <a class="nhsw-link" href="{{ '/examples/button-small.html' | relative_url }}" target="_blank" rel="noopener">button-small.html</a>, <a class="nhsw-link" href="{{ '/examples/button-link.html' | relative_url }}" target="_blank" rel="noopener">button-link.html</a>, <a class="nhsw-link" href="{{ '/examples/button-grouping.html' | relative_url }}" target="_blank" rel="noopener">button-grouping.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="buttons">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 7 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-1" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-1">Every variant is clearly clickable, not shrunk down (WCAG 2.2 SC 2.5.8)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-1-hint">Given a primary, secondary, exceptional or warning button. Then its clickable area is comfortably large, matching its visible size.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-2" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-2">Each variant makes sense from its text alone, not just its colour (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-2-hint">Given the warning (red) and exceptional (amber) buttons sitting near a primary button. Then each has a clear text label so its purpose doesn't depend on the colour.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-3" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-3">Button colour is easy to see against the page (WCAG 2.2 SC 1.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-3-hint">Given any button variant. Then it's clearly visible against a white page background.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-4" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-4">Double-clicking submit (or a slow connection) doesn't send the form twice</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-4-hint">Given a primary button that submits a form. When a user double-clicks it, or the network is slow. Then the information is not sent twice.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-5" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-5">Smaller button variant stays legible and tappable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-5-hint">Given the smaller button variant. Then the text stays legible and it's still comfortable to tap on mobile.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-6" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-6">A group of buttons wraps sensibly on a narrow screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-6-hint">Given a group of buttons. When viewed on a mobile-width screen. Then they stack or wrap without overlapping or getting cut off.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="buttons-manual-7" name="buttons-manual-tests" type="checkbox" aria-describedby="buttons-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="buttons-manual-7">Tabbing between buttons shows a visible focus outline</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="buttons-manual-7-hint">Given a group of buttons. When a user tabs through them. Then each one shows a clear yellow focus outline as it's reached.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

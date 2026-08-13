@@ -1,0 +1,44 @@
+---
+layout: simple
+title: Date input — manual test checklist
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Date input</h1>
+<p class="nhsw-body">Manual QA checklist for the date input component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/date-input.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/date-input.html' | relative_url }}" target="_blank" rel="noopener">Open the Date input documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/date-input-default.html' | relative_url }}" target="_blank" rel="noopener">date-input-default.html</a>, <a class="nhsw-link" href="{{ '/examples/date-input-error-1.html' | relative_url }}" target="_blank" rel="noopener">date-input-error-1.html</a>, <a class="nhsw-link" href="{{ '/examples/date-input-error-2.html' | relative_url }}" target="_blank" rel="noopener">date-input-error-2.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="date-input">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-input-manual-1" name="date-input-manual-tests" type="checkbox" aria-describedby="date-input-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-input-manual-1">Fields identify their purpose so browsers can offer autofill (WCAG 2.2 SC 1.3.5)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-input-manual-1-hint">Given a production date-of-birth date input. Then day/month/year fields are set up so browsers can offer to autofill them.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-input-manual-2" name="date-input-manual-tests" type="checkbox" aria-describedby="date-input-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-input-manual-2">Tabbing moves day, then month, then year</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-input-manual-2-hint">Given a date input with all three fields. When a user tabs through it. Then focus moves day, then month, then year, in that order.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="date-input-manual-3" name="date-input-manual-tests" type="checkbox" aria-describedby="date-input-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="date-input-manual-3">On multi-question pages, it's clear which question each date belongs to</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="date-input-manual-3-hint">Given a page asking more than one question, each with its own date input. Then each date input's heading clearly says which question it's answering.</div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>
