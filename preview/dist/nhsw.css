@@ -2638,7 +2638,9 @@ body {
   display: inline-flex;
   align-items: center;
   position: relative;
+  max-width: 100%;
   padding-left: 14px;
+  overflow-wrap: anywhere;
   color: #005aa8;
   font-size: 1.1875rem;
   text-decoration: underline;
@@ -2656,13 +2658,16 @@ body {
   transform: rotate(45deg);
 }
 .nhsw-back-link:hover {
-  color: #003087;
+  color: #7c2855;
+  text-decoration: none;
 }
 .nhsw-back-link:focus {
   outline: 3px solid #ffeb3b;
   outline-offset: 0;
   background-color: #ffeb3b;
-  color: #0b0c0c;
+  color: #212b32;
+  text-decoration: none;
+  border-bottom: max(4px, 0.25rem) solid #212b32;
 }
 .nhsw-back-link--button {
   background: none;
@@ -2675,6 +2680,10 @@ body {
 }
 .nhsw-back-link--on-dark:hover {
   color: #ffffff;
+  text-decoration: none;
+}
+.nhsw-back-link--on-dark:focus {
+  color: #212b32;
 }
 
 body {

@@ -49,6 +49,48 @@ Feature: Back link — manual verification
     Given the "back link as a button" variant
     When it's activated
     Then it performs an action (e.g. clears something) rather than loading a new page
+
+  @manual
+  Scenario: Keyboard focus is clearly visible around the entire link (WCAG 2.2 SC 2.4.7)
+    Given a back link
+    When it receives keyboard focus
+    Then a solid focus highlight appears tightly around the arrow and text
+    And a dark underline appears beneath both
+
+  @manual
+  Scenario: Entire back link is one interactive target
+    Given a back link containing an arrow and text
+    When a user clicks either the arrow or the text
+    Then the same navigation action is triggered
+
+  @manual
+  Scenario: Arrow and text remain aligned
+    Given a back link
+    Then the arrow and text are vertically aligned and read as a single action
+
+  @manual
+  Scenario: Hover state is clear and consistent with other links
+    Given a back link
+    When a user hovers over it
+    Then both the arrow and the text change to a consistent colour
+    And the underline disappears
+
+  @manual
+  Scenario: Back link remains readable on small screens
+    Given a back link on a narrow viewport
+    Then the link remains fully visible and usable
+
+  @manual
+  Scenario: Screen reader announces only the link text
+    Given a back link with a decorative arrow
+    When a screen reader announces the link
+    Then only the link text is announced, with no extra description of the arrow
+
+  @manual
+  Scenario: Remains usable at 200% and 400% browser zoom (WCAG 2.2 SC 1.4.10)
+    Given a back link
+    When the browser is zoomed to 200%, then 400%
+    Then the link stays fully readable and clickable without overlapping neighbouring content
 ```
 
 ## Additional implementation advice
