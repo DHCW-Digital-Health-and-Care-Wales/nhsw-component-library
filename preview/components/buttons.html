@@ -228,15 +228,15 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-button-group">
         <button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button">Continue</button>
-        <button class="nhsw-button nhsw-button--link nhsw-button--on-dark" type="button">Cancel</button>
+        <button class="nhsw-button nhsw-button--link nhsw-button--reverse" type="button">Cancel</button>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-link" open_url="/examples/button-link.html" body=example_body dark=true %}
 
     {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--outline" type="button"&gt;Continue&lt;/button&gt;
-&lt;button class="nhsw-button nhsw-button--link nhsw-button--on-dark" type="button"&gt;Cancel&lt;/button&gt;{% endraw %}{% endcapture %}
+&lt;button class="nhsw-button nhsw-button--link nhsw-button--reverse" type="button"&gt;Cancel&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--outline" }) }}
-{{ nhswButton({ text: "Cancel", classes: "nhsw-button--link nhsw-button--on-dark" }) }}{% endraw %}{% endcapture %}
+{{ nhswButton({ text: "Cancel", classes: "nhsw-button--link nhsw-button--reverse" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-link" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Buttons can be styled as links. However, you should avoid using these, except if:</p>

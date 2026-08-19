@@ -43,7 +43,7 @@ extra_scripts:
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
-              <a class="nhsw-back-link nhsw-back-link--on-dark" href="#">Back</a>
+              <a class="nhsw-back-link nhsw-back-link--reverse" href="#">Back</a>
             </div>
           </div>
         </div>
@@ -62,6 +62,11 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="back-link-manual-4" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-4">"Back link as a button" performs an action, not a navigation</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-4-hint">Given the "back link as a button" variant. When it's activated. Then it performs an action (e.g. clears something) rather than loading a new page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <button type="button" class="nhsw-back-link nhsw-back-link--button">Back</button>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="back-link-manual-5" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-5-hint">
@@ -77,11 +82,21 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="back-link-manual-6" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-6-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-6">Entire back link is one interactive target</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-6-hint">Given a back link containing an arrow and text. When a user clicks either the arrow or the text. Then the same navigation action is triggered — there's no gap between them where a click does nothing.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="back-link-manual-7" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-7-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-7">Arrow and text remain aligned</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-7-hint">Given a back link. When it is displayed. Then the arrow and text are vertically aligned and read as a single action.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="back-link-manual-8" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-8-hint">
@@ -97,16 +112,31 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="back-link-manual-9" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-9-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-9">Back link remains readable on small screens</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-9-hint">Given a back link on a narrow viewport. When the page is viewed on mobile. Then the link remains fully visible and usable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="back-link-manual-10" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-10-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-10">Screen reader announces only the link text</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-10-hint">Given a back link with a decorative arrow. When a screen reader announces the link. Then only the link text ("Back") is announced, with no extra description of the arrow.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="back-link-manual-11" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-11-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-11">Remains usable at 200% and 400% browser zoom (WCAG 2.2 SC 1.4.10)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-11-hint">Given a back link. When the browser is zoomed to 200%, then 400%. Then the link stays fully readable and clickable, and does not overlap neighbouring content.</div>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-11-hint">Given the back link example below. When the browser is zoomed to 200%, then 400%. Then the link stays fully readable and clickable, and does not overlap neighbouring content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

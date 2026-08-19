@@ -19,7 +19,7 @@ params:
   - name: classes
     type: string
     required: false
-    description: Extra classes, e.g. nhsw-warning-text--on-dark.
+    description: Extra classes, e.g. nhsw-warning-text--reverse.
   - name: attributes
     type: object
     required: false
@@ -29,8 +29,8 @@ examples:
     data:
       text: "You must appeal within 1 year of getting your decision letter."
       iconFallbackText: "Warning"
-  - name: on-dark
+  - name: reverse
     data:
       text: "You must appeal within 1 year of getting your decision letter."
       iconFallbackText: "Warning"
-      classes: "nhsw-warning-text--on-dark"
+      classes: "nhsw-warning-text--reverse"

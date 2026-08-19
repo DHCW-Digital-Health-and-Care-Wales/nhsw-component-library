@@ -18,7 +18,7 @@ params:
   - name: classes
     type: string
     required: false
-    description: Extra classes, e.g. nhsw-back-link--on-dark.
+    description: Extra classes, e.g. nhsw-back-link--reverse.
   - name: attributes
     type: object
     required: false
@@ -28,8 +28,8 @@ examples:
     data:
       text: "Back"
       href: "/previous-page"
-  - name: on-dark
+  - name: reverse
     data:
       text: "Back"
       href: "/previous-page"
-      classes: "nhsw-back-link--on-dark"
+      classes: "nhsw-back-link--reverse"

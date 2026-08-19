@@ -77,15 +77,15 @@ tabs:
   <h3 class="nhsw-h3">Back link on dark backgrounds</h3>
 
   {% capture example_body %}{% raw %}
-    <a class="nhsw-back-link nhsw-back-link--on-dark" href="#">Back</a>
+    <a class="nhsw-back-link nhsw-back-link--reverse" href="#">Back</a>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="bl-dark" open_url="/examples/back-link-dark.html" body=example_body dark=true %}
 
-  {% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link nhsw-back-link--on-dark" href="/previous-page"&gt;Back&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link nhsw-back-link--reverse" href="/previous-page"&gt;Back&lt;/a&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswBackLink({
   text: "Back",
   href: "/previous-page",
-  classes: "nhsw-back-link--on-dark"
+  classes: "nhsw-back-link--reverse"
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="bl-dark" html=html_sample njk=njk_sample toggleable=true %}
 

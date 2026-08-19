@@ -88,7 +88,7 @@ tabs:
     <h3 class="nhsw-h3">Site navigation on dark backgrounds</h3>
 
     {% capture example_body %}{% raw %}
-      <nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation">
+      <nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation">
         <div class="nhsw-site-header__nav-container">
           <ul class="nhsw-site-header__nav-list">
             <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
@@ -100,12 +100,12 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="sn-dark" open_url="/examples/site-navigation-dark.html" body=example_body dark=true %}
 
-    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation"&gt;
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
   ...
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [...],
-  classes: "nhsw-site-header__nav--on-dark"
+  classes: "nhsw-site-header__nav--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-dark" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -140,7 +140,7 @@ tabs:
     {% include code-viewer.html id="sn-tag" html=html_sample njk=njk_sample toggleable=true %}
 
     {% capture example_body %}{% raw %}
-      <nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation">
+      <nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation">
         <div class="nhsw-site-header__nav-container">
           <ul class="nhsw-site-header__nav-list">
             <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
@@ -152,7 +152,7 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="sn-tag-dark" open_url="/examples/site-navigation-tag.html" body=example_body dark=true %}
 
-    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--on-dark" aria-label="Primary navigation"&gt;
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
   ...
   &lt;span class="nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
@@ -162,7 +162,7 @@ tabs:
     { text: "Navigation Item 2", href: "/item-2" },
     { text: "Navigation Item 3", href: "/item-3", badge: 5 }
   ],
-  classes: "nhsw-site-header__nav--on-dark"
+  classes: "nhsw-site-header__nav--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-tag-dark" html=html_sample njk=njk_sample toggleable=true %}
   </section>

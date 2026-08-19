@@ -19,12 +19,12 @@ tabs:
   {% capture example_body %}{% raw %}
     <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
       <p class="nhsw-breadcrumb__mobile-back">
-        <a class="nhsw-link" href="#">&larr; Back to NHS services</a>
+        <a class="nhsw-back-link" href="#">Back to NHS services</a>
       </p>
       <ol class="nhsw-breadcrumb__list">
-        <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
-        <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
-        <li class="nhsw-breadcrumb__item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+        <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+        <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+        <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
       </ol>
     </nav>
   {% endraw %}{% endcapture %}
@@ -32,12 +32,12 @@ tabs:
 
   {% capture html_sample %}{% raw %}&lt;nav class="nhsw-breadcrumb" aria-label="breadcrumb"&gt;
   &lt;p class="nhsw-breadcrumb__mobile-back"&gt;
-    &lt;a class="nhsw-link" href="/nhs-services"&gt;&larr; Back to NHS services&lt;/a&gt;
+    &lt;a class="nhsw-back-link" href="/nhs-services"&gt;Back to NHS services&lt;/a&gt;
   &lt;/p&gt;
   &lt;ol class="nhsw-breadcrumb__list"&gt;
-    &lt;li class="nhsw-breadcrumb__item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="nhsw-breadcrumb__item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/nhs-services"&gt;NHS services&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="nhsw-breadcrumb__item"&gt;&lt;span class="nhsw-breadcrumb__current" aria-current="page"&gt;Hospitals&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/nhs-services"&gt;NHS services&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;span class="nhsw-breadcrumb__current" aria-current="page"&gt;Hospitals&lt;/span&gt;&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "breadcrumb/macro.njk" import nhswBreadcrumb %}
@@ -95,12 +95,12 @@ tabs:
   {% capture example_body %}{% raw %}
     <nav class="nhsw-breadcrumb nhsw-breadcrumb--reverse" aria-label="breadcrumb">
       <p class="nhsw-breadcrumb__mobile-back">
-        <a class="nhsw-link" href="#">&larr; Back to NHS services</a>
+        <a class="nhsw-back-link nhsw-back-link--reverse" href="#">Back to NHS services</a>
       </p>
       <ol class="nhsw-breadcrumb__list">
-        <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
-        <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
-        <li class="nhsw-breadcrumb__item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+        <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+        <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+        <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
       </ol>
     </nav>
   {% endraw %}{% endcapture %}

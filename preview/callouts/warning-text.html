@@ -92,7 +92,7 @@ tabs:
     <h3 class="nhsw-h3">Warning text on dark backgrounds</h3>
 
     {% capture example_body %}{% raw %}
-      <div class="nhsw-warning-text nhsw-warning-text--on-dark">
+      <div class="nhsw-warning-text nhsw-warning-text--reverse">
         <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
         <strong class="nhsw-warning-text__text">
           <span class="nhsw-visually-hidden">Warning</span>
@@ -102,7 +102,7 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="wt-dark" open_url="/examples/warning-text-dark.html" body=example_body dark=true %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-warning-text nhsw-warning-text--on-dark"&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-warning-text nhsw-warning-text--reverse"&gt;
   &lt;span class="nhsw-warning-text__icon" aria-hidden="true"&gt;!&lt;/span&gt;
   &lt;strong class="nhsw-warning-text__text"&gt;
     &lt;span class="nhsw-visually-hidden"&gt;Warning&lt;/span&gt;
@@ -112,7 +112,7 @@ tabs:
     {% capture njk_sample %}{% raw %}{{ nhswWarningText({
   text: "You must appeal within 1 year of getting your decision letter.",
   iconFallbackText: "Warning",
-  classes: "nhsw-warning-text--on-dark"
+  classes: "nhsw-warning-text--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="wt-dark" html=html_sample njk=njk_sample toggleable=true %}
   </section>

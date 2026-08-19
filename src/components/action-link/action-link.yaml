@@ -19,7 +19,7 @@ params:
   - name: classes
     type: string
     required: false
-    description: Extra classes, e.g. nhsw-action-link--on-dark.
+    description: Extra classes, e.g. nhsw-action-link--reverse.
   - name: attributes
     type: object
     required: false
@@ -29,8 +29,8 @@ examples:
     data:
       text: "Action link"
       href: "/apply"
-  - name: on-dark
+  - name: reverse
     data:
       text: "Action link"
       href: "/apply"
-      classes: "nhsw-action-link--on-dark"
+      classes: "nhsw-action-link--reverse"

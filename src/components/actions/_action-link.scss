@@ -1,12 +1,9 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
-@use "../../utilities/focus-ring" as u;
 @use "../../utilities/breakpoints" as b;
 
 // Matches Figma's "Links/link-hover" swatch for this component's hover
-// state on a light background — the icon stays link-blue on hover; only
-// the text recolours. On dark backgrounds (--on-dark) the hover text stays
-// white, the same as the default state — see the --on-dark block below.
+// state — the icon stays link-blue on hover; only the text recolours.
 $nhsw-colour-action-link-hover-text: #7c2855;
 
 .nhsw-action-link {
@@ -22,17 +19,13 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     .nhsw-action-link__text {
       color: $nhsw-colour-action-link-hover-text;
       text-decoration: underline;
-      text-decoration-thickness: max(3px, 0.1875rem);
+      text-decoration-thickness: 2px;
       text-underline-offset: 0.12em;
     }
   }
 
-  // text-decoration on .__text would only ever underline the text, not the
-  // icon next to it — flex layout also doesn't reliably paint text-decoration
-  // across a flex container's children. border-bottom on the link itself
-  // draws one continuous line under both, inside the yellow focus box.
   &:focus {
-    @include u.nhsw-focus-ring;
+    outline: none;
     background-color: c.$nhsw-colour-focus;
     border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
 
@@ -45,10 +38,6 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     }
   }
 
-  // Browsers only ever apply a :visited style to the element it directly
-  // matches (privacy restriction) — never to a descendant selector like
-  // ".nhsw-action-link:visited .nhsw-action-link__text". So this sets colour
-  // on the link itself, and .nhsw-action-link__text inherits it below.
   &:visited {
     color: c.$nhsw-colour-text-primary;
   }
@@ -72,11 +61,6 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     font-size: t.$nhsw-font-size-h4-mobile;
     font-weight: t.$nhsw-font-weight-bold;
     line-height: t.$nhsw-line-height-h4-mobile;
-    // "anywhere" (not "break-word") because .nhsw-action-link is now
-    // width: fit-content — fit-content's own sizing algorithm only shrinks
-    // down to min-content, and break-word doesn't reduce min-content (it
-    // only affects actual line-breaking); anywhere reduces both, so the
-    // link can still shrink to fit narrow containers instead of overflowing.
     overflow-wrap: anywhere;
     min-width: 0;
 
@@ -106,7 +90,7 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     }
   }
 
-  &--on-dark {
+  &--reverse {
     color: c.$nhsw-colour-text-exceptional;
 
     .nhsw-action-link__icon {
@@ -121,19 +105,13 @@ $nhsw-colour-action-link-hover-text: #7c2855;
       fill: c.$nhsw-colour-background-white;
     }
 
-    // On dark backgrounds the hover text stays white — the same as the
-    // default state — rather than the light-background hover colour above.
     &:hover .nhsw-action-link__text {
       color: c.$nhsw-colour-text-exceptional;
       text-decoration: underline;
-      text-decoration-thickness: max(3px, 0.1875rem);
+      text-decoration-thickness: 2px;
       text-underline-offset: 0.12em;
     }
 
-    // Clicking with a mouse produces :hover and :focus at once. Without this,
-    // the rule above (same specificity, later in the file) would win that
-    // tie and leave the text white on the yellow focus background — poor
-    // contrast. This re-asserts the focus colours so focus always wins.
     &:focus {
       .nhsw-action-link__text {
         color: c.$nhsw-colour-focus-text;

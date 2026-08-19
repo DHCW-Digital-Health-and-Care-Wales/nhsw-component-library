@@ -119,7 +119,7 @@
             box-shadow: none;
         }
 
-        &.nhsw-button--on-dark {
+        &.nhsw-button--reverse {
             color: c.$nhsw-colour-background-white;
 
             &:not(:disabled):not(:focus):hover {

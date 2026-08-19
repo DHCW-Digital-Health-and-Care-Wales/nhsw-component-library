@@ -2,7 +2,7 @@ name: Site navigation
 macro: nhswSiteNavigation
 description: >
   Primary navigation for the site header, rendered as a horizontal list of
-  links. Supports a current-page state and per-item badges, and an on-dark
+  links. Supports a current-page state and per-item badges, and a reverse
   variant for use on dark header backgrounds.
 params:
   - name: items
@@ -20,7 +20,7 @@ params:
     type: string
     required: false
     description: >
-      Extra classes, e.g. "nhsw-site-header__nav--on-dark" for the on-dark
+      Extra classes, e.g. "nhsw-site-header__nav--reverse" for the reverse
       variant.
   - name: attributes
     type: object
@@ -35,7 +35,7 @@ examples:
           current: true
         - text: "Navigation Item 2"
           href: "/item-2"
-  - name: on-dark
+  - name: reverse
     data:
       items:
         - text: "Navigation Item 1"
@@ -43,7 +43,7 @@ examples:
           current: true
         - text: "Navigation Item 2"
           href: "/item-2"
-      classes: "nhsw-site-header__nav--on-dark"
+      classes: "nhsw-site-header__nav--reverse"
   - name: with-badge
     data:
       items:

@@ -1,7 +1,8 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
 @use "../../utilities/breakpoints" as b;
-@use "../../utilities/focus-ring" as u;
+
+$nhsw-colour-breadcrumb-link-hover: #7c2855;
 
 .nhsw-breadcrumb {
   margin-bottom: 16px;
@@ -26,7 +27,7 @@
     }
   }
 
-  &__item {
+  &__list-item {
     min-width: 0;
     max-width: 100%;
     font-size: t.$nhsw-font-size-body-small;
@@ -45,16 +46,16 @@
     color: c.$nhsw-colour-link;
 
     &:hover {
-      color: c.$nhsw-colour-link-hover;
-      text-decoration-thickness: max(3px, 0.1875rem);
-      text-underline-offset: 0.12em;
+      color: $nhsw-colour-breadcrumb-link-hover;
+      text-decoration: none;
     }
 
     &:focus {
-      @include u.nhsw-focus-ring;
+      outline: none;
       background-color: c.$nhsw-colour-focus;
       color: c.$nhsw-colour-focus-text;
       text-decoration: none;
+      border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
     }
   }
 
@@ -63,13 +64,9 @@
   }
 
   &--reverse {
-    .nhsw-breadcrumb__item,
-    .nhsw-breadcrumb__item:not(:last-child)::after,
+    .nhsw-breadcrumb__list-item,
+    .nhsw-breadcrumb__list-item:not(:last-child)::after,
     .nhsw-breadcrumb__current {
-      color: c.$nhsw-colour-background-white;
-    }
-
-    .nhsw-breadcrumb__mobile-back {
       color: c.$nhsw-colour-background-white;
     }
 
@@ -78,15 +75,15 @@
 
       &:hover {
         color: c.$nhsw-colour-background-white;
-        text-decoration-thickness: max(3px, 0.1875rem);
-        text-underline-offset: 0.12em;
+        text-decoration: none;
       }
 
       &:focus {
-        @include u.nhsw-focus-ring;
+        outline: none;
         background-color: c.$nhsw-colour-focus;
         color: c.$nhsw-colour-focus-text;
         text-decoration: none;
+        border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
       }
     }
   }

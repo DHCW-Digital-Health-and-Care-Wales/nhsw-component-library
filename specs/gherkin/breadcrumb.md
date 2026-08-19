@@ -86,6 +86,32 @@ Feature: Breadcrumb — manual verification
     When a user hovers over it
     Then the hover state is visually apparent and consistent with other links
     But the current-page text does not react to hover
+
+  @manual
+  Scenario: Mobile breadcrumb pattern works as intended
+    Given a breadcrumb trail
+    When the viewport is narrowed below the desktop breakpoint
+    Then the full trail is replaced with a "Back to [parent]" link
+    And it uses the same chevron as the Back link component
+    And the underline only ever applies to the text, not the chevron
+
+  @manual
+  Scenario: Screen reader identifies the component as breadcrumb navigation
+    Given a breadcrumb trail
+    When a screen reader encounters the component
+    Then it is announced as a breadcrumb navigation region
+
+  @manual
+  Scenario: Screen reader identifies the current page
+    Given a breadcrumb trail
+    When a screen reader reads the current page item
+    Then the current page is identified as the current location
+
+  @manual
+  Scenario: Separators are not announced unnecessarily
+    Given a breadcrumb trail with "›" separators
+    When a screen reader reads the trail
+    Then only the breadcrumb labels are announced, not the decorative separators
 ```
 
 ## Additional implementation advice
