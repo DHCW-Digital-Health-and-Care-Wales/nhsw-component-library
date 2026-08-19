@@ -1493,16 +1493,37 @@ body {
 .nhsw-expander {
   margin-bottom: 24px;
   background-color: #ffffff;
-  border-bottom: 1px solid #d8dde0;
+  border: 1px solid #d8dde0;
+  border-bottom-width: 4px;
 }
 .nhsw-expander:hover {
-  border-bottom-color: #7c2855;
+  border-color: #7c2855;
 }
 .nhsw-expander:hover .nhsw-expander__link-text {
   color: #7c2855;
 }
 .nhsw-expander:hover .nhsw-expander__icon {
   background-color: #7c2855;
+}
+.nhsw-expander--reverse {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+.nhsw-expander--reverse .nhsw-expander__link-text {
+  color: #ffffff;
+}
+.nhsw-expander--reverse .nhsw-expander__icon {
+  background-color: #ffffff;
+  color: #1b365d;
+}
+.nhsw-expander--reverse:hover {
+  border-color: #ffffff;
+}
+.nhsw-expander--reverse:hover .nhsw-expander__link-text {
+  color: #ffffff;
+}
+.nhsw-expander--reverse:hover .nhsw-expander__icon {
+  background-color: #ffffff;
 }
 
 .nhsw-expander__button {
@@ -1522,6 +1543,13 @@ body {
 .nhsw-expander__button:focus .nhsw-expander__heading {
   background-color: #ffeb3b;
   border-bottom: max(4px, 0.25rem) solid #212b32;
+}
+.nhsw-expander__button:focus .nhsw-expander__link-text {
+  color: #0b0c0c;
+}
+.nhsw-expander__button:focus .nhsw-expander__icon {
+  background-color: #0b0c0c;
+  color: #ffffff;
 }
 
 .nhsw-expander__heading {

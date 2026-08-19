@@ -5,10 +5,11 @@ $nhsw-colour-expander-hover: #7c2855;
 .nhsw-expander {
   margin-bottom: 24px;
   background-color: c.$nhsw-colour-background-white;
-  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  border-bottom-width: 4px;
 
   &:hover {
-    border-bottom-color: $nhsw-colour-expander-hover;
+    border-color: $nhsw-colour-expander-hover;
 
     .nhsw-expander__link-text {
       color: $nhsw-colour-expander-hover;
@@ -16,6 +17,32 @@ $nhsw-colour-expander-hover: #7c2855;
 
     .nhsw-expander__icon {
       background-color: $nhsw-colour-expander-hover;
+    }
+  }
+
+  &--reverse {
+    background-color: transparent;
+    border-color: c.$nhsw-colour-background-white;
+
+    .nhsw-expander__link-text {
+      color: c.$nhsw-colour-background-white;
+    }
+
+    .nhsw-expander__icon {
+      background-color: c.$nhsw-colour-background-white;
+      color: c.$nhsw-colour-button-primary;
+    }
+
+    &:hover {
+      border-color: c.$nhsw-colour-background-white;
+
+      .nhsw-expander__link-text {
+        color: c.$nhsw-colour-background-white;
+      }
+
+      .nhsw-expander__icon {
+        background-color: c.$nhsw-colour-background-white;
+      }
     }
   }
 }
@@ -37,6 +64,15 @@ $nhsw-colour-expander-hover: #7c2855;
     .nhsw-expander__heading {
       background-color: c.$nhsw-colour-focus;
       border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
+    }
+
+    .nhsw-expander__link-text {
+      color: c.$nhsw-colour-focus-text;
+    }
+
+    .nhsw-expander__icon {
+      background-color: c.$nhsw-colour-focus-text;
+      color: c.$nhsw-colour-background-white;
     }
   }
 }

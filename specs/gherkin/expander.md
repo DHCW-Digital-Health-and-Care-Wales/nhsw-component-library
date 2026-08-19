@@ -35,16 +35,17 @@ Feature: Expander — automated coverage
 
     @automated
     # specs/tests/css/component-specs-2.test.js
-    Scenario: Default state is a white box with a border-bottom, not a full border
+    Scenario: Default state is a white box with a thicker bottom edge, hinting at more content below
       Given the compiled CSS for .nhsw-expander
       Then background-color is #ffffff
-      And border-bottom is 1px solid #d8dde0, with no separate border on the other sides
+      And border is 1px solid #d8dde0 on all sides
+      And the bottom edge is 4px thick instead of 1px
 
     @automated
     # specs/tests/css/component-specs-2.test.js
     Scenario: Hover recolours the link text, icon and border together
       Given the compiled CSS for .nhsw-expander:hover
-      Then border-bottom-color becomes #7c2855
+      Then border-color becomes #7c2855
       And .nhsw-expander__link-text colour becomes #7c2855
       And .nhsw-expander__icon background-color becomes #7c2855
 
@@ -54,6 +55,8 @@ Feature: Expander — automated coverage
       Given the compiled CSS for .nhsw-expander__button:focus
       Then outline is none
       And .nhsw-expander__heading gets a #ffeb3b background with a solid black border-bottom, matching the focus style used elsewhere
+      And .nhsw-expander__link-text and .nhsw-expander__icon both turn near-black (#0b0c0c), like the action link focus style
+      And the link text keeps its underline, since focus doesn't remove it
 
     @automated
     # specs/tests/css/component-specs-2.test.js
@@ -66,6 +69,15 @@ Feature: Expander — automated coverage
     Scenario: Link text can break within an unbreakable long word
       Given the compiled CSS for .nhsw-expander__link-text
       Then overflow-wrap is anywhere
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Reverse variant swaps to a transparent box with white border, icon and text for use on dark backgrounds
+      Given the compiled CSS for .nhsw-expander--reverse
+      Then background-color is transparent and border-color is #ffffff
+      And .nhsw-expander__link-text colour is #ffffff
+      And .nhsw-expander__icon becomes a white circle with navy (#1b365d) glyph
+      And hovering keeps everything white instead of switching to the purple hover colour
 
   Rule: Toggle behaviour
 
@@ -163,4 +175,10 @@ Feature: Expander — manual verification
     Given an expander with a long heading
     When displayed on a small screen
     Then the heading wraps without overlapping the icon or breaking the layout
+
+  @manual
+  Scenario: Stays readable on a dark background (WCAG 2.2 SC 1.4.3)
+    Given the dark-background (reverse) variant of the expander
+    Then the border, icon and text remain clearly visible against the dark background
+    And focus still shows a solid yellow highlight with black text and icon
 ```
