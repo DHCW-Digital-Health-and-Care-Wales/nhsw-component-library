@@ -47,6 +47,125 @@ describe('action link matches Figma Action link component (icon+text row)', () =
     expect(hoverText).toMatch(/color:\s*#7c2855/);
     expect(css).not.toMatch(/\.nhsw-action-link:hover \.nhsw-action-link__icon/);
   });
+
+  it('hover underline is 2px thick', () => {
+    const hoverText = block(css, '\\.nhsw-action-link:hover \\.nhsw-action-link__text');
+    expect(hoverText).toMatch(/text-decoration-thickness:\s*2px/);
+  });
+
+  it('link shrinks to fit its content instead of stretching full width', () => {
+    const link = block(css, '\\.nhsw-action-link');
+    expect(link).toMatch(/width:\s*fit-content/);
+  });
+
+  it('focus state is a tight yellow highlight with a dark underline and no separate outline', () => {
+    const focus = block(css, '\\.nhsw-action-link:focus');
+    expect(focus).toMatch(/outline:\s*none/);
+    expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+  });
+
+  it('focus text and icon are the same dark colour', () => {
+    const focusText = block(css, '\\.nhsw-action-link:focus \\.nhsw-action-link__text');
+    const focusIcon = block(css, '\\.nhsw-action-link:focus \\.nhsw-action-link__icon');
+    expect(focusText).toMatch(/color:\s*#0b0c0c/);
+    expect(focusIcon).toMatch(/fill:\s*#0b0c0c/);
+  });
+
+  it('visited state recolours the link itself, not a descendant (required for :visited to apply at all)', () => {
+    const visited = block(css, '\\.nhsw-action-link:visited');
+    expect(visited).toMatch(/color:\s*#212b32/);
+  });
+
+  it('active state underlines the text', () => {
+    const active = block(css, '\\.nhsw-action-link:active \\.nhsw-action-link__text');
+    expect(active).toMatch(/text-decoration:\s*underline/);
+  });
+
+  it('on dark backgrounds, hover stays white — not the light-background hover colour', () => {
+    const reverseHover = block(css, '\\.nhsw-action-link--reverse:hover \\.nhsw-action-link__text');
+    expect(reverseHover).toMatch(/color:\s*#ffffff/);
+    expect(reverseHover).not.toMatch(/#7c2855/);
+  });
+
+  it('on dark backgrounds, focus still wins over a simultaneous hover (mouse click = both at once)', () => {
+    const reverseFocusText = block(css, '\\.nhsw-action-link--reverse:focus \\.nhsw-action-link__text');
+    const reverseFocusIcon = block(css, '\\.nhsw-action-link--reverse:focus \\.nhsw-action-link__icon');
+    expect(reverseFocusText).toMatch(/color:\s*#0b0c0c/);
+    expect(reverseFocusIcon).toMatch(/fill:\s*#0b0c0c/);
+  });
+});
+
+describe('back link hover/focus states', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/actions/back-link";`);
+  });
+
+  it('hover recolours to #7c2855 and removes the underline', () => {
+    const hover = block(css, '\\.nhsw-back-link:hover');
+    expect(hover).toMatch(/color:\s*#7c2855/);
+    expect(hover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('focus state is a tight yellow highlight with a dark underline and no separate outline', () => {
+    const focus = block(css, '\\.nhsw-back-link:focus');
+    expect(focus).toMatch(/outline:\s*none/);
+    expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/color:\s*#212b32/);
+    expect(focus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+  });
+
+  it('on dark backgrounds, hover stays white with no underline', () => {
+    const reverseHover = block(css, '\\.nhsw-back-link--reverse:hover');
+    expect(reverseHover).toMatch(/color:\s*#ffffff/);
+    expect(reverseHover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('on dark backgrounds, focus text is still dark (wins over a simultaneous hover)', () => {
+    const reverseFocus = block(css, '\\.nhsw-back-link--reverse:focus');
+    expect(reverseFocus).toMatch(/color:\s*#212b32/);
+  });
+});
+
+describe('breadcrumb link hover/focus states', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/navigation/breadcrumb";`);
+  });
+
+  it('link hover recolours to #7c2855 and removes the underline', () => {
+    const hover = block(css, '\\.nhsw-breadcrumb__link:hover');
+    expect(hover).toMatch(/color:\s*#7c2855/);
+    expect(hover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('link focus state is a tight yellow highlight with a dark underline and no separate outline', () => {
+    const focus = block(css, '\\.nhsw-breadcrumb__link:focus');
+    expect(focus).toMatch(/outline:\s*none/);
+    expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+  });
+
+  it('on dark backgrounds, hover stays white with no underline', () => {
+    const reverseHover = block(css, '\\.nhsw-breadcrumb--reverse \\.nhsw-breadcrumb__link:hover');
+    expect(reverseHover).toMatch(/color:\s*#ffffff/);
+    expect(reverseHover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('on dark backgrounds, focus matches the default focus treatment', () => {
+    const reverseFocus = block(css, '\\.nhsw-breadcrumb--reverse \\.nhsw-breadcrumb__link:focus');
+    expect(reverseFocus).toMatch(/outline:\s*none/);
+    expect(reverseFocus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(reverseFocus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+  });
+
+  it('separator is CSS-generated content, not a real character in the text', () => {
+    const separator = block(css, '\\.nhsw-breadcrumb__list-item:not\\(:last-child\\)::after');
+    expect(separator).toMatch(/content:\s*"›"/);
+  });
 });
 
 describe('error summary matches Figma Error summary component', () => {

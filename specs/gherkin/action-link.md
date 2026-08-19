@@ -33,8 +33,42 @@ Feature: Action link — automated coverage
     Scenario: Hover only recolours the text
       Given the compiled CSS for .nhsw-action-link
       When the component is hovered
-      Then the text colour becomes #7c2855
+      Then the text colour becomes #7c2855, with a 2px underline
       But no hover rule exists for .nhsw-action-link__icon, so the icon stays link-blue
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Link shrinks to fit its content instead of stretching full width
+      Given the compiled CSS for .nhsw-action-link
+      Then width is fit-content
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Focus state is a tight yellow highlight with a dark underline
+      Given the compiled CSS for .nhsw-action-link:focus
+      Then outline is none
+      And background-color is #ffeb3b
+      And there is a 4px solid #212b32 border-bottom
+      And the text and icon both turn #0b0c0c
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Visited state recolours the link itself, not a descendant
+      Given the compiled CSS for .nhsw-action-link:visited
+      Then the colour is #212b32 set directly on the link (required for :visited to apply at all)
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Active state underlines the text
+      Given the compiled CSS for .nhsw-action-link:active .nhsw-action-link__text
+      Then text-decoration is underline
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: On dark backgrounds, hover and focus keep their own light-background colours
+      Given the compiled CSS for .nhsw-action-link--reverse
+      Then :hover text stays white, not the light-background hover colour
+      And :focus text and icon stay #0b0c0c, even though :hover is later in the stylesheet
 
   Rule: Documented classes stay honest against the compiled stylesheet
 
