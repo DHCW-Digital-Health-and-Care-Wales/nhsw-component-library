@@ -20,8 +20,10 @@
 {%- macro nhswExpander(params) -%}
 <div class="nhsw-expander{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
   <button type="button" class="nhsw-expander__button" aria-expanded="{{ 'true' if params.open else 'false' }}" aria-controls="{{ params.id }}">
-    <span class="nhsw-expander__icon" aria-hidden="true"></span>
-    <span class="nhsw-expander__link-text">{{ params.linkText }}</span>
+    <span class="nhsw-expander__heading">
+      <span class="nhsw-expander__icon" aria-hidden="true"></span>
+      <span class="nhsw-expander__link-text">{{ params.linkText }}</span>
+    </span>
   </button>
   <div class="nhsw-expander__content" id="{{ params.id }}"{% if not params.open %} hidden{% endif %}>
 {%- if params.html %}

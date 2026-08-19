@@ -31,6 +31,42 @@ Feature: Expander — automated coverage
       Given the compiled CSS for .nhsw-expander__content
       Then padding is 0 top, 24px right, 24px bottom, 24px left
 
+  Rule: Hover/focus states and default appearance match the agreed design values
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Default state is a white box with a border-bottom, not a full border
+      Given the compiled CSS for .nhsw-expander
+      Then background-color is #ffffff
+      And border-bottom is 1px solid #d8dde0, with no separate border on the other sides
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Hover recolours the link text, icon and border together
+      Given the compiled CSS for .nhsw-expander:hover
+      Then border-bottom-color becomes #7c2855
+      And .nhsw-expander__link-text colour becomes #7c2855
+      And .nhsw-expander__icon background-color becomes #7c2855
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Focus highlights the icon+text heading with a yellow background and black underline, not the whole button
+      Given the compiled CSS for .nhsw-expander__button:focus
+      Then outline is none
+      And .nhsw-expander__heading gets a #ffeb3b background with a solid black border-bottom, matching the focus style used elsewhere
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Icon stays top-aligned with wrapped text instead of centring
+      Given the compiled CSS for .nhsw-expander__heading
+      Then align-items is flex-start
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Link text can break within an unbreakable long word
+      Given the compiled CSS for .nhsw-expander__link-text
+      Then overflow-wrap is anywhere
+
   Rule: Toggle behaviour
 
     @automated
@@ -72,4 +108,59 @@ Feature: Expander — manual verification
   Scenario: Screen reader announces whether it's open or closed (WCAG 2.2 SC 4.1.2)
     Given a screen reader user activates an expander
     Then the announced state (expanded/collapsed) matches what's actually shown on screen
+
+  @manual
+  Scenario: Keyboard users can clearly see when the expander has focus (WCAG 2.2 SC 2.4.7)
+    Given an expander header
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown, tightly around the icon and text
+    And it looks the same whether focus was reached by keyboard or by clicking
+
+  @manual
+  Scenario: Accessible name matches visible label
+    Given an expander labelled "Digital consent"
+    When a screen reader announces the control
+    Then the accessible name matches the visible heading text
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given an expander
+    When browser zoom is increased to 200% or 400%
+    Then the control and its content remain readable and operable without loss of information
+
+  @manual
+  Scenario: Multiple expanders work independently
+    Given multiple expanders on a page
+    When one expander is opened
+    Then the other expanders remain unchanged unless configured otherwise
+
+  @manual
+  Scenario: Decorative icon is not announced by screen readers
+    Given an expander with a decorative plus/minus icon
+    When a screen reader announces the control
+    Then only the expander label and expanded/collapsed state are announced
+
+  @manual
+  Scenario: Entire header acts as the toggle
+    Given an expander
+    When the user selects anywhere within the header area
+    Then the section opens or closes
+
+  @manual
+  Scenario: Expanded content is hidden when collapsed
+    Given a collapsed expander
+    When the page is viewed or navigated with assistive technology
+    Then the hidden content is not presented until the expander is opened
+
+  @manual
+  Scenario: Content remains readable on small screens
+    Given an expander containing content
+    When viewed on a narrow viewport
+    Then the content remains readable without horizontal scrolling
+
+  @manual
+  Scenario: Long titles wrap correctly
+    Given an expander with a long heading
+    When displayed on a small screen
+    Then the heading wraps without overlapping the icon or breaking the layout
 ```

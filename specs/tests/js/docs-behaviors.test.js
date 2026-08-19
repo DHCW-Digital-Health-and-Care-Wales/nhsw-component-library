@@ -257,6 +257,46 @@ describe('expander (.nhsw-expander__button)', () => {
   });
 });
 
+describe('file upload (.nhsw-file-upload__input)', () => {
+  beforeEach(() => {
+    setBody(`
+      <div class="nhsw-file-upload">
+        <span class="nhsw-file-upload__status">No file chosen</span>
+        <div class="nhsw-file-upload__actions">
+          <input class="nhsw-file-upload__input" id="fu" type="file">
+          <label class="nhsw-button nhsw-file-upload__button" for="fu">Choose file</label>
+        </div>
+      </div>
+    `);
+    runScript(SCRIPT);
+  });
+
+  function selectFile(name) {
+    const input = document.getElementById('fu');
+    Object.defineProperty(input, 'files', { value: [{ name }], configurable: true });
+    input.dispatchEvent(new Event('change'));
+    return input;
+  }
+
+  it('shows the selected file name and marks the status/container as filled', () => {
+    selectFile('prescription.pdf');
+    const status = document.querySelector('.nhsw-file-upload__status');
+    expect(status.textContent).toBe('prescription.pdf');
+    expect(status.classList.contains('nhsw-file-upload__status--filled')).toBe(true);
+    expect(document.querySelector('.nhsw-file-upload').classList.contains('nhsw-file-upload--has-file')).toBe(true);
+  });
+
+  it('reverts to the original status text if the selection is cleared', () => {
+    const input = selectFile('prescription.pdf');
+    Object.defineProperty(input, 'files', { value: [], configurable: true });
+    input.dispatchEvent(new Event('change'));
+    const status = document.querySelector('.nhsw-file-upload__status');
+    expect(status.textContent).toBe('No file chosen');
+    expect(status.classList.contains('nhsw-file-upload__status--filled')).toBe(false);
+    expect(document.querySelector('.nhsw-file-upload').classList.contains('nhsw-file-upload--has-file')).toBe(false);
+  });
+});
+
 describe('tabs (.nhsw-tabs)', () => {
   beforeEach(() => {
     setBody(`

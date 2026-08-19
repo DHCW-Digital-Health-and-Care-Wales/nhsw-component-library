@@ -166,6 +166,20 @@
         });
     });
 
+    document.querySelectorAll('.nhsw-file-upload__input').forEach(function (input) {
+        var container = input.closest('.nhsw-file-upload');
+        var status = container && container.querySelector('.nhsw-file-upload__status');
+        if (!container || !status) return;
+        var emptyText = status.textContent;
+
+        input.addEventListener('change', function () {
+            var hasFile = input.files && input.files.length > 0;
+            status.textContent = hasFile ? input.files[0].name : emptyText;
+            status.classList.toggle('nhsw-file-upload__status--filled', hasFile);
+            container.classList.toggle('nhsw-file-upload--has-file', hasFile);
+        });
+    });
+
     document.querySelectorAll('.nhsw-tabs').forEach(function (tabGroup) {
         // Scoped to direct children so a demo `.nhsw-tabs` nested inside a panel
         // (e.g. on the Tabs component doc page) doesn't get wired up twice.

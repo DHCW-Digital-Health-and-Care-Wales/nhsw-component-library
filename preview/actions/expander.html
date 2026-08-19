@@ -19,8 +19,10 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-expander">
       <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-overview-content">
-        <span class="nhsw-expander__icon" aria-hidden="true"></span>
-        <span class="nhsw-expander__link-text">Digital consent</span>
+        <span class="nhsw-expander__heading">
+          <span class="nhsw-expander__icon" aria-hidden="true"></span>
+          <span class="nhsw-expander__link-text">Digital consent</span>
+        </span>
       </button>
       <div class="nhsw-expander__content" id="expander-overview-content" hidden>
         <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
@@ -31,8 +33,10 @@ tabs:
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-expander"&gt;
   &lt;button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent"&gt;
-    &lt;span class="nhsw-expander__icon" aria-hidden="true"&gt;&lt;/span&gt;
-    &lt;span class="nhsw-expander__link-text"&gt;Digital consent&lt;/span&gt;
+    &lt;span class="nhsw-expander__heading"&gt;
+      &lt;span class="nhsw-expander__icon" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="nhsw-expander__link-text"&gt;Digital consent&lt;/span&gt;
+    &lt;/span&gt;
   &lt;/button&gt;
   &lt;div class="nhsw-expander__content" id="expander-consent" hidden&gt;
     &lt;p class="nhsw-body"&gt;Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.&lt;/p&gt;

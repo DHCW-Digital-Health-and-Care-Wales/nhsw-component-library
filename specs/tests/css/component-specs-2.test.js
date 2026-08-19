@@ -297,3 +297,127 @@ describe('tabs match Figma Tabs component', () => {
     expect(selected).toMatch(/padding:\s*0\.75rem 1rem/);
   });
 });
+
+describe('error summary link and field error styling', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/error-summary"; @use "components/forms/error-message"; @use "components/forms/form-group";`);
+  });
+
+  it('error summary link is bold red, compound with .nhsw-link so it wins the colour regardless of stylesheet order', () => {
+    const link = block(css, '\\.nhsw-error-summary__link\\.nhsw-link');
+    expect(link).toMatch(/color:\s*#d5281b/);
+    expect(link).toMatch(/font-weight:\s*700/);
+  });
+
+  it('error summary link hover is a distinct darker red', () => {
+    const hover = block(css, '\\.nhsw-error-summary__link\\.nhsw-link:hover');
+    expect(hover).toMatch(/color:\s*#951c13/);
+  });
+
+  it('error message has no top margin', () => {
+    const message = block(css, '\\.nhsw-error-message');
+    expect(message).toMatch(/margin-top:\s*0/);
+  });
+
+  it('label inside an errored field group matches the error message size and drops the bold', () => {
+    const label = block(css, '\\.nhsw-form-group--error \\.nhsw-label');
+    expect(label).toMatch(/font-weight:\s*400/);
+    expect(label).toMatch(/font-size:\s*1rem/);
+  });
+});
+
+describe('expander hover/focus states and default appearance', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/expander";`);
+  });
+
+  it('default state is a white box with a border-bottom, not a full border', () => {
+    const base = block(css, '\\.nhsw-expander');
+    expect(base).toMatch(/background-color:\s*#ffffff/);
+    expect(base).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+    expect(base).not.toMatch(/^\s*border:/m);
+  });
+
+  it('hover recolours the link text, icon and border together', () => {
+    const hover = block(css, '\\.nhsw-expander:hover');
+    expect(hover).toMatch(/border-bottom-color:\s*#7c2855/);
+    const hoverText = block(css, '\\.nhsw-expander:hover \\.nhsw-expander__link-text');
+    expect(hoverText).toMatch(/color:\s*#7c2855/);
+    const hoverIcon = block(css, '\\.nhsw-expander:hover \\.nhsw-expander__icon');
+    expect(hoverIcon).toMatch(/background-color:\s*#7c2855/);
+  });
+
+  it('focus highlights the icon+text heading with a yellow background and black underline, not the whole button', () => {
+    const focusButton = block(css, '\\.nhsw-expander__button:focus');
+    expect(focusButton).toMatch(/outline:\s*none/);
+    const focusHeading = block(css, '\\.nhsw-expander__button:focus \\.nhsw-expander__heading');
+    expect(focusHeading).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focusHeading).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+  });
+
+  it('heading top-aligns the icon with wrapped text instead of centring it', () => {
+    const heading = block(css, '\\.nhsw-expander__heading');
+    expect(heading).toMatch(/align-items:\s*flex-start/);
+  });
+
+  it('link text can break within an unbreakable long word instead of overflowing', () => {
+    const text = block(css, '\\.nhsw-expander__link-text');
+    expect(text).toMatch(/overflow-wrap:\s*anywhere/);
+  });
+});
+
+describe('file upload hover/uploaded/focus states', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/file-upload";`);
+  });
+
+  it('hover turns the whole box white and the Choose file button turns blue with it', () => {
+    const hover = block(css, '\\.nhsw-file-upload:hover');
+    expect(hover).toMatch(/background-color:\s*#ffffff/);
+    const hoverButton = block(css, '\\.nhsw-file-upload:hover \\.nhsw-file-upload__button');
+    expect(hoverButton).toMatch(/background-color:\s*#d2e2f1/);
+    expect(hoverButton).toMatch(/border-color:\s*#005eb8/);
+    expect(hoverButton).toMatch(/color:\s*#005eb8/);
+  });
+
+  it('an error state shows a red border around the box', () => {
+    const errorBox = block(css, '\\.nhsw-form-group--error \\.nhsw-file-upload');
+    expect(errorBox).toMatch(/border-color:\s*#d5281b/);
+  });
+
+  it('the uploaded-file state has a white background and a solid (not dashed) border', () => {
+    const hasFile = block(css, '\\.nhsw-file-upload--has-file');
+    expect(hasFile).toMatch(/background-color:\s*#ffffff/);
+    expect(hasFile).toMatch(/border-style:\s*solid/);
+  });
+
+  it('the filled status readout uses the dark secondary colour with white text', () => {
+    const filled = block(css, '\\.nhsw-file-upload__status--filled');
+    expect(filled).toMatch(/background-color:\s*#4c6272/);
+    expect(filled).toMatch(/color:\s*#ffffff/);
+  });
+
+  it('"No file chosen" and "or drop file" use the standard dark text colour, not a greyed-out one', () => {
+    const status = block(css, '\\.nhsw-file-upload__status');
+    const hint = block(css, '\\.nhsw-file-upload__hint');
+    expect(status).toMatch(/color:\s*#212b32/);
+    expect(hint).toMatch(/color:\s*#212b32/);
+  });
+
+  it('focusing the hidden file input highlights the Choose file button with a background colour, not just a border', () => {
+    const focusButton = block(css, '\\.nhsw-file-upload__input:focus \\+ \\.nhsw-file-upload__button');
+    expect(focusButton).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focusButton).toMatch(/border:\s*none/);
+  });
+
+  it('a long selected file name can break instead of overflowing the status box', () => {
+    const status = block(css, '\\.nhsw-file-upload__status');
+    expect(status).toMatch(/overflow-wrap:\s*break-word/);
+  });
+});

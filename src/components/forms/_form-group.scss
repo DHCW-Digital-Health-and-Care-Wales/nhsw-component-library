@@ -1,4 +1,5 @@
 @use "../../tokens/spacing" as s;
+@use "../../tokens/typography" as t;
 @use "../../utilities/breakpoints" as b;
 
 .nhsw-form-group {
@@ -19,6 +20,17 @@
     .nhsw-form-group {
       border: 0;
       padding: 0;
+    }
+
+    .nhsw-label {
+      font-weight: t.$nhsw-font-weight-regular;
+      font-size: t.$nhsw-font-size-body-mobile;
+      line-height: t.$nhsw-line-height-body-mobile;
+
+      @include b.nhsw-from-tablet {
+        font-size: t.$nhsw-font-size-body;
+        line-height: t.$nhsw-line-height-body;
+      }
     }
   }
 }

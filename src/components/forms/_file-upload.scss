@@ -1,5 +1,7 @@
 @use "../../tokens/colours" as c;
-@use "../../utilities/focus-ring" as u;
+
+$nhsw-colour-file-upload-hover-background: #d2e2f1;
+$nhsw-colour-file-upload-hover-text: #005eb8;
 
 .nhsw-file-upload {
   display: flex;
@@ -7,13 +9,39 @@
   gap: 20px;
   padding: 28px;
   border: 1px dashed c.$nhsw-colour-border-secondary;
+
+  &:hover {
+    background-color: c.$nhsw-colour-background-white;
+
+    .nhsw-file-upload__button {
+      background-color: $nhsw-colour-file-upload-hover-background;
+      border-color: $nhsw-colour-file-upload-hover-text;
+      color: $nhsw-colour-file-upload-hover-text;
+      box-shadow: 0 2px 0 $nhsw-colour-file-upload-hover-text;
+    }
+  }
+
+  &--has-file {
+    background-color: c.$nhsw-colour-background-white;
+    border-style: solid;
+  }
+}
+
+.nhsw-form-group--error .nhsw-file-upload {
+  border-color: c.$nhsw-colour-input-invalid;
 }
 
 .nhsw-file-upload__status {
   display: block;
   padding: 10px;
+  overflow-wrap: break-word;
   background-color: c.$nhsw-colour-background-grey;
-  color: c.$nhsw-colour-text-secondary;
+  color: c.$nhsw-colour-text-primary;
+
+  &--filled {
+    background-color: c.$nhsw-colour-text-secondary;
+    color: c.$nhsw-colour-background-white;
+  }
 }
 
 .nhsw-file-upload__actions {
@@ -35,12 +63,15 @@
   white-space: nowrap;
 
   &:focus + .nhsw-file-upload__button {
-    @include u.nhsw-focus-ring;
+    background-color: c.$nhsw-colour-focus;
+    color: c.$nhsw-colour-text-primary;
+    border: none;
+    box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
   }
 }
 
 .nhsw-file-upload__hint {
-  color: c.$nhsw-colour-text-secondary;
+  color: c.$nhsw-colour-text-primary;
 }
 
 .nhsw-file-upload--reverse {

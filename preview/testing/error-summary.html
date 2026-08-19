@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="error-summary">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 2 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 10 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -43,15 +43,15 @@ extra_scripts:
             <div class="nhsw-form-group nhsw-form-group--error">
               <label class="nhsw-label" for="full-name-error-summary-s1">Full name</label>
               <p class="nhsw-error-message" id="full-name-error-error-summary-s1">Enter your full name</p>
-              <input class="nhsw-input" id="full-name-error-summary-s1" name="full-name-error-summary-s1" type="text" aria-describedby="full-name-error-error-summary-s1" aria-invalid="true-error-summary-s1">
+              <input class="nhsw-input" id="full-name-error-summary-s1" name="full-name-error-summary-s1" type="text" aria-describedby="full-name-error-error-summary-s1" aria-invalid="true">
             </div>
           </div>
         </div>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="error-summary-manual-2" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-2-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-2">Each error links to its field, and clicking it jumps you there (WCAG 2.2 SC 2.4.3)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-2-hint">Given the error summary's list of links. When one is selected. Then focus moves straight to the matching field on the page.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-2">Error link moves focus to the relevant field (WCAG 2.2 SC 2.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-2-hint">Given an error summary link. When it is selected. Then the page scrolls to the associated form field and keyboard focus moves to that field.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s2" role="alert" tabindex="-1">
@@ -60,12 +60,140 @@ extra_scripts:
                 <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s2">Enter your full name</a></li>
               </ul>
             </div>
-            
+
             <h2 class="nhsw-h2">Your details</h2>
             <div class="nhsw-form-group nhsw-form-group--error">
               <label class="nhsw-label" for="full-name-error-summary-s2">Full name</label>
               <p class="nhsw-error-message" id="full-name-error-error-summary-s2">Enter your full name</p>
-              <input class="nhsw-input" id="full-name-error-summary-s2" name="full-name-error-summary-s2" type="text" aria-describedby="full-name-error-error-summary-s2" aria-invalid="true-error-summary-s2">
+              <input class="nhsw-input" id="full-name-error-summary-s2" name="full-name-error-summary-s2" type="text" aria-describedby="full-name-error-error-summary-s2" aria-invalid="true">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-3" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-3">Keyboard focus moves to the error summary (WCAG 2.2 SC 3.3.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-3-hint">Given a form submitted with errors. When the page reloads. Then keyboard focus moves to the error summary so users are immediately aware of the errors. The component ships <code>tabindex="-1"</code> for exactly this purpose — check the example below has it, then confirm the real service actually calls <code>.focus()</code> on reload (that part is the service's own JS/server-rendering, not something the component can guarantee alone).</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s3" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s3">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s3">Enter your full name</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-4" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-4">Screen reader announces the error summary</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-4-hint">Given a form submitted with errors. When a screen reader user reaches the page. Then the error summary heading and error messages are announced (via <code>role="alert"</code> and <code>aria-labelledby</code>).</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s4" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s4">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s4">Enter your full name</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-5" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-5">Error summary remains readable on mobile</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-5-hint">Given an error summary containing multiple errors. When viewed on a narrow viewport. Then all content remains readable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s5" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s5">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s5">Enter your full name</a></li>
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#contact-error-summary-s5">Select how you want to be contacted</a></li>
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#dob-error-summary-s5">Date of birth must include a year</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-6" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-6">Error summary remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-6-hint">Given the error summary below. When browser zoom is increased to 200%, then 400%. Then the summary remains readable, error links remain usable, and no content is lost or obscured.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s6" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s6">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s6">Enter your full name</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-7" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-7">Long error messages wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-7-hint">Given an error summary containing a long validation message. When displayed on a small screen. Then the message wraps without being truncated or overlapping other content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s7" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s7">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#nhs-number-error-summary-s7">Enter your NHS number exactly as it appears on your medical card or a letter from your GP surgery or hospital</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-8" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-8">Errors are not conveyed by colour alone (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-8-hint">Given a field contains an error. When it is displayed. Then the error is communicated through text (the error message, plus the word "Error" for screen readers) as well as the red border and text colour — not just a coloured border with no message.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group nhsw-form-group--error">
+              <label class="nhsw-label" for="full-name-error-summary-s8">Full name</label>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s8">Enter your full name</p>
+              <input class="nhsw-input" id="full-name-error-summary-s8" name="full-name-error-summary-s8" type="text" aria-describedby="full-name-error-error-summary-s8" aria-invalid="true">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-9" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-9">Error text has sufficient contrast (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-9-hint">Given an error summary and field errors. When displayed. Then all error text remains clearly readable against its background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s9" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s9">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s9">Enter your full name</a></li>
+              </ul>
+            </div>
+            <div class="nhsw-form-group nhsw-form-group--error" style="margin-top: 16px;">
+              <label class="nhsw-label" for="full-name-error-summary-s9">Full name</label>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s9">Enter your full name</p>
+              <input class="nhsw-input" id="full-name-error-summary-s9" name="full-name-error-summary-s9" type="text" aria-describedby="full-name-error-error-summary-s9" aria-invalid="true">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="error-summary-manual-10" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-10">Errors appear in the same order as the form fields</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-10-hint">Given a form with multiple errors. When the error summary is displayed. Then the errors are listed in the same order as the corresponding fields on the page — this helps users navigate efficiently. The component itself just renders <code>errorList</code> in the order given, so the service must build that list in field order.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s10" role="alert" tabindex="-1">
+              <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-error-summary-s10">There is a problem</h2>
+              <ul class="nhsw-error-summary__list">
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-error-summary-s10">Enter your full name</a></li>
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#contact-error-summary-s10">Select how you want to be contacted</a></li>
+                <li><a class="nhsw-link nhsw-error-summary__link" href="#dob-error-summary-s10">Date of birth must include a year</a></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -83,6 +211,6 @@ extra_scripts:
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">
         <li><strong>Submitting an invalid form doesn't clear what you already typed</strong> (WCAG 2.2 SC 3.3.7) — requires the service to correctly persist submitted values when it re-renders the page with errors. That's a server/form-handling concern, not something the error summary markup can guarantee on its own.</li>
-        <li><strong>Keyboard focus jumps to the error summary automatically</strong> (WCAG 2.2 SC 3.3.1) — the component ships <code>tabindex="-1"</code> on the error summary so it's programmatically focusable, but actually calling <code>.focus()</code> on page load after a failed submission is something the service's own JS/server-rendering needs to do.</li>
+        <li><strong>Error summary contains every error on the page</strong> — the component only renders whatever <code>errorList</code> the service passes in; whether that list is actually complete (matches every invalid field on the page) is a service/validation-logic concern that can't be verified against the isolated component.</li>
   </ul>
 </div>

@@ -1,5 +1,8 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
+
+$nhsw-colour-error-summary-link-hover: #951c13;
 
 .nhsw-error-summary {
   margin-bottom: 24px;
@@ -28,7 +31,12 @@
     }
   }
 
-  &__link {
+  &__link.nhsw-link {
     color: c.$nhsw-colour-button-delete;
+    font-weight: t.$nhsw-font-weight-bold;
+
+    &:hover {
+      color: $nhsw-colour-error-summary-link-hover;
+    }
   }
 }

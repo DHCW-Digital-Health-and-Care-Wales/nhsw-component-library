@@ -32,6 +32,56 @@ Feature: File upload — automated coverage
       Given the compiled CSS for .nhsw-file-upload__actions
       Then the gap between actions is 20px
 
+  Rule: Hover, uploaded and focus states match the agreed design values
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Hover turns the whole box white and the Choose file button turns blue with it
+      Given the compiled CSS for .nhsw-file-upload:hover
+      Then background-color is #ffffff
+      And .nhsw-file-upload__button gets a light blue background (#d2e2f1) with blue border and text (#005eb8)
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: An error state shows a red border around the box
+      Given the compiled CSS for .nhsw-form-group--error .nhsw-file-upload
+      Then border-color is #d5281b
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: The uploaded-file state has a white background and a solid border
+      Given the compiled CSS for .nhsw-file-upload--has-file
+      Then background-color is #ffffff
+      And border-style is solid
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: The filled status readout uses the dark secondary colour with white text
+      Given the compiled CSS for .nhsw-file-upload__status--filled
+      Then background-color is #4c6272
+      And colour is #ffffff
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: "No file chosen" and "or drop file" use the standard dark text colour
+      Given the compiled CSS for .nhsw-file-upload__status and .nhsw-file-upload__hint
+      Then both use colour #212b32, not a greyed-out secondary colour
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Focusing the hidden file input highlights the button with a background colour
+      Given the compiled CSS for .nhsw-file-upload__input:focus + .nhsw-file-upload__button
+      Then background-color is #ffeb3b and border is none
+
+    @automated
+    # specs/tests/js/docs-behaviors.test.js
+    Scenario: Selecting a file updates the status text and adds the filled/has-file classes
+      Given a .nhsw-file-upload__input
+      When a file is selected and a change event fires
+      Then the status text becomes the file name, and both the status and container get their "filled"/"has-file" classes
+      When the selection is cleared
+      Then the status text and classes revert to their empty state
+
   Rule: The file input itself always has a real, associated label
 
     @automated
@@ -69,6 +119,47 @@ Feature: File upload — manual verification
     Given a user operating with Dragon NaturallySpeaking
     When they land on the page containing the file upload for the first time
     Then they may need to first click/tap elsewhere on the page once before the upload control responds — check this doesn't block them entirely
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a file upload control
+    When browser zoom is increased to 200% or 400%
+    Then the control remains readable and operable without loss of information or functionality
+
+  @manual
+  Scenario: Screen reader announces the selected file
+    Given a file has been selected
+    When assistive technology reads the component
+    Then the selected file name is available to the user
+
+  @manual
+  Scenario: Screen reader users can understand what file is being requested
+    Given a screen reader user encounters a file upload
+    When the control is announced
+    Then the label is announced alongside the file upload control
+
+  @manual
+  Scenario: Keyboard users can upload a file (WCAG 2.2 SC 2.1.1)
+    Given a file upload control
+    When it receives keyboard focus and Enter or Space is pressed
+    Then the file picker opens and a file can be selected without using a mouse
+
+  @manual
+  Scenario: Focus state is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a file upload control
+    When it receives keyboard focus
+    Then the "Choose file" button shows a solid yellow highlight, not just a thin border
+
+  @manual
+  Scenario: Long file names do not break the layout
+    Given a file with a long name has been selected
+    When the file name is displayed
+    Then the layout remains usable and the file name does not overlap other content
+
+  @manual
+  Scenario: Error state is clearly indicated (WCAG 2.2 SC 1.4.1)
+    Given a file upload with an error
+    Then the box shows a red border and an error message is displayed above it, so the error isn't conveyed by colour alone
 ```
 
 ## Additional implementation advice
