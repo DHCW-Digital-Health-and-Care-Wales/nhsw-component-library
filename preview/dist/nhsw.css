@@ -2545,6 +2545,8 @@ body {
 .nhsw-action-link {
   display: flex;
   align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
   margin-bottom: 24px;
   color: #005aa8;
   text-decoration: none;
@@ -2559,13 +2561,10 @@ body {
   outline: 3px solid #ffeb3b;
   outline-offset: 0;
   background-color: #ffeb3b;
+  border-bottom: max(4px, 0.25rem) solid #212b32;
 }
 .nhsw-action-link:focus .nhsw-action-link__text {
   color: #0b0c0c;
-  text-decoration: underline;
-  text-decoration-color: #212b32;
-  text-decoration-thickness: max(3px, 0.1875rem);
-  text-underline-offset: 0.12em;
 }
 .nhsw-action-link:focus .nhsw-action-link__icon {
   fill: #0b0c0c;
@@ -2588,7 +2587,7 @@ body {
   font-size: 1.1875rem;
   font-weight: 700;
   line-height: 1.6875rem;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   min-width: 0;
 }
 @media (min-width: 40.0625em) {
@@ -2626,6 +2625,13 @@ body {
   text-decoration: underline;
   text-decoration-thickness: max(3px, 0.1875rem);
   text-underline-offset: 0.12em;
+}
+.nhsw-action-link--on-dark:focus .nhsw-action-link__text {
+  color: #0b0c0c;
+  text-decoration: none;
+}
+.nhsw-action-link--on-dark:focus .nhsw-action-link__icon {
+  fill: #0b0c0c;
 }
 
 .nhsw-back-link {

@@ -12,6 +12,8 @@ $nhsw-colour-action-link-hover-text: #7c2855;
 .nhsw-action-link {
   display: flex;
   align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
   margin-bottom: 24px;
   color: c.$nhsw-colour-link;
   text-decoration: none;
@@ -25,16 +27,17 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     }
   }
 
+  // text-decoration on .__text would only ever underline the text, not the
+  // icon next to it — flex layout also doesn't reliably paint text-decoration
+  // across a flex container's children. border-bottom on the link itself
+  // draws one continuous line under both, inside the yellow focus box.
   &:focus {
     @include u.nhsw-focus-ring;
     background-color: c.$nhsw-colour-focus;
+    border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
 
     .nhsw-action-link__text {
       color: c.$nhsw-colour-focus-text;
-      text-decoration: underline;
-      text-decoration-color: c.$nhsw-colour-text-primary;
-      text-decoration-thickness: max(3px, 0.1875rem);
-      text-underline-offset: 0.12em;
     }
 
     .nhsw-action-link__icon {
@@ -69,7 +72,12 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     font-size: t.$nhsw-font-size-h4-mobile;
     font-weight: t.$nhsw-font-weight-bold;
     line-height: t.$nhsw-line-height-h4-mobile;
-    overflow-wrap: break-word;
+    // "anywhere" (not "break-word") because .nhsw-action-link is now
+    // width: fit-content — fit-content's own sizing algorithm only shrinks
+    // down to min-content, and break-word doesn't reduce min-content (it
+    // only affects actual line-breaking); anywhere reduces both, so the
+    // link can still shrink to fit narrow containers instead of overflowing.
+    overflow-wrap: anywhere;
     min-width: 0;
 
     @include b.nhsw-from-tablet {
@@ -120,6 +128,21 @@ $nhsw-colour-action-link-hover-text: #7c2855;
       text-decoration: underline;
       text-decoration-thickness: max(3px, 0.1875rem);
       text-underline-offset: 0.12em;
+    }
+
+    // Clicking with a mouse produces :hover and :focus at once. Without this,
+    // the rule above (same specificity, later in the file) would win that
+    // tie and leave the text white on the yellow focus background — poor
+    // contrast. This re-asserts the focus colours so focus always wins.
+    &:focus {
+      .nhsw-action-link__text {
+        color: c.$nhsw-colour-focus-text;
+        text-decoration: none;
+      }
+
+      .nhsw-action-link__icon {
+        fill: c.$nhsw-colour-focus-text;
+      }
     }
   }
 }
