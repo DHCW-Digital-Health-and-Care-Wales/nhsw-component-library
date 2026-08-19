@@ -1501,6 +1501,7 @@ body {
 }
 .nhsw-expander:hover .nhsw-expander__link-text {
   color: #7c2855;
+  text-decoration: none;
 }
 .nhsw-expander:hover .nhsw-expander__icon {
   background-color: #7c2855;
@@ -1521,6 +1522,7 @@ body {
 }
 .nhsw-expander--reverse:hover .nhsw-expander__link-text {
   color: #ffffff;
+  text-decoration: none;
 }
 .nhsw-expander--reverse:hover .nhsw-expander__icon {
   background-color: #ffffff;
@@ -1546,6 +1548,7 @@ body {
 }
 .nhsw-expander__button:focus .nhsw-expander__link-text {
   color: #0b0c0c;
+  text-decoration: none;
 }
 .nhsw-expander__button:focus .nhsw-expander__icon {
   background-color: #0b0c0c;

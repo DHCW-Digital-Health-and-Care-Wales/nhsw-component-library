@@ -342,11 +342,12 @@ describe('expander hover/focus states and default appearance', () => {
     expect(base).toMatch(/border-bottom-width:\s*4px/);
   });
 
-  it('hover recolours the link text, icon and border together', () => {
+  it('hover recolours the link text, icon and border together, and removes the underline', () => {
     const hover = block(css, '\\.nhsw-expander:hover');
     expect(hover).toMatch(/border-color:\s*#7c2855/);
     const hoverText = block(css, '\\.nhsw-expander:hover \\.nhsw-expander__link-text');
     expect(hoverText).toMatch(/color:\s*#7c2855/);
+    expect(hoverText).toMatch(/text-decoration:\s*none/);
     const hoverIcon = block(css, '\\.nhsw-expander:hover \\.nhsw-expander__icon');
     expect(hoverIcon).toMatch(/background-color:\s*#7c2855/);
   });
@@ -359,13 +360,14 @@ describe('expander hover/focus states and default appearance', () => {
     expect(focusHeading).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
   });
 
-  it('focus turns the link text and icon near-black, like the action link focus style, keeping the underline', () => {
+  it('focus turns the link text and icon near-black and removes the underline, keeping the yellow heading highlight', () => {
     const focusText = block(css, '\\.nhsw-expander__button:focus \\.nhsw-expander__link-text');
     expect(focusText).toMatch(/color:\s*#0b0c0c/);
+    expect(focusText).toMatch(/text-decoration:\s*none/);
     const focusIcon = block(css, '\\.nhsw-expander__button:focus \\.nhsw-expander__icon');
     expect(focusIcon).toMatch(/background-color:\s*#0b0c0c/);
-    const text = block(css, '\\.nhsw-expander__link-text');
-    expect(text).toMatch(/text-decoration:\s*underline/);
+    const focusHeading = block(css, '\\.nhsw-expander__button:focus \\.nhsw-expander__heading');
+    expect(focusHeading).toMatch(/background-color:\s*#ffeb3b/);
   });
 
   it('heading top-aligns the icon with wrapped text instead of centring it', () => {
@@ -389,11 +391,12 @@ describe('expander hover/focus states and default appearance', () => {
     expect(reverseIcon).toMatch(/color:\s*#1b365d/);
   });
 
-  it('reverse variant keeps everything white on hover instead of switching to the purple hover colour', () => {
+  it('reverse variant keeps everything white on hover instead of switching to the purple hover colour, and removes the underline', () => {
     const reverseHover = block(css, '\\.nhsw-expander--reverse:hover');
     expect(reverseHover).toMatch(/border-color:\s*#ffffff/);
     const reverseHoverText = block(css, '\\.nhsw-expander--reverse:hover \\.nhsw-expander__link-text');
     expect(reverseHoverText).toMatch(/color:\s*#ffffff/);
+    expect(reverseHoverText).toMatch(/text-decoration:\s*none/);
     const reverseHoverIcon = block(css, '\\.nhsw-expander--reverse:hover \\.nhsw-expander__icon');
     expect(reverseHoverIcon).toMatch(/background-color:\s*#ffffff/);
   });

@@ -13,6 +13,7 @@ $nhsw-colour-expander-hover: #7c2855;
 
     .nhsw-expander__link-text {
       color: $nhsw-colour-expander-hover;
+      text-decoration: none;
     }
 
     .nhsw-expander__icon {
@@ -38,6 +39,7 @@ $nhsw-colour-expander-hover: #7c2855;
 
       .nhsw-expander__link-text {
         color: c.$nhsw-colour-background-white;
+        text-decoration: none;
       }
 
       .nhsw-expander__icon {
@@ -68,6 +70,7 @@ $nhsw-colour-expander-hover: #7c2855;
 
     .nhsw-expander__link-text {
       color: c.$nhsw-colour-focus-text;
+      text-decoration: none;
     }
 
     .nhsw-expander__icon {

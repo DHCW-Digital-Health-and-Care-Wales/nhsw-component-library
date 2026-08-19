@@ -43,20 +43,20 @@ Feature: Expander — automated coverage
 
     @automated
     # specs/tests/css/component-specs-2.test.js
-    Scenario: Hover recolours the link text, icon and border together
+    Scenario: Hover recolours the link text, icon and border together, and removes the underline
       Given the compiled CSS for .nhsw-expander:hover
       Then border-color becomes #7c2855
-      And .nhsw-expander__link-text colour becomes #7c2855
+      And .nhsw-expander__link-text colour becomes #7c2855 with no underline
       And .nhsw-expander__icon background-color becomes #7c2855
 
     @automated
     # specs/tests/css/component-specs-2.test.js
-    Scenario: Focus highlights the icon+text heading with a yellow background and black underline, not the whole button
+    Scenario: Focus highlights the icon+text heading with a yellow background, not the whole button
       Given the compiled CSS for .nhsw-expander__button:focus
       Then outline is none
       And .nhsw-expander__heading gets a #ffeb3b background with a solid black border-bottom, matching the focus style used elsewhere
       And .nhsw-expander__link-text and .nhsw-expander__icon both turn near-black (#0b0c0c), like the action link focus style
-      And the link text keeps its underline, since focus doesn't remove it
+      And the link text loses its underline
 
     @automated
     # specs/tests/css/component-specs-2.test.js
