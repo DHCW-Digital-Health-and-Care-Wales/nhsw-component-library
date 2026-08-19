@@ -1,0 +1,108 @@
+name: Table
+macro: nhswTable
+description: >
+  A table for organising structured data in rows and columns. Supports
+  captions, numeric column alignment, row headers and a responsive
+  (mobile-stacked) variant.
+params:
+  - name: caption
+    type: string
+    required: false
+    description: >
+      Table caption. Can also be given as an object { text, html, size } to
+      set its own size.
+  - name: captionSize
+    type: string
+    required: false
+    description: >
+      Caption size modifier: s, m, l or xl. Defaults to "m". Ignored if
+      caption is an object with its own size.
+  - name: head
+    type: array
+    required: false
+    description: >
+      Column headers. Each item is a plain string, or an object
+      { text, html, format, classes }. format: "numeric" right-aligns the
+      header.
+  - name: rows
+    type: array
+    required: true
+    description: >
+      Array of rows, each an array of cells. Each cell is a plain string, or
+      an object { text, html, format, classes }.
+  - name: firstCellIsHeader
+    type: boolean
+    required: false
+    description: Render the first cell of each row as a <th scope="row"> instead of a <td>.
+  - name: responsive
+    type: boolean
+    required: false
+    description: >
+      Render the responsive variant (nhsw-table-responsive), stacking rows on
+      small screens with hidden mobile-label headings. Implies firstCellIsHeader.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: basic
+    data:
+      caption: "Skin symptoms and possible causes"
+      head:
+        - { text: "Skin symptoms" }
+        - { text: "Possible cause" }
+      rows:
+        - [ { text: "Itchy rash" }, { text: "Eczema" } ]
+  - name: caption-size-l
+    data:
+      caption: "Months and rates"
+      captionSize: "l"
+      head:
+        - { text: "Month you apply" }
+        - { text: "Rate for vehicles" }
+      rows:
+        - [ { text: "January" }, { text: "£95" } ]
+  - name: numeric
+    data:
+      caption: "Prescription prepayment certificate (PPC) charges"
+      head:
+        - { text: "Item" }
+        - { text: "Current charge", format: "numeric" }
+        - { text: "New charge", format: "numeric" }
+      rows:
+        - [ { text: "3-month" }, { text: "£31.25", format: "numeric" }, { text: "£32.05", format: "numeric" } ]
+  - name: row-headers
+    data:
+      caption: "Months and rates"
+      firstCellIsHeader: true
+      head:
+        - { text: "Month you apply" }
+        - { text: "Rate for vehicles" }
+      rows:
+        - [ { text: "January" }, { text: "£95" } ]
+        - [ { text: "February" }, { text: "£55" } ]
+  - name: missing-data
+    data:
+      caption: "Vaccinations given"
+      firstCellIsHeader: true
+      head:
+        - { text: "Date" }
+        - { text: "Vaccine" }
+        - { text: "Product" }
+      rows:
+        - [ { text: "10 July 2026" }, { text: "RSV" }, { text: "Abrysvo" } ]
+        - [ { text: "6 September 2023" }, { text: "Flu" }, { text: "No data", classes: "nhsw-body--secondary" } ]
+  - name: responsive
+    data:
+      caption: { text: "Vaccination schedule", size: "m" }
+      responsive: true
+      head:
+        - "Age"
+        - "Vaccine"
+        - "How it is given"
+      rows:
+        - [ "8 weeks", "6-in-1", "Injection" ]

@@ -1,0 +1,34 @@
+{#
+  nhswExpander(params)
+
+  params:
+    linkText    string   (required) - button text
+    text        string   - content, wrapped in <p class="nhsw-body"> (used if html is not set)
+    html        string   - content HTML, used as-is. Takes precedence over text.
+    id          string   (required) - base id, used for the content element id
+                          (referenced by aria-controls) - since nunjucks has no
+                          slugify filter, callers must supply this directly.
+    open        bool     - renders the expander open by default (initial
+                            aria-expanded="true", content not hidden)
+    classes     string   - extra classes
+    attributes  object   - extra HTML attributes
+
+  Static markup only - the click-to-toggle behaviour (toggling aria-expanded
+  on the button and hidden on the content div) is provided by existing JS
+  that hooks .nhsw-expander__button, keyed off aria-controls.
+#}
+{%- macro nhswExpander(params) -%}
+<div class="nhsw-expander{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <button type="button" class="nhsw-expander__button" aria-expanded="{{ 'true' if params.open else 'false' }}" aria-controls="{{ params.id }}">
+    <span class="nhsw-expander__icon" aria-hidden="true"></span>
+    <span class="nhsw-expander__link-text">{{ params.linkText }}</span>
+  </button>
+  <div class="nhsw-expander__content" id="{{ params.id }}"{% if not params.open %} hidden{% endif %}>
+{%- if params.html %}
+    {{ params.html | safe }}
+{%- else %}
+    <p class="nhsw-body">{{ params.text }}</p>
+{%- endif %}
+  </div>
+</div>
+{%- endmacro -%}

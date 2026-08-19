@@ -1,0 +1,38 @@
+name: Error message
+macro: nhswErrorMessage
+description: >
+  A validation error message for a form field. Placed inside the field's
+  nhsw-form-group and referenced by the field's aria-describedby, alongside
+  aria-invalid="true" on the field itself.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Error text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Error HTML. Takes precedence over text.
+  - name: id
+    type: string
+    required: false
+    description: id, referenced by the field's aria-describedby.
+  - name: visuallyHiddenText
+    type: string
+    required: false
+    description: >
+      Screen-reader-only prefix, defaults to "Error". Pass "" to omit it
+      entirely (e.g. if the surrounding content already announces it).
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "Enter your full name"
+      id: "full-name-error"

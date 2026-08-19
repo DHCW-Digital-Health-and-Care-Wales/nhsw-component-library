@@ -1,0 +1,117 @@
+name: Card
+macro: nhswCard
+description: >
+  A flexible content container built from one .nhsw-card shell, composed
+  from params to support clickable/non-clickable, icon, image, stat and
+  action-list variants rather than a fixed set of named variants.
+params:
+  - name: title
+    type: string
+    required: false
+    description: Title text (plain text).
+  - name: titleHref
+    type: string
+    required: false
+    description: >
+      If set, the title (or stat link) renders as a
+      nhsw-card__title-link anchor and the card becomes clickable. If not
+      set, the title renders as plain text.
+  - name: headingLevel
+    type: integer
+    required: false
+    description: 2/3/4/5. Defaults to 3. Controls the title tag; the class is always nhsw-card__title.
+  - name: description
+    type: string
+    required: false
+    description: Body text, wrapped in a <p class="nhsw-card__description">. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Free-form body HTML, used as-is instead of description. Takes precedence over description.
+  - name: stat
+    type: string
+    required: false
+    description: >
+      When set, renders a stat layout (nhsw-card__stat plus a
+      nhsw-card__title-link) instead of the normal title heading. Requires titleHref.
+  - name: icon
+    type: boolean|object
+    required: false
+    description: >
+      true renders a generic placeholder icon span; { html } renders custom
+      icon markup. Rendered inside the title heading, before the title.
+  - name: imageSrc
+    type: string
+    required: false
+    description: If set, renders an image as the first child of the card.
+  - name: imageAlt
+    type: string
+    required: false
+    description: Alt text for imageSrc. Defaults to "".
+  - name: actions
+    type: array
+    required: false
+    description: >
+      Array of { text, html, href } rendered as a list of plain links
+      (nhsw-link) before the title, e.g. Edit/Delete actions.
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Extra classes, e.g. nhsw-card--chevron (only meaningful on clickable
+      cards, i.e. when titleHref is set).
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: stat
+    data:
+      stat: "10"
+      title: "Link goes here"
+      titleHref: "/destination"
+  - name: basic-clickable
+    data:
+      title: "Manage appointments"
+      titleHref: "/appointments"
+      description: "View, change or cancel your upcoming appointments."
+  - name: chevron
+    data:
+      title: "Manage appointments"
+      titleHref: "/appointments"
+      description: "View, change or cancel your upcoming appointments."
+      classes: "nhsw-card--chevron"
+  - name: icon
+    data:
+      title: "Manage appointments"
+      titleHref: "/appointments"
+      description: "View, change or cancel your upcoming appointments."
+      icon: true
+  - name: image
+    data:
+      title: "Manage appointments"
+      titleHref: "/appointments"
+      description: "View, change or cancel your upcoming appointments."
+      imageSrc: "/assets/example.jpg"
+  - name: non-clickable
+    data:
+      title: "Current service status"
+      description: "There are no known issues affecting appointment bookings at this time."
+  - name: free-form-html
+    data:
+      title: "Berrylands Pharmacy"
+      html: "<p class=\"nhsw-body\">Some text with an <a class=\"nhsw-link\" href=\"#\">inline link</a>.</p>"
+  - name: actions
+    data:
+      title: "Template: Appointment invitation 1"
+      description: "Description text."
+      actions:
+        - text: "Edit"
+          href: "#"
+        - text: "Delete"
+          href: "#"
+  - name: heading-level
+    data:
+      title: "Heading level 3"
+      headingLevel: 3
+      description: "Card description text goes here"

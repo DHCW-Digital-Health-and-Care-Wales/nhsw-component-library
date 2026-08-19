@@ -1,0 +1,91 @@
+{#
+  nhswTable(params)
+
+  params:
+    caption           string|object (required) - table caption. As an object: { text, html, size }
+    captionSize       string  - caption size modifier: s|m|l|xl. Defaults to "m".
+                                 Ignored if caption is an object with its own size.
+    head              array   - column headers. Each item is a plain string, or an
+                                 object { text, html, format, classes }. format: "numeric"
+                                 right-aligns the header.
+    rows              array   - array of rows, each an array of cells. Each cell is a
+                                 plain string, or an object { text, html, format, classes }.
+                                 format: "numeric" right-aligns the cell.
+    firstCellIsHeader bool    - render the first cell of each row as a <th scope="row">
+                                 instead of a <td>.
+    responsive        bool    - render the responsive variant (nhsw-table-responsive),
+                                 with table/rowgroup/row/columnheader/rowheader/cell roles
+                                 and a hidden mobile-label span in each data cell. Implies
+                                 firstCellIsHeader.
+    classes           string  - extra classes
+    attributes        object  - extra HTML attributes
+#}
+{%- macro nhswTable(params) -%}
+{%- set responsive = params.responsive -%}
+{%- set firstCellIsHeader = params.firstCellIsHeader or responsive -%}
+{%- set caption = params.caption -%}
+{%- if caption and caption is mapping -%}
+  {%- set captionText = caption.text -%}
+  {%- set captionHtml = caption.html -%}
+  {%- set captionSize = caption.size or params.captionSize or "m" -%}
+{%- elif caption -%}
+  {%- set captionText = caption -%}
+  {%- set captionHtml = None -%}
+  {%- set captionSize = params.captionSize or "m" -%}
+{%- endif -%}
+<table class="{{ 'nhsw-table-responsive' if responsive else 'nhsw-table' }}{% if params.classes %} {{ params.classes }}{% endif %}"{% if responsive %} role="table"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if caption %}
+  <caption class="nhsw-table__caption nhsw-table__caption--{{ captionSize }}">{{ captionHtml | safe if captionHtml else captionText }}</caption>
+{%- endif %}
+  <thead class="nhsw-table__head"{% if responsive %} role="rowgroup"{% endif %}>
+    <tr class="nhsw-table__row"{% if responsive %} role="row"{% endif %}>
+{%- for cell in (params.head or []) %}
+{%- if cell is string %}
+  {%- set cellText = cell %}
+  {%- set cellHtml = None %}
+  {%- set cellFormat = None %}
+  {%- set cellClasses = None %}
+{%- else %}
+  {%- set cellText = cell.text %}
+  {%- set cellHtml = cell.html %}
+  {%- set cellFormat = cell.format %}
+  {%- set cellClasses = cell.classes %}
+{%- endif %}
+      <th scope="col" class="nhsw-table__header{% if cellFormat == 'numeric' %} nhsw-table__header--numeric{% endif %}{% if cellClasses %} {{ cellClasses }}{% endif %}"{% if responsive %} role="columnheader"{% endif %}>{{ cellHtml | safe if cellHtml else cellText }}</th>
+{%- endfor %}
+    </tr>
+  </thead>
+  <tbody class="nhsw-table__body"{% if responsive %} role="rowgroup"{% endif %}>
+{%- for row in (params.rows or []) %}
+    <tr class="nhsw-table__row"{% if responsive %} role="row"{% endif %}>
+{%- for cell in row %}
+{%- set headCell = (params.head or [])[loop.index0] %}
+{%- if headCell is string %}
+  {%- set headingLabel = headCell %}
+{%- elif headCell %}
+  {%- set headingLabel = headCell.text %}
+{%- else %}
+  {%- set headingLabel = "" %}
+{%- endif %}
+{%- if cell is string %}
+  {%- set cellText = cell %}
+  {%- set cellHtml = None %}
+  {%- set cellFormat = None %}
+  {%- set cellClasses = None %}
+{%- else %}
+  {%- set cellText = cell.text %}
+  {%- set cellHtml = cell.html %}
+  {%- set cellFormat = cell.format %}
+  {%- set cellClasses = cell.classes %}
+{%- endif %}
+{%- if firstCellIsHeader and loop.first %}
+      <th scope="row" class="nhsw-table__header{% if cellClasses %} {{ cellClasses }}{% endif %}"{% if responsive %} role="rowheader"{% endif %}>{% if responsive %}<span class="nhsw-table-responsive__heading" aria-hidden="true">{{ headingLabel }} </span>{% endif %}{{ cellHtml | safe if cellHtml else cellText }}</th>
+{%- else %}
+      <td class="nhsw-table__cell{% if cellFormat == 'numeric' %} nhsw-table__cell--numeric{% endif %}{% if cellClasses %} {{ cellClasses }}{% endif %}"{% if responsive %} role="cell"{% endif %}>{% if responsive %}<span class="nhsw-table-responsive__heading" aria-hidden="true">{{ headingLabel }} </span>{% endif %}{{ cellHtml | safe if cellHtml else cellText }}</td>
+{%- endif %}
+{%- endfor %}
+    </tr>
+{%- endfor %}
+  </tbody>
+</table>
+{%- endmacro -%}

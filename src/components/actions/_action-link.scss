@@ -4,13 +4,16 @@
 @use "../../utilities/breakpoints" as b;
 
 // Matches Figma's "Links/link-hover" swatch for this component's hover
-// state — the icon stays link-blue on hover; only the text recolours.
+// state on a light background — the icon stays link-blue on hover; only
+// the text recolours. On dark backgrounds (--on-dark) the hover text stays
+// white, the same as the default state — see the --on-dark block below.
 $nhsw-colour-action-link-hover-text: #7c2855;
 
 .nhsw-action-link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
+  color: c.$nhsw-colour-link;
   text-decoration: none;
 
   &:hover {
@@ -28,7 +31,10 @@ $nhsw-colour-action-link-hover-text: #7c2855;
 
     .nhsw-action-link__text {
       color: c.$nhsw-colour-focus-text;
-      text-decoration: none;
+      text-decoration: underline;
+      text-decoration-color: c.$nhsw-colour-text-primary;
+      text-decoration-thickness: max(3px, 0.1875rem);
+      text-underline-offset: 0.12em;
     }
 
     .nhsw-action-link__icon {
@@ -36,9 +42,17 @@ $nhsw-colour-action-link-hover-text: #7c2855;
     }
   }
 
+  // Browsers only ever apply a :visited style to the element it directly
+  // matches (privacy restriction) — never to a descendant selector like
+  // ".nhsw-action-link:visited .nhsw-action-link__text". So this sets colour
+  // on the link itself, and .nhsw-action-link__text inherits it below.
   &:visited {
+    color: c.$nhsw-colour-text-primary;
+  }
+
+  &:active {
     .nhsw-action-link__text {
-      color: c.$nhsw-colour-text-primary;
+      text-decoration: underline;
     }
   }
 
@@ -51,10 +65,12 @@ $nhsw-colour-action-link-hover-text: #7c2855;
   }
 
   &__text {
-    color: c.$nhsw-colour-link;
+    color: inherit;
     font-size: t.$nhsw-font-size-h4-mobile;
     font-weight: t.$nhsw-font-weight-bold;
     line-height: t.$nhsw-line-height-h4-mobile;
+    overflow-wrap: break-word;
+    min-width: 0;
 
     @include b.nhsw-from-tablet {
       font-size: t.$nhsw-font-size-h4;
@@ -83,20 +99,27 @@ $nhsw-colour-action-link-hover-text: #7c2855;
   }
 
   &--on-dark {
+    color: c.$nhsw-colour-text-exceptional;
+
     .nhsw-action-link__icon {
       fill: c.$nhsw-colour-background-white;
     }
 
-    .nhsw-action-link__text {
-      color: c.$nhsw-colour-text-exceptional;
-    }
-
-    &:visited .nhsw-action-link__text {
+    &:visited {
       color: c.$nhsw-colour-text-exceptional;
     }
 
     &:hover .nhsw-action-link__icon {
       fill: c.$nhsw-colour-background-white;
+    }
+
+    // On dark backgrounds the hover text stays white — the same as the
+    // default state — rather than the light-background hover colour above.
+    &:hover .nhsw-action-link__text {
+      color: c.$nhsw-colour-text-exceptional;
+      text-decoration: underline;
+      text-decoration-thickness: max(3px, 0.1875rem);
+      text-underline-offset: 0.12em;
     }
   }
 }

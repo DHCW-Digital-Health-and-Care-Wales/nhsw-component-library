@@ -24,7 +24,7 @@ tabs:
       <ol class="nhsw-breadcrumb__list">
         <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
         <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
-        <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">Hospitals</a></li>
+        <li class="nhsw-breadcrumb__item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
       </ol>
     </nav>
   {% endraw %}{% endcapture %}
@@ -37,7 +37,7 @@ tabs:
   &lt;ol class="nhsw-breadcrumb__list"&gt;
     &lt;li class="nhsw-breadcrumb__item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
     &lt;li class="nhsw-breadcrumb__item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/nhs-services"&gt;NHS services&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="nhsw-breadcrumb__item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/hospitals"&gt;Hospitals&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-breadcrumb__item"&gt;&lt;span class="nhsw-breadcrumb__current" aria-current="page"&gt;Hospitals&lt;/span&gt;&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "breadcrumb/macro.njk" import nhswBreadcrumb %}
@@ -100,7 +100,7 @@ tabs:
       <ol class="nhsw-breadcrumb__list">
         <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
         <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
-        <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="#">Hospitals</a></li>
+        <li class="nhsw-breadcrumb__item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
       </ol>
     </nav>
   {% endraw %}{% endcapture %}

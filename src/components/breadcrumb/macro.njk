@@ -1,0 +1,33 @@
+{#
+  nhswBreadcrumb(params)
+
+  params:
+    items           array   (required) - [{ text, href }], ordered root-to-current
+    mobileBackText  string  - override the mobile "Back to X" link text
+    classes         string  - extra classes, e.g. "nhsw-breadcrumb--reverse"
+    attributes      object  - extra HTML attributes
+
+  When items has 2 or more entries, a mobile-only "Back to <parent>" link is
+  rendered above the full breadcrumb list, pointing at the second-to-last
+  item (the parent of the current page).
+#}
+{%- macro nhswBreadcrumb(params) -%}
+{%- set items = params.items or [] -%}
+<nav class="nhsw-breadcrumb{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="breadcrumb"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if items.length >= 2 %}
+{%- set parent = items[items.length - 2] %}
+  <p class="nhsw-breadcrumb__mobile-back">
+    <a class="nhsw-link" href="{{ parent.href }}">&larr; {{ params.mobileBackText or ("Back to " ~ parent.text) }}</a>
+  </p>
+{%- endif %}
+  <ol class="nhsw-breadcrumb__list">
+{%- for item in items %}
+{%- if loop.last %}
+    <li class="nhsw-breadcrumb__item"><span class="nhsw-breadcrumb__current" aria-current="page">{{ item.text }}</span></li>
+{%- else %}
+    <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="{{ item.href }}">{{ item.text }}</a></li>
+{%- endif %}
+{%- endfor %}
+  </ol>
+</nav>
+{%- endmacro -%}

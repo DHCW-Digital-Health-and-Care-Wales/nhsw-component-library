@@ -1,0 +1,36 @@
+name: Warning text
+macro: nhswWarningText
+description: >
+  Highlights a short but important piece of text, such as a deadline or
+  legal warning, with a warning icon.
+params:
+  - name: text
+    type: string
+    required: true
+    description: Warning text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Warning HTML. Takes precedence over text.
+  - name: iconFallbackText
+    type: string
+    required: false
+    description: Visually-hidden prefix read out before the warning. Defaults to "Warning".
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. nhsw-warning-text--on-dark.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "You must appeal within 1 year of getting your decision letter."
+      iconFallbackText: "Warning"
+  - name: on-dark
+    data:
+      text: "You must appeal within 1 year of getting your decision letter."
+      iconFallbackText: "Warning"
+      classes: "nhsw-warning-text--on-dark"

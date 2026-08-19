@@ -1,0 +1,41 @@
+{%- from "label/macro.njk" import nhswLabel -%}
+{%- from "hint/macro.njk" import nhswHint -%}
+{%- from "error-message/macro.njk" import nhswErrorMessage -%}
+
+{#
+  nhswDatePicker(params) - renders only the minimal hook markup for the
+  nhsw-date-picker progressive-enhancement JS module (dist/nhsw-date-picker.js),
+  not a full generated calendar.
+
+  params:
+    id             string   (required)
+    name           string   - defaults to id
+    label          object   - { text, html }
+    hint           object   - { text, html }
+    errorMessage   object   - { text, html, visuallyHiddenText, classes, attributes }
+    value          string   - initial value, format DD-MMM-YYYY -> data-value
+    disabled       boolean  - adds a bare data-disabled attribute when true
+    classes        string   - extra classes on the .nhsw-date-picker hook div
+    attributes     object   - extra HTML attributes on the .nhsw-date-picker hook div
+#}
+{%- macro nhswDatePicker(params) -%}
+{%- set name = params.name or params.id -%}
+{%- set hintId = params.id + "-hint" -%}
+{%- set errorId = params.id + "-error" -%}
+{%- set describedByParts = [] -%}
+{%- if params.hint %}{% set describedByParts = describedByParts.concat([hintId]) %}{% endif -%}
+{%- if params.errorMessage %}{% set describedByParts = describedByParts.concat([errorId]) %}{% endif -%}
+{%- set describedBy = describedByParts | join(" ") -%}
+<div class="nhsw-form-group{% if params.errorMessage %} nhsw-form-group--error{% endif %}">
+{%- if params.label %}
+  {{ nhswLabel({ text: params.label.text, html: params.label.html, for: params.id }) }}
+{%- endif %}
+{%- if params.hint %}
+  {{ nhswHint({ text: params.hint.text, html: params.hint.html, id: hintId }) }}
+{%- endif %}
+{%- if params.errorMessage %}
+  {{ nhswErrorMessage({ text: params.errorMessage.text, html: params.errorMessage.html, id: errorId, visuallyHiddenText: params.errorMessage.visuallyHiddenText, classes: params.errorMessage.classes, attributes: params.errorMessage.attributes }) }}
+{%- endif %}
+  <div class="nhsw-date-picker{% if params.classes %} {{ params.classes }}{% endif %}" data-module="nhsw-date-picker" data-input-id="{{ params.id }}" data-input-name="{{ name }}"{% if describedBy %} data-describedby="{{ describedBy }}"{% endif %}{% if params.value %} data-value="{{ params.value }}"{% endif %}{% if params.disabled %} data-disabled{% endif %}{% if params.errorMessage %} data-invalid{% endif %}{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}></div>
+</div>
+{%- endmacro -%}

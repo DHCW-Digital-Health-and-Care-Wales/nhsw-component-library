@@ -1,0 +1,74 @@
+name: Date picker
+macro: nhswDatePicker
+description: >
+  Renders the minimal hook markup for the nhsw-date-picker progressive
+  enhancement JS module (dist/nhsw-date-picker.js), which builds a full
+  calendar widget from it at runtime. The macro itself renders only the
+  hook div, not a generated calendar.
+params:
+  - name: id
+    type: string
+    required: true
+  - name: name
+    type: string
+    required: false
+    description: Defaults to id.
+  - name: label
+    type: object
+    required: false
+    description: "{ text, html }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html }"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: value
+    type: string
+    required: false
+    description: Initial value, format DD-MMM-YYYY, rendered as data-value.
+  - name: disabled
+    type: boolean
+    required: false
+    description: Adds a bare data-disabled attribute when true.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes on the .nhsw-date-picker hook div.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes on the .nhsw-date-picker hook div.
+examples:
+  - name: default
+    data:
+      id: "booking-date"
+      label:
+        text: "Booking date"
+      hint:
+        text: "For example, 27-Jun-2025"
+  - name: with-value
+    data:
+      id: "booking-date-2"
+      label:
+        text: "Booking date"
+      hint:
+        text: "For example, 27-Jun-2025"
+      value: "27-Jun-2025"
+  - name: error
+    data:
+      id: "booking-date-3"
+      label:
+        text: "Booking date"
+      hint:
+        text: "For example, 27-Jun-2025"
+      errorMessage:
+        text: "Enter a booking date"
+  - name: disabled
+    data:
+      id: "booking-date-4"
+      label:
+        text: "Booking date"
+      disabled: true

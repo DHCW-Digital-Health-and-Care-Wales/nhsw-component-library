@@ -1,0 +1,37 @@
+name: Fieldset
+macro: nhswFieldset
+description: >
+  Groups related form fields (e.g. radios, checkboxes, date parts) under a
+  single legend. Call with {% call %}...{% endcall %} to supply the fields
+  as the fieldset's content. Used internally by nhswRadios, nhswCheckboxes
+  and nhswDateInput.
+params:
+  - name: legend
+    type: object
+    required: false
+    description: >
+      { text, html, classes }. classes defaults to "nhsw-h2" (heading-styled
+      legend, matching the library's reference markup).
+  - name: role
+    type: string
+    required: false
+    description: e.g. "group" (used by date-input).
+  - name: describedBy
+    type: string
+    required: false
+    description: id(s) for aria-describedby, e.g. "dob-hint dob-error".
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes on the <fieldset>.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    call: true
+    data:
+      legend:
+        text: "How do you want to be contacted about this?"
+    content: "<p>Fieldset content</p>"

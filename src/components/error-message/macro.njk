@@ -1,0 +1,15 @@
+{#
+  nhswErrorMessage(params)
+
+  params:
+    text                 string  - error text (used if html is not set)
+    html                 string  - error HTML (takes precedence over text)
+    id                   string  - id, referenced by the field's aria-describedby
+    visuallyHiddenText   string  - screen-reader-only prefix, defaults to "Error"; pass "" to omit
+    classes              string  - extra classes
+    attributes           object  - extra HTML attributes
+#}
+{%- macro nhswErrorMessage(params) -%}
+{%- set vht = "Error" if params.visuallyHiddenText == undefined else params.visuallyHiddenText -%}
+<p class="nhsw-error-message{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{% if vht %}<span class="nhsw-visually-hidden">{{ vht }}: </span>{% endif %}{{ params.html | safe if params.html else params.text }}</p>
+{%- endmacro -%}

@@ -1,0 +1,47 @@
+name: Timeout
+macro: nhswTimeout
+description: >
+  A session timeout warning dialog with a live countdown and a dismiss
+  button. Renders static initial markup only; shipped JS drives the
+  countdown, the live region and the dismiss button.
+params:
+  - name: titleText
+    type: string
+    required: true
+    description: Dialog title.
+  - name: countdownSeconds
+    type: integer
+    required: true
+    description: Initial seconds remaining, written to data-seconds for the JS timer.
+  - name: countdownText
+    type: string
+    required: true
+    description: 'Human-readable initial countdown text, e.g. "1 minute and 49 seconds".'
+  - name: dismissButtonText
+    type: string
+    required: false
+    description: Defaults to "Stay logged in".
+  - name: id
+    type: string
+    required: false
+    description: Base id for the dialog's title/description. Defaults to "timeout".
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      titleText: "You will be logged out soon"
+      countdownSeconds: 109
+      countdownText: "1 minute and 49 seconds"
+  - name: mobile
+    data:
+      id: "timeout-mobile"
+      titleText: "You will be logged out soon"
+      countdownSeconds: 109
+      countdownText: "1 minute and 49 seconds"

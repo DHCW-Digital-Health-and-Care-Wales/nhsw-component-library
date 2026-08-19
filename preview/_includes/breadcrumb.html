@@ -1,9 +1,21 @@
+{% assign on_components_index = false %}
+{% if page.url == '/components/' or page.url == '/components/index.html' %}{% assign on_components_index = true %}{% endif %}
 <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
   <p class="nhsw-breadcrumb__mobile-back">
+    {% if on_components_index %}
+    <a class="nhsw-link" href="{{ '/index.html' | relative_url }}">&larr; Back to Home</a>
+    {% else %}
     <a class="nhsw-link" href="{{ '/components/index.html' | relative_url }}">&larr; Back to Components</a>
+    {% endif %}
   </p>
   <ol class="nhsw-breadcrumb__list">
     <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="{{ '/index.html' | relative_url }}">Home</a></li>
-    <li class="nhsw-breadcrumb__item"><a class="nhsw-breadcrumb__link" href="{{ '/components/index.html' | relative_url }}">Components</a></li>
+    <li class="nhsw-breadcrumb__item">
+      {% if on_components_index %}
+      <span class="nhsw-breadcrumb__current" aria-current="page">Components</span>
+      {% else %}
+      <a class="nhsw-breadcrumb__link" href="{{ '/components/index.html' | relative_url }}">Components</a>
+      {% endif %}
+    </li>
   </ol>
 </nav>

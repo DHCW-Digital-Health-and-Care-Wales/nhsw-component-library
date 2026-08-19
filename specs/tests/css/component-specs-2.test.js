@@ -31,9 +31,15 @@ describe('action link matches Figma Action link component (icon+text row)', () =
 
   it('default state is fully link-blue (icon and text), not the old invented green', () => {
     const icon = block(css, '\\.nhsw-action-link__icon');
+    const link = block(css, '\\.nhsw-action-link');
     const text = block(css, '\\.nhsw-action-link__text');
     expect(icon).toMatch(/fill:\s*#005aa8/);
-    expect(text).toMatch(/color:\s*#005aa8/);
+    // Text colour is set on the link itself and inherited by .__text, rather
+    // than redeclared directly on .__text — :visited can only ever restyle
+    // the element it matches, never a descendant, so the colour has to live
+    // on .nhsw-action-link for the :visited state to work at all.
+    expect(link).toMatch(/color:\s*#005aa8/);
+    expect(text).toMatch(/color:\s*inherit/);
   });
 
   it('hover recolours the text to #7c2855 but leaves the icon link-blue', () => {

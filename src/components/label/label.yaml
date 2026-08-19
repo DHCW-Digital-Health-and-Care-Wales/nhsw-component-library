@@ -1,0 +1,43 @@
+name: Label
+macro: nhswLabel
+description: >
+  A label for a form field. Used standalone or composed inside field
+  macros such as nhswInput, nhswTextarea and nhswSelect.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Label text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Label HTML. Takes precedence over text.
+  - name: for
+    type: string
+    required: false
+    description: id of the field this label is associated with.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. "nhsw-label--xl" for a page-question label.
+  - name: isPageHeading
+    type: boolean
+    required: false
+    description: >
+      Documents that this label is standing in for the page's <h1>.
+      Combine with classes "nhsw-label--xl".
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes to add to the <label>.
+examples:
+  - name: default
+    data:
+      text: "What is your full name?"
+      for: "full-name"
+  - name: page-heading
+    data:
+      text: "What is your full name?"
+      for: "full-name"
+      classes: "nhsw-label--xl"
+      isPageHeading: true

@@ -1,0 +1,31 @@
+name: Hint
+macro: nhswHint
+description: >
+  Hint text for a form field. Used standalone or composed inside field
+  macros. Its id is referenced by the field's aria-describedby.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Hint text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Hint HTML. Takes precedence over text.
+  - name: id
+    type: string
+    required: false
+    description: id, referenced by the field's aria-describedby.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. "nhsw-checkboxes__hint" for a per-item hint.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "Hint text goes here"
+      id: "field-hint"

@@ -1,0 +1,26 @@
+{#
+  nhswWarningCallout(params)
+
+  params:
+    heading      string  (required) - callout heading text (used if headingHtml is not set)
+    headingHtml  string  - callout heading HTML (takes precedence over heading)
+    text         string  - content text, wrapped in <p class="nhsw-body"> (used if html is not set)
+    html         string  - content HTML (takes precedence over text), rendered as-is
+    classes      string  - extra classes, e.g. "nhsw-warning-callout--important"
+    attributes   object  - extra HTML attributes
+#}
+{%- macro nhswWarningCallout(params) -%}
+<div class="nhsw-warning-callout{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <h3 class="nhsw-warning-callout__heading">
+    <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
+    {{ params.headingHtml | safe if params.headingHtml else params.heading }}
+  </h3>
+  <div class="nhsw-warning-callout__content">
+{%- if params.html %}
+    {{ params.html | safe }}
+{%- else %}
+    <p class="nhsw-body">{{ params.text }}</p>
+{%- endif %}
+  </div>
+</div>
+{%- endmacro -%}

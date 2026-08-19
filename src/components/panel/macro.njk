@@ -1,0 +1,28 @@
+{#
+  nhswPanel(params)
+
+  params:
+    titleText   string   (required) - panel heading text
+    titleSize   string   - "m" (default) or "l". "l" adds nhsw-panel__title--l
+                            and, unless icon is explicitly set, omits the icon svg.
+    html        string   (required unless text is set) - body HTML, used as-is
+    text        string   - body text, alternative to html
+    icon        bool     - whether to render the tick icon svg. Defaults to
+                            true, unless titleSize is "l" (defaults to false).
+    classes     string   - extra classes, e.g. "nhsw-panel--navy"
+    attributes  object   - extra HTML attributes
+#}
+{%- macro nhswPanel(params) -%}
+{%- set showIcon = params.icon if params.icon is defined else (params.titleSize != "l") -%}
+<div class="nhsw-panel{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if showIcon %}
+  <svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+    <path d="M4 12l5 5L20 6" />
+  </svg>
+{%- endif %}
+  <h1 class="nhsw-panel__title{% if params.titleSize == 'l' %} nhsw-panel__title--l{% endif %}">{{ params.titleText }}</h1>
+  <div class="nhsw-panel__body">
+    {{ params.html | safe if params.html else params.text }}
+  </div>
+</div>
+{%- endmacro -%}

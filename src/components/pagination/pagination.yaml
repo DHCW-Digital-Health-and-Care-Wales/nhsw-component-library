@@ -1,0 +1,80 @@
+name: Pagination
+macro: nhswPagination
+description: >
+  Page navigation, in 2 variants: numbered page links with previous/next
+  arrows and ellipses, or a content previous/next variant showing the
+  adjacent page's title.
+params:
+  - name: variant
+    type: string
+    required: false
+    description: '"numbered" for the numbered variant, or unset for the content previous/next variant.'
+  - name: previous
+    type: object
+    required: false
+    description: >
+      Numbered variant: { href }. Content variant: { href, title, label }
+      (title defaults to "Previous", label is the page name). Omitted
+      entirely if not given, e.g. on the first page.
+  - name: next
+    type: object
+    required: false
+    description: >
+      Numbered variant: { href }. Content variant: { href, title, label }
+      (title defaults to "Next", label is the page name). Omitted entirely
+      if not given, e.g. on the last page.
+  - name: items
+    type: array
+    required: false
+    description: >
+      Numbered variant only. List of either { number, href, current } or
+      { ellipsis: true }.
+  - name: ariaLabel
+    type: string
+    required: false
+    description: Defaults to "Pagination".
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: content-previous-and-next
+    data:
+      previous: { title: "Previous", label: "Treatments", href: "/treatments" }
+      next: { title: "Next", label: "Symptoms", href: "/symptoms" }
+  - name: content-next-only
+    data:
+      next: { title: "Next", label: "About the condition", href: "/about" }
+  - name: numbered-with-ellipsis
+    data:
+      variant: "numbered"
+      previous: { href: "/page/9" }
+      next: { href: "/page/11" }
+      items:
+        - { number: 1, href: "/page/1" }
+        - { ellipsis: true }
+        - { number: 9, href: "/page/9" }
+        - { number: 10, href: "/page/10", current: true }
+        - { number: 11, href: "/page/11" }
+        - { ellipsis: true }
+        - { number: 42, href: "/page/42" }
+  - name: numbered-first-page
+    data:
+      variant: "numbered"
+      next: { href: "/page/2" }
+      items:
+        - { number: 1, href: "/page/1", current: true }
+        - { number: 2, href: "/page/2" }
+        - { number: 3, href: "/page/3" }
+  - name: numbered-last-page
+    data:
+      variant: "numbered"
+      previous: { href: "/page/2" }
+      items:
+        - { number: 1, href: "/page/1" }
+        - { number: 2, href: "/page/2" }
+        - { number: 3, href: "/page/3", current: true }

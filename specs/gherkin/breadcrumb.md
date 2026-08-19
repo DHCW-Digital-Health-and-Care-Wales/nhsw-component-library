@@ -44,6 +44,48 @@ Feature: Breadcrumb — manual verification
     Given a breadcrumb trail
     When a screen reader reads it out
     Then each link is announced by its page name, not just "link, link, link"
+
+  @manual
+  Scenario: Current page is not a link
+    Given a breadcrumb trail
+    When it is displayed
+    Then the current page is shown as text and is not a clickable link
+
+  @manual
+  Scenario: Keyboard focus is visible (WCAG 2.2 SC 2.4.7)
+    Given a breadcrumb link
+    When it receives keyboard focus
+    Then a visible focus indicator appears, on both light and dark backgrounds
+
+  @manual
+  Scenario: Links can be navigated using the keyboard
+    Given a breadcrumb trail
+    When a keyboard user tabs through the page
+    Then each breadcrumb link can receive focus and be activated
+
+  @manual
+  Scenario: Breadcrumb wraps correctly on smaller screens
+    Given a breadcrumb trail with several long items
+    When it doesn't fit on one line
+    Then it wraps onto a second line without overlapping content
+
+  @manual
+  Scenario: Long breadcrumb labels remain readable
+    Given a breadcrumb item with an unusually long, unbroken label
+    Then it breaks onto multiple lines rather than overflowing the page sideways
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a page containing breadcrumbs
+    When browser zoom is increased to 200%, then 400%
+    Then the breadcrumbs remain readable and usable without loss of content
+
+  @manual
+  Scenario: Hover state is clear and consistent with other links
+    Given a breadcrumb link
+    When a user hovers over it
+    Then the hover state is visually apparent and consistent with other links
+    But the current-page text does not react to hover
 ```
 
 ## Additional implementation advice

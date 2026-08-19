@@ -100,4 +100,61 @@ Feature: Action link — manual verification
     Given an action link with a decorative icon
     When a screen reader reads it out
     Then only the link text is announced, with no extra description of the icon
+
+  @manual
+  Scenario: Text wraps correctly on smaller screens
+    Given an action link with a long label
+    When it is viewed on a narrow viewport
+    Then the text wraps onto multiple lines instead of overflowing sideways
+
+  @manual
+  Scenario: Icon stays aligned with the first line when the label wraps
+    Given an action link with a label that wraps onto multiple lines
+    Then the icon lines up with the top of the first line of text
+    And it does not float in the vertical centre of the whole wrapped block
+
+  @manual
+  Scenario: Action link does not overflow its container
+    Given an action link whose label is a single very long word with no spaces
+    Then it breaks within the word rather than forcing horizontal scroll
+
+  @manual
+  Scenario: Touch target remains usable on mobile
+    Given an action link on a touch device or narrow viewport
+    Then the whole icon-plus-text area is easy to tap without hitting a neighbouring link
+
+  @manual
+  Scenario: Keyboard focus is clearly visible around the whole link (WCAG 2.2 SC 2.4.7)
+    Given an action link
+    When it receives keyboard focus
+    Then a solid focus highlight covers the full icon-plus-text area
+    And the text gets an underline in the same colour as the icon
+
+  @manual
+  Scenario: Visited links are visually distinguishable
+    Given an action link that has already been visited
+    Then its text colour is visually distinct from an unvisited action link
+
+  @manual
+  Scenario: A pressed/active state is visible
+    Given an action link
+    When it is pressed with a mouse or activated on a touch device
+    Then the text underlines immediately, before navigation happens
+
+  @manual
+  Scenario: Icon and text act as a single interactive target
+    Given an action link containing an icon and text
+    When a user clicks or taps either the icon or the text
+    Then the same link action is triggered
+
+  @manual
+  Scenario: Remains usable at 200% and 400% browser zoom (WCAG 2.2 SC 1.4.10)
+    Given an action link
+    When the browser is zoomed to 200%, then 400%
+    Then the link stays fully readable and clickable without overlapping neighbouring content
+
+  @manual
+  Scenario: Link length stress test
+    Given action links with short, medium and very long labels shown together
+    Then all of them keep the same icon-to-text gap and alignment rules
 ```

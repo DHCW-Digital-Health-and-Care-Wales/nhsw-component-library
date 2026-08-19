@@ -1,0 +1,36 @@
+name: Action link
+macro: nhswActionLink
+description: >
+  A prominent link with a blue circle arrow icon, used to signpost users to
+  key services or next steps.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Link text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Link HTML. Takes precedence over text.
+  - name: href
+    type: string
+    required: true
+    description: Link destination.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. nhsw-action-link--on-dark.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "Action link"
+      href: "/apply"
+  - name: on-dark
+    data:
+      text: "Action link"
+      href: "/apply"
+      classes: "nhsw-action-link--on-dark"

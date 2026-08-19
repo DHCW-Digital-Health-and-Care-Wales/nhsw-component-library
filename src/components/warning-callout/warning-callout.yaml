@@ -1,0 +1,42 @@
+name: Warning callout
+macro: nhswWarningCallout
+description: >
+  A prominent boxed-out callout used to highlight important information,
+  such as safeguarding advice, that users must not miss.
+params:
+  - name: heading
+    type: string
+    required: true
+    description: Callout heading text. Ignored if headingHtml is set.
+  - name: headingHtml
+    type: string
+    required: false
+    description: Callout heading HTML. Takes precedence over heading.
+  - name: text
+    type: string
+    required: false
+    description: >
+      Content text, wrapped in a <p class="nhsw-body">. Ignored if html is
+      set.
+  - name: html
+    type: string
+    required: false
+    description: Content HTML, rendered as-is. Takes precedence over text.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. nhsw-warning-callout--important.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      heading: "School, nursery or work"
+      html: "<p class=\"nhsw-body\">Speak to your school, nursery or workplace if you or your child has a rash, high temperature or feels unwell.</p>"
+  - name: important
+    data:
+      heading: "Important information"
+      classes: "nhsw-warning-callout--important"
+      html: "<p class=\"nhsw-body\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"

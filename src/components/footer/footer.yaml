@@ -1,0 +1,68 @@
+name: Footer
+macro: nhswFooter
+description: >
+  The site-wide footer. Defaults to a links/copyright layout, optionally
+  preceded by navigation columns. Alternatively, set organisation and/or
+  versionText to render a simpler org/version footer instead (mutually
+  exclusive with links/navigation).
+params:
+  - name: links
+    type: array
+    required: false
+    description: >
+      [{text, href}] links shown in the default copyright/links mode.
+  - name: copyrightText
+    type: string
+    required: false
+    description: >
+      Copyright text. Defaults to "&copy; Digital Health and Care Wales".
+  - name: navigation
+    type: array
+    required: false
+    description: >
+      [{ heading, items: [{text, href}] }] navigation columns, shown above
+      the links block. Only meaningful alongside links.
+  - name: organisation
+    type: string
+    required: false
+    description: >
+      Organisation name for the org/version mode. Mutually exclusive with
+      links/navigation.
+  - name: versionText
+    type: string
+    required: false
+    description: >
+      Version text for the org/version mode. Mutually exclusive with
+      links/navigation.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      links:
+        - text: "Accessibility statement"
+          href: "/accessibility"
+        - text: "Service guidance (opens in a new tab)"
+          href: "/guidance"
+  - name: org-version
+    data:
+      organisation: "Digital Health and Care Wales"
+      versionText: "Product version information"
+  - name: with-navigation
+    data:
+      navigation:
+        - heading: "Services"
+          items:
+            - text: "Book an appointment"
+              href: "/appointments"
+      links:
+        - text: "Accessibility statement"
+          href: "/accessibility"
+        - text: "Service guidance (opens in a new tab)"
+          href: "/guidance"

@@ -1,0 +1,68 @@
+{#
+  nhswCard(params)
+
+  A single flexible shell (.nhsw-card) composed from params rather than a
+  fixed set of variants:
+
+    title         string   - title text (plain text, no html variant)
+    titleHref     string   - if set, the title (or stat link) renders as an
+                              <a class="nhsw-card__title-link">, and the card
+                              is clickable. If not set, title renders as
+                              plain text (non-clickable card).
+    headingLevel  integer  - 2/3/4/5, defaults to 3. Controls the title tag
+                              (h2/h3/h4/h5); the class is always nhsw-card__title.
+    description   string   - body text, wrapped in <p class="nhsw-card__description">
+    html          string   - free-form body HTML, used as-is instead of
+                              description. Takes precedence over description.
+    stat          string   - when set, renders a stat layout
+                              (<span class="nhsw-card__stat">) with a
+                              nhsw-card__title-link INSTEAD of the normal
+                              heading. Requires titleHref.
+    icon          bool|obj - true renders a generic placeholder icon span;
+                              { html } renders custom icon markup. Prepended
+                              inside the title heading, before the title text/link.
+    imageSrc      string   - if set, renders an <img class="nhsw-card__image">
+                              as the very first child of the card.
+    imageAlt      string   - alt text for imageSrc, defaults to "".
+    actions       array    - [{ text, html, href }], rendered as a
+                              <ul class="nhsw-card__actions"> of plain links,
+                              placed as the first child of the card.
+    classes       string   - extra classes, e.g. "nhsw-card--chevron"
+                              (only meaningful on clickable cards)
+    attributes    object   - extra HTML attributes
+#}
+{%- macro nhswCard(params) -%}
+{%- set headingTag = "h" ~ (params.headingLevel or 3) -%}
+<div class="nhsw-card{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if params.actions %}
+  <ul class="nhsw-card__actions">
+{%- for action in params.actions %}
+    <li><a class="nhsw-link" href="{{ action.href }}">{{ action.html | safe if action.html else action.text }}</a></li>
+{%- endfor %}
+  </ul>
+{%- endif %}
+{%- if params.imageSrc %}
+  <img class="nhsw-card__image" src="{{ params.imageSrc }}" alt="{{ params.imageAlt or '' }}">
+{%- endif %}
+{%- if params.stat %}
+  <span class="nhsw-card__stat">{{ params.stat }}</span>
+  <a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>
+{%- else %}
+  <{{ headingTag }} class="nhsw-card__title">
+{%- if params.icon %}
+    <span class="nhsw-card__icon" aria-hidden="true">{{ params.icon.html | safe if params.icon.html is defined else "i" }}</span>
+{%- endif %}
+{%- if params.titleHref %}
+    <a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>
+{%- else %}
+    {{ params.title }}
+{%- endif %}
+  </{{ headingTag }}>
+{%- endif %}
+{%- if params.html %}
+  {{ params.html | safe }}
+{%- elif params.description %}
+  <p class="nhsw-card__description">{{ params.description }}</p>
+{%- endif %}
+</div>
+{%- endmacro -%}

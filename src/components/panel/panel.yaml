@@ -1,0 +1,53 @@
+name: Panel
+macro: nhswPanel
+description: >
+  A confirmation panel used to highlight the successful completion of a
+  task, such as submitting an application, along with any reference details.
+params:
+  - name: titleText
+    type: string
+    required: true
+    description: Panel heading text.
+  - name: titleSize
+    type: string
+    required: false
+    description: >
+      "m" (default) or "l". "l" adds nhsw-panel__title--l and, unless icon
+      is explicitly set, omits the icon.
+  - name: html
+    type: string
+    required: false
+    description: Body HTML, used as-is. Required unless text is set.
+  - name: text
+    type: string
+    required: false
+    description: Body text, an alternative to html.
+  - name: icon
+    type: boolean
+    required: false
+    description: >
+      Whether to render the tick icon. Defaults to true, unless titleSize
+      is "l" (defaults to false).
+  - name: classes
+    type: string
+    required: false
+    description: "Extra classes. Colourway modifier: nhsw-panel--navy."
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      titleText: "Application complete"
+      html: "Your reference number<br><strong>HDJ2123F</strong>"
+  - name: navy
+    data:
+      titleText: "Application complete"
+      html: "Your reference number<br><strong>HDJ2123F</strong>"
+      classes: "nhsw-panel--navy"
+  - name: large-title
+    data:
+      titleText: "Application complete"
+      titleSize: "l"
+      html: "Your reference number<br><strong>HDJ2123F</strong>"

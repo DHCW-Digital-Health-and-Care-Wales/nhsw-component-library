@@ -1,0 +1,132 @@
+name: Checkboxes
+macro: nhswCheckboxes
+description: >
+  A group of checkboxes for selecting one or more options from a list,
+  wrapped in a fieldset. Supports item-level hints, conditional reveals,
+  dividers, an exclusive ("none of these") option, and inline/small layouts.
+params:
+  - name: fieldset
+    type: object
+    required: false
+    description: "{ legend: { text, html, classes } }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes } - hint for the whole group"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Extra classes on the .nhsw-checkboxes container, e.g. nhsw-checkboxes--inline,
+      nhsw-checkboxes--small.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes on the .nhsw-checkboxes container.
+  - name: name
+    type: string
+    required: true
+    description: Shared name attribute for all checkbox items.
+  - name: idPrefix
+    type: string
+    required: false
+    description: Defaults to name. Base for auto-generated item ids ({idPrefix}-{n}).
+  - name: items
+    type: array
+    required: true
+    description: >
+      [{ text, html, value, id, checked, disabled, hint: { text, html },
+      conditional: { html, text }, divider, behaviour }]. A { divider: "or" }
+      item renders a divider instead of a checkbox. behaviour: "exclusive"
+      marks an item (e.g. "None of these") as clearing the other checkboxes.
+examples:
+  - name: default
+    data:
+      fieldset:
+        legend:
+          text: "How do you want to be contacted about this?"
+      hint:
+        text: "Select all options that are relevant to you"
+      name: "contact"
+      items:
+        - text: "Email"
+          value: "email"
+        - text: "Phone"
+          value: "phone"
+        - text: "Text message"
+          value: "text"
+  - name: with-hints-and-divider
+    data:
+      fieldset:
+        legend:
+          text: "How do you want to be contacted about this?"
+      name: "contact-2"
+      items:
+        - text: "Email"
+          value: "email"
+          hint:
+            text: "We'll only use this to send you updates"
+        - text: "Phone"
+          value: "phone"
+        - divider: "or"
+        - text: "None of these"
+          value: "none"
+          behaviour: "exclusive"
+  - name: conditional
+    data:
+      fieldset:
+        legend:
+          text: "How do you want to be contacted about this?"
+      name: "contact-3"
+      items:
+        - text: "Email"
+          value: "email"
+          conditional:
+            html: "<div class=\"nhsw-form-group\"><label class=\"nhsw-label\" for=\"contact-3-email\">Email address</label><input class=\"nhsw-input\" id=\"contact-3-email\" name=\"contact-3-email\" type=\"email\"></div>"
+        - text: "Phone"
+          value: "phone"
+  - name: inline
+    data:
+      fieldset:
+        legend:
+          text: "Which nipple has changed?"
+      classes: "nhsw-checkboxes--inline"
+      name: "nipple"
+      items:
+        - text: "Left"
+          value: "left"
+        - text: "Right"
+          value: "right"
+  - name: small
+    data:
+      fieldset:
+        legend:
+          text: "Select all that apply"
+      classes: "nhsw-checkboxes--small"
+      name: "apply"
+      items:
+        - text: "Option 1"
+          value: "1"
+        - text: "Option 2"
+          value: "2"
+  - name: error
+    data:
+      fieldset:
+        legend:
+          text: "How do you want to be contacted about this?"
+      hint:
+        text: "Select all options that are relevant to you"
+      errorMessage:
+        text: "Select how you want to be contacted"
+      name: "contact-4"
+      items:
+        - text: "Email"
+          value: "email"
+        - text: "Phone"
+          value: "phone"
+        - text: "Text message"
+          value: "text"

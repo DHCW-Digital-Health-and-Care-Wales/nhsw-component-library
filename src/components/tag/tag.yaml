@@ -1,0 +1,40 @@
+name: Tag
+macro: nhswTag
+description: >
+  A small piece of inline text, often used to indicate status.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Tag text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Tag HTML. Takes precedence over text, e.g. for multi-line content with <br>.
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Extra classes. Colour modifiers: nhsw-tag--white, --grey, --aqua-green,
+      --blue, --green, --orange, --pink, --purple, --red, --yellow, --dhcw-blue.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "New"
+      classes: "nhsw-tag--green"
+  - name: urgent
+    data:
+      text: "Urgent"
+      classes: "nhsw-tag--red"
+  - name: inactive
+    data:
+      text: "Inactive"
+      classes: "nhsw-tag--grey"
+  - name: multi-line
+    data:
+      html: "Active<br>28 of 80"
+      classes: "nhsw-tag--dhcw-blue"

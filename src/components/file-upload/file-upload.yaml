@@ -1,0 +1,82 @@
+name: File upload
+macro: nhswFileUpload
+description: >
+  A file upload control styled as a button with a status area, supporting
+  drag and drop. Renders from the .nhsw-form-group down; any page heading
+  above it is page content, not part of the macro.
+params:
+  - name: id
+    type: string
+    required: true
+  - name: name
+    type: string
+    required: false
+    description: Defaults to id.
+  - name: label
+    type: object
+    required: false
+    description: "{ text, html, classes, isPageHeading, attributes }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes }"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: statusText
+    type: string
+    required: false
+    description: Defaults to "No file chosen".
+  - name: chooseFilesButtonText
+    type: string
+    required: false
+    description: Defaults to "Choose file".
+  - name: dropHintText
+    type: string
+    required: false
+    description: Defaults to "or drop file". Set falsy/empty to omit.
+  - name: multiple
+    type: boolean
+    required: false
+  - name: accept
+    type: string
+    required: false
+    description: File types, e.g. ".jpg,.png".
+  - name: classes
+    type: string
+    required: false
+    description: "Extra classes on the .nhsw-file-upload container, e.g. nhsw-file-upload--reverse."
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes on the .nhsw-file-upload container.
+examples:
+  - name: default
+    data:
+      id: "file-upload-1"
+      name: "file-upload-1"
+      label:
+        text: "Upload a file"
+  - name: with-hint
+    data:
+      id: "file-upload-2"
+      name: "file-upload-2"
+      label:
+        text: "Upload a photo of your prescription"
+      hint:
+        text: "The file must be a JPG, PNG or PDF, and be smaller than 10MB"
+      accept: ".jpg,.png,.pdf"
+  - name: reverse-mobile
+    data:
+      id: "file-upload-mobile"
+      name: "file-upload-mobile"
+      classes: "nhsw-file-upload--reverse"
+  - name: error
+    data:
+      id: "file-upload-3"
+      name: "file-upload-3"
+      label:
+        text: "Upload a file"
+      errorMessage:
+        text: "Select a file to upload"

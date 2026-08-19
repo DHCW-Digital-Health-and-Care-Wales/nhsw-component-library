@@ -1,0 +1,52 @@
+name: Details
+macro: nhswDetails
+description: >
+  A native HTML details/summary disclosure widget for content that most
+  users won't need but some will, such as extra guidance or context.
+params:
+  - name: summaryText
+    type: string
+    required: true
+    description: Summary text (the always-visible clickable text). Ignored if summaryHtml is set.
+  - name: summaryHtml
+    type: string
+    required: false
+    description: Summary HTML. Takes precedence over summaryText.
+  - name: text
+    type: string
+    required: false
+    description: Content, wrapped in a <p class="nhsw-body">. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Content HTML, used as-is. Takes precedence over text.
+  - name: open
+    type: boolean
+    required: false
+    description: Renders the details expanded by default.
+  - name: id
+    type: string
+    required: false
+    description: id attribute on the <details> element.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      summaryText: "How to find your NHS number"
+      html: "<p class=\"nhsw-body\">Your NHS number is on any letter or document you've had from the NHS.</p>"
+  - name: with-text
+    data:
+      summaryText: "What counts as proof of address"
+      text: "A recent utility bill, bank statement or council tax bill dated within the last 3 months."
+  - name: open-by-default
+    data:
+      summaryText: "Why we ask for this information"
+      text: "We use this information to confirm your identity and keep your record up to date."
+      open: true

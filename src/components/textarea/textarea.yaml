@@ -1,0 +1,93 @@
+name: Textarea
+macro: nhswTextarea
+description: >
+  A multi-line text input, with a configurable maxlength and optional live
+  character-count hint.
+params:
+  - name: id
+    type: string
+    required: true
+  - name: name
+    type: string
+    required: false
+    description: Defaults to id.
+  - name: value
+    type: string
+    required: false
+  - name: rows
+    type: integer
+    required: false
+    description: Defaults to 5.
+  - name: label
+    type: object
+    required: false
+    description: "{ text, html, classes, isPageHeading, attributes }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes }"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: classes
+    type: string
+    required: false
+  - name: attributes
+    type: object
+    required: false
+  - name: autocomplete
+    type: string
+    required: false
+  - name: spellcheck
+    type: boolean
+    required: false
+  - name: maxlength
+    type: integer
+    required: false
+    description: Adds maxlength; enables the character-count hint unless characterCount is false.
+  - name: characterCount
+    type: boolean
+    required: false
+  - name: characterCountMessage
+    type: string
+    required: false
+  - name: disabled
+    type: boolean
+    required: false
+  - name: readonly
+    type: boolean
+    required: false
+  - name: formGroup
+    type: object
+    required: false
+examples:
+  - name: default
+    data:
+      id: "mobility"
+      label:
+        text: "Can you provide more detail about how you move about (your mobility)?"
+      hint:
+        text: "For example, if you use crutches, sticks, or a walking frame"
+  - name: sized
+    data:
+      id: "reason"
+      name: "reason"
+      label:
+        text: "Provide a reason for continuing"
+      rows: 4
+  - name: with-character-count
+    data:
+      id: "mobility"
+      label:
+        text: "Can you provide more detail about how you move about (your mobility)?"
+      hint:
+        text: "For example, if you use crutches, sticks, or a walking frame"
+      maxlength: 150
+  - name: error
+    data:
+      id: "reason"
+      label:
+        text: "Provide a reason for continuing"
+      errorMessage:
+        text: "Error the clinical decision"

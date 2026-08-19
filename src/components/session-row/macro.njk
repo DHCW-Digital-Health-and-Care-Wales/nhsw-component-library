@@ -1,0 +1,41 @@
+{#
+  nhswSessionRow(params) - a clickable row summarising a clinic session.
+
+  params:
+    title       string  (required) - session title
+    meta        string  - meta line, e.g. "8am to 5pm | Recurring session"
+    detail      string  - detail text shown before the optional location link
+    location    object  - { text, href } - optional location link shown after detail
+    badges      array   - list of { label, value }, each rendered as a badge
+    href        string  (required) - link target for the whole row
+    classes     string  - extra classes
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswSessionRow(params) -%}
+<a class="nhsw-session-row{% if params.classes %} {{ params.classes }}{% endif %}" href="{{ params.href }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-session-row__main">
+    <span class="nhsw-session-row__title">{{ params.title }}</span>
+{%- if params.meta %}
+    <span class="nhsw-session-row__meta">{{ params.meta }}</span>
+{%- endif %}
+  </div>
+{%- if params.detail or params.location %}
+  <div class="nhsw-session-row__detail">
+    {{ params.detail }}
+{%- if params.location %}<br>
+    <a class="nhsw-link" href="{{ params.location.href }}">{{ params.location.text }}</a>
+{%- endif %}
+  </div>
+{%- endif %}
+{%- if params.badges and params.badges.length %}
+  <div class="nhsw-session-row__badges">
+{%- for badge in params.badges %}
+    <span class="nhsw-session-row__badge">{{ badge.label }}<br>{{ badge.value }}</span>
+{%- endfor %}
+  </div>
+{%- endif %}
+  <svg class="nhsw-session-row__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
+    <path d="M9 6l6 6-6 6" />
+  </svg>
+</a>
+{%- endmacro -%}

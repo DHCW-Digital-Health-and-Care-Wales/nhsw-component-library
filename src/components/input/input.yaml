@@ -1,0 +1,148 @@
+name: Text input
+macro: nhswInput
+description: >
+  A single-line text input. Supports fixed/fluid widths via classes, hint
+  and error text, prefixes/suffixes, and a configurable maxlength with an
+  optional live character-count hint.
+params:
+  - name: id
+    type: string
+    required: true
+    description: id and default name of the input.
+  - name: name
+    type: string
+    required: false
+    description: Defaults to id.
+  - name: type
+    type: string
+    required: false
+    description: Defaults to "text".
+  - name: value
+    type: string
+    required: false
+  - name: label
+    type: object
+    required: false
+    description: "{ text, html, classes, isPageHeading, attributes }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes }"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Width modifiers: nhsw-input--full/--three-quarters/--two-thirds/--half/--third/--quarter,
+      nhsw-input--width-2/-3/-4/-5/-10/-20.
+  - name: attributes
+    type: object
+    required: false
+  - name: inputmode
+    type: string
+    required: false
+    description: e.g. "numeric", "decimal".
+  - name: autocomplete
+    type: string
+    required: false
+  - name: spellcheck
+    type: boolean
+    required: false
+  - name: pattern
+    type: string
+    required: false
+  - name: maxlength
+    type: integer
+    required: false
+    description: Adds maxlength; enables the character-count hint unless characterCount is false.
+  - name: characterCount
+    type: boolean
+    required: false
+    description: Set false to add maxlength without the character-count hint.
+  - name: characterCountMessage
+    type: string
+    required: false
+    description: Override the character-count hint text.
+  - name: disabled
+    type: boolean
+    required: false
+  - name: readonly
+    type: boolean
+    required: false
+  - name: prefix
+    type: object
+    required: false
+    description: "{ text, html } - rendered before the input"
+  - name: suffix
+    type: object
+    required: false
+    description: "{ text, html } - rendered after the input"
+  - name: formGroup
+    type: object
+    required: false
+    description: "{ classes } - extra classes on the wrapping nhsw-form-group"
+examples:
+  - name: default
+    data:
+      id: "full-name"
+      label:
+        text: "What is your full name?"
+  - name: page-heading
+    data:
+      id: "full-name"
+      label:
+        text: "What is your full name?"
+        classes: "nhsw-label--xl"
+        isPageHeading: true
+  - name: fixed-width
+    data:
+      id: "fw-10"
+      label:
+        text: "10 character width"
+      classes: "nhsw-input--width-10"
+  - name: fluid-width
+    data:
+      id: "flw-23"
+      label:
+        text: "2/3 width"
+      classes: "nhsw-input--two-thirds"
+  - name: hint
+    data:
+      id: "field"
+      label:
+        text: "10 character width"
+      hint:
+        text: "Hint text goes here"
+      classes: "nhsw-input--width-10"
+  - name: numeric-with-maxlength
+    data:
+      id: "account"
+      label:
+        text: "What is your account number?"
+      hint:
+        text: "Must be between 6 and 8 digits long"
+      classes: "nhsw-input--width-10"
+      inputmode: "numeric"
+      maxlength: 8
+  - name: prefix-suffix
+    data:
+      id: "cost"
+      label:
+        text: "Cost per item, in pounds"
+      classes: "nhsw-input--width-5"
+      inputmode: "decimal"
+      spellcheck: false
+      prefix:
+        text: "£"
+      suffix:
+        text: "Number per item"
+  - name: error
+    data:
+      id: "full-name"
+      label:
+        text: "What is your full name?"
+      errorMessage:
+        text: "Enter your full name"

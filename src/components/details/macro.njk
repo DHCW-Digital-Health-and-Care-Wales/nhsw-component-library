@@ -1,0 +1,27 @@
+{#
+  nhswDetails(params)
+
+  params:
+    summaryText  string   (required unless summaryHtml is set) - summary text
+    summaryHtml  string   - summary HTML. Takes precedence over summaryText.
+    text         string   - content, wrapped in <p class="nhsw-body"> (used if html is not set)
+    html         string   - content HTML, used as-is. Takes precedence over text.
+    open         bool     - renders the details expanded by default
+    id           string   - id attribute on the <details>
+    classes      string   - extra classes
+    attributes   object   - extra HTML attributes
+#}
+{%- macro nhswDetails(params) -%}
+<details class="nhsw-details{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %}{% if params.open %} open{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <summary class="nhsw-details__summary">
+    <span class="nhsw-details__summary-text">{{ params.summaryHtml | safe if params.summaryHtml else params.summaryText }}</span>
+  </summary>
+  <div class="nhsw-details__text">
+{%- if params.html %}
+    {{ params.html | safe }}
+{%- else %}
+    <p class="nhsw-body">{{ params.text }}</p>
+{%- endif %}
+  </div>
+</details>
+{%- endmacro -%}

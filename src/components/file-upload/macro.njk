@@ -1,0 +1,53 @@
+{%- from "label/macro.njk" import nhswLabel -%}
+{%- from "hint/macro.njk" import nhswHint -%}
+{%- from "error-message/macro.njk" import nhswErrorMessage -%}
+
+{#
+  nhswFileUpload(params) - renders from the .nhsw-form-group down; any page
+  heading above it is page content, not part of this macro.
+
+  params:
+    id                       string   (required)
+    name                     string   - defaults to id
+    label                    object   - { text, html, classes, isPageHeading, attributes }
+    hint                     object   - { text, html, classes, attributes }
+    errorMessage             object   - { text, html, visuallyHiddenText, classes, attributes }
+    statusText               string   - defaults to "No file chosen"
+    chooseFilesButtonText    string   - defaults to "Choose file"
+    dropHintText             string   - defaults to "or drop file"; set falsy/empty to omit
+    multiple                 boolean
+    accept                   string   - file types, e.g. ".jpg,.png"
+    classes                  string   - extra classes on the .nhsw-file-upload container
+    attributes                object  - extra HTML attributes on the .nhsw-file-upload container
+#}
+{%- macro nhswFileUpload(params) -%}
+{%- set name = params.name or params.id -%}
+{%- set hintId = params.id + "-hint" -%}
+{%- set errorId = params.id + "-error" -%}
+{%- set describedByParts = [] -%}
+{%- if params.hint %}{% set describedByParts = describedByParts.concat([hintId]) %}{% endif -%}
+{%- if params.errorMessage %}{% set describedByParts = describedByParts.concat([errorId]) %}{% endif -%}
+{%- set describedBy = describedByParts | join(" ") -%}
+{%- set dropHintText = params.dropHintText if params.dropHintText != undefined else "or drop file" -%}
+<div class="nhsw-form-group{% if params.errorMessage %} nhsw-form-group--error{% endif %}">
+{%- if params.label %}
+  {{ nhswLabel({ text: params.label.text, html: params.label.html, for: params.id, classes: params.label.classes, isPageHeading: params.label.isPageHeading, attributes: params.label.attributes }) }}
+{%- endif %}
+{%- if params.hint %}
+  {{ nhswHint({ text: params.hint.text, html: params.hint.html, id: hintId, classes: params.hint.classes, attributes: params.hint.attributes }) }}
+{%- endif %}
+{%- if params.errorMessage %}
+  {{ nhswErrorMessage({ text: params.errorMessage.text, html: params.errorMessage.html, id: errorId, visuallyHiddenText: params.errorMessage.visuallyHiddenText, classes: params.errorMessage.classes, attributes: params.errorMessage.attributes }) }}
+{%- endif %}
+  <div class="nhsw-file-upload{% if params.classes %} {{ params.classes }}{% endif %}"{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>
+    <span class="nhsw-file-upload__status">{{ params.statusText or "No file chosen" }}</span>
+    <div class="nhsw-file-upload__actions">
+      <input class="nhsw-file-upload__input{% if params.errorMessage %} nhsw-is-invalid{% endif %}" id="{{ params.id }}" name="{{ name }}" type="file"{% if params.multiple %} multiple{% endif %}{% if params.accept %} accept="{{ params.accept }}"{% endif %}{% if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}{% if params.errorMessage %} aria-invalid="true"{% endif %}>
+      <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="{{ params.id }}">{{ params.chooseFilesButtonText or "Choose file" }}</label>
+{%- if dropHintText %}
+      <span class="nhsw-file-upload__hint">{{ dropHintText }}</span>
+{%- endif %}
+    </div>
+  </div>
+</div>
+{%- endmacro -%}

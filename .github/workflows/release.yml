@@ -49,6 +49,9 @@ jobs:
       - name: Build CSS and JS
         run: npm run build:css
 
+      - name: Package Nunjucks components
+        run: npm run package:njk
+
       - name: Commit version bump
         run: |
           git config user.name "github-actions[bot]"
@@ -69,3 +72,4 @@ jobs:
             preview/dist/nhsw.css
             preview/dist/nhsw.css.map
             preview/dist/nhsw-date-picker.js
+            dist/nhsw-nunjucks-components.zip
