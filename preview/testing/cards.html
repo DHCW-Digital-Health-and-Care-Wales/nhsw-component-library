@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="cards">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 12 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -166,6 +166,93 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="cards-manual-6" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-6-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-6">Heading level matches the surrounding page structure</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-6-hint">Given a card with its heading level overridden (e.g. h3 instead of h2). Then the rendered heading tag matches what was specified, keeping the page outline correct.</div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-7" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-7">Keyboard focus is visible for clickable cards</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-7-hint">Given a clickable card. When it receives keyboard focus. Then a clear visible focus indicator is shown around the card's title.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Card Title</a></h3>
+              <p class="nhsw-card__description">Book, change or cancel a GP, hospital or other health appointment online.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-8" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-8">Clicking the card and link behave consistently</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-8-hint">Given a clickable card containing a title link. When either the card body or the title is selected. Then the same destination is opened.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-card nhsw-card--chevron">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Card Title</a></h3>
+              <p class="nhsw-card__description">Order a repeat prescription and see your medication history.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-9" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-9">Card remains usable at 200% and 400% zoom</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-9-hint">Given a card. When browser zoom is increased to 200% or 400%. Then the card content remains readable and interactive elements remain operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-card">
+              <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Card Title</a></h3>
+              <p class="nhsw-card__description">Book, change or cancel a GP, hospital or other health appointment online.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-10" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-10">Long card titles wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-10-hint">Given a card with a long title. When viewed on a small screen or at high zoom levels. Then the title wraps correctly without overlapping other card content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-card">
+                <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Book, change or cancel a GP, hospital or other health appointment online</a></h3>
+                <p class="nhsw-card__description">Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-11" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-11">Long body content remains readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-11-hint">Given a card containing a long description. When viewed on a narrow viewport. Then the content wraps correctly without clipping or horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-card">
+                <h3 class="nhsw-card__title">Current service status</h3>
+                <p class="nhsw-card__description">There are no known issues affecting appointment bookings, prescription ordering or test result access at this time. If you experience any problems, please contact your GP practice directly or try again in a few minutes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="cards-manual-12" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-12">Icon remains aligned with wrapped content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-12-hint">Given a card with an icon and multi-line title or description. When the content wraps. Then the icon remains visually aligned and maintains a clear relationship with the content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-card">
+                <h3 class="nhsw-card__title">
+                  <span class="nhsw-card__icon" aria-hidden="true">i</span>
+                  <a class="nhsw-card__title-link" href="#">Find out about services available at your local pharmacy</a>
+                </h3>
+                <p class="nhsw-card__description">Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
     </div>
   </fieldset>

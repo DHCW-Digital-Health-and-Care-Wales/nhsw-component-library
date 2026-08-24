@@ -54,12 +54,60 @@ Feature: Details — manual verification
     Then its content is visible as soon as the page loads, with no interaction needed
 
   @manual
-  Scenario: Background is easy to read against the page (WCAG 2.2 SC 1.4.3)
+  Scenario: Summary text is readable against its background (WCAG 2.2 SC 1.4.3)
     Given a details component
-    Then its background gives clear contrast against the page
+    Then its summary text gives clear contrast against its background
 
   @manual
   Scenario: Summary text says what's actually inside (WCAG 2.2 SC 2.4.4)
     Given the summary link text
     Then it clearly describes what you'll find inside, rather than something vague like "More information"
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a details summary
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown
+
+  @manual
+  Scenario: Details can be operated using the keyboard
+    Given a details component
+    When the summary receives keyboard focus and Enter or Space is pressed
+    Then the details content opens or closes
+
+  @manual
+  Scenario: Hidden content is not shown until expanded
+    Given a closed details component
+    When it is displayed
+    Then the hidden content is not visible until the component is expanded
+
+  @manual
+  Scenario: Expanded content becomes available when opened
+    Given a closed details component
+    When it is expanded
+    Then the hidden content becomes available immediately below the summary
+
+  @manual
+  Scenario: Long summary text wraps correctly
+    Given a details component with a long summary
+    When viewed on a small screen or at high zoom levels
+    Then the summary wraps correctly without overlapping the disclosure icon
+
+  @manual
+  Scenario: Content remains readable on small screens
+    Given a details component containing expanded content
+    When viewed on a narrow viewport
+    Then the content remains readable without horizontal scrolling
+
+  @manual
+  Scenario: Disclosure icon remains centre-aligned with wrapped text
+    Given a details summary that spans multiple lines
+    When the text wraps
+    Then the disclosure icon remains centre-aligned with the summary text
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a details component
+    When browser zoom is increased to 200% or 400%
+    Then the summary and content remain readable and operable without loss of information
 ```

@@ -1,6 +1,5 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
-@use "../../utilities/focus-ring" as u;
 
 .nhsw-card {
   position: relative;
@@ -13,14 +12,20 @@
   box-sizing: border-box;
 
   &:has(.nhsw-card__title-link:hover) {
-    border-color: c.$nhsw-colour-border-primary;
-    box-shadow: 0 4px 0 c.$nhsw-colour-border-primary;
+    border-color: c.$nhsw-colour-border-secondary;
+    box-shadow: 0 4px 0 c.$nhsw-colour-border-secondary;
     cursor: pointer;
   }
 
-  &:focus-within {
-    outline: 3px solid c.$nhsw-colour-focus;
-    outline-offset: 0;
+  // No description (or actions/image/etc.) — centre the heading vertically
+  // in the available card height instead of leaving it pinned to the top.
+  &:has(> .nhsw-card__title:only-child) {
+    display: flex;
+    align-items: center;
+
+    .nhsw-card__title {
+      margin: 0;
+    }
   }
 }
 
@@ -42,13 +47,24 @@
   }
 
   &:hover {
-    color: c.$nhsw-colour-link-hover;
-    text-decoration-thickness: 3px;
+    color: c.$nhsw-colour-link-visited;
+    text-decoration: none;
   }
 
   &:focus {
     outline: none;
+    background-color: c.$nhsw-colour-focus;
+    color: c.$nhsw-colour-focus-text;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
   }
+}
+
+// Links inside a card body (e.g. phone/email/directions on a non-clickable
+// card) hover to the same maroon used by the card title-link, instead of
+// the site-wide link-hover blue.
+.nhsw-card .nhsw-link:hover {
+  color: c.$nhsw-colour-link-visited;
 }
 
 .nhsw-card__description {
@@ -119,6 +135,25 @@
   font-size: t.$nhsw-font-size-body-small;
 }
 
+// Wraps the title and the actions list together, on cards with actions,
+// so they sit on the same row instead of stacking.
+.nhsw-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.5rem;
+
+  .nhsw-card__title {
+    margin: 0;
+  }
+
+  .nhsw-card__actions {
+    margin: 0;
+  }
+}
+
 // Use for card grids where only the preview image sits in a bordered box —
 // title, description and link render directly on the page background.
 .nhsw-card--flat {
@@ -129,18 +164,24 @@
 }
 
 .nhsw-card--chevron {
-  padding-right: 3rem;
+  padding-right: 3.5rem;
 
   .nhsw-card__title-link::before {
-    content: "";
+    content: "\276F";
     position: absolute;
-    right: 1.5rem;
+    right: 1.25rem;
     top: 50%;
-    width: 12px;
-    height: 12px;
-    margin-top: -6px;
-    border-top: 3px solid c.$nhsw-colour-link;
-    border-right: 3px solid c.$nhsw-colour-link;
-    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-top: -1rem;
+    border-radius: 50%;
+    background-color: c.$nhsw-colour-link;
+    color: c.$nhsw-colour-background-white;
+    font-size: 1rem;
+    font-weight: t.$nhsw-font-weight-bold;
+    text-decoration: none;
   }
 }

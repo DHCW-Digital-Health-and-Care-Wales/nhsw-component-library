@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="details">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 13 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -96,8 +96,8 @@ extra_scripts:
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="details-manual-4" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-4-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-4">Background is easy to read against the page (WCAG 2.2 SC 1.4.3)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-4-hint">Given a details component. Then its background gives clear contrast against the page.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-4">Summary text is readable against its background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-4-hint">Given a details component. Then its summary text gives clear contrast against its background.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <details class="nhsw-details">
@@ -125,6 +125,142 @@ extra_scripts:
               <div class="nhsw-details__text">
                 <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
                 <p class="nhsw-body">You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-6" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-6">Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-6-hint">Given a details summary. When it receives keyboard focus. Then a clear visible focus indicator is shown.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-7" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-7">Details can be operated using the keyboard</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-7-hint">Given a details component. When the summary receives keyboard focus and Enter or Space is pressed. Then the details content opens or closes.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-8" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-8">Hidden content is not shown until expanded</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-8-hint">Given a closed details component. When it is displayed. Then the hidden content is not visible until the component is expanded.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-9" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-9">Expanded content becomes available when opened</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-9-hint">Given a closed details component. When it is expanded. Then the hidden content becomes available immediately below the summary.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-10" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-10">Long summary text wraps correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-10-hint">Given a details component with a long summary. When viewed on a small screen or at high zoom levels. Then the summary wraps correctly without overlapping the disclosure icon.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">What counts as a qualifying change of circumstances for a prescription prepayment certificate refund</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">A 3-month PPC costs a fixed price. A 12-month PPC is also available at a different rate.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-11" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-11">Content remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-11-hint">Given a details component containing expanded content. When viewed on a narrow viewport. Then the content remains readable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details" open>
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">What happens after you apply</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">We will review your application within 5 working days. You will receive a confirmation email with your reference number.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-12" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-12">Disclosure icon remains centre-aligned with wrapped text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-12-hint">Given a details summary that spans multiple lines. When the text wraps. Then the disclosure icon remains centre-aligned with the summary text.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">What counts as a qualifying change of circumstances for a prescription prepayment certificate refund</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">A 3-month PPC costs a fixed price. A 12-month PPC is also available at a different rate.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="details-manual-13" name="details-manual-tests" type="checkbox" aria-describedby="details-manual-13-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="details-manual-13">Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="details-manual-13-hint">Given a details component. When browser zoom is increased to 200% or 400%. Then the summary and content remain readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <details class="nhsw-details">
+              <summary class="nhsw-details__summary">
+                <span class="nhsw-details__summary-text">How to find your NHS number</span>
+              </summary>
+              <div class="nhsw-details__text">
+                <p class="nhsw-body">An NHS number is a 10 digit number, like 485 777 3456.</p>
               </div>
             </details>
           </div>

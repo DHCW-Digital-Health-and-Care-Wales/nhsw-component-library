@@ -325,20 +325,16 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-card">
-        <h3 class="nhsw-card__title">Berrylands Pharmacy</h3>
-        <p class="nhsw-body">Ewell Road, Surbiton, KT6 6EZ</p>
-        <p class="nhsw-body">Phone: 01111 111 111</p>
-        <p class="nhsw-body">Email: <a class="nhsw-link" href="#">organisation@wales.nhs.uk</a></p>
+        <h3 class="nhsw-card__title"><a class="nhsw-link" href="#">Berrylands Pharmacy</a></h3>
+        <p class="nhsw-body">Ewell Road, Surbiton, KT6 6EZ<br>Phone: <a class="nhsw-link" href="tel:01111111111">01111 111 111</a><br>Email: <a class="nhsw-link" href="#">organisation@wales.nhs.uk</a></p>
         <p class="nhsw-body"><a class="nhsw-link" href="#">Get directions (opens in Google Maps)</a></p>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="card-links" open_url="/examples/card-links.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
-  &lt;h3 class="nhsw-card__title"&gt;Berrylands Pharmacy&lt;/h3&gt;
-  &lt;p class="nhsw-body"&gt;Ewell Road, Surbiton, KT6 6EZ&lt;/p&gt;
-  &lt;p class="nhsw-body"&gt;Phone: 01111 111 111&lt;/p&gt;
-  &lt;p class="nhsw-body"&gt;Email: &lt;a class="nhsw-link" href="mailto:organisation@wales.nhs.uk"&gt;organisation@wales.nhs.uk&lt;/a&gt;&lt;/p&gt;
+  &lt;h3 class="nhsw-card__title"&gt;&lt;a class="nhsw-link" href="#"&gt;Berrylands Pharmacy&lt;/a&gt;&lt;/h3&gt;
+  &lt;p class="nhsw-body"&gt;Ewell Road, Surbiton, KT6 6EZ&lt;br&gt;Phone: &lt;a class="nhsw-link" href="tel:01111111111"&gt;01111 111 111&lt;/a&gt;&lt;br&gt;Email: &lt;a class="nhsw-link" href="mailto:organisation@wales.nhs.uk"&gt;organisation@wales.nhs.uk&lt;/a&gt;&lt;/p&gt;
   &lt;p class="nhsw-body"&gt;&lt;a class="nhsw-link" href="#"&gt;Get directions (opens in Google Maps)&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCard({ title: "Berrylands Pharmacy", html: "..." }) }}{% endraw %}{% endcapture %}
@@ -352,22 +348,28 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-card">
-        <ul class="nhsw-card__actions">
-          <li><a class="nhsw-link" href="#">Edit</a></li>
-          <li><a class="nhsw-link" href="#">Delete</a></li>
-        </ul>
-        <h3 class="nhsw-card__title">Template: Appointment invitation 1</h3>
-        <p class="nhsw-card__description">(landed01) Well Blood Test<br>(firstName) (lastName), you are due for your NHS Well Blood Test. Book your appointment or find out more at http://www.nhs.uk/service-name-invite.</p>
+        <div class="nhsw-card__header">
+          <h3 class="nhsw-card__title">Template: Appointment invitation 1</h3>
+          <ul class="nhsw-card__actions">
+            <li><a class="nhsw-link" href="#">Edit</a></li>
+            <li><a class="nhsw-link" href="#">Delete</a></li>
+          </ul>
+        </div>
+        <p class="nhsw-card__description"><strong>SenderID</strong>: NHS Blood Test</p>
+        <p class="nhsw-card__description">(firstName) (lastName), you are due for your NHS blood test. Book your appointment or find out more at http://www.nhs.uk/service-name-invite.</p>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="card-actions" open_url="/examples/card-actions.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
-  &lt;ul class="nhsw-card__actions"&gt;
-    &lt;li&gt;&lt;a class="nhsw-link" href="/edit"&gt;Edit&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a class="nhsw-link" href="/delete"&gt;Delete&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;h3 class="nhsw-card__title"&gt;Template: Appointment invitation 1&lt;/h3&gt;
+  &lt;div class="nhsw-card__header"&gt;
+    &lt;h3 class="nhsw-card__title"&gt;Template: Appointment invitation 1&lt;/h3&gt;
+    &lt;ul class="nhsw-card__actions"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/edit"&gt;Edit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/delete"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;p class="nhsw-card__description"&gt;&lt;strong&gt;SenderID&lt;/strong&gt;: NHS Blood Test&lt;/p&gt;
   &lt;p class="nhsw-card__description"&gt;Description text.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCard({

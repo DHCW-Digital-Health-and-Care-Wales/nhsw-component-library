@@ -33,7 +33,15 @@
 #}
 {%- macro nhswCard(params) -%}
 {%- set headingTag = "h" ~ (params.headingLevel or 3) -%}
+{%- set titleInner -%}
+{%- if params.icon %}<span class="nhsw-card__icon" aria-hidden="true">{{ params.icon.html | safe if params.icon.html is defined else "i" }}</span>{% endif -%}
+{%- if params.titleHref %}<a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>{% else %}{{ params.title }}{% endif -%}
+{%- endset -%}
 <div class="nhsw-card{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if params.imageSrc %}
+  <img class="nhsw-card__image" src="{{ params.imageSrc }}" alt="{{ params.imageAlt or '' }}">
+{%- endif %}
+{%- if params.stat %}
 {%- if params.actions %}
   <ul class="nhsw-card__actions">
 {%- for action in params.actions %}
@@ -41,23 +49,19 @@
 {%- endfor %}
   </ul>
 {%- endif %}
-{%- if params.imageSrc %}
-  <img class="nhsw-card__image" src="{{ params.imageSrc }}" alt="{{ params.imageAlt or '' }}">
-{%- endif %}
-{%- if params.stat %}
   <span class="nhsw-card__stat">{{ params.stat }}</span>
   <a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>
+{%- elif params.actions %}
+  <div class="nhsw-card__header">
+    <{{ headingTag }} class="nhsw-card__title">{{ titleInner | safe }}</{{ headingTag }}>
+    <ul class="nhsw-card__actions">
+{%- for action in params.actions %}
+      <li><a class="nhsw-link" href="{{ action.href }}">{{ action.html | safe if action.html else action.text }}</a></li>
+{%- endfor %}
+    </ul>
+  </div>
 {%- else %}
-  <{{ headingTag }} class="nhsw-card__title">
-{%- if params.icon %}
-    <span class="nhsw-card__icon" aria-hidden="true">{{ params.icon.html | safe if params.icon.html is defined else "i" }}</span>
-{%- endif %}
-{%- if params.titleHref %}
-    <a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>
-{%- else %}
-    {{ params.title }}
-{%- endif %}
-  </{{ headingTag }}>
+  <{{ headingTag }} class="nhsw-card__title">{{ titleInner | safe }}</{{ headingTag }}>
 {%- endif %}
 {%- if params.html %}
   {{ params.html | safe }}

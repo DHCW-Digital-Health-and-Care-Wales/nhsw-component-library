@@ -20,7 +20,7 @@ Feature: Cards — automated coverage
       And no html_sample/njk_sample capture block is empty
 ```
 
-> **Coverage gap:** `nhsw-card` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` doesn't check its classes exist, and there's no Figma spacing/colour spec for it in `component-specs.test.js` / `component-specs-2.test.js`. Its examples have no form inputs, and the icon variant (`card-icon.html`) uses a plain `<span aria-hidden="true">`, not an `<svg>`, so `accessibility.test.js`'s decorative-SVG check does not run against it either. Everything below is manual-only.
+> **Coverage gap:** `nhsw-card` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` doesn't check its classes exist, and there's no full Figma spacing/colour spec for it. `component-specs-2.test.js` does assert the hover/focus/chevron-icon/actions-header treatment (see its `card hover/focus states, chevron icon and actions header` describe block), but everything else — layout, wrapping, keyboard behaviour, screen reader behaviour — is manual-only. Its examples have no form inputs, and the icon variant (`card-icon.html`) uses a plain `<span aria-hidden="true">`, not an `<svg>`, so `accessibility.test.js`'s decorative-SVG check does not run against it either.
 
 ## Manual test scenarios
 
@@ -63,4 +63,40 @@ Feature: Cards — manual verification
   Scenario: Heading level matches the surrounding page structure
     Given a card with its heading level overridden (e.g. h3 instead of h2)
     Then the rendered heading tag matches what was specified, keeping the page outline correct
+
+  @manual
+  Scenario: Keyboard focus is visible for clickable cards
+    Given a clickable card
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown around the card's title
+
+  @manual
+  Scenario: Clicking the card and link behave consistently
+    Given a clickable card containing a title link
+    When either the card body or the title is selected
+    Then the same destination is opened
+
+  @manual
+  Scenario: Card remains usable at 200% and 400% zoom
+    Given a card
+    When browser zoom is increased to 200% or 400%
+    Then the card content remains readable and interactive elements remain operable without loss of information
+
+  @manual
+  Scenario: Long card titles wrap correctly
+    Given a card with a long title
+    When viewed on a small screen or at high zoom levels
+    Then the title wraps correctly without overlapping other card content
+
+  @manual
+  Scenario: Long body content remains readable
+    Given a card containing a long description
+    When viewed on a narrow viewport
+    Then the content wraps correctly without clipping or horizontal scrolling
+
+  @manual
+  Scenario: Icon remains aligned with wrapped content
+    Given a card with an icon and multi-line title or description
+    When the content wraps
+    Then the icon remains visually aligned and maintains a clear relationship with the content
 ```
