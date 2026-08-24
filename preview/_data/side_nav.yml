@@ -62,8 +62,6 @@
   url: /forms/textarea.html
 - title: Text input
   url: /forms/input.html
-- title: Timeout
-  url: /content/timeout.html
 - title: Warning callouts
   url: /callouts/warning-callout.html
 - title: Warning text

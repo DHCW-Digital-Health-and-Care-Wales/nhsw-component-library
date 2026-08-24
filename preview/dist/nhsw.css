@@ -1158,6 +1158,7 @@ body {
 
 .nhsw-tabs__tab {
   position: relative;
+  z-index: 0;
   display: flex;
   align-items: flex-start;
   padding: 0.5rem 1rem;

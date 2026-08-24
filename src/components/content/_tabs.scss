@@ -46,7 +46,14 @@
 // meet the panel below); an unselected tab stays shorter, leaving a gap
 // between it and the border-bottom line.
 .nhsw-tabs__tab {
+  // position + z-index together establish this button's own stacking
+  // context, so its ::before (z-index: -1, painted behind the label) stays
+  // contained within it — without a stacking context, a negative z-index
+  // on an absolutely-positioned pseudo isn't just "painted first"; it can
+  // escape behind an ancestor's own background instead (e.g. when nested
+  // inside .nhsw-example-preview__body, which is also position: relative).
   position: relative;
+  z-index: 0;
   display: flex;
   align-items: flex-start;
   padding: 0.5rem 1rem;
