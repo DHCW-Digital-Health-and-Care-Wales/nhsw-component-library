@@ -9,6 +9,7 @@
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1;
+  text-align: center;
   text-decoration: none;
   outline: 2px solid transparent;
   outline-offset: -2px;
@@ -77,5 +78,21 @@
     background-color: #004281;
     border-color: #004281;
     color: c.$nhsw-colour-text-exceptional;
+  }
+}
+
+// Groups two tags (e.g. a label and a status) so they sit flush against
+// each other with no gap, sharing a single divider line rather than a
+// doubled-up border.
+.nhsw-tag-group {
+  display: inline-flex;
+  vertical-align: middle;
+
+  .nhsw-tag {
+    margin: 0;
+  }
+
+  .nhsw-tag:first-child {
+    border-right: none;
   }
 }

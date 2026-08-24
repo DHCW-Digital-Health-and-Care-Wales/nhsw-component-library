@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="tag">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 9 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -81,19 +81,9 @@ extra_scripts:
           <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-3-hint">Given a two-part tag. When a screen reader reads it. Then both parts are announced in a way that makes sense together.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
-            <table class="nhsw-body" role="presentation">
-              <thead>
-                <tr><th>Application</th><th>Status</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-                <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-                <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
-                <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
-                <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-                <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
-              </tbody>
-            </table>
+            <p class="nhsw-body">
+              <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">Flu</strong><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span>
+            </p>
           </div>
         </div>
         </div>
@@ -121,6 +111,74 @@ extra_scripts:
                 <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></dd>
               </div>
             </dl>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-5" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-5">Remains readable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-5-hint">Given a tag. When browser zoom is increased to 200% or 400%. Then the text remains readable and the tag remains visually intact without clipping.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <p class="nhsw-body"><strong class="nhsw-tag nhsw-tag--green">New</strong></p>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-6" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-6">Long tag labels remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-6-hint">Given a tag with a longer-than-expected label. When it is displayed on a small screen or at high zoom levels. Then the text remains readable and does not overflow or become clipped.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 200px;">
+              <p class="nhsw-body"><strong class="nhsw-tag nhsw-tag--orange">Awaiting clinical review</strong></p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-7" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-7">Tags remain readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-7-hint">Given one or more tags. When viewed on a narrow viewport. Then the tags remain readable and do not overlap surrounding content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <dl class="nhsw-summary-list">
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">Blood test results</dt>
+                  <dd class="nhsw-summary-list__value"><strong class="nhsw-tag nhsw-tag--green">New</strong></dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-8" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-8">Multiple tags wrap sensibly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-8-hint">Given multiple tags displayed together. When the available width decreases. Then the tags wrap or reflow without overlapping or becoming unreadable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 250px;">
+              <p class="nhsw-body">
+                <strong class="nhsw-tag nhsw-tag--grey">Inactive</strong>
+                <strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong>
+                <strong class="nhsw-tag nhsw-tag--green">New</strong>
+                <strong class="nhsw-tag nhsw-tag--red">Rejected</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tag-manual-9" name="tag-manual-tests" type="checkbox" aria-describedby="tag-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tag-manual-9">Two-part tag remains visually associated</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tag-manual-9-hint">Given a two-part tag. When it is displayed. Then both parts appear visually related and are easily understood as a single status.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <p class="nhsw-body">
+              <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">HPV</strong><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span>
+            </p>
           </div>
         </div>
         </div>

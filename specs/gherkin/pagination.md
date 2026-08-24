@@ -68,6 +68,36 @@ Feature: Pagination — manual verification
   Scenario: "Next only" variant works without a numbered list present
     Given the next-only pagination variant
     Then a user can move forward through content without any numbered list showing
+
+  @manual
+  Scenario: Previous and Next links are clearly identifiable
+    Given a pagination component
+    When a user views the Previous and Next controls
+    Then their purpose is clear without relying on arrow icons alone
+
+  @manual
+  Scenario: Pagination remains usable at 200% and 400% zoom
+    Given a pagination component
+    When browser zoom is increased to 200% or 400%
+    Then all pagination controls remain readable and operable without loss of information
+
+  @manual
+  Scenario: Pagination adapts to small screens
+    Given a pagination component with many pages
+    When viewed on a narrow viewport
+    Then the pagination remains usable and does not cause horizontal scrolling
+
+  @manual
+  Scenario: Long page ranges display sensibly
+    Given a pagination component with a large number of pages
+    When it is displayed
+    Then the current page, nearby pages and truncation indicators are presented clearly
+
+  @manual
+  Scenario: Current page is not presented as a normal link
+    Given the current page in a numbered pagination component
+    When a screen reader announces it
+    Then it is identified as the current page rather than a standard navigable link
 ```
 
 ## Additional implementation advice

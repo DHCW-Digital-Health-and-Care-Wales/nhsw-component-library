@@ -51,6 +51,48 @@ Feature: Summary list — manual verification
   Scenario: Grouped summary cards are easy to tell apart
     Given several summary cards grouped on one page
     Then a user can clearly tell them apart and move between them
+
+  @manual
+  Scenario: "Change" links make sense out of context (WCAG 2.2 SC 2.4.4)
+    Given a summary list containing Change links
+    When a screen reader presents a list of links
+    Then each Change link identifies the item it relates to, e.g. "Change name", "Change appointment date", rather than just "Change, Change"
+
+  @manual
+  Scenario: Keyboard focus is visible on action links (WCAG 2.2 SC 2.4.7)
+    Given a summary list containing Change, Cancel or Reschedule links
+    When a keyboard user tabs through them
+    Then each link displays a clear visible focus indicator
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a summary list
+    When browser zoom is increased to 200% or 400%
+    Then labels, values and actions remain readable and usable without loss of information
+
+  @manual
+  Scenario: Long values wrap correctly
+    Given a summary list containing long answers, e.g. a long email address, address or medication name
+    When viewed on a small screen or at high zoom levels
+    Then values wrap correctly without overlapping labels or action links
+
+  @manual
+  Scenario: Long labels wrap correctly
+    Given a summary list containing lengthy labels
+    When displayed on a narrow viewport
+    Then the labels wrap correctly and remain associated with their values
+
+  @manual
+  Scenario: Summary list adapts to small screens
+    Given a summary list
+    When viewed on a mobile-width screen
+    Then labels, values and actions reflow without clipping, overlap or horizontal scrolling
+
+  @manual
+  Scenario: Multiple action links remain distinct
+    Given a summary card header containing multiple actions
+    When viewed by keyboard or screen-reader users
+    Then each action is clearly distinguishable and independently operable
 ```
 
 ## Additional implementation advice

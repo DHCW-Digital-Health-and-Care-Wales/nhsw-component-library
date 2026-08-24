@@ -217,12 +217,42 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pg-numbered" open_url="/examples/pagination-numbered.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;!-- See numbered pagination example above --&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-pagination nhsw-pagination--numbered" role="navigation" aria-label="Pagination"&gt;
+  &lt;a href="/page/9" class="nhsw-pagination__previous" rel="prev"&gt;
+    &lt;svg class="nhsw-pagination__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"&gt;
+      &lt;path d="M15.4 20.4 7 12l8.4-8.4 1.4 1.4L10.8 12l6 7-1.4 1.4z"/&gt;
+    &lt;/svg&gt;
+    &lt;span class="nhsw-pagination__title"&gt;Previous&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class="nhsw-pagination__list"&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/1" aria-label="Page 1"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item nhsw-pagination__item--ellipsis"&gt;&amp;ctdot;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/9" aria-label="Page 9"&gt;9&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item nhsw-pagination__item--current"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/10" aria-current="page" aria-label="Page 10"&gt;10&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/11" aria-label="Page 11"&gt;11&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item nhsw-pagination__item--ellipsis"&gt;&amp;ctdot;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/42" aria-label="Page 42"&gt;42&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;a href="/page/11" class="nhsw-pagination__next" rel="next"&gt;
+    &lt;span class="nhsw-pagination__title"&gt;Next&lt;/span&gt;
+    &lt;svg class="nhsw-pagination__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"&gt;
+      &lt;path d="M8.6 3.6 17 12l-8.4 8.4L7.2 19l6-7-6-7 1.4-1.4z"/&gt;
+    &lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPagination({
   variant: "numbered",
   previous: { href: "/page/9" },
   next: { href: "/page/11" },
-  items: [ ... ]
+  items: [
+    { number: 1, href: "/page/1" },
+    { ellipsis: true },
+    { number: 9, href: "/page/9" },
+    { number: 10, href: "/page/10", current: true },
+    { number: 11, href: "/page/11" },
+    { ellipsis: true },
+    { number: 42, href: "/page/42" }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pg-numbered" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -271,7 +301,19 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pg-first" open_url="/examples/pagination-first.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;!-- No previous link on the first page --&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-pagination nhsw-pagination--numbered" role="navigation" aria-label="Pagination"&gt;
+  &lt;ul class="nhsw-pagination__list"&gt;
+    &lt;li class="nhsw-pagination__item nhsw-pagination__item--current"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/1" aria-current="page" aria-label="Page 1"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/2" aria-label="Page 2"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/3" aria-label="Page 3"&gt;3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;a href="/page/2" class="nhsw-pagination__next" rel="next"&gt;
+    &lt;span class="nhsw-pagination__title"&gt;Next&lt;/span&gt;
+    &lt;svg class="nhsw-pagination__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"&gt;
+      &lt;path d="M8.6 3.6 17 12l-8.4 8.4L7.2 19l6-7-6-7 1.4-1.4z"/&gt;
+    &lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPagination({
   variant: "numbered",
   next: { href: "/page/2" },
@@ -300,7 +342,19 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pg-last" open_url="/examples/pagination-last.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;!-- No next link on the last page --&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-pagination nhsw-pagination--numbered" role="navigation" aria-label="Pagination"&gt;
+  &lt;a href="/page/2" class="nhsw-pagination__previous" rel="prev"&gt;
+    &lt;svg class="nhsw-pagination__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"&gt;
+      &lt;path d="M15.4 20.4 7 12l8.4-8.4 1.4 1.4L10.8 12l6 7-1.4 1.4z"/&gt;
+    &lt;/svg&gt;
+    &lt;span class="nhsw-pagination__title"&gt;Previous&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class="nhsw-pagination__list"&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/1" aria-label="Page 1"&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/2" aria-label="Page 2"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-pagination__item nhsw-pagination__item--current"&gt;&lt;a class="nhsw-pagination__number-link" href="/page/3" aria-current="page" aria-label="Page 3"&gt;3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPagination({
   variant: "numbered",
   previous: { href: "/page/2" },

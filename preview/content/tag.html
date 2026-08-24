@@ -160,18 +160,22 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">
-      <strong class="nhsw-tag nhsw-tag--white">Flu</strong> <strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong><br><br>
-      <strong class="nhsw-tag nhsw-tag--white">HPV</strong> <strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong><br><br>
-      <strong class="nhsw-tag nhsw-tag--white">MMRV</strong> <strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong><br><br>
-      <strong class="nhsw-tag nhsw-tag--white">MMRV</strong> <strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong>
+      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">Flu</strong><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span><br><br>
+      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">HPV</strong><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span><br><br>
+      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong></span><br><br>
+      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong></span>
     </p>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tag-tint" open_url="/examples/tag-colour-tint.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--white"&gt;Flu&lt;/strong&gt;
-&lt;strong class="nhsw-tag nhsw-tag--green"&gt;Due vaccination&lt;/strong&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "Flu", classes: "nhsw-tag--white" }) }}
-{{ nhswTag({ text: "Due vaccination", classes: "nhsw-tag--green" }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
+  &lt;strong class="nhsw-tag nhsw-tag--white"&gt;Flu&lt;/strong&gt;
+  &lt;strong class="nhsw-tag nhsw-tag--green"&gt;Due vaccination&lt;/strong&gt;
+&lt;/span&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
+  {{ nhswTag({ text: "Flu", classes: "nhsw-tag--white" }) }}
+  {{ nhswTag({ text: "Due vaccination", classes: "nhsw-tag--green" }) }}
+&lt;/span&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
 
   <div class="nhsw-tabs__pagination">

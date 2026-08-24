@@ -21,22 +21,22 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="panel">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 4 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 9 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
     <div class="nhsw-checkboxes">
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="panel-manual-1" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-1-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-1">Text stays fully readable when the page is zoomed in a lot (WCAG 2.2 SC 1.4.4)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-1-hint">Given a panel with typical content. When the page is zoomed to 400%. Then the text doesn't clip, overlap, or get cut off.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-1">Long headings wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-1-hint">Given a panel with a long heading. When viewed on a narrow viewport or at high zoom levels. Then the heading wraps correctly without clipping or overlapping other content.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-panel">
               <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                 <path d="M4 12l5 5L20 6" />
               </svg>
-              <h1 class="nhsw-panel__title">Application complete</h1>
+              <h1 class="nhsw-panel__title">Your application to register as a childminder has been received and complete</h1>
               <div class="nhsw-panel__body">
                 Your reference number<br>
                 <strong>HDJ2123F</strong>
@@ -88,6 +88,99 @@ extra_scripts:
               <div class="nhsw-panel__body">
                 Your reference number<br>
                 <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-5" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-5">Text has sufficient contrast against the panel background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-5-hint">Given any panel variant. Then all text remains readable against the panel background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel nhsw-panel--navy">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-6" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-6">Icon is easy to see against the panel background (WCAG 2.2 SC 1.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-6-hint">Given a panel containing an icon. Then the icon remains clearly visible against the panel background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel">
+              <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M4 12l5 5L20 6" />
+              </svg>
+              <h1 class="nhsw-panel__title">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-7" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-7">Reference numbers and identifiers remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-7-hint">Given a panel containing a reference number or identifier. When viewed on different screen sizes or zoom levels. Then the identifier remains clearly visible and readable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F-2026-CHILDMINDER-REG</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-8" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-8">Panel remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-8-hint">Given a panel. When viewed on a mobile-width screen. Then the heading, body content and icon remain readable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-panel">
+                <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M4 12l5 5L20 6" />
+                </svg>
+                <h1 class="nhsw-panel__title">Application complete</h1>
+                <div class="nhsw-panel__body">
+                  Your reference number<br>
+                  <strong>HDJ2123F</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-9" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-9">Icon remains aligned with wrapped content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-9-hint">Given a panel with an icon and a long heading or body. When the content wraps. Then the icon remains visually aligned with the content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-panel">
+                <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M4 12l5 5L20 6" />
+                </svg>
+                <h1 class="nhsw-panel__title">Your application to register as a childminder has been received</h1>
+                <div class="nhsw-panel__body">
+                  Your reference number<br>
+                  <strong>HDJ2123F</strong>
+                </div>
               </div>
             </div>
           </div>

@@ -91,12 +91,6 @@
     }
   }
 
-  &__row {
-    &:hover {
-      background-color: c.$nhsw-colour-background-grey;
-    }
-  }
-
   &__cell {
     padding: 8px 16px 8px 0;
     text-align: left;
@@ -176,13 +170,10 @@
         display: block;
         margin-bottom: 24px;
       }
-
-      &:hover {
-        background-color: c.$nhsw-colour-background-grey;
-      }
     }
 
-    td {
+    td,
+    th[scope="row"] {
       border-bottom: 1px solid c.$nhsw-colour-border-grey;
 
       @media (max-width: 48rem) {

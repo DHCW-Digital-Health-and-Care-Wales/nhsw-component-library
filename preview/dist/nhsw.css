@@ -1157,36 +1157,64 @@ body {
 }
 
 .nhsw-tabs__tab {
+  position: relative;
   display: flex;
-  align-items: center;
-  height: 100%;
+  align-items: flex-start;
   padding: 0.5rem 1rem;
-  background-color: #d8dde0;
+  background: none;
   border: none;
   color: #212b32;
   font-family: Roboto, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.6875rem;
-  text-decoration: underline;
   cursor: pointer;
 }
-.nhsw-tabs__tab:hover {
-  background-color: rgb(193.2685714286, 201.1828571429, 205.9314285714);
-  text-decoration-thickness: 3px;
+.nhsw-tabs__tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #d8dde0;
+  z-index: -1;
+}
+.nhsw-tabs__tab:hover .nhsw-tabs__tab-text {
+  text-decoration: none;
 }
 .nhsw-tabs__tab:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
-  outline-offset: -3px;
+  outline: none;
+}
+.nhsw-tabs__tab:focus .nhsw-tabs__tab-text {
+  background-color: #ffeb3b;
+  color: #0b0c0c;
 }
 .nhsw-tabs__tab--selected {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem 0.875rem;
+  margin-bottom: -1px;
+  font-weight: 400;
+}
+.nhsw-tabs__tab--selected::before {
   background-color: #ffffff;
   border: 1px solid #d8dde0;
   border-bottom: 1px solid #ffffff;
-  margin-bottom: -1px;
+}
+.nhsw-tabs__tab--selected .nhsw-tabs__tab-text {
   text-decoration: none;
-  font-weight: 400;
+}
+
+.nhsw-tabs__tab-text {
+  text-decoration: underline;
+}
+
+.nhsw-tabs__count {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0 0.375rem;
+  border: 1px solid #005aa8;
+  border-radius: 4px;
+  color: #005aa8;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
 }
 
 .nhsw-tabs__panel {
@@ -1300,7 +1328,7 @@ body {
   justify-content: space-between;
   gap: 8px 16px;
   padding: 16px 24px;
-  background-color: #f0f4f5;
+  background-color: #ffffff;
   border-bottom: 1px solid #d8dde0;
 }
 
@@ -1349,6 +1377,7 @@ body {
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1;
+  text-align: center;
   text-decoration: none;
   outline: 2px solid transparent;
   outline-offset: -2px;
@@ -1407,6 +1436,17 @@ body {
   background-color: #004281;
   border-color: #004281;
   color: #ffffff;
+}
+
+.nhsw-tag-group {
+  display: inline-flex;
+  vertical-align: middle;
+}
+.nhsw-tag-group .nhsw-tag {
+  margin: 0;
+}
+.nhsw-tag-group .nhsw-tag:first-child {
+  border-right: none;
 }
 
 .nhsw-details {
@@ -1597,6 +1637,9 @@ body {
   background-color: #007f3b;
   color: #ffffff;
   text-align: center;
+}
+.nhsw-panel:not(:has(.nhsw-panel__icon)) {
+  text-align: left;
 }
 
 .nhsw-panel__icon {
@@ -1828,13 +1871,13 @@ body {
   padding: 8px 12px;
   color: #005aa8;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous:hover,
 .nhsw-pagination--numbered .nhsw-pagination__next:hover {
   background-color: #f0f4f5;
   color: #7c2855;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous:focus,
 .nhsw-pagination--numbered .nhsw-pagination__next:focus {
@@ -1886,11 +1929,12 @@ body {
   color: #005aa8;
   font-weight: 400;
   text-align: center;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .nhsw-pagination--numbered .nhsw-pagination__number-link:hover {
   background-color: #f0f4f5;
   color: #7c2855;
+  text-decoration: none;
 }
 .nhsw-pagination--numbered .nhsw-pagination__number-link:focus {
   background-color: #ffeb3b;
@@ -1989,9 +2033,6 @@ body {
   font-weight: 400;
   border-bottom: 1px solid #d8dde0;
 }
-.nhsw-table__row:hover {
-  background-color: #f0f4f5;
-}
 .nhsw-table__cell {
   padding: 8px 16px 8px 0;
   text-align: left;
@@ -2067,21 +2108,21 @@ body {
     margin-bottom: 24px;
   }
 }
-.nhsw-table-responsive .nhsw-table__body .nhsw-table__row:hover {
-  background-color: #f0f4f5;
-}
-.nhsw-table-responsive .nhsw-table__body td {
+.nhsw-table-responsive .nhsw-table__body td,
+.nhsw-table-responsive .nhsw-table__body th[scope=row] {
   border-bottom: 1px solid #d8dde0;
 }
 @media (max-width: 48rem) {
-  .nhsw-table-responsive .nhsw-table__body td {
+  .nhsw-table-responsive .nhsw-table__body td,
+  .nhsw-table-responsive .nhsw-table__body th[scope=row] {
     display: flex;
     justify-content: space-between;
     min-width: 1px;
     padding-right: 0;
     text-align: right;
   }
-  .nhsw-table-responsive .nhsw-table__body td:last-child {
+  .nhsw-table-responsive .nhsw-table__body td:last-child,
+  .nhsw-table-responsive .nhsw-table__body th[scope=row]:last-child {
     border-bottom: 3px solid #d8dde0;
   }
 }

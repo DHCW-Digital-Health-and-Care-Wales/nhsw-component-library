@@ -44,10 +44,10 @@ Practical checks — look at the component and try it, no special tools needed u
 Feature: Panel — manual verification
 
   @manual
-  Scenario: Text stays fully readable when the page is zoomed in a lot (WCAG 2.2 SC 1.4.4)
-    Given a panel with typical content
-    When the page is zoomed to 400%
-    Then the text doesn't clip, overlap, or get cut off
+  Scenario: Long headings wrap correctly
+    Given a panel with a long heading
+    When viewed on a narrow viewport or at high zoom levels
+    Then the heading wraps correctly without clipping or overlapping other content
 
   @manual
   Scenario: Heading, not just colour, says what the panel means (WCAG 2.2 SC 1.4.1)
@@ -63,4 +63,32 @@ Feature: Panel — manual verification
   Scenario: Smaller panel variant stays legible
     Given the smaller panel variant
     Then the icon and text stay proportionate and easy to read
+
+  @manual
+  Scenario: Text has sufficient contrast against the panel background (WCAG 2.2 SC 1.4.3)
+    Given any panel variant
+    Then all text remains readable against the panel background
+
+  @manual
+  Scenario: Icon is easy to see against the panel background (WCAG 2.2 SC 1.4.11)
+    Given a panel containing an icon
+    Then the icon remains clearly visible against the panel background
+
+  @manual
+  Scenario: Reference numbers and identifiers remain readable
+    Given a panel containing a reference number or identifier
+    When viewed on different screen sizes or zoom levels
+    Then the identifier remains clearly visible and readable
+
+  @manual
+  Scenario: Panel remains readable on small screens
+    Given a panel
+    When viewed on a mobile-width screen
+    Then the heading, body content and icon remain readable without horizontal scrolling
+
+  @manual
+  Scenario: Icon remains aligned with wrapped content
+    Given a panel with an icon and a long heading or body
+    When the content wraps
+    Then the icon remains visually aligned with the content
 ```

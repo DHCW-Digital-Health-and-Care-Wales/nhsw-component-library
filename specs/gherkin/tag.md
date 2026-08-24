@@ -80,6 +80,36 @@ Feature: Tag — manual verification
   Scenario: Tags inside a summary list stay aligned
     Given a tag placed inside a summary list row
     Then it stays aligned correctly and doesn't break the row's layout
+
+  @manual
+  Scenario: Remains readable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a tag
+    When browser zoom is increased to 200% or 400%
+    Then the text remains readable and the tag remains visually intact without clipping
+
+  @manual
+  Scenario: Long tag labels remain readable
+    Given a tag with a longer-than-expected label
+    When it is displayed on a small screen or at high zoom levels
+    Then the text remains readable and does not overflow or become clipped
+
+  @manual
+  Scenario: Tags remain readable on small screens
+    Given one or more tags
+    When viewed on a narrow viewport
+    Then the tags remain readable and do not overlap surrounding content
+
+  @manual
+  Scenario: Multiple tags wrap sensibly
+    Given multiple tags displayed together
+    When the available width decreases
+    Then the tags wrap or reflow without overlapping or becoming unreadable
+
+  @manual
+  Scenario: Two-part tag remains visually associated
+    Given a two-part tag
+    When it is displayed
+    Then both parts appear visually related and are easily understood as a single status
 ```
 
 ## Additional implementation advice

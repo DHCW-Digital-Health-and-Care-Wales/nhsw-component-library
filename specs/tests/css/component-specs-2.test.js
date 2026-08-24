@@ -292,9 +292,15 @@ describe('tabs match Figma Tabs component', () => {
     expect(tab).toMatch(/padding:\s*0\.5rem 1rem/);
   });
 
-  it('selected tab has 12px vertical / 16px horizontal padding', () => {
+  // padding-top matches the unselected tab exactly (8px) so the label
+  // starts at the same offset from the top of the row either way, keeping
+  // the two variants' text on a shared baseline; the selected tab's extra
+  // height comes only from a taller padding-bottom (16px), which is what
+  // lets it visibly reach further down to meet the panel below while an
+  // unselected tab stays shorter with a gap above the row's border-bottom.
+  it('selected tab has 8px padding-top (matching unselected), 14px padding-bottom, 16px horizontal', () => {
     const selected = block(css, '\\.nhsw-tabs__tab--selected');
-    expect(selected).toMatch(/padding:\s*0\.75rem 1rem/);
+    expect(selected).toMatch(/padding:\s*0\.5rem 1rem 0\.875rem/);
   });
 });
 
@@ -595,5 +601,127 @@ describe('details summary hover matches the maroon hover colour used elsewhere',
   it('summary hover recolours to #7c2855, not the blue link-hover colour', () => {
     const hover = block(css, '\\.nhsw-details__summary:hover');
     expect(hover).toMatch(/color:\s*#7c2855/);
+  });
+});
+
+describe('numbered pagination: underline is default, hover removes it (not the other way round)', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/pagination";`);
+  });
+
+  it('page number links are underlined by default and lose the underline on hover', () => {
+    const base = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__number-link');
+    expect(base).toMatch(/text-decoration:\s*underline/);
+    const hover = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__number-link:hover');
+    expect(hover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('previous/next links are underlined by default and lose the underline on hover', () => {
+    const base = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__previous,\\n\\.nhsw-pagination--numbered \\.nhsw-pagination__next');
+    expect(base).toMatch(/text-decoration:\s*underline/);
+    const hover = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__previous:hover,\\n\\.nhsw-pagination--numbered \\.nhsw-pagination__next:hover');
+    expect(hover).toMatch(/text-decoration:\s*none/);
+  });
+});
+
+describe('panel left-aligns text by default, keeping the icon variant centred', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/panel";`);
+  });
+
+  it('panel is centred by default', () => {
+    const base = block(css, '\\.nhsw-panel');
+    expect(base).toMatch(/text-align:\s*center/);
+  });
+
+  it('a panel without an icon left-aligns its text', () => {
+    const noIcon = block(css, '\\.nhsw-panel:not\\(:has\\(\\.nhsw-panel__icon\\)\\)');
+    expect(noIcon).toMatch(/text-align:\s*left/);
+  });
+});
+
+describe('table has no row hover colour, and the responsive variant treats row headers like data cells', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/table";`);
+  });
+
+  it('rows have no hover background, in the basic table or the responsive variant', () => {
+    expect(css).not.toMatch(/__row\s*\{\s*\n\s*&:hover/);
+    expect(css).not.toMatch(/\.nhsw-table__row:hover/);
+  });
+
+  it('responsive table applies the label/value flex layout to row headers (th[scope=row]) as well as td', () => {
+    const cell = block(css, '\\.nhsw-table-responsive \\.nhsw-table__body td,\\n\\.nhsw-table-responsive \\.nhsw-table__body th\\[scope=row\\]');
+    expect(cell).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+  });
+});
+
+describe('tabs: hover removes the underline (not the background), focus highlights just the text, tabs stretch to align', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/tabs";`);
+  });
+
+  it('hover only removes the underline on the text, with no background-colour change on the button', () => {
+    const hover = block(css, '\\.nhsw-tabs__tab:hover \\.nhsw-tabs__tab-text');
+    expect(hover).toMatch(/text-decoration:\s*none/);
+    const buttonHover = block(css, '\\.nhsw-tabs__tab:hover');
+    expect(buttonHover).not.toMatch(/background-color/);
+  });
+
+  it('focus highlights just the tab text with the yellow background, not the full padded button', () => {
+    const focus = block(css, '\\.nhsw-tabs__tab:focus');
+    expect(focus).toMatch(/outline:\s*none/);
+    expect(focus).not.toMatch(/background-color/);
+    const focusText = block(css, '\\.nhsw-tabs__tab:focus \\.nhsw-tabs__tab-text');
+    expect(focusText).toMatch(/background-color:\s*#ffeb3b/);
+  });
+
+  it('tab text carries the default underline, not the button itself', () => {
+    const text = block(css, '\\.nhsw-tabs__tab-text');
+    expect(text).toMatch(/text-decoration:\s*underline/);
+  });
+
+  it('the tab list top-aligns items, so an unselected tab stays shorter and leaves a gap above the border-bottom line', () => {
+    const list = block(css, '\\.nhsw-tabs__list');
+    expect(list).toMatch(/align-items:\s*flex-start/);
+    const tab = block(css, '\\.nhsw-tabs__tab');
+    expect(tab).toMatch(/align-items:\s*flex-start/);
+  });
+
+  it('the visible tab box is drawn by ::before, filling whatever height the (variably-padded) button ends up with', () => {
+    const before = block(css, '\\.nhsw-tabs__tab::before');
+    expect(before).toMatch(/inset:\s*0/);
+  });
+
+  it('count badge is a bordered, link-coloured inline label', () => {
+    const count = block(css, '\\.nhsw-tabs__count');
+    expect(count).toMatch(/border:\s*1px solid #005aa8/);
+    expect(count).toMatch(/color:\s*#005aa8/);
+  });
+});
+
+describe('tag centres multi-line text and can be grouped with no gap between two tags', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/tag";`);
+  });
+
+  it('tag text is centre-aligned, so a stat tag\'s two lines line up', () => {
+    const base = block(css, '\\.nhsw-tag');
+    expect(base).toMatch(/text-align:\s*center/);
+  });
+
+  it('a tag-group removes the border between its first and second tag so they sit flush', () => {
+    const firstChild = block(css, '\\.nhsw-tag-group \\.nhsw-tag:first-child');
+    expect(firstChild).toMatch(/border-right:\s*none/);
   });
 });

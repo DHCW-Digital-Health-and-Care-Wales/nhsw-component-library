@@ -113,8 +113,42 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tbl-caption" open_url="/examples/table-caption.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;caption class="nhsw-table__caption nhsw-table__caption--l"&gt;Months and rates&lt;/caption&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTable({ caption: "Months and rates", captionSize: "l", head: [...], rows: [...] }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--l"&gt;Months and rates&lt;/caption&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Month you apply&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Rate for vehicles&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;January&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;&amp;pound;95&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;February&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;&amp;pound;55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;March&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;&amp;pound;125&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTable({
+  caption: "Months and rates",
+  captionSize: "l",
+  head: [
+    { text: "Month you apply" },
+    { text: "Rate for vehicles" }
+  ],
+  rows: [
+    [ { text: "January" }, { text: "£95" } ],
+    [ { text: "February" }, { text: "£55" } ],
+    [ { text: "March" }, { text: "£125" } ]
+  ]
+}) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-caption" html=html_sample njk=njk_sample toggleable=true %}
 
   <h4 class="nhsw-h4">Table headers</h4>
@@ -154,12 +188,45 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tbl-numeric" open_url="/examples/table-numeric.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Current charge&lt;/th&gt;
-&lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;31.25&lt;/td&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Prescription prepayment certificate (PPC) charges&lt;/caption&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Item&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Current charge&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;New charge&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;3-month&lt;/th&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;31.25&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;32.05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;12-month&lt;/th&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;111.60&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;114.50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;HRT&lt;/th&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;19.30&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;19.80&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTable({
   caption: "Prescription prepayment certificate (PPC) charges",
-  head: [ { text: "Item" }, { text: "Current charge", format: "numeric" }, { text: "New charge", format: "numeric" } ],
-  rows: [ [ { text: "3-month" }, { text: "£31.25", format: "numeric" }, { text: "£32.05", format: "numeric" } ] ]
+  head: [
+    { text: "Item" },
+    { text: "Current charge", format: "numeric" },
+    { text: "New charge", format: "numeric" }
+  ],
+  rows: [
+    [ { text: "3-month" }, { text: "£31.25", format: "numeric" }, { text: "£32.05", format: "numeric" } ],
+    [ { text: "12-month" }, { text: "£111.60", format: "numeric" }, { text: "£114.50", format: "numeric" } ],
+    [ { text: "HRT" }, { text: "£19.30", format: "numeric" }, { text: "£19.80", format: "numeric" } ]
+  ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-numeric" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -234,8 +301,40 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tbl-missing" open_url="/examples/table-missing-data.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;td class="nhsw-table__cell nhsw-body--secondary"&gt;No data&lt;/td&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTable({ caption: "Vaccinations given", head: [...], rows: [...] }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccinations given&lt;/caption&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Date&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Vaccine&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Product&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;10 July 2026&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;RSV&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;Abrysvo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;6 September 2023&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;Flu&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-body--secondary"&gt;No data&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTable({
+  caption: "Vaccinations given",
+  head: [
+    { text: "Date" },
+    { text: "Vaccine" },
+    { text: "Product" }
+  ],
+  rows: [
+    [ { text: "10 July 2026" }, { text: "RSV" }, { text: "Abrysvo" } ],
+    [ { text: "6 September 2023" }, { text: "Flu" }, { text: "No data", classes: "nhsw-body--secondary" } ]
+  ]
+}) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-missing" html=html_sample njk=njk_sample toggleable=true %}
 
   <h3 class="nhsw-h3">Session row</h3>
@@ -272,7 +371,9 @@ tabs:
     &lt;span class="nhsw-session-row__badge"&gt;To do&lt;br&gt;21 of 87&lt;/span&gt;
     &lt;span class="nhsw-session-row__badge"&gt;Free&lt;br&gt;11&lt;/span&gt;
   &lt;/div&gt;
-  &lt;svg class="nhsw-session-row__chevron" ...&gt;&lt;/svg&gt;
+  &lt;svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true"&gt;
+    &lt;path d="M9 6l6 6-6 6" /&gt;
+  &lt;/svg&gt;
 &lt;/a&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{% from "session-row/macro.njk" import nhswSessionRow %}
 

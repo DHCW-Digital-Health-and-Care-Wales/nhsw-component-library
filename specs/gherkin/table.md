@@ -86,4 +86,34 @@ Feature: Table — manual verification
     Given a table using the session-row icon variant
     When a screen reader reads a row
     Then the decorative icon isn't read out as text
+
+  @manual
+  Scenario: Keyboard focus is visible on interactive table content
+    Given a table containing interactive elements (links, buttons, or actions)
+    When a keyboard user tabs through them
+    Then each interactive element displays a clear visible focus indicator
+
+  @manual
+  Scenario: Tables remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a table
+    When browser zoom is increased to 200% or 400%
+    Then the table remains readable and usable without loss of information
+
+  @manual
+  Scenario: Long cell content wraps correctly
+    Given a table containing long cell values
+    When viewed on a narrow screen or at high zoom levels
+    Then cell content wraps correctly without overlapping, clipping or becoming unreadable
+
+  @manual
+  Scenario: Long column headings remain readable
+    Given a table with long column headers
+    When viewed on a small screen
+    Then the headers remain readable and continue to identify the associated data correctly
+
+  @manual
+  Scenario: Data remains associated after responsive transformation
+    Given the responsive table variant
+    When viewed on a narrow screen
+    Then each value remains clearly associated with its row or column heading
 ```

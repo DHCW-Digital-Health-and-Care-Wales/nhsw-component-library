@@ -6,6 +6,12 @@
   background-color: #007f3b;
   color: c.$nhsw-colour-text-exceptional;
   text-align: center;
+
+  // Left-align by default; only the icon variant keeps centred text, since
+  // the icon itself needs the centred layout to read as a single unit.
+  &:not(:has(.nhsw-panel__icon)) {
+    text-align: left;
+  }
 }
 
 .nhsw-panel__icon {

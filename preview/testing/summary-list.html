@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="summary-list">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 10 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -137,6 +137,169 @@ extra_scripts:
                     <dt class="nhsw-summary-list__key">Key</dt>
                     <dd class="nhsw-summary-list__value">Details</dd>
                     <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-4" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-4">"Change" links make sense out of context (WCAG 2.2 SC 2.4.4)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-4-hint">Given a summary list containing Change links. When a screen reader presents a list of links. Then each Change link identifies the item it relates to, e.g. "Change name", "Change appointment date", rather than just "Change, Change".</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dl class="nhsw-summary-list">
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Name</dt>
+                <dd class="nhsw-summary-list__value">Karen Francis</dd>
+                <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a></dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Appointment date</dt>
+                <dd class="nhsw-summary-list__value">15 March 2027</dd>
+                <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> appointment date</span></a></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-5" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-5">Keyboard focus is visible on action links (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-5-hint">Given a summary list containing Change, Cancel or Reschedule links. When a keyboard user tabs through them. Then each link displays a clear visible focus indicator.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-summary-card">
+              <div class="nhsw-summary-card__header">
+                <h2 class="nhsw-h3 nhsw-summary-card__title">Karen Francis</h2>
+                <ul class="nhsw-summary-card__actions">
+                  <li><a class="nhsw-link" href="#">Cancel</a></li>
+                  <li><a class="nhsw-link" href="#">Reschedule</a></li>
+                </ul>
+              </div>
+              <div class="nhsw-summary-card__body">
+                <dl class="nhsw-summary-list">
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Name</dt>
+                    <dd class="nhsw-summary-list__value">Karen Francis</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a></dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-6" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-6">Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-6-hint">Given a summary list. When browser zoom is increased to 200% or 400%. Then labels, values and actions remain readable and usable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <dl class="nhsw-summary-list nhsw-summary-list--no-border">
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Name</dt>
+                <dd class="nhsw-summary-list__value">Karen Francis</dd>
+              </div>
+              <div class="nhsw-summary-list__row">
+                <dt class="nhsw-summary-list__key">Date of birth</dt>
+                <dd class="nhsw-summary-list__value">15 March 1984</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-7" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-7">Long values wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-7-hint">Given a summary list containing long answers, e.g. a long email address, address or medication name. When viewed on a small screen or at high zoom levels. Then values wrap correctly without overlapping labels or action links.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <dl class="nhsw-summary-list">
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">Contact details</dt>
+                  <dd class="nhsw-summary-list__value">karen.francis.appointments.reminders@example-nhs-service.wales.nhs.uk</dd>
+                  <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> contact details</span></a></dd>
+                </div>
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">Current medication</dt>
+                  <dd class="nhsw-summary-list__value">Co-amoxiclav 500mg/125mg tablets, three times a day</dd>
+                  <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> current medication</span></a></dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-8" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-8">Long labels wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-8-hint">Given a summary list containing lengthy labels. When displayed on a narrow viewport. Then the labels wrap correctly and remain associated with their values.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <dl class="nhsw-summary-list">
+                <div class="nhsw-summary-list__row">
+                  <dt class="nhsw-summary-list__key">Reason for cancelling or rescheduling this appointment</dt>
+                  <dd class="nhsw-summary-list__value">No longer needed</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-9" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-9">Summary list adapts to small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-9-hint">Given a summary list. When viewed on a mobile-width screen. Then labels, values and actions reflow without clipping, overlap or horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-summary-card">
+                <div class="nhsw-summary-card__header">
+                  <h2 class="nhsw-h3 nhsw-summary-card__title">Karen Francis</h2>
+                  <ul class="nhsw-summary-card__actions">
+                    <li><a class="nhsw-link" href="#">Cancel</a></li>
+                    <li><a class="nhsw-link" href="#">Reschedule</a></li>
+                  </ul>
+                </div>
+                <div class="nhsw-summary-card__body">
+                  <dl class="nhsw-summary-list">
+                    <div class="nhsw-summary-list__row">
+                      <dt class="nhsw-summary-list__key">Name</dt>
+                      <dd class="nhsw-summary-list__value">Karen Francis</dd>
+                      <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a></dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="summary-list-manual-10" name="summary-list-manual-tests" type="checkbox" aria-describedby="summary-list-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="summary-list-manual-10">Multiple action links remain distinct</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="summary-list-manual-10-hint">Given a summary card header containing multiple actions. When viewed by keyboard or screen-reader users. Then each action is clearly distinguishable and independently operable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-summary-card">
+              <div class="nhsw-summary-card__header">
+                <h2 class="nhsw-h3 nhsw-summary-card__title">Karen Francis</h2>
+                <ul class="nhsw-summary-card__actions">
+                  <li><a class="nhsw-link" href="#">Cancel</a></li>
+                  <li><a class="nhsw-link" href="#">Reschedule</a></li>
+                </ul>
+              </div>
+              <div class="nhsw-summary-card__body">
+                <dl class="nhsw-summary-list">
+                  <div class="nhsw-summary-list__row">
+                    <dt class="nhsw-summary-list__key">Name</dt>
+                    <dd class="nhsw-summary-list__value">Karen Francis</dd>
+                    <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a></dd>
                   </div>
                 </dl>
               </div>

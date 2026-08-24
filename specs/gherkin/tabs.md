@@ -94,12 +94,49 @@ Feature: Tabs — manual verification
     Then they hear its name, its position (e.g. "2 of 4"), and whether it's selected
 
   @manual
-  Scenario: Tab labels never wrap onto a second line
-    Given a set of tabs with realistic label lengths
-    Then the row of tabs stays on a single line at normal viewport widths
+  Scenario: Long tab labels remain readable
+    Given tabs with realistic long labels
+    When viewed at different viewport sizes
+    Then labels remain readable and the tab layout remains usable
 
   @manual
   Scenario: No tab is ever shown disabled
     Given a set of tabs
     Then none of them are greyed out or disabled
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a tab receives keyboard focus
+    When a keyboard user navigates between tabs
+    Then a clear visible focus indicator is shown on the focused tab
+
+  @manual
+  Scenario: Active tab is visually distinct from inactive tabs
+    Given a set of tabs
+    When one tab is selected
+    Then the active tab is clearly distinguishable without relying on colour alone (checks like different background, border treatment, position and font weight)
+
+  @manual
+  Scenario: Selected tab can be identified without colour alone (WCAG 2.2 SC 1.4.1)
+    Given a selected tab
+    When viewed by a user who cannot perceive colour differences
+    Then its selected state is still clear
+
+  @manual
+  Scenario: Tabs remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a set of tabs
+    When browser zoom is increased to 200% or 400%
+    Then all tabs remain readable and operable without loss of information
+
+  @manual
+  Scenario: Tabs remain usable on small screens
+    Given a set of tabs
+    When viewed on a narrow viewport
+    Then users can still access every tab without content being clipped or obscured
+
+  @manual
+  Scenario: Tab panel follows immediately after the tab list
+    Given a tab is selected
+    When a screen reader or keyboard user accesses the tab panel
+    Then the associated content is presented immediately after the tabs
 ```

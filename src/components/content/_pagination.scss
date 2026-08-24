@@ -157,12 +157,12 @@
     padding: 8px 12px;
     color: c.$nhsw-colour-link;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover {
       background-color: c.$nhsw-colour-background-grey;
       color: #7c2855;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     &:focus {
@@ -223,11 +223,12 @@
     color: c.$nhsw-colour-link;
     font-weight: 400;
     text-align: center;
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover {
       background-color: c.$nhsw-colour-background-grey;
       color: #7c2855;
+      text-decoration: none;
     }
 
     &:focus {
