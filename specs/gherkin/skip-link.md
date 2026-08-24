@@ -46,6 +46,18 @@ Feature: Skip link — manual verification
   Scenario: Is visible on screen once focused
     Given a keyboard user tabs to the skip link
     Then it becomes visible on screen with a clear focus outline, rather than staying hidden
+
+  @manual
+  Scenario: Screen reader users can identify the skip link
+    Given a screen reader user navigates the page
+    When the skip link is encountered
+    Then the purpose of the link is announced clearly
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a page containing a skip link
+    When browser zoom is increased to 200% or 400%
+    Then the skip link remains visible and usable when it receives focus
 ```
 
 ## Additional implementation advice

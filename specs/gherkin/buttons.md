@@ -1,6 +1,6 @@
 # Buttons
 
-**Component classes:** `.nhsw-button`, `--secondary`, `--exceptional`, `--warning`, `--small`, `.nhsw-button-group`
+**Component classes:** `.nhsw-button`, `--secondary`, `--outline`, `--exceptional`, `--warning`, `--warning-outline`, `--link`, `--small`, `.nhsw-button-group`
 **Doc page:** `preview/components/buttons.html`
 **Source:** `src/foundations/_button-base.scss`, `src/components/actions/_button.scss`, `src/components/actions/_button-group.scss`
 **Example fixtures:** `button-primary.html`, `button-secondary.html`, `button-exceptional.html`, `button-warning.html`, `button-small.html`, `button-link.html`, `button-grouping.html`
@@ -83,6 +83,24 @@ Feature: Buttons — manual verification
     Given a group of buttons
     When a user tabs through them
     Then each one shows a clear yellow focus outline as it's reached
+
+  @manual
+  Scenario: Buttons remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given any button variant
+    When browser zoom is increased to 200% or 400%
+    Then the button remains readable, operable and fully visible
+
+  @manual
+  Scenario: Hover state is clearly visible
+    Given a pointer user hovers over a button
+    When the pointer is positioned over the button
+    Then a visible hover state is shown
+
+  @manual
+  Scenario: Button text remains readable and wraps correctly
+    Given a button with a long label
+    When viewed on a small screen or at high zoom levels
+    Then the text remains readable and is not clipped, truncated unexpectedly or overlapped
 ```
 
 ## Additional implementation advice

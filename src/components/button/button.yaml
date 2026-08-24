@@ -38,7 +38,8 @@ params:
     required: false
     description: >
       Extra classes. Common modifiers: nhsw-button--primary, --outline,
-      --secondary, --warning, --exceptional, --link, --small, --reverse.
+      --secondary, --warning, --warning-outline, --exceptional, --link,
+      --small, --reverse.
   - name: attributes
     type: object
     required: false
@@ -60,6 +61,10 @@ examples:
     data:
       text: "Archive record"
       classes: "nhsw-button--warning"
+  - name: warning-outline
+    data:
+      text: "Delete"
+      classes: "nhsw-button--warning-outline nhsw-button--small"
   - name: small
     data:
       text: "Update results"

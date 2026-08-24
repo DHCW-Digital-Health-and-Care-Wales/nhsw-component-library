@@ -71,6 +71,64 @@ Feature: Warning callout — manual verification
   Scenario: Warning icon is easy to see against its background (WCAG 2.2 SC 1.4.11)
     Given the warning icon
     Then it has clear contrast against its background
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a warning callout
+    When browser zoom is increased to 200% or 400%
+    Then the heading, body text and warning icon remain visible and readable without loss of content
+
+  @manual
+  Scenario: Warning callout remains readable on small screens
+    Given a warning callout
+    When viewed on a narrow viewport
+    Then the heading, icon and body text remain readable without overlapping or horizontal scrolling
+
+  @manual
+  Scenario: Long warning content wraps correctly
+    Given a warning callout containing a long heading or message
+    When displayed on a small screen or at high zoom levels
+    Then the content wraps correctly without obscuring the warning icon or other content
+
+  @manual
+  Scenario: Screen readers identify the content as a warning
+    Given a screen reader user encounters a warning callout
+    When it is announced
+    Then the user is informed that the content is a warning
+
+  @manual
+  Scenario: Important information: screen readers identify the heading
+    Given a screen reader user encounters an information callout
+    When it is announced
+    Then the heading "Important information" is announced before the body content
+
+  @manual
+  Scenario: Important information: remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given an information callout
+    When browser zoom is increased to 200% or 400%
+    Then the heading, icon and content remain readable without loss of information
+
+  @manual
+  Scenario: Important information: content remains readable on small screens
+    Given an information callout
+    When viewed on a narrow viewport
+    Then the heading, icon and body content remain readable without horizontal scrolling
+
+  @manual
+  Scenario: Important information: long headings wrap correctly
+    Given an information callout with a long heading
+    When displayed on a small screen or at high zoom levels
+    Then the heading wraps correctly without overlapping the icon
+
+  @manual
+  Scenario: Important information: links are visually distinguishable from surrounding text
+    Given an information callout containing a link
+    Then the link is clearly distinguishable from surrounding text without relying on colour alone
+
+  @manual
+  Scenario: Important information: keyboard focus is clearly visible on links (WCAG 2.2 SC 2.4.7)
+    Given a keyboard user tabs to a link within the callout
+    Then a visible focus indicator is shown
 ```
 
 ## Additional implementation advice

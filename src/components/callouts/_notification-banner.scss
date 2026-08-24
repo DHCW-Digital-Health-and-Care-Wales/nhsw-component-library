@@ -1,13 +1,11 @@
 @use "../../tokens/colours" as c;
 
 $nhsw-colour-notification-blue: #004281;
-$nhsw-colour-notification-blue-border: #85b1d9;
 $nhsw-colour-notification-success: #00703c;
-$nhsw-colour-notification-success-border: #4da381;
 
 .nhsw-notification-banner {
   margin-bottom: 32px;
-  border: 4px solid $nhsw-colour-notification-blue-border;
+  border: 6px solid $nhsw-colour-notification-blue;
   background-color: c.$nhsw-colour-background-white;
 
   &__header {
@@ -26,7 +24,12 @@ $nhsw-colour-notification-success-border: #4da381;
 
   &__content {
     padding: 16px;
+    overflow-wrap: break-word;
     color: c.$nhsw-colour-text-primary;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__heading {
@@ -39,10 +42,14 @@ $nhsw-colour-notification-success-border: #4da381;
   &__link {
     color: c.$nhsw-colour-link;
     font-weight: 700;
+    // .nhsw-link is display: inline-block, so overflow-wrap: break-word alone
+    // doesn't shrink its intrinsic width — only `anywhere` affects min-content
+    // sizing, letting the box actually shrink and break instead of overflowing.
+    overflow-wrap: anywhere;
   }
 
   &--success {
-    border-color: $nhsw-colour-notification-success-border;
+    border-color: $nhsw-colour-notification-success;
 
     .nhsw-notification-banner__header {
       background-color: $nhsw-colour-notification-success;

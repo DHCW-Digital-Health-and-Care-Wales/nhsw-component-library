@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="notification-banner">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 7 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -45,8 +45,8 @@ extra_scripts:
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="notification-banner-manual-2" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-2-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-2">Success banner is announced automatically to screen readers</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-2-hint">Given a success banner appears after an action, e.g. a form submission. Then a screen reader announces it without the user needing to go and find it.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-2">Notification heading is announced</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-2-hint">Given a screen reader user encounters a notification banner. When it is announced. Then the banner heading and message are announced together.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success-notification-banner-s2">
@@ -78,6 +78,75 @@ extra_scripts:
           </div>
         </div>
         </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-4" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-4">Keyboard focus is clearly visible on links (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-4-hint">Given a notification banner contains one or more links. When a keyboard user tabs to a link. Then a clear visible focus indicator is shown. This applies to any interactive content inside the banner.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-notification-banner-s4">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-notification-banner-s4">Important</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-5" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-5">Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-5-hint">Given a notification banner. When browser zoom is increased to 200% or 400%. Then the banner remains readable and all links remain usable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-notification-banner-s5">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-notification-banner-s5">Important</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-6" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-6">Long banner content wraps correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-6-hint">Given a notification banner containing a long title or message. When viewed on a small screen or high zoom level. Then the content wraps correctly without overlapping or being cut off.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success-notification-banner-s6">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-success-notification-banner-s6">Success</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <h3 class="nhsw-notification-banner__heading">Vaccination outcome recorded for HPV, tetanus, diphtheria, polio, MenACWY and the flu vaccine</h3>
+                <p class="nhsw-body">Contact <a class="nhsw-link nhsw-notification-banner__link" href="#">example@wales.nhs.uk</a> if you think there's a problem, or if any of the details recorded above don't look right to you.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="notification-banner-manual-7" name="notification-banner-manual-tests" type="checkbox" aria-describedby="notification-banner-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="notification-banner-manual-7">Banner remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="notification-banner-manual-7-hint">Given a notification banner. When viewed on a narrow viewport. Then all banner content remains readable and usable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-notification-banner-s7">
+              <div class="nhsw-notification-banner__header">
+                <h2 class="nhsw-notification-banner__title" id="notification-title-notification-banner-s7">Important</h2>
+              </div>
+              <div class="nhsw-notification-banner__content">
+                <p class="nhsw-notification-banner__heading">You have 7 days left to send your application. <a class="nhsw-link nhsw-notification-banner__link" href="#">View application</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
   </fieldset>
 
@@ -91,5 +160,6 @@ extra_scripts:
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">
         <li><strong>Same heading text reused consistently across a service</strong> (WCAG 2.2 SC 3.2.4) — consistency across pages depends on how the service uses the banner over time, not a single rendered instance.</li>
+        <li><strong>Success banner appears after the relevant action</strong> — the fact that the banner correctly communicates the outcome of an action (e.g. a form submission) depends on how and when the service around it renders it, not something the isolated component can prove on its own.</li>
   </ul>
 </div>

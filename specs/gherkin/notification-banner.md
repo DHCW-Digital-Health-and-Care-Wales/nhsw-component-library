@@ -40,14 +40,40 @@ Feature: Notification banner — manual verification
     Then it has a text heading ("Important"/"Success") as well as its colour treatment
 
   @manual
-  Scenario: Success banner is announced automatically to screen readers
-    Given a success banner appears after an action, e.g. a form submission
-    Then a screen reader announces it without the user needing to go and find it
+  Scenario: Notification heading is announced
+    Given a screen reader user encounters a notification banner
+    When it is announced
+    Then the banner heading and message are announced together
 
   @manual
   Scenario: Link inside the banner is visually distinguishable from surrounding text
     Given a notification banner containing a link
     Then it's clearly distinguishable from the surrounding text — not relying on colour alone
+
+  @manual
+  Scenario: Keyboard focus is clearly visible on links (WCAG 2.2 SC 2.4.7)
+    Given a notification banner contains one or more links
+    When a keyboard user tabs to a link
+    Then a clear visible focus indicator is shown
+    This applies to any interactive content inside the banner.
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a notification banner
+    When browser zoom is increased to 200% or 400%
+    Then the banner remains readable and all links remain usable without horizontal scrolling
+
+  @manual
+  Scenario: Long banner content wraps correctly
+    Given a notification banner containing a long title or message
+    When viewed on a small screen or high zoom level
+    Then the content wraps correctly without overlapping or being cut off
+
+  @manual
+  Scenario: Banner remains readable on small screens
+    Given a notification banner
+    When viewed on a narrow viewport
+    Then all banner content remains readable and usable
 ```
 
 ## Additional implementation advice
@@ -55,3 +81,4 @@ Feature: Notification banner — manual verification
 These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.
 
 - **Same heading text reused consistently across a service** (WCAG 2.2 SC 3.2.4) — consistency across pages depends on how the service uses the banner over time, not a single rendered instance.
+- **Success banner appears after the relevant action** — the fact that the banner correctly communicates the outcome of an action (e.g. a form submission) depends on how and when the service around it renders it, not something the isolated component can prove on its own.

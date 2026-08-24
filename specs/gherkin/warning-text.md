@@ -43,4 +43,16 @@ Feature: Warning text — manual verification
   Scenario: Stays readable on a dark background
     Given the dark-background variant of warning text
     Then both the icon and text remain clearly visible
+
+  @manual
+  Scenario: Remains readable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given warning text
+    When browser zoom is increased to 200% or 400%
+    Then the icon and text remain visible and readable without loss of information
+
+  @manual
+  Scenario: Warning text remains readable on small screens
+    Given warning text containing a long message
+    When viewed on a narrow viewport
+    Then the text wraps correctly and does not overlap the warning icon
 ```

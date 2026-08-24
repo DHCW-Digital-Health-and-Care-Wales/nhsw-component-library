@@ -9,10 +9,12 @@
   background-color: c.$nhsw-colour-focus;
   color: c.$nhsw-colour-focus-text;
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
   transform: translateY(-100%);
 
   &:focus {
+    outline: none;
     transform: translateY(0);
+    box-shadow: 0 4px 0 c.$nhsw-colour-border-primary;
   }
 }

@@ -409,13 +409,12 @@ describe('file upload hover/uploaded/focus states', () => {
     css = compileProbe(`@use "components/forms/file-upload";`);
   });
 
-  it('hover turns the whole box white and the Choose file button turns blue with it', () => {
+  it('hover turns the whole box white, and the Choose file button matches our own secondary button hover state', () => {
     const hover = block(css, '\\.nhsw-file-upload:hover');
     expect(hover).toMatch(/background-color:\s*#ffffff/);
     const hoverButton = block(css, '\\.nhsw-file-upload:hover \\.nhsw-file-upload__button');
-    expect(hoverButton).toMatch(/background-color:\s*#d2e2f1/);
-    expect(hoverButton).toMatch(/border-color:\s*#005eb8/);
-    expect(hoverButton).toMatch(/color:\s*#005eb8/);
+    expect(hoverButton).toMatch(/background-color:\s*#f2f2f2/i);
+    expect(hoverButton).toMatch(/box-shadow:\s*0 2px 0 #1b2a49/i);
   });
 
   it('an error state shows a red border around the box', () => {
@@ -451,5 +450,81 @@ describe('file upload hover/uploaded/focus states', () => {
   it('a long selected file name can break instead of overflowing the status box', () => {
     const status = block(css, '\\.nhsw-file-upload__status');
     expect(status).toMatch(/overflow-wrap:\s*break-word/);
+  });
+});
+
+describe('skip link is not underlined and shows a bordered focus state', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/navigation/skip-link";`);
+  });
+
+  it('base state has no underline', () => {
+    const base = block(css, '\\.nhsw-skip-link');
+    expect(base).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('focus state adds a thick 4px bottom-edge border on top of the yellow highlight, with the default UA outline suppressed', () => {
+    const focus = block(css, '\\.nhsw-skip-link:focus');
+    expect(focus).toMatch(/box-shadow:\s*0 4px 0 #212b32/);
+    expect(focus).toMatch(/outline:\s*none/);
+  });
+});
+
+describe('warning text icon aligns to the first line, not the vertical centre', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/warning-text";`);
+  });
+
+  it('icon is pinned to the top of the container, with no centring transform', () => {
+    const icon = block(css, '\\.nhsw-warning-text__icon');
+    expect(icon).toMatch(/top:\s*0/);
+    expect(icon).not.toMatch(/transform:\s*translateY/);
+  });
+});
+
+describe('buttons: new warning-outline variant, link variant fixes, group layout, outline shadow fix', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/actions/button"; @use "components/actions/button-group";`);
+  });
+
+  it('warning-outline is a small, red-bordered button reusing the existing delete-red tokens', () => {
+    const base = block(css, '\\.nhsw-button--warning-outline');
+    expect(base).toMatch(/color:\s*#d5281b/);
+    expect(base).toMatch(/border-color:\s*#d5281b/);
+    const hover = block(css, '\\.nhsw-button--warning-outline:not\\(:disabled\\):not\\(:focus\\):hover');
+    expect(hover).toMatch(/color:\s*#902419/);
+  });
+
+  it('outline button box-shadow uses the secondary border colour, not the exceptional-button brown', () => {
+    const outline = block(css, '\\.nhsw-button--outline');
+    expect(outline).toMatch(/box-shadow:\s*0 2px 0 #4c6272/);
+  });
+
+  it('link variant is regular weight, square-cornered, and drops its underline on hover on a dark background', () => {
+    const base = block(css, '\\.nhsw-button--link');
+    expect(base).toMatch(/border-radius:\s*0/);
+    expect(base).toMatch(/font-weight:\s*400/);
+    const reverseHover = block(css, '\\.nhsw-button--link\\.nhsw-button--reverse:not\\(:disabled\\):not\\(:focus\\):hover');
+    expect(reverseHover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('link variant underline thickness matches the action link component', () => {
+    const base = block(css, '\\.nhsw-button--link');
+    expect(base).toMatch(/text-decoration-thickness:\s*2px/);
+    expect(base).toMatch(/text-underline-offset:\s*0\.12em/);
+  });
+
+  it('button group stays in a row and wraps at any screen size, and its buttons are not forced full-width', () => {
+    const group = block(css, '\\.nhsw-button-group');
+    expect(group).toMatch(/flex-direction:\s*row/);
+    expect(group).toMatch(/flex-wrap:\s*wrap/);
+    const groupButton = block(css, '\\.nhsw-button-group \\.nhsw-button');
+    expect(groupButton).toMatch(/width:\s*auto/);
   });
 });

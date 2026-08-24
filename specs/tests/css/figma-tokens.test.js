@@ -187,4 +187,12 @@ describe('button spacing matches Figma Button/Default > Primary/Default', () => 
     // is currently dormant, but it must be correct for whenever one is built.
     expect(buttonCss).toMatch(/gap:\s*12px/);
   });
+
+  it('focus state suppresses the default browser outline in favour of the custom yellow/box-shadow treatment', () => {
+    // Without this, the browser's default UA focus ring shows up alongside
+    // the custom focus style — most visible as a stray pale ring around
+    // background-less variants like --link sitting on a dark background.
+    const focusBlock = buttonCss.match(/:focus:not\(:active\)\s*\{([^}]*)\}/);
+    expect(focusBlock && focusBlock[1]).toMatch(/outline:\s*none/);
+  });
 });

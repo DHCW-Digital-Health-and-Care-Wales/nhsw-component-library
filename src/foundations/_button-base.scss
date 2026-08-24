@@ -22,6 +22,7 @@
     vertical-align: top;
 
     &:focus:not(:active) {
+        outline: none;
         background-color: c.$nhsw-colour-focus;
         color: c.$nhsw-colour-text-primary;
         border: none;

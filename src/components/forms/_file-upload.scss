@@ -1,8 +1,5 @@
 @use "../../tokens/colours" as c;
 
-$nhsw-colour-file-upload-hover-background: #d2e2f1;
-$nhsw-colour-file-upload-hover-text: #005eb8;
-
 .nhsw-file-upload {
   display: flex;
   flex-direction: column;
@@ -14,10 +11,8 @@ $nhsw-colour-file-upload-hover-text: #005eb8;
     background-color: c.$nhsw-colour-background-white;
 
     .nhsw-file-upload__button {
-      background-color: $nhsw-colour-file-upload-hover-background;
-      border-color: $nhsw-colour-file-upload-hover-text;
-      color: $nhsw-colour-file-upload-hover-text;
-      box-shadow: 0 2px 0 $nhsw-colour-file-upload-hover-text;
+      background-color: c.$nhsw-colour-button-secondary-hover;
+      box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
     }
   }
 

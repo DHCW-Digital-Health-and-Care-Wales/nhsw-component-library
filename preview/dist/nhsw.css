@@ -915,10 +915,8 @@
   background-color: #ffffff;
 }
 .nhsw-file-upload:hover .nhsw-file-upload__button {
-  background-color: #d2e2f1;
-  border-color: #005eb8;
-  color: #005eb8;
-  box-shadow: 0 2px 0 #005eb8;
+  background-color: #F2F2F2;
+  box-shadow: 0 2px 0 #1B2A49;
 }
 .nhsw-file-upload--has-file {
   background-color: #ffffff;
@@ -1662,8 +1660,7 @@ body {
 .nhsw-warning-text__icon {
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2350,6 +2347,7 @@ body {
   border-top: 1px solid #d8dde0;
 }
 .nhsw-example-preview__body {
+  position: relative;
   padding: 32px 24px;
   background-color: #ffffff;
 }
@@ -2424,6 +2422,7 @@ body {
   vertical-align: top;
 }
 .nhsw-button:focus:not(:active) {
+  outline: none;
   background-color: #ffeb3b;
   color: #212b32;
   border: none;
@@ -2501,7 +2500,7 @@ body {
   background-color: #FFFFFF;
   color: #212b32;
   border-color: #FFFFFF;
-  box-shadow: 0 2px 0 #554318;
+  box-shadow: 0 2px 0 #4c6272;
 }
 .nhsw-button--outline:not(:disabled):not(:focus):hover {
   background-color: #F2F2F2;
@@ -2511,6 +2510,22 @@ body {
 .nhsw-button--outline:not(:disabled):active {
   box-shadow: none;
   background-color: #FFFFFF;
+}
+.nhsw-button--warning-outline {
+  background-color: #ffffff;
+  color: #d5281b;
+  border-color: #d5281b;
+  box-shadow: 0 2px 0 #d5281b;
+}
+.nhsw-button--warning-outline:not(:disabled):not(:focus):hover {
+  background-color: #f0f4f5;
+  color: #902419;
+  box-shadow: 0 2px 0 #902419;
+  border: 1px solid #902419;
+}
+.nhsw-button--warning-outline:not(:disabled):active {
+  box-shadow: none;
+  background-color: #ffffff;
 }
 .nhsw-button--small {
   min-height: 36px;
@@ -2522,9 +2537,13 @@ body {
   padding: 0;
   background: none;
   border: 0;
+  border-radius: 0;
   box-shadow: none;
   color: #005aa8;
+  font-weight: 400;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.12em;
 }
 .nhsw-button--link:not(:disabled):not(:focus):hover {
   background: none;
@@ -2538,6 +2557,7 @@ body {
 }
 .nhsw-button--link.nhsw-button--reverse:not(:disabled):not(:focus):hover {
   color: #ffffff;
+  text-decoration: none;
 }
 .nhsw-button:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
   transform: translateY(1px);
@@ -2565,18 +2585,14 @@ body {
 }
 .nhsw-button-group {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 16px;
   margin-bottom: 24px;
 }
-@media (min-width: 40.0625em) {
-  .nhsw-button-group {
-    flex-direction: row;
-    align-items: center;
-  }
-}
 .nhsw-button-group .nhsw-button {
+  width: auto;
   margin: 0;
 }
 
@@ -2921,7 +2937,7 @@ body {
   color: #1b365d;
 }
 .nhsw-warning-callout--important .nhsw-warning-callout__content {
-  border-color: #1b365d;
+  border-color: #d8dde0;
   background-color: #ffffff;
 }
 
@@ -2939,7 +2955,7 @@ body {
 
 .nhsw-notification-banner {
   margin-bottom: 32px;
-  border: 4px solid #85b1d9;
+  border: 6px solid #004281;
   background-color: #ffffff;
 }
 .nhsw-notification-banner__header {
@@ -2956,7 +2972,11 @@ body {
 }
 .nhsw-notification-banner__content {
   padding: 16px;
+  overflow-wrap: break-word;
   color: #212b32;
+}
+.nhsw-notification-banner__content > :last-child {
+  margin-bottom: 0;
 }
 .nhsw-notification-banner__heading {
   margin: 0 0 8px;
@@ -2967,9 +2987,10 @@ body {
 .nhsw-notification-banner__link {
   color: #005aa8;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 .nhsw-notification-banner--success {
-  border-color: #4da381;
+  border-color: #00703c;
 }
 .nhsw-notification-banner--success .nhsw-notification-banner__header {
   background-color: #00703c;
@@ -3702,11 +3723,13 @@ body {
   background-color: #ffeb3b;
   color: #0b0c0c;
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
   transform: translateY(-100%);
 }
 .nhsw-skip-link:focus {
+  outline: none;
   transform: translateY(0);
+  box-shadow: 0 4px 0 #212b32;
 }
 
 .nhsw-main-wrapper {
