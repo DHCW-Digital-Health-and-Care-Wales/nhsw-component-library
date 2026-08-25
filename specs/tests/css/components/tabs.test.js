@@ -23,6 +23,11 @@ describe('tabs match Figma Tabs component', () => {
     const selected = block(css, '\\.nhsw-tabs__tab--selected');
     expect(selected).toMatch(/padding:\s*0\.5rem 1rem 0\.875rem/);
   });
+
+  it('tab button uses the base font family, not a browser default', () => {
+    const tab = block(css, '\\.nhsw-tabs__tab\\b');
+    expect(tab).toMatch(/font-family:\s*Roboto,\s*Arial,\s*sans-serif/);
+  });
 });
 
 describe('tabs: hover removes the underline (not the background), focus highlights just the text, tabs stretch to align', () => {
@@ -45,6 +50,7 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(focus).not.toMatch(/background-color/);
     const focusText = block(css, '\\.nhsw-tabs__tab:focus \\.nhsw-tabs__tab-text');
     expect(focusText).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focusText).toMatch(/color:\s*#0b0c0c/);
     // Matches the 3px focus underline used on .nhsw-card__title-link:focus.
     expect(focusText).toMatch(/text-decoration-thickness:\s*3px/);
   });
@@ -70,5 +76,27 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     const count = block(css, '\\.nhsw-tabs__count');
     expect(count).toMatch(/border:\s*1px solid #005aa8/);
     expect(count).toMatch(/color:\s*#005aa8/);
+  });
+
+  it('tab list has a grey bottom border, and the unselected tab background is drawn the same grey', () => {
+    const list = block(css, '\\.nhsw-tabs__list');
+    expect(list).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+    const before = block(css, '\\.nhsw-tabs__tab::before');
+    expect(before).toMatch(/background-color:\s*#d8dde0/);
+  });
+
+  it('selected tab draws a white box with a grey border, its bottom edge painted white to fuse with the panel below', () => {
+    const selectedBefore = block(css, '\\.nhsw-tabs__tab--selected::before');
+    expect(selectedBefore).toMatch(/background-color:\s*#ffffff/);
+    expect(selectedBefore).toMatch(/border:\s*1px solid #d8dde0/);
+    expect(selectedBefore).toMatch(/border-bottom:\s*1px solid #ffffff/);
+  });
+
+  it('panel is white with a matching grey border, and the pagination row has a grey top border', () => {
+    const panel = block(css, '\\.nhsw-tabs__panel');
+    expect(panel).toMatch(/background-color:\s*#ffffff/);
+    expect(panel).toMatch(/border:\s*1px solid #d8dde0/);
+    const pagination = block(css, '\\.nhsw-tabs__pagination');
+    expect(pagination).toMatch(/border-top:\s*1px solid #d8dde0/);
   });
 });

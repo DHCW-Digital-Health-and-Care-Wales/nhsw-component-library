@@ -20,6 +20,20 @@ describe('panel matches Figma Panel component (Small, Green variant)', () => {
     const base = block(css, '\\.nhsw-panel');
     expect(base).toMatch(/background-color:\s*#007f3b/);
   });
+
+  it('text is white: base panel, title and body', () => {
+    const base = block(css, '\\.nhsw-panel\\b');
+    expect(base).toMatch(/color:\s*#ffffff/);
+    const title = block(css, '\\.nhsw-panel__title');
+    expect(title).toMatch(/color:\s*#ffffff/);
+    const body = block(css, '\\.nhsw-panel__body');
+    expect(body).toMatch(/color:\s*#ffffff/);
+  });
+
+  it('navy variant overrides the background to the primary button navy', () => {
+    const navy = block(css, '\\.nhsw-panel--navy');
+    expect(navy).toMatch(/background-color:\s*#1b365d/);
+  });
 });
 
 describe('panel left-aligns text by default, keeping the icon variant centred', () => {

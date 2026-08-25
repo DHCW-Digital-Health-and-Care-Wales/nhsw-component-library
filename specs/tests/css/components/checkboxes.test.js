@@ -23,6 +23,7 @@ describe('checkboxes match Figma Checkboxes component (40x40px input square)', (
     expect(before).toMatch(/height:\s*40px/);
     expect(before).toMatch(/border:\s*2px solid #4c6272/);
     expect(before).toMatch(/border-radius:\s*0/);
+    expect(before).toMatch(/background:\s*#ffffff/);
   });
 });
 
@@ -42,6 +43,7 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     const focus = block(css, '\\.nhsw-checkboxes__input:focus \\+ \\.nhsw-checkboxes__label::before');
     expect(focus).toMatch(/border-color:\s*#212b32/);
     expect(focus).toMatch(/border-width:\s*4px/);
+    expect(focus).toMatch(/box-shadow:\s*0 0 0 4px #ffeb3b/);
   });
 
   it('label is regular weight, not bold', () => {

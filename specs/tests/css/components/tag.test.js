@@ -54,3 +54,70 @@ describe('tag centres multi-line text and can be grouped with no gap between two
     expect(firstChild).toMatch(/border-right:\s*none/);
   });
 });
+
+describe('tag colour coverage (remaining Figma swatches)', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/tag";`);
+  });
+
+  it('base tag is navy with white text', () => {
+    const base = block(css, '\\.nhsw-tag');
+    expect(base).toMatch(/border:\s*1px solid #183154/);
+    expect(base).toMatch(/background-color:\s*#183154/);
+    expect(base).toMatch(/color:\s*#ffffff/);
+  });
+
+  it('white variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--white');
+    expect(variant).toMatch(/background-color:\s*#ffffff/);
+  });
+
+  it('aqua-green variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--aqua-green');
+    expect(variant).toMatch(/background-color:\s*#ccedeb/);
+    expect(variant).toMatch(/border-color:\s*#00524d/);
+    expect(variant).toMatch(/color:\s*#00524d/);
+  });
+
+  it('purple variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--purple');
+    expect(variant).toMatch(/background-color:\s*#d6cce3/);
+    expect(variant).toMatch(/border-color:\s*#240050/);
+    expect(variant).toMatch(/color:\s*#240050/);
+  });
+
+  it('pink variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--pink');
+    expect(variant).toMatch(/background-color:\s*#efd3e3/);
+    expect(variant).toMatch(/border-color:\s*#57133a/);
+    expect(variant).toMatch(/color:\s*#57133a/);
+  });
+
+  it('red variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--red');
+    expect(variant).toMatch(/background-color:\s*#f7d4d1/);
+    expect(variant).toMatch(/border-color:\s*#6b140e/);
+    expect(variant).toMatch(/color:\s*#6b140e/);
+  });
+
+  it('orange variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--orange');
+    expect(variant).toMatch(/background-color:\s*#ffdc8e/);
+    expect(variant).toMatch(/border-color:\s*#4d3708/);
+    expect(variant).toMatch(/color:\s*#4d3708/);
+  });
+
+  it('yellow variant matches Figma swatch', () => {
+    const variant = block(css, '\\.nhsw-tag--yellow');
+    expect(variant).toMatch(/background-color:\s*#fff59d/);
+    expect(variant).toMatch(/border-color:\s*#4d4712/);
+    expect(variant).toMatch(/color:\s*#4d4712/);
+  });
+
+  it('dhcw-blue variant text is white', () => {
+    const variant = block(css, '\\.nhsw-tag--dhcw-blue');
+    expect(variant).toMatch(/color:\s*#ffffff/);
+  });
+});

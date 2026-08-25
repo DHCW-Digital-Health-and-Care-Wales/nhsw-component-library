@@ -39,4 +39,10 @@ describe('details disclosure matches its summary/text structure', () => {
     expect(text).toMatch(/border-left:\s*4px solid #d8dde0/);
     expect(text).toMatch(/padding-left:\s*20px/);
   });
+
+  it('summary focus is a yellow highlight with a dark bottom edge', () => {
+    const focus = block(css, '\\.nhsw-details__summary:focus');
+    expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/box-shadow:\s*0 -2px #ffeb3b, 0 4px #212b32/);
+  });
 });

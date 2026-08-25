@@ -1,6 +1,7 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
+@use "../../utilities/hidden-control" as h;
 
 .nhsw-checkboxes {
   margin-bottom: 8px;
@@ -19,22 +20,10 @@
   }
 
   &__input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
+    @include h.nhsw-hidden-native-control;
 
     &:focus + .nhsw-checkboxes__label::before {
-      outline: 3px solid c.$nhsw-colour-focus;
-      outline-offset: 1px;
-      box-shadow: 0 0 0 4px c.$nhsw-colour-focus;
-      border-color: c.$nhsw-colour-border-primary;
-      border-width: 4px;
+      @include u.nhsw-choice-input-focus-ring;
     }
 
     &:checked + .nhsw-checkboxes__label::after {

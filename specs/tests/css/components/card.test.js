@@ -25,6 +25,7 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     const focus = block(css, '\\.nhsw-card__title-link:focus');
     expect(focus).toMatch(/outline:\s*none/);
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/color:\s*#0b0c0c/);
     expect(focus).toMatch(/text-decoration:\s*underline/);
     expect(focus).toMatch(/text-decoration-thickness:\s*3px/);
   });
@@ -54,5 +55,16 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     expect(onlyChild).toMatch(/align-items:\s*center/);
     const onlyChildTitle = block(css, '\\.nhsw-card:has\\(> \\.nhsw-card__title:only-child\\) \\.nhsw-card__title');
     expect(onlyChildTitle).toMatch(/margin:\s*0\b/);
+  });
+
+  it('base card has a grey 1px border with a matching drop shadow', () => {
+    const base = block(css, '\\.nhsw-card');
+    expect(base).toMatch(/border:\s*1px solid #d8dde0/);
+    expect(base).toMatch(/box-shadow:\s*0 4px 0 #d8dde0/);
+  });
+
+  it('preview panel has a grey 1px border', () => {
+    const preview = block(css, '\\.nhsw-card__preview\\b');
+    expect(preview).toMatch(/border:\s*1px solid #d8dde0/);
   });
 });

@@ -35,4 +35,12 @@ describe('typography classes apply the token-driven mobile/tablet values', () =>
     const secondary = block(css, '\\.nhsw-body--secondary');
     expect(secondary).toMatch(/color:\s*#4c6272/);
   });
+
+  it.each(['nhsw-h1', 'nhsw-h2', 'nhsw-h3', 'nhsw-h4', 'nhsw-h5', 'nhsw-body', 'nhsw-body-s'])(
+    '.%s uses the base font family (Roboto, Arial, sans-serif)',
+    (className) => {
+      const rule = block(css, `\\.${className}`);
+      expect(rule).toMatch(/font-family:\s*Roboto,\s*Arial,\s*sans-serif/);
+    },
+  );
 });

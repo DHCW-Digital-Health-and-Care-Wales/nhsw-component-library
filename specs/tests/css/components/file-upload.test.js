@@ -15,9 +15,10 @@ describe('file upload matches Figma Upload a file component', () => {
     expect(base).toMatch(/gap:\s*20px/);
   });
 
-  it('status readout has uniform 10px padding', () => {
+  it('status readout has uniform 10px padding and a light grey background', () => {
     const status = block(css, '\\.nhsw-file-upload__status');
     expect(status).toMatch(/padding:\s*10px/);
+    expect(status).toMatch(/background-color:\s*#f0f4f5/);
   });
 
   it('actions row has a 20px gap', () => {

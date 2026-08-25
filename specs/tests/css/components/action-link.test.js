@@ -84,3 +84,25 @@ describe('action link matches Figma Action link component (icon+text row)', () =
     expect(reverseFocusIcon).toMatch(/fill:\s*#0b0c0c/);
   });
 });
+
+describe('action link colour variants (navy/red icon overrides)', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/actions/action-link";`);
+  });
+
+  it('navy variant icon is navy, and darkens further on hover', () => {
+    const icon = block(css, '\\.nhsw-action-link--navy \\.nhsw-action-link__icon');
+    expect(icon).toMatch(/fill:\s*#1b365d/);
+    const hover = block(css, '\\.nhsw-action-link--navy:hover \\.nhsw-action-link__icon');
+    expect(hover).toMatch(/fill:\s*#1B2A49/);
+  });
+
+  it('red variant icon is red, and darkens further on hover', () => {
+    const icon = block(css, '\\.nhsw-action-link--red \\.nhsw-action-link__icon');
+    expect(icon).toMatch(/fill:\s*#d5281b/);
+    const hover = block(css, '\\.nhsw-action-link--red:hover \\.nhsw-action-link__icon');
+    expect(hover).toMatch(/fill:\s*#902419/);
+  });
+});

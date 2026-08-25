@@ -18,7 +18,22 @@ describe('breadcrumb link hover/focus states', () => {
     const focus = block(css, '\\.nhsw-breadcrumb__link:focus');
     expect(focus).toMatch(/outline:\s*none/);
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/color:\s*#0b0c0c/);
     expect(focus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+  });
+
+  it('crumbs and current-page text use the secondary (grey) text colour, matching the separator', () => {
+    const item = block(css, '\\.nhsw-breadcrumb__list-item\\b');
+    expect(item).toMatch(/color:\s*#4c6272/);
+    const separator = block(css, '\\.nhsw-breadcrumb__list-item:not\\(:last-child\\)::after');
+    expect(separator).toMatch(/color:\s*#4c6272/);
+    const current = block(css, '\\.nhsw-breadcrumb__current');
+    expect(current).toMatch(/color:\s*#4c6272/);
+  });
+
+  it('unvisited link is link-blue', () => {
+    const link = block(css, '\\.nhsw-breadcrumb__link\\b');
+    expect(link).toMatch(/color:\s*#005aa8/);
   });
 
   it('on dark backgrounds, hover stays white with no underline', () => {
@@ -31,6 +46,7 @@ describe('breadcrumb link hover/focus states', () => {
     const reverseFocus = block(css, '\\.nhsw-breadcrumb--reverse \\.nhsw-breadcrumb__link:focus');
     expect(reverseFocus).toMatch(/outline:\s*none/);
     expect(reverseFocus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(reverseFocus).toMatch(/color:\s*#0b0c0c/);
     expect(reverseFocus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
   });
 

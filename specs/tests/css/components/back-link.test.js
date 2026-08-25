@@ -8,6 +8,11 @@ describe('back link hover/focus states', () => {
     css = compileProbe(`@use "components/actions/back-link";`);
   });
 
+  it('default state is link-blue', () => {
+    const base = block(css, '\\.nhsw-back-link');
+    expect(base).toMatch(/color:\s*#005aa8/);
+  });
+
   it('hover recolours to #7c2855 and removes the underline', () => {
     const hover = block(css, '\\.nhsw-back-link:hover');
     expect(hover).toMatch(/color:\s*#7c2855/);
@@ -31,5 +36,10 @@ describe('back link hover/focus states', () => {
   it('on dark backgrounds, focus text is still dark (wins over a simultaneous hover)', () => {
     const reverseFocus = block(css, '\\.nhsw-back-link--reverse:focus');
     expect(reverseFocus).toMatch(/color:\s*#212b32/);
+  });
+
+  it('the button variant inherits its font family instead of falling back to the browser default button font', () => {
+    const button = block(css, '\\.nhsw-back-link--button');
+    expect(button).toMatch(/font-family:\s*inherit/);
   });
 });

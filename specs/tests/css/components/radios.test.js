@@ -23,6 +23,7 @@ describe('radios match Figma Radios component (40x40px circle)', () => {
     expect(before).toMatch(/height:\s*40px/);
     expect(before).toMatch(/border:\s*2px solid #4c6272/);
     expect(before).toMatch(/border-radius:\s*50%/);
+    expect(before).toMatch(/background:\s*#ffffff/);
   });
 });
 
@@ -47,6 +48,7 @@ describe('radios: regular-weight labels, tighter item spacing, row hover, thicke
     const focus = block(css, '\\.nhsw-radios__input:focus \\+ \\.nhsw-radios__label::before');
     expect(focus).toMatch(/border-color:\s*#212b32/);
     expect(focus).toMatch(/border-width:\s*4px/);
+    expect(focus).toMatch(/box-shadow:\s*0 0 0 4px #ffeb3b/);
   });
 
   it('small variant focus border is slightly thinner (3px) than the default size (4px)', () => {

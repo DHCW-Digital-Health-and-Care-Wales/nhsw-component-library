@@ -7,4 +7,10 @@ describe('hint margin-bottom reduced to 8px', () => {
     const hint = block(css, '\\.nhsw-hint');
     expect(hint).toMatch(/margin-bottom:\s*8px/);
   });
+
+  it('hint text uses the secondary (grey) text colour', () => {
+    const css = compileProbe(`@use "components/forms/hint";`);
+    const hint = block(css, '\\.nhsw-hint');
+    expect(hint).toMatch(/color:\s*#4c6272/);
+  });
 });

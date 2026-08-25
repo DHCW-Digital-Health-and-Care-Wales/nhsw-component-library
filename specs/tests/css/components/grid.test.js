@@ -31,4 +31,9 @@ describe('grid row/column/container gutters and breakpoint widths', () => {
     expect(fluid).toMatch(/padding-left:\s*16px/);
     expect(css).toMatch(/@media \(min-width: 48\.0625em\)[\s\S]*?\.nhsw-fluid-container\s*\{[^}]*padding-left:\s*32px/);
   });
+
+  it('page body has the light grey backdrop colour', () => {
+    const body = block(css, 'body');
+    expect(body).toMatch(/background-color:\s*#f0f4f5/);
+  });
 });

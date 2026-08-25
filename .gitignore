@@ -7,3 +7,6 @@ _site/
 .jekyll-metadata
 vendor/
 njk-preview/
+preview/_site_test/
+test-results/
+playwright-report/

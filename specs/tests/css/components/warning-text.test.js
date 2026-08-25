@@ -29,4 +29,18 @@ describe('warning text icon aligns to the first line, not the vertical centre', 
     expect(icon).toMatch(/top:\s*0/);
     expect(icon).not.toMatch(/transform:\s*translateY/);
   });
+
+  it('icon is a navy badge with white text', () => {
+    const icon = block(css, '\\.nhsw-warning-text__icon');
+    expect(icon).toMatch(/background-color:\s*#1b365d/);
+    expect(icon).toMatch(/color:\s*#ffffff/);
+  });
+
+  it('reverse variant swaps the icon to a white badge with navy text, and the message text to white', () => {
+    const reverseIcon = block(css, '\\.nhsw-warning-text--reverse \\.nhsw-warning-text__icon');
+    expect(reverseIcon).toMatch(/background-color:\s*#ffffff/);
+    expect(reverseIcon).toMatch(/color:\s*#1b365d/);
+    const reverseText = block(css, '\\.nhsw-warning-text--reverse \\.nhsw-warning-text__text');
+    expect(reverseText).toMatch(/color:\s*#ffffff/);
+  });
 });

@@ -38,4 +38,9 @@ describe('input wrapper prefix/suffix styling', () => {
     expect(prefix).toMatch(/border-right:\s*0/);
     expect(suffix).toMatch(/border-left:\s*0/);
   });
+
+  it('prefix/suffix inherit their font family to match the paired input', () => {
+    const shared = block(css, '\\.nhsw-input-wrapper__prefix,\\s*\\.nhsw-input-wrapper__suffix');
+    expect(shared).toMatch(/font-family:\s*inherit/);
+  });
 });

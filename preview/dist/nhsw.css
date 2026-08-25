@@ -2854,9 +2854,9 @@ body {
 .nhsw-back-link:focus {
   outline: none;
   background-color: #ffeb3b;
+  border-bottom: max(4px, 0.25rem) solid #212b32;
   color: #212b32;
   text-decoration: none;
-  border-bottom: max(4px, 0.25rem) solid #212b32;
 }
 .nhsw-back-link--button {
   background: none;
@@ -3826,9 +3826,9 @@ body {
 .nhsw-breadcrumb__link:focus {
   outline: none;
   background-color: #ffeb3b;
+  border-bottom: max(4px, 0.25rem) solid #212b32;
   color: #0b0c0c;
   text-decoration: none;
-  border-bottom: max(4px, 0.25rem) solid #212b32;
 }
 .nhsw-breadcrumb__current {
   color: #4c6272;

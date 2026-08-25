@@ -13,6 +13,18 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(link).toMatch(/padding:\s*1rem 0\.25rem/);
   });
 
+  it('inactive nav link is link-blue', () => {
+    const link = block(css, '\\.nhsw-site-header__nav-link\\b');
+    expect(link).toMatch(/color:\s*#005aa8/);
+  });
+
+  it('focus highlights the wrapping span with a yellow background, near-black text and a dark bottom-edge box-shadow', () => {
+    const focusSpan = block(css, '\\.nhsw-site-header__nav-link:focus span');
+    expect(focusSpan).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focusSpan).toMatch(/color:\s*#0b0c0c/);
+    expect(focusSpan).toMatch(/box-shadow:\s*0 4px 0 0 #0b0c0c/);
+  });
+
   it('nav list has a 2rem gap between items', () => {
     const list = block(css, '\\.nhsw-site-header__nav-list');
     expect(list).toMatch(/gap:\s*2rem/);
@@ -92,5 +104,17 @@ describe('site header top bar', () => {
     const title = block(css, '\\.nhsw-site-header__title');
     expect(title).not.toMatch(/border-left/);
     expect(title).toMatch(/font-weight:\s*400/);
+  });
+
+  it('service name title uses the base font family, not a browser default', () => {
+    const title = block(css, '\\.nhsw-site-header__title');
+    expect(title).toMatch(/font-family:\s*Roboto,\s*Arial,\s*sans-serif/);
+  });
+
+  it('search button is link-blue, darkening to the link-hover colour on hover', () => {
+    const button = block(css, '\\.nhsw-site-header__search-button\\b');
+    expect(button).toMatch(/background-color:\s*#005aa8/);
+    const hover = block(css, '\\.nhsw-site-header__search-button:hover');
+    expect(hover).toMatch(/background-color:\s*#003087/);
   });
 });

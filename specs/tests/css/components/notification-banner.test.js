@@ -38,4 +38,13 @@ describe('notification banner matches Figma Attention banner (Important variant)
     const contentLastChild = block(css, '\\.nhsw-notification-banner__content > :last-child');
     expect(contentLastChild).toMatch(/margin-bottom:\s*0/);
   });
+
+  it('banner body and title colours', () => {
+    const base = block(css, '\\.nhsw-notification-banner');
+    expect(base).toMatch(/background-color:\s*#ffffff/);
+    const title = block(css, '\\.nhsw-notification-banner__title');
+    expect(title).toMatch(/color:\s*#ffffff/);
+    const link = block(css, '\\.nhsw-notification-banner__link');
+    expect(link).toMatch(/color:\s*#005aa8/);
+  });
 });

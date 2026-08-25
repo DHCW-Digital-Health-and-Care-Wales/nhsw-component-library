@@ -36,3 +36,22 @@ describe('table has no row hover colour, and the responsive variant treats row h
     expect(cell).toMatch(/border-bottom:\s*1px solid #d8dde0/);
   });
 });
+
+describe('table with a heading tab (panel wrapper + coloured tab label)', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/table";`);
+  });
+
+  it('panel wrapper has a white background', () => {
+    const panel = block(css, '\\.nhsw-table__panel-with-heading-tab');
+    expect(panel).toMatch(/background-color:\s*#ffffff/);
+  });
+
+  it('heading tab is navy with white text', () => {
+    const tab = block(css, '\\.nhsw-table__heading-tab');
+    expect(tab).toMatch(/background-color:\s*#1b365d/);
+    expect(tab).toMatch(/color:\s*#ffffff/);
+  });
+});

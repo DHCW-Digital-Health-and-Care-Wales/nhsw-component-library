@@ -8,11 +8,24 @@ describe('bottom nav is fixed to the viewport and hidden from tablet up', () => 
     css = compileProbe(`@use "components/site/bottom-nav";`);
   });
 
-  it('bar is fixed to the bottom with a gold top border', () => {
-    const nav = block(css, '\\.nhsw-bottom-nav');
+  it('bar is fixed to the bottom with a gold top border and a white background', () => {
+    const nav = block(css, '\\.nhsw-bottom-nav\\b');
     expect(nav).toMatch(/position:\s*fixed/);
     expect(nav).toMatch(/bottom:\s*0/);
     expect(nav).toMatch(/border-top:\s*3px solid #aa8630/);
+    expect(nav).toMatch(/background-color:\s*#ffffff/);
+  });
+
+  it('link is grey text by default, and highlights with a light-grey background on hover', () => {
+    const link = block(css, '\\.nhsw-bottom-nav__link\\b');
+    expect(link).toMatch(/color:\s*#4c6272/);
+    const hover = block(css, '\\.nhsw-bottom-nav__link:hover');
+    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+  });
+
+  it('label uses the base font family, not a browser default', () => {
+    const label = block(css, '\\.nhsw-bottom-nav__label');
+    expect(label).toMatch(/font-family:\s*Roboto,\s*Arial,\s*sans-serif/);
   });
 
   it('bar is hidden from the tablet breakpoint up', () => {

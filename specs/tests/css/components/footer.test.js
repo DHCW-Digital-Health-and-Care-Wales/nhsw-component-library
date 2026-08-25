@@ -11,6 +11,7 @@ describe('site footer matches Figma Footer component', () => {
   it('footer background is white, not grey — grey is only the surrounding page backdrop', () => {
     const footer = block(css, '\\.nhsw-site-footer\\b');
     expect(footer).toMatch(/background-color:\s*#ffffff/);
+    expect(footer).toMatch(/border-top:\s*0\.25rem solid #005eb8/);
   });
 
   it('container has 30px vertical / 40px horizontal padding', () => {
@@ -29,5 +30,17 @@ describe('site footer matches Figma Footer component', () => {
     const badge = block(css, '\\.nhsw-site-footer__licence-badge');
     expect(badge).toMatch(/border:\s*1px solid #212b32/);
     expect(badge).toMatch(/font-weight:\s*700/);
+  });
+
+  it('licence text and version use the secondary (grey) text colour', () => {
+    const licenceText = block(css, '\\.nhsw-site-footer__licence-text');
+    expect(licenceText).toMatch(/color:\s*#4c6272/);
+    const version = block(css, '\\.nhsw-site-footer__version');
+    expect(version).toMatch(/color:\s*#4c6272/);
+  });
+
+  it('nav row has a grey bottom border', () => {
+    const nav = block(css, '\\.nhsw-site-footer__nav\\b');
+    expect(nav).toMatch(/border-bottom:\s*1px solid #d8dde0/);
   });
 });

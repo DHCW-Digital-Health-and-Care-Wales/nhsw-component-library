@@ -42,4 +42,17 @@ describe('warning callout matches Figma Warning callout component', () => {
     const importantContent = block(css, '\\.nhsw-warning-callout--important \\.nhsw-warning-callout__content');
     expect(importantContent).toMatch(/border-color:\s*#d8dde0/);
   });
+
+  it('important variant inverts heading/icon colours to navy and gives content a white background', () => {
+    const heading = block(css, '\\.nhsw-warning-callout--important \\.nhsw-warning-callout__heading');
+    expect(heading).toMatch(/background-color:\s*#1b365d/);
+    expect(heading).toMatch(/color:\s*#ffffff/);
+
+    const icon = block(css, '\\.nhsw-warning-callout--important \\.nhsw-warning-callout__icon');
+    expect(icon).toMatch(/background-color:\s*#ffffff/);
+    expect(icon).toMatch(/color:\s*#1b365d/);
+
+    const importantContent = block(css, '\\.nhsw-warning-callout--important \\.nhsw-warning-callout__content');
+    expect(importantContent).toMatch(/background-color:\s*#ffffff/);
+  });
 });

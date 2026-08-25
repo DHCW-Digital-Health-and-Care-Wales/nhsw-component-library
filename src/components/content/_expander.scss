@@ -1,4 +1,5 @@
 @use "../../tokens/colours" as c;
+@use "../../utilities/focus-ring" as u;
 
 $nhsw-colour-expander-hover: #7c2855;
 
@@ -64,8 +65,7 @@ $nhsw-colour-expander-hover: #7c2855;
     outline: none;
 
     .nhsw-expander__heading {
-      background-color: c.$nhsw-colour-focus;
-      border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
+      @include u.nhsw-link-focus-state;
     }
 
     .nhsw-expander__link-text {

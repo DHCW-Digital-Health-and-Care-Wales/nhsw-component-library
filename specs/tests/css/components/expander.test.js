@@ -78,6 +78,13 @@ describe('expander hover/focus states and default appearance', () => {
     expect(text).toMatch(/overflow-wrap:\s*anywhere/);
   });
 
+  it('default icon and link text are link-blue', () => {
+    const icon = block(css, '\\.nhsw-expander__icon');
+    expect(icon).toMatch(/background-color:\s*#005aa8/);
+    const text = block(css, '\\.nhsw-expander__link-text');
+    expect(text).toMatch(/color:\s*#005aa8/);
+  });
+
   it('reverse variant swaps to a transparent box with white border, icon and text', () => {
     const reverse = block(css, '\\.nhsw-expander--reverse');
     expect(reverse).toMatch(/background-color:\s*transparent/);
