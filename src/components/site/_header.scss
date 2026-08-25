@@ -150,7 +150,6 @@
 
 .nhsw-site-header__nav {
   background-color: c.$nhsw-colour-background-white;
-  border-bottom: 4px solid c.$nhsw-colour-border-grey;
 
   @media (max-width: 40rem) {
     display: none;
@@ -177,6 +176,26 @@
   margin: 0;
   padding: 0;
   gap: 2rem;
+  // Grey line lives here, not as a border on .nav. A border adds height
+  // outside .nav's content box (confirmed via computed layout: with a
+  // border-bottom, .nav's own content ends at the same y as this list, but
+  // the border paints in an entirely separate 4px band below it — an inset
+  // box-shadow on a *link* can never reach that band, since inset shadows
+  // are clipped to their own element's box, so no offset could ever make
+  // the two meet). An inset box-shadow *here* instead occupies the exact
+  // same band nav-link--current's own inset box-shadow uses (both are
+  // "this element's own bottom 4px"), and paints first — current's link is
+  // a descendant, so its shadow paints on top of this one, replacing the
+  // grey with navy for exactly its own width. No border anywhere in this
+  // chain, so there's no separate band for anything to fail to reach.
+  box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-border-grey;
+
+  // Flexing the <li> too (not just the <ul>) blockifies its <a> child and
+  // stretches it to fill the item fully, so its own inset box-shadow lands
+  // in the same band as this element's.
+  li {
+    display: flex;
+  }
 }
 
 .nhsw-site-header__nav-link {
@@ -209,9 +228,8 @@
   }
 
   &--current {
-    // Drawn as an inset box-shadow, not a border, so it sits flush with (not
-    // stacked on top of) the nav bar's own border-bottom rather than adding
-    // a second, visibly-gapped line beneath it.
+    // Same band as .nav-list's own box-shadow above (see its comment) —
+    // painting on top of it, not stacking a second line beside it.
     box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-border-primary;
     color: c.$nhsw-colour-text-primary;
     text-decoration: none;
@@ -234,7 +252,10 @@
 // ─── On dark backgrounds ──────────────────────────────────────────────────────
 .nhsw-site-header__nav--reverse {
   background-color: c.$nhsw-colour-background-blue;
-  border-bottom-color: c.$nhsw-colour-background-blue;
+
+  .nhsw-site-header__nav-list {
+    box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-background-blue;
+  }
 
   .nhsw-site-header__nav-link {
     color: c.$nhsw-colour-background-white;

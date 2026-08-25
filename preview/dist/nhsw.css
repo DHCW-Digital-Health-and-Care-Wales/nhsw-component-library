@@ -3372,7 +3372,6 @@ body {
 
 .nhsw-site-header__nav {
   background-color: #ffffff;
-  border-bottom: 4px solid #d8dde0;
 }
 @media (max-width: 40rem) {
   .nhsw-site-header__nav {
@@ -3400,6 +3399,10 @@ body {
   margin: 0;
   padding: 0;
   gap: 2rem;
+  box-shadow: inset 0 -4px 0 0 #d8dde0;
+}
+.nhsw-site-header__nav-list li {
+  display: flex;
 }
 
 .nhsw-site-header__nav-link {
@@ -3444,7 +3447,9 @@ body {
 
 .nhsw-site-header__nav--reverse {
   background-color: #1b365d;
-  border-bottom-color: #1b365d;
+}
+.nhsw-site-header__nav--reverse .nhsw-site-header__nav-list {
+  box-shadow: inset 0 -4px 0 0 #1b365d;
 }
 .nhsw-site-header__nav--reverse .nhsw-site-header__nav-link {
   color: #ffffff;

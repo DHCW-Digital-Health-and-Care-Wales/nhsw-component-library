@@ -295,14 +295,23 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(focus).toMatch(/text-decoration:\s*none/);
   });
 
-  it('current-page link is indicated with a #212b32 inset box-shadow, not a border, so it sits flush with the bar\'s own border-bottom', () => {
+  it('the nav bar itself has no border-bottom — the grey line is an inset box-shadow on .nav-list instead', () => {
+    const nav = block(css, '\\.nhsw-site-header__nav\\b');
+    expect(nav).not.toMatch(/border-bottom/);
+    const list = block(css, '\\.nhsw-site-header__nav-list\\b');
+    expect(list).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #d8dde0/);
+  });
+
+  it('current-page link overrides that same box-shadow to #212b32, not a border — same band as .nav-list\'s own shadow (verified via real rendered layout: both boxes end at the same y, so both shadows occupy the identical inset region — a border-bottom on .nav was confirmed via Playwright to render in a wholly separate band no link-level inset shadow could ever reach)', () => {
     const current = block(css, '\\.nhsw-site-header__nav-link--current');
     expect(current).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #212b32/);
     expect(current).not.toMatch(/border-bottom/);
     expect(current).toMatch(/text-decoration:\s*none/);
   });
 
-  it('on a dark background, the current-page indicator is white and hover still just drops the underline', () => {
+  it('on a dark background, .nav-list\'s own shadow matches the navy background (hidden) and the current-page indicator is white', () => {
+    const reverseList = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-list');
+    expect(reverseList).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #1b365d/);
     const current = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link--current');
     expect(current).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #ffffff/);
     const hover = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link:hover');
@@ -313,6 +322,11 @@ describe('site header nav matches Figma Service navigation component', () => {
     const badge = block(css, '\\.nhsw-site-header__nav-badge');
     expect(badge).not.toMatch(/background-color/);
     expect(badge).not.toMatch(/color/);
+  });
+
+  it('nav list items are flexed too, so the link fills the item fully instead of leaving an inline-strut gap below it', () => {
+    const li = block(css, '\\.nhsw-site-header__nav-list li');
+    expect(li).toMatch(/display:\s*flex/);
   });
 });
 
