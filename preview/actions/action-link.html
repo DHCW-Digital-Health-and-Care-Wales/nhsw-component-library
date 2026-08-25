@@ -87,7 +87,9 @@ tabs:
   {% include example-preview.html id="al-dark" open_url="/examples/action-link-dark.html" body=example_body dark=true %}
 
   {% capture html_sample %}{% raw %}&lt;a class="nhsw-action-link nhsw-action-link--reverse" href="/apply"&gt;
-  &lt;svg class="nhsw-action-link__icon" ...&gt;...&lt;/svg&gt;
+  &lt;svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
+    &lt;path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" /&gt;
+  &lt;/svg&gt;
   &lt;span class="nhsw-action-link__text"&gt;Action link&lt;/span&gt;
 &lt;/a&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswActionLink({

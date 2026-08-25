@@ -13,27 +13,27 @@ Feature: Warning callout — automated coverage
   Rule: Visual spec matches Figma Warning callout component
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/warning-callout.test.js
     Scenario: Heading layout
       Given the compiled CSS for .nhsw-warning-callout__heading (the layout rule, not the typography one)
       Then it has a 10px gap between icon and text
       And padding is 8px vertical / 32px horizontal
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/warning-callout.test.js
     Scenario: Content padding
       Given the compiled CSS for .nhsw-warning-callout__content
       Then padding is 48px top, 32px sides, 32px bottom
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/warning-callout.test.js
     Scenario: Heading and content use the Extended/yellow token
       Given the compiled CSS for .nhsw-warning-callout
       Then the heading background is #ffeb3b
       And the content border is a 1px solid #ffeb3b line
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/warning-callout.test.js
     Scenario: Content background matches Extended/yellow-light
       Given the compiled CSS for .nhsw-warning-callout__content
       Then the background colour is #fff9c4

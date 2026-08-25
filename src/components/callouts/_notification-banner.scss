@@ -42,9 +42,6 @@ $nhsw-colour-notification-success: #00703c;
   &__link {
     color: c.$nhsw-colour-link;
     font-weight: 700;
-    // .nhsw-link is display: inline-block, so overflow-wrap: break-word alone
-    // doesn't shrink its intrinsic width — only `anywhere` affects min-content
-    // sizing, letting the box actually shrink and break instead of overflowing.
     overflow-wrap: anywhere;
   }
 

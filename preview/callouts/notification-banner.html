@@ -28,24 +28,19 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="nb-overview" open_url="/examples/notification-banner-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner" data-module="nhsw-notification-banner" role="region" aria-labelledby="nhsw-notification-banner-title"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title"&gt;
   &lt;div class="nhsw-notification-banner__header"&gt;
-    &lt;h2 class="nhsw-notification-banner__title" id="nhsw-notification-banner-title"&gt;
-      Important
-    &lt;/h2&gt;
+    &lt;h2 class="nhsw-notification-banner__title" id="notification-title"&gt;Important&lt;/h2&gt;
   &lt;/div&gt;
   &lt;div class="nhsw-notification-banner__content"&gt;
-    &lt;p class="nhsw-notification-banner__heading"&gt;
-      You have 7 days left to send your application.
-      &lt;a class="nhsw-notification-banner__link" href="#"&gt;View application&lt;/a&gt;.
-    &lt;/p&gt;
+    &lt;p class="nhsw-notification-banner__heading"&gt;You have 7 days left to send your application. &lt;a class="nhsw-link nhsw-notification-banner__link" href="#"&gt;View application&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "notification-banner/macro.njk" import nhswNotificationBanner %}
 
 {{ nhswNotificationBanner({
   titleText: "Important",
-  html: "You have 7 days left to send your application. <a class=\"nhsw-notification-banner__link\" href=\"#\">View application</a>."
+  html: "You have 7 days left to send your application. &lt;a class=\"nhsw-link nhsw-notification-banner__link\" href=\"#\"&gt;View application&lt;/a&gt;."
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="nb-overview" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -129,7 +124,14 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="nb-service" open_url="/examples/notification-banner-service.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;p class="nhsw-notification-banner__heading"&gt;The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027.&lt;/p&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-service"&gt;
+  &lt;div class="nhsw-notification-banner__header"&gt;
+    &lt;h2 class="nhsw-notification-banner__title" id="notification-title-service"&gt;Important&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-notification-banner__content"&gt;
+    &lt;p class="nhsw-notification-banner__heading"&gt;The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswNotificationBanner({
   titleText: "Important",
   text: "The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027."
@@ -162,13 +164,21 @@ tabs:
     {% include example-preview.html id="nb-success" open_url="/examples/notification-banner-success.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success"&gt;
-  ...
+  &lt;div class="nhsw-notification-banner__header"&gt;
+    &lt;h3 class="nhsw-notification-banner__title" id="notification-title-success"&gt;Success&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-notification-banner__content"&gt;
+    &lt;h3 class="nhsw-notification-banner__heading"&gt;Vaccination outcome recorded for HPV&lt;/h3&gt;
+    &lt;p class="nhsw-body"&gt;Contact &lt;a class="nhsw-link nhsw-notification-banner__link" href="#"&gt;example@wales.nhs.uk&lt;/a&gt; if you think there's a problem.&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswNotificationBanner({
   type: "success",
   titleText: "Success",
   titleHeadingLevel: "3",
-  text: "Vaccination outcome recorded for HPV"
+  contentIsHeading: true,
+  text: "Vaccination outcome recorded for HPV",
+  bodyHtml: "Contact &lt;a class=\"nhsw-link nhsw-notification-banner__link\" href=\"#\"&gt;example@wales.nhs.uk&lt;/a&gt; if you think there's a problem."
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="nb-success" html=html_sample njk=njk_sample toggleable=true %}
   </section>

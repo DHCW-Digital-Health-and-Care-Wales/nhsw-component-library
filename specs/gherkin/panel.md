@@ -13,13 +13,13 @@ Feature: Panel — automated coverage
   Rule: Visual spec matches Figma Panel component (Small, Green variant)
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/panel.test.js
     Scenario: Padding
       Given the compiled CSS for .nhsw-panel
       Then padding is 32px vertical / 40px horizontal
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/panel.test.js
     Scenario: Background colour
       Given the compiled CSS for .nhsw-panel
       Then the background colour is #007f3b

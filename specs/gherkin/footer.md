@@ -13,7 +13,7 @@ Feature: Footer — automated coverage
   Rule: Visual spec matches Figma Footer component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/footer.test.js
     Scenario: Container padding
       Given the compiled CSS for .nhsw-site-footer__container
       Then padding is 30px vertical / 40px horizontal

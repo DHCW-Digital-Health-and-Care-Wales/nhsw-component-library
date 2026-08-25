@@ -35,13 +35,14 @@ tabs:
   &lt;/summary&gt;
   &lt;div class="nhsw-details__text"&gt;
     &lt;p class="nhsw-body"&gt;An NHS number is a 10 digit number, like 485 777 3456.&lt;/p&gt;
+    &lt;p class="nhsw-body"&gt;You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/details&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "details/macro.njk" import nhswDetails %}
 
 {{ nhswDetails({
   summaryText: "How to find your NHS number",
-  text: "An NHS number is a 10 digit number, like 485 777 3456."
+  html: "&lt;p class=\"nhsw-body\"&gt;An NHS number is a 10 digit number, like 485 777 3456.&lt;/p&gt;&lt;p class=\"nhsw-body\"&gt;You can find your NHS number by logging in to a GP surgery online service or on any letter the NHS has sent you.&lt;/p&gt;"
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="details-overview" html=html_sample njk=njk_sample toggleable=true %}
 

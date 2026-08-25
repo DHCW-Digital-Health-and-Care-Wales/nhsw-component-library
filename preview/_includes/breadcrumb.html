@@ -1,3 +1,17 @@
+{% if page.breadcrumb_parent_title %}
+<nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+  <p class="nhsw-breadcrumb__mobile-back">
+    <a class="nhsw-back-link" href="{{ page.breadcrumb_parent_url | relative_url }}">Back to {{ page.breadcrumb_parent_title }}</a>
+  </p>
+  <ol class="nhsw-breadcrumb__list">
+    <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="{{ '/index.html' | relative_url }}">Home</a></li>
+    {% unless page.breadcrumb_parent_url == '/index.html' %}
+    <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="{{ page.breadcrumb_parent_url | relative_url }}">{{ page.breadcrumb_parent_title }}</a></li>
+    {% endunless %}
+    <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">{{ page.title }}</span></li>
+  </ol>
+</nav>
+{% else %}
 {% assign on_components_index = false %}
 {% if page.url == '/components/' or page.url == '/components/index.html' %}{% assign on_components_index = true %}{% endif %}
 <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
@@ -19,3 +33,4 @@
     </li>
   </ol>
 </nav>
+{% endif %}

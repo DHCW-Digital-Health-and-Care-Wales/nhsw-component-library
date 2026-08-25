@@ -17,3 +17,13 @@ export function readCustomProperty(css, name) {
   const match = css.match(new RegExp(`${name}:\\s*([^;]+);`));
   return match ? match[1].trim() : null;
 }
+
+/**
+ * Extracts the declaration block of the first rule whose selector matches
+ * `selectorRegex` at the start of a line (so e.g. `.foo::before` doesn't
+ * accidentally match a `.bar + .foo::before` combinator rule instead).
+ */
+export function block(css, selectorRegex) {
+  const match = css.match(new RegExp(`^${selectorRegex}\\s*\\{([^}]*)\\}`, 'm'));
+  return match ? match[1] : '';
+}

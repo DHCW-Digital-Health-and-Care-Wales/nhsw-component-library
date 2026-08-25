@@ -157,7 +157,23 @@ tabs:
     &lt;/ul&gt;
   &lt;/div&gt;
   &lt;div class="nhsw-summary-card__body"&gt;
-    &lt;dl class="nhsw-summary-list"&gt;...&lt;/dl&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Karen Francis&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="/change-name"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Appointment date&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;15 March 2027&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="/change-date"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Contact details&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="/change-contact-details"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{% from "summary-card/macro.njk" import nhswSummaryCard %}
@@ -165,7 +181,23 @@ tabs:
 {{ nhswSummaryCard({
   title: "Karen Francis",
   actions: [ { text: "Cancel", href: "/cancel" }, { text: "Reschedule", href: "/reschedule" } ],
-  rows: [ ... ]
+  rows: [
+    {
+      key: { text: "Name" },
+      value: { text: "Karen Francis" },
+      actions: { items: [ { text: "Change", href: "/change-name" } ] }
+    },
+    {
+      key: { text: "Appointment date" },
+      value: { text: "15 March 2027" },
+      actions: { items: [ { text: "Change", href: "/change-date" } ] }
+    },
+    {
+      key: { text: "Contact details" },
+      value: { html: "&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;" },
+      actions: { items: [ { text: "Change", href: "/change-contact-details" } ] }
+    }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sl-card-actions" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -212,17 +244,48 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="sl-no-actions" open_url="/examples/summary-card-no-actions.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;dl class="nhsw-summary-list"&gt;
-  &lt;div class="nhsw-summary-list__row"&gt;
-    &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
-    &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
-    &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Summary card header&lt;/h2&gt;
+    &lt;ul class="nhsw-summary-card__actions"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/div&gt;
-&lt;/dl&gt;{% endraw %}{% endcapture %}
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSummaryCard({
   title: "Summary card header",
   actions: [ { text: "Text link", href: "#" }, { text: "Text link", href: "#" } ],
-  rows: [ ... ]
+  rows: [
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } },
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } },
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } },
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sl-no-actions" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -254,11 +317,31 @@ tabs:
     {% include example-preview.html id="sl-no-border" open_url="/examples/summary-list-no-border.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;dl class="nhsw-summary-list nhsw-summary-list--no-border"&gt;
-  ...
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;Karen Francis&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Date of birth&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;15 March 1984&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Contact information&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;73 Roman Rd&lt;/p&gt;&lt;p&gt;Leeds&lt;/p&gt;&lt;p&gt;LS2 5ZN&lt;/p&gt;&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Contact details&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;&lt;/dd&gt;
+  &lt;/div&gt;
 &lt;/dl&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSummaryList({
   classes: "nhsw-summary-list--no-border",
-  rows: [ ... ]
+  rows: [
+    { key: { text: "Name" }, value: { text: "Karen Francis" } },
+    { key: { text: "Date of birth" }, value: { text: "15 March 1984" } },
+    { key: { text: "Contact information" }, value: { html: "&lt;p&gt;73 Roman Rd&lt;/p&gt;&lt;p&gt;Leeds&lt;/p&gt;&lt;p&gt;LS2 5ZN&lt;/p&gt;" } },
+    { key: { text: "Contact details" }, value: { html: "&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;" } }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sl-no-border" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -305,15 +388,58 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="sl-cards" open_url="/examples/summary-cards-grouped.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;p class="nhsw-summary-card__subheader"&gt;&lt;strong&gt;Sub header&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="nhsw-summary-card__body"&gt;
-  &lt;dl class="nhsw-summary-list"&gt;...&lt;/dl&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Summary card header&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;p class="nhsw-summary-card__subheader nhsw-body"&gt;&lt;strong&gt;Sub header&lt;/strong&gt;&lt;/p&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+  &lt;p class="nhsw-summary-card__subheader nhsw-body"&gt;&lt;strong&gt;Sub header&lt;/strong&gt;&lt;/p&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSummaryCard({
   title: "Summary card header",
   sections: [
-    { subheading: "Sub header", rows: [ ... ] },
-    { subheading: "Sub header", rows: [ ... ] }
+    {
+      subheading: "Sub header",
+      rows: [
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } },
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } }
+      ]
+    },
+    {
+      subheading: "Sub header",
+      rows: [
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } },
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } }
+      ]
+    }
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sl-cards" html=html_sample njk=njk_sample toggleable=true %}

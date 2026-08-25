@@ -8,14 +8,20 @@ params:
   - name: title
     type: string
     required: false
-    description: Title text (plain text).
+    description: Title text. Ignored if titleHtml is set.
+  - name: titleHtml
+    type: string
+    required: false
+    description: >
+      Raw title HTML, e.g. a plain nhsw-link anchor inside a non-clickable
+      card with several links. Takes precedence over title/titleHref.
   - name: titleHref
     type: string
     required: false
     description: >
-      If set, the title (or stat link) renders as a
-      nhsw-card__title-link anchor and the card becomes clickable. If not
-      set, the title renders as plain text.
+      If set (and titleHtml isn't), the title (or stat link) renders as a
+      nhsw-card__title-link anchor and the card becomes clickable. If
+      neither is set, the title renders as plain text.
   - name: headingLevel
     type: integer
     required: false
@@ -99,7 +105,7 @@ examples:
       description: "There are no known issues affecting appointment bookings at this time."
   - name: free-form-html
     data:
-      title: "Berrylands Pharmacy"
+      titleHtml: "<a class=\"nhsw-link\" href=\"#\">Berrylands Pharmacy</a>"
       html: "<p class=\"nhsw-body\">Some text with an <a class=\"nhsw-link\" href=\"#\">inline link</a>.</p>"
   - name: actions
     data:

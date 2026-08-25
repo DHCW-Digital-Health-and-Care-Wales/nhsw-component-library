@@ -51,7 +51,7 @@ Feature: Select — automated coverage
       Then the [aria-invalid="true"] select has a .nhsw-error-message nearby
 ```
 
-> There is no dedicated Figma spacing/colour spec for select in `component-specs.test.js` / `component-specs-2.test.js`; its --s/--m/--l size modifiers are only checked for existence, not for exact width.
+> There is no dedicated Figma spacing/colour spec for select. Its focus-border treatment is covered by `input-base.test.js` (shared with input and textarea); its --s/--m/--l size modifiers are only checked for existence, not for exact width.
 
 ## Manual test scenarios
 

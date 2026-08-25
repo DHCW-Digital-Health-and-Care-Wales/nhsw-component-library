@@ -95,11 +95,11 @@ tabs:
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;
         &lt;span class="nhsw-site-header__logo"&gt;
-          &lt;img src="/assets/nhsw-logo.svg" alt="NHS Wales Digital Health and Care Wales"&gt;
+          &lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;
         &lt;/span&gt;
         &lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;
       &lt;/a&gt;
-      &lt;form class="nhsw-site-header__search" role="search"&gt;
+      &lt;form class="nhsw-site-header__search" role="search" onsubmit="return false;"&gt;
         &lt;label class="nhsw-visually-hidden" for="site-search"&gt;Search&lt;/label&gt;
         &lt;input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search"&gt;
         &lt;button class="nhsw-site-header__search-button" type="submit" aria-label="Search"&gt;&lt;/button&gt;
@@ -170,7 +170,18 @@ tabs:
     {% endcapture %}
     {% include example-preview.html id="hd-no-search" open_url="/examples/header-no-search.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;!-- Omit the nhsw-site-header__search form --&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;
+        &lt;span class="nhsw-site-header__logo"&gt;
+          &lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;
+        &lt;/span&gt;
+        &lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswHeader({ serviceName: "Service name", serviceUrl: "/", search: false }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="hd-no-search" html=html_sample njk=njk_sample toggleable=true %}
 

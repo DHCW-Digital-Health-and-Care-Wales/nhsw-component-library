@@ -105,7 +105,12 @@ tabs:
   {% include example-preview.html id="fu-mobile" open_url="/examples/file-upload-reverse.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-file-upload nhsw-file-upload--reverse"&gt;
-  ...
+  &lt;span class="nhsw-file-upload__status"&gt;No file chosen&lt;/span&gt;
+  &lt;div class="nhsw-file-upload__actions"&gt;
+    &lt;input class="nhsw-file-upload__input" id="file-upload-mobile" name="file-upload-mobile" type="file"&gt;
+    &lt;label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="file-upload-mobile"&gt;Choose file&lt;/label&gt;
+    &lt;span class="nhsw-file-upload__hint"&gt;or drop file&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswFileUpload({
   id: "file-upload-mobile",

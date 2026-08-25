@@ -1,9 +1,28 @@
+{% if page.layout == "home" %}
+<footer class="nhsw-site-footer">
+  <div class="nhsw-site-footer__container nhsw-site-footer__container--stacked">
+    <ul class="nhsw-site-footer__links">
+      <li><a class="nhsw-link" href="{{ '/accessibility-statement.html' | relative_url }}">Accessibility statement</a></li>
+      <li><a class="nhsw-link" href="{{ '/cookie-policy.html' | relative_url }}">Cookie policy</a></li>
+      <li><a class="nhsw-link" href="{{ '/privacy-policy.html' | relative_url }}">Privacy policy</a></li>
+      <li><a class="nhsw-link" href="{{ '/terms-of-use.html' | relative_url }}">Terms of use</a></li>
+      <li><a class="nhsw-link" href="#">Site map</a></li>
+    </ul>
+    <div class="nhsw-site-footer__licence">
+      <span class="nhsw-site-footer__licence-badge" aria-hidden="true">OGL</span>
+      <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="#">Open Government License v3.0</a>, except where otherwise stated.</p>
+    </div>
+    <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+  </div>
+</footer>
+{% else %}
 <footer class="nhsw-site-footer">
   <div class="nhsw-site-footer__container">
     <ul class="nhsw-site-footer__links">
-      <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+      <li><a class="nhsw-link" href="{{ '/accessibility-statement.html' | relative_url }}">Accessibility statement</a></li>
       <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
     </ul>
     <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
   </div>
 </footer>
+{% endif %}

@@ -2,8 +2,6 @@
 @use "../../tokens/typography" as t;
 @use "../../utilities/breakpoints" as b;
 
-// Matches Figma's "Links/link-hover" swatch for this component's hover
-// state — the icon stays link-blue on hover; only the text recolours.
 $nhsw-colour-action-link-hover-text: #7c2855;
 
 .nhsw-action-link {

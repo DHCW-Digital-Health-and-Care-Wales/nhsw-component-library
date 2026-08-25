@@ -4,11 +4,15 @@
   A single flexible shell (.nhsw-card) composed from params rather than a
   fixed set of variants:
 
-    title         string   - title text (plain text, no html variant)
+    title         string   - title text (used if titleHtml is not set)
+    titleHtml     string   - raw title HTML, e.g. a plain <a class="nhsw-link">
+                              inside a non-clickable card. Takes precedence
+                              over title/titleHref.
     titleHref     string   - if set, the title (or stat link) renders as an
                               <a class="nhsw-card__title-link">, and the card
-                              is clickable. If not set, title renders as
-                              plain text (non-clickable card).
+                              is clickable. If not set (and titleHtml isn't
+                              either), title renders as plain text
+                              (non-clickable card).
     headingLevel  integer  - 2/3/4/5, defaults to 3. Controls the title tag
                               (h2/h3/h4/h5); the class is always nhsw-card__title.
     description   string   - body text, wrapped in <p class="nhsw-card__description">
@@ -27,15 +31,15 @@
     actions       array    - [{ text, html, href }], rendered as a
                               <ul class="nhsw-card__actions"> of plain links,
                               placed as the first child of the card.
-    classes       string   - extra classes, e.g. "nhsw-card--chevron"
-                              (only meaningful on clickable cards)
+    classes       string   - extra classes, e.g. "nhsw-card--chevron" (only
+                              meaningful on clickable cards), "nhsw-card--flat"
     attributes    object   - extra HTML attributes
 #}
 {%- macro nhswCard(params) -%}
 {%- set headingTag = "h" ~ (params.headingLevel or 3) -%}
 {%- set titleInner -%}
 {%- if params.icon %}<span class="nhsw-card__icon" aria-hidden="true">{{ params.icon.html | safe if params.icon.html is defined else "i" }}</span>{% endif -%}
-{%- if params.titleHref %}<a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>{% else %}{{ params.title }}{% endif -%}
+{%- if params.titleHtml %}{{ params.titleHtml | safe }}{% elif params.titleHref %}<a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>{% else %}{{ params.title }}{% endif -%}
 {%- endset -%}
 <div class="nhsw-card{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
 {%- if params.imageSrc %}

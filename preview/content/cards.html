@@ -337,7 +337,10 @@ tabs:
   &lt;p class="nhsw-body"&gt;Ewell Road, Surbiton, KT6 6EZ&lt;br&gt;Phone: &lt;a class="nhsw-link" href="tel:01111111111"&gt;01111 111 111&lt;/a&gt;&lt;br&gt;Email: &lt;a class="nhsw-link" href="mailto:organisation@wales.nhs.uk"&gt;organisation@wales.nhs.uk&lt;/a&gt;&lt;/p&gt;
   &lt;p class="nhsw-body"&gt;&lt;a class="nhsw-link" href="#"&gt;Get directions (opens in Google Maps)&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswCard({ title: "Berrylands Pharmacy", html: "..." }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCard({
+  titleHtml: "&lt;a class=\"nhsw-link\" href=\"#\"&gt;Berrylands Pharmacy&lt;/a&gt;",
+  html: "&lt;p class=\"nhsw-body\"&gt;Ewell Road, Surbiton, KT6 6EZ&lt;br&gt;Phone: &lt;a class=\"nhsw-link\" href=\"tel:01111111111\"&gt;01111 111 111&lt;/a&gt;&lt;br&gt;Email: &lt;a class=\"nhsw-link\" href=\"mailto:organisation@wales.nhs.uk\"&gt;organisation@wales.nhs.uk&lt;/a&gt;&lt;/p&gt;&lt;p class=\"nhsw-body\"&gt;&lt;a class=\"nhsw-link\" href=\"#\"&gt;Get directions (opens in Google Maps)&lt;/a&gt;&lt;/p&gt;"
+}) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="card-links" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
@@ -468,7 +471,24 @@ tabs:
       &lt;p class="nhsw-card__description"&gt;Check your vaccination history and upcoming immunisations.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  ...
+  &lt;div class="nhsw-grid-column-one-half"&gt;
+    &lt;div class="nhsw-card nhsw-card--chevron"&gt;
+      &lt;h3 class="nhsw-card__title"&gt;
+        &lt;span class="nhsw-card__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+        &lt;a class="nhsw-card__title-link" href="/test-results"&gt;Test results&lt;/a&gt;
+      &lt;/h3&gt;
+      &lt;p class="nhsw-card__description"&gt;View your recent test results and related information.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-grid-column-one-half"&gt;
+    &lt;div class="nhsw-card nhsw-card--chevron"&gt;
+      &lt;h3 class="nhsw-card__title"&gt;
+        &lt;span class="nhsw-card__icon" aria-hidden="true"&gt;i&lt;/span&gt;
+        &lt;a class="nhsw-card__title-link" href="/contact-details"&gt;Contact details&lt;/a&gt;
+      &lt;/h3&gt;
+      &lt;p class="nhsw-card__description"&gt;Update your contact address, phone number and communication preferences.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}&lt;div class="nhsw-grid-row"&gt;
   &lt;div class="nhsw-grid-column-one-half"&gt;
@@ -489,7 +509,24 @@ tabs:
       classes: "nhsw-card--chevron"
     }) }}
   &lt;/div&gt;
-  ...
+  &lt;div class="nhsw-grid-column-one-half"&gt;
+    {{ nhswCard({
+      title: "Test results",
+      titleHref: "/test-results",
+      description: "View your recent test results and related information.",
+      icon: true,
+      classes: "nhsw-card--chevron"
+    }) }}
+  &lt;/div&gt;
+  &lt;div class="nhsw-grid-column-one-half"&gt;
+    {{ nhswCard({
+      title: "Contact details",
+      titleHref: "/contact-details",
+      description: "Update your contact address, phone number and communication preferences.",
+      icon: true,
+      classes: "nhsw-card--chevron"
+    }) }}
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-grouping" html=html_sample njk=njk_sample toggleable=true %}
 

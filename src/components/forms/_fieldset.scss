@@ -9,9 +9,6 @@
   margin: 0 0 8px;
   padding: 0;
 
-  // A heading class (e.g. nhsw-h2) combined onto the legend brings its own,
-  // larger margin-bottom; this compound selector wins on specificity
-  // regardless of stylesheet order, keeping the legend's tighter spacing.
   &.nhsw-h2 {
     margin-bottom: 0;
   }

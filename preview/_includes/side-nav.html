@@ -1,8 +1,10 @@
 <nav class="nhsw-side-nav" aria-label="Section navigation">
+  {% if include.heading %}<p class="nhsw-side-nav__heading">{{ include.heading }}</p>{% endif %}
   <ul class="nhsw-side-nav__list">
+    {% assign nav_items = include.list | default: site.data.side_nav %}
     {% assign in_testing = false %}
     {% if page.url contains "/testing/" %}{% assign in_testing = true %}{% endif %}
-    {% for item in site.data.side_nav %}
+    {% for item in nav_items %}
       {% if item.url == "#" %}
         <li><a class="nhsw-side-nav__link" href="#"><span>{{ item.title }}</span></a></li>
       {% else %}

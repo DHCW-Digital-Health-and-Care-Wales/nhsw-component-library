@@ -1,6 +1,6 @@
 @use "../../foundations/input-base" as base;
 
-$nhsw-input-character-unit: 1.25rem; // 20px when root is 16px
+$nhsw-input-character-unit: 1.25rem;
 
 $nhsw-input-character-widths: (
   "20": 20,

@@ -1,14 +1,5 @@
 @use "../../tokens/colours" as c;
 
-// ─── Screenshot placeholder ─────────────────────────────────────────────────
-// Stand-in for a real product screenshot on an Examples tab. Docs-site chrome
-// only — never used in real service markup.
-// Usage:
-// <div class="nhsw-screenshot-placeholder">
-//   <span class="nhsw-screenshot-placeholder__icon" aria-hidden="true">...</span>
-//   <span class="nhsw-screenshot-placeholder__text">Screenshot: [description]</span>
-// </div>
-
 .nhsw-screenshot-placeholder {
   display: flex;
   flex-direction: column;

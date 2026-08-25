@@ -13,20 +13,20 @@ Feature: Expander — automated coverage
   Rule: Visual spec matches Figma Expander component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Button padding
       Given the compiled CSS for .nhsw-expander__button
       Then it has 24px padding on all sides
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Icon size and gap
       Given the compiled CSS for .nhsw-expander__icon
       Then it is 28px by 28px
       And it has a 12px margin-right before the label
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Expanded content is flush with the button, not indented
       Given the compiled CSS for .nhsw-expander__content
       Then padding is 0 top, 24px right, 24px bottom, 24px left
@@ -34,7 +34,7 @@ Feature: Expander — automated coverage
   Rule: Hover/focus states and default appearance match the agreed design values
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Default state is a white box with a thicker bottom edge, hinting at more content below
       Given the compiled CSS for .nhsw-expander
       Then background-color is #ffffff
@@ -42,7 +42,7 @@ Feature: Expander — automated coverage
       And the bottom edge is 4px thick instead of 1px
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Hover recolours the link text, icon and border together, and removes the underline
       Given the compiled CSS for .nhsw-expander:hover
       Then border-color becomes #7c2855
@@ -50,7 +50,7 @@ Feature: Expander — automated coverage
       And .nhsw-expander__icon background-color becomes #7c2855
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Focus highlights the icon+text heading with a yellow background, not the whole button
       Given the compiled CSS for .nhsw-expander__button:focus
       Then outline is none
@@ -59,19 +59,19 @@ Feature: Expander — automated coverage
       And the link text loses its underline
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Icon stays top-aligned with wrapped text instead of centring
       Given the compiled CSS for .nhsw-expander__heading
       Then align-items is flex-start
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Link text can break within an unbreakable long word
       Given the compiled CSS for .nhsw-expander__link-text
       Then overflow-wrap is anywhere
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/expander.test.js
     Scenario: Reverse variant swaps to a transparent box with white border, icon and text for use on dark backgrounds
       Given the compiled CSS for .nhsw-expander--reverse
       Then background-color is transparent and border-color is #ffffff

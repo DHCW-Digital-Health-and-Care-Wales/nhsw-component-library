@@ -43,9 +43,9 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label" for="region"&gt;Choose region&lt;/label&gt;
   &lt;select id="region" name="region" class="nhsw-select"&gt;
-    &lt;option&gt;Choose region&lt;/option&gt;
-    &lt;option&gt;North Wales&lt;/option&gt;
-    &lt;option&gt;Mid Wales&lt;/option&gt;
+    &lt;option value="" selected&gt;Choose region&lt;/option&gt;
+    &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
+    &lt;option value="mid-wales"&gt;Mid Wales&lt;/option&gt;
   &lt;/select&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "select/macro.njk" import nhswSelect %}
@@ -88,15 +88,21 @@ tabs:
   {% include example-preview.html id="sel-htu-error" open_url="/examples/select-error.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;p class="nhsw-error-message" id="region-error"&gt;Error message goes here&lt;/p&gt;
-&lt;select id="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
-  ...
+&lt;select id="region" name="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
+  &lt;option value=""&gt;Choose region&lt;/option&gt;
+  &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
+  &lt;option value="mid-wales"&gt;Mid Wales&lt;/option&gt;
 &lt;/select&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswSelect({
   id: "region",
   label: { text: "Label desktop" },
   hint: { text: "Hint text goes here" },
   errorMessage: { text: "Error message goes here" },
-  items: [ ... ]
+  items: [
+    { value: "", text: "Choose region" },
+    { value: "north-wales", text: "North Wales" },
+    { value: "mid-wales", text: "Mid Wales" }
+  ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sel-htu-error" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -139,14 +145,20 @@ tabs:
     {% include example-preview.html id="sel-hint" open_url="/examples/select-hint.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="region-hint"&gt;Hint text goes here&lt;/div&gt;
-&lt;select id="region" class="nhsw-select" aria-describedby="region-hint"&gt;
-  ...
+&lt;select id="region" name="region" class="nhsw-select" aria-describedby="region-hint"&gt;
+  &lt;option value=""&gt;Choose region&lt;/option&gt;
+  &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
+  &lt;option value="mid-wales"&gt;Mid Wales&lt;/option&gt;
 &lt;/select&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSelect({
   id: "region",
   label: { text: "Choose region" },
   hint: { text: "Hint text goes here" },
-  items: [ ... ]
+  items: [
+    { value: "", text: "Choose region" },
+    { value: "north-wales", text: "North Wales" },
+    { value: "mid-wales", text: "Mid Wales" }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sel-hint" html=html_sample njk=njk_sample toggleable=true %}
   </section>

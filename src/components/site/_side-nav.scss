@@ -3,24 +3,20 @@
 @use "../../utilities/focus-ring" as u;
 @use "../../utilities/breakpoints" as b;
 
-// ─── Side navigation ──────────────────────────────────────────────────────────
-// Vertical nav for section/component pages.
-// Place inside .nhsw-layout alongside .nhsw-layout__content.
-//
-// <nav class="nhsw-side-nav" aria-label="Section navigation">
-//   <ul class="nhsw-side-nav__list">
-//     <li><a class="nhsw-side-nav__link" href="#">Link</a></li>
-//     <li><a class="nhsw-side-nav__link nhsw-side-nav__link--current" href="#" aria-current="page">Active</a></li>
-//   </ul>
-// </nav>
-
 .nhsw-side-nav {
-  flex: 0 0 13.8125rem; // 221px
+  flex: 0 0 13.8125rem;
   border-right: 1px solid c.$nhsw-colour-border-grey;
 
   @media (max-width: 40rem) {
     display: none;
   }
+}
+
+.nhsw-side-nav__heading {
+  margin: 0 0 20px;
+  color: c.$nhsw-colour-text-primary;
+  font-size: t.$nhsw-font-size-body;
+  font-weight: t.$nhsw-font-weight-bold;
 }
 
 .nhsw-side-nav__list {
@@ -63,7 +59,6 @@
     font-weight: t.$nhsw-font-weight-bold;
     text-decoration: none;
 
-    // Left indicator bar sized to text height, not full block height
     &::before {
       content: "";
       position: absolute;
@@ -76,14 +71,6 @@
     }
   }
 }
-
-// ─── Page layout with side nav ────────────────────────────────────────────────
-// Wraps the side nav and main content area in a flex row.
-//
-// <div class="nhsw-layout">
-//   <nav class="nhsw-side-nav">...</nav>
-//   <div class="nhsw-layout__content">...</div>
-// </div>
 
 .nhsw-layout {
   display: flex;

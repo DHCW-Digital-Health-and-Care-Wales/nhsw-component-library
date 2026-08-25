@@ -13,13 +13,13 @@ Feature: Inset text — automated coverage
   Rule: Visual spec matches Figma Inset text component
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/inset-text.test.js
     Scenario: Padding
       Given the compiled CSS for .nhsw-inset-text
       Then padding is 24px top/right/bottom, 32px left
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/inset-text.test.js
     Scenario: Left border
       Given the compiled CSS for .nhsw-inset-text
       Then it has an 8px solid gold (#aa8630) border-left

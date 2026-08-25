@@ -29,7 +29,7 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label" for="mobility"&gt;Can you provide more detail about how you move about (your mobility)?&lt;/label&gt;
   &lt;div class="nhsw-hint" id="mobility-hint"&gt;For example, if you use crutches, sticks, or a walking frame&lt;/div&gt;
-  &lt;textarea id="mobility" name="mobility" class="nhsw-textarea" aria-describedby="mobility-hint mobility-count" maxlength="150"&gt;&lt;/textarea&gt;
+  &lt;textarea id="mobility" name="mobility" class="nhsw-textarea" aria-describedby="mobility-hint mobility-count" maxlength="150" data-max-length="150" data-max-length-target="mobility-count"&gt;&lt;/textarea&gt;
   &lt;div class="nhsw-hint nhsw-textarea__count" id="mobility-count" aria-live="polite"&gt;You have 150 characters remaining&lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "textarea/macro.njk" import nhswTextarea %}
@@ -144,7 +144,7 @@ tabs:
   {% include example-preview.html id="ta-error" open_url="/examples/textarea-error.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;p class="nhsw-error-message" id="reason-error"&gt;Error the clinical decision&lt;/p&gt;
-&lt;textarea id="reason" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="reason-error"&gt;&lt;/textarea&gt;{% endraw %}{% endcapture %}
+&lt;textarea id="reason" name="reason" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="reason-error"&gt;&lt;/textarea&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTextarea({
   id: "reason",
   label: { text: "Provide a reason for continuing" },

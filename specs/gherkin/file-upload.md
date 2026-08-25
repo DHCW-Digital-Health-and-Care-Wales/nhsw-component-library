@@ -13,7 +13,7 @@ Feature: File upload — automated coverage
   Rule: Visual spec matches Figma "Upload a file" component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: Dashed drop-zone box
       Given the compiled CSS for .nhsw-file-upload
       Then the border is a 1px dashed line in the secondary colour (#4c6272)
@@ -21,13 +21,13 @@ Feature: File upload — automated coverage
       And the internal gap is 20px
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: Status readout padding
       Given the compiled CSS for .nhsw-file-upload__status
       Then padding is 10px on all sides
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: Actions row gap
       Given the compiled CSS for .nhsw-file-upload__actions
       Then the gap between actions is 20px
@@ -35,40 +35,40 @@ Feature: File upload — automated coverage
   Rule: Hover, uploaded and focus states match the agreed design values
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: Hover turns the whole box white and the Choose file button turns blue with it
       Given the compiled CSS for .nhsw-file-upload:hover
       Then background-color is #ffffff
       And .nhsw-file-upload__button gets a light blue background (#d2e2f1) with blue border and text (#005eb8)
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: An error state shows a red border around the box
       Given the compiled CSS for .nhsw-form-group--error .nhsw-file-upload
       Then border-color is #d5281b
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: The uploaded-file state has a white background and a solid border
       Given the compiled CSS for .nhsw-file-upload--has-file
       Then background-color is #ffffff
       And border-style is solid
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: The filled status readout uses the dark secondary colour with white text
       Given the compiled CSS for .nhsw-file-upload__status--filled
       Then background-color is #4c6272
       And colour is #ffffff
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: "No file chosen" and "or drop file" use the standard dark text colour
       Given the compiled CSS for .nhsw-file-upload__status and .nhsw-file-upload__hint
       Then both use colour #212b32, not a greyed-out secondary colour
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/file-upload.test.js
     Scenario: Focusing the hidden file input highlights the button with a background colour
       Given the compiled CSS for .nhsw-file-upload__input:focus + .nhsw-file-upload__button
       Then background-color is #ffeb3b and border is none

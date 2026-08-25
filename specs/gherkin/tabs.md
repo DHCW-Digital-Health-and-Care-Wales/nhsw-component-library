@@ -13,13 +13,13 @@ Feature: Tabs — automated coverage
   Rule: Visual spec matches Figma Tabs component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/tabs.test.js
     Scenario: Unselected tab padding
       Given the compiled CSS for .nhsw-tabs__tab
       Then padding is 8px vertical / 16px horizontal
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/tabs.test.js
     Scenario: Selected tab padding
       Given the compiled CSS for .nhsw-tabs__tab--selected
       Then padding is 12px vertical / 16px horizontal

@@ -37,7 +37,7 @@ Feature: Pagination — automated coverage
         | pagination-sessions.html       |
 ```
 
-> There is no dedicated Figma spacing/colour spec for pagination in `component-specs.test.js` / `component-specs-2.test.js`.
+> There is no dedicated Figma spacing/colour spec for pagination. `components/pagination.test.js` covers the underline/hover behaviour only.
 
 ## Manual test scenarios
 

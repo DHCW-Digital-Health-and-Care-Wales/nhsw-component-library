@@ -15,21 +15,21 @@ Feature: Action link — automated coverage
   Rule: Visual spec matches Figma Action link component (icon+text row)
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Icon sizing and gap
       Given the compiled CSS for .nhsw-action-link__icon
       Then it is 32px by 32px
       And it has an 8px margin-right before the label
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Default colour is link-blue throughout
       Given the compiled CSS for .nhsw-action-link
       Then the icon fill is #005aa8
       And the text colour is #005aa8
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Hover only recolours the text
       Given the compiled CSS for .nhsw-action-link
       When the component is hovered
@@ -37,13 +37,13 @@ Feature: Action link — automated coverage
       But no hover rule exists for .nhsw-action-link__icon, so the icon stays link-blue
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Link shrinks to fit its content instead of stretching full width
       Given the compiled CSS for .nhsw-action-link
       Then width is fit-content
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Focus state is a tight yellow highlight with a dark underline
       Given the compiled CSS for .nhsw-action-link:focus
       Then outline is none
@@ -52,19 +52,19 @@ Feature: Action link — automated coverage
       And the text and icon both turn #0b0c0c
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Visited state recolours the link itself, not a descendant
       Given the compiled CSS for .nhsw-action-link:visited
       Then the colour is #212b32 set directly on the link (required for :visited to apply at all)
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: Active state underlines the text
       Given the compiled CSS for .nhsw-action-link:active .nhsw-action-link__text
       Then text-decoration is underline
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/action-link.test.js
     Scenario: On dark backgrounds, hover and focus keep their own light-background colours
       Given the compiled CSS for .nhsw-action-link--reverse
       Then :hover text stays white, not the light-background hover colour

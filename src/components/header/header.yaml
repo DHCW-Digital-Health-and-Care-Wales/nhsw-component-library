@@ -28,6 +28,15 @@ params:
     type: string
     required: false
     description: Logo alt text. Defaults to "Digital Health and Care Wales".
+  - name: hero
+    type: object
+    required: false
+    description: >
+      { title, html, text, action: { text, href }, centered } - renders the
+      full-width navy hero band as a sibling after the header. html/text is
+      the hero body (html takes precedence); action renders a secondary
+      inline button; centered adds nhsw-site-header__container--centered on
+      the hero's own container.
   - name: classes
     type: string
     required: false
@@ -49,3 +58,13 @@ examples:
     data:
       serviceName: "Appointments"
       serviceUrl: "/appointments"
+  - name: with-hero
+    data:
+      serviceName: "Service name"
+      hero:
+        title: "Manage your care online"
+        text: "Book appointments, order prescriptions and view your health record."
+        action:
+          text: "Get started"
+          href: "#"
+        centered: true

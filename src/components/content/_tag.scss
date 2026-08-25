@@ -81,9 +81,6 @@
   }
 }
 
-// Groups two tags (e.g. a label and a status) so they sit flush against
-// each other with no gap, sharing a single divider line rather than a
-// doubled-up border.
 .nhsw-tag-group {
   display: inline-flex;
   vertical-align: middle;

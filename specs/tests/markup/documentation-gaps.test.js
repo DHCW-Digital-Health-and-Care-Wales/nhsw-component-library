@@ -12,7 +12,7 @@ function findDocPages() {
     if (!fs.existsSync(full)) continue;
     for (const entry of fs.readdirSync(full)) {
       if (entry.endsWith('.html') && entry !== 'index.html') {
-        files.push(path.join('preview', dir, entry));
+        files.push(['preview', dir, entry].join('/'));
       }
     }
   }

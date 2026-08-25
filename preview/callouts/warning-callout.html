@@ -122,13 +122,13 @@ tabs:
     Important information
   &lt;/h3&gt;
   &lt;div class="nhsw-warning-callout__content"&gt;
-    &lt;p class="nhsw-body"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+    &lt;p class="nhsw-body"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswWarningCallout({
   heading: "Important information",
   classes: "nhsw-warning-callout--important",
-  html: "&lt;p class=\"nhsw-body\"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;"
+  html: "&lt;p class=\"nhsw-body\"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.&lt;/p&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="wc-important" html=html_sample njk=njk_sample toggleable=true %}
 

@@ -56,6 +56,14 @@ tabs:
       &lt;td class="nhsw-table__cell"&gt;Blisters on lips or around the mouth&lt;/td&gt;
       &lt;td class="nhsw-table__cell"&gt;Cold sores&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Itchy, dry, cracked, sore&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;Eczema&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Itchy blisters&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;Shingles, chickenpox&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "table/macro.njk" import nhswTable %}
@@ -69,7 +77,8 @@ tabs:
   ],
   rows: [
     [ { text: "Blisters on lips or around the mouth" }, { text: "Cold sores" } ],
-    [ { text: "Itchy, dry, cracked, sore" }, { text: "Eczema" } ]
+    [ { text: "Itchy, dry, cracked, sore" }, { text: "Eczema" } ],
+    [ { text: "Itchy blisters" }, { text: "Shingles, chickenpox" } ]
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-overview" html=html_sample njk=njk_sample toggleable=true %}

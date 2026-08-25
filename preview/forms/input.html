@@ -66,7 +66,10 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-page-question" open_url="/examples/input-page-question.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;label class="nhsw-label nhsw-label--xl" for="full-name"&gt;What is your full name?&lt;/label&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label nhsw-label--xl" for="full-name"&gt;What is your full name?&lt;/label&gt;
+  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?", classes: "nhsw-label--xl", isPageHeading: true } }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-page-question" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -85,7 +88,10 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-multi-question" open_url="/examples/input-multi-question.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;label class="nhsw-label" for="full-name"&gt;What is your full name?&lt;/label&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="full-name"&gt;What is your full name?&lt;/label&gt;
+  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?" } }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-multi-question" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -127,7 +133,10 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="ti-fixed" open_url="/examples/input-fixed-widths.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;input class="nhsw-input nhsw-input--width-10" type="text"&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-10"&gt;10 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-10" id="fw-10" name="fw-10" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "fw-10", label: { text: "10 character width" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ti-fixed" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -165,7 +174,10 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="ti-fluid" open_url="/examples/input-fluid-widths.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;input class="nhsw-input nhsw-input--two-thirds" type="text"&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-23"&gt;Two-thirds width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--two-thirds" id="flw-23" name="flw-23" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "flw-23", label: { text: "Two-thirds width" }, classes: "nhsw-input--two-thirds" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ti-fluid" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -183,7 +195,7 @@ tabs:
   {% include example-preview.html id="ti-hint" open_url="/examples/input-hint.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="field-hint"&gt;Hint text goes here&lt;/div&gt;
-&lt;input class="nhsw-input nhsw-input--width-10" aria-describedby="field-hint" type="text"&gt;{% endraw %}{% endcapture %}
+&lt;input class="nhsw-input nhsw-input--width-10" id="field" name="field" aria-describedby="field-hint" type="text"&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "field", label: { text: "10 character width" }, hint: { text: "Hint text goes here" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-hint" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -228,7 +240,11 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-account" open_url="/examples/input-account-number.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;input class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric"&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="account"&gt;What is your account number?&lt;/label&gt;
+  &lt;div class="nhsw-hint" id="account-hint"&gt;Must be between 6 and 8 digits long&lt;/div&gt;
+  &lt;input class="nhsw-input nhsw-input--width-10" id="account" name="account" type="text" aria-describedby="account-hint" inputmode="numeric"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "account", label: { text: "What is your account number?" }, hint: { text: "Must be between 6 and 8 digits long" }, classes: "nhsw-input--width-10", inputmode: "numeric" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-account" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -249,15 +265,19 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-prefix-suffix" open_url="/examples/input-prefix-suffix.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-input-wrapper"&gt;
-  &lt;div class="nhsw-input-wrapper__prefix" aria-hidden="true"&gt;&amp;pound;&lt;/div&gt;
-  &lt;input class="nhsw-input nhsw-input--width-5" type="text" inputmode="decimal"&gt;
-  &lt;div class="nhsw-input-wrapper__suffix" aria-hidden="true"&gt;Number per item&lt;/div&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="cost"&gt;Cost per item, in pounds&lt;/label&gt;
+  &lt;div class="nhsw-input-wrapper"&gt;
+    &lt;div class="nhsw-input-wrapper__prefix" aria-hidden="true"&gt;&amp;pound;&lt;/div&gt;
+    &lt;input class="nhsw-input nhsw-input--width-5" id="cost" name="cost" type="text" inputmode="decimal"&gt;
+    &lt;div class="nhsw-input-wrapper__suffix" aria-hidden="true"&gt;Number per item&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({
   id: "cost",
   label: { text: "Cost per item, in pounds" },
   classes: "nhsw-input--width-5",
+  inputmode: "decimal",
   prefix: { text: "£" },
   suffix: { text: "Number per item" }
 }) }}{% endraw %}{% endcapture %}

@@ -11,6 +11,10 @@
     text              string  - content text (used if html is not set)
     html              string  - content HTML (takes precedence over text)
     contentIsHeading  bool    - renders the content as an <h3> instead of a <p>
+    bodyText          string  - extra text rendered as its own <p class="nhsw-body">
+                                 below the heading/text (used if bodyHtml is not set)
+    bodyHtml          string  - extra HTML for that paragraph (takes precedence over
+                                 bodyText), e.g. a contact link below a success heading
     classes           string  - extra classes
     attributes        object  - extra HTML attributes
 #}
@@ -28,6 +32,9 @@
     <h3 class="nhsw-notification-banner__heading">{{ params.html | safe if params.html else params.text }}</h3>
 {%- else %}
     <p class="nhsw-notification-banner__heading">{{ params.html | safe if params.html else params.text }}</p>
+{%- endif %}
+{%- if params.bodyHtml or params.bodyText %}
+    <p class="nhsw-body">{{ params.bodyHtml | safe if params.bodyHtml else params.bodyText }}</p>
 {%- endif %}
   </div>
 </div>

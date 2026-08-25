@@ -86,15 +86,21 @@ tabs:
       &lt;button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-week" id="tab-week"&gt;&lt;span class="nhsw-tabs__tab-text"&gt;Past week&lt;/span&gt;&lt;/button&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
-  &lt;div class="nhsw-tabs__panel" id="panel-day" role="tabpanel" aria-labelledby="tab-day"&gt;...&lt;/div&gt;
-  &lt;div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-week" role="tabpanel" aria-labelledby="tab-week"&gt;...&lt;/div&gt;
+  &lt;div class="nhsw-tabs__panel" id="panel-day" role="tabpanel" aria-labelledby="tab-day"&gt;
+    &lt;h2 class="nhsw-h2"&gt;Past day&lt;/h2&gt;
+    &lt;p class="nhsw-body"&gt;Case activity for the past day.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-week" role="tabpanel" aria-labelledby="tab-week"&gt;
+    &lt;h2 class="nhsw-h2"&gt;Past week&lt;/h2&gt;
+    &lt;p class="nhsw-body"&gt;Case activity for the past week.&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "tabs/macro.njk" import nhswTabs %}
 
 {{ nhswTabs({
   items: [
-    { label: "Past day", id: "day", html: "..." },
-    { label: "Past week", id: "week", html: "..." }
+    { label: "Past day", id: "day", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past day&lt;/h2&gt;&lt;p class=\"nhsw-body\"&gt;Case activity for the past day.&lt;/p&gt;" },
+    { label: "Past week", id: "week", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past week&lt;/h2&gt;&lt;p class=\"nhsw-body\"&gt;Case activity for the past week.&lt;/p&gt;" }
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tb-overview" html=html_sample njk=njk_sample toggleable=true %}

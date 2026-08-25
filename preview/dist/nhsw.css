@@ -3713,6 +3713,13 @@ body {
   }
 }
 
+.nhsw-side-nav__heading {
+  margin: 0 0 20px;
+  color: #212b32;
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
 .nhsw-side-nav__list {
   display: flex;
   flex-direction: column;

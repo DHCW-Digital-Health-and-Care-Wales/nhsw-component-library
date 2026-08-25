@@ -15,31 +15,31 @@ Feature: Site navigation — automated coverage
   Rule: Visual spec matches Figma Service navigation component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Nav link padding
       Given the compiled CSS for .nhsw-site-header__nav-link
       Then padding is 16px vertical / 4px horizontal
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Nav list item gap
       Given the compiled CSS for .nhsw-site-header__nav-list
       Then the gap between items is 2rem
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Inactive links are underlined by default; hover/focus drop the underline without changing colour
       Given the compiled CSS for .nhsw-site-header__nav-link
       Then the base state is underlined, :hover removes the underline with no colour change, and :focus removes it on the link itself
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Current-page indicator overlaps the nav bar's own border, doesn't double it up
       Given the compiled CSS for .nhsw-site-header__nav-link--current
       Then it is drawn with an inset box-shadow (#212b32, or white on the --reverse variant), not a border-bottom
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: The tag badge next to a nav item has no bespoke colours of its own
       Given the compiled CSS for .nhsw-site-header__nav-badge
       Then it only supplies spacing — its colour comes from pairing it with a real .nhsw-tag class in markup

@@ -13,14 +13,14 @@ Feature: Buttons — automated coverage
   Rule: Base spacing matches Figma Button/Default > Primary/Default
 
     @automated
-    # specs/tests/css/figma-tokens.test.js
+    # specs/tests/css/components/buttons.test.js
     Scenario: Padding and corner radius
       Given the compiled CSS for the shared button-base mixin
       Then padding is 12px vertical / 16px horizontal
       And the corner radius is 4px
 
     @automated
-    # specs/tests/css/figma-tokens.test.js
+    # specs/tests/css/components/buttons.test.js
     Scenario: Icon-to-label gap is ready for icon buttons
       Given the compiled CSS for the shared button-base mixin
       Then there is a 12px gap between an icon and its label

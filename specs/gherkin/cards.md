@@ -20,7 +20,7 @@ Feature: Cards — automated coverage
       And no html_sample/njk_sample capture block is empty
 ```
 
-> **Coverage gap:** `nhsw-card` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` doesn't check its classes exist, and there's no full Figma spacing/colour spec for it. `component-specs-2.test.js` does assert the hover/focus/chevron-icon/actions-header treatment (see its `card hover/focus states, chevron icon and actions header` describe block), but everything else — layout, wrapping, keyboard behaviour, screen reader behaviour — is manual-only. Its examples have no form inputs, and the icon variant (`card-icon.html`) uses a plain `<span aria-hidden="true">`, not an `<svg>`, so `accessibility.test.js`'s decorative-SVG check does not run against it either.
+> **Coverage gap:** `nhsw-card` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` doesn't check its classes exist, and there's no full Figma spacing/colour spec for it. `components/card.test.js` does assert the hover/focus/chevron-icon/actions-header treatment (see its `card hover/focus states, chevron icon and actions header` describe block), but everything else — layout, wrapping, keyboard behaviour, screen reader behaviour — is manual-only. Its examples have no form inputs, and the icon variant (`card-icon.html`) uses a plain `<span aria-hidden="true">`, not an `<svg>`, so `accessibility.test.js`'s decorative-SVG check does not run against it either.
 
 ## Manual test scenarios
 

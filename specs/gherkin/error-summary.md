@@ -13,7 +13,7 @@ Feature: Error summary — automated coverage
   Rule: Visual spec matches Figma Error summary component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/error-summary.test.js
     Scenario: Title spacing
       Given the compiled CSS for .nhsw-error-summary__title
       Then it has a 24px margin below it, before the error list
@@ -21,26 +21,26 @@ Feature: Error summary — automated coverage
   Rule: Error link, error message and field label match the agreed design values
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/error-summary.test.js
     Scenario: Error summary link is bold red and wins the colour regardless of stylesheet order
       Given the compiled CSS for .nhsw-error-summary__link.nhsw-link
       Then the colour is #d5281b
       And the font-weight is 700
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/error-summary.test.js
     Scenario: Error summary link hover is a distinct darker red
       Given the compiled CSS for .nhsw-error-summary__link.nhsw-link:hover
       Then the colour is #951c13
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/error-summary.test.js
     Scenario: Error message has no top margin
       Given the compiled CSS for .nhsw-error-message
       Then margin-top is 0
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/error-summary.test.js
     Scenario: Label inside an errored field group matches the error message size
       Given the compiled CSS for .nhsw-form-group--error .nhsw-label
       Then font-weight is 400 (not bold)

@@ -37,6 +37,18 @@ params:
     type: boolean
     required: false
     description: Renders the content as an h3 instead of a p.
+  - name: bodyText
+    type: string
+    required: false
+    description: >
+      Extra text rendered as its own paragraph below the heading/text.
+      Ignored if bodyHtml is set.
+  - name: bodyHtml
+    type: string
+    required: false
+    description: >
+      Extra HTML for that paragraph. Takes precedence over bodyText, e.g. a
+      contact link below a success heading.
   - name: classes
     type: string
     required: false
@@ -60,3 +72,11 @@ examples:
     data:
       titleText: "Important"
       html: "You have a new message. <a class=\"nhsw-link nhsw-notification-banner__link\" href=\"/messages\">View application</a>"
+  - name: success-with-body
+    data:
+      type: "success"
+      titleText: "Success"
+      titleHeadingLevel: "3"
+      contentIsHeading: true
+      text: "Vaccination outcome recorded for HPV"
+      bodyHtml: "Contact <a class=\"nhsw-link nhsw-notification-banner__link\" href=\"#\">example@wales.nhs.uk</a> if you think there's a problem."

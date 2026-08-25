@@ -4,7 +4,6 @@ $nhsw-font-weight-regular: 400;
 $nhsw-font-weight-bold: 700;
 $nhsw-font-weight-extrabold: 800;
 
-// mobile
 $nhsw-font-size-h1-mobile: 2rem;
 $nhsw-line-height-h1-mobile: 2.375rem;
 
@@ -23,7 +22,6 @@ $nhsw-line-height-h5-mobile: 1.5rem;
 $nhsw-font-size-body-mobile: 1rem;
 $nhsw-line-height-body-mobile: 1.5rem;
 
-// desktop / tablet
 $nhsw-font-size-h1: 3rem;
 $nhsw-line-height-h1: 3.375rem;
 
@@ -45,7 +43,5 @@ $nhsw-line-height-body: 1.75rem;
 $nhsw-font-size-body-small: 1rem;
 $nhsw-line-height-body-small: 1.5rem;
 
-// Matches Figma's Tablet/Desktop "Body-extra-small" (14/20) and Mobile
-// "Body-small" (14/20) — same value at both breakpoints, so one token covers both.
 $nhsw-font-size-body-extra-small: 0.875rem;
 $nhsw-line-height-body-extra-small: 1.25rem;

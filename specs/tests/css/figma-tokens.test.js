@@ -8,11 +8,11 @@ import { compileProbe, readCustomProperty } from '../support/compile-scss.js';
 //     $nhswales-* token name and hex value written out as text).
 //   - Typography: Properties panel > Styles > Text styles, expanded for both
 //     the "Tablet and Desktop" and "Mobile" groups (each entry lists size/line-height in px).
-//   - Button spacing: selected the Button/Default > Primary/Default node and
-//     read its Layout panel (padding, radius).
 // Checked 2026-08-11. If the Figma file changes, update BOTH the expectations
 // here and the token files in src/tokens/ — this suite exists specifically to
 // catch the two drifting from each other.
+// (Button spacing, read from the same Figma file, now lives in
+// components/buttons.test.js alongside the rest of the button coverage.)
 
 let colourCss = '';
 let typographyCss = '';
@@ -161,38 +161,5 @@ describe('base font matches Figma (Roboto, bold = 700)', () => {
 
   it('bold weight is 700', () => {
     expect(readCustomProperty(typographyCss, '--weight-bold')).toBe('700');
-  });
-});
-
-describe('button spacing matches Figma Button/Default > Primary/Default', () => {
-  let buttonCss = '';
-
-  beforeAll(() => {
-    buttonCss = compileProbe(`
-      @use "foundations/button-base" as b;
-      .probe { @include b.nhsw-button-base; }
-    `);
-  });
-
-  it('has 12px vertical / 16px horizontal padding', () => {
-    expect(buttonCss).toMatch(/padding:\s*12px 16px/);
-  });
-
-  it('has a 4px corner radius', () => {
-    expect(buttonCss).toMatch(/border-radius:\s*4px/);
-  });
-
-  it('has a 12px gap between icon and label (Button/Icon > Icon - Discard or cancel > Default)', () => {
-    // No icon+text button is wired up anywhere in the docs yet, so this gap
-    // is currently dormant, but it must be correct for whenever one is built.
-    expect(buttonCss).toMatch(/gap:\s*12px/);
-  });
-
-  it('focus state suppresses the default browser outline in favour of the custom yellow/box-shadow treatment', () => {
-    // Without this, the browser's default UA focus ring shows up alongside
-    // the custom focus style — most visible as a stray pale ring around
-    // background-less variants like --link sitting on a dark background.
-    const focusBlock = buttonCss.match(/:focus:not\(:active\)\s*\{([^}]*)\}/);
-    expect(focusBlock && focusBlock[1]).toMatch(/outline:\s*none/);
   });
 });

@@ -12,7 +12,6 @@
   align-items: stretch;
 }
 
-// Override nhsw-input's width: 100% when composed inside the date picker
 .nhsw-date-picker__input {
   width: auto;
   flex: 1 1 0%;
@@ -77,7 +76,6 @@
   }
 }
 
-// 5-column grid: [prev-year] [prev-month] [Month Year] [next-month] [next-year]
 .nhsw-date-picker__dialog-header {
   display: grid;
   grid-template-columns: 32px 32px 1fr 32px 32px;
@@ -165,13 +163,11 @@
     outline-offset: 0;
   }
 
-  // Today shown with a navy border
   &--today {
     border-color: c.$nhsw-colour-text-primary;
     font-weight: 700;
   }
 
-  // Highlighted (pending confirmation): yellow fill with underline only
   &--pending {
     background-color: c.$nhsw-colour-focus;
     border-color: transparent;
@@ -196,7 +192,6 @@
   }
 }
 
-// Quick-select shortcut buttons (Today, +1 week, etc.)
 .nhsw-date-picker__shortcuts {
   display: flex;
   flex-wrap: wrap;

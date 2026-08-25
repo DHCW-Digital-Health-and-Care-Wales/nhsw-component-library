@@ -13,13 +13,13 @@ Feature: Radios — automated coverage
   Rule: Visual spec matches Figma Radios component (40x40px circle)
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/radios.test.js
     Scenario: Input hit target size
       Given the compiled CSS for .nhsw-radios__input
       Then it is 40px by 40px
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/radios.test.js
     Scenario: Visible circle size, border and shape
       Given the compiled CSS for .nhsw-radios__label::before
       Then it is 40px by 40px

@@ -13,7 +13,7 @@ Feature: Notification banner — automated coverage
   Rule: Visual spec matches Figma Attention banner (Important variant)
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/notification-banner.test.js
     Scenario: Header background uses the correct dark-blue token
       Given the compiled CSS for .nhsw-notification-banner__header
       Then the background colour is #004281 (Extended/blue-dark), not the generic link-blue token

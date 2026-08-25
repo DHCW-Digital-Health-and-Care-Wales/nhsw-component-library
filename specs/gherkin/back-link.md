@@ -22,14 +22,14 @@ Feature: Back link — automated coverage
   Rule: Hover and focus states match the agreed design values
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/back-link.test.js
     Scenario: Hover recolours to #7c2855 and removes the underline
       Given the compiled CSS for .nhsw-back-link:hover
       Then the colour is #7c2855
       And text-decoration is none
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/back-link.test.js
     Scenario: Focus state is a tight yellow highlight with a dark underline
       Given the compiled CSS for .nhsw-back-link:focus
       Then outline is none
@@ -38,14 +38,14 @@ Feature: Back link — automated coverage
       And there is a 4px solid #212b32 border-bottom
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/back-link.test.js
     Scenario: On dark backgrounds, hover and focus keep their own light-background colours
       Given the compiled CSS for .nhsw-back-link--reverse
       Then :hover stays white with no underline
       And :focus text stays #212b32, even though :hover is later in the stylesheet
 ```
 
-> **Coverage gap:** unlike most components, `nhsw-back-link` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so it is not checked by `component-registry.test.js`'s class-existence sweep, and its example fixtures contain no form inputs or `<svg>`, so none of the `accessibility.test.js` checks exercise it either. Hover/focus states are covered by `component-specs-2.test.js` (above); everything else below is manual-only.
+> **Coverage gap:** unlike most components, `nhsw-back-link` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so it is not checked by `component-registry.test.js`'s class-existence sweep, and its example fixtures contain no form inputs or `<svg>`, so none of the `accessibility.test.js` checks exercise it either. Hover/focus states are covered by `components/back-link.test.js` (above); everything else below is manual-only.
 
 ## Manual test scenarios
 

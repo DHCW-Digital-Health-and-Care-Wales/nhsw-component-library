@@ -6,7 +6,9 @@
     html        string  - inset HTML, used as-is. Takes precedence over text.
                            Include your own heading (e.g. <h3 class="nhsw-h3">) and
                            <p class="nhsw-body"> tags as needed.
-    classes     string  - extra classes
+    classes     string  - extra classes, e.g. "nhsw-inset-text--navy",
+                           "nhsw-inset-text--blue", "nhsw-inset-text--grey",
+                           "nhsw-inset-text--red", "nhsw-inset-text--yellow"
     attributes  object  - extra HTML attributes
 #}
 {%- macro nhswInsetText(params) -%}

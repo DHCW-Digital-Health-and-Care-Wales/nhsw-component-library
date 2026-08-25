@@ -3,9 +3,18 @@ layout: default
 ---
 <main class="nhsw-main-wrapper" id="maincontent">
   <div class="{% if page.container == 'fluid' %}nhsw-fluid-container{% else %}nhsw-width-container{% endif %}">
+    {% if page.no_side_nav %}
+
+      {% include breadcrumb.html %}
+
+      {{ content }}
+
+    {% else %}
     <div class="nhsw-layout">
 
-      {% include side-nav.html %}
+      {% assign side_nav_items = site.data.side_nav %}
+      {% if page.side_nav_data %}{% assign side_nav_items = site.data[page.side_nav_data] %}{% endif %}
+      {% include side-nav.html list=side_nav_items heading=page.side_nav_heading %}
 
       <div class="nhsw-layout__content">
 
@@ -15,5 +24,6 @@ layout: default
       </div>
 
     </div>
+    {% endif %}
   </div>
 </main>

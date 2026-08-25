@@ -13,13 +13,13 @@ Feature: Table — automated coverage
   Rule: Visual spec matches Figma Table component (Desktop/Tablet cell)
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/table.test.js
     Scenario: Header row bottom border
       Given the compiled CSS for .nhsw-table__head th
       Then it has a 2px solid #d8dde0 border-bottom
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/table.test.js
     Scenario: Cell/header vertical padding from tablet up
       Given the compiled CSS for the table component
       Then padding-top and padding-bottom are both 12px

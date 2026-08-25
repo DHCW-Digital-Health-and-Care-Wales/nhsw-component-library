@@ -13,7 +13,7 @@ Feature: Warning text — automated coverage
   Rule: Visual spec matches Figma Warning text component
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/warning-text.test.js
     Scenario: Icon-to-text gap
       Given the compiled CSS for .nhsw-warning-text
       Then there is a 12px gap between the icon and the text

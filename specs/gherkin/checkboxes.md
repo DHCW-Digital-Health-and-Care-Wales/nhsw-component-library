@@ -13,13 +13,13 @@ Feature: Checkboxes — automated coverage
   Rule: Visual spec matches Figma Checkboxes component (40x40px input square)
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/checkboxes.test.js
     Scenario: Input hit target size
       Given the compiled CSS for .nhsw-checkboxes__input
       Then it is 40px by 40px
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/checkboxes.test.js
     Scenario: Visible box size, border and shape
       Given the compiled CSS for .nhsw-checkboxes__label::before
       Then it is 40px by 40px

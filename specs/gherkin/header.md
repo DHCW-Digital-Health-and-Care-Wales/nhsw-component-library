@@ -13,25 +13,25 @@ Feature: Header — automated coverage
   Rule: Visual spec matches Figma Service navigation component
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Nav link padding
       Given the compiled CSS for .nhsw-site-header__nav-link
       Then padding is 16px vertical / 4px horizontal
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Nav list item gap
       Given the compiled CSS for .nhsw-site-header__nav-list
       Then the gap between items is 2rem
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Current-page indicator overlaps the nav bar's own border, doesn't double it up
       Given the compiled CSS for .nhsw-site-header__nav-link--current
       Then it is drawn with an inset box-shadow (#212b32), not a border-bottom
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/header.test.js
     Scenario: Top bar has no gold border, a 5rem logo, and a regular-weight title
       Given the compiled CSS for .nhsw-site-header, __logo img/svg, __top and __title
       Then there is no border-bottom, the logo is 5rem tall with vertical padding around it, and the title has no divider border and is 400 weight

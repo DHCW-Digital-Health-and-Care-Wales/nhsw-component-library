@@ -13,14 +13,14 @@ Feature: Tag — automated coverage
   Rule: Visual spec matches Figma Tag component
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/tag.test.js
     Scenario: Base padding and border
       Given the compiled CSS for .nhsw-tag
       Then padding is 4px vertical / 8px horizontal
       And it has a 1px solid border
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/tag.test.js
     Scenario Outline: Colour variant background/border/text match the Figma swatch
       Given the compiled CSS for .nhsw-tag--<colour>
       Then background, border and text colours match the values read from Figma

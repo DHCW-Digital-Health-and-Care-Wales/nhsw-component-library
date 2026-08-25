@@ -51,12 +51,11 @@ tabs:
   {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
+  name: "contact",
   fieldset: { legend: { text: "How do you want to be contacted about this?" } },
   hint: { text: "Select 1 option" },
   items: [
-    { text: "Email", value: "email" },
-    { text: "Phone", value: "phone" },
-    { text: "Text message", value: "text" }
+    { text: "Email", value: "email" }
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="rd-overview" html=html_sample njk=njk_sample toggleable=true %}
@@ -108,14 +107,17 @@ tabs:
   {% include example-preview.html id="rd-error" open_url="/examples/radios-error.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;p class="nhsw-error-message" id="name-error"&gt;Select yes if you have changed your name&lt;/p&gt;
-&lt;input class="nhsw-radios__input" id="name-yes" name="name" type="radio" value="yes" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
+&lt;div class="nhsw-radios__item"&gt;
+  &lt;input class="nhsw-radios__input" id="name-yes" name="name" type="radio" value="yes" aria-invalid="true"&gt;
+  &lt;label class="nhsw-label nhsw-radios__label" for="name-yes"&gt;Yes&lt;/label&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "name",
   fieldset: { legend: { text: "Have you changed your name?" } },
   hint: { text: "This includes changing your last name or spelling your name differently" },
   errorMessage: { text: "Select yes if you have changed your name" },
   items: [
-    { text: "Yes", value: "yes" },
-    { text: "No", value: "no" }
+    { text: "Yes", value: "yes", id: "name-yes" }
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="rd-error" html=html_sample njk=njk_sample toggleable=true %}
@@ -170,13 +172,29 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-inline" open_url="/examples/radios-inline.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios nhsw-radios--inline"&gt;
-  ...
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Are you 18 or over?&lt;/legend&gt;
+    &lt;div class="nhsw-radios nhsw-radios--inline"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="over18-yes" name="over18" type="radio" value="yes"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="over18-yes"&gt;Yes&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="over18-no" name="over18" type="radio" value="no"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="over18-no"&gt;No&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "over18",
   fieldset: { legend: { text: "Are you 18 or over?" } },
   classes: "nhsw-radios--inline",
-  items: [ { text: "Yes", value: "yes" }, { text: "No", value: "no" } ]
+  items: [
+    { text: "Yes", value: "yes", id: "over18-yes" },
+    { text: "No", value: "no", id: "over18-no" }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="rd-inline" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -212,9 +230,12 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "contact",
   fieldset: { legend: { text: "How do you want to be contacted about this?" } },
   hint: { text: "Select 1 option" },
-  items: [ ... ]
+  items: [
+    { text: "Email", value: "email" }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="rd-hints-heading" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -251,10 +272,10 @@ tabs:
   &lt;div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint"&gt;We will text you a 6 digit security code&lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "mobile",
   fieldset: { legend: { text: "Do you have a mobile phone with signal?" } },
   items: [
-    { text: "Yes, I have a mobile phone with signal", value: "yes", hint: { text: "We will text you a 6 digit security code" } },
-    { text: "No, I want to use my landline", value: "no", hint: { text: "We will call you to give you a 6 digit security code" } }
+    { text: "Yes, I have a mobile phone with signal", value: "yes", hint: { text: "We will text you a 6 digit security code" } }
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="rd-item-hints" html=html_sample njk=njk_sample toggleable=true %}
@@ -291,6 +312,7 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios__divider"&gt;or&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "vacc",
   fieldset: { legend: { text: "Have you had all the vaccinations you're eligible for in the UK?" } },
   hint: { text: "You would have got these vaccinations at school, from your GP surgery or another healthcare provider" },
   items: [
@@ -333,14 +355,29 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-conditional" open_url="/examples/radios-conditional.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios__conditional" id="conditional-hpv-ready"&gt;
-  ...
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios__item"&gt;
+  &lt;input class="nhsw-radios__input" id="hpv-ready-no" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready-no"&gt;
+  &lt;label class="nhsw-label nhsw-radios__label" for="hpv-ready-no"&gt;No&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-radios__conditional" id="conditional-hpv-ready-no"&gt;
+  &lt;div class="nhsw-form-group"&gt;
+    &lt;label class="nhsw-label" for="hpv-ready-reason"&gt;Give details&lt;/label&gt;
+    &lt;textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "hpv-ready",
   fieldset: { legend: { text: "Is Sam ready for their HPV vaccination?" } },
   items: [
     { text: "Yes", value: "yes" },
-    { text: "No", value: "no", conditional: { html: "..." } }
+    {
+      text: "No",
+      value: "no",
+      id: "hpv-ready-no",
+      conditional: {
+        html: "&lt;div class=\"nhsw-form-group\"&gt;&lt;label class=\"nhsw-label\" for=\"hpv-ready-reason\"&gt;Give details&lt;/label&gt;&lt;textarea class=\"nhsw-textarea\" id=\"hpv-ready-reason\" name=\"hpv-ready-reason\" rows=\"3\"&gt;&lt;/textarea&gt;&lt;/div&gt;"
+      }
+    }
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="rd-conditional" html=html_sample njk=njk_sample toggleable=true %}
@@ -374,12 +411,23 @@ tabs:
     {% include example-preview.html id="rd-small" open_url="/examples/radios-small.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-radios nhsw-radios--small"&gt;
-  ...
+  &lt;div class="nhsw-radios__item"&gt;
+    &lt;input class="nhsw-radios__input" id="filter-monthly" name="filter" type="radio" value="monthly"&gt;
+    &lt;label class="nhsw-label nhsw-radios__label" for="filter-monthly"&gt;Monthly&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-radios__item"&gt;
+    &lt;input class="nhsw-radios__input" id="filter-yearly" name="filter" type="radio" value="yearly"&gt;
+    &lt;label class="nhsw-label nhsw-radios__label" for="filter-yearly"&gt;Yearly&lt;/label&gt;
+  &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "filter",
   fieldset: { legend: { text: "Filter" } },
   classes: "nhsw-radios--small",
-  items: [ { text: "Monthly", value: "monthly" }, { text: "Yearly", value: "yearly" } ]
+  items: [
+    { text: "Monthly", value: "monthly", id: "filter-monthly" },
+    { text: "Yearly", value: "yearly", id: "filter-yearly" }
+  ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="rd-small" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -436,12 +484,13 @@ tabs:
   &lt;/div&gt;
 &lt;/fieldset&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
+  name: "name-change",
   fieldset: { legend: { text: "Have you changed your name?" } },
   hint: { text: "This includes changing your last name or spelling your name differently" },
   errorMessage: { text: "Select yes if you have changed your name" },
   items: [
-    { text: "Yes", value: "yes" },
-    { text: "No", value: "no" }
+    { text: "Yes", value: "yes", id: "name-change-yes" },
+    { text: "No", value: "no", id: "name-change-no" }
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="rd-error" html=html_sample njk=njk_sample toggleable=true %}

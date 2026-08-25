@@ -107,10 +107,21 @@ tabs:
   {% include example-preview.html id="bc-dark" open_url="/examples/breadcrumb-dark.html" body=example_body dark=true %}
 
   {% capture html_sample %}{% raw %}&lt;nav class="nhsw-breadcrumb nhsw-breadcrumb--reverse" aria-label="breadcrumb"&gt;
-  ...
+  &lt;p class="nhsw-breadcrumb__mobile-back"&gt;
+    &lt;a class="nhsw-back-link nhsw-back-link--reverse" href="/nhs-services"&gt;Back to NHS services&lt;/a&gt;
+  &lt;/p&gt;
+  &lt;ol class="nhsw-breadcrumb__list"&gt;
+    &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="/nhs-services"&gt;NHS services&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;span class="nhsw-breadcrumb__current" aria-current="page"&gt;Hospitals&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswBreadcrumb({
-  items: [...],
+  items: [
+    { text: "Home", href: "/" },
+    { text: "NHS services", href: "/nhs-services" },
+    { text: "Hospitals", href: "/hospitals" }
+  ],
   classes: "nhsw-breadcrumb--reverse"
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="bc-dark" html=html_sample njk=njk_sample toggleable=true %}

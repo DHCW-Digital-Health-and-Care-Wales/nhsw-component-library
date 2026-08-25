@@ -22,14 +22,14 @@ Feature: Breadcrumb — automated coverage
   Rule: Link hover/focus states and the separator match the agreed design values
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/breadcrumb.test.js
     Scenario: Link hover recolours to #7c2855 and removes the underline
       Given the compiled CSS for .nhsw-breadcrumb__link:hover
       Then the colour is #7c2855
       And text-decoration is none
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/breadcrumb.test.js
     Scenario: Link focus state is a tight yellow highlight with a dark underline
       Given the compiled CSS for .nhsw-breadcrumb__link:focus
       Then outline is none
@@ -37,20 +37,20 @@ Feature: Breadcrumb — automated coverage
       And there is a 4px solid #212b32 border-bottom
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/breadcrumb.test.js
     Scenario: On dark backgrounds, hover and focus keep their own light-background treatment
       Given the compiled CSS for .nhsw-breadcrumb--reverse .nhsw-breadcrumb__link
       Then :hover stays white with no underline
       And :focus matches the default focus treatment
 
     @automated
-    # specs/tests/css/component-specs-2.test.js
+    # specs/tests/css/components/breadcrumb.test.js
     Scenario: Separator is CSS-generated content, not real text
       Given the compiled CSS for .nhsw-breadcrumb__list-item:not(:last-child)::after
       Then content is the "›" character, generated via CSS, not a character in the markup
 ```
 
-> **Coverage gap:** `nhsw-breadcrumb` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` does not check its classes exist, and its fixtures contain no form inputs or `<svg>`, so `accessibility.test.js` doesn't exercise it either. Link hover/focus states and the separator are covered by `component-specs-2.test.js` (above); everything else below is manual-only.
+> **Coverage gap:** `nhsw-breadcrumb` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` does not check its classes exist, and its fixtures contain no form inputs or `<svg>`, so `accessibility.test.js` doesn't exercise it either. Link hover/focus states and the separator are covered by `components/breadcrumb.test.js` (above); everything else below is manual-only.
 
 ## Manual test scenarios
 

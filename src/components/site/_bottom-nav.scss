@@ -3,13 +3,6 @@
 @use "../../utilities/breakpoints" as b;
 @use "../../utilities/focus-ring" as u;
 
-// Mobile bottom navigation bar.
-// Fixed to the bottom of the viewport on small screens.
-// Hidden on tablet and above — the header nav bar takes over.
-//
-// Add class nhsw-has-bottom-nav to <body> to give main content
-// the necessary bottom padding so it is never obscured.
-
 .nhsw-bottom-nav {
   position: fixed;
   bottom: 0;
@@ -18,7 +11,6 @@
   z-index: 200;
   background-color: c.$nhsw-colour-background-white;
   border-top: 3px solid c.$nhsw-colour-border-gold;
-  // Safe-area inset for iOS home-bar devices
   padding-bottom: env(safe-area-inset-bottom, 0);
 
   @include b.nhsw-from-tablet {
@@ -87,8 +79,6 @@
   text-align: center;
 }
 
-// Add to <body> when the bottom nav is present to stop page content
-// from being obscured by the fixed bar on mobile.
 .nhsw-has-bottom-nav {
   @media (max-width: 40rem) {
     .nhsw-main-wrapper {

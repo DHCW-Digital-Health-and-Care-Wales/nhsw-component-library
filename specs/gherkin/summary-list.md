@@ -27,7 +27,7 @@ Feature: Summary list — automated coverage
       Then the number of example-preview includes equals the number of code-viewer includes
 ```
 
-> There is no dedicated Figma spacing/colour spec for summary list in `component-specs.test.js` / `component-specs-2.test.js`, and its fixtures contain no form inputs or `<svg>`, so `accessibility.test.js` doesn't exercise it.
+> There is no dedicated Figma spacing/colour spec for summary list. `components/summary-list.test.js` and `components/summary-card.test.js` cover row/hover structure only. Its fixtures contain no form inputs or `<svg>`, so `accessibility.test.js` doesn't exercise it.
 
 ## Manual test scenarios
 

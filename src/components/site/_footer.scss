@@ -14,15 +14,11 @@
   gap: 1rem 2rem;
   padding: 1.875rem 2.5rem;
 
-  // Add this modifier to constrain content to a centred max-width column
   &--centered {
     max-width: 68.75rem;
     margin: 0 auto;
   }
 
-  // Add this modifier when the footer also carries an open licence block —
-  // links, licence and copyright stack as their own full-width rows instead
-  // of sharing space-between rows, matching the fuller footer pattern.
   &--stacked {
     display: block;
 

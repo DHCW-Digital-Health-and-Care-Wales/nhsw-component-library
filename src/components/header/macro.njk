@@ -8,6 +8,13 @@
     searchInputId  string   - id for the search input, defaults to "site-search"
     logoSrc        string   - defaults to "/assets/nhsw-logo.svg"
     logoAlt        string   - defaults to "Digital Health and Care Wales"
+    hero           object   - { title, html, text, action: { text, href }, centered }
+                               renders the full-width hero band as a sibling
+                               after the header. html/text is the hero body
+                               (html takes precedence); action renders a
+                               secondary inline button/link; centered adds
+                               nhsw-site-header__container--centered on the
+                               hero's own container.
     classes        string   - extra classes
     attributes     object   - extra HTML attributes
 #}
@@ -33,4 +40,19 @@
     </div>
   </div>
 </header>
+{%- if params.hero %}
+<div class="nhsw-site-header__hero-band">
+  <div class="nhsw-site-header__container{% if params.hero.centered %} nhsw-site-header__container--centered{% endif %}">
+    <div class="nhsw-site-header__hero">
+      <h1 class="nhsw-site-header__hero-title">{{ params.hero.title }}</h1>
+{%- if params.hero.html or params.hero.text %}
+      <p class="nhsw-site-header__hero-text">{{ params.hero.html | safe if params.hero.html else params.hero.text }}</p>
+{%- endif %}
+{%- if params.hero.action %}
+      <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ params.hero.action.href }}">{{ params.hero.action.text }}</a>
+{%- endif %}
+    </div>
+  </div>
+</div>
+{%- endif %}
 {%- endmacro -%}

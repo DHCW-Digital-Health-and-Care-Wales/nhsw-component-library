@@ -101,10 +101,20 @@ tabs:
     {% include example-preview.html id="sn-dark" open_url="/examples/site-navigation-dark.html" body=example_body dark=true %}
 
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
-  ...
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
-  items: [...],
+  items: [
+    { text: "Navigation Item 1", href: "/item-1", current: true },
+    { text: "Navigation Item 2", href: "/item-2" },
+    { text: "Navigation Item 3", href: "/item-3" }
+  ],
   classes: "nhsw-site-header__nav--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-dark" html=html_sample njk=njk_sample toggleable=true %}
@@ -153,8 +163,18 @@ tabs:
     {% include example-preview.html id="sn-tag-dark" open_url="/examples/site-navigation-tag.html" body=example_body dark=true %}
 
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
-  ...
-  &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;
+          &lt;span&gt;Navigation Item 3&lt;/span&gt;
+          &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [

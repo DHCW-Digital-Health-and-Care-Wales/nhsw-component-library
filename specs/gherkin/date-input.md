@@ -13,13 +13,13 @@ Feature: Date input — automated coverage
   Rule: Visual spec matches Figma Date input component
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/date-input.test.js
     Scenario: Gap between day/month/year fields
       Given the compiled CSS for .nhsw-date-input
       Then the gap is 0 vertical / 24px horizontal
 
     @automated
-    # specs/tests/css/component-specs.test.js
+    # specs/tests/css/components/date-input.test.js
     Scenario: Label sits close above its input
       Given the compiled CSS for .nhsw-date-input__label
       Then margin-bottom is 4px

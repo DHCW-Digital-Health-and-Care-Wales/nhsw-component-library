@@ -115,7 +115,7 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="di-error-1" open_url="/examples/date-input-error-1.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;input id="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="1" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;input id="dob-error-day" name="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswDateInput({
   id: "dob-error",
   namePrefix: "dob-error",
@@ -152,7 +152,7 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="di-error-2" open_url="/examples/date-input-error-2.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;input id="dob-year-error-year" name="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswDateInput({
   id: "dob-year-error",
   namePrefix: "dob-year-error",

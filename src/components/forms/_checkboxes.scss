@@ -78,8 +78,6 @@
       content: "";
       position: absolute;
       left: 9px;
-      // Centred on the ink's actual centroid, not the naive box centre (see
-      // width/height/border below) — recompute this if any of those change.
       top: 12px;
       box-sizing: border-box;
       width: 23px;

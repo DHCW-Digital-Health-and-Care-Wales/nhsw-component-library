@@ -35,7 +35,7 @@ tabs:
       &lt;li&gt;&lt;a class="nhsw-link" href="/accessibility"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a class="nhsw-link" href="/guidance"&gt;Service guidance (opens in a new tab)&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-    &lt;p class="nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
   &lt;/div&gt;
 &lt;/footer&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "footer/macro.njk" import nhswFooter %}
@@ -120,8 +120,8 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;footer class="nhsw-site-footer"&gt;
   &lt;div class="nhsw-site-footer__container"&gt;
-    &lt;p class="nhsw-site-footer__org"&gt;Digital Health and Care Wales&lt;/p&gt;
-    &lt;p class="nhsw-site-footer__version"&gt;Product version information&lt;/p&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__org"&gt;Digital Health and Care Wales&lt;/p&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__version"&gt;Product version information&lt;/p&gt;
   &lt;/div&gt;
 &lt;/footer&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswFooter({
@@ -172,21 +172,49 @@ tabs:
   &lt;div class="nhsw-site-footer__container"&gt;
     &lt;div class="nhsw-site-footer__nav"&gt;
       &lt;div class="nhsw-site-footer__nav-column"&gt;
-        &lt;p class="nhsw-site-footer__nav-heading"&gt;Services&lt;/p&gt;
-        &lt;ul class="nhsw-site-footer__nav-list"&gt;
-          &lt;li&gt;&lt;a href="/appointments"&gt;Book an appointment&lt;/a&gt;&lt;/li&gt;
+        &lt;p class="nhsw-body-s nhsw-site-footer__nav-heading"&gt;Services&lt;/p&gt;
+        &lt;ul class="nhsw-body-s nhsw-site-footer__nav-list"&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="/appointments"&gt;Book an appointment&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="/prescriptions"&gt;Order a repeat prescription&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-site-footer__nav-column"&gt;
+        &lt;p class="nhsw-body-s nhsw-site-footer__nav-heading"&gt;Support&lt;/p&gt;
+        &lt;ul class="nhsw-body-s nhsw-site-footer__nav-list"&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="/contact"&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="/help"&gt;Help using this service&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    ...
+    &lt;div class="nhsw-site-footer__meta"&gt;
+      &lt;ul class="nhsw-site-footer__links"&gt;
+        &lt;li&gt;&lt;a class="nhsw-link" href="/accessibility"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-link" href="/guidance"&gt;Service guidance (opens in a new tab)&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/footer&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswFooter({
   navigation: [
-    { heading: "Services", items: [{ text: "Book an appointment", href: "/appointments" }] }
+    {
+      heading: "Services",
+      items: [
+        { text: "Book an appointment", href: "/appointments" },
+        { text: "Order a repeat prescription", href: "/prescriptions" }
+      ]
+    },
+    {
+      heading: "Support",
+      items: [
+        { text: "Contact us", href: "/contact" },
+        { text: "Help using this service", href: "/help" }
+      ]
+    }
   ],
   links: [
-    { text: "Accessibility statement", href: "/accessibility" }
+    { text: "Accessibility statement", href: "/accessibility" },
+    { text: "Service guidance (opens in a new tab)", href: "/guidance" }
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ft-nav" html=html_sample njk=njk_sample toggleable=true %}
@@ -220,13 +248,16 @@ tabs:
   &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
     &lt;ul class="nhsw-site-footer__links"&gt;
       &lt;li&gt;&lt;a class="nhsw-link" href="/accessibility"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
-      ...
+      &lt;li&gt;&lt;a class="nhsw-link" href="/cookies"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/privacy"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/terms"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/sitemap"&gt;Site map&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
     &lt;div class="nhsw-site-footer__licence"&gt;
       &lt;span class="nhsw-site-footer__licence-badge" aria-hidden="true"&gt;OGL&lt;/span&gt;
-      &lt;p class="nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="/licence"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="/licence"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;p class="nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
   &lt;/div&gt;
 &lt;/footer&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswFooter({
