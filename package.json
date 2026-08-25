@@ -7,7 +7,7 @@
     "test:watch": "vitest",
     "test:e2e": "node scripts/build-preview-site.js && playwright test",
     "build:preview": "node scripts/build-preview-site.js",
-    "build:css": "sass src/index.scss preview/dist/nhsw.css",
+    "build:css": "sass src/index.scss preview/dist/nhsw.css && sass src/index.scss preview/dist/nhsw.min.css --style=compressed --no-source-map",
     "postbuild:css": "node -e \"const f=require('fs');f.mkdirSync('preview/dist',{recursive:true});f.copyFileSync('dist/nhsw-date-picker.js','preview/dist/nhsw-date-picker.js');\"",
     "watch:css": "sass --watch src/index.scss:preview/dist/nhsw.css",
     "render:njk": "node scripts/render-njk-examples.js",

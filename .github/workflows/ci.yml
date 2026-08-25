@@ -102,5 +102,6 @@ jobs:
           files: |
             preview/dist/nhsw.css
             preview/dist/nhsw.css.map
+            preview/dist/nhsw.min.css
             preview/dist/nhsw-date-picker.js
             dist/nhsw-nunjucks-components.zip

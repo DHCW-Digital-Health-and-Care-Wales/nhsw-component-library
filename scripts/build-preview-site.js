@@ -1,20 +1,5 @@
 'use strict';
 
-/*
- * Renders preview/**\/*.html (Jekyll-style Liquid templates, layouts and
- * includes) into static HTML under preview/_site_test/, without needing a
- * real Jekyll/Ruby install. Covers exactly the Liquid feature set this repo
- * actually uses: assign/capture/comment/if/unless/for/raw, the relative_url
- * filter, and Jekyll's bare-filename {% include name.html key=val %} tag
- * (which differs from liquidjs's own quoted-string include tag, so it's
- * reimplemented here to match).
- *
- * Used by the Playwright suite (specs/e2e/) as its site fixture — not a
- * substitute for a real Jekyll build/deploy.
- *
- * Usage: node scripts/build-preview-site.js
- */
-
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
@@ -28,7 +13,6 @@ const LAYOUTS_DIR = path.join(PREVIEW, '_layouts');
 const DATA_DIR = path.join(PREVIEW, '_data');
 
 const SKIP_DIR_NAMES = new Set(['_includes', '_layouts', '_data', '_site_test', 'dist', 'node_modules']);
-// Copied verbatim (not rendered) alongside the rendered pages.
 const STATIC_DIR_NAMES = ['dist', 'assets'];
 
 function loadSiteData() {
@@ -81,9 +65,6 @@ function buildEngine(siteData) {
 
   engine.registerFilter('relative_url', (v) => v);
 
-  // Jekyll's {% include name.html key=val key2="literal" %} — bare filename
-  // (not liquidjs's own quoted-string {% include "name" %} tag), with params
-  // exposed inside the included template as include.key.
   engine.registerTag('include', {
     parse(tagToken) {
       const raw = tagToken.args.trim();

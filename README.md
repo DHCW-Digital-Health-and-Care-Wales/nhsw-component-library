@@ -1,349 +1,64 @@
-﻿# NHSW Style Library
-
-A starter SCSS component library using Dart Sass, with all source files under src and a single compiled CSS output at dist/nhsw.css.
-
-## Folder structure
-
-`	ext
-nhsw-style-library/
-├─ package.json
-├─ .gitignore
-├─ README.md
-├─ dist/
-│  └─ nhsw.css
-└─ src/
-   ├─ index.scss
-   ├─ tokens/
-   │  ├─ _index.scss
-   │  └─ _colours.scss
-   ├─ utilities/
-   │  ├─ _index.scss
-   │  └─ _focus-ring.scss
-   ├─ foundations/
-   │  ├─ _index.scss
-   │  └─ _input-base.scss
-   └─ components/
-      ├─ _index.scss
-      └─ forms/
-         ├─ _index.scss
-         ├─ _input.scss
-         ├─ _textarea.scss
-         └─ _select.scss
-`
-
-## What each folder is for
-
-### src/
-Your authored Sass source code. Everything you write lives here.
-
-### src/tokens/
-Design tokens: reusable values such as colours, spacing, font sizes, borders, and other raw design values.
-
-### src/utilities/
-Small reusable helpers such as mixins, functions, and utility snippets.
-
-### src/foundations/
-Shared styling recipes used by multiple components. These are not directly used in markup.
-
-### src/components/
-Real UI components that you apply in markup.
-
-### src/components/forms/
-Form-related components such as inputs, textareas, and selects.
-
-### dist/
-Compiled output. Do not edit files here by hand.
-
-## What each file is for
-
-### src/index.scss
-The single Sass entry point that pulls everything together into one compiled CSS file.
-
-### src/tokens/_index.scss
-Barrel file that forwards token files.
-
-### src/tokens/_colours.scss
-Colour tokens and semantic aliases for components.
-
-### src/utilities/_index.scss
-Barrel file for utilities.
-
-### src/utilities/_focus-ring.scss
-Shared focus-ring mixin.
-
-### src/foundations/_index.scss
-Barrel file for shared foundations.
-
-### src/foundations/_input-base.scss
-Reusable base input mixin.
-
-### src/components/_index.scss
-Barrel file for component groups.
-
-### src/components/forms/_index.scss
-Barrel file for form components.
-
-### src/components/forms/_input.scss
-Defines the generic .nhsw-input component and includes the input base once.
-
-### src/components/forms/_textarea.scss
-Textarea-only overrides.
-
-### src/components/forms/_select.scss
-Select-only overrides.
-
-## Colour palette
-
-`scss
--colour-text-primary: #212b32;
--colour-text-secondary: #4c6272;
--colour-text-exceptional: #ffffff;
--colour-text-blue: #1b365d;
-
--colour-link: #005aa8;
-
--colour-button-primary: #1b365d;
--colour-button-secondary: #4c6272;
--colour-button-delete: #d5281b;
--colour-button-exceptional-light: #f5bb66;
-
--colour-background-grey: #f0f4f5;
--colour-background-white: #ffffff;
--colour-background-blue: #1b365d;
-
--colour-border-primary: #212b32;
--colour-border-secondary: #4c6272;
--colour-border-grey: #d8dde0;
--colour-border-gold: #aa8630;
-
--colour-shadow-primary-button: #0e1b2f;
--colour-shadow-exceptional-button: #554318;
-
--colour-focus: #ffeb3b;
-`
-
-## Why .nhsw-input is better than repeating the mixin everywhere
-
-If you include the same mixin into many selectors, Sass will inline the CSS each time. That means repeated output.
-
-This is better:
-
-`scss
-.nhsw-input {
-  @include base.nhsw-input-base;
-}
-
-textarea.nhsw-input {
-  min-height: 6rem;
-  resize: vertical;
-}
-
-select.nhsw-input {
-  padding-right: 2.5rem;
-}
-`
-
-That way the shared base CSS is emitted once, and only the differences are emitted separately.
-
-## Starter SCSS files
-
-### src/index.scss
-
-`scss
-@forward "tokens";
-@forward "utilities";
-@forward "foundations";
-@forward "components";
-`
-
-### src/tokens/_index.scss
-
-`scss
-@forward "colours";
-`
-
-### src/tokens/_colours.scss
-
-`scss
--colour-text-primary: #212b32;
--colour-text-secondary: #4c6272;
--colour-text-exceptional: #ffffff;
--colour-text-blue: #1b365d;
-
--colour-link: #005aa8;
-
--colour-button-primary: #1b365d;
--colour-button-secondary: #4c6272;
--colour-button-delete: #d5281b;
--colour-button-exceptional-light: #f5bb66;
-
--colour-background-grey: #f0f4f5;
--colour-background-white: #ffffff;
--colour-background-blue: #1b365d;
-
--colour-border-primary: #212b32;
--colour-border-secondary: #4c6272;
--colour-border-grey: #d8dde0;
--colour-border-gold: #aa8630;
-
--colour-shadow-primary-button: #0e1b2f;
--colour-shadow-exceptional-button: #554318;
-
--colour-focus: #ffeb3b;
-
-// semantic aliases for form controls
--colour-input-text: -colour-text-primary;
--colour-input-placeholder: -colour-text-secondary;
--colour-input-background: -colour-background-white;
--colour-input-border: -colour-border-secondary;
--colour-input-border-hover: -colour-border-primary;
--colour-input-focus: -colour-focus;
--colour-input-invalid: -colour-button-delete;
--colour-input-disabled-background: -colour-background-grey;
--colour-input-disabled-text: -colour-text-secondary;
-`
-
-### src/utilities/_index.scss
-
-`scss
-@forward "focus-ring";
-`
-
-### src/utilities/_focus-ring.scss
-
-`scss
-@use "../tokens/colours" as c;
-
-@mixin nhsw-focus-ring {
-  outline: 3px solid c.-colour-input-focus;
-  outline-offset: 0;
-}
-`
-
-### src/foundations/_index.scss
-
-`scss
-@forward "input-base";
-`
-
-### src/foundations/_input-base.scss
-
-`scss
-@use "../tokens/colours" as c;
-@use "../utilities/focus-ring" as u;
-
-@mixin nhsw-input-base {
-  display: block;
-  width: 100%;
-  min-height: 2.5rem;
-  padding: 0.625rem 0.75rem;
-  box-sizing: border-box;
-  border: 1px solid c.-colour-input-border;
-  border-radius: 0;
-  background-color: c.-colour-input-background;
-  color: c.-colour-input-text;
-  font: inherit;
-  line-height: 1.5;
-  appearance: none;
-
-  &::placeholder {
-    color: c.-colour-input-placeholder;
-    opacity: 1;
-  }
-
-  &:hover {
-    border-color: c.-colour-input-border-hover;
-  }
-
-  &:focus {
-    @include u.nhsw-focus-ring;
-  }
-
-  &:disabled,
-  &[disabled] {
-    background-color: c.-colour-input-disabled-background;
-    color: c.-colour-input-disabled-text;
-    cursor: not-allowed;
-    opacity: 1;
-  }
-
-  &[aria-invalid="true"],
-  &.nhsw-is-invalid {
-    border-color: c.-colour-input-invalid;
-  }
-}
-`
-
-### src/components/_index.scss
-
-`scss
-@forward "forms";
-`
-
-### src/components/forms/_index.scss
-
-`scss
-@forward "input";
-@forward "textarea";
-@forward "select";
-`
-
-### src/components/forms/_input.scss
-
-`scss
-@use "../../foundations/input-base" as base;
-
-.nhsw-input {
-  @include base.nhsw-input-base;
-}
-`
-
-### src/components/forms/_textarea.scss
-
-`scss
-textarea.nhsw-input {
-  min-height: 6rem;
-  resize: vertical;
-}
-`
-
-### src/components/forms/_select.scss
-
-`scss
-select.nhsw-input {
-  padding-right: 2.5rem;
-}
-`
-
-## Setup and build
-
-Install dependencies:
-
-`powershell
-npm.cmd install
-`
-
-Build once:
-
-`powershell
-npm.cmd run build:css
-`
-
-Watch for changes:
-
-`powershell
-npm.cmd run watch:css
-`
-
-Use 
-pm.cmd in PowerShell if 
-pm.ps1 is blocked by execution policy.
-
-## Preview site (Jekyll)
-
-The docs/preview site under `preview/` is built with Jekyll (source: `preview/`, output: `_site/`). Layouts, includes and data live under `preview/_layouts`, `preview/_includes` and `preview/_data`; every page is a normal file with front matter.
-
-Install Ruby 2.7+ (the system Ruby on some machines is too old) and Bundler, then:
+# NHSW Component Library
+
+[![CI](https://github.com/DHCW-Digital-Health-and-Care-Wales/nhsw-component-library/actions/workflows/ci.yml/badge.svg)](https://github.com/DHCW-Digital-Health-and-Care-Wales/nhsw-component-library/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+A Sass and Nunjucks component library for building consistent, accessible web
+applications across Digital Health and Care Wales (DHCW). It provides a
+single compiled stylesheet (`nhsw.css`) plus a matching set of Nunjucks
+macros, so applications get the same look, markup and accessibility
+behaviour without re-implementing it each time — in the spirit of
+[GOV.UK Frontend](https://github.com/alphagov/govuk-frontend) and
+[NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend).
+
+- **38 components** — actions, forms, navigation, content, cards and
+  layout — see [`src/components/`](src/components/) for the full list, or
+  browse them with live examples on the docs site below.
+- **Accessible by default** — components are built and tested against
+  WCAG 2.2 AA (colour contrast, focus visibility, keyboard behaviour).
+- **Styles and markup, decoupled** — use the Sass alone against your own
+  markup, use the Nunjucks macros alone against your own CSS, or use both
+  together.
+
+## Quick start
+
+### Styles
+
+This isn't published to a package registry, so pick whichever fits your app:
+
+- **No Sass toolchain needed** — copy the compiled CSS straight into your
+  project: `preview/dist/nhsw.css` for local development (readable, with a
+  source map), or `preview/dist/nhsw.min.css` for production. Both are built
+  by `npm run build:css` and attached to every
+  [release](.github/workflows/release.yml).
+- **Building with Dart Sass** — vendor or clone this repo alongside your
+  app and `@use` its `src/` directly:
+
+  ```scss
+  // your-app.scss
+  @use "../path/to/nhsw-component-library/src" as nhsw;
+  ```
+
+### Markup (Nunjucks macros)
+
+Every component has a matching macro under `src/components/<name>/macro.njk`.
+Point your own `FileSystemLoader` at `src/components`, or grab a
+self-contained copy via `npm run package:njk`, which produces
+`dist/nhsw-nunjucks-components.zip` — a drop-in `components/` directory with
+no dependency on the rest of this repo. See
+[`src/components/README.md`](src/components/README.md) for the loader setup,
+macro conventions, and a worked example.
+
+```njk
+{% from "button/macro.njk" import nhswButton %}
+{{ nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
+```
+
+## Documentation site
+
+Every component, pattern and design token is documented with live,
+interactive examples on the docs site, built with Jekyll from
+[`preview/`](preview/). To run it locally you'll need Ruby 2.7+ and Bundler:
 
 ```bash
 bundle install
@@ -351,4 +66,69 @@ npm run build:css   # regenerates preview/dist/nhsw.css — Jekyll treats it as 
 bundle exec jekyll serve
 ```
 
-The CSS build is a separate manual step from the Jekyll build (same as CI) — if styles look missing locally, run `npm run build:css` first.
+## Development
+
+```bash
+npm install
+npm run build:css   # compile src/index.scss once, expanded + minified
+npm run watch:css   # rebuild on every change
+npm test             # Vitest: component styling, accessibility and token checks
+npm run test:e2e     # Playwright: renders preview/ and exercises it in a real browser
+npm run render:njk   # renders every component's yaml examples through its macro, for visual review
+```
+
+`npm run build:preview` and `npm run test:e2e` render the docs site through a
+small Liquid renderer (`scripts/build-preview-site.js`) rather than real
+Jekyll, so the full test suite runs without a Ruby install — including in
+CI. It covers the same Liquid feature set the site actually uses; it's a
+test fixture, not a substitute for the real Jekyll build above.
+
+### Project layout
+
+```
+src/
+├─ tokens/        design tokens — colour, spacing, type
+├─ utilities/      shared mixins (focus states, hidden-control pattern, ...)
+├─ foundations/     shared styling recipes used by several components
+├─ layouts/        page-shell partials (header, footer, width containers)
+└─ components/     one folder per component: _*.scss + macro.njk + *.yaml
+
+preview/    Jekyll docs/preview site — every component's live examples,
+            plus manual QA checklists under preview/testing/
+specs/      Vitest specs (CSS + accessibility) and Playwright e2e specs
+scripts/    build/render/package tooling used by npm scripts and CI
+```
+
+## Testing and quality gates
+
+- **Vitest** (`specs/tests/`) compiles each component's SCSS in isolation
+  and asserts on the output — colours, focus states, spacing, WCAG contrast
+  ratios, and shared-mixin usage.
+- **Playwright** (`specs/e2e/`) renders the full docs site and drives real
+  browser behaviour — tab order, focus trapping, keyboard interaction.
+- Manual accessibility scenarios that can't be automated (screen reader
+  behaviour, visual QA) are tracked as checklists under `preview/testing/`.
+- Both suites run in CI on every push and pull request to `main`
+  ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) and must pass
+  before a release is cut.
+
+## Releasing
+
+Every merge to `main` that passes CI is automatically tagged and released
+with a patch version bump. For a deliberate minor or major release, run the
+[Release workflow](.github/workflows/release.yml) manually from the Actions
+tab and choose the bump level.
+
+## Contributing
+
+Issues and pull requests are welcome. Before adding or changing a component:
+
+- Reuse existing tokens and utilities rather than one-off values — see
+  [`.agent/design-system-rules.md`](.agent/design-system-rules.md) for
+  spacing, breakpoint and colour rules.
+- Add or extend automated tests for any styling or behavioural change.
+- Run `npm test` and `npm run test:e2e` before opening a PR.
+
+## License
+
+[MIT](LICENSE) © Digital Health and Care Wales

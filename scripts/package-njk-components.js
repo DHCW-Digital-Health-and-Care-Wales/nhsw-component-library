@@ -1,15 +1,5 @@
 'use strict';
 
-/*
- * Packages the Nunjucks component suite (src/components/**) into a
- * standalone zip that other projects (e.g. a prototyping kit) can download
- * and drop straight into their own Nunjucks search path — no dependency on
- * the rest of this repo.
- *
- * Usage: node scripts/package-njk-components.js
- * Output: dist/nhsw-nunjucks-components.zip
- */
-
 const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
@@ -60,9 +50,6 @@ maxlength/character-count contract, etc).
 `;
 }
 
-// src/components/ also holds the pre-existing Sass category folders
-// (actions/, forms/, etc, each full of _*.scss partials) — only the flat
-// dirs that actually contain a macro.njk are real Nunjucks components.
 function findNjkComponentDirs() {
   return fs
     .readdirSync(COMPONENTS_SRC, { withFileTypes: true })

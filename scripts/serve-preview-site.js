@@ -1,14 +1,5 @@
 'use strict';
 
-/*
- * Builds the preview site (see build-preview-site.js) and serves the
- * rendered output as static files, for the Playwright suite. Used as
- * playwright.config.js's webServer command — Playwright starts this,
- * waits for it to answer on PORT, runs the tests, then kills it.
- *
- * Usage: node scripts/serve-preview-site.js [port]
- */
-
 const http = require('http');
 const fs = require('fs');
 const path = require('path');

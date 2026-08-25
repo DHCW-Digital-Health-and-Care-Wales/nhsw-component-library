@@ -1,5 +1,3 @@
-// A native form control that must stay clickable/focusable/tabbable but
-// visually hidden behind a custom label-drawn control (checkboxes, radios).
 @mixin nhsw-hidden-native-control {
     position: absolute;
     left: 0;

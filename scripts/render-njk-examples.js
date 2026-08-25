@@ -1,14 +1,5 @@
 'use strict';
 
-/*
- * Renders every example in every src/components/<name>/<name>.yaml file
- * through its macro, and writes the output to njk-preview/<name>/<example>.html
- * for visual inspection. Exits non-zero (and prints a summary) if any
- * example fails to render.
- *
- * Usage: node scripts/render-njk-examples.js
- */
-
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
