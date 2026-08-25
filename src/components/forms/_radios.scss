@@ -1,4 +1,5 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
 
 .nhsw-radios {
@@ -8,9 +9,13 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     padding-left: 52px;
     position: relative;
+
+    &:hover {
+      background-color: c.$nhsw-colour-background-grey;
+    }
   }
 
   &__input {
@@ -28,6 +33,8 @@
       outline: 3px solid c.$nhsw-colour-focus;
       outline-offset: 1px;
       box-shadow: 0 0 0 4px c.$nhsw-colour-focus;
+      border-color: c.$nhsw-colour-border-primary;
+      border-width: 4px;
     }
 
     &:checked + .nhsw-radios__label::after {
@@ -51,6 +58,7 @@
     -ms-user-select: none;
     user-select: none;
     font-size: 1.1875rem;
+    font-weight: t.$nhsw-font-weight-regular;
     line-height: 1.5;
 
     &::before {
@@ -85,7 +93,7 @@
     padding: 0 16px 4px 0;
     margin: 0;
     color: c.$nhsw-colour-text-secondary;
-    font-size: 16px;
+    font-size: 1.1875rem;
     font-weight: 400;
     line-height: 24px;
   }
@@ -93,7 +101,7 @@
   &__divider {
     width: 40px;
     margin-bottom: 16px;
-    color: c.$nhsw-colour-text-secondary;
+    color: c.$nhsw-colour-text-primary;
     font-size: 1.1875rem;
     font-weight: 400;
     text-align: center;
@@ -130,6 +138,10 @@
     .nhsw-radios__input {
       width: 24px;
       height: 24px;
+
+      &:focus + .nhsw-radios__label::before {
+        border-width: 3px;
+      }
     }
 
     .nhsw-radios__label {
@@ -147,6 +159,10 @@
         width: 12px;
         height: 12px;
       }
+    }
+
+    .nhsw-radios__hint {
+      font-size: 1rem;
     }
   }
 }

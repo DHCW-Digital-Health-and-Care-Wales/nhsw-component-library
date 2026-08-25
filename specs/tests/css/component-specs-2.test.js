@@ -238,9 +238,27 @@ describe('site footer matches Figma Footer component', () => {
     css = compileProbe(`@use "components/site/footer";`);
   });
 
+  it('footer background is white, not grey — grey is only the surrounding page backdrop', () => {
+    const footer = block(css, '\\.nhsw-site-footer\\b');
+    expect(footer).toMatch(/background-color:\s*#ffffff/);
+  });
+
   it('container has 30px vertical / 40px horizontal padding', () => {
     const container = block(css, '\\.nhsw-site-footer__container');
     expect(container).toMatch(/padding:\s*1\.875rem 2\.5rem/);
+  });
+
+  it('the --stacked container modifier switches to a block layout, so links/licence/copyright each get their own full-width row', () => {
+    const stacked = block(css, '\\.nhsw-site-footer__container--stacked');
+    expect(stacked).toMatch(/display:\s*block/);
+  });
+
+  it('the open-licence row pairs a bordered OGL-style badge with description text, matching the copyright/org text convention', () => {
+    const licence = block(css, '\\.nhsw-site-footer__licence\\b');
+    expect(licence).toMatch(/display:\s*flex/);
+    const badge = block(css, '\\.nhsw-site-footer__licence-badge');
+    expect(badge).toMatch(/border:\s*1px solid #212b32/);
+    expect(badge).toMatch(/font-weight:\s*700/);
   });
 });
 
@@ -256,9 +274,90 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(link).toMatch(/padding:\s*1rem 0\.25rem/);
   });
 
-  it('nav list has an 8px gap between items', () => {
+  it('nav list has a 2rem gap between items', () => {
     const list = block(css, '\\.nhsw-site-header__nav-list');
-    expect(list).toMatch(/gap:\s*0\.5rem/);
+    expect(list).toMatch(/gap:\s*2rem/);
+  });
+
+  it('inactive nav links are underlined by default', () => {
+    const link = block(css, '\\.nhsw-site-header__nav-link');
+    expect(link).toMatch(/text-decoration:\s*underline/);
+  });
+
+  it('hover removes the underline without changing the link colour', () => {
+    const hover = block(css, '\\.nhsw-site-header__nav-link:hover');
+    expect(hover).toMatch(/text-decoration:\s*none/);
+    expect(hover).not.toMatch(/color/);
+  });
+
+  it('focus removes the underline on the link itself, not just the highlighted span', () => {
+    const focus = block(css, '\\.nhsw-site-header__nav-link:focus');
+    expect(focus).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('current-page link is indicated with a #212b32 inset box-shadow, not a border, so it sits flush with the bar\'s own border-bottom', () => {
+    const current = block(css, '\\.nhsw-site-header__nav-link--current');
+    expect(current).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #212b32/);
+    expect(current).not.toMatch(/border-bottom/);
+    expect(current).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('on a dark background, the current-page indicator is white and hover still just drops the underline', () => {
+    const current = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link--current');
+    expect(current).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #ffffff/);
+    const hover = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link:hover');
+    expect(hover).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('nav badge is positioning glue only — no bespoke colours, so it must be paired with a real .nhsw-tag in markup', () => {
+    const badge = block(css, '\\.nhsw-site-header__nav-badge');
+    expect(badge).not.toMatch(/background-color/);
+    expect(badge).not.toMatch(/color/);
+  });
+});
+
+describe('site header top bar', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/site/header";`);
+  });
+
+  it('has no gold border-bottom', () => {
+    const header = block(css, '\\.nhsw-site-header');
+    expect(header).not.toMatch(/border-bottom/);
+  });
+
+  it('logo is 5rem tall and the top bar has vertical padding around it', () => {
+    const logo = css.match(/\.nhsw-site-header__logo img,\n\.nhsw-site-header__logo svg \{([^}]*)\}/);
+    expect(logo[1]).toMatch(/height:\s*5rem/);
+    const top = block(css, '\\.nhsw-site-header__top');
+    expect(top).toMatch(/padding:\s*1rem 0/);
+  });
+
+  it('service name title has no divider border and is regular weight, not bold', () => {
+    const title = block(css, '\\.nhsw-site-header__title');
+    expect(title).not.toMatch(/border-left/);
+    expect(title).toMatch(/font-weight:\s*400/);
+  });
+});
+
+describe('textarea character-counter spacing', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/textarea";`);
+  });
+
+  it('the counter text (.nhsw-textarea__count) sits 4px below the box', () => {
+    const count = block(css, '\\.nhsw-textarea__count');
+    expect(count).toMatch(/margin-top:\s*4px/);
+  });
+
+  it('the counter turns red and bold once over the limit (--error modifier)', () => {
+    const error = block(css, '\\.nhsw-textarea__count--error');
+    expect(error).toMatch(/color:\s*#d5281b/);
+    expect(error).toMatch(/font-weight:\s*700/);
   });
 });
 
@@ -682,6 +781,8 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(focus).not.toMatch(/background-color/);
     const focusText = block(css, '\\.nhsw-tabs__tab:focus \\.nhsw-tabs__tab-text');
     expect(focusText).toMatch(/background-color:\s*#ffeb3b/);
+    // Matches the 3px focus underline used on .nhsw-card__title-link:focus.
+    expect(focusText).toMatch(/text-decoration-thickness:\s*3px/);
   });
 
   it('tab text carries the default underline, not the button itself', () => {
@@ -723,5 +824,197 @@ describe('tag centres multi-line text and can be grouped with no gap between two
   it('a tag-group removes the border between its first and second tag so they sit flush', () => {
     const firstChild = block(css, '\\.nhsw-tag-group \\.nhsw-tag:first-child');
     expect(firstChild).toMatch(/border-right:\s*none/);
+  });
+});
+
+describe('summary list/card action links hover to the maroon used elsewhere, not the near-identical default link-hover blue', () => {
+  let listCss = '';
+  let cardCss = '';
+
+  beforeAll(() => {
+    listCss = compileProbe(`@use "components/content/summary-list";`);
+    cardCss = compileProbe(`@use "components/content/summary-card";`);
+  });
+
+  it('"Change" links inside a summary list row hover to #7c2855', () => {
+    const hover = block(listCss, '\\.nhsw-summary-list__actions a:hover');
+    expect(hover).toMatch(/color:\s*#7c2855/);
+  });
+
+  it('summary card header actions (Cancel/Reschedule) hover to #7c2855', () => {
+    const hover = block(cardCss, '\\.nhsw-summary-card__actions a:hover');
+    expect(hover).toMatch(/color:\s*#7c2855/);
+  });
+});
+
+describe('shared input focus/hover: no hover border change, focus border is thicker and near-black', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/input"; @use "components/forms/select";`);
+  });
+
+  it('input and select have no :hover rule at all (the border-darkening hover was removed)', () => {
+    expect(css).not.toMatch(/\.nhsw-input:hover/);
+    expect(css).not.toMatch(/\.nhsw-select:hover/);
+  });
+
+  it('input focus uses a thicker, near-black border alongside the yellow ring', () => {
+    const focus = block(css, '\\.nhsw-input:focus');
+    expect(focus).toMatch(/border-color:\s*#212b32/);
+    expect(focus).toMatch(/border-width:\s*4px/);
+  });
+
+  it('select focus uses a thicker, near-black border alongside the yellow ring', () => {
+    const focus = block(css, '\\.nhsw-select:focus');
+    expect(focus).toMatch(/border-color:\s*#212b32/);
+    expect(focus).toMatch(/border-width:\s*4px/);
+  });
+});
+
+describe('checkboxes: regular-weight labels, centred tick, row hover, thicker focus border, matching hint/divider colours', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/checkboxes";`);
+  });
+
+  it('item row highlights on hover', () => {
+    const hover = block(css, '\\.nhsw-checkboxes__item:hover');
+    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+  });
+
+  it('focus adds a thicker near-black border alongside the yellow ring', () => {
+    const focus = block(css, '\\.nhsw-checkboxes__input:focus \\+ \\.nhsw-checkboxes__label::before');
+    expect(focus).toMatch(/border-color:\s*#212b32/);
+    expect(focus).toMatch(/border-width:\s*4px/);
+  });
+
+  it('label is regular weight, not bold', () => {
+    const label = block(css, '\\.nhsw-checkboxes__label');
+    expect(label).toMatch(/font-weight:\s*400/);
+  });
+
+  it('tick is a thick (4px), slightly-flattened (23x10) glyph, vertically centred on its ink centroid (top: 12px)', () => {
+    // The glyph is an L-shape (adjacent border-left + border-bottom) rotated
+    // -45deg. Its ink isn't centred in its own bounding box, so naively
+    // centring the box overshoots — top has to be recomputed from the ink
+    // centroid whenever width/height/border here change.
+    const tick = block(css, '\\.nhsw-checkboxes__label::after');
+    expect(tick).toMatch(/width:\s*23px/);
+    expect(tick).toMatch(/height:\s*10px/);
+    expect(tick).toMatch(/border-left:\s*4px/);
+    expect(tick).toMatch(/border-bottom:\s*4px/);
+    expect(tick).toMatch(/top:\s*12px/);
+  });
+
+  it('small variant tick is vertically centred by its ink centroid (top: 8px)', () => {
+    const smallTick = block(css, '\\.nhsw-checkboxes--small \\.nhsw-checkboxes__label::after');
+    expect(smallTick).toMatch(/top:\s*8px/);
+  });
+
+  it('hint matches the label size (19px), and the "or" divider is near-black, not grey', () => {
+    const hint = block(css, '\\.nhsw-checkboxes__hint');
+    expect(hint).toMatch(/font-size:\s*1\.1875rem/);
+    const divider = block(css, '\\.nhsw-checkboxes__divider');
+    expect(divider).toMatch(/color:\s*#212b32/);
+  });
+});
+
+describe('radios: regular-weight labels, tighter item spacing, row hover, thicker focus border, matching hint/divider colours', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/radios";`);
+  });
+
+  it('item spacing is 6px, not 16px', () => {
+    const item = block(css, '\\.nhsw-radios__item');
+    expect(item).toMatch(/margin-bottom:\s*6px/);
+  });
+
+  it('item row highlights on hover', () => {
+    const hover = block(css, '\\.nhsw-radios__item:hover');
+    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+  });
+
+  it('focus adds a thicker near-black border alongside the yellow ring', () => {
+    const focus = block(css, '\\.nhsw-radios__input:focus \\+ \\.nhsw-radios__label::before');
+    expect(focus).toMatch(/border-color:\s*#212b32/);
+    expect(focus).toMatch(/border-width:\s*4px/);
+  });
+
+  it('small variant focus border is slightly thinner (3px) than the default size (4px)', () => {
+    const smallFocus = block(css, '\\.nhsw-radios--small \\.nhsw-radios__input:focus \\+ \\.nhsw-radios__label::before');
+    expect(smallFocus).toMatch(/border-width:\s*3px/);
+  });
+
+  it('label is regular weight, not bold', () => {
+    const label = block(css, '\\.nhsw-radios__label');
+    expect(label).toMatch(/font-weight:\s*400/);
+  });
+
+  it('hint matches the label size (19px), and the "or" divider is near-black, not grey', () => {
+    const hint = block(css, '\\.nhsw-radios__hint');
+    expect(hint).toMatch(/font-size:\s*1\.1875rem/);
+    const divider = block(css, '\\.nhsw-radios__divider');
+    expect(divider).toMatch(/color:\s*#212b32/);
+  });
+});
+
+describe('label grows to 19px at tablet, matching hint/error-message', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/label";`);
+  });
+
+  it('base label (no size modifier) is 19px from the tablet breakpoint up', () => {
+    expect(css).toMatch(/@media \(min-width: 40\.0625em\)[\s\S]*?\.nhsw-label\s*\{[^}]*font-size:\s*1\.1875rem/);
+  });
+
+  it('the xl label variant (used as a page-heading-style question) has a 16px margin-bottom, not the base 4px', () => {
+    const xl = block(css, '\\.nhsw-label--xl');
+    expect(xl).toMatch(/margin-bottom:\s*16px/);
+  });
+});
+
+describe('fieldset legend margin: a heading class combined onto the legend does not override its tighter spacing', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/fieldset";`);
+  });
+
+  it('legend + nhsw-h2 keeps margin-bottom at 0', () => {
+    const compound = block(css, '\\.nhsw-fieldset__legend\\.nhsw-h2');
+    expect(compound).toMatch(/margin-bottom:\s*0/);
+  });
+});
+
+describe('input-wrapper prefix/suffix use the border-grey token, not the lighter background-grey', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/forms/input-wrapper";`);
+  });
+
+  it('prefix/suffix background is #d8dde0', () => {
+    const block1 = block(css, '\\.nhsw-input-wrapper__prefix, \\.nhsw-input-wrapper__suffix');
+    expect(block1).toMatch(/background-color:\s*#d8dde0/);
+  });
+});
+
+describe('hint and error-message margin-bottom reduced to 8px', () => {
+  it('hint margin-bottom is 8px', () => {
+    const css = compileProbe(`@use "components/forms/hint";`);
+    const hint = block(css, '\\.nhsw-hint');
+    expect(hint).toMatch(/margin-bottom:\s*8px/);
+  });
+
+  it('error-message margin-bottom is 8px', () => {
+    const css = compileProbe(`@use "components/forms/error-message";`);
+    const error = block(css, '\\.nhsw-error-message');
+    expect(error).toMatch(/margin-bottom:\s*8px/);
   });
 });

@@ -44,6 +44,48 @@ Feature: Footer — manual verification
     Given the footer navigation variant
     When a user tabs through it
     Then every link receives visible focus in a sensible order
+
+  @manual
+  Scenario: Footer links have a visible focus state (WCAG 2.2 SC 2.4.7)
+    Given a footer containing links
+    When a keyboard user tabs through them
+    Then each link displays a clear visible focus indicator
+
+  @manual
+  Scenario: Footer is identifiable as a footer landmark
+    Given a screen reader user navigates page landmarks
+    When the footer is encountered
+    Then it is identified as the page footer or content information region
+
+  @manual
+  Scenario: Footer remains readable on small screens
+    Given a footer containing multiple link groups
+    When viewed on a narrow viewport
+    Then all links remain readable and usable without overlapping or horizontal scrolling
+
+  @manual
+  Scenario: Footer remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a footer
+    When browser zoom is increased to 200% or 400%
+    Then links, headings and supporting content remain readable and operable without loss of information
+
+  @manual
+  Scenario: Long link text wraps correctly
+    Given a footer containing long link labels
+    When viewed on a small screen or at high zoom levels
+    Then link text wraps correctly without overlapping or becoming truncated
+
+  @manual
+  Scenario: Link groups remain visually distinct
+    Given a footer with multiple navigation sections
+    When it is displayed
+    Then users can easily distinguish between the different groups of links
+
+  @manual
+  Scenario: Links are understandable out of context (WCAG 2.2 SC 2.4.4)
+    Given a footer containing navigation links
+    When assistive technology presents a list of links
+    Then each link clearly describes its destination or purpose
 ```
 
 ## Additional implementation advice

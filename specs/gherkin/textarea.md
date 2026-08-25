@@ -79,9 +79,15 @@ Feature: Textarea — automated coverage
 
     @automated
     # specs/tests/js/docs-behaviors.test.js
-    Scenario: Counter goes negative once the limit is exceeded, without throwing
+    Scenario: Counter switches to "too many" wording once the limit is exceeded, without throwing
       When the user types 14 characters into a 10-character limit
-      Then the counter reads "You have -4 characters remaining"
+      Then the counter reads "You have 4 characters too many"
+
+    @automated
+    # specs/tests/js/docs-behaviors.test.js
+    Scenario: Singular "character" is used when exactly 1 too many
+      When the user types 11 characters into a 10-character limit
+      Then the counter reads "You have 1 character too many"
 ```
 
 ## Manual test scenarios
@@ -113,4 +119,64 @@ Feature: Textarea — manual verification
   Scenario: Field height suits the amount of content someone is likely to write
     Given the sized textarea variant
     Then its visible height roughly matches how much someone is expected to write
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a textarea
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown around the field
+
+  @manual
+  Scenario: Clicking the label focuses the textarea
+    Given a textarea and its label
+    When the user selects the label
+    Then focus moves to the textarea
+
+  @manual
+  Scenario: Labels and hint text are announced by screen readers
+    Given a screen reader user encounters a textarea
+    When the field is announced
+    Then the label and any associated hint text are announced alongside the textarea
+
+  @manual
+  Scenario: Textarea remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a textarea
+    When browser zoom is increased to 200% or 400%
+    Then the label, hint text, character counter and textarea remain readable and operable without loss of information
+
+  @manual
+  Scenario: Character counter is available to screen reader users
+    Given a textarea with a character counter
+    When a screen reader user enters text
+    Then the remaining or exceeded character count is communicated appropriately
+
+  @manual
+  Scenario: Character counter remains readable at longer lengths
+    Given a textarea with a character counter
+    When the character count changes to large values or goes past the limit
+    Then the counter remains readable and does not overlap surrounding content
+
+  @manual
+  Scenario: Long text remains editable and readable
+    Given a textarea containing multiple paragraphs
+    When a user scrolls through the content
+    Then the current editing position and surrounding text remain visible
+
+  @manual
+  Scenario: Long labels and hint text wrap correctly
+    Given a textarea with a long question or hint text
+    When viewed on a small screen or at high zoom levels
+    Then the content wraps correctly without overlapping the textarea
+
+  @manual
+  Scenario: Error messages are clearly associated with the textarea
+    Given a textarea contains a validation error
+    When the error is displayed
+    Then the error message is clearly associated with the textarea and does not rely on colour alone
+
+  @manual
+  Scenario: Users can still enter text when they exceed the character limit
+    Given a textarea with a character counter
+    When a user types beyond the recommended limit
+    Then text entry continues without being blocked and the counter switches to "You have xx characters too many"
 ```

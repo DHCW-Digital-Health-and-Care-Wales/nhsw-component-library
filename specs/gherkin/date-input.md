@@ -96,4 +96,46 @@ Feature: Date input — manual verification
   Scenario: On multi-question pages, it's clear which question each date belongs to
     Given a page asking more than one question, each with its own date input
     Then each date input's heading clearly says which question it's answering
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a day, month or year field
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown
+
+  @manual
+  Scenario: Date fields remain aligned and readable on small screens
+    Given a date input
+    When viewed on a narrow viewport
+    Then the day, month and year fields remain readable and usable without overlapping or clipping
+
+  @manual
+  Scenario: Date input remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a date input
+    When browser zoom is increased to 200% or 400%
+    Then all date fields, labels and hint text remain readable and operable without loss of information
+
+  @manual
+  Scenario: Error messages identify which part of the date is wrong
+    Given an invalid date has been entered
+    When validation occurs
+    Then the error message clearly explains what needs to be corrected
+
+  @manual
+  Scenario: Error links move focus to the date input
+    Given a date field error appears in an error summary
+    When the user selects the error link
+    Then focus moves to the date input group
+
+  @manual
+  Scenario: Long question text doesn't break the layout
+    Given a date input with a long question or hint text
+    When viewed on a small screen or at high zoom levels
+    Then the heading, hint text and fields remain clearly associated and readable
+
+  @manual
+  Scenario: Labels remain associated with the correct field
+    Given a date input containing Day, Month and Year fields
+    When a screen reader announces the fields
+    Then each field is announced with its correct label
 ```

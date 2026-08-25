@@ -23,12 +23,10 @@
         opacity: 1;
     }
 
-    &:hover {
-        border-color: c.$nhsw-colour-input-border-hover;
-    }
-
     &:focus {
         @include u.nhsw-focus-ring;
+        border-color: c.$nhsw-colour-border-primary;
+        border-width: 4px;
     }
 
     &:disabled,

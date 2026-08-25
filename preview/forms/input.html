@@ -140,33 +140,33 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="flw-full">Full width</label>
-        <input id="flw-full" name="flw-full" class="nhsw-input nhsw-input--full" type="text" value="Text">
+        <input id="flw-full" name="flw-full" class="nhsw-input nhsw-input--full" type="text">
       </div>
       <div class="nhsw-form-group">
-        <label class="nhsw-label" for="flw-34">3/4 width</label>
-        <input id="flw-34" name="flw-34" class="nhsw-input nhsw-input--three-quarters" type="text" value="Text">
+        <label class="nhsw-label" for="flw-34">Three-quarters width</label>
+        <input id="flw-34" name="flw-34" class="nhsw-input nhsw-input--three-quarters" type="text">
       </div>
       <div class="nhsw-form-group">
-        <label class="nhsw-label" for="flw-23">2/3 width</label>
-        <input id="flw-23" name="flw-23" class="nhsw-input nhsw-input--two-thirds" type="text" value="Text">
+        <label class="nhsw-label" for="flw-23">Two-thirds width</label>
+        <input id="flw-23" name="flw-23" class="nhsw-input nhsw-input--two-thirds" type="text">
       </div>
       <div class="nhsw-form-group">
-        <label class="nhsw-label" for="flw-12">1/2 width</label>
-        <input id="flw-12" name="flw-12" class="nhsw-input nhsw-input--half" type="text" value="Text">
+        <label class="nhsw-label" for="flw-12">One-half width</label>
+        <input id="flw-12" name="flw-12" class="nhsw-input nhsw-input--half" type="text">
       </div>
       <div class="nhsw-form-group">
-        <label class="nhsw-label" for="flw-14">1/4 width</label>
-        <input id="flw-14" name="flw-14" class="nhsw-input nhsw-input--quarter" type="text" value="Text">
+        <label class="nhsw-label" for="flw-14">One-quarter width</label>
+        <input id="flw-14" name="flw-14" class="nhsw-input nhsw-input--quarter" type="text">
       </div>
       <div class="nhsw-form-group">
-        <label class="nhsw-label" for="flw-13">1/3 width</label>
-        <input id="flw-13" name="flw-13" class="nhsw-input nhsw-input--third" type="text" value="Text">
+        <label class="nhsw-label" for="flw-13">One-third width</label>
+        <input id="flw-13" name="flw-13" class="nhsw-input nhsw-input--third" type="text">
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="ti-fluid" open_url="/examples/input-fluid-widths.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;input class="nhsw-input nhsw-input--two-thirds" type="text"&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "flw-23", label: { text: "2/3 width" }, classes: "nhsw-input--two-thirds" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "flw-23", label: { text: "Two-thirds width" }, classes: "nhsw-input--two-thirds" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ti-fluid" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 

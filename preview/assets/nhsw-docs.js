@@ -8,7 +8,14 @@
 
     function update() {
       var remaining = maxLength - field.value.length;
-      counter.textContent = 'You have ' + remaining + ' character' + (remaining === 1 ? '' : 's') + ' remaining';
+      var over = remaining < 0;
+      counter.classList.toggle('nhsw-textarea__count--error', over);
+      if (over) {
+        var overBy = Math.abs(remaining);
+        counter.textContent = 'You have ' + overBy + ' character' + (overBy === 1 ? '' : 's') + ' too many';
+      } else {
+        counter.textContent = 'You have ' + remaining + ' character' + (remaining === 1 ? '' : 's') + ' remaining';
+      }
     }
 
     field.addEventListener('input', update);

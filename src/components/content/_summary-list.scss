@@ -63,6 +63,13 @@
       text-align: right;
       white-space: nowrap;
     }
+
+    // Matches the maroon hover used elsewhere for action links (cards,
+    // details, pagination, tabs) — the default blue-to-blue hover was too
+    // subtle to read as a hover state at all.
+    a:hover {
+      color: #7c2855;
+    }
   }
 
   &--no-border {

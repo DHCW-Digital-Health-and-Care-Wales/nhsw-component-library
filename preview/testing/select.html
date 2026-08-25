@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="select">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 3 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 11 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -104,6 +104,145 @@ extra_scripts:
               <select id="select-xl-select-s3" class="nhsw-select nhsw-select--xl">
                 <option>Very long select option for wider layouts</option>
                 <option>Another very long option</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-4" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-4">Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-4-hint">Given a select field. When it receives keyboard focus. Then a clear visible focus indicator is shown around the control.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="select-condition-select-s4">Name of Point of Care Test</label>
+              <select id="select-condition-select-s4" class="nhsw-select">
+                <option>Please select</option>
+                <option>Glucose</option>
+                <option>Cholesterol</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-5" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-5">Selected option is clearly visible</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-5-hint">Given a select field with a chosen option. When the field is displayed. Then users can clearly identify the currently selected option.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="select-condition-select-s5">Name of Point of Care Test</label>
+              <select id="select-condition-select-s5" class="nhsw-select">
+                <option>Please select</option>
+                <option selected>Glucose</option>
+                <option>Cholesterol</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-6" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-6">Label remains associated with the select</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-6-hint">Given a select field. When a screen reader announces it. Then the field label is announced alongside the control.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="select-condition-select-s6">Name of Point of Care Test</label>
+              <select id="select-condition-select-s6" class="nhsw-select">
+                <option>Please select</option>
+                <option>Glucose</option>
+                <option>Cholesterol</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-7" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-7">Placeholder option isn't mistaken for a valid choice</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-7-hint">Given a select field with a default option such as "Please select". When the field is first displayed. Then it is clear that a valid option has not yet been chosen.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="select-condition-select-s7">Name of Point of Care Test</label>
+              <select id="select-condition-select-s7" class="nhsw-select">
+                <option>Please select</option>
+                <option>Glucose</option>
+                <option>Cholesterol</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-8" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-8">Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-8-hint">Given a select field. When browser zoom is increased to 200% or 400%. Then the control remains readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="select-condition-select-s8">Name of Point of Care Test</label>
+              <select id="select-condition-select-s8" class="nhsw-select">
+                <option>Please select</option>
+                <option>Glucose</option>
+                <option>Cholesterol</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-9" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-9">Long selected values remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-9-hint">Given a select field containing long options. When a long option is selected. Then the selected value remains readable and is not unexpectedly truncated or clipped.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 200px;">
+              <div class="nhsw-form-group">
+                <label class="nhsw-label" for="select-xl-select-s9">Extra large</label>
+                <select id="select-xl-select-s9" class="nhsw-select nhsw-select--xl">
+                  <option selected>Very long select option for wider layouts</option>
+                  <option>Another very long option</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-10" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-10">Select remains usable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-10-hint">Given a select field. When viewed on a narrow viewport. Then the label, control and selected value remain readable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 250px;">
+              <div class="nhsw-form-group">
+                <label class="nhsw-label" for="select-condition-select-s10">Name of Point of Care Test</label>
+                <select id="select-condition-select-s10" class="nhsw-select">
+                  <option>Please select</option>
+                  <option>Glucose</option>
+                  <option>Cholesterol</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="select-manual-11" name="select-manual-tests" type="checkbox" aria-describedby="select-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="select-manual-11">Clicking the label focuses the select</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="select-manual-11-hint">Given a select field and its label. When the user selects the label. Then focus moves to the select field.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="select-condition-select-s11">Name of Point of Care Test</label>
+              <select id="select-condition-select-s11" class="nhsw-select">
+                <option>Please select</option>
+                <option>Glucose</option>
+                <option>Cholesterol</option>
               </select>
             </div>
           </div>

@@ -119,7 +119,7 @@ tabs:
           <ul class="nhsw-site-header__nav-list">
             <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
             <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-site-header__nav-badge">0</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">0</span></a></li>
           </ul>
         </div>
       </nav>
@@ -128,7 +128,7 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;
   &lt;span&gt;Navigation Item 3&lt;/span&gt;
-  &lt;span class="nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;
+  &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;
 &lt;/a&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [
@@ -145,7 +145,7 @@ tabs:
           <ul class="nhsw-site-header__nav-list">
             <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
             <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-site-header__nav-badge">5</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">5</span></a></li>
           </ul>
         </div>
       </nav>
@@ -154,7 +154,7 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
   ...
-  &lt;span class="nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
+  &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [

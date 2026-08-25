@@ -24,7 +24,25 @@ Feature: Site navigation — automated coverage
     # specs/tests/css/component-specs-2.test.js
     Scenario: Nav list item gap
       Given the compiled CSS for .nhsw-site-header__nav-list
-      Then the gap between items is 8px
+      Then the gap between items is 2rem
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Inactive links are underlined by default; hover/focus drop the underline without changing colour
+      Given the compiled CSS for .nhsw-site-header__nav-link
+      Then the base state is underlined, :hover removes the underline with no colour change, and :focus removes it on the link itself
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Current-page indicator overlaps the nav bar's own border, doesn't double it up
+      Given the compiled CSS for .nhsw-site-header__nav-link--current
+      Then it is drawn with an inset box-shadow (#212b32, or white on the --reverse variant), not a border-bottom
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: The tag badge next to a nav item has no bespoke colours of its own
+      Given the compiled CSS for .nhsw-site-header__nav-badge
+      Then it only supplies spacing — its colour comes from pairing it with a real .nhsw-tag class in markup
 ```
 
 ## Manual test scenarios
@@ -55,4 +73,52 @@ Feature: Site navigation — manual verification
   Scenario: Tag next to a nav item doesn't break the layout or shrink its click area
     Given a nav item with a tag next to it
     Then the tag sits correctly alongside the link without reducing the link's clickable area
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a site navigation link
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown
+
+  @manual
+  Scenario: Navigation can be used entirely with the keyboard
+    Given a site navigation component
+    When a keyboard user tabs through the navigation
+    Then all navigation items can be reached and activated without using a mouse
+
+  @manual
+  Scenario: Navigation is identifiable as a navigation region
+    Given a screen reader user navigates page landmarks
+    When the site navigation is encountered
+    Then it is identified as a navigation region
+
+  @manual
+  Scenario: Current page remains distinguishable without colour alone (WCAG 2.2 SC 1.4.1)
+    Given a navigation item representing the current page
+    When viewed by a user who cannot perceive colour differences
+    Then the current page remains distinguishable through more than colour alone
+
+  @manual
+  Scenario: Site navigation remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a site navigation component
+    When browser zoom is increased to 200% or 400%
+    Then navigation items remain readable and operable without loss of information
+
+  @manual
+  Scenario: Long navigation labels remain readable
+    Given a navigation item with a long label
+    When viewed on a small screen or at high zoom levels
+    Then the label remains readable and does not overlap neighbouring navigation items
+
+  @manual
+  Scenario: Navigation adapts correctly on small screens
+    Given a site navigation component
+    When viewed on a mobile-width screen
+    Then all navigation options remain accessible without clipping or horizontal scrolling
+
+  @manual
+  Scenario: Expanded submenu remains associated with its parent item
+    Given a navigation item with an expanded submenu
+    When the submenu is displayed
+    Then it is visually clear which parent navigation item the submenu belongs to
 ```

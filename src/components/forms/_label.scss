@@ -11,6 +11,14 @@
   font-weight: t.$nhsw-font-weight-bold;
   line-height: t.$nhsw-line-height-body-small;
 
+  // Matches .nhsw-hint and .nhsw-error-message, which both grow to 19px at
+  // this breakpoint — without this, the label stayed smaller than its own
+  // hint text on desktop.
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-body;
+    line-height: t.$nhsw-line-height-body;
+  }
+
   &--s {
     font-size: t.$nhsw-font-size-body-small;
     line-height: t.$nhsw-line-height-body-small;
@@ -37,6 +45,7 @@
   }
 
   &--xl {
+    margin-bottom: 16px;
     font-size: t.$nhsw-font-size-h2-mobile;
     line-height: t.$nhsw-line-height-h2-mobile;
 

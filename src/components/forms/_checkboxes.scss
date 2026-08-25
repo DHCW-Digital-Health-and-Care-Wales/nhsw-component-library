@@ -1,4 +1,5 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
 
 .nhsw-checkboxes {
@@ -11,6 +12,10 @@
     margin-bottom: 16px;
     padding-left: 52px;
     position: relative;
+
+    &:hover {
+      background-color: c.$nhsw-colour-background-grey;
+    }
   }
 
   &__input {
@@ -28,6 +33,8 @@
       outline: 3px solid c.$nhsw-colour-focus;
       outline-offset: 1px;
       box-shadow: 0 0 0 4px c.$nhsw-colour-focus;
+      border-color: c.$nhsw-colour-border-primary;
+      border-width: 4px;
     }
 
     &:checked + .nhsw-checkboxes__label::after {
@@ -51,6 +58,7 @@
     -ms-user-select: none;
     user-select: none;
     font-size: 1.1875rem;
+    font-weight: t.$nhsw-font-weight-regular;
     line-height: 1.5;
 
     &::before {
@@ -70,12 +78,14 @@
       content: "";
       position: absolute;
       left: 9px;
-      top: 6px;
+      // Centred on the ink's actual centroid, not the naive box centre (see
+      // width/height/border below) — recompute this if any of those change.
+      top: 12px;
       box-sizing: border-box;
       width: 23px;
-      height: 12px;
-      border-left: 3px solid c.$nhsw-colour-text-primary;
-      border-bottom: 3px solid c.$nhsw-colour-text-primary;
+      height: 10px;
+      border-left: 4px solid c.$nhsw-colour-text-primary;
+      border-bottom: 4px solid c.$nhsw-colour-text-primary;
       transform: rotate(-45deg);
       opacity: 0;
     }
@@ -87,7 +97,7 @@
     padding: 0 16px 4px 0;
     margin: 0;
     color: c.$nhsw-colour-text-secondary;
-    font-size: 16px;
+    font-size: 1.1875rem;
     font-weight: 400;
     line-height: 24px;
   }
@@ -95,7 +105,7 @@
   &__divider {
     width: 40px;
     margin-bottom: 16px;
-    color: c.$nhsw-colour-text-secondary;
+    color: c.$nhsw-colour-text-primary;
     font-size: 1.1875rem;
     font-weight: 400;
     text-align: center;
@@ -145,10 +155,14 @@
 
       &::after {
         left: 6px;
-        top: 4px;
+        top: 8px;
         width: 12px;
         height: 6px;
       }
+    }
+
+    .nhsw-checkboxes__hint {
+      font-size: 1rem;
     }
   }
 }

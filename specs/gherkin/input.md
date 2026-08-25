@@ -101,4 +101,46 @@ Feature: Text input — manual verification
     Given a numeric-only field, e.g. an account number
     When opened on a mobile device
     Then the numeric keyboard is shown rather than the full keyboard
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a text input
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown around the field
+
+  @manual
+  Scenario: Clicking the label focuses the input
+    Given a text input and its label
+    When the user selects the label
+    Then focus moves to the associated input field
+
+  @manual
+  Scenario: Screen readers announce the label and hint text
+    Given a screen reader user encounters a text input
+    When the field is announced
+    Then the label and any associated hint text are announced with the input
+
+  @manual
+  Scenario: Text input remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a text input
+    When browser zoom is increased to 200% or 400%
+    Then the label, hint text and input remain readable and operable without loss of information
+
+  @manual
+  Scenario: Long labels and hint text wrap correctly
+    Given a text input with a long label or hint
+    When viewed on a small screen or at high zoom levels
+    Then the text wraps correctly without overlapping the input or other content
+
+  @manual
+  Scenario: Error state remains clear
+    Given a text input with a validation error
+    When the field is displayed
+    Then the error is clearly communicated using text and visual styling, not colour alone
+
+  @manual
+  Scenario: Error message is associated with the field
+    Given a text input with an error message
+    When a screen reader announces the field
+    Then the error message is available alongside the field information
 ```

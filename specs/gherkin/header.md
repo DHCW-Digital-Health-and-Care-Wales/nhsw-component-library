@@ -22,7 +22,19 @@ Feature: Header — automated coverage
     # specs/tests/css/component-specs-2.test.js
     Scenario: Nav list item gap
       Given the compiled CSS for .nhsw-site-header__nav-list
-      Then the gap between items is 8px
+      Then the gap between items is 2rem
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Current-page indicator overlaps the nav bar's own border, doesn't double it up
+      Given the compiled CSS for .nhsw-site-header__nav-link--current
+      Then it is drawn with an inset box-shadow (#212b32), not a border-bottom
+
+    @automated
+    # specs/tests/css/component-specs-2.test.js
+    Scenario: Top bar has no gold border, a 5rem logo, and a regular-weight title
+      Given the compiled CSS for .nhsw-site-header, __logo img/svg, __top and __title
+      Then there is no border-bottom, the logo is 5rem tall with vertical padding around it, and the title has no divider border and is 400 weight
 
   Rule: Documented classes stay honest against the compiled stylesheet
 
@@ -71,4 +83,34 @@ Feature: Header — manual verification
     Given the header on a mobile-width screen
     When any nav toggle is used via keyboard
     Then it opens/closes correctly and focus is never trapped inside it
+
+  @manual
+  Scenario: Header links have a visible focus state (WCAG 2.2 SC 2.4.7)
+    Given a header containing links or buttons
+    When a keyboard user tabs through them
+    Then each interactive element displays a clear visible focus indicator
+
+  @manual
+  Scenario: Header landmark can be identified by assistive technologies
+    Given a screen reader user encounters the page header
+    When navigating page landmarks
+    Then the header region can be identified and reached
+
+  @manual
+  Scenario: Logo and service name remain readable on smaller screens
+    Given a header containing a logo and service name
+    When viewed on a narrow viewport
+    Then both remain readable and do not overlap or become truncated
+
+  @manual
+  Scenario: Long service names wrap or truncate appropriately
+    Given a service with a long name
+    When displayed in the header
+    Then the service name remains readable and does not break the layout
+
+  @manual
+  Scenario: Header remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a page containing the header
+    When browser zoom is increased to 200% or 400%
+    Then all header content and navigation controls remain readable and operable without loss of information
 ```

@@ -130,4 +130,51 @@ Feature: Radios — manual verification
   Scenario: Hint text makes clear only one option can be chosen, where needed (WCAG 2.2 SC 3.3.2)
     Given a radio group where it isn't obvious only one option can be picked
     Then hint text such as "Select one option" is present
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a radio button receives keyboard focus
+    When a keyboard user navigates through the group
+    Then a clear visible focus indicator is shown
+
+  @manual
+  Scenario: Arrow keys move between radio options
+    Given a radio group has focus
+    When the user presses the Up, Down, Left or Right Arrow keys
+    Then focus moves between the radio options and the newly focused option becomes selected
+
+  @manual
+  Scenario: Clicking the label selects the radio
+    Given a radio option and its label
+    When the user selects either the radio control or the label text
+    Then that radio option is selected
+
+  @manual
+  Scenario: Radio groups remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a radio group
+    When browser zoom is increased to 200% or 400%
+    Then labels, hint text and radio controls remain readable and operable without loss of information
+
+  @manual
+  Scenario: Long option labels wrap correctly
+    Given a radio option with a long label
+    When viewed on a small screen or at high zoom levels
+    Then the label wraps correctly without overlapping other options or becoming detached from its radio button
+
+  @manual
+  Scenario: Screen readers announce the group question
+    Given a screen reader user encounters a radio group
+    When they enter the group
+    Then the question and any supporting hint text are announced before the radio options
+
+  @manual
+  Scenario: Conditional content remains clearly associated
+    Given a radio option reveals additional content
+    When the content appears
+    Then the revealed content is clearly associated with the selected radio option
+
+  @manual
+  Scenario: Selected radio option is distinguishable without relying on colour alone (WCAG 2.2 SC 1.4.1)
+    Given a selected radio option
+    Then its selected state is communicated through the radio indicator and not through colour alone
 ```

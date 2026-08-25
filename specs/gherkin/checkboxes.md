@@ -146,4 +146,53 @@ Feature: Checkboxes — manual verification
     When it's ticked while using a screen reader
     Then the user is made aware new content has appeared
     And this is a known limitation — only expect it to work well for simple, easy-to-understand questions
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a checkbox receives keyboard focus
+    When a keyboard user tabs through the options
+    Then a clear visible focus indicator is shown on the focused checkbox
+
+  @manual
+  Scenario: Keyboard users can tick and untick options
+    Given a checkbox has keyboard focus
+    When Space is pressed
+    Then the checkbox is selected or deselected
+
+  @manual
+  Scenario: Clicking the label ticks the checkbox
+    Given a checkbox and its label
+    When the user selects either the checkbox or its text label
+    Then the checkbox state changes
+
+  @manual
+  Scenario: Checked state is clear without relying on colour alone (WCAG 2.2 SC 1.4.1)
+    Given a selected checkbox
+    When viewed by a user who cannot perceive colour differences
+    Then the selected state is communicated through a visible tick as well as any colour change
+
+  @manual
+  Scenario: Checkboxes remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a checkbox group
+    When browser zoom is increased to 200% or 400%
+    Then labels and controls remain readable and operable without loss of information
+
+  @manual
+  Scenario: Long labels wrap correctly
+    Given a checkbox option with a long label
+    When viewed on a small screen or at high zoom levels
+    Then the label wraps correctly without overlapping other options or detaching from its checkbox
+
+  @manual
+  Scenario: Conditional content remains visually associated
+    Given a checkbox reveals additional content
+    When the content is displayed
+    Then it is clearly associated with the checkbox that revealed it
+    And this applies to the conditional reveal pattern
+
+  @manual
+  Scenario: Checkbox group purpose is announced
+    Given a screen reader user encounters a checkbox group
+    When the group is announced
+    Then the group label and instructions are announced before the options
 ```

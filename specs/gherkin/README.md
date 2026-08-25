@@ -14,8 +14,8 @@ Where a component has little or no automated coverage (e.g. it isn't named in `.
 | Actions | [action-link](action-link.md), [back-link](back-link.md), [breadcrumb](breadcrumb.md), [error-summary](error-summary.md), [expander](expander.md), [file-upload](file-upload.md), [skip-link](skip-link.md) |
 | Callouts | [notification-banner](notification-banner.md), [warning-callout](warning-callout.md), [warning-text](warning-text.md) |
 | Components | [buttons](buttons.md) |
-| Content | [cards](cards.md), [details](details.md), [inset-text](inset-text.md), [pagination](pagination.md), [panel](panel.md), [summary-list](summary-list.md), [table](table.md), [tabs](tabs.md), [tag](tag.md), [timeout](timeout.md) |
-| Forms | [checkboxes](checkboxes.md), [date-input](date-input.md), [date-picker](date-picker.md), [input](input.md), [radios](radios.md), [select](select.md), [textarea](textarea.md) |
+| Content | [cards](cards.md), [details](details.md), [inset-text](inset-text.md), [pagination](pagination.md), [panel](panel.md), [summary-list](summary-list.md), [table](table.md), [tabs](tabs.md), [tag](tag.md) |
+| Forms | [checkboxes](checkboxes.md), [date-input](date-input.md), [input](input.md), [radios](radios.md), [select](select.md), [textarea](textarea.md) |
 | Site | [footer](footer.md), [header](header.md), [site-navigation](site-navigation.md) |
 
 ## Keeping this in sync

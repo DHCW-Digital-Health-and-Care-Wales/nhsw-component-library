@@ -192,6 +192,59 @@ tabs:
     {% include code-viewer.html id="ft-nav" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Footer with an open licence</h3>
+    <p class="nhsw-body">If your organisation or service encourages people to reuse and adapt its information under the Open Government Licence, show the licence statement below the links and above the copyright line, each as its own row.</p>
+
+    {% capture example_body %}{% raw %}
+      <footer class="nhsw-site-footer">
+        <div class="nhsw-site-footer__container nhsw-site-footer__container--stacked">
+          <ul class="nhsw-site-footer__links">
+            <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+            <li><a class="nhsw-link" href="#">Cookie policy</a></li>
+            <li><a class="nhsw-link" href="#">Privacy policy</a></li>
+            <li><a class="nhsw-link" href="#">Terms of use</a></li>
+            <li><a class="nhsw-link" href="#">Site map</a></li>
+          </ul>
+          <div class="nhsw-site-footer__licence">
+            <span class="nhsw-site-footer__licence-badge" aria-hidden="true">OGL</span>
+            <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="#">Open Government Licence v3.0</a>, except where otherwise stated.</p>
+          </div>
+          <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+        </div>
+      </footer>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="ft-licence" open_url="/examples/footer-licence.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/accessibility"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      ...
+    &lt;/ul&gt;
+    &lt;div class="nhsw-site-footer__licence"&gt;
+      &lt;span class="nhsw-site-footer__licence-badge" aria-hidden="true"&gt;OGL&lt;/span&gt;
+      &lt;p class="nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="/licence"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "/accessibility" },
+    { text: "Cookie policy", href: "/cookies" },
+    { text: "Privacy policy", href: "/privacy" },
+    { text: "Terms of use", href: "/terms" },
+    { text: "Site map", href: "/sitemap" }
+  ],
+  licence: {
+    text: "Open Government Licence v3.0",
+    href: "/licence"
+  }
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="ft-licence" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
       &larr; Previous<br>

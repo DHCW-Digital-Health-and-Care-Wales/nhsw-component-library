@@ -38,7 +38,28 @@ describe('character counter (data-max-length)', () => {
     const field = document.getElementById('ta');
     field.value = '12345678901234';
     field.dispatchEvent(new Event('input'));
-    expect(document.getElementById('ta-count').textContent).toBe('You have -4 characters remaining');
+    expect(document.getElementById('ta-count').textContent).toBe('You have 4 characters too many');
+  });
+
+  it('uses the singular "character" when exactly 1 over the limit', () => {
+    const field = document.getElementById('ta');
+    field.value = '12345678901';
+    field.dispatchEvent(new Event('input'));
+    expect(document.getElementById('ta-count').textContent).toBe('You have 1 character too many');
+  });
+
+  it('adds the error class once over the limit, and removes it again if the user deletes back under', () => {
+    const field = document.getElementById('ta');
+    const counter = document.getElementById('ta-count');
+    expect(counter.classList.contains('nhsw-textarea__count--error')).toBe(false);
+
+    field.value = '12345678901234';
+    field.dispatchEvent(new Event('input'));
+    expect(counter.classList.contains('nhsw-textarea__count--error')).toBe(true);
+
+    field.value = 'hello';
+    field.dispatchEvent(new Event('input'));
+    expect(counter.classList.contains('nhsw-textarea__count--error')).toBe(false);
   });
 });
 

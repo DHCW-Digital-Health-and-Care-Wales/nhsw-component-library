@@ -75,4 +75,52 @@ Feature: Select — manual verification
   Scenario: Size variants are visibly different, sensible widths
     Given the s/m/l select size variants
     Then each is a clearly different, sensible width for its content
+
+  @manual
+  Scenario: Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)
+    Given a select field
+    When it receives keyboard focus
+    Then a clear visible focus indicator is shown around the control
+
+  @manual
+  Scenario: Selected option is clearly visible
+    Given a select field with a chosen option
+    When the field is displayed
+    Then users can clearly identify the currently selected option
+
+  @manual
+  Scenario: Label remains associated with the select
+    Given a select field
+    When a screen reader announces it
+    Then the field label is announced alongside the control
+
+  @manual
+  Scenario: Placeholder option isn't mistaken for a valid choice
+    Given a select field with a default option such as "Please select"
+    When the field is first displayed
+    Then it is clear that a valid option has not yet been chosen
+
+  @manual
+  Scenario: Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
+    Given a select field
+    When browser zoom is increased to 200% or 400%
+    Then the control remains readable and operable without loss of information
+
+  @manual
+  Scenario: Long selected values remain readable
+    Given a select field containing long options
+    When a long option is selected
+    Then the selected value remains readable and is not unexpectedly truncated or clipped
+
+  @manual
+  Scenario: Select remains usable on small screens
+    Given a select field
+    When viewed on a narrow viewport
+    Then the label, control and selected value remain readable without horizontal scrolling
+
+  @manual
+  Scenario: Clicking the label focuses the select
+    Given a select field and its label
+    When the user selects the label
+    Then focus moves to the select field
 ```

@@ -4,7 +4,15 @@
 
     containers.forEach(function (container) {
       var storageKey = 'nhsw-test-tracker:' + (container.getAttribute('data-tracker-key') || location.pathname);
-      var boxes = container.querySelectorAll('input[type="checkbox"]');
+      // Exclude checkboxes nested inside a live example (e.g. a demo
+      // checkbox/conditional-reveal shown under a checklist item) — only
+      // the checklist's own items should count towards the total.
+      var boxes = Array.prototype.filter.call(
+        container.querySelectorAll('input[type="checkbox"]'),
+        function (box) {
+          return !box.closest('.nhsw-example-preview');
+        }
+      );
       var counter = container.querySelector('[data-tracker-count]');
       var resetBtn = container.querySelector('[data-tracker-reset]');
 

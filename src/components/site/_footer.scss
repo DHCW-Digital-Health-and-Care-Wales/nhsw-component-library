@@ -3,7 +3,7 @@
 .nhsw-site-footer {
   margin-top: 4rem;
   border-top: 0.25rem solid #005eb8;
-  background-color: #d8dde0;
+  background-color: c.$nhsw-colour-background-white;
 }
 
 .nhsw-site-footer__container {
@@ -19,6 +19,17 @@
     max-width: 68.75rem;
     margin: 0 auto;
   }
+
+  // Add this modifier when the footer also carries an open licence block —
+  // links, licence and copyright stack as their own full-width rows instead
+  // of sharing space-between rows, matching the fuller footer pattern.
+  &--stacked {
+    display: block;
+
+    .nhsw-site-footer__links {
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .nhsw-site-footer__links {
@@ -32,6 +43,28 @@
 
 .nhsw-site-footer__copyright {
   margin: 0;
+}
+
+.nhsw-site-footer__licence {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.nhsw-site-footer__licence-badge {
+  flex: 0 0 auto;
+  padding: 2px 6px;
+  border: 1px solid c.$nhsw-colour-text-primary;
+  color: c.$nhsw-colour-text-primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.nhsw-site-footer__licence-text {
+  margin: 0;
+  color: c.$nhsw-colour-text-secondary;
 }
 
 .nhsw-site-footer__org {

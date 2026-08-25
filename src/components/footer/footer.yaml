@@ -34,6 +34,14 @@ params:
     description: >
       Version text for the org/version mode. Mutually exclusive with
       links/navigation.
+  - name: licence
+    type: object
+    required: false
+    description: >
+      { text, href, badge } renders an open-licence line (e.g. Open
+      Government Licence v3.0) below the links, above the copyright, each as
+      its own full-width row. badge defaults to "OGL". Mutually exclusive
+      with organisation/versionText/navigation.
   - name: classes
     type: string
     required: false
@@ -66,3 +74,19 @@ examples:
           href: "/accessibility"
         - text: "Service guidance (opens in a new tab)"
           href: "/guidance"
+  - name: with-licence
+    data:
+      links:
+        - text: "Accessibility statement"
+          href: "/accessibility"
+        - text: "Cookie policy"
+          href: "/cookies"
+        - text: "Privacy policy"
+          href: "/privacy"
+        - text: "Terms of use"
+          href: "/terms"
+        - text: "Site map"
+          href: "/sitemap"
+      licence:
+        text: "Open Government Licence v3.0"
+        href: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"

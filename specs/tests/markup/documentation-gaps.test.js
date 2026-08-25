@@ -24,15 +24,8 @@ function findDocPages() {
 // earlier example on the same page (see the page for the reasoning):
 //  - panel.html: white/navy pairs after the "Blue background" section reuse
 //    the --navy modifier code shown there; only the white variant repeats code.
-//  - timeout.html: the mobile variant is the identical markup to the overview,
-//    just demonstrating the responsive layout, not new syntax.
-//  - date-picker.html: doesn't use the example-preview.html pattern at all —
-//    it renders each live variant inline (the component must actually run),
-//    each already paired 1:1 with its own code-viewer.
 const KNOWN_EXCEPTIONS = new Set([
   'preview/content/panel.html',
-  'preview/content/timeout.html',
-  'preview/forms/date-picker.html',
 ]);
 
 describe('every live component preview has a matching code sample', () => {
