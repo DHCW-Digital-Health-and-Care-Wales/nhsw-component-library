@@ -91,9 +91,9 @@ Feature: Radios — automated coverage
     # specs/tests/js/docs-behaviors.test.js
     Scenario: Conditional content is wired up and toggles with the radio's checked state
       Given a radio with data-aria-controls pointing at a hidden conditional block
-      Then on load aria-controls/aria-expanded are wired from the checked state
+      Then on load aria-controls is wired from the checked state (aria-expanded is not used here - it isn't a valid ARIA attribute on the radio role)
       When the radio is checked
-      Then the target is revealed and aria-expanded becomes "true"
+      Then the target is revealed
 ```
 
 ## Manual test scenarios

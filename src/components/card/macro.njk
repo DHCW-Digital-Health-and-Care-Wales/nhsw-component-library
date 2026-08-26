@@ -28,6 +28,11 @@
     imageSrc      string   - if set, renders an <img class="nhsw-card__image">
                               as the very first child of the card.
     imageAlt      string   - alt text for imageSrc, defaults to "".
+    previewSrc    string   - if set (instead of imageSrc), renders the image inside a
+                              bordered, fixed-height frame (.nhsw-card__preview) rather
+                              than flush against the card edges. Takes precedence over
+                              imageSrc if both are set.
+    previewAlt    string   - alt text for previewSrc, defaults to "".
     actions       array    - [{ text, html, href }], rendered as a
                               <ul class="nhsw-card__actions"> of plain links,
                               placed as the first child of the card.
@@ -42,7 +47,11 @@
 {%- if params.titleHtml %}{{ params.titleHtml | safe }}{% elif params.titleHref %}<a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>{% else %}{{ params.title }}{% endif -%}
 {%- endset -%}
 <div class="nhsw-card{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
-{%- if params.imageSrc %}
+{%- if params.previewSrc %}
+  <div class="nhsw-card__preview">
+    <img class="nhsw-card__preview-image" src="{{ params.previewSrc }}" alt="{{ params.previewAlt or '' }}">
+  </div>
+{%- elif params.imageSrc %}
   <img class="nhsw-card__image" src="{{ params.imageSrc }}" alt="{{ params.imageAlt or '' }}">
 {%- endif %}
 {%- if params.stat %}

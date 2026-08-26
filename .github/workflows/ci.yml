@@ -33,6 +33,9 @@ jobs:
       - name: Build CSS
         run: npm run build:css
 
+      - name: Build JS
+        run: npm run build:js
+
       - name: Run unit/CSS tests
         run: npx vitest run
 
@@ -78,7 +81,7 @@ jobs:
           echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
 
       - name: Build CSS and JS
-        run: npm run build:css
+        run: npm run build:css && npm run build:js
 
       - name: Package Nunjucks components
         run: npm run package:njk
@@ -104,4 +107,7 @@ jobs:
             preview/dist/nhsw.css.map
             preview/dist/nhsw.min.css
             preview/dist/nhsw-date-picker.js
+            preview/dist/nhsw-date-picker.min.js
+            preview/dist/nhsw-behaviours.js
+            preview/dist/nhsw-behaviours.min.js
             dist/nhsw-nunjucks-components.zip

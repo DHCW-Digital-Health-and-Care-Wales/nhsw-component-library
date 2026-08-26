@@ -54,6 +54,17 @@ params:
     type: string
     required: false
     description: Alt text for imageSrc. Defaults to "".
+  - name: previewSrc
+    type: string
+    required: false
+    description: >
+      If set (instead of imageSrc), renders the image inside a bordered,
+      fixed-height frame (nhsw-card__preview) rather than flush against the
+      card edges. Takes precedence over imageSrc if both are set.
+  - name: previewAlt
+    type: string
+    required: false
+    description: Alt text for previewSrc. Defaults to "".
   - name: actions
     type: array
     required: false
@@ -99,6 +110,13 @@ examples:
       titleHref: "/appointments"
       description: "View, change or cancel your upcoming appointments."
       imageSrc: "/assets/example.jpg"
+  - name: preview-image
+    data:
+      title: "Manage appointments"
+      titleHref: "/appointments"
+      description: "View, change or cancel your upcoming appointments."
+      previewSrc: "/assets/example.jpg"
+      previewAlt: "Preview of the appointments screen"
   - name: non-clickable
     data:
       title: "Current service status"

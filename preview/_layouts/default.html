@@ -20,6 +20,7 @@
 
   {% if page.after_footer %}{{ page.after_footer }}{% endif %}
 
+  <script src="{{ '/dist/nhsw-behaviours.js' | relative_url }}"></script>
   <script src="{{ '/assets/nhsw-docs.js' | relative_url }}"></script>
   {% if page.extra_scripts %}
     {% for s in page.extra_scripts %}<script src="{{ s | relative_url }}"></script>

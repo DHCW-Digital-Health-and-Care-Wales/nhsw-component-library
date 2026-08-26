@@ -1,6 +1,7 @@
 {%- from "label/macro.njk" import nhswLabel -%}
 {%- from "hint/macro.njk" import nhswHint -%}
 {%- from "error-message/macro.njk" import nhswErrorMessage -%}
+{%- from "button/macro.njk" import nhswButton -%}
 
 {#
   nhswFileUpload(params) - renders from the .nhsw-form-group down; any page
@@ -43,7 +44,7 @@
     <span class="nhsw-file-upload__status">{{ params.statusText or "No file chosen" }}</span>
     <div class="nhsw-file-upload__actions">
       <input class="nhsw-file-upload__input{% if params.errorMessage %} nhsw-is-invalid{% endif %}" id="{{ params.id }}" name="{{ name }}" type="file"{% if params.multiple %} multiple{% endif %}{% if params.accept %} accept="{{ params.accept }}"{% endif %}{% if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}{% if params.errorMessage %} aria-invalid="true"{% endif %}>
-      <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="{{ params.id }}">{{ params.chooseFilesButtonText or "Choose file" }}</label>
+      {{ nhswButton({ as: "label", for: params.id, text: params.chooseFilesButtonText or "Choose file", classes: "nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" }) }}
 {%- if dropHintText %}
       <span class="nhsw-file-upload__hint">{{ dropHintText }}</span>
 {%- endif %}

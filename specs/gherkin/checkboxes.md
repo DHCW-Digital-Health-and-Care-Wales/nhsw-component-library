@@ -92,11 +92,11 @@ Feature: Checkboxes — automated coverage
     # specs/tests/js/docs-behaviors.test.js
     Scenario: Conditional content is wired up and toggles with the checkbox
       Given a checkbox with data-aria-controls pointing at a hidden conditional block
-      Then on load aria-controls/aria-expanded are wired from the checked state
+      Then on load aria-controls is wired from the checked state (aria-expanded is not used here - it isn't a valid ARIA attribute on the checkbox role)
       When the checkbox is checked
-      Then the target is revealed and aria-expanded becomes "true"
+      Then the target is revealed
       When it is unchecked again
-      Then the target is hidden again and aria-expanded becomes "false"
+      Then the target is hidden again
 
     @automated
     # specs/tests/js/docs-behaviors.test.js

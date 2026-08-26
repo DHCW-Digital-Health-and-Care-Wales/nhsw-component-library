@@ -17,6 +17,17 @@ params:
     type: string
     required: false
     description: If set, renders an <a role="button"> instead of a <button>.
+  - name: as
+    type: string
+    required: false
+    description: >
+      "label" renders a <label> instead (styled identically), for pairing
+      with a hidden native control such as a file input. Takes precedence
+      over href. Ignores type/name/value/disabled.
+  - name: for
+    type: string
+    required: false
+    description: id of the associated control (label variant only, required then).
   - name: type
     type: string
     required: false
@@ -78,3 +89,9 @@ examples:
       text: "Save and continue"
       classes: "nhsw-button--primary"
       disabled: true
+  - name: as-label
+    data:
+      text: "Choose file"
+      as: "label"
+      for: "file-input-example"
+      classes: "nhsw-button--secondary nhsw-button--inline"

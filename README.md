@@ -39,6 +39,24 @@ This isn't published to a package registry, so pick whichever fits your app:
   @use "../path/to/nhsw-component-library/src" as nhsw;
   ```
 
+### Scripts
+
+Some components need JavaScript to be interactive — character counts,
+conditionally revealed content, tabs, the expander, file upload status, and
+the session-timeout countdown. That behaviour ships as a plain script, `dist/nhsw-behaviours.js` for local
+development or `dist/nhsw-behaviours.min.js` for production, attached to
+every [release](.github/workflows/release.yml) alongside the CSS. Include it
+once, after your page content:
+
+```html
+<script src="/path/to/nhsw-behaviours.min.js"></script>
+```
+
+It's a self-contained IIFE with no dependencies — it wires itself up against
+whatever matching markup is already on the page. The date picker ships
+separately as `dist/nhsw-date-picker.js` / `.min.js` for the same reason
+(not every app that uses this library needs a date picker).
+
 ### Markup (Nunjucks macros)
 
 Every component has a matching macro under `src/components/<name>/macro.njk`.
