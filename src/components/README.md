@@ -60,6 +60,17 @@ them rather than duplicating their markup.
   existing `data-max-length`/`data-max-length-target` character-count JS hook
   with a generated "You have N characters remaining" hint.
 
+## JavaScript
+
+These macros only render markup — some of it is inert without JS. Character
+count, conditionally revealed content (checkboxes/radios), tabs, the
+expander, file upload status, and the session-timeout countdown all need
+`dist/nhsw-behaviours.js` (or `.min.js`) included on the page; the date
+picker needs `dist/nhsw-date-picker.js` separately. Both are plain,
+dependency-free scripts — see the main project README's "Scripts" section
+for details:
+https://github.com/DHCW-Digital-Health-and-Care-Wales/nhsw-component-library#scripts
+
 ## Verifying changes
 
 ```

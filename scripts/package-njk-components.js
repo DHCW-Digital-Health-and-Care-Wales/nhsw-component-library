@@ -15,8 +15,14 @@ function packageReadme(version) {
 
 Every NHSW component as a Nunjucks macro (one per component, under
 \`components/<name>/macro.njk\`), styled after the GOV.UK/NHS.UK frontend
-libraries. Requires the NHSW Sass build (\`nhsw.css\`) to be loaded on the
-page — these macros only render markup, not styles.
+libraries. These macros only render markup — you'll also need:
+
+- The NHSW Sass build (\`nhsw.css\`) loaded on the page, for styles.
+- \`nhsw-behaviours.js\` loaded on the page, for interactivity — character
+  count, conditionally revealed content, tabs, the expander, file upload
+  status, and the session-timeout countdown all depend on it. The date
+  picker needs \`nhsw-date-picker.js\` separately. Both ship from the same
+  release as this package.
 
 ## Use with your own Nunjucks setup
 
@@ -58,32 +64,38 @@ function findNjkComponentDirs() {
     .filter((name) => fs.existsSync(path.join(COMPONENTS_SRC, name, 'macro.njk')));
 }
 
-function main() {
+function main({ outFile = OUT_FILE } = {}) {
   const { version } = require(path.join(ROOT, 'package.json'));
-  fs.mkdirSync(OUT_DIR, { recursive: true });
+  fs.mkdirSync(path.dirname(outFile), { recursive: true });
 
-  const output = fs.createWriteStream(OUT_FILE);
-  const archive = archiver('zip', { zlib: { level: 9 } });
+  return new Promise((resolve, reject) => {
+    const output = fs.createWriteStream(outFile);
+    const archive = archiver('zip', { zlib: { level: 9 } });
 
-  output.on('close', () => {
-    console.log(`Wrote ${path.relative(ROOT, OUT_FILE)} (${archive.pointer()} bytes)`);
-  });
-  archive.on('warning', (err) => {
-    throw err;
-  });
-  archive.on('error', (err) => {
-    throw err;
-  });
+    output.on('close', () => {
+      console.log(`Wrote ${path.relative(ROOT, outFile)} (${archive.pointer()} bytes)`);
+      resolve(outFile);
+    });
+    archive.on('warning', reject);
+    archive.on('error', reject);
 
-  archive.pipe(output);
-  for (const name of findNjkComponentDirs()) {
-    archive.directory(path.join(COMPONENTS_SRC, name), `components/${name}`);
-  }
-  archive.file(path.join(COMPONENTS_SRC, 'all-components.njk'), { name: 'components/all-components.njk' });
-  archive.file(path.join(COMPONENTS_SRC, 'README.md'), { name: 'components/README.md' });
-  archive.file(NUNJUCKS_CONFIG_SRC, { name: 'nunjucks.config.js' });
-  archive.append(packageReadme(version), { name: 'README.md' });
-  archive.finalize();
+    archive.pipe(output);
+    for (const name of findNjkComponentDirs()) {
+      archive.directory(path.join(COMPONENTS_SRC, name), `components/${name}`);
+    }
+    archive.file(path.join(COMPONENTS_SRC, 'all-components.njk'), { name: 'components/all-components.njk' });
+    archive.file(path.join(COMPONENTS_SRC, 'README.md'), { name: 'components/README.md' });
+    archive.file(NUNJUCKS_CONFIG_SRC, { name: 'nunjucks.config.js' });
+    archive.append(packageReadme(version), { name: 'README.md' });
+    archive.finalize();
+  });
 }
 
-main();
+module.exports = { findNjkComponentDirs, packageReadme, main };
+
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exitCode = 1;
+  });
+}
