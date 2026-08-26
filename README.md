@@ -76,13 +76,20 @@ macro conventions, and a worked example.
 
 Every component, pattern and design token is documented with live,
 interactive examples on the docs site, built with Jekyll from
-[`preview/`](preview/). To run it locally you'll need Ruby 2.7+ and Bundler:
+[`preview/`](preview/). To run it locally you'll need Ruby 3+ and Bundler:
 
 ```bash
 bundle install
 npm run build:css   # regenerates preview/dist/nhsw.css — Jekyll treats it as a static asset
+npm run build:js    # regenerates preview/dist/nhsw-behaviours.js and nhsw-date-picker.js
 bundle exec jekyll serve
 ```
+
+Every push to `main` also builds and deploys this site to GitHub Pages
+automatically ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)).
+That workflow needs the repo's **Settings → Pages → Build and deployment →
+Source** set to "GitHub Actions" (a one-time, manual setting — not something
+a workflow file can change).
 
 ## Development
 
