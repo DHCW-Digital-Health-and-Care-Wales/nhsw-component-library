@@ -48,9 +48,27 @@ Feature: Breadcrumb — automated coverage
     Scenario: Separator is CSS-generated content, not real text
       Given the compiled CSS for .nhsw-breadcrumb__list-item:not(:last-child)::after
       Then content is the "›" character, generated via CSS, not a character in the markup
+
+  Rule: This site's own pages never show the current page in their breadcrumb trail
+
+    @automated
+    # specs/e2e/navigation.spec.js
+    Scenario: A Get started sub-page's breadcrumb lists only its ancestors
+      Given /get-started/prototyping.html, whose only ancestor is Home
+      Then the breadcrumb trail has exactly 1 item ("Home")
+      And it does not contain the page's own title ("Prototyping")
+
+    @automated
+    # specs/e2e/navigation.spec.js
+    Scenario: A legal page's breadcrumb lists only its ancestors
+      Given /contact-us.html, whose only ancestor is Home
+      Then the breadcrumb trail has exactly 1 item ("Home")
+      And it does not contain the page's own title ("Contact us")
 ```
 
-> **Coverage gap:** `nhsw-breadcrumb` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` does not check its classes exist, and its fixtures contain no form inputs or `<svg>`, so `accessibility.test.js` doesn't exercise it either. Link hover/focus states and the separator are covered by `components/breadcrumb.test.js` (above); everything else below is manual-only.
+> Note: the `nhswBreadcrumb` macro itself still supports rendering a final, non-linked "current page" item if a consuming app passes one (see `src/components/breadcrumb/macro.njk`) — that capability is deliberately unchanged. This site's own pages (the include above, and every example on the doc page below) simply choose not to use it, in line with the "you don't need to show the current page — that's what the H1 is for" guidance on the doc page's own "How to use" tab.
+
+> **Coverage gap:** `nhsw-breadcrumb` is not named in `.agent/component-registry.md` or `.agent/design-system-rules.md`, so `component-registry.test.js` does not check its classes exist, and its fixtures contain no form inputs or `<svg>`, so `accessibility.test.js` doesn't exercise it either. Link hover/focus states, the separator, and this site's own no-current-page navigation behaviour are covered by the automated scenarios above; everything below is manual-only.
 
 ## Manual test scenarios
 

@@ -8,7 +8,6 @@
     {% unless page.breadcrumb_parent_url == '/index.html' %}
     <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="{{ page.breadcrumb_parent_url | relative_url }}">{{ page.breadcrumb_parent_title }}</a></li>
     {% endunless %}
-    <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">{{ page.title }}</span></li>
   </ol>
 </nav>
 {% else %}
@@ -24,13 +23,9 @@
   </p>
   <ol class="nhsw-breadcrumb__list">
     <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="{{ '/index.html' | relative_url }}">Home</a></li>
-    <li class="nhsw-breadcrumb__list-item">
-      {% if on_components_index %}
-      <span class="nhsw-breadcrumb__current" aria-current="page">Components</span>
-      {% else %}
-      <a class="nhsw-breadcrumb__link" href="{{ '/components/index.html' | relative_url }}">Components</a>
-      {% endif %}
-    </li>
+    {% unless on_components_index %}
+    <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="{{ '/components/index.html' | relative_url }}">Components</a></li>
+    {% endunless %}
   </ol>
 </nav>
 {% endif %}

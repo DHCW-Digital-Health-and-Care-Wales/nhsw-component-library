@@ -41,18 +41,18 @@ test.describe('Primary navigation active state', () => {
 });
 
 test.describe('Breadcrumbs', () => {
-  test('a Get started sub-page shows Home > <page title>', async ({ page }) => {
+  test('a Get started sub-page shows only its ancestors, not the current page', async ({ page }) => {
     await page.goto('/get-started/prototyping.html');
     const crumbs = page.locator('.nhsw-breadcrumb__list-item');
-    await expect(crumbs).toHaveCount(2);
+    await expect(crumbs).toHaveCount(1);
     await expect(crumbs.nth(0)).toContainText('Home');
-    await expect(crumbs.nth(1)).toContainText('Prototyping');
+    await expect(page.locator('.nhsw-breadcrumb')).not.toContainText('Prototyping');
   });
 
-  test('a legal page shows Home > <page title>', async ({ page }) => {
+  test('a legal page shows only its ancestors, not the current page', async ({ page }) => {
     await page.goto('/contact-us.html');
     const crumbs = page.locator('.nhsw-breadcrumb__list-item');
-    await expect(crumbs).toHaveCount(2);
-    await expect(crumbs.nth(1)).toContainText('Contact us');
+    await expect(crumbs).toHaveCount(1);
+    await expect(page.locator('.nhsw-breadcrumb')).not.toContainText('Contact us');
   });
 });
