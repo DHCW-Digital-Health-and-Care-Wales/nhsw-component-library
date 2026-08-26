@@ -1,0 +1,22 @@
+{#
+  nhswInsetText(params)
+
+  params:
+    text        string  - inset text, wrapped in <p class="nhsw-body"> (used if html is not set)
+    html        string  - inset HTML, used as-is. Takes precedence over text.
+                           Include your own heading (e.g. <h3 class="nhsw-h3">) and
+                           <p class="nhsw-body"> tags as needed.
+    classes     string  - extra classes, e.g. "nhsw-inset-text--navy",
+                           "nhsw-inset-text--blue", "nhsw-inset-text--grey",
+                           "nhsw-inset-text--red", "nhsw-inset-text--yellow"
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswInsetText(params) -%}
+<div class="nhsw-inset-text{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if params.html %}
+  {{ params.html | safe }}
+{%- else %}
+  <p class="nhsw-body">{{ params.text }}</p>
+{%- endif %}
+</div>
+{%- endmacro -%}

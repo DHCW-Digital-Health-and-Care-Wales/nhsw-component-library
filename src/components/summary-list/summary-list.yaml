@@ -1,0 +1,52 @@
+name: Summary list
+macro: nhswSummaryList
+description: >
+  A key-value summary using a definition list, optionally with "Change"
+  style action links on each row.
+params:
+  - name: rows
+    type: array
+    required: true
+    description: >
+      List of { key, value, actions }. key and value are { text, html }.
+      actions is optional and shaped as { items: [ { href, text, html,
+      visuallyHiddenText } ] }; rows without actions omit the actions cell.
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Extra classes. Use "nhsw-summary-list--no-border" for the borderless
+      variant.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: with-actions
+    data:
+      rows:
+        - key: { text: "Name" }
+          value: { text: "Karen Francis" }
+          actions:
+            items:
+              - { href: "/change-name", text: "Change", visuallyHiddenText: "name" }
+        - key: { text: "Appointment date" }
+          value: { text: "15 March 2027" }
+          actions:
+            items:
+              - { href: "/change-date", text: "Change", visuallyHiddenText: "appointment date" }
+  - name: no-actions
+    data:
+      rows:
+        - key: { text: "Name" }
+          value: { text: "Karen Francis" }
+        - key: { text: "Date of birth" }
+          value: { text: "15 March 1984" }
+  - name: no-border
+    data:
+      classes: "nhsw-summary-list--no-border"
+      rows:
+        - key: { text: "Name" }
+          value: { text: "Karen Francis" }
+        - key: { text: "Date of birth" }
+          value: { text: "15 March 1984" }

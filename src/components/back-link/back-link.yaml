@@ -1,0 +1,35 @@
+name: Back link
+macro: nhswBackLink
+description: >
+  A link that takes users to the previous page in a multi-step journey.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Link text. Defaults to "Back". Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Link HTML. Takes precedence over text.
+  - name: href
+    type: string
+    required: false
+    description: Link destination. Defaults to "#".
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. nhsw-back-link--reverse.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "Back"
+      href: "/previous-page"
+  - name: reverse
+    data:
+      text: "Back"
+      href: "/previous-page"
+      classes: "nhsw-back-link--reverse"

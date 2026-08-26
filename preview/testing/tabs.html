@@ -1,0 +1,523 @@
+---
+layout: simple
+title: Tabs — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Tabs</h1>
+<p class="nhsw-body">Manual QA checklist for the tabs component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/tabs.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/tabs-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see tabs used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/tabs.html' | relative_url }}" target="_blank" rel="noopener">Open the Tabs documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/tabs-default.html' | relative_url }}" target="_blank" rel="noopener">tabs-default.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="tabs">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 11 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-1" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-1">Clicking a tab shows only that tab's content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-1-hint">Given a set of tabs. When a different tab is clicked. Then only that tab's panel is shown, and the others are hidden.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s1" id="demo-tab-day-tabs-s1"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s1" id="demo-tab-week-tabs-s1"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-month-tabs-s1" id="demo-tab-month-tabs-s1"><span class="nhsw-tabs__tab-text">Past month</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-year-tabs-s1" id="demo-tab-year-tabs-s1"><span class="nhsw-tabs__tab-text">Past year</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s1" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s1">
+                <h2 class="nhsw-h2">Past day</h2>
+                <table class="nhsw-table">
+                  <thead class="nhsw-table__head">
+                    <tr class="nhsw-table__row">
+                      <th scope="col" class="nhsw-table__header">Case manager</th>
+                      <th scope="col" class="nhsw-table__header">Cases opened</th>
+                      <th scope="col" class="nhsw-table__header">Cases closed</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsw-table__body">
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">David Francis</td>
+                      <td class="nhsw-table__cell">3</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Paul Farmer</td>
+                      <td class="nhsw-table__cell">1</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Rita Patel</td>
+                      <td class="nhsw-table__cell">2</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s1" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s1">
+                <h2 class="nhsw-h2">Past week</h2>
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-month-tabs-s1" role="tabpanel" aria-labelledby="demo-tab-month-tabs-s1">
+                <h2 class="nhsw-h2">Past month</h2>
+                <p class="nhsw-body">Case activity for the past month.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-year-tabs-s1" role="tabpanel" aria-labelledby="demo-tab-year-tabs-s1">
+                <h2 class="nhsw-h2">Past year</h2>
+                <p class="nhsw-body">Case activity for the past year.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-2" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-2">Arrow keys move between tabs and wrap around at the ends</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-2-hint">Given a tab is focused via keyboard. When the right or left arrow key is pressed repeatedly. Then focus moves to each tab in turn and wraps back around at the start/end.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s2" id="demo-tab-day-tabs-s2"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s2" id="demo-tab-week-tabs-s2"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-month-tabs-s2" id="demo-tab-month-tabs-s2"><span class="nhsw-tabs__tab-text">Past month</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-year-tabs-s2" id="demo-tab-year-tabs-s2"><span class="nhsw-tabs__tab-text">Past year</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s2" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s2">
+                <h2 class="nhsw-h2">Past day</h2>
+                <table class="nhsw-table">
+                  <thead class="nhsw-table__head">
+                    <tr class="nhsw-table__row">
+                      <th scope="col" class="nhsw-table__header">Case manager</th>
+                      <th scope="col" class="nhsw-table__header">Cases opened</th>
+                      <th scope="col" class="nhsw-table__header">Cases closed</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsw-table__body">
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">David Francis</td>
+                      <td class="nhsw-table__cell">3</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Paul Farmer</td>
+                      <td class="nhsw-table__cell">1</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Rita Patel</td>
+                      <td class="nhsw-table__cell">2</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s2" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s2">
+                <h2 class="nhsw-h2">Past week</h2>
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-month-tabs-s2" role="tabpanel" aria-labelledby="demo-tab-month-tabs-s2">
+                <h2 class="nhsw-h2">Past month</h2>
+                <p class="nhsw-body">Case activity for the past month.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-year-tabs-s2" role="tabpanel" aria-labelledby="demo-tab-year-tabs-s2">
+                <h2 class="nhsw-h2">Past year</h2>
+                <p class="nhsw-body">Case activity for the past year.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-3" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-3">Screen reader announces which tab is selected, and how many there are (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-3-hint">Given a set of tabs. When a screen reader user focuses one. Then they hear its name, its position (e.g. "2 of 4"), and whether it's selected.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s3" id="demo-tab-day-tabs-s3"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s3" id="demo-tab-week-tabs-s3"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-month-tabs-s3" id="demo-tab-month-tabs-s3"><span class="nhsw-tabs__tab-text">Past month</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-year-tabs-s3" id="demo-tab-year-tabs-s3"><span class="nhsw-tabs__tab-text">Past year</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s3" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s3">
+                <h2 class="nhsw-h2">Past day</h2>
+                <table class="nhsw-table">
+                  <thead class="nhsw-table__head">
+                    <tr class="nhsw-table__row">
+                      <th scope="col" class="nhsw-table__header">Case manager</th>
+                      <th scope="col" class="nhsw-table__header">Cases opened</th>
+                      <th scope="col" class="nhsw-table__header">Cases closed</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsw-table__body">
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">David Francis</td>
+                      <td class="nhsw-table__cell">3</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Paul Farmer</td>
+                      <td class="nhsw-table__cell">1</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Rita Patel</td>
+                      <td class="nhsw-table__cell">2</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s3" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s3">
+                <h2 class="nhsw-h2">Past week</h2>
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-month-tabs-s3" role="tabpanel" aria-labelledby="demo-tab-month-tabs-s3">
+                <h2 class="nhsw-h2">Past month</h2>
+                <p class="nhsw-body">Case activity for the past month.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-year-tabs-s3" role="tabpanel" aria-labelledby="demo-tab-year-tabs-s3">
+                <h2 class="nhsw-h2">Past year</h2>
+                <p class="nhsw-body">Case activity for the past year.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-4" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-4">Long tab labels remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-4-hint">Given tabs with realistic long labels. When viewed at different viewport sizes. Then labels remain readable and the tab layout remains usable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s4" id="demo-tab-day-tabs-s4"><span class="nhsw-tabs__tab-text">Activity in the past 24 hours</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s4" id="demo-tab-week-tabs-s4"><span class="nhsw-tabs__tab-text">Activity in the past week</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-month-tabs-s4" id="demo-tab-month-tabs-s4"><span class="nhsw-tabs__tab-text">Activity in the past month</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-year-tabs-s4" id="demo-tab-year-tabs-s4"><span class="nhsw-tabs__tab-text">Activity in the past year</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s4" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s4">
+                <h2 class="nhsw-h2">Past day</h2>
+                <table class="nhsw-table">
+                  <thead class="nhsw-table__head">
+                    <tr class="nhsw-table__row">
+                      <th scope="col" class="nhsw-table__header">Case manager</th>
+                      <th scope="col" class="nhsw-table__header">Cases opened</th>
+                      <th scope="col" class="nhsw-table__header">Cases closed</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsw-table__body">
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">David Francis</td>
+                      <td class="nhsw-table__cell">3</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Paul Farmer</td>
+                      <td class="nhsw-table__cell">1</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Rita Patel</td>
+                      <td class="nhsw-table__cell">2</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s4" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s4">
+                <h2 class="nhsw-h2">Past week</h2>
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-month-tabs-s4" role="tabpanel" aria-labelledby="demo-tab-month-tabs-s4">
+                <h2 class="nhsw-h2">Past month</h2>
+                <p class="nhsw-body">Case activity for the past month.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-year-tabs-s4" role="tabpanel" aria-labelledby="demo-tab-year-tabs-s4">
+                <h2 class="nhsw-h2">Past year</h2>
+                <p class="nhsw-body">Case activity for the past year.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-5" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-5">No tab is ever shown disabled</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-5-hint">Given a set of tabs. Then none of them are greyed out or disabled.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s5" id="demo-tab-day-tabs-s5"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s5" id="demo-tab-week-tabs-s5"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-month-tabs-s5" id="demo-tab-month-tabs-s5"><span class="nhsw-tabs__tab-text">Past month</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-year-tabs-s5" id="demo-tab-year-tabs-s5"><span class="nhsw-tabs__tab-text">Past year</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s5" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s5">
+                <h2 class="nhsw-h2">Past day</h2>
+                <table class="nhsw-table">
+                  <thead class="nhsw-table__head">
+                    <tr class="nhsw-table__row">
+                      <th scope="col" class="nhsw-table__header">Case manager</th>
+                      <th scope="col" class="nhsw-table__header">Cases opened</th>
+                      <th scope="col" class="nhsw-table__header">Cases closed</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsw-table__body">
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">David Francis</td>
+                      <td class="nhsw-table__cell">3</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Paul Farmer</td>
+                      <td class="nhsw-table__cell">1</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                    <tr class="nhsw-table__row">
+                      <td class="nhsw-table__cell">Rita Patel</td>
+                      <td class="nhsw-table__cell">2</td>
+                      <td class="nhsw-table__cell">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s5" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s5">
+                <h2 class="nhsw-h2">Past week</h2>
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-month-tabs-s5" role="tabpanel" aria-labelledby="demo-tab-month-tabs-s5">
+                <h2 class="nhsw-h2">Past month</h2>
+                <p class="nhsw-body">Case activity for the past month.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-year-tabs-s5" role="tabpanel" aria-labelledby="demo-tab-year-tabs-s5">
+                <h2 class="nhsw-h2">Past year</h2>
+                <p class="nhsw-body">Case activity for the past year.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-6" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-6">Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-6-hint">Given a tab receives keyboard focus. When a keyboard user navigates between tabs. Then a clear visible focus indicator is shown on the focused tab.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s6" id="demo-tab-day-tabs-s6"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s6" id="demo-tab-week-tabs-s6"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s6" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s6">
+                <p class="nhsw-body">Case activity for the past day.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s6" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s6">
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-7" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-7">Active tab is visually distinct from inactive tabs</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-7-hint">Given a set of tabs. When one tab is selected. Then the active tab is clearly distinguishable without relying on colour alone (checks like different background, border treatment, position and font weight).</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s7" id="demo-tab-day-tabs-s7"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s7" id="demo-tab-week-tabs-s7"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s7" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s7">
+                <p class="nhsw-body">Case activity for the past day.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s7" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s7">
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-8" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-8">Selected tab can be identified without colour alone (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-8-hint">Given a selected tab. When viewed by a user who cannot perceive colour differences. Then its selected state is still clear.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s8" id="demo-tab-day-tabs-s8"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s8" id="demo-tab-week-tabs-s8"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s8" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s8">
+                <p class="nhsw-body">Case activity for the past day.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s8" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s8">
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-9" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-9">Tabs remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-9-hint">Given a set of tabs. When browser zoom is increased to 200% or 400%. Then all tabs remain readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s9" id="demo-tab-day-tabs-s9"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s9" id="demo-tab-week-tabs-s9"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s9" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s9">
+                <p class="nhsw-body">Case activity for the past day.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s9" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s9">
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-10" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-10">Tabs remain usable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-10-hint">Given a set of tabs. When viewed on a narrow viewport. Then users can still access every tab without content being clipped or obscured.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-tabs">
+                <ul class="nhsw-tabs__list" role="tablist">
+                  <li role="presentation">
+                    <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s10" id="demo-tab-day-tabs-s10"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                  </li>
+                  <li role="presentation">
+                    <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s10" id="demo-tab-week-tabs-s10"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                  </li>
+                  <li role="presentation">
+                    <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-month-tabs-s10" id="demo-tab-month-tabs-s10"><span class="nhsw-tabs__tab-text">Past month</span></button>
+                  </li>
+                </ul>
+                <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s10" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s10">
+                  <p class="nhsw-body">Case activity for the past day.</p>
+                </div>
+                <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s10" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s10">
+                  <p class="nhsw-body">Case activity for the past week.</p>
+                </div>
+                <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-month-tabs-s10" role="tabpanel" aria-labelledby="demo-tab-month-tabs-s10">
+                  <p class="nhsw-body">Case activity for the past month.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="tabs-manual-11" name="tabs-manual-tests" type="checkbox" aria-describedby="tabs-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="tabs-manual-11">Tab panel follows immediately after the tab list</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="tabs-manual-11-hint">Given a tab is selected. When a screen reader or keyboard user accesses the tab panel. Then the associated content is presented immediately after the tabs.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-tabs">
+              <ul class="nhsw-tabs__list" role="tablist">
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-panel-day-tabs-s11" id="demo-tab-day-tabs-s11"><span class="nhsw-tabs__tab-text">Past day</span></button>
+                </li>
+                <li role="presentation">
+                  <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-panel-week-tabs-s11" id="demo-tab-week-tabs-s11"><span class="nhsw-tabs__tab-text">Past week</span></button>
+                </li>
+              </ul>
+              <div class="nhsw-tabs__panel" id="demo-panel-day-tabs-s11" role="tabpanel" aria-labelledby="demo-tab-day-tabs-s11">
+                <p class="nhsw-body">Case activity for the past day.</p>
+              </div>
+              <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-panel-week-tabs-s11" role="tabpanel" aria-labelledby="demo-tab-week-tabs-s11">
+                <p class="nhsw-body">Case activity for the past week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

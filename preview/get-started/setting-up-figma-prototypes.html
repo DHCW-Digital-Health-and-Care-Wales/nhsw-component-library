@@ -1,0 +1,96 @@
+---
+layout: simple
+title: Setting up Figma prototypes
+container: fluid
+side_nav_data: get_started_nav
+side_nav_heading: Setup
+breadcrumb_parent_title: Home
+breadcrumb_parent_url: /index.html
+---
+<h1 class="nhsw-h1">Setting up Figma prototypes</h1>
+<p class="nhsw-body">Prototype your service using the DHCW Design System's Figma prototyping kit.</p>
+
+<div class="nhsw-tabs">
+  <ul class="nhsw-tabs__list" role="tablist">
+    <li role="presentation">
+      <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-dhcw" id="tab-dhcw">DHCW staff</button>
+    </li>
+    <li role="presentation">
+      <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-non-dhcw" id="tab-non-dhcw">Non-DHCW staff</button>
+    </li>
+  </ul>
+
+  <div class="nhsw-tabs__panel" id="panel-dhcw" role="tabpanel" aria-labelledby="tab-dhcw">
+    <h3 class="nhsw-h3">If you work for the Digital Healthcare Wales</h3>
+    <p class="nhsw-body"><a class="nhsw-link" href="#">Use NHS Wales design system components in Figma</a> for rapid wireframing and basic prototyping. We recommend using the <a class="nhsw-link" href="#">prototype kit</a> to build prototypes for usability testing.</p>
+
+    <div class="nhsw-inset-text">
+      <p class="nhsw-body">Do not download and use the DHCW Design System from the <a class="nhsw-link" href="#">Figma Community</a>.</p>
+    </div>
+
+    <h4 class="nhsw-h4">How to check that the Figma design system library is active in your file</h4>
+    <ol class="nhsw-body">
+      <li>Open any Figma design file in the app or a browser.</li>
+      <li>Select 'Assets' from the side navigation and then the book icon.</li>
+    </ol>
+    {% include screenshot-placeholder.html text="Figma Assets panel with the book icon highlighted" %}
+    <ol class="nhsw-body" start="3">
+      <li>Look under the heading 'Libraries added to this file'. If there's 'DHCW Design System V2', the Figma library is active. You do not need to do anything else.</li>
+    </ol>
+    {% include screenshot-placeholder.html text="Libraries added to this file, showing DHCW Design System V2" %}
+
+    <h4 class="nhsw-h4">What to do if the DHCW Design System does not appear</h4>
+    <ol class="nhsw-body">
+      <li>Go to 'Manage libraries' in the side navigation and select 'Recommended' (it has a light bulb icon).</li>
+      <li>Hover the item and select the 'Add to file' button.</li>
+    </ol>
+    {% include screenshot-placeholder.html text="Manage libraries panel with Recommended libraries and an Add to file button" %}
+    <ol class="nhsw-body" start="3">
+      <li>To check that the files have been added, select 'This file' in the side navigation. You should now see the DHCW Design System. This means the Figma library is active. You do not need to do anything else.</li>
+    </ol>
+
+    <h4 class="nhsw-h4">How to get updates from the Figma library</h4>
+    <p class="nhsw-body">When the Figma library is updated, you'll be notified in Figma. You can also check for updates by:</p>
+    <ol class="nhsw-body">
+      <li>Going to any Figma design file which has the library activated.</li>
+      <li>Selecting 'Assets' from the left-hand side panel and then the book icon, or alternatively you can select the book icon at the left corner from the left-hand side panel.</li>
+      <li>Selecting 'Updates' from the side navigation. This shows a change summary, the author and date, and any 'breaking' changes.</li>
+    </ol>
+    {% include screenshot-placeholder.html text="Updates from DHCW Design System V2 panel with an Update all button" %}
+    <ol class="nhsw-body" start="4">
+      <li>Either selecting the 'Update all' button, or selecting 'Update' for each component you want to update.</li>
+    </ol>
+
+    <p class="nhsw-body"><a class="nhsw-link" href="#maincontent">&uarr; Back to top</a></p>
+  </div>
+
+  <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-non-dhcw" role="tabpanel" aria-labelledby="tab-non-dhcw">
+    <h3 class="nhsw-h3">Non-Digital Healthcare Wales staff</h3>
+    <p class="nhsw-body"><a class="nhsw-link" href="#">Use NHS Wales design system components in Figma</a> for rapid wireframing and basic prototyping. We recommend using the <a class="nhsw-link" href="#">prototype kit</a> to build prototypes for usability testing.</p>
+
+    <h4 class="nhsw-h4">How to use the Figma design system library</h4>
+    <ol class="nhsw-body">
+      <li>Find the <a class="nhsw-link" href="#">DHCW Design System library in the Figma community</a>.</li>
+      <li>Select 'Open in Figma'.</li>
+      <li>If you have multiple Figma accounts, you'll be asked where you would like to open the file with. Select the account you would like to open it with. The file will now be saved to your profile.</li>
+      <li>Move the file to the project you're working on so that it can be accessed by everyone working on the project. <a class="nhsw-link" href="#">Read about moving files in Figma</a>.</li>
+      <li>Publish the file as a library. <a class="nhsw-link" href="#">Read about publishing a library in Figma</a>.</li>
+    </ol>
+
+    <h4 class="nhsw-h4">Manually update the DHCW Figma design system</h4>
+    <div class="nhsw-inset-text">
+      <p class="nhsw-body">Since a recent update, Figma no longer allows you to use or reference published shared libraries across completely separate organisations or external user spaces. Therefore, separate corporate organisations or personal external spaces cannot link to each other's live, updating component libraries.</p>
+    </div>
+    <ol class="nhsw-body">
+      <li>Every so often, check <a class="nhsw-link" href="#">DHCW Design System</a> for updates.</li>
+      <li>Save a local copy of the latest version of the Figma library.</li>
+      <li>Reload it into your Figma workspace as a library.</li>
+      <li>Open your design files, and use the <a class="nhsw-link" href="#">swap libraries</a> feature in Figma to replace all references to the outdated version of the DHCW Figma design system. You can only use 'swap libraries' with a paid Figma licence. If you do not have one, <a class="nhsw-link" href="#">swap components</a> individually instead.</li>
+    </ol>
+
+    <h4 class="nhsw-h4">Download the Figma prototyping kit file</h4>
+    <p class="nhsw-body">Download this file if you cannot get the DHCW Design System kit from the Figma community.</p>
+
+    <p class="nhsw-body"><a class="nhsw-link" href="#maincontent">&uarr; Back to top</a></p>
+  </div>
+</div>

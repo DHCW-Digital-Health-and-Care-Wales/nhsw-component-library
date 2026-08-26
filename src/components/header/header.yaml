@@ -1,0 +1,87 @@
+name: Header
+macro: nhswHeader
+description: >
+  The site-wide header, showing the DHCW logo, a service name, and an
+  optional search form.
+params:
+  - name: serviceName
+    type: string
+    required: true
+    description: The service title text shown next to the logo.
+  - name: serviceUrl
+    type: string
+    required: false
+    description: href for the brand link. Defaults to "/".
+  - name: search
+    type: boolean
+    required: false
+    description: Whether to show the search form. Defaults to true.
+  - name: searchInputId
+    type: string
+    required: false
+    description: id for the search input. Defaults to "site-search".
+  - name: logoSrc
+    type: string
+    required: false
+    description: Logo image src. Defaults to "/assets/nhsw-logo.svg".
+  - name: logoAlt
+    type: string
+    required: false
+    description: Logo alt text. Defaults to "Digital Health and Care Wales".
+  - name: nav
+    type: object
+    required: false
+    description: >
+      { items, ariaLabel, classes, attributes } - if set, renders
+      nhswSiteNavigation immediately after the header (before hero, if set),
+      equivalent to calling nhswSiteNavigation yourself directly afterwards.
+  - name: hero
+    type: object
+    required: false
+    description: >
+      { title, html, text, action: { text, href }, centered } - renders the
+      full-width navy hero band as a sibling after the header (and after
+      nav, if set). html/text is the hero body (html takes precedence);
+      action renders a secondary inline button; centered adds
+      nhsw-site-header__container--centered on the hero's own container.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      serviceName: "Service name"
+  - name: no-search
+    data:
+      serviceName: "Service name"
+      serviceUrl: "/"
+      search: false
+  - name: custom-service-url
+    data:
+      serviceName: "Appointments"
+      serviceUrl: "/appointments"
+  - name: with-hero
+    data:
+      serviceName: "Service name"
+      hero:
+        title: "Manage your care online"
+        text: "Book appointments, order prescriptions and view your health record."
+        action:
+          text: "Get started"
+          href: "#"
+        centered: true
+  - name: with-nav
+    data:
+      serviceName: "Service name"
+      nav:
+        items:
+          - text: "Appointments"
+            href: "/appointments"
+            current: true
+          - text: "Prescriptions"
+            href: "/prescriptions"

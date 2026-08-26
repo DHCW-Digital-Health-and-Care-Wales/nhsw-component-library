@@ -1,0 +1,318 @@
+---
+layout: component
+title: Text input
+container: fluid
+updated: March 2026
+intro: Use text input to let users enter a single line of text.
+tabs:
+  - id: how-to-use
+    label: "How to use"
+  - id: variants
+    label: "Variants"
+  - id: examples
+    label: "Examples"
+---
+
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label nhsw-label--xl" for="ti-ov-name">What is your full name?</label>
+      <input id="ti-ov-name" name="ti-ov-name" class="nhsw-input" type="text" value="Text">
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ti-overview" open_url="/examples/input-page-question.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label nhsw-label--xl" for="full-name"&gt;What is your full name?&lt;/label&gt;
+  &lt;input id="full-name" name="full-name" class="nhsw-input" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "input/macro.njk" import nhswInput %}
+
+{{ nhswInput({
+  id: "full-name",
+  name: "full-name",
+  label: { text: "What is your full name?", classes: "nhsw-label--xl", isPageHeading: true }
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ti-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">When to use text input</h2>
+  <p class="nhsw-body">Use the text input component when you need users to enter text that's no longer than a single line, such as their name or phone number.</p>
+  <p class="nhsw-body">Asking 1 question per page is recommended for public-facing services. Breaking questions into smaller steps helps users:</p>
+  <ul class="nhsw-body">
+    <li>understand what you're asking them to do</li>
+    <li>focus on the specific question and its answer</li>
+  </ul>
+  <p class="nhsw-body">Sometimes it is more appropriate to group related questions on the same page. For example, users of clinical-facing services may need to view, compare or enter multiple pieces of information quickly.</p>
+  <p class="nhsw-body">Use research and evidence from your service to decide which approach works best for your users.</p>
+
+  <h2 class="nhsw-h2">When not to use text input</h2>
+  <p class="nhsw-body">Do not use this component if you need users to enter longer answers that might span several lines. In this case, use the <a class="nhsw-link" href="{{ '/forms/textarea.html' | relative_url }}">textarea component</a>.</p>
+
+  <h2 class="nhsw-h2">How to use text input</h2>
+
+  <h3 class="nhsw-h3">Give the text input a label</h3>
+  <p class="nhsw-body">Give it a visible label. Do not use placeholder text for a label as it vanishes when users click on the text input.</p>
+  <p class="nhsw-body">Align labels above the text inputs they refer to. Labels should be short, direct and written in sentence case. Do not use colons at the end of labels.</p>
+
+  <h3 class="nhsw-h3">If you're asking 1 question on the page</h3>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label nhsw-label--xl" for="ti-how-name">What is your full name?</label>
+      <input id="ti-how-name" name="ti-how-name" class="nhsw-input" type="text" value="Text">
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ti-page-question" open_url="/examples/input-page-question.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label nhsw-label--xl" for="full-name"&gt;What is your full name?&lt;/label&gt;
+  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?", classes: "nhsw-label--xl", isPageHeading: true } }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ti-page-question" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">You can set the contents of the <code>&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page. This is good practice as it means that screen reader users will only hear the contents once.</p>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="#">Making labels and legends headings on the GOV.UK Design System</a>.</p>
+
+  <h3 class="nhsw-h3">If you're asking more than 1 question on the page</h3>
+  <p class="nhsw-body">Do not set the contents of the <code>&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="#">Asking multiple questions on question pages in the GOV.UK Design System</a>.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="ti-multi-name">What is your full name?</label>
+      <input id="ti-multi-name" name="ti-multi-name" class="nhsw-input" type="text" value="Text">
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ti-multi-question" open_url="/examples/input-multi-question.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="full-name"&gt;What is your full name?&lt;/label&gt;
+  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?" } }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ti-multi-question" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h3 class="nhsw-h3">Make text inputs the right size</h3>
+  <p class="nhsw-body">Help users understand what they should enter by making text inputs the right size for the information you want them to give you.</p>
+  <p class="nhsw-body">By default, the width of text inputs is fluid and will fit the full width of the container they are placed into.</p>
+  <p class="nhsw-body">If you want to make the input smaller, you can either use a fixed width input, or use the width override classes to create a smaller, fluid width input.</p>
+
+  <section class="preview-section">
+    <h4 class="nhsw-h4">Fixed width inputs</h4>
+    <p class="nhsw-body">Use fixed width inputs for content that has a specific, known length. For example, postcode inputs should be postcode-sized and phone number inputs should be phone-number-sized.</p>
+    <p class="nhsw-body">On fixed width inputs, the width will remain fixed on all screens unless it is wider than the viewport, in which case it will shrink to fit.</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="fw-20">20 character width</label>
+        <input id="fw-20" name="fw-20" class="nhsw-input nhsw-input--width-20" type="text" value="Text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="fw-10">10 character width</label>
+        <input id="fw-10" name="fw-10" class="nhsw-input nhsw-input--width-10" type="text" value="Text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="fw-5">5 character width</label>
+        <input id="fw-5" name="fw-5" class="nhsw-input nhsw-input--width-5" type="text" value="Text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="fw-4">4 character width</label>
+        <input id="fw-4" name="fw-4" class="nhsw-input nhsw-input--width-4" type="text" value="Text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="fw-3">3 character width</label>
+        <input id="fw-3" name="fw-3" class="nhsw-input nhsw-input--width-3" type="text" value="Text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="fw-2">2 character width</label>
+        <input id="fw-2" name="fw-2" class="nhsw-input nhsw-input--width-2" type="text" value="Te">
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="ti-fixed" open_url="/examples/input-fixed-widths.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-10"&gt;10 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-10" id="fw-10" name="fw-10" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "fw-10", label: { text: "10 character width" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="ti-fixed" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h4 class="nhsw-h4">Fluid width inputs</h4>
+    <p class="nhsw-body">Use width override classes to reduce the width of an input in relation to its parent container, for example, to two-thirds.</p>
+    <p class="nhsw-body">Fluid width inputs will resize with the viewport.</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="flw-full">Full width</label>
+        <input id="flw-full" name="flw-full" class="nhsw-input nhsw-input--full" type="text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="flw-34">Three-quarters width</label>
+        <input id="flw-34" name="flw-34" class="nhsw-input nhsw-input--three-quarters" type="text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="flw-23">Two-thirds width</label>
+        <input id="flw-23" name="flw-23" class="nhsw-input nhsw-input--two-thirds" type="text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="flw-12">One-half width</label>
+        <input id="flw-12" name="flw-12" class="nhsw-input nhsw-input--half" type="text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="flw-14">One-quarter width</label>
+        <input id="flw-14" name="flw-14" class="nhsw-input nhsw-input--quarter" type="text">
+      </div>
+      <div class="nhsw-form-group">
+        <label class="nhsw-label" for="flw-13">One-third width</label>
+        <input id="flw-13" name="flw-13" class="nhsw-input nhsw-input--third" type="text">
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="ti-fluid" open_url="/examples/input-fluid-widths.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-23"&gt;Two-thirds width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--two-thirds" id="flw-23" name="flw-23" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "flw-23", label: { text: "Two-thirds width" }, classes: "nhsw-input--two-thirds" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="ti-fluid" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h3 class="nhsw-h3">Using hint text</h3>
+  <p class="nhsw-body">You can use hint text to give users help in context, so they understand what they need to enter. For example, use it to tell users where to find information or how you will use their data. Read more about hint text.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="ti-hint">10 character width</label>
+      <div class="nhsw-hint" id="ti-hint-hint">Hint text goes here</div>
+      <input id="ti-hint" name="ti-hint" class="nhsw-input nhsw-input--width-10" type="text" value="Text" aria-describedby="ti-hint-hint">
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ti-hint" open_url="/examples/input-hint.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="field-hint"&gt;Hint text goes here&lt;/div&gt;
+&lt;input class="nhsw-input nhsw-input--width-10" id="field" name="field" aria-describedby="field-hint" type="text"&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "field", label: { text: "10 character width" }, hint: { text: "Hint text goes here" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ti-hint" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h3 class="nhsw-h3">Do not disable copy and paste</h3>
+  <p class="nhsw-body">Users often need to copy and paste information into a text input, so do not stop them doing this.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <p class="nhsw-body">When implemented in production, fields should identify their purpose so browsers and assistive technologies can support features such as autofill and reduce user effort. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.5 Identify Input Purpose, level AA</a>.</p>
+
+  <p class="nhsw-body">Do not use placeholder text as a label for a text input. It disappears when users click inside the textarea and may not be announced consistently by assistive technologies. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
+
+  <p class="nhsw-body">Associate labels programmatically with text inputs so assistive technologies can identify the purpose of each field. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Text input in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Text input on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Text input variants</h2>
+
+  <h3 class="nhsw-h3">Asking for numbers</h3>
+
+  <h4 class="nhsw-h4">Whole numbers</h4>
+  <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code>inputmode</code> attribute to <code>numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="ti-account">What is your account number?</label>
+      <div class="nhsw-hint" id="ti-account-hint">Must be between 6 and 8 digits long</div>
+      <input id="ti-account" name="ti-account" class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric" aria-describedby="ti-account-hint">
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ti-account" open_url="/examples/input-account-number.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="account"&gt;What is your account number?&lt;/label&gt;
+  &lt;div class="nhsw-hint" id="account-hint"&gt;Must be between 6 and 8 digits long&lt;/div&gt;
+  &lt;input class="nhsw-input nhsw-input--width-10" id="account" name="account" type="text" aria-describedby="account-hint" inputmode="numeric"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "account", label: { text: "What is your account number?" }, hint: { text: "Must be between 6 and 8 digits long" }, classes: "nhsw-input--width-10", inputmode: "numeric" }) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ti-account" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h4 class="nhsw-h4">Decimal numbers</h4>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="#">Asking for decimal numbers in the GOV.UK Design System</a>.</p>
+
+  <h3 class="nhsw-h3">Prefixes and suffixes</h3>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="ti-cost">Cost per item, in pounds</label>
+      <div class="nhsw-input-wrapper">
+        <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+        <input class="nhsw-input nhsw-input--width-5" id="ti-cost" name="ti-cost" type="text" inputmode="decimal" spellcheck="false">
+        <div class="nhsw-input-wrapper__suffix" aria-hidden="true">Number per item</div>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ti-prefix-suffix" open_url="/examples/input-prefix-suffix.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="cost"&gt;Cost per item, in pounds&lt;/label&gt;
+  &lt;div class="nhsw-input-wrapper"&gt;
+    &lt;div class="nhsw-input-wrapper__prefix" aria-hidden="true"&gt;&amp;pound;&lt;/div&gt;
+    &lt;input class="nhsw-input nhsw-input--width-5" id="cost" name="cost" type="text" inputmode="decimal"&gt;
+    &lt;div class="nhsw-input-wrapper__suffix" aria-hidden="true"&gt;Number per item&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswInput({
+  id: "cost",
+  label: { text: "Cost per item, in pounds" },
+  classes: "nhsw-input--width-5",
+  inputmode: "decimal",
+  prefix: { text: "£" },
+  suffix: { text: "Number per item" }
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ti-prefix-suffix" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">Use prefixes and suffixes to help users enter things like currencies and measurements.</p>
+  <p class="nhsw-body">Prefixes and suffixes are useful when there's a commonly understood symbol or abbreviation for the type of information you're asking for.</p>
+  <p class="nhsw-body">Do not rely on prefixes or suffixes alone, because screen readers will not read them out. Screen readers may not announce them, so you should also explain the required format in the label or hint text. For example, use the label "Cost, in pounds" alongside a £ prefix.</p>
+  <p class="nhsw-body">Position prefixes and suffixes so that they're outside of their input. This is to avoid interfering with some browsers that might insert an icon into the input, for example to show or generate a password.</p>
+  <p class="nhsw-body">Some users may not notice a prefix or suffix and include it in their answer. Your validation should allow for this and should not show an error.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">How to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows a text input asking a parent or guardian for their full name as a single, focused question on the page.</p>
+  {% include screenshot-placeholder.html text="Full name question with a single text input and Continue button" %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>

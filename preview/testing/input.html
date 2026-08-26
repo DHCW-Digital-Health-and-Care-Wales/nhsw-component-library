@@ -1,0 +1,257 @@
+---
+layout: simple
+title: Text input — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Text input</h1>
+<p class="nhsw-body">Manual QA checklist for the text input component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/input.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/input-page-question.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see text input used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}" target="_blank" rel="noopener">Open the Text input documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/input-page-question.html' | relative_url }}" target="_blank" rel="noopener">input-page-question.html</a>, <a class="nhsw-link" href="{{ '/examples/input-multi-question.html' | relative_url }}" target="_blank" rel="noopener">input-multi-question.html</a>, <a class="nhsw-link" href="{{ '/examples/input-fixed-widths.html' | relative_url }}" target="_blank" rel="noopener">input-fixed-widths.html</a>, <a class="nhsw-link" href="{{ '/examples/input-fluid-widths.html' | relative_url }}" target="_blank" rel="noopener">input-fluid-widths.html</a>, <a class="nhsw-link" href="{{ '/examples/input-hint.html' | relative_url }}" target="_blank" rel="noopener">input-hint.html</a>, <a class="nhsw-link" href="{{ '/examples/input-account-number.html' | relative_url }}" target="_blank" rel="noopener">input-account-number.html</a>, <a class="nhsw-link" href="{{ '/examples/input-prefix-suffix.html' | relative_url }}" target="_blank" rel="noopener">input-prefix-suffix.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="input">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 13 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-1" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-1">You can click into the field and type</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-1-hint">Given a text input. When a user clicks into it and types. Then the text appears in the field as expected.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-account-input-s1">What is your account number?</label>
+              <div class="nhsw-hint" id="ti-account-hint-input-s1">Must be between 6 and 8 digits long</div>
+              <input id="ti-account-input-s1" name="ti-account-input-s1" class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric" aria-describedby="ti-account-hint-input-s1">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-2" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-2">Typed text stays fully visible as you type</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-2-hint">Given a text input. When a user types past the visible width. Then the field scrolls sensibly and the text doesn't get cut off or hidden.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-20-input-s2">20 character width</label>
+              <input id="fw-20-input-s2" name="fw-20-input-s2" class="nhsw-input nhsw-input--width-20" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-10-input-s2">10 character width</label>
+              <input id="fw-10-input-s2" name="fw-10-input-s2" class="nhsw-input nhsw-input--width-10" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-5-input-s2">5 character width</label>
+              <input id="fw-5-input-s2" name="fw-5-input-s2" class="nhsw-input nhsw-input--width-5" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-4-input-s2">4 character width</label>
+              <input id="fw-4-input-s2" name="fw-4-input-s2" class="nhsw-input nhsw-input--width-4" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-3-input-s2">3 character width</label>
+              <input id="fw-3-input-s2" name="fw-3-input-s2" class="nhsw-input nhsw-input--width-3" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-2-input-s2">2 character width</label>
+              <input id="fw-2-input-s2" name="fw-2-input-s2" class="nhsw-input nhsw-input--width-2" type="text" value="Te">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-3" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-3">Pasting into the field works</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-3-hint">Given a text input. When a user pastes text into it. Then the pasted text appears correctly — paste is never blocked.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-account-input-s3">What is your account number?</label>
+              <div class="nhsw-hint" id="ti-account-hint-input-s3">Must be between 6 and 8 digits long</div>
+              <input id="ti-account-input-s3" name="ti-account-input-s3" class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric" aria-describedby="ti-account-hint-input-s3">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-4" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-4">Fixed-width variants are roughly the right size for their expected content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-4-hint">Given the fixed-width variants, e.g. "10 characters" and "20 characters". Then each is roughly wide enough to show that many characters comfortably, not noticeably bigger or smaller.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-20-input-s4">20 character width</label>
+              <input id="fw-20-input-s4" name="fw-20-input-s4" class="nhsw-input nhsw-input--width-20" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-10-input-s4">10 character width</label>
+              <input id="fw-10-input-s4" name="fw-10-input-s4" class="nhsw-input nhsw-input--width-10" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-5-input-s4">5 character width</label>
+              <input id="fw-5-input-s4" name="fw-5-input-s4" class="nhsw-input nhsw-input--width-5" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-4-input-s4">4 character width</label>
+              <input id="fw-4-input-s4" name="fw-4-input-s4" class="nhsw-input nhsw-input--width-4" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-3-input-s4">3 character width</label>
+              <input id="fw-3-input-s4" name="fw-3-input-s4" class="nhsw-input nhsw-input--width-3" type="text" value="Text">
+            </div>
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="fw-2-input-s4">2 character width</label>
+              <input id="fw-2-input-s4" name="fw-2-input-s4" class="nhsw-input nhsw-input--width-2" type="text" value="Te">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-5" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-5">Format is explained in words, not just via the prefix/suffix symbol</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-5-hint">Given the prefix/suffix variant, e.g. a "£" prefix on a "Cost per item, in pounds" field. Then the label or hint text also explains the expected format in words. And this isn't left to the prefix/suffix alone, since aria-hidden="true" means screen readers never announce it.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-cost-input-s5">Cost per item, in pounds</label>
+              <div class="nhsw-input-wrapper">
+                <div class="nhsw-input-wrapper__prefix" aria-hidden="true">&pound;</div>
+                <input class="nhsw-input nhsw-input--width-5" id="ti-cost-input-s5" name="ti-cost-input-s5" type="text" inputmode="decimal" spellcheck="false">
+                <div class="nhsw-input-wrapper__suffix" aria-hidden="true">Number per item</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-6" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-6">Numeric fields show a numeric keyboard on mobile</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-6-hint">Given a numeric-only field, e.g. an account number. When opened on a mobile device. Then the numeric keyboard is shown rather than the full keyboard.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-account-input-s6">What is your account number?</label>
+              <div class="nhsw-hint" id="ti-account-hint-input-s6">Must be between 6 and 8 digits long</div>
+              <input id="ti-account-input-s6" name="ti-account-input-s6" class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric" aria-describedby="ti-account-hint-input-s6">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-7" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-7">Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-7-hint">Given a text input. When it receives keyboard focus. Then a clear visible focus indicator is shown around the field.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-name-input-s7">What is your full name?</label>
+              <input id="ti-name-input-s7" name="ti-name-input-s7" class="nhsw-input" type="text">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-8" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-8">Clicking the label focuses the input</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-8-hint">Given a text input and its label. When the user selects the label. Then focus moves to the associated input field.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-name-input-s8">What is your full name?</label>
+              <input id="ti-name-input-s8" name="ti-name-input-s8" class="nhsw-input" type="text">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-9" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-9">Screen readers announce the label and hint text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-9-hint">Given a screen reader user encounters a text input. When the field is announced. Then the label and any associated hint text are announced with the input.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-account-input-s9">What is your account number?</label>
+              <div class="nhsw-hint" id="ti-account-hint-input-s9">Must be between 6 and 8 digits long</div>
+              <input id="ti-account-input-s9" name="ti-account-input-s9" class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric" aria-describedby="ti-account-hint-input-s9">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-10" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-10">Text input remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-10-hint">Given a text input. When browser zoom is increased to 200% or 400%. Then the label, hint text and input remain readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group">
+              <label class="nhsw-label" for="ti-name-input-s10">What is your full name?</label>
+              <input id="ti-name-input-s10" name="ti-name-input-s10" class="nhsw-input" type="text">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-11" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-11">Long labels and hint text wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-11-hint">Given a text input with a long label or hint. When viewed on a small screen or at high zoom levels. Then the text wraps correctly without overlapping the input or other content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 250px;">
+              <div class="nhsw-form-group">
+                <label class="nhsw-label" for="ti-account-input-s11">What is your account number?</label>
+                <div class="nhsw-hint" id="ti-account-hint-input-s11">Must be between 6 and 8 digits long, and can be found on the letter we sent you when you registered for this service</div>
+                <input id="ti-account-input-s11" name="ti-account-input-s11" class="nhsw-input nhsw-input--width-10" type="text" inputmode="numeric" aria-describedby="ti-account-hint-input-s11">
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-12" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-12">Error state remains clear</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-12-hint">Given a text input with a validation error. When the field is displayed. Then the error is clearly communicated using text and visual styling, not colour alone.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group nhsw-form-group--error">
+              <label class="nhsw-label" for="ti-name-input-s12">What is your full name?</label>
+              <p class="nhsw-error-message" id="ti-name-error-input-s12">Enter your full name</p>
+              <input id="ti-name-input-s12" name="ti-name-input-s12" class="nhsw-input" type="text" aria-describedby="ti-name-error-input-s12" aria-invalid="true">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="input-manual-13" name="input-manual-tests" type="checkbox" aria-describedby="input-manual-13-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="input-manual-13">Error message is associated with the field</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="input-manual-13-hint">Given a text input with an error message. When a screen reader announces the field. Then the error message is available alongside the field information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-form-group nhsw-form-group--error">
+              <label class="nhsw-label" for="ti-name-input-s13">What is your full name?</label>
+              <p class="nhsw-error-message" id="ti-name-error-input-s13">Enter your full name</p>
+              <input id="ti-name-input-s13" name="ti-name-input-s13" class="nhsw-input" type="text" aria-describedby="ti-name-error-input-s13" aria-invalid="true">
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

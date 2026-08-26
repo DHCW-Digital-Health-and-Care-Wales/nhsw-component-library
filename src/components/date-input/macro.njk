@@ -1,0 +1,55 @@
+{%- from "fieldset/macro.njk" import nhswFieldset -%}
+{%- from "hint/macro.njk" import nhswHint -%}
+{%- from "error-message/macro.njk" import nhswErrorMessage -%}
+{%- from "label/macro.njk" import nhswLabel -%}
+
+{#
+  nhswDateInput(params) - a day/month/year date input, wrapped in a fieldset.
+
+  params:
+    id             string   (required) - base id, suffixed -day/-month/-year
+    namePrefix     string   - defaults to id
+    fieldset       object   - { legend: { text, html, classes } } - classes default to "nhsw-h2"
+    hint           object   - { text, html, classes, attributes }
+    errorMessage   object   - { text, html, visuallyHiddenText, classes, attributes } - marks the
+                               whole group invalid (all three parts) unless errorFields is given
+    errorFields    array    - subset of ["day", "month", "year"] - only these parts get the invalid
+                               styling/aria-invalid when errorMessage is set; defaults to all three
+    values         object   - { day, month, year } - initial values
+    classes        string   - extra classes on the .nhsw-date-input container
+    attributes     object   - extra HTML attributes on the .nhsw-date-input container
+#}
+{%- macro nhswDateInput(params) -%}
+{%- set namePrefix = params.namePrefix or params.id -%}
+{%- set hintId = params.id + "-hint" -%}
+{%- set errorId = params.id + "-error" -%}
+{%- set describedByParts = [] -%}
+{%- if params.hint %}{% set describedByParts = describedByParts.concat([hintId]) %}{% endif -%}
+{%- if params.errorMessage %}{% set describedByParts = describedByParts.concat([errorId]) %}{% endif -%}
+{%- set describedBy = describedByParts | join(" ") -%}
+{%- set errorFields = params.errorFields or ["day", "month", "year"] -%}
+{%- set values = params.values or {} -%}
+{%- set labels = { day: "Day", month: "Month", year: "Year" } -%}
+{%- set maxlengths = { day: 2, month: 2, year: 4 } -%}
+{%- set autocompletes = { day: "bday-day", month: "bday-month", year: "bday-year" } -%}
+<div class="nhsw-form-group{% if params.errorMessage %} nhsw-form-group--error{% endif %}">
+{%- call nhswFieldset({ legend: params.fieldset.legend if params.fieldset else none, role: "group", describedBy: describedBy }) %}
+{%- if params.hint %}
+  {{ nhswHint({ text: params.hint.text, html: params.hint.html, id: hintId, classes: params.hint.classes, attributes: params.hint.attributes }) }}
+{%- endif %}
+{%- if params.errorMessage %}
+  {{ nhswErrorMessage({ text: params.errorMessage.text, html: params.errorMessage.html, id: errorId, visuallyHiddenText: params.errorMessage.visuallyHiddenText, classes: params.errorMessage.classes, attributes: params.errorMessage.attributes }) }}
+{%- endif %}
+  <div class="nhsw-date-input{% if params.classes %} {{ params.classes }}{% endif %}"{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>
+{%- for part in ["day", "month", "year"] %}
+{%- set partId = params.id + "-" + part %}
+{%- set partInvalid = params.errorMessage and (part in errorFields) %}
+    <div class="nhsw-date-input__item">
+      <label class="nhsw-label nhsw-date-input__label" for="{{ partId }}">{{ labels[part] }}</label>
+      <input id="{{ partId }}" name="{{ namePrefix }}-{{ part }}" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--{{ part }}{% if partInvalid %} nhsw-is-invalid{% endif %}" type="text" inputmode="numeric" maxlength="{{ maxlengths[part] }}" autocomplete="{{ autocompletes[part] }}"{% if values[part] %} value="{{ values[part] }}"{% endif %}{% if partInvalid %} aria-invalid="true"{% endif %}>
+    </div>
+{%- endfor %}
+  </div>
+{%- endcall %}
+</div>
+{%- endmacro -%}

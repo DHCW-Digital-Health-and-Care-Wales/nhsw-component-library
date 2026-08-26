@@ -1,0 +1,32 @@
+name: Inset text
+macro: nhswInsetText
+description: >
+  Used to differentiate a block of text from the content that surrounds it,
+  usually a supporting or additional piece of information.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Inset text, wrapped in a <p class="nhsw-body">. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: >
+      Inset HTML, used as-is instead of text. Takes precedence over text.
+      Use this to include a heading (e.g. <h3 class="nhsw-h3">) before the
+      paragraph.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      text: "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application."
+  - name: with-heading
+    data:
+      html: "<h3 class=\"nhsw-h3\">Note</h3><p class=\"nhsw-body\">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>"

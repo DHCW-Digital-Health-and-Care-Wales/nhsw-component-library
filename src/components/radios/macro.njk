@@ -1,0 +1,64 @@
+{%- from "fieldset/macro.njk" import nhswFieldset -%}
+{%- from "hint/macro.njk" import nhswHint -%}
+{%- from "error-message/macro.njk" import nhswErrorMessage -%}
+
+{#
+  nhswRadios(params) - a group of radio buttons, wrapped in a fieldset.
+
+  params:
+    fieldset       object   - { legend: { text, html, classes } }
+    hint           object   - { text, html, classes, attributes } - group hint
+    errorMessage   object   - { text, html, visuallyHiddenText, classes, attributes }
+    classes        string   - extra classes on the .nhsw-radios container,
+                               e.g. "nhsw-radios--small", "nhsw-radios--inline"
+    attributes     object   - extra HTML attributes on the .nhsw-radios container
+    name           string   (required) - shared name for all radio items
+    idPrefix       string   - defaults to name; base for auto-generated item ids ({idPrefix}-{n})
+    items          array    - [{ text, html, value, id, checked, disabled,
+                                 hint: { text, html },
+                                 conditional: { html, text },
+                                 divider }]
+                               a { divider: "or" } item renders a divider instead of a radio.
+#}
+{%- macro nhswRadios(params) -%}
+{%- set idPrefix = params.idPrefix or params.name -%}
+{%- set hintId = idPrefix + "-hint" -%}
+{%- set errorId = idPrefix + "-error" -%}
+{%- set describedByParts = [] -%}
+{%- if params.hint %}{% set describedByParts = describedByParts.concat([hintId]) %}{% endif -%}
+{%- if params.errorMessage %}{% set describedByParts = describedByParts.concat([errorId]) %}{% endif -%}
+{%- set describedBy = describedByParts | join(" ") -%}
+{%- set itemCount = 0 -%}
+<div class="nhsw-form-group{% if params.errorMessage %} nhsw-form-group--error{% endif %}">
+{%- call nhswFieldset({ legend: params.fieldset.legend if params.fieldset else none, describedBy: describedBy }) %}
+{%- if params.hint %}
+  {{ nhswHint({ text: params.hint.text, html: params.hint.html, id: hintId, classes: params.hint.classes, attributes: params.hint.attributes }) }}
+{%- endif %}
+{%- if params.errorMessage %}
+  {{ nhswErrorMessage({ text: params.errorMessage.text, html: params.errorMessage.html, id: errorId, visuallyHiddenText: params.errorMessage.visuallyHiddenText, classes: params.errorMessage.classes, attributes: params.errorMessage.attributes }) }}
+{%- endif %}
+  <div class="nhsw-radios{% if params.classes %} {{ params.classes }}{% endif %}"{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>
+{%- for item in (params.items or []) %}
+{%- if item.divider %}
+    <div class="nhsw-radios__divider">{{ item.divider }}</div>
+{%- else %}
+{%- set itemCount = itemCount + 1 %}
+{%- set itemId = item.id or (idPrefix + "-" + itemCount|string) %}
+{%- set itemHintId = itemId + "-hint" %}
+{%- set conditionalId = "conditional-" + itemId %}
+    <div class="nhsw-radios__item">
+      <input class="nhsw-radios__input" id="{{ itemId }}" name="{{ params.name }}" type="radio"{% if item.value %} value="{{ item.value }}"{% endif %}{% if item.checked %} checked{% endif %}{% if item.disabled %} disabled{% endif %}{% if item.hint %} aria-describedby="{{ itemHintId }}"{% endif %}{% if params.errorMessage %} aria-invalid="true"{% endif %}{% if item.conditional %} data-aria-controls="{{ conditionalId }}"{% endif %}>
+      <label class="nhsw-label nhsw-radios__label" for="{{ itemId }}">{{ item.html | safe if item.html else item.text }}</label>
+{%- if item.hint %}
+      <div class="nhsw-hint nhsw-radios__hint" id="{{ itemHintId }}">{{ item.hint.html | safe if item.hint.html else item.hint.text }}</div>
+{%- endif %}
+    </div>
+{%- if item.conditional %}
+    <div class="nhsw-radios__conditional" id="{{ conditionalId }}">{{ item.conditional.html | safe if item.conditional.html else item.conditional.text }}</div>
+{%- endif %}
+{%- endif %}
+{%- endfor %}
+  </div>
+{%- endcall %}
+</div>
+{%- endmacro -%}

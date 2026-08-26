@@ -1,0 +1,30 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-screenshot-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 220px;
+  padding: 24px;
+  background-color: c.$nhsw-colour-background-grey;
+  border: 1px dashed c.$nhsw-colour-border-grey;
+  color: c.$nhsw-colour-text-secondary;
+  text-align: center;
+
+  &__icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    font-size: 0.9375rem;
+  }
+}

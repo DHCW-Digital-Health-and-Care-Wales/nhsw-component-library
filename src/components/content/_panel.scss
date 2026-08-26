@@ -1,0 +1,43 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-panel {
+  margin-bottom: 24px;
+  padding: 32px 40px;
+  background-color: #007f3b;
+  color: c.$nhsw-colour-text-exceptional;
+  text-align: center;
+
+  &:not(:has(.nhsw-panel__icon)) {
+    text-align: left;
+  }
+}
+
+.nhsw-panel__icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 8px;
+  fill: none;
+  stroke: c.$nhsw-colour-text-exceptional;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nhsw-panel__title {
+  margin: 0 0 16px;
+  color: c.$nhsw-colour-text-exceptional;
+  font-size: 1.5rem;
+
+  &--l {
+    font-size: 2rem;
+  }
+}
+
+.nhsw-panel__body {
+  margin: 0;
+  color: c.$nhsw-colour-text-exceptional;
+}
+
+.nhsw-panel--navy {
+  background-color: c.$nhsw-colour-button-primary;
+}

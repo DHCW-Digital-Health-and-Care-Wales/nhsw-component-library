@@ -1,0 +1,55 @@
+name: Breadcrumb
+macro: nhswBreadcrumb
+description: >
+  Shows users their current place in a site's hierarchy, and lets them
+  navigate back up through parent pages. On mobile, only a "Back to" link
+  to the immediate parent page is shown.
+params:
+  - name: items
+    type: array
+    required: true
+    description: "[{ text, href }], ordered root-to-current."
+  - name: mobileBackText
+    type: string
+    required: false
+    description: >
+      Overrides the automatic "Back to <parent text>" text on the mobile
+      back link.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes, e.g. nhsw-breadcrumb--reverse for dark backgrounds.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      items:
+        - text: "Home"
+          href: "/"
+        - text: "NHS services"
+          href: "/nhs-services"
+        - text: "Hospitals"
+          href: "/hospitals"
+  - name: reverse
+    data:
+      items:
+        - text: "Home"
+          href: "/"
+        - text: "NHS services"
+          href: "/nhs-services"
+        - text: "Hospitals"
+          href: "/hospitals"
+      classes: "nhsw-breadcrumb--reverse"
+  - name: custom-mobile-back-text
+    data:
+      items:
+        - text: "Home"
+          href: "/"
+        - text: "NHS services"
+          href: "/nhs-services"
+        - text: "Hospitals"
+          href: "/hospitals"
+      mobileBackText: "NHS services"

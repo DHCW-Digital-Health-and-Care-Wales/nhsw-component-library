@@ -1,0 +1,59 @@
+name: Error summary
+macro: nhswErrorSummary
+description: >
+  A summary of validation errors shown at the top of a page, linking to each
+  erroring field. Should receive programmatic focus on form submit (it has
+  tabindex="-1" for that purpose).
+params:
+  - name: titleText
+    type: string
+    required: false
+    description: Defaults to "There is a problem".
+  - name: titleId
+    type: string
+    required: false
+    description: >
+      Defaults to "error-summary-title". Used for both the <h2> id and the
+      root's aria-labelledby.
+  - name: errorList
+    type: array
+    required: true
+    description: "[{ text, html, href }]"
+  - name: descriptionText
+    type: string
+    required: false
+    description: Optional paragraph rendered between the title and the list.
+  - name: descriptionHtml
+    type: string
+    required: false
+    description: Takes precedence over descriptionText.
+  - name: classes
+    type: string
+    required: false
+  - name: attributes
+    type: object
+    required: false
+examples:
+  - name: default
+    data:
+      titleText: "There is a problem"
+      errorList:
+        - text: "Date of birth must include a year"
+          href: "#dob-year"
+  - name: multiple-errors
+    data:
+      titleText: "There is a problem"
+      errorList:
+        - text: "Enter your full name"
+          href: "#full-name"
+        - text: "Select how you want to be contacted"
+          href: "#contact"
+        - text: "Date of birth must include a year"
+          href: "#dob-year"
+  - name: with-description
+    data:
+      titleText: "There is a problem"
+      descriptionText: "Check the following fields and try again."
+      errorList:
+        - text: "Enter your full name"
+          href: "#full-name"

@@ -1,0 +1,35 @@
+{#
+  nhswTabs(params) - a set of tabs. Renders correct static initial markup only;
+  the shipped JS handles click/arrow-key switching.
+
+  params:
+    idPrefix    string  - prefix for generated tab/panel ids, defaults to "tabs"
+    items       array   - list of { label, html, text, id }. label is the tab
+                           button text. html/text is the panel content (html takes
+                           precedence). id, if given, is used to build stable ids
+                           ("{idPrefix}-tab-{id}" / "{idPrefix}-panel-{id}");
+                           otherwise the 1-based loop index is used.
+    classes     string  - extra classes
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswTabs(params) -%}
+{%- set idPrefix = params.idPrefix or "tabs" -%}
+<div class="nhsw-tabs{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <ul class="nhsw-tabs__list" role="tablist">
+{%- for item in (params.items or []) %}
+{%- set suffix = item.id if item.id else loop.index %}
+{%- set tabId = idPrefix ~ "-tab-" ~ suffix %}
+{%- set panelId = idPrefix ~ "-panel-" ~ suffix %}
+    <li role="presentation">
+      <button class="nhsw-tabs__tab{% if loop.first %} nhsw-tabs__tab--selected{% endif %}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="{{ panelId }}" id="{{ tabId }}">{{ item.label }}</button>
+    </li>
+{%- endfor %}
+  </ul>
+{%- for item in (params.items or []) %}
+{%- set suffix = item.id if item.id else loop.index %}
+{%- set tabId = idPrefix ~ "-tab-" ~ suffix %}
+{%- set panelId = idPrefix ~ "-panel-" ~ suffix %}
+  <div class="nhsw-tabs__panel{% if not loop.first %} nhsw-tabs__panel--hidden{% endif %}" id="{{ panelId }}" role="tabpanel" aria-labelledby="{{ tabId }}">{{ item.html | safe if item.html else item.text }}</div>
+{%- endfor %}
+</div>
+{%- endmacro -%}

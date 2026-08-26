@@ -1,0 +1,44 @@
+﻿@use "../tokens/colours" as c;
+@use "../utilities/focus-ring" as u;
+
+@mixin nhsw-input-base {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 0;
+    padding: 8px;
+    border: 2px solid c.$nhsw-colour-input-border;
+    border-radius: 0;
+    background-color: c.$nhsw-colour-input-background;
+    color: c.$nhsw-colour-input-text;
+    font-family: inherit;
+    font-size: 1.1875rem;
+    font-weight: 400;
+    line-height: 24px;
+
+    &::placeholder {
+        color: c.$nhsw-colour-input-placeholder;
+        opacity: 1;
+    }
+
+    &:focus {
+        @include u.nhsw-focus-ring;
+        border-color: c.$nhsw-colour-border-primary;
+        border-width: 4px;
+    }
+
+    &:disabled,
+    &[disabled] {
+        background-color: c.$nhsw-colour-input-disabled-background;
+        color: c.$nhsw-colour-input-disabled-text;
+        cursor: not-allowed;
+        opacity: 1;
+    }
+
+    &[aria-invalid="true"],
+    &.nhsw-is-invalid {
+        border-color: c.$nhsw-colour-input-invalid;
+    }
+}

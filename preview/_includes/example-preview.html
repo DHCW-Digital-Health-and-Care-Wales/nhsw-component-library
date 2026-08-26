@@ -1,0 +1,20 @@
+{% comment %}
+  Usage:
+  {% capture example_body %}
+    <a class="nhsw-action-link" href="#">...</a>
+  {% endcapture %}
+  {% include example-preview.html id="al-overview" open_url="/examples/action-link-default.html" body=example_body %}
+  Pass dark=true to render the body on the dark-background variant.
+{% endcomment %}
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__toolbar">
+    <a class="nhsw-link" href="{{ include.open_url | relative_url }}" target="_blank" rel="noopener">Open this example in a new tab</a>
+  </div>
+  <div class="nhsw-example-preview__body{% if include.dark %} nhsw-example-preview__body--dark{% endif %}">
+    {{ include.body }}
+  </div>
+  <div class="nhsw-example-preview__footer">
+    <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-{{ include.id }}" aria-controls="code-{{ include.id }}" aria-expanded="false">HTML</button>
+    <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
+  </div>
+</div>

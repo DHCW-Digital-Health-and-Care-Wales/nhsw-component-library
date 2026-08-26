@@ -1,0 +1,20 @@
+{#
+  nhswFieldset(params) - call with {% call %}...{% endcall %} to supply the fieldset's content
+
+  params:
+    legend        object  - { text, html, classes } - classes default to "nhsw-h2" (heading-styled
+                             legend, matching the library's checkboxes/radios/date-input reference HTML)
+    role          string  - e.g. "group" (used by date-input)
+    describedBy   string  - id(s) for aria-describedby, e.g. "dob-hint dob-error"
+    classes       string  - extra classes on the <fieldset>
+    attributes    object  - extra HTML attributes
+#}
+{%- macro nhswFieldset(params) -%}
+<fieldset class="nhsw-fieldset{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.role %} role="{{ params.role }}"{% endif %}{% if params.describedBy %} aria-describedby="{{ params.describedBy }}"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if params.legend %}
+  {%- set legendClasses = params.legend.classes if params.legend.classes is defined else "nhsw-h2" %}
+  <legend class="nhsw-fieldset__legend{% if legendClasses %} {{ legendClasses }}{% endif %}">{{ params.legend.html | safe if params.legend.html else params.legend.text }}</legend>
+{%- endif %}
+  {{ caller() }}
+</fieldset>
+{%- endmacro -%}

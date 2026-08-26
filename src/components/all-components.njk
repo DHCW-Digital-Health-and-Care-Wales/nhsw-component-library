@@ -1,0 +1,65 @@
+{#
+  Convenience import — pulls every nhsw* macro into scope in one line:
+
+    {% import "all-components.njk" as nhsw %}
+    {{ nhsw.nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
+
+  Individual components can also be imported directly for a smaller
+  dependency footprint, e.g. {% from "button/macro.njk" import nhswButton %}.
+
+  (Each macro is re-bound with {% set %} after its {% from %} import because
+  Nunjucks does not transitively re-export from-imported names through a
+  subsequent {% import %} — only a template's own top-level macros/sets are.)
+#}
+
+{# Shared form primitives #}
+{% from "label/macro.njk" import nhswLabel %}{% set nhswLabel = nhswLabel %}
+{% from "hint/macro.njk" import nhswHint %}{% set nhswHint = nhswHint %}
+{% from "error-message/macro.njk" import nhswErrorMessage %}{% set nhswErrorMessage = nhswErrorMessage %}
+{% from "fieldset/macro.njk" import nhswFieldset %}{% set nhswFieldset = nhswFieldset %}
+
+{# Actions #}
+{% from "button/macro.njk" import nhswButton, nhswButtonGroup %}{% set nhswButton = nhswButton %}{% set nhswButtonGroup = nhswButtonGroup %}
+{% from "action-link/macro.njk" import nhswActionLink %}{% set nhswActionLink = nhswActionLink %}
+{% from "back-link/macro.njk" import nhswBackLink %}{% set nhswBackLink = nhswBackLink %}
+{% from "skip-link/macro.njk" import nhswSkipLink %}{% set nhswSkipLink = nhswSkipLink %}
+
+{# Navigation #}
+{% from "breadcrumb/macro.njk" import nhswBreadcrumb %}{% set nhswBreadcrumb = nhswBreadcrumb %}
+{% from "pagination/macro.njk" import nhswPagination %}{% set nhswPagination = nhswPagination %}
+{% from "site-navigation/macro.njk" import nhswSiteNavigation %}{% set nhswSiteNavigation = nhswSiteNavigation %}
+
+{# Callouts #}
+{% from "notification-banner/macro.njk" import nhswNotificationBanner %}{% set nhswNotificationBanner = nhswNotificationBanner %}
+{% from "warning-callout/macro.njk" import nhswWarningCallout %}{% set nhswWarningCallout = nhswWarningCallout %}
+{% from "warning-text/macro.njk" import nhswWarningText %}{% set nhswWarningText = nhswWarningText %}
+
+{# Forms #}
+{% from "input/macro.njk" import nhswInput %}{% set nhswInput = nhswInput %}
+{% from "textarea/macro.njk" import nhswTextarea %}{% set nhswTextarea = nhswTextarea %}
+{% from "select/macro.njk" import nhswSelect %}{% set nhswSelect = nhswSelect %}
+{% from "checkboxes/macro.njk" import nhswCheckboxes %}{% set nhswCheckboxes = nhswCheckboxes %}
+{% from "radios/macro.njk" import nhswRadios %}{% set nhswRadios = nhswRadios %}
+{% from "date-input/macro.njk" import nhswDateInput %}{% set nhswDateInput = nhswDateInput %}
+{% from "date-picker/macro.njk" import nhswDatePicker %}{% set nhswDatePicker = nhswDatePicker %}
+{% from "file-upload/macro.njk" import nhswFileUpload %}{% set nhswFileUpload = nhswFileUpload %}
+{% from "error-summary/macro.njk" import nhswErrorSummary %}{% set nhswErrorSummary = nhswErrorSummary %}
+
+{# Content #}
+{% from "card/macro.njk" import nhswCard %}{% set nhswCard = nhswCard %}
+{% from "details/macro.njk" import nhswDetails %}{% set nhswDetails = nhswDetails %}
+{% from "expander/macro.njk" import nhswExpander %}{% set nhswExpander = nhswExpander %}
+{% from "inset-text/macro.njk" import nhswInsetText %}{% set nhswInsetText = nhswInsetText %}
+{% from "panel/macro.njk" import nhswPanel %}{% set nhswPanel = nhswPanel %}
+{% from "table/macro.njk" import nhswTable %}{% set nhswTable = nhswTable %}
+{% from "session-row/macro.njk" import nhswSessionRow %}{% set nhswSessionRow = nhswSessionRow %}
+{% from "summary-list/macro.njk" import nhswSummaryList %}{% set nhswSummaryList = nhswSummaryList %}
+{% from "summary-card/macro.njk" import nhswSummaryCard %}{% set nhswSummaryCard = nhswSummaryCard %}
+{% from "tabs/macro.njk" import nhswTabs %}{% set nhswTabs = nhswTabs %}
+{% from "tag/macro.njk" import nhswTag %}{% set nhswTag = nhswTag %}
+{% from "timeout/macro.njk" import nhswTimeout %}{% set nhswTimeout = nhswTimeout %}
+
+{# Site #}
+{% from "header/macro.njk" import nhswHeader %}{% set nhswHeader = nhswHeader %}
+{% from "footer/macro.njk" import nhswFooter %}{% set nhswFooter = nhswFooter %}
+{% from "bottom-nav/macro.njk" import nhswBottomNav %}{% set nhswBottomNav = nhswBottomNav %}

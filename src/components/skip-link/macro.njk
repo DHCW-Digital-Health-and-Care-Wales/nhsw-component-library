@@ -1,0 +1,12 @@
+{#
+  nhswSkipLink(params)
+
+  params:
+    href        string  - link destination, defaults to "#maincontent"
+    text        string  - link text, defaults to "Skip to main content"
+    classes     string  - extra classes
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswSkipLink(params) -%}
+<a class="nhsw-skip-link{% if params.classes %} {{ params.classes }}{% endif %}" href="{{ params.href or '#maincontent' }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.text or "Skip to main content" }}</a>
+{%- endmacro -%}

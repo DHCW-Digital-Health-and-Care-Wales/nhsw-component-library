@@ -1,0 +1,155 @@
+---
+layout: simple
+title: All error states
+container: fluid
+---
+<h1 class="nhsw-h1">All error states</h1>
+<p class="nhsw-body">A single reference page gathering every form component's error/invalid state in one place, for quick visual QA. Each example is the same live markup used on that component's own documentation page.</p>
+
+<h2 class="nhsw-h2">Error summary</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+      <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title">There is a problem</h2>
+      <ul class="nhsw-error-summary__list">
+        <li><a class="nhsw-link nhsw-error-summary__link" href="#es-full-name">Enter your full name</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">Text input</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <label class="nhsw-label" for="es-full-name">Full name</label>
+      <p class="nhsw-error-message" id="es-full-name-error">Enter your full name</p>
+      <input class="nhsw-input nhsw-is-invalid" id="es-full-name" name="es-full-name" type="text" aria-describedby="es-full-name-error" aria-invalid="true">
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">Textarea</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <label class="nhsw-label" for="es-ta-reason">Provide a reason for continuing</label>
+      <p class="nhsw-error-message" id="es-ta-reason-error">Error the clinical decision</p>
+      <textarea id="es-ta-reason" name="es-ta-reason" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="es-ta-reason-error es-ta-reason-count" data-max-length="150" data-max-length-target="es-ta-reason-count"></textarea>
+      <div class="nhsw-hint nhsw-textarea__count" id="es-ta-reason-count" aria-live="polite">You have 150 characters remaining</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">Select</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <label class="nhsw-label" for="es-select">Choose region</label>
+      <div class="nhsw-hint" id="es-select-hint">This can be different to what you selected before</div>
+      <p class="nhsw-error-message" id="es-select-error">Choose a region</p>
+      <select id="es-select" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="es-select-hint es-select-error">
+        <option>Choose region</option>
+        <option>North Wales</option>
+        <option>Mid Wales</option>
+        <option>West Wales</option>
+        <option>South Wales</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">Radios</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" aria-describedby="es-name-change-hint es-name-change-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
+        <div class="nhsw-hint" id="es-name-change-hint">This includes changing your last name or spelling your name differently</div>
+        <p class="nhsw-error-message" id="es-name-change-error">Select yes if you have changed your name</p>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="es-name-change-yes" name="es-name-change" type="radio" value="yes" aria-invalid="true">
+            <label class="nhsw-label nhsw-radios__label" for="es-name-change-yes">Yes</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="es-name-change-no" name="es-name-change" type="radio" value="no" aria-invalid="true">
+            <label class="nhsw-label nhsw-radios__label" for="es-name-change-no">No</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">Checkboxes</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" aria-describedby="es-contact-hint es-contact-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="es-contact-hint">Select all options that are relevant to you</div>
+        <p class="nhsw-error-message" id="es-contact-error">Select how you want to be contacted</p>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="es-contact-1" name="es-contact" type="checkbox" value="email" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="es-contact-1">Email</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="es-contact-2" name="es-contact" type="checkbox" value="phone" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="es-contact-2">Phone</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="es-contact-3" name="es-contact" type="checkbox" value="text" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="es-contact-3">Text message</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">Date input</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" role="group" aria-describedby="es-dob-error-hint es-dob-error-message">
+        <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+        <div class="nhsw-hint" id="es-dob-error-hint">For example, 15 3 1984</div>
+        <p class="nhsw-error-message" id="es-dob-error-message">The date of birth must be in the past</p>
+        <div class="nhsw-date-input">
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="es-dob-day">Day</label>
+            <input id="es-dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="1" aria-invalid="true">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="es-dob-month">Month</label>
+            <input id="es-dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="12" aria-invalid="true">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="es-dob-year">Year</label>
+            <input id="es-dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" value="2000" aria-invalid="true">
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<h2 class="nhsw-h2">File upload</h2>
+<div class="nhsw-example-preview">
+  <div class="nhsw-example-preview__body">
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <label class="nhsw-label" for="es-file-upload">Upload a file</label>
+      <p class="nhsw-error-message" id="es-file-upload-error"><span class="nhsw-visually-hidden">Error: </span>Select a file to upload</p>
+      <div class="nhsw-file-upload">
+        <span class="nhsw-file-upload__status">No file chosen</span>
+        <div class="nhsw-file-upload__actions">
+          <input class="nhsw-file-upload__input nhsw-is-invalid" id="es-file-upload" name="es-file-upload" type="file" aria-describedby="es-file-upload-error" aria-invalid="true">
+          <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="es-file-upload">Choose file</label>
+          <span class="nhsw-file-upload__hint">or drop file</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

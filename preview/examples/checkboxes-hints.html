@@ -1,0 +1,29 @@
+---
+layout: example
+title: Checkbox items with hints example
+---
+<div class="nhsw-form-group">
+  <fieldset class="nhsw-fieldset" aria-describedby="conditions-hint">
+    <legend class="nhsw-fieldset__legend nhsw-h2">What medical conditions do you have?</legend>
+    <div class="nhsw-hint" id="conditions-hint">Select 1 or more</div>
+    <div class="nhsw-checkboxes">
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="condition-1" name="condition" type="checkbox" value="alzheimers">
+        <label class="nhsw-label nhsw-checkboxes__label" for="condition-1">Alzheimer's disease or dementia</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="condition-2" name="condition" type="checkbox" value="asthma">
+        <label class="nhsw-label nhsw-checkboxes__label" for="condition-2">Asthma</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="condition-3" name="condition" type="checkbox" value="cancer">
+        <label class="nhsw-label nhsw-checkboxes__label" for="condition-3">Cancer</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="condition-4" name="condition" type="checkbox" value="diabetes" aria-describedby="condition-4-hint">
+        <label class="nhsw-label nhsw-checkboxes__label" for="condition-4">Diabetes</label>
+        <div class="nhsw-hint nhsw-checkboxes__hint" id="condition-4-hint">including type 1, type 2, and gestational diabetes</div>
+      </div>
+    </div>
+  </fieldset>
+</div>

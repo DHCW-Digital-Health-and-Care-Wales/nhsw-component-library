@@ -1,0 +1,77 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  border: 1px dashed c.$nhsw-colour-border-secondary;
+
+  &:hover {
+    background-color: c.$nhsw-colour-background-white;
+
+    .nhsw-file-upload__button {
+      background-color: c.$nhsw-colour-button-secondary-hover;
+      box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
+    }
+  }
+
+  &--has-file {
+    background-color: c.$nhsw-colour-background-white;
+    border-style: solid;
+  }
+}
+
+.nhsw-form-group--error .nhsw-file-upload {
+  border-color: c.$nhsw-colour-input-invalid;
+}
+
+.nhsw-file-upload__status {
+  display: block;
+  padding: 10px;
+  overflow-wrap: break-word;
+  background-color: c.$nhsw-colour-background-grey;
+  color: c.$nhsw-colour-text-primary;
+
+  &--filled {
+    background-color: c.$nhsw-colour-text-secondary;
+    color: c.$nhsw-colour-background-white;
+  }
+}
+
+.nhsw-file-upload__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nhsw-file-upload__button {
+  flex-shrink: 0;
+}
+
+.nhsw-file-upload__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+
+  &:focus + .nhsw-file-upload__button {
+    background-color: c.$nhsw-colour-focus;
+    color: c.$nhsw-colour-text-primary;
+    border: none;
+    box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
+  }
+}
+
+.nhsw-file-upload__hint {
+  color: c.$nhsw-colour-text-primary;
+}
+
+.nhsw-file-upload--reverse {
+  .nhsw-file-upload__actions {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+}

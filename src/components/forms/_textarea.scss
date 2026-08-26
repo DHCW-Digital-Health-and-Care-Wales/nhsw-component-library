@@ -1,0 +1,43 @@
+@use "../../foundations/input-base" as base;
+@use "../../tokens/colours" as c;
+
+.nhsw-textarea {
+  @include base.nhsw-input-base;
+
+  min-height: 120px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  resize: vertical;
+  overflow: auto;
+  vertical-align: top;
+
+  &--small {
+    min-height: 80px;
+  }
+
+  &--large {
+    min-height: 180px;
+  }
+
+  &--xlarge {
+    min-height: 260px;
+  }
+
+  &--fixed {
+    resize: none;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &__count {
+    margin-top: 4px;
+
+    &--error {
+      color: c.$nhsw-colour-input-invalid;
+      font-weight: 700;
+    }
+  }
+}

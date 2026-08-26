@@ -1,0 +1,122 @@
+---
+layout: component
+title: Inset text
+container: fluid
+updated: March 2026
+intro: Use inset text to help users identify and understand important content on the page, even if they do not read the whole page.
+tabs:
+  - id: how-to-use
+    label: "How to use"
+  - id: variants
+    label: "Variants"
+  - id: examples
+    label: "Examples"
+---
+
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-inset-text">
+      <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="inset-overview" open_url="/examples/inset-text-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-inset-text"&gt;
+  &lt;p class="nhsw-body"&gt;It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.&lt;/p&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "inset-text/macro.njk" import nhswInsetText %}
+
+{{ nhswInsetText({
+  text: "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application."
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="inset-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">When to use inset text</h2>
+  <p class="nhsw-body">Use inset text for content that needs to stand out from the rest of the page.</p>
+
+  <h2 class="nhsw-h2">When not to use inset text</h2>
+  <p class="nhsw-body">Do not use inset text in transactional pages. This has not yet been tested by us or NHS England.</p>
+  <p class="nhsw-body">Do not use inset text if you need to tell a user to contact their GP or get medical help. Use the pattern to <a class="nhsw-link" href="#">help users decide when and where to get care (care cards)</a> instead.</p>
+  <p class="nhsw-body">Some users don't notice inset text on complex pages or near to other prominent elements, so we avoid using it for very important information that users need to see.</p>
+  <p class="nhsw-body">Use a <a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}">warning callout</a> instead if the information:</p>
+  <ul class="nhsw-body">
+    <li>is time critical</li>
+    <li>could have a significant effect on someone's health</li>
+    <li>addresses a common or significant misconception or mistake</li>
+  </ul>
+
+  <h2 class="nhsw-h2">How to use inset text</h2>
+  <p class="nhsw-body">Do not overuse inset text. Only use it when it helps users and place it where they are most likely to need it.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <p class="nhsw-body">Some users may not be able to identify inset text from surrounding content using visual styling alone. To help screen reader users understand that the content is different from the main body text, include hidden text like <code>&lt;span class="visually-hidden"&gt;Information: &lt;/span&gt;</code> to let users with screen readers know that this is different to the body text. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Inset text in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Inset text on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Inset text variants</h2>
+
+  <h3 class="nhsw-h3">With heading</h3>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-inset-text">
+      <h3 class="nhsw-h3">Note</h3>
+      <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="inset-heading" open_url="/examples/inset-text-heading.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-inset-text"&gt;
+  &lt;h3 class="nhsw-h3"&gt;Note&lt;/h3&gt;
+  &lt;p class="nhsw-body"&gt;It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.&lt;/p&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswInsetText({
+  html: "&lt;h3 class=\"nhsw-h3\"&gt;Note&lt;/h3&gt;&lt;p class=\"nhsw-body\"&gt;It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.&lt;/p&gt;"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="inset-heading" html=html_sample njk=njk_sample toggleable=true %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">How to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows an assessment page from the School-age Immunisations service within WIS where a clinician evaluates a child's Gillick competence. It uses inset text at the top of the form area to highlight crucial delivery guidance.</p>
+  {% include screenshot-placeholder.html text="Assess Gillick competence page with inset text guidance" %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows the "Medications" page within a patient's Welsh GP Record in the Choose Pharmacy service. It uses an inset text component near the top of the content area to highlight key patient status information.</p>
+  {% include screenshot-placeholder.html text="Medications page with inset text showing patient consent status" %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+name: Date input
+macro: nhswDateInput
+description: >
+  A day/month/year date input, wrapped in a fieldset with role="group".
+  Supports validating the whole group or a single part (e.g. only the year).
+params:
+  - name: id
+    type: string
+    required: true
+    description: Base id, suffixed -day/-month/-year.
+  - name: namePrefix
+    type: string
+    required: false
+    description: Defaults to id.
+  - name: fieldset
+    type: object
+    required: false
+    description: "{ legend: { text, html, classes } }. legend classes default to \"nhsw-h2\"."
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes }"
+  - name: errorMessage
+    type: object
+    required: false
+    description: >
+      { text, html, visuallyHiddenText, classes, attributes }. Marks the whole
+      group invalid (all three parts) unless errorFields is given.
+  - name: errorFields
+    type: array
+    required: false
+    description: >
+      Subset of ["day", "month", "year"] - only these parts get the invalid
+      styling/aria-invalid when errorMessage is set. Defaults to all three.
+  - name: values
+    type: object
+    required: false
+    description: "{ day, month, year } - initial values"
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes on the .nhsw-date-input container.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes on the .nhsw-date-input container.
+examples:
+  - name: default
+    data:
+      id: "dob"
+      fieldset:
+        legend:
+          text: "What is your date of birth?"
+      hint:
+        text: "For example, 15 3 1984"
+  - name: with-values
+    data:
+      id: "dob-2"
+      fieldset:
+        legend:
+          text: "What is your date of birth?"
+      hint:
+        text: "For example, 15 3 1984"
+      values:
+        day: "1"
+        month: "3"
+        year: "1984"
+  - name: whole-group-error
+    data:
+      id: "dob-3"
+      fieldset:
+        legend:
+          text: "What is your date of birth?"
+      hint:
+        text: "For example, 15 3 1984"
+      errorMessage:
+        text: "Enter your date of birth"
+  - name: single-field-error
+    data:
+      id: "dob-4"
+      fieldset:
+        legend:
+          text: "What is your date of birth?"
+      hint:
+        text: "For example, 15 3 1984"
+      errorMessage:
+        text: "Date of birth must include a year"
+      errorFields:
+        - "year"
+      values:
+        day: "1"
+        month: "3"

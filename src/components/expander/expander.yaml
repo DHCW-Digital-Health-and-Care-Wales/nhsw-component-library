@@ -1,0 +1,53 @@
+name: Expander
+macro: nhswExpander
+description: >
+  A show/hide disclosure widget built from a button and a content panel,
+  used for optional supporting content. Toggle behaviour is provided by
+  existing JS that hooks .nhsw-expander__button; the macro renders static
+  initial markup only.
+params:
+  - name: linkText
+    type: string
+    required: true
+    description: The button's visible text.
+  - name: text
+    type: string
+    required: false
+    description: Content, wrapped in a <p class="nhsw-body">. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Content HTML, used as-is. Takes precedence over text.
+  - name: id
+    type: string
+    required: true
+    description: >
+      Base id for the content element, referenced by the button's
+      aria-controls. Nunjucks has no built-in slugify filter, so callers
+      must supply this directly.
+  - name: open
+    type: boolean
+    required: false
+    description: >
+      Renders the expander open by default (aria-expanded="true" and the
+      content panel not hidden).
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      linkText: "Digital consent"
+      id: "expander-consent"
+      html: "<p class=\"nhsw-body\">We'll ask you to confirm you're happy to receive digital communications before we send anything electronically.</p>"
+  - name: open-by-default
+    data:
+      linkText: "Why we ask for this"
+      id: "expander-why"
+      text: "We use this information to confirm your identity and keep your record up to date."
+      open: true

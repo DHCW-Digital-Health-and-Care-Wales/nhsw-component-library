@@ -1,0 +1,108 @@
+name: Radios
+macro: nhswRadios
+description: >
+  A group of radio buttons for selecting a single option from a list,
+  wrapped in a fieldset. Supports item-level hints, conditional reveals,
+  dividers, and inline layouts.
+params:
+  - name: fieldset
+    type: object
+    required: false
+    description: "{ legend: { text, html, classes } }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes } - hint for the whole group"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes on the .nhsw-radios container, e.g. nhsw-radios--inline.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes on the .nhsw-radios container.
+  - name: name
+    type: string
+    required: true
+    description: Shared name attribute for all radio items.
+  - name: idPrefix
+    type: string
+    required: false
+    description: Defaults to name. Base for auto-generated item ids ({idPrefix}-{n}).
+  - name: items
+    type: array
+    required: true
+    description: >
+      [{ text, html, value, id, checked, disabled, hint: { text, html },
+      conditional: { html, text }, divider }]. A { divider: "or" } item
+      renders a divider instead of a radio.
+examples:
+  - name: default
+    data:
+      fieldset:
+        legend:
+          text: "Have you changed address in the last 12 months?"
+      name: "changed-address"
+      items:
+        - text: "Yes"
+          value: "yes"
+        - text: "No"
+          value: "no"
+  - name: with-hints-and-divider
+    data:
+      fieldset:
+        legend:
+          text: "Where do you live?"
+      name: "location-2"
+      items:
+        - text: "UK"
+          value: "uk"
+          hint:
+            text: "Including Scotland, Wales and Northern Ireland"
+        - text: "Elsewhere"
+          value: "elsewhere"
+        - divider: "or"
+        - text: "I am not sure"
+          value: "not-sure"
+  - name: conditional
+    data:
+      fieldset:
+        legend:
+          text: "How do you want to be contacted about this?"
+      name: "contact-3"
+      items:
+        - text: "Email"
+          value: "email"
+          conditional:
+            html: "<div class=\"nhsw-form-group\"><label class=\"nhsw-label\" for=\"contact-3-email\">Email address</label><input class=\"nhsw-input\" id=\"contact-3-email\" name=\"contact-3-email\" type=\"email\"></div>"
+        - text: "Phone"
+          value: "phone"
+  - name: inline
+    data:
+      fieldset:
+        legend:
+          text: "Which nipple has changed?"
+      classes: "nhsw-radios--inline"
+      name: "nipple"
+      items:
+        - text: "Left"
+          value: "left"
+        - text: "Right"
+          value: "right"
+  - name: error
+    data:
+      fieldset:
+        legend:
+          text: "Have you changed address in the last 12 months?"
+      errorMessage:
+        text: "Select yes if you have changed address in the last 12 months"
+      name: "changed-address-2"
+      items:
+        - text: "Yes"
+          value: "yes"
+        - text: "No"
+          value: "no"

@@ -1,0 +1,18 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/spacing" as s;
+@use "../../utilities/breakpoints" as b;
+
+.nhsw-error-message {
+  display: block;
+  margin-top: 0;
+  margin-bottom: s.$nhsw-error-margin-bottom;
+  color: c.$nhsw-colour-input-invalid;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+  }
+}

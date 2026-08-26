@@ -1,0 +1,20 @@
+{#
+  nhswSiteNavigation(params)
+
+  params:
+    items       array   - required, [{ text, href, current, badge }]
+    ariaLabel   string  - defaults to "Primary navigation"
+    classes     string  - extra classes, e.g. "nhsw-site-header__nav--reverse"
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswSiteNavigation(params) -%}
+<nav class="nhsw-site-header__nav{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.ariaLabel or 'Primary navigation' }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-site-header__nav-container">
+    <ul class="nhsw-site-header__nav-list">
+{%- for item in (params.items or []) %}
+      <li><a class="nhsw-site-header__nav-link{% if item.current %} nhsw-site-header__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span>{{ item.text }}</span>{% if item.badge %}<span class="nhsw-site-header__nav-badge">{{ item.badge }}</span>{% endif %}</a></li>
+{%- endfor %}
+    </ul>
+  </div>
+</nav>
+{%- endmacro -%}

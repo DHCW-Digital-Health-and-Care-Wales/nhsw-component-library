@@ -1,0 +1,25 @@
+---
+layout: example
+title: Checkboxes error state example
+---
+<div class="nhsw-form-group nhsw-form-group--error">
+  <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
+    <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+    <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
+    <p class="nhsw-error-message" id="cb-contact3-error">Select how you want to be contacted</p>
+    <div class="nhsw-checkboxes">
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
+        <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-1">Email</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="cb-contact3-2" name="cb-contact3" type="checkbox" value="phone" aria-invalid="true">
+        <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-2">Phone</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="cb-contact3-3" name="cb-contact3" type="checkbox" value="text" aria-invalid="true">
+        <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-3">Text message</label>
+      </div>
+    </div>
+  </fieldset>
+</div>

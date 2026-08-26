@@ -1,0 +1,41 @@
+{#
+  nhswNotificationBanner(params)
+
+  params:
+    type              string  - "default" (region, blue) or "success" (alert, green)
+    titleText         string  - banner title text, defaults to "Important",
+                                 or "Success" when type is "success"
+    titleId           string  - id on the title element, defaults to "notification-title".
+                                 Also used as the root's aria-labelledby.
+    titleHeadingLevel string  - heading level for the title element, defaults to "2"
+    text              string  - content text (used if html is not set)
+    html              string  - content HTML (takes precedence over text)
+    contentIsHeading  bool    - renders the content as an <h3> instead of a <p>
+    bodyText          string  - extra text rendered as its own <p class="nhsw-body">
+                                 below the heading/text (used if bodyHtml is not set)
+    bodyHtml          string  - extra HTML for that paragraph (takes precedence over
+                                 bodyText), e.g. a contact link below a success heading
+    classes           string  - extra classes
+    attributes        object  - extra HTML attributes
+#}
+{%- macro nhswNotificationBanner(params) -%}
+{%- set isSuccess = params.type == "success" -%}
+{%- set titleId = params.titleId or "notification-title" -%}
+{%- set titleHeadingLevel = params.titleHeadingLevel or "2" -%}
+{%- set titleText = params.titleText or (isSuccess and "Success") or "Important" -%}
+<div class="nhsw-notification-banner{% if isSuccess %} nhsw-notification-banner--success{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" role="{{ 'alert' if isSuccess else 'region' }}" aria-labelledby="{{ titleId }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-notification-banner__header">
+    <h{{ titleHeadingLevel }} class="nhsw-notification-banner__title" id="{{ titleId }}">{{ titleText }}</h{{ titleHeadingLevel }}>
+  </div>
+  <div class="nhsw-notification-banner__content">
+{%- if params.contentIsHeading %}
+    <h3 class="nhsw-notification-banner__heading">{{ params.html | safe if params.html else params.text }}</h3>
+{%- else %}
+    <p class="nhsw-notification-banner__heading">{{ params.html | safe if params.html else params.text }}</p>
+{%- endif %}
+{%- if params.bodyHtml or params.bodyText %}
+    <p class="nhsw-body">{{ params.bodyHtml | safe if params.bodyHtml else params.bodyText }}</p>
+{%- endif %}
+  </div>
+</div>
+{%- endmacro -%}

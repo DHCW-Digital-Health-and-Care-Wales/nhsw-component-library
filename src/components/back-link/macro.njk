@@ -1,0 +1,13 @@
+{#
+  nhswBackLink(params)
+
+  params:
+    text        string  - link text, defaults to "Back" (used if html is not set)
+    html        string  - link HTML (takes precedence over text)
+    href        string  - link destination, defaults to "#"
+    classes     string  - extra classes, e.g. "nhsw-back-link--reverse"
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswBackLink(params) -%}
+<a class="nhsw-back-link{% if params.classes %} {{ params.classes }}{% endif %}" href="{{ params.href or '#' }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else (params.text or "Back") }}</a>
+{%- endmacro -%}

@@ -1,0 +1,13 @@
+{#
+  nhswTag(params)
+
+  params:
+    text        string  - tag text (used if html is not set)
+    html        string  - tag HTML (takes precedence over text)
+    classes     string  - extra classes, e.g. colour modifiers like
+                           "nhsw-tag--green", "nhsw-tag--red", "nhsw-tag--dhcw-blue"
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswTag(params) -%}
+<strong class="nhsw-tag{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</strong>
+{%- endmacro -%}

@@ -1,0 +1,25 @@
+---
+layout: example
+title: Radio items with a text divider example
+---
+<div class="nhsw-form-group">
+  <fieldset class="nhsw-fieldset" aria-describedby="vacc-hint">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Have you had all the vaccinations you're eligible for in the UK?</legend>
+    <div class="nhsw-hint" id="vacc-hint">You would have got these vaccinations at school, from your GP surgery or another healthcare provider</div>
+    <div class="nhsw-radios">
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="vacc-yes" name="vacc" type="radio" value="yes">
+        <label class="nhsw-label nhsw-radios__label" for="vacc-yes">Yes</label>
+      </div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="vacc-no" name="vacc" type="radio" value="no">
+        <label class="nhsw-label nhsw-radios__label" for="vacc-no">No</label>
+      </div>
+      <div class="nhsw-radios__divider">or</div>
+      <div class="nhsw-radios__item">
+        <input class="nhsw-radios__input" id="vacc-dontknow" name="vacc" type="radio" value="dont-know">
+        <label class="nhsw-label nhsw-radios__label" for="vacc-dontknow">I do not know</label>
+      </div>
+    </div>
+  </fieldset>
+</div>

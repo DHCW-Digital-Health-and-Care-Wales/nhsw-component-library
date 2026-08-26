@@ -1,0 +1,32 @@
+{#
+  nhswBottomNav(params) - fixed mobile bottom navigation bar. Hidden on
+  tablet and above (the header nav bar takes over there). Add class
+  nhsw-has-bottom-nav to <body> to give main content the bottom padding
+  needed so it is never obscured by the fixed bar.
+
+  params:
+    items       array   (required) - [{ text, href, icon, current }]
+                          icon is raw HTML for an inline SVG, rendered inside
+                          nhsw-bottom-nav__icon with aria-hidden="true".
+                          current adds nhsw-bottom-nav__link--current and
+                          aria-current="page".
+    ariaLabel   string  - defaults to "Mobile navigation"
+    classes     string  - extra classes
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswBottomNav(params) -%}
+<nav class="nhsw-bottom-nav{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.ariaLabel or 'Mobile navigation' }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <ul class="nhsw-bottom-nav__list">
+{%- for item in (params.items or []) %}
+    <li class="nhsw-bottom-nav__item">
+      <a class="nhsw-bottom-nav__link{% if item.current %} nhsw-bottom-nav__link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>
+{%- if item.icon %}
+        <span class="nhsw-bottom-nav__icon" aria-hidden="true">{{ item.icon | safe }}</span>
+{%- endif %}
+        <span class="nhsw-bottom-nav__label">{{ item.text }}</span>
+      </a>
+    </li>
+{%- endfor %}
+  </ul>
+</nav>
+{%- endmacro -%}

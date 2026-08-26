@@ -1,0 +1,82 @@
+name: Notification banner
+macro: nhswNotificationBanner
+description: >
+  Tells the user about something important that they need to know, such as
+  a service outage, without interrupting what they're doing. Supports a
+  default (informational) and a success variant.
+params:
+  - name: type
+    type: string
+    required: false
+    description: '"default" or "success". Defaults to "default".'
+  - name: titleText
+    type: string
+    required: false
+    description: >
+      Banner title text. Defaults to "Important", or "Success" when type is
+      "success".
+  - name: titleId
+    type: string
+    required: false
+    description: >
+      Id on the title element, and value used for the root's
+      aria-labelledby. Defaults to "notification-title".
+  - name: titleHeadingLevel
+    type: string
+    required: false
+    description: Heading level for the title element. Defaults to "2".
+  - name: text
+    type: string
+    required: false
+    description: Content text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Content HTML. Takes precedence over text.
+  - name: contentIsHeading
+    type: boolean
+    required: false
+    description: Renders the content as an h3 instead of a p.
+  - name: bodyText
+    type: string
+    required: false
+    description: >
+      Extra text rendered as its own paragraph below the heading/text.
+      Ignored if bodyHtml is set.
+  - name: bodyHtml
+    type: string
+    required: false
+    description: >
+      Extra HTML for that paragraph. Takes precedence over bodyText, e.g. a
+      contact link below a success heading.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      titleText: "Important"
+      text: "The service will be unavailable from 8pm to 9pm on Thursday 1 January 2027."
+  - name: success
+    data:
+      type: "success"
+      titleText: "Success"
+      titleHeadingLevel: "3"
+      text: "Your application has been submitted."
+  - name: with-link
+    data:
+      titleText: "Important"
+      html: "You have a new message. <a class=\"nhsw-link nhsw-notification-banner__link\" href=\"/messages\">View application</a>"
+  - name: success-with-body
+    data:
+      type: "success"
+      titleText: "Success"
+      titleHeadingLevel: "3"
+      contentIsHeading: true
+      text: "Vaccination outcome recorded for HPV"
+      bodyHtml: "Contact <a class=\"nhsw-link nhsw-notification-banner__link\" href=\"#\">example@wales.nhs.uk</a> if you think there's a problem."

@@ -1,0 +1,66 @@
+@use "../../foundations/input-base" as base;
+
+$nhsw-input-character-unit: 1.25rem;
+
+$nhsw-input-character-widths: (
+  "20": 20,
+  "10": 10,
+  "5": 5,
+  "4": 4,
+  "3": 3,
+  "2": 2
+);
+
+.nhsw-input {
+  @include base.nhsw-input-base;
+
+  &--full {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &--three-quarters {
+    width: 75%;
+    max-width: 75%;
+  }
+
+  &--two-thirds {
+    width: 66.6667%;
+    max-width: 66.6667%;
+  }
+
+  &--half {
+    width: 50%;
+    max-width: 50%;
+  }
+
+  &--third {
+    width: 33.3333%;
+    max-width: 33.3333%;
+  }
+
+  &--quarter {
+    width: 25%;
+    max-width: 25%;
+  }
+
+  @each $name, $characters in $nhsw-input-character-widths {
+    &--width-#{$name} {
+      width: calc(#{$characters} * #{$nhsw-input-character-unit});
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .nhsw-input {
+    &--three-quarters,
+    &--two-thirds,
+    &--half,
+    &--third,
+    &--quarter {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

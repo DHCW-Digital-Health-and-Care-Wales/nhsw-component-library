@@ -1,0 +1,31 @@
+name: Skip link
+macro: nhswSkipLink
+description: >
+  A visually-hidden-until-focused link, placed first in the page, that lets
+  keyboard and screen reader users jump straight to the main content.
+params:
+  - name: href
+    type: string
+    required: false
+    description: Link destination. Defaults to "#maincontent".
+  - name: text
+    type: string
+    required: false
+    description: Link text. Defaults to "Skip to main content".
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      href: "#maincontent"
+      text: "Skip to main content"
+  - name: custom-target
+    data:
+      href: "#search-results"
+      text: "Skip to search results"

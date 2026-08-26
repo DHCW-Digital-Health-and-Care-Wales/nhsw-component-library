@@ -1,0 +1,61 @@
+@use "../../foundations/layout" as layout;
+@use "../../tokens/spacing" as s;
+@use "../../utilities/breakpoints" as b;
+
+body {
+    background-color: #f0f4f5;
+}
+.nhsw-width-container {
+  @include layout.nhsw-container;
+}
+
+.nhsw-fluid-container {
+  width: 100%;
+  padding-left: s.$nhsw-container-margin-mobile;
+  padding-right: s.$nhsw-container-margin-mobile;
+  box-sizing: border-box;
+
+  @include b.nhsw-from-desktop {
+    padding-left: s.$nhsw-container-margin-desktop;
+    padding-right: s.$nhsw-container-margin-desktop;
+  }
+}
+
+.nhsw-grid-row {
+  @include layout.nhsw-grid-row;
+}
+
+.nhsw-grid-column-full,
+.nhsw-grid-column-one-half,
+.nhsw-grid-column-one-third,
+.nhsw-grid-column-two-thirds,
+.nhsw-grid-column-one-quarter,
+.nhsw-grid-column-three-quarters {
+  @include layout.nhsw-grid-column;
+}
+
+@include b.nhsw-from-desktop {
+  .nhsw-grid-column-full {
+    width: 100%;
+  }
+
+  .nhsw-grid-column-one-half {
+    width: 50%;
+  }
+
+  .nhsw-grid-column-one-third {
+    width: 33.3333%;
+  }
+
+  .nhsw-grid-column-two-thirds {
+    width: 66.6667%;
+  }
+
+  .nhsw-grid-column-one-quarter {
+    width: 25%;
+  }
+
+  .nhsw-grid-column-three-quarters {
+    width: 75%;
+  }
+}

@@ -1,0 +1,29 @@
+{#
+  nhswSummaryList(params) - a key-value summary using a definition list.
+
+  params:
+    rows        array   - list of { key, value, actions }, where:
+                             key     object  - { text, html }
+                             value   object  - { text, html }
+                             actions object  - { items: [ { href, text, html, visuallyHiddenText } ] }
+                                               (optional - omitted rows get no actions cell)
+    classes     string  - extra classes, e.g. "nhsw-summary-list--no-border"
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswSummaryList(params) -%}
+<dl class="nhsw-summary-list{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- for row in (params.rows or []) %}
+  <div class="nhsw-summary-list__row">
+    <dt class="nhsw-summary-list__key">{{ row.key.html | safe if row.key.html else row.key.text }}</dt>
+    <dd class="nhsw-summary-list__value">{{ row.value.html | safe if row.value.html else row.value.text }}</dd>
+{%- if row.actions and (row.actions.items | length) %}
+    <dd class="nhsw-summary-list__actions">
+{%- for item in row.actions.items %}
+      <a class="nhsw-link" href="{{ item.href }}">{{ item.html | safe if item.html else item.text }}{% if item.visuallyHiddenText %}<span class="nhsw-visually-hidden"> {{ item.visuallyHiddenText }}</span>{% endif %}</a>
+{%- endfor %}
+    </dd>
+{%- endif %}
+  </div>
+{%- endfor %}
+</dl>
+{%- endmacro -%}

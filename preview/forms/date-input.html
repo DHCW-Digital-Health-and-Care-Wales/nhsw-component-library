@@ -1,0 +1,219 @@
+---
+layout: component
+title: Date input
+container: fluid
+updated: March 2026
+intro: Use date input to help users enter a memorable date, like their date of birth.
+tabs:
+  - id: how-to-use
+    label: "How to use"
+  - id: variants
+    label: "Variants"
+  - id: examples
+    label: "Examples"
+---
+
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+
+  {% capture example_body %}{% raw %}
+    <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint">
+      <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+      <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
+      <div class="nhsw-date-input">
+        <div class="nhsw-date-input__item">
+          <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
+          <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
+        </div>
+        <div class="nhsw-date-input__item">
+          <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
+          <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
+        </div>
+        <div class="nhsw-date-input__item">
+          <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
+          <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000">
+        </div>
+      </div>
+    </fieldset>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="di-overview" open_url="/examples/date-input-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What is your date of birth?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="dob-hint"&gt;For example, 15 3 1984&lt;/div&gt;
+  &lt;div class="nhsw-date-input"&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-day"&gt;Day&lt;/label&gt;
+      &lt;input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-month"&gt;Month&lt;/label&gt;
+      &lt;input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year"&gt;Year&lt;/label&gt;
+      &lt;input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "date-input/macro.njk" import nhswDateInput %}
+
+{{ nhswDateInput({
+  id: "dob",
+  namePrefix: "dob",
+  fieldset: { legend: { text: "What is your date of birth?", classes: "nhsw-h2" } },
+  hint: { text: "For example, 15 3 1984" }
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="di-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">When to use date input</h2>
+  <p class="nhsw-body">Use date input to help users enter a date they are likely to know, like their date of birth.</p>
+
+  <h2 class="nhsw-h2">When not to use date input</h2>
+  <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about. Read more in the <a class="nhsw-link" href="#">Ask users for dates pattern</a>.</p>
+
+  <h2 class="nhsw-h2">How to use date input</h2>
+  <p class="nhsw-body">Date input consists of 3 fields to let users enter a day, month and year.</p>
+  <p class="nhsw-body">Group the 3 date fields together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "What is your date of birth?".</p>
+  <p class="nhsw-body">If you are asking just <a class="nhsw-link" href="#">1 question per page</a> as we recommend, you can set the contents of the <code>&lt;legend&gt;</code> as the page heading. This is good practice as it means that screen reader users will only hear the contents once.</p>
+  <p class="nhsw-body">Read more on the GOV.UK Design System about how to <a class="nhsw-link" href="#">ask users for dates</a> and <a class="nhsw-link" href="#">making labels and legends headings</a>.</p>
+  <p class="nhsw-body">Never automatically tab users between the fields of the date input because this can be confusing and may clash with normal keyboard controls.</p>
+
+  <h3 class="nhsw-h3">If you're asking more than one question on the page</h3>
+  <p class="nhsw-body">If you're asking more than one question on the page, do not set the contents of the <code>&lt;legend&gt;</code> as the page heading. Read more about <a class="nhsw-link" href="#">asking multiple questions on question pages</a>.</p>
+  <p class="nhsw-body">Follow <a class="nhsw-link" href="#">GOV.UK guidance on error messages for date inputs</a>.</p>
+
+  <h3 class="nhsw-h3">Use the autocomplete attribute for a date of birth</h3>
+  <p class="nhsw-body">Use the <code>autocomplete</code> attribute on the date input component when you're asking for a date of birth. This lets browsers autofill the information on a user's behalf if they've entered it previously.</p>
+  <p class="nhsw-body">To do this, set the autocomplete attribute on the 3 fields to <code>bday-day</code>, <code>bday-month</code> and <code>bday-year</code>.</p>
+
+  <h3 class="nhsw-h3">Error messages</h3>
+
+  <section class="preview-section">
+    <h4 class="nhsw-h4">Error message 1</h4>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-error-hint dob-error-message">
+        <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+        <div class="nhsw-hint" id="dob-error-hint">For example, 15 3 1984</div>
+        <p class="nhsw-error-message" id="dob-error-message">The date of birth must be in the past</p>
+        <div class="nhsw-date-input">
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-error-day">Day</label>
+            <input id="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="1" aria-invalid="true">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-error-month">Month</label>
+            <input id="dob-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="12" aria-invalid="true">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-error-year">Year</label>
+            <input id="dob-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" value="2000" aria-invalid="true">
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="di-error-1" open_url="/examples/date-input-error-1.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;input id="dob-error-day" name="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswDateInput({
+  id: "dob-error",
+  namePrefix: "dob-error",
+  fieldset: { legend: { text: "What is your date of birth?", classes: "nhsw-h2" } },
+  hint: { text: "For example, 15 3 1984" },
+  errorMessage: { text: "The date of birth must be in the past" }
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="di-error-1" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h4 class="nhsw-h4">Error message 2</h4>
+
+    {% capture example_body %}{% raw %}
+      <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message">
+        <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+        <div class="nhsw-hint" id="dob-year-error-hint">For example, 15 3 1984</div>
+        <p class="nhsw-error-message" id="dob-year-error-message">The date of birth must include a year</p>
+        <div class="nhsw-date-input">
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day">Day</label>
+            <input id="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-month">Month</label>
+            <input id="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-year">Year</label>
+            <input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+          </div>
+        </div>
+      </fieldset>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="di-error-2" open_url="/examples/date-input-error-2.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;input id="dob-year-error-year" name="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswDateInput({
+  id: "dob-year-error",
+  namePrefix: "dob-year-error",
+  fieldset: { legend: { text: "What is your date of birth?", classes: "nhsw-h2" } },
+  hint: { text: "For example, 15 3 1984" },
+  errorMessage: { text: "The date of birth must include a year" }
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="di-error-2" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <p class="nhsw-body">When implemented in production, fields should identify their purpose so browsers and assistive technologies can support features such as autofill and reduce user effort. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.5 Identify Input Purpose, level AA</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Date inputs in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Date inputs on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Date input variants</h2>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">How to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a public-facing page from the School-age Immunisations service where a parent or guardian is providing consent. It uses the standard three-field date input to collect a specific, memorable date.</p>
+  {% include screenshot-placeholder.html text="Child's date of birth question with day, month and year fields" %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows a form from a Point of Care Test entry page within the Choose Pharmacy service. It uses input fields for dates, such as the "Expiry date" fields for the test batch and test result, to ensure accurate entry.</p>
+  {% include screenshot-placeholder.html text="Point of Care Test form with month and year expiry date fields" %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>

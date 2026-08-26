@@ -1,0 +1,45 @@
+{#
+  nhswButton(params)
+
+  params:
+    text        string  - button text (used if html is not set)
+    html        string  - button HTML (takes precedence over text)
+    href        string  - if set, renders an <a role="button"> instead of a <button>
+    as          string  - "label" renders a <label> instead (styled identically), for
+                           pairing with a hidden native control such as a file input.
+                           Takes precedence over href. Ignores type/name/value/disabled.
+    for         string  - id of the associated control (label variant only, required then)
+    type        string  - button type attribute, defaults to "button"
+    name        string  - name attribute (button only)
+    value       string  - value attribute (button only)
+    disabled    bool    - adds disabled + aria-disabled="true" (button/anchor only)
+    classes     string  - extra classes, e.g. "nhsw-button--primary", "nhsw-button--small"
+    attributes  object  - extra HTML attributes
+
+  nhswButtonGroup(params)
+    items       array   - list of nhswButton params objects, rendered inside nhsw-button-group
+    classes     string  - extra classes on the group wrapper
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswButton(params) -%}
+{%- if params.as == "label" -%}
+<label class="nhsw-button{% if params.classes %} {{ params.classes }}{% endif %}" for="{{ params.for }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</label>
+{%- else -%}
+{%- set attrs -%}
+ class="nhsw-button{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}{% if params.disabled %} disabled aria-disabled="true"{% endif %}
+{%- endset -%}
+{%- if params.href -%}
+<a href="{{ params.href }}" role="button" draggable="false"{{ attrs | safe }}>{{ params.html | safe if params.html else params.text }}</a>
+{%- else -%}
+<button type="{{ params.type or 'button' }}"{{ attrs | safe }}{% if params.name %} name="{{ params.name }}"{% endif %}{% if params.value %} value="{{ params.value }}"{% endif %}>{{ params.html | safe if params.html else params.text }}</button>
+{%- endif -%}
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro nhswButtonGroup(params) -%}
+<div class="nhsw-button-group{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- for item in (params.items or []) %}
+  {{ nhswButton(item) }}
+{%- endfor %}
+</div>
+{%- endmacro -%}

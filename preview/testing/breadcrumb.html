@@ -1,0 +1,299 @@
+---
+layout: simple
+title: Breadcrumb — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Breadcrumb</h1>
+<p class="nhsw-body">Manual QA checklist for the breadcrumb component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/breadcrumb.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/breadcrumb-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see breadcrumb used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/breadcrumb.html' | relative_url }}" target="_blank" rel="noopener">Open the Breadcrumb documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/breadcrumb-default.html' | relative_url }}" target="_blank" rel="noopener">breadcrumb-default.html</a>, <a class="nhsw-link" href="{{ '/examples/breadcrumb-dark.html' | relative_url }}" target="_blank" rel="noopener">breadcrumb-dark.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="breadcrumb">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 14 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-1" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-1">Enough space around the links that you don't tap the wrong one (WCAG 2.2 SC 2.5.8)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-1-hint">Given a breadcrumb trail. Then there is enough space between links that you can't easily tap the wrong one.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <p class="nhsw-breadcrumb__mobile-back">
+                <a class="nhsw-back-link" href="#">Back to NHS services</a>
+              </p>
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-2" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-2">Stays readable on a dark background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-2-hint">Given the dark-background variant of the breadcrumb. Then the text remains clearly visible against the dark background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <nav class="nhsw-breadcrumb nhsw-breadcrumb--reverse" aria-label="breadcrumb">
+                <p class="nhsw-breadcrumb__mobile-back">
+                  <a class="nhsw-back-link nhsw-back-link--reverse" href="#">Back to NHS services</a>
+                </p>
+                <ol class="nhsw-breadcrumb__list">
+                  <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                  <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                  <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-3" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-3">Screen reader reads each link with meaningful text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-3-hint">Given a breadcrumb trail. When a screen reader reads it out. Then each link is announced by its page name, not just "link, link, link".</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <p class="nhsw-breadcrumb__mobile-back">
+                <a class="nhsw-back-link" href="#">Back to NHS services</a>
+              </p>
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-4" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-4">Current page is not a link</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-4-hint">Given a breadcrumb trail. Then the current page (last item) is shown as plain text, not a clickable link — there's nothing to click on the page you're already on.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <p class="nhsw-breadcrumb__mobile-back">
+                <a class="nhsw-back-link" href="#">Back to NHS services</a>
+              </p>
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-5" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-5">Keyboard focus is visible (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-5-hint">Given a breadcrumb link. When it receives keyboard focus (press Tab to reach it). Then a solid yellow focus highlight appears around it, on both light and dark backgrounds.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-6" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-6">Links can be navigated using the keyboard</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-6-hint">Given a breadcrumb trail. When a keyboard user tabs through the page. Then each breadcrumb link (but not the current-page text) can receive focus and be activated with Enter, in trail order.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-7" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-7">Breadcrumb wraps correctly on smaller screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-7-hint">Given a breadcrumb trail with several long items, narrower than the trail needs. When it doesn't fit on one line. Then it wraps onto a second line cleanly, without overlapping content or cutting off text. (On narrow/mobile viewports, the trail is replaced by the "Back to [parent]" link instead — see the responsive example on the demo page.) The box below is deliberately narrowed to force this, so it's visible without resizing your browser.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body" style="max-width: 420px;">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Hospitals and community health services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Cardiff and Vale University Health Board</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">University Hospital of Wales outpatient appointments</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-8" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-8">Long breadcrumb labels remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-8-hint">Given a breadcrumb item with an unusually long, unbroken label (a full service or department name). Then it breaks onto multiple lines within its own space rather than overflowing the page sideways.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">CardiffAndValeUniversityHealthBoardOutpatientAppointmentBookingService</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-9" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-9">Remains usable at 200% and 400% browser zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-9-hint">Given the breadcrumb trail below. When the browser is zoomed to 200%, then 400%. Then the trail stays readable and usable, wrapping as needed, without losing content or overlapping other elements.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-10" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-10">Hover state is clear and consistent with other links</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-10-hint">Given a breadcrumb link. When you hover over it with a mouse. Then it visibly changes (colour deepens, underline appears), on both light and dark backgrounds — the current page text does not react to hover, since it isn't a link.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <nav class="nhsw-breadcrumb nhsw-breadcrumb--reverse" aria-label="breadcrumb">
+                <ol class="nhsw-breadcrumb__list">
+                  <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                  <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                  <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-11" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-11">Mobile breadcrumb pattern works as intended</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-11-hint">Given the breadcrumb trail below. When the viewport is narrowed below the desktop breakpoint (narrow this browser window, or use a mobile viewport). Then the full trail is replaced with a "Back to [parent]" link, using the same chevron as the Back link component — and the underline only ever applies to the text, not the chevron.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <p class="nhsw-breadcrumb__mobile-back">
+                <a class="nhsw-back-link" href="#">Back to NHS services</a>
+              </p>
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-12" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-12">Screen reader identifies the component as breadcrumb navigation</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-12-hint">Given a breadcrumb trail. When a screen reader encounters the component. Then it is announced as a breadcrumb navigation region, via <code>aria-label="breadcrumb"</code> on the <code>&lt;nav&gt;</code> element.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-13" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-13-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-13">Screen reader identifies the current page</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-13-hint">Given a breadcrumb trail. When a screen reader reads the current page item. Then the current page is identified as the current location, via <code>aria-current="page"</code>.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="breadcrumb-manual-14" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-14-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-14">Separators are not announced unnecessarily</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-14-hint">Given a breadcrumb trail with "&rsaquo;" separators. When a screen reader reads the trail. Then only the breadcrumb labels are announced — the separators are CSS-generated content, not real text, so they're never read out.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+              <ol class="nhsw-breadcrumb__list">
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">Home</a></li>
+                <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="#">NHS services</a></li>
+                <li class="nhsw-breadcrumb__list-item"><span class="nhsw-breadcrumb__current" aria-current="page">Hospitals</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Trail matches where you actually are on the site</strong> — whether the breadcrumb accurately reflects the current page's place in the site hierarchy depends on the page data the service passes in, not the breadcrumb component itself.</li>
+        <li><strong>Each link in the trail goes to the right page</strong> — every link in the fixtures here is <code>href="#"</code>; whether it actually lands on the right page depends on the URLs the consuming app supplies, not the component itself.</li>
+  </ul>
+</div>

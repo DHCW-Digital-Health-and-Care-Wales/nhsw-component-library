@@ -1,0 +1,51 @@
+{%- from "summary-list/macro.njk" import nhswSummaryList -%}
+{#
+  nhswSummaryCard(params) - wraps a summary list with a header (title + actions),
+  or, when sections is given, repeats a subheading + summary list for each section.
+
+  params:
+    title         string  - card title, shown in the header. Ignored (for the
+                             header text) unless set; used with both the single-list
+                             and sections forms.
+    headingLevel  integer - heading level for the title, default 2. The class is
+                             always "nhsw-h3 nhsw-summary-card__title" regardless
+                             of the tag used.
+    actions       array   - list of { text, html, href }, shown as card-level
+                             actions in the header (single-list form only)
+    rows          array   - rows for a single summary list (see nhswSummaryList).
+                             Used when sections is not given.
+    sections      array   - list of { subheading, rows } - when given, renders a
+                             repeated subheader + summary list for each section
+                             instead of a single body.
+    classes       string  - extra classes
+    attributes    object  - extra HTML attributes
+#}
+{%- macro nhswSummaryCard(params) -%}
+{%- set headingTag = "h" ~ (params.headingLevel or 2) -%}
+<div class="nhsw-summary-card{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if params.title %}
+  <div class="nhsw-summary-card__header">
+    <{{ headingTag }} class="nhsw-h3 nhsw-summary-card__title">{{ params.title }}</{{ headingTag }}>
+{%- if params.actions and (params.actions | length) %}
+    <ul class="nhsw-summary-card__actions">
+{%- for action in params.actions %}
+      <li><a class="nhsw-link" href="{{ action.href }}">{{ action.html | safe if action.html else action.text }}</a></li>
+{%- endfor %}
+    </ul>
+{%- endif %}
+  </div>
+{%- endif %}
+{%- if params.sections %}
+{%- for section in params.sections %}
+  <p class="nhsw-summary-card__subheader nhsw-body"><strong>{{ section.subheading }}</strong></p>
+  <div class="nhsw-summary-card__body">
+    {{ nhswSummaryList({ rows: section.rows }) }}
+  </div>
+{%- endfor %}
+{%- else %}
+  <div class="nhsw-summary-card__body">
+    {{ nhswSummaryList({ rows: params.rows }) }}
+  </div>
+{%- endif %}
+</div>
+{%- endmacro -%}

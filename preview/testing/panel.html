@@ -1,0 +1,195 @@
+---
+layout: simple
+title: Panel — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Panel</h1>
+<p class="nhsw-body">Manual QA checklist for the panel component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/panel.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/panel-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see panel used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/panel.html' | relative_url }}" target="_blank" rel="noopener">Open the Panel documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/panel-default.html' | relative_url }}" target="_blank" rel="noopener">panel-default.html</a>, <a class="nhsw-link" href="{{ '/examples/panel-navy.html' | relative_url }}" target="_blank" rel="noopener">panel-navy.html</a>, <a class="nhsw-link" href="{{ '/examples/panel-no-icon.html' | relative_url }}" target="_blank" rel="noopener">panel-no-icon.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="panel">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 9 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-1" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-1">Long headings wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-1-hint">Given a panel with a long heading. When viewed on a narrow viewport or at high zoom levels. Then the heading wraps correctly without clipping or overlapping other content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel">
+              <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M4 12l5 5L20 6" />
+              </svg>
+              <h1 class="nhsw-panel__title">Your application to register as a childminder has been received and complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-2" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-2">Heading, not just colour, says what the panel means (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-2-hint">Given the green (default) and navy panel variants. Then each has a clear heading so its purpose doesn't depend on the colour.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel nhsw-panel--navy">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-3" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-3">"No icon" variant still makes sense on its own</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-3-hint">Given the no-icon panel variant, large and small. Then the heading and body text alone are enough to understand the message.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-4" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-4">Smaller panel variant stays legible</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-4-hint">Given the smaller panel variant. Then the icon and text stay proportionate and easy to read.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel nhsw-panel--navy">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-5" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-5">Text has sufficient contrast against the panel background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-5-hint">Given any panel variant. Then all text remains readable against the panel background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel nhsw-panel--navy">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-6" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-6">Icon is easy to see against the panel background (WCAG 2.2 SC 1.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-6-hint">Given a panel containing an icon. Then the icon remains clearly visible against the panel background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel">
+              <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M4 12l5 5L20 6" />
+              </svg>
+              <h1 class="nhsw-panel__title">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-7" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-7">Reference numbers and identifiers remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-7-hint">Given a panel containing a reference number or identifier. When viewed on different screen sizes or zoom levels. Then the identifier remains clearly visible and readable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-panel">
+              <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+              <div class="nhsw-panel__body">
+                Your reference number<br>
+                <strong>HDJ2123F-2026-CHILDMINDER-REG</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-8" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-8">Panel remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-8-hint">Given a panel. When viewed on a mobile-width screen. Then the heading, body content and icon remain readable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-panel">
+                <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M4 12l5 5L20 6" />
+                </svg>
+                <h1 class="nhsw-panel__title">Application complete</h1>
+                <div class="nhsw-panel__body">
+                  Your reference number<br>
+                  <strong>HDJ2123F</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="panel-manual-9" name="panel-manual-tests" type="checkbox" aria-describedby="panel-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="panel-manual-9">Icon remains aligned with wrapped content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="panel-manual-9-hint">Given a panel with an icon and a long heading or body. When the content wraps. Then the icon remains visually aligned with the content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <div class="nhsw-panel">
+                <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path d="M4 12l5 5L20 6" />
+                </svg>
+                <h1 class="nhsw-panel__title">Your application to register as a childminder has been received</h1>
+                <div class="nhsw-panel__body">
+                  Your reference number<br>
+                  <strong>HDJ2123F</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

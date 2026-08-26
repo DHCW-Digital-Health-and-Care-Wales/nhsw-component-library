@@ -1,0 +1,78 @@
+name: Select
+macro: nhswSelect
+description: >
+  A dropdown select for choosing one option from a list. Use only as a
+  last resort in public-facing services — prefer radios for short lists.
+params:
+  - name: id
+    type: string
+    required: true
+  - name: name
+    type: string
+    required: false
+    description: Defaults to id.
+  - name: label
+    type: object
+    required: false
+    description: "{ text, html, classes, isPageHeading, attributes }"
+  - name: hint
+    type: object
+    required: false
+    description: "{ text, html, classes, attributes }"
+  - name: errorMessage
+    type: object
+    required: false
+    description: "{ text, html, visuallyHiddenText, classes, attributes }"
+  - name: items
+    type: array
+    required: false
+    description: "[{ value, text, selected, disabled }]"
+  - name: classes
+    type: string
+    required: false
+    description: Width modifiers nhsw-select--xs/-s/-m/-l/-xl.
+  - name: attributes
+    type: object
+    required: false
+  - name: disabled
+    type: boolean
+    required: false
+  - name: formGroup
+    type: object
+    required: false
+examples:
+  - name: default
+    data:
+      id: "region"
+      label:
+        text: "Choose region"
+      items:
+        - text: "Please select"
+        - value: "north"
+          text: "North Wales"
+        - value: "south"
+          text: "South Wales"
+  - name: hint
+    data:
+      id: "region"
+      label:
+        text: "Choose region"
+      hint:
+        text: "Hint text goes here"
+      items:
+        - text: "Please select"
+        - value: "north"
+          text: "North Wales"
+  - name: error
+    data:
+      id: "region"
+      label:
+        text: "Label desktop"
+      hint:
+        text: "Hint text goes here"
+      errorMessage:
+        text: "Select a region"
+      items:
+        - text: "Please select"
+        - value: "north"
+          text: "North Wales"

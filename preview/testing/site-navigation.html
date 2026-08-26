@@ -1,0 +1,251 @@
+---
+layout: simple
+title: Site navigation — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Site navigation</h1>
+<p class="nhsw-body">Manual QA checklist for the site navigation component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/site-navigation.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/site-navigation-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see site navigation used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/site/site-navigation.html' | relative_url }}" target="_blank" rel="noopener">Open the Site navigation documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/site-navigation-default.html' | relative_url }}" target="_blank" rel="noopener">site-navigation-default.html</a>, <a class="nhsw-link" href="{{ '/examples/site-navigation-dark.html' | relative_url }}" target="_blank" rel="noopener">site-navigation-dark.html</a>, <a class="nhsw-link" href="{{ '/examples/site-navigation-tag.html' | relative_url }}" target="_blank" rel="noopener">site-navigation-tag.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="site-navigation">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 12 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-1" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-1">Current page is clearly marked, visually and for screen readers</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-1-hint">Given a nav link pointing at the current page. Then it's visually distinguished from the other links. And a screen reader announces it as the current page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-2" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-2">Expanded menus never cover whatever has keyboard focus (WCAG 2.2 SC 2.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-2-hint">Given a navigation with an expandable menu. When a submenu is open. Then it doesn't cover the element that currently has keyboard focus.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-3" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-3">Stays readable on a dark background</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-3-hint">Given the dark-background navigation variant. Then the links remain clearly readable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-4" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-4">Tag next to a nav item doesn't break the layout or shrink its click area</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-4-hint">Given a nav item with a tag next to it. Then the tag sits correctly alongside the link without reducing the link's clickable area.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">0</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-5" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-5">Keyboard focus is clearly visible (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-5-hint">Given a site navigation link. When it receives keyboard focus. Then a clear visible focus indicator is shown.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-6" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-6">Navigation can be used entirely with the keyboard</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-6-hint">Given a site navigation component. When a keyboard user tabs through the navigation. Then all navigation items can be reached and activated without using a mouse.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-7" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-7">Navigation is identifiable as a navigation region</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-7-hint">Given a screen reader user navigates page landmarks. When the site navigation is encountered. Then it is identified as a navigation region.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-8" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-8">Current page remains distinguishable without colour alone (WCAG 2.2 SC 1.4.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-8-hint">Given a navigation item representing the current page. When viewed by a user who cannot perceive colour differences. Then the current page remains distinguishable through more than colour alone (underline, border, font weight).</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-9" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-9">Site navigation remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-9-hint">Given a site navigation component. When browser zoom is increased to 200% or 400%. Then navigation items remain readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-10" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-10">Long navigation labels remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-10-hint">Given a navigation item with a long label. When viewed on a small screen or at high zoom levels. Then the label remains readable and does not overlap neighbouring navigation items.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Appointments and bookings</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Prescriptions and medication reviews</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-11" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-11">Navigation adapts correctly on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-11-hint">Given a site navigation component. When viewed on a mobile-width screen. Then all navigation options remain accessible without clipping or horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="site-navigation-manual-12" name="site-navigation-manual-tests" type="checkbox" aria-describedby="site-navigation-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="site-navigation-manual-12">Expanded submenu remains associated with its parent item</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="site-navigation-manual-12-hint">Given a navigation item with an expanded submenu. When the submenu is displayed. Then it is visually clear which parent navigation item the submenu belongs to.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+              <div class="nhsw-site-header__nav-container">
+                <ul class="nhsw-site-header__nav-list">
+                  <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+                  <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

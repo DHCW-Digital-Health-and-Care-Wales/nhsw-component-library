@@ -1,0 +1,78 @@
+{#
+  nhswPagination(params)
+
+  Two visual variants:
+    - variant: "numbered" - numbered page links with previous/next arrows and
+      optional ellipses.
+    - variant unset - previous/next content pagination, showing the adjacent
+      page's title.
+
+  params:
+    variant     string  - "numbered", or unset for the content previous/next variant
+    previous    object  - numbered: { href }. content: { href, title, label }
+                           (title defaults to "Previous", label is the page name).
+                           Omitted entirely if not given (e.g. first page).
+    next        object  - numbered: { href }. content: { href, title, label }
+                           (title defaults to "Next", label is the page name).
+                           Omitted entirely if not given (e.g. last page).
+    items       array   - numbered variant only. List of either
+                           { number, href, current } or { ellipsis: true }.
+    ariaLabel   string  - defaults to "Pagination"
+    classes     string  - extra classes
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswPagination(params) -%}
+{%- set ariaLabel = params.ariaLabel or "Pagination" -%}
+{%- if params.variant == "numbered" -%}
+<nav class="nhsw-pagination nhsw-pagination--numbered{% if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="{{ ariaLabel }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if params.previous %}
+  <a href="{{ params.previous.href }}" class="nhsw-pagination__previous" rel="prev">
+    <svg class="nhsw-pagination__icon" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"><path d="M15 4l-8 8 8 8" /></svg>
+    <span class="nhsw-pagination__title">Previous</span>
+  </a>
+{%- endif %}
+  <ul class="nhsw-pagination__list">
+{%- for item in (params.items or []) %}
+{%- if item.ellipsis %}
+    <li class="nhsw-pagination__item nhsw-pagination__item--ellipsis">&ctdot;</li>
+{%- else %}
+    <li class="nhsw-pagination__item{% if item.current %} nhsw-pagination__item--current{% endif %}"><a class="nhsw-pagination__number-link" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %} aria-label="Page {{ item.number }}">{{ item.number }}</a></li>
+{%- endif %}
+{%- endfor %}
+  </ul>
+{%- if params.next %}
+  <a href="{{ params.next.href }}" class="nhsw-pagination__next" rel="next">
+    <span class="nhsw-pagination__title">Next</span>
+    <svg class="nhsw-pagination__icon" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true"><path d="M9 4l8 8-8 8" /></svg>
+  </a>
+{%- endif %}
+</nav>
+{%- else -%}
+<nav class="nhsw-pagination{% if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="{{ ariaLabel }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <ul class="nhsw-pagination__list">
+{%- if params.previous %}
+    <li class="nhsw-pagination-item--previous">
+      <a class="nhsw-pagination__link" href="{{ params.previous.href }}">
+        <svg class="nhsw-icon" viewBox="0 0 24 24" width="34" height="34" focusable="false" aria-hidden="true"><path d="M15 4l-8 8 8 8" /></svg>
+        <span class="nhsw-pagination__title">{{ params.previous.title or "Previous" }}</span>
+{%- if params.previous.label %}
+        <span class="nhsw-pagination__page">{{ params.previous.label }}</span>
+{%- endif %}
+      </a>
+    </li>
+{%- endif %}
+{%- if params.next %}
+    <li class="nhsw-pagination-item--next">
+      <a class="nhsw-pagination__link" href="{{ params.next.href }}">
+        <span class="nhsw-pagination__title">{{ params.next.title or "Next" }}</span>
+{%- if params.next.label %}
+        <span class="nhsw-pagination__page">{{ params.next.label }}</span>
+{%- endif %}
+        <svg class="nhsw-icon" viewBox="0 0 24 24" width="34" height="34" focusable="false" aria-hidden="true"><path d="M9 4l8 8-8 8" /></svg>
+      </a>
+    </li>
+{%- endif %}
+  </ul>
+</nav>
+{%- endif -%}
+{%- endmacro -%}

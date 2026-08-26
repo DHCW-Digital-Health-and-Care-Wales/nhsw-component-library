@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} – NHSW Design System</title>
+  <link rel="stylesheet" href="{{ '/dist/nhsw.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
+</head>
+<body>
+  <header class="nhsw-site-header">
+    <div class="nhsw-site-header__container nhsw-site-header__container--centered">
+      <div class="nhsw-site-header__top">
+        <a class="nhsw-site-header__brand" href="{{ '/index.html' | relative_url }}">
+          <span class="nhsw-site-header__logo">
+            <img src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="NHS Wales Digital Health and Care Wales">
+          </span>
+          <span class="nhsw-site-header__title">Design system</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="nhsw-main-wrapper" id="maincontent">
+    <div class="nhsw-fluid-container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="nhsw-site-footer">
+    <div class="nhsw-site-footer__container">
+      <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+    </div>
+  </footer>
+
+  <script src="{{ '/dist/nhsw-behaviours.js' | relative_url }}"></script>
+  <script src="{{ '/assets/nhsw-docs.js' | relative_url }}"></script>
+</body>
+</html>

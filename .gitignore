@@ -1,0 +1,14 @@
+﻿node_modules/
+.DS_Store
+project-export.txt
+dist/*.map
+.vs/
+_site/
+.bundle/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+njk-preview/
+preview/_site_test/
+test-results/
+playwright-report/

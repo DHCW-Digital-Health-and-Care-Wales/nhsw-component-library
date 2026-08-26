@@ -1,0 +1,42 @@
+---
+layout: example
+title: Conditionally revealing checkboxes example
+---
+<div class="nhsw-form-group">
+  <fieldset class="nhsw-fieldset" aria-describedby="cb-contact2-hint">
+    <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+    <div class="nhsw-hint" id="cb-contact2-hint">Select all options that are relevant to you</div>
+    <div class="nhsw-checkboxes">
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="cb-contact2-1" name="cb-contact2" type="checkbox" value="email" data-aria-controls="conditional-cb2-1">
+        <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-1">Email</label>
+      </div>
+      <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1">
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="cb2-email">Email address</label>
+          <input class="nhsw-input" id="cb2-email" name="cb2-email" type="email">
+        </div>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="cb-contact2-2" name="cb-contact2" type="checkbox" value="phone" data-aria-controls="conditional-cb2-2">
+        <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-2">Phone</label>
+      </div>
+      <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2">
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="cb2-phone">Phone number</label>
+          <input class="nhsw-input" id="cb2-phone" name="cb2-phone" type="tel">
+        </div>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="cb-contact2-3" name="cb-contact2" type="checkbox" value="text" data-aria-controls="conditional-cb2-3">
+        <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-3">Text message</label>
+      </div>
+      <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3">
+        <div class="nhsw-form-group">
+          <label class="nhsw-label" for="cb2-mobile">Mobile phone number</label>
+          <input class="nhsw-input" id="cb2-mobile" name="cb2-mobile" type="tel">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

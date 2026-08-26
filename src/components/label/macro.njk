@@ -1,0 +1,15 @@
+{#
+  nhswLabel(params)
+
+  params:
+    text            string  - label text (used if html is not set)
+    html            string  - label HTML (takes precedence over text)
+    for             string  - id of the associated field
+    classes         string  - extra classes, e.g. "nhsw-label--xl" for page-question labels
+    isPageHeading   bool    - documents that this label is standing in for an <h1> (see input.njk
+                               examples) - does not change markup, matches the library's reference HTML
+    attributes      object  - extra HTML attributes, e.g. { "data-foo": "bar" }
+#}
+{%- macro nhswLabel(params) -%}
+<label class="nhsw-label{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.for %} for="{{ params.for }}"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</label>
+{%- endmacro -%}

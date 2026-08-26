@@ -1,0 +1,156 @@
+---
+layout: simple
+title: Back link — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Back link</h1>
+<p class="nhsw-body">Manual QA checklist for the back link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/back-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/back-link-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see back link used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/back-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Back link documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/back-link-default.html' | relative_url }}" target="_blank" rel="noopener">back-link-default.html</a>, <a class="nhsw-link" href="{{ '/examples/back-link-dark.html' | relative_url }}" target="_blank" rel="noopener">back-link-dark.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="back-link">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 11 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-1" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-1">Shows a "&lt;" arrow before the text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-1-hint">Given a back link. Then a "&lt;" arrow appears immediately before the word "Back".</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-2" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-2">Stays readable on a dark background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-2-hint">Given the dark-background variant of the back link. Then the text remains clearly visible against the dark background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <a class="nhsw-back-link nhsw-back-link--reverse" href="#">Back</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-3" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-3">Enough space around it that you don't tap the wrong thing (WCAG 2.2 SC 2.5.8)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-3-hint">Given a back link placed near other links or buttons. Then there is enough space that you can't easily tap the wrong one.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-4" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-4">"Back link as a button" performs an action, not a navigation</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-4-hint">Given the "back link as a button" variant. When it's activated. Then it performs an action (e.g. clears something) rather than loading a new page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <button type="button" class="nhsw-back-link nhsw-back-link--button">Back</button>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-5" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-5">Keyboard focus is clearly visible around the entire link (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-5-hint">Given a back link. When it receives keyboard focus (press Tab to reach it). Then a solid yellow focus highlight appears tightly around the arrow and text, with a dark underline beneath both — on light and dark backgrounds alike.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-6" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-6">Entire back link is one interactive target</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-6-hint">Given a back link containing an arrow and text. When a user clicks either the arrow or the text. Then the same navigation action is triggered — there's no gap between them where a click does nothing.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-7" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-7">Arrow and text remain aligned</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-7-hint">Given a back link. When it is displayed. Then the arrow and text are vertically aligned and read as a single action.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-8" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-8">Hover state is clear and consistent with other links</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-8-hint">Given a back link. When you hover over it with a mouse. Then both the arrow and the text change to a consistent darker colour, and the underline disappears — on light and dark backgrounds alike.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-9" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-9">Back link remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-9-hint">Given a back link on a narrow viewport. When the page is viewed on mobile. Then the link remains fully visible and usable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-10" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-10">Screen reader announces only the link text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-10-hint">Given a back link with a decorative arrow. When a screen reader announces the link. Then only the link text ("Back") is announced, with no extra description of the arrow.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="back-link-manual-11" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-11">Remains usable at 200% and 400% browser zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-11-hint">Given the back link example below. When the browser is zoomed to 200%, then 400%. Then the link stays fully readable and clickable, and does not overlap neighbouring content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-back-link" href="#">Back</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Takes you back to the previous page</strong> — the component only ships a styled <code>&lt;a&gt;</code> (or <code>&lt;button&gt;</code> for the "as a button" variant); there's no built-in "go back" behaviour. Whether it actually lands on the previous page depends entirely on the <code>href</code> (or JS) the consuming app wires up. In every fixture here it's <code>href="#"</code>, so this genuinely can't be demonstrated in isolation — check it in the real service instead.</li>
+        <li><strong>Previously entered answers are still there when you go back</strong> (WCAG 2.2 SC 3.3.7) — when a user goes back to a previous page, the service must pre-populate fields with what they already entered (unless the data's no longer valid, or restoring it would be unsafe). This depends on how the surrounding page/service manages form state — it can't be verified against the back link component alone.</li>
+  </ul>
+</div>

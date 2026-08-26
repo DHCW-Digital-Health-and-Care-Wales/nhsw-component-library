@@ -1,0 +1,28 @@
+{% comment %}
+  Usage:
+  {% capture html_sample %}{% raw %}
+    <a class="nhsw-action-link" href="/apply">...</a>
+  {% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}
+    {{ nhswActionLink({ text: "Action link", href: "/apply" }) }}
+  {% endraw %}{% endcapture %}
+  {% include code-viewer.html id="al-overview" html=html_sample njk=njk_sample %}
+  Pass toggleable=true when this code-viewer is paired with an example-preview
+  HTML-toggle button (adds id="code-{id}" and starts hidden); omit it for the
+  always-visible code-viewer used on "simple" component pages.
+{% endcomment %}
+<div class="nhsw-code-viewer"{% if include.toggleable %} id="code-{{ include.id }}"{% endif %} data-module="nhsw-code-viewer"{% if include.toggleable %} hidden{% endif %}>
+  <div class="nhsw-code-viewer__header">
+    <div class="nhsw-code-viewer__tabs" role="tablist">
+      <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" role="tab" aria-selected="true" aria-controls="cv-{{ include.id }}-html" id="cv-{{ include.id }}-html-tab">HTML</button>
+      <button class="nhsw-code-viewer__tab" role="tab" aria-selected="false" aria-controls="cv-{{ include.id }}-njk" id="cv-{{ include.id }}-njk-tab">Nunjucks</button>
+    </div>
+    <button class="nhsw-code-viewer__copy" aria-live="polite">Copy code</button>
+  </div>
+  <div class="nhsw-code-viewer__panel" id="cv-{{ include.id }}-html" role="tabpanel" aria-labelledby="cv-{{ include.id }}-html-tab">
+    <pre><code>{{ include.html | strip }}</code></pre>
+  </div>
+  <div class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden" id="cv-{{ include.id }}-njk" role="tabpanel" aria-labelledby="cv-{{ include.id }}-njk-tab">
+    <pre><code>{{ include.njk | strip }}</code></pre>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+- title: All components
+  url: /components/index.html
+- title: Action link
+  url: /actions/action-link.html
+- title: Back link
+  url: /actions/back-link.html
+- title: Breadcrumb
+  url: /actions/breadcrumb.html
+- title: Buttons
+  url: /components/buttons.html
+- title: Cards
+  url: /content/cards.html
+- title: Checkboxes
+  url: /forms/checkboxes.html
+- title: Date input
+  url: /forms/date-input.html
+- title: Details
+  url: /content/details.html
+- title: Error summary
+  url: /actions/error-summary.html
+- title: Expander
+  url: /actions/expander.html
+- title: File upload
+  url: /actions/file-upload.html
+- title: Filter
+  url: "#"
+- title: Footer
+  url: /site/footer.html
+- title: Header
+  url: /site/header.html
+- title: Inset text
+  url: /content/inset-text.html
+- title: Language switch
+  url: "#"
+- title: Notification banner
+  url: /callouts/notification-banner.html
+- title: Pagination
+  url: /content/pagination.html
+- title: Panel
+  url: /content/panel.html
+- title: Radios
+  url: /forms/radios.html
+- title: Search
+  url: "#"
+- title: Select
+  url: /forms/select.html
+- title: Site navigation
+  url: /site/site-navigation.html
+- title: Skip link
+  url: /actions/skip-link.html
+- title: Summary list
+  url: /content/summary-list.html
+- title: Table
+  url: /content/table.html
+- title: Tabs
+  url: /content/tabs.html
+- title: Tag
+  url: /content/tag.html
+- title: Textarea
+  url: /forms/textarea.html
+- title: Text input
+  url: /forms/input.html
+- title: Warning callouts
+  url: /callouts/warning-callout.html
+- title: Warning text
+  url: /callouts/warning-text.html

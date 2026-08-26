@@ -1,0 +1,328 @@
+---
+layout: simple
+title: Expander — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Expander</h1>
+<p class="nhsw-body">Manual QA checklist for the expander component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/expander.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/expander-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see expander used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/expander.html' | relative_url }}" target="_blank" rel="noopener">Open the Expander documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/expander-default.html' | relative_url }}" target="_blank" rel="noopener">expander-default.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="expander">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 14 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-1" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-1">Clicking the button opens and closes the section, with the icon flipping</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-1-hint">Given a closed expander. When the button is clicked. Then the section opens and the icon switches to its "open" state. And clicking again closes it and switches the icon back.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s1">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s1" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-2" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-2">Border and icon are easy to see against the background (WCAG 2.2 SC 1.4.11)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-2-hint">Given an expander. Then its border and toggle icon are clearly visible against the surrounding page.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s2">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s2" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-3" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-3">Works the same with keyboard only as with a mouse (WCAG 2.2 SC 2.1.1)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-3-hint">Given an expander button is focused via keyboard. When Enter or Space is pressed. Then it opens or closes exactly as a mouse click would.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s3">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s3" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-4" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-4">Screen reader announces whether it's open or closed (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-4-hint">Given a screen reader user activates an expander. Then the announced state (expanded/collapsed) matches what's actually shown on screen.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s4">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s4" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-5" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-5">Keyboard users can clearly see when the expander has focus (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-5-hint">Given an expander header. When it receives keyboard focus (press Tab to reach it). Then a clear yellow highlight appears tightly around the icon and text — not the whole box — and it looks the same whether focus was reached by keyboard or by clicking.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s5">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s5" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-6" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-6">Accessible name matches visible label</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-6-hint">Given an expander labelled "Digital consent". When a screen reader announces the control. Then the accessible name matches the visible heading text — e.g. visible text "Digital consent", screen reader "Digital consent, collapsed button".</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s6">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s6" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-7" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-7">Remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-7-hint">Given an expander. When browser zoom is increased to 200% or 400%. Then the control and its content remain readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s7">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s7" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-8" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-8">Multiple expanders work independently</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-8-hint">Given multiple expanders on a page. When one expander is opened. Then the other expanders remain unchanged.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-a-expander-s8">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-a-expander-s8" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-b-expander-s8">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Why we ask for this</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-b-expander-s8" hidden>
+                <p class="nhsw-body">We use this information to confirm your identity and keep your record up to date.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-9" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-9">Decorative icon is not announced by screen readers</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-9-hint">Given an expander with a decorative plus/minus icon. When a screen reader announces the control. Then only the expander label and expanded/collapsed state are announced — the icon carries <code>aria-hidden="true"</code>.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s9">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s9" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-10" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-10">Entire header acts as the toggle</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-10-hint">Given an expander. When the user selects anywhere within the header area (not just the icon). Then the section opens or closes — users often click the text rather than the icon, so it's worth checking both.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s10">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s10" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-11" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-11">Expanded content is hidden when collapsed</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-11-hint">Given a collapsed expander. When the page is viewed or navigated with assistive technology. Then the hidden content is not presented until the expander is opened (via the <code>hidden</code> attribute on the content panel).</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s11">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s11" hidden>
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-12" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-12">Content remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-12-hint">Given an expander containing content. When viewed on a narrow viewport. Then the content remains readable without horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="true" aria-controls="expander-consent-expander-s12">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Digital consent</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s12">
+                <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-13" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-13-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-13">Long titles wrap correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-13-hint">Given an expander with a long heading. When displayed on a small screen. Then the heading wraps without overlapping the icon or breaking the layout.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-expander">
+              <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s13">
+                <span class="nhsw-expander__heading">
+                  <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                  <span class="nhsw-expander__link-text">Why we ask you to confirm your identity before sharing digital health records</span>
+                </span>
+              </button>
+              <div class="nhsw-expander__content" id="expander-consent-expander-s13" hidden>
+                <p class="nhsw-body">We use this information to confirm your identity and keep your record up to date.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="expander-manual-14" name="expander-manual-tests" type="checkbox" aria-describedby="expander-manual-14-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="expander-manual-14">Stays readable on a dark background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="expander-manual-14-hint">Given the dark-background variant of the expander. Then the border, icon and text remain clearly visible against the dark background, and focus still shows a solid yellow highlight with black text and icon.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <div class="nhsw-expander nhsw-expander--reverse">
+                <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent-expander-s14">
+                  <span class="nhsw-expander__heading">
+                    <span class="nhsw-expander__icon" aria-hidden="true"></span>
+                    <span class="nhsw-expander__link-text">Digital consent</span>
+                  </span>
+                </button>
+                <div class="nhsw-expander__content" id="expander-consent-expander-s14" hidden>
+                  <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

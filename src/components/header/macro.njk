@@ -1,0 +1,68 @@
+{%- from "site-navigation/macro.njk" import nhswSiteNavigation -%}
+
+{#
+  nhswHeader(params)
+
+  params:
+    serviceName    string   - required, the title text shown next to the logo
+    serviceUrl     string   - href for the brand link, defaults to "/"
+    search         boolean  - whether to show the search form, defaults to true
+    searchInputId  string   - id for the search input, defaults to "site-search"
+    logoSrc        string   - defaults to "/assets/nhsw-logo.svg"
+    logoAlt        string   - defaults to "Digital Health and Care Wales"
+    nav            object   - { items, ariaLabel, classes, attributes } - if set, renders
+                               nhswSiteNavigation immediately after the header, equivalent
+                               to calling nhswSiteNavigation yourself directly afterwards.
+                               Omit and call nhswSiteNavigation separately if you need it
+                               placed anywhere non-standard.
+    hero           object   - { title, html, text, action: { text, href }, centered }
+                               renders the full-width hero band as a sibling
+                               after the header (and after nav, if set). html/text is the
+                               hero body (html takes precedence); action renders a
+                               secondary inline button/link; centered adds
+                               nhsw-site-header__container--centered on the
+                               hero's own container.
+    classes        string   - extra classes
+    attributes     object   - extra HTML attributes
+#}
+{%- macro nhswHeader(params) -%}
+{%- set search = params.search if params.search is defined else true -%}
+{%- set searchInputId = params.searchInputId or "site-search" -%}
+<header class="nhsw-site-header{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-site-header__container">
+    <div class="nhsw-site-header__top">
+      <a class="nhsw-site-header__brand" href="{{ params.serviceUrl or '/' }}">
+        <span class="nhsw-site-header__logo">
+          <img src="{{ params.logoSrc or '/assets/nhsw-logo.svg' }}" alt="{{ params.logoAlt or 'Digital Health and Care Wales' }}">
+        </span>
+        <span class="nhsw-site-header__title">{{ params.serviceName }}</span>
+      </a>
+{%- if search %}
+      <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+        <label class="nhsw-visually-hidden" for="{{ searchInputId }}">Search</label>
+        <input id="{{ searchInputId }}" class="nhsw-site-header__search-input" type="search" placeholder="Search">
+        <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
+      </form>
+{%- endif %}
+    </div>
+  </div>
+</header>
+{%- if params.nav %}
+{{ nhswSiteNavigation({ items: params.nav.items, ariaLabel: params.nav.ariaLabel, classes: params.nav.classes, attributes: params.nav.attributes }) }}
+{%- endif %}
+{%- if params.hero %}
+<div class="nhsw-site-header__hero-band">
+  <div class="nhsw-site-header__container{% if params.hero.centered %} nhsw-site-header__container--centered{% endif %}">
+    <div class="nhsw-site-header__hero">
+      <h1 class="nhsw-site-header__hero-title">{{ params.hero.title }}</h1>
+{%- if params.hero.html or params.hero.text %}
+      <p class="nhsw-site-header__hero-text">{{ params.hero.html | safe if params.hero.html else params.hero.text }}</p>
+{%- endif %}
+{%- if params.hero.action %}
+      <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ params.hero.action.href }}">{{ params.hero.action.text }}</a>
+{%- endif %}
+    </div>
+  </div>
+</div>
+{%- endif %}
+{%- endmacro -%}

@@ -1,0 +1,517 @@
+---
+layout: component
+title: Summary list
+container: fluid
+updated: March 2026
+intro: Use the summary list to summarise information, for example, a user's responses at the end of a form.
+tabs:
+  - id: how-to-use
+    label: "How to use"
+  - id: variants
+    label: "Variants"
+  - id: examples
+    label: "Examples"
+---
+
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-summary-card">
+      <div class="nhsw-summary-card__header">
+        <h2 class="nhsw-h3 nhsw-summary-card__title">Karen Francis</h2>
+        <ul class="nhsw-summary-card__actions">
+          <li><a class="nhsw-link" href="#">Cancel</a></li>
+          <li><a class="nhsw-link" href="#">Reschedule</a></li>
+        </ul>
+      </div>
+      <div class="nhsw-summary-card__body">
+        <dl class="nhsw-summary-list">
+          <div class="nhsw-summary-list__row">
+            <dt class="nhsw-summary-list__key">Name</dt>
+            <dd class="nhsw-summary-list__value">Karen Francis</dd>
+            <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> name</span></a></dd>
+          </div>
+          <div class="nhsw-summary-list__row">
+            <dt class="nhsw-summary-list__key">Appointment date</dt>
+            <dd class="nhsw-summary-list__value">15 March 2027</dd>
+            <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> appointment date</span></a></dd>
+          </div>
+          <div class="nhsw-summary-list__row">
+            <dt class="nhsw-summary-list__key">Contact details</dt>
+            <dd class="nhsw-summary-list__value">
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            </dd>
+            <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> contact details</span></a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="sl-overview" open_url="/examples/summary-card-actions.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;dl class="nhsw-summary-list"&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;Karen Francis&lt;/dd&gt;
+    &lt;dd class="nhsw-summary-list__actions"&gt;
+      &lt;a class="nhsw-link" href="/change-name"&gt;Change&lt;span class="nhsw-visually-hidden"&gt; name&lt;/span&gt;&lt;/a&gt;
+    &lt;/dd&gt;
+  &lt;/div&gt;
+&lt;/dl&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "summary-list/macro.njk" import nhswSummaryList %}
+
+{{ nhswSummaryList({
+  rows: [
+    {
+      key: { text: "Name" },
+      value: { text: "Karen Francis" },
+      actions: { items: [ { href: "/change-name", text: "Change", visuallyHiddenText: "name" } ] }
+    }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="sl-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">When to use summary lists</h2>
+  <p class="nhsw-body">Use a summary list to present key information in a clear, easy-to-scan format. Summary lists are often used to help users review information before taking an action, such as submitting a form.</p>
+
+  <h2 class="nhsw-h2">When not to use summary lists</h2>
+  <p class="nhsw-body">The summary list uses the description list <code>&lt;dl&gt;</code> HTML element, so only use it to present information that has a key and at least 1 value.</p>
+  <p class="nhsw-body">Do not use it for tabular data or a simple list of information or tasks, like a task list page. For those, use a <code>&lt;table&gt;</code>, <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. Read more about the <a class="nhsw-link" href="#">Complete multiple tasks pattern in the NHS England Design System</a>.</p>
+
+  <h2 class="nhsw-h2">How to use summary lists</h2>
+  <p class="nhsw-body">Use the summary list component to present pairs of related information, known as key-value pairs, in a list, where:</p>
+  <ul class="nhsw-body">
+    <li>the key is a label, like "Name"</li>
+    <li>the value is the piece of information itself, like "John Smith"</li>
+  </ul>
+  <p class="nhsw-body">Summary lists help users review information quickly and can be used alongside other components and patterns, such as the <a class="nhsw-link" href="#">Check answers pattern from the NHS England Design System</a>, to give users confidence and control before they continue.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <p class="nhsw-body">Make sure any "Change" or other action links are at least 24px by 24px in size, or have adequate spacing. This is to make sure users can easily interact with the links. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.8 Target Size, level AA</a>.</p>
+
+  <p class="nhsw-body">When users go back to a previous answer through a link, pre-populate any information they have already entered.</p>
+  <p class="nhsw-body">Do not pre-populate information that is no longer valid, or where doing so would create a safety or security risk. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.7 Redundant Entry, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Summary lists in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Summary lists on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Summary list variants</h2>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Summary card with actions</h3>
+    <p class="nhsw-body">You can add actions to a summary list, like a "Change" link to let users go back and edit their answer.</p>
+    <p class="nhsw-body">People who use assistive technology, like a screen reader, may hear the links out of context and not know what they do. To give more context, add visually hidden text to the links. This means a screen reader user will hear a meaningful action, like "Change name" or "Change date of birth".</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-summary-card">
+        <div class="nhsw-summary-card__header">
+          <h2 class="nhsw-h3 nhsw-summary-card__title">Karen Francis</h2>
+          <ul class="nhsw-summary-card__actions">
+            <li><a class="nhsw-link" href="#">Cancel</a></li>
+            <li><a class="nhsw-link" href="#">Reschedule</a></li>
+          </ul>
+        </div>
+        <div class="nhsw-summary-card__body">
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Name</dt>
+              <dd class="nhsw-summary-list__value">Karen Francis</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Appointment date</dt>
+              <dd class="nhsw-summary-list__value">15 March 2027</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Contact details</dt>
+              <dd class="nhsw-summary-list__value"><p>07700 900362</p><p>karen.francis@example.com</p></dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sl-card-actions" open_url="/examples/summary-card-actions.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Karen Francis&lt;/h2&gt;
+    &lt;ul class="nhsw-summary-card__actions"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/cancel"&gt;Cancel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/reschedule"&gt;Reschedule&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Karen Francis&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="/change-name"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Appointment date&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;15 March 2027&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="/change-date"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Contact details&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="/change-contact-details"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "summary-card/macro.njk" import nhswSummaryCard %}
+
+{{ nhswSummaryCard({
+  title: "Karen Francis",
+  actions: [ { text: "Cancel", href: "/cancel" }, { text: "Reschedule", href: "/reschedule" } ],
+  rows: [
+    {
+      key: { text: "Name" },
+      value: { text: "Karen Francis" },
+      actions: { items: [ { text: "Change", href: "/change-name" } ] }
+    },
+    {
+      key: { text: "Appointment date" },
+      value: { text: "15 March 2027" },
+      actions: { items: [ { text: "Change", href: "/change-date" } ] }
+    },
+    {
+      key: { text: "Contact details" },
+      value: { html: "&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;" },
+      actions: { items: [ { text: "Change", href: "/change-contact-details" } ] }
+    }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sl-card-actions" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Summary list without actions</h3>
+    <p class="nhsw-body">You can add actions to a summary list, like a "Change" link to let users go back and edit their answer.</p>
+    <p class="nhsw-body">People who use assistive technology, like a screen reader, may hear the links out of context and not know what they do. To give more context, add visually hidden text to the links. This means a screen reader user will hear a meaningful action, like "Change name" or "Change date of birth".</p>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-summary-card">
+        <div class="nhsw-summary-card__header">
+          <h2 class="nhsw-h3 nhsw-summary-card__title">Summary card header</h2>
+          <ul class="nhsw-summary-card__actions">
+            <li><a class="nhsw-link" href="#">Text link</a></li>
+            <li><a class="nhsw-link" href="#">Text link</a></li>
+          </ul>
+        </div>
+        <div class="nhsw-summary-card__body">
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Change</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sl-no-actions" open_url="/examples/summary-card-no-actions.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Summary card header&lt;/h2&gt;
+    &lt;ul class="nhsw-summary-card__actions"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Change&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSummaryCard({
+  title: "Summary card header",
+  actions: [ { text: "Text link", href: "#" }, { text: "Text link", href: "#" } ],
+  rows: [
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } },
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } },
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } },
+    { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Change", href: "#" } ] } }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sl-no-actions" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Summary list without actions or borders</h3>
+    <p class="nhsw-body">The borderless summary list may be helpful when your summary list does not include actions and the borders do not add value to the content.</p>
+
+    {% capture example_body %}{% raw %}
+      <dl class="nhsw-summary-list nhsw-summary-list--no-border">
+        <div class="nhsw-summary-list__row">
+          <dt class="nhsw-summary-list__key">Name</dt>
+          <dd class="nhsw-summary-list__value">Karen Francis</dd>
+        </div>
+        <div class="nhsw-summary-list__row">
+          <dt class="nhsw-summary-list__key">Date of birth</dt>
+          <dd class="nhsw-summary-list__value">15 March 1984</dd>
+        </div>
+        <div class="nhsw-summary-list__row">
+          <dt class="nhsw-summary-list__key">Contact information</dt>
+          <dd class="nhsw-summary-list__value"><p>73 Roman Rd</p><p>Leeds</p><p>LS2 5ZN</p></dd>
+        </div>
+        <div class="nhsw-summary-list__row">
+          <dt class="nhsw-summary-list__key">Contact details</dt>
+          <dd class="nhsw-summary-list__value"><p>07700 900362</p><p>karen.francis@example.com</p></dd>
+        </div>
+      </dl>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sl-no-border" open_url="/examples/summary-list-no-border.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;dl class="nhsw-summary-list nhsw-summary-list--no-border"&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;Karen Francis&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Date of birth&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;15 March 1984&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Contact information&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;73 Roman Rd&lt;/p&gt;&lt;p&gt;Leeds&lt;/p&gt;&lt;p&gt;LS2 5ZN&lt;/p&gt;&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-list__row"&gt;
+    &lt;dt class="nhsw-summary-list__key"&gt;Contact details&lt;/dt&gt;
+    &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;&lt;/dd&gt;
+  &lt;/div&gt;
+&lt;/dl&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSummaryList({
+  classes: "nhsw-summary-list--no-border",
+  rows: [
+    { key: { text: "Name" }, value: { text: "Karen Francis" } },
+    { key: { text: "Date of birth" }, value: { text: "15 March 1984" } },
+    { key: { text: "Contact information" }, value: { html: "&lt;p&gt;73 Roman Rd&lt;/p&gt;&lt;p&gt;Leeds&lt;/p&gt;&lt;p&gt;LS2 5ZN&lt;/p&gt;" } },
+    { key: { text: "Contact details" }, value: { html: "&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;karen.francis@example.com&lt;/p&gt;" } }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sl-no-border" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Summary cards</h3>
+
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-summary-card">
+        <div class="nhsw-summary-card__header">
+          <h2 class="nhsw-h3 nhsw-summary-card__title">Summary card header</h2>
+        </div>
+        <p class="nhsw-summary-card__subheader nhsw-body"><strong>Sub header</strong></p>
+        <div class="nhsw-summary-card__body">
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+            </div>
+          </dl>
+        </div>
+        <p class="nhsw-summary-card__subheader nhsw-body"><strong>Sub header</strong></p>
+        <div class="nhsw-summary-card__body">
+          <dl class="nhsw-summary-list">
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+            </div>
+            <div class="nhsw-summary-list__row">
+              <dt class="nhsw-summary-list__key">Key</dt>
+              <dd class="nhsw-summary-list__value">Details</dd>
+              <dd class="nhsw-summary-list__actions"><a class="nhsw-link" href="#">Text link</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sl-cards" open_url="/examples/summary-cards-grouped.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Summary card header&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;p class="nhsw-summary-card__subheader nhsw-body"&gt;&lt;strong&gt;Sub header&lt;/strong&gt;&lt;/p&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+  &lt;p class="nhsw-summary-card__subheader nhsw-body"&gt;&lt;strong&gt;Sub header&lt;/strong&gt;&lt;/p&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Key&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Details&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;&lt;a class="nhsw-link" href="#"&gt;Text link&lt;/a&gt;&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSummaryCard({
+  title: "Summary card header",
+  sections: [
+    {
+      subheading: "Sub header",
+      rows: [
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } },
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } }
+      ]
+    },
+    {
+      subheading: "Sub header",
+      rows: [
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } },
+        { key: { text: "Key" }, value: { text: "Details" }, actions: { items: [ { text: "Text link", href: "#" } ] } }
+      ]
+    }
+  ]
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sl-cards" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">If you're showing multiple summary lists on a page, you can show each list within a summary card. This lets you visually separate each summary list and give each a title and some actions.</p>
+    <p class="nhsw-body">Use summary cards when you need to show:</p>
+    <ul class="nhsw-body">
+      <li>multiple summary lists that all describe the same type of thing, such as people</li>
+      <li>actions that will apply to all the items in a list</li>
+    </ul>
+    <p class="nhsw-body">Summary cards are often used in case working systems to help users quickly view a set of information and related actions.</p>
+    <p class="nhsw-body">Do not use summary cards if you only need to show a small amount of related information. Use summary lists instead and structure them with headings if needed.</p>
+    <p class="nhsw-body">If you're showing summary cards at the end of a longer journey, you might want to familiarise the user with them earlier on, such as when the user reviews individual sections.</p>
+
+    <h4 class="nhsw-h4">Card titles</h4>
+    <p class="nhsw-body">Use the summary card's header area to give each summary list a title.</p>
+    <p class="nhsw-body">Each title must be unique and help identify what the summary list describes. For example, this could be the name of a specific person, organisation or professional qualification.</p>
+    <p class="nhsw-body">Try to keep titles short and relevant. You can use 1 or 2 important values in the summary list, such as the first and last name of a person.</p>
+
+    <h4 class="nhsw-h4">Card actions</h4>
+    <p class="nhsw-body">You can add card actions in the header, which will be shown after the summary card's title.</p>
+    <p class="nhsw-body">For example, if you have multiple rows with "change" actions that all take the user to the same place, you can show a single "change" card action instead. This helps avoid repeating the same row action on every row.</p>
+    <p class="nhsw-body">Card actions are shown in bold text to make them visually distinct from row actions. They help alert the user that the card action will affect the entire summary card.</p>
+    <p class="nhsw-body">Write link text for card actions to tell the user what it will do and that it will apply to the entire summary card. It should also be as short as possible, usually 2 words.</p>
+    <p class="nhsw-body">Example card actions include:</p>
+    <ul class="nhsw-body">
+      <li>Remove appointment</li>
+      <li>Edit appointment</li>
+      <li>Update issue</li>
+      <li>Approve application</li>
+      <li>Cancel order</li>
+    </ul>
+    <p class="nhsw-body">Keep it short and do not add more than 2 to 3 actions in a header.</p>
+    <p class="nhsw-body">If a card action cannot easily be undone or might have serious consequences, consider adding a warning or asking the user for confirmation.</p>
+
+    <h4 class="nhsw-h4">Showing missing information</h4>
+    <p class="nhsw-body">In some contexts, you might need to show rows that have missing information. This can happen when:</p>
+    <ul class="nhsw-body">
+      <li>a user returns to an incomplete journey</li>
+      <li>you've added or changed the questions in a service</li>
+    </ul>
+    <p class="nhsw-body">Show a link to the appropriate question page in the <code>value</code> column so the user can enter the missing information, instead of showing a "change" link on that row.</p>
+  </section>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">How to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
+  <p class="nhsw-body">This example shows a "Check and confirm" page from the public-facing section of the School-age Immunisations service within WIS where a parent or guardian is completing a vaccination consent form. It uses a series of summary lists to organise complex user responses clearly.</p>
+  {% include screenshot-placeholder.html text="Check and confirm page with summary cards for consent and child details" %}
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows a "Consultation summary" screen within the clinical workflow of the Choose Pharmacy service. It demonstrates a comprehensive summary list used by clinicians to review all collected patient and clinical data before finalising the record.</p>
+  {% include screenshot-placeholder.html text="Consultation summary screen with multiple summary list sections" %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>

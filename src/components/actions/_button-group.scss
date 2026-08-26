@@ -1,0 +1,13 @@
+.nhsw-button-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  .nhsw-button {
+    width: auto;
+    margin: 0;
+  }
+}

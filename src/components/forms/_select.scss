@@ -1,0 +1,55 @@
+@use "../../tokens/colours" as c;
+@use "../../foundations/input-base" as base;
+
+$nhsw-select-min-width: 12rem;
+$nhsw-select-icon-width: 10px;
+$nhsw-select-icon-height: 16px;
+$nhsw-select-icon-offset: 8px;
+$nhsw-select-padding-y: 6px;
+$nhsw-select-padding-left: 8px;
+$nhsw-select-padding-right: 32px;
+
+$nhsw-select-widths: (
+  "xs": 4rem,
+  "s": 8rem,
+  "m": 12rem,
+  "l": 16rem,
+  "xl": 24rem
+);
+
+@mixin nhsw-select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='16' viewBox='0 0 10 16'%3E%3Cpath fill='%23212B32' d='M5 2L1 6h8L5 2zM5 14l4-4H1l4 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $nhsw-select-icon-offset center;
+  background-size: $nhsw-select-icon-width $nhsw-select-icon-height;
+}
+
+.nhsw-select {
+  @include base.nhsw-input-base;
+  @include nhsw-select-arrow;
+
+  width: auto;
+  min-width: $nhsw-select-min-width;
+  max-width: 100%;
+  padding: $nhsw-select-padding-y $nhsw-select-padding-right $nhsw-select-padding-y $nhsw-select-padding-left;
+  cursor: pointer;
+
+  &--full {
+    width: 100%;
+  }
+
+  @each $name, $width in $nhsw-select-widths {
+    &--#{$name} {
+      min-width: $width;
+    }
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}

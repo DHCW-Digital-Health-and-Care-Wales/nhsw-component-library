@@ -1,0 +1,137 @@
+---
+layout: component
+title: Expander
+container: fluid
+updated: March 2026
+intro: Use an expander to let users reveal detailed information only when they need it.
+tabs:
+  - id: how-to-use
+    label: "How to use"
+  - id: variants
+    label: "Variants"
+  - id: examples
+    label: "Examples"
+---
+
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-expander">
+      <button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-overview-content">
+        <span class="nhsw-expander__heading">
+          <span class="nhsw-expander__icon" aria-hidden="true"></span>
+          <span class="nhsw-expander__link-text">Digital consent</span>
+        </span>
+      </button>
+      <div class="nhsw-expander__content" id="expander-overview-content" hidden>
+        <p class="nhsw-body">Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.</p>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="ex-overview" open_url="/examples/expander-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-expander"&gt;
+  &lt;button type="button" class="nhsw-expander__button" aria-expanded="false" aria-controls="expander-consent"&gt;
+    &lt;span class="nhsw-expander__heading"&gt;
+      &lt;span class="nhsw-expander__icon" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="nhsw-expander__link-text"&gt;Digital consent&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="nhsw-expander__content" id="expander-consent" hidden&gt;
+    &lt;p class="nhsw-body"&gt;Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "expander/macro.njk" import nhswExpander %}
+
+{{ nhswExpander({
+  linkText: "Digital consent",
+  html: "&lt;p class=\"nhsw-body\"&gt;Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.&lt;/p&gt;"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="ex-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">When to use expanders</h2>
+  <p class="nhsw-body">The expander is a short link in a box that expands into more detailed text when a user clicks on it. It can help to make complex information easier to understand by allowing users to reveal additional details when they need it.</p>
+  <p class="nhsw-body">There are 2 ways to let users reveal more information:</p>
+  <ul class="nhsw-body">
+    <li><a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}">details</a></li>
+    <li>expander</li>
+  </ul>
+  <p class="nhsw-body">You can use expanders:</p>
+  <ul class="nhsw-body">
+    <li>on pages where users find the amount of information overwhelming, as they help to break down information into bite size pieces which the user can "expand" when they're ready to do so</li>
+    <li>for information for a wide audience, unlike the details component</li>
+    <li>when you see a clear user need for them</li>
+  </ul>
+  <p class="nhsw-body">Test your content without an expander first. It may be better to:</p>
+  <ul class="nhsw-body">
+    <li>simplify and reduce the amount of content</li>
+    <li>split the content across multiple pages</li>
+    <li>keep the content on a single page, separated by headings</li>
+    <li>use a list of links to let users navigate quickly to specific sections of content</li>
+  </ul>
+
+  <h2 class="nhsw-h2">When not to use expanders</h2>
+  <p class="nhsw-body">Do not use an expander:</p>
+  <ul class="nhsw-body">
+    <li>if only some of your users will need the information – use <a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}">details</a> instead</li>
+    <li>in forms – instead, add hint text as a part of other form inputs, such as <a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}">text inputs</a>, <a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}">radios</a> and <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a> or use details</li>
+    <li>on pages with other interactive elements, such as <a class="nhsw-link" href="{{ '/components/buttons.html' | relative_url }}">buttons</a> or <a class="nhsw-link" href="{{ '/forms/input.html' | relative_url }}">text input</a> – there's a risk that expanders will distract users</li>
+    <li>inside other patterns, for example to <a class="nhsw-link" href="#">help users decide when and where to get care (care cards)</a></li>
+  </ul>
+
+  <h2 class="nhsw-h2">How to use expanders</h2>
+  <p class="nhsw-body">Make the link text short and descriptive so users can quickly work out if they need to click on it.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+
+  <p class="nhsw-body">The box border outline and the plus/minus toggle icon must have a contrast ratio of at least 3:1 against their background to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11 Non-Text Contrast, level AA</a>.</p>
+
+  <p class="nhsw-body">Make sure assistive technologies accurately announce whether the information panel is open or closed. The toggle button element must dynamically manage state using appropriate structural attributes, such as aria-expanded, to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value, level A</a>.</p>
+
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Expanders in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Expanders on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Expander variants</h2>
+  <p class="nhsw-body">There are no variants available for this component.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">How to use</span>
+    </a>
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
+      Next &rarr;<br>
+      <span class="nhsw-body-s">Examples</span>
+    </a>
+  </div>
+</div>
+
+<!-- Examples -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
+  <h2 class="nhsw-h2">Examples</h2>
+
+  <h3 class="nhsw-h3">Choose Pharmacy</h3>
+  <p class="nhsw-body">This example shows the "Medications" view within a patient's Welsh GP Record in the Choose Pharmacy service. It uses expanders under the "Records" section to organise complex medical history into collapsible categories.</p>
+  {% include screenshot-placeholder.html text="Medications view with Acute, Repeat and Discontinued expanders" %}
+
+  <div class="nhsw-tabs__pagination">
+    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
+      &larr; Previous<br>
+      <span class="nhsw-body-s">Variants</span>
+    </a>
+  </div>
+</div>

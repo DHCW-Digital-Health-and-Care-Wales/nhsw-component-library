@@ -1,0 +1,250 @@
+@use "../../tokens/colours" as c;
+@use "../../utilities/breakpoints" as b;
+
+.nhsw-pagination {
+  border-top: 1px solid c.$nhsw-colour-border-grey;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 8px;
+
+  @include b.nhsw-from-tablet {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &::after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+  }
+}
+
+.nhsw-pagination-item--previous {
+  float: left;
+  text-align: left;
+  width: 50%;
+
+  .nhsw-icon {
+    left: -6px;
+  }
+
+  .nhsw-pagination__title {
+    padding-left: 32px;
+  }
+}
+
+.nhsw-pagination-item--next {
+  float: right;
+  text-align: right;
+  width: 50%;
+
+  .nhsw-icon {
+    right: -6px;
+  }
+
+  .nhsw-pagination__title {
+    padding-right: 32px;
+  }
+}
+
+.nhsw-pagination__link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  color: c.$nhsw-colour-link;
+
+  .nhsw-icon {
+    position: absolute;
+    top: -2px;
+    height: 34px;
+    width: 34px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    color: #7c2855;
+
+    .nhsw-icon {
+      fill: #7c2855;
+    }
+
+    .nhsw-pagination__page {
+      text-decoration: none;
+    }
+  }
+
+  &:focus {
+    background-color: c.$nhsw-colour-focus;
+    box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
+    color: c.$nhsw-colour-text-primary;
+    outline: 4px solid transparent;
+    text-decoration: none;
+
+    .nhsw-pagination__page {
+      text-decoration: none;
+    }
+
+    .nhsw-icon {
+      fill: c.$nhsw-colour-text-primary;
+    }
+  }
+
+  &:visited .nhsw-icon {
+    fill: c.$nhsw-colour-link-visited;
+  }
+
+  &:visited:hover .nhsw-icon {
+    fill: #7c2855;
+  }
+
+  &:visited:focus .nhsw-icon {
+    fill: c.$nhsw-colour-text-primary;
+  }
+}
+
+.nhsw-pagination__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  display: block;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.5rem;
+    line-height: 1.33333;
+  }
+}
+
+.nhsw-pagination__page {
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  display: block;
+  text-decoration: underline;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.nhsw-pagination--numbered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  @include b.nhsw-from-tablet {
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+  }
+
+  .nhsw-pagination__previous,
+  .nhsw-pagination__next {
+    display: inline-flex;
+    align-items: center;
+    min-height: 45px;
+    padding: 8px 12px;
+    color: c.$nhsw-colour-link;
+    font-weight: 700;
+    text-decoration: underline;
+
+    &:hover {
+      background-color: c.$nhsw-colour-background-grey;
+      color: #7c2855;
+      text-decoration: none;
+    }
+
+    &:focus {
+      background-color: c.$nhsw-colour-focus;
+      box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
+      color: c.$nhsw-colour-text-primary;
+      outline: 4px solid transparent;
+    }
+  }
+
+  .nhsw-pagination__icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .nhsw-pagination__previous .nhsw-pagination__icon {
+    margin-right: 8px;
+  }
+
+  .nhsw-pagination__next .nhsw-pagination__icon {
+    margin-left: 8px;
+  }
+
+  .nhsw-pagination__list {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .nhsw-pagination__item {
+    display: block;
+  }
+
+  .nhsw-pagination__item--ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    min-height: 45px;
+    padding: 8px 4px;
+    color: c.$nhsw-colour-text-secondary;
+  }
+
+  .nhsw-pagination__number-link {
+    display: block;
+    min-width: 45px;
+    min-height: 45px;
+    padding: 10px 8px;
+    box-sizing: border-box;
+    color: c.$nhsw-colour-link;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: underline;
+
+    &:hover {
+      background-color: c.$nhsw-colour-background-grey;
+      color: #7c2855;
+      text-decoration: none;
+    }
+
+    &:focus {
+      background-color: c.$nhsw-colour-focus;
+      box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
+      color: c.$nhsw-colour-text-primary;
+      outline: 4px solid transparent;
+    }
+  }
+
+  .nhsw-pagination__item--current .nhsw-pagination__number-link {
+    background-color: c.$nhsw-colour-link;
+    color: c.$nhsw-colour-text-exceptional;
+    font-weight: 700;
+
+    &:hover {
+      background-color: c.$nhsw-colour-link;
+      color: c.$nhsw-colour-text-exceptional;
+    }
+  }
+}

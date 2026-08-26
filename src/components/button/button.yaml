@@ -1,0 +1,97 @@
+name: Button
+macro: nhswButton
+description: >
+  A button for actions that take users forward through a service, like
+  submitting a form. Also exports nhswButtonGroup for laying out 2+ buttons
+  together.
+params:
+  - name: text
+    type: string
+    required: false
+    description: Button text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Button HTML. Takes precedence over text.
+  - name: href
+    type: string
+    required: false
+    description: If set, renders an <a role="button"> instead of a <button>.
+  - name: as
+    type: string
+    required: false
+    description: >
+      "label" renders a <label> instead (styled identically), for pairing
+      with a hidden native control such as a file input. Takes precedence
+      over href. Ignores type/name/value/disabled.
+  - name: for
+    type: string
+    required: false
+    description: id of the associated control (label variant only, required then).
+  - name: type
+    type: string
+    required: false
+    description: Button type attribute. Defaults to "button".
+  - name: name
+    type: string
+    required: false
+    description: name attribute (button only).
+  - name: value
+    type: string
+    required: false
+    description: value attribute (button only).
+  - name: disabled
+    type: boolean
+    required: false
+    description: Adds disabled and aria-disabled="true" (button only).
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Extra classes. Common modifiers: nhsw-button--primary, --outline,
+      --secondary, --warning, --warning-outline, --exceptional, --link,
+      --small, --reverse.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: primary
+    data:
+      text: "Save and continue"
+      classes: "nhsw-button--primary"
+  - name: secondary
+    data:
+      text: "Continue"
+      classes: "nhsw-button--outline"
+  - name: exceptional
+    data:
+      text: "Exception desktop"
+      classes: "nhsw-button--exceptional"
+  - name: warning
+    data:
+      text: "Archive record"
+      classes: "nhsw-button--warning"
+  - name: warning-outline
+    data:
+      text: "Delete"
+      classes: "nhsw-button--warning-outline nhsw-button--small"
+  - name: small
+    data:
+      text: "Update results"
+      classes: "nhsw-button--primary nhsw-button--small"
+  - name: link-styled-reverse
+    data:
+      text: "Cancel"
+      classes: "nhsw-button--link nhsw-button--reverse"
+  - name: disabled
+    data:
+      text: "Save and continue"
+      classes: "nhsw-button--primary"
+      disabled: true
+  - name: as-label
+    data:
+      text: "Choose file"
+      as: "label"
+      for: "file-input-example"
+      classes: "nhsw-button--secondary nhsw-button--inline"

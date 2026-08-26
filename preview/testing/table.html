@@ -1,0 +1,372 @@
+---
+layout: simple
+title: Table — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Table</h1>
+<p class="nhsw-body">Manual QA checklist for the table component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/table.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/table-basic.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see table used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/table.html' | relative_url }}" target="_blank" rel="noopener">Open the Table documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/table-basic.html' | relative_url }}" target="_blank" rel="noopener">table-basic.html</a>, <a class="nhsw-link" href="{{ '/examples/table-caption.html' | relative_url }}" target="_blank" rel="noopener">table-caption.html</a>, <a class="nhsw-link" href="{{ '/examples/table-numeric.html' | relative_url }}" target="_blank" rel="noopener">table-numeric.html</a>, <a class="nhsw-link" href="{{ '/examples/table-missing-data.html' | relative_url }}" target="_blank" rel="noopener">table-missing-data.html</a>, <a class="nhsw-link" href="{{ '/examples/table-session-row.html' | relative_url }}" target="_blank" rel="noopener">table-session-row.html</a>, <a class="nhsw-link" href="{{ '/examples/table-session-row-location.html' | relative_url }}" target="_blank" rel="noopener">table-session-row-location.html</a>, <a class="nhsw-link" href="{{ '/examples/table-responsive.html' | relative_url }}" target="_blank" rel="noopener">table-responsive.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="table">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 11 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-1" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-1">Every table has a visible caption</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-1-hint">Given any table variant. Then it has a caption describing what the table is for.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table">
+              <caption class="nhsw-table__caption nhsw-table__caption--l">Months and rates</caption>
+              <thead class="nhsw-table__head">
+                <tr class="nhsw-table__row">
+                  <th scope="col" class="nhsw-table__header">Month you apply</th>
+                  <th scope="col" class="nhsw-table__header">Rate for vehicles</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body">
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">January</th>
+                  <td class="nhsw-table__cell">&pound;95</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">February</th>
+                  <td class="nhsw-table__cell">&pound;55</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">March</th>
+                  <td class="nhsw-table__cell">&pound;125</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-2" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-2">Column/row headers are correctly linked to their data</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-2-hint">Given a table with row and/or column headers. When a screen reader reads a data cell. Then the correct header is announced alongside it.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table">
+              <caption class="nhsw-table__caption nhsw-table__caption--m">Skin symptoms and possible causes</caption>
+              <thead class="nhsw-table__head">
+                <tr class="nhsw-table__row">
+                  <th scope="col" class="nhsw-table__header">Skin symptoms</th>
+                  <th scope="col" class="nhsw-table__header">Possible cause</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body">
+                <tr class="nhsw-table__row">
+                  <td class="nhsw-table__cell">Blisters on lips or around the mouth</td>
+                  <td class="nhsw-table__cell">Cold sores</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <td class="nhsw-table__cell">Itchy, dry, cracked, sore</td>
+                  <td class="nhsw-table__cell">Eczema</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <td class="nhsw-table__cell">Itchy blisters</td>
+                  <td class="nhsw-table__cell">Shingles, chickenpox</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-3" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-3">Missing data is shown explicitly, not left blank</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-3-hint">Given a table with some missing data. Then empty cells show something explicit like "No data" rather than being silently empty.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table">
+              <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccinations given</caption>
+              <thead class="nhsw-table__head">
+                <tr class="nhsw-table__row">
+                  <th scope="col" class="nhsw-table__header">Date</th>
+                  <th scope="col" class="nhsw-table__header">Vaccine</th>
+                  <th scope="col" class="nhsw-table__header">Product</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body">
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">10 July 2026</th>
+                  <td class="nhsw-table__cell">RSV</td>
+                  <td class="nhsw-table__cell">Abrysvo</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">6 September 2023</th>
+                  <td class="nhsw-table__cell">Flu</td>
+                  <td class="nhsw-table__cell nhsw-body--secondary">No data</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-4" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-4">Numeric columns are right-aligned and easy to scan</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-4-hint">Given a table with numeric columns. Then the numbers are right-aligned, making them easy to compare down the column.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table">
+              <caption class="nhsw-table__caption nhsw-table__caption--m">Prescription prepayment certificate (PPC) charges</caption>
+              <thead class="nhsw-table__head">
+                <tr class="nhsw-table__row">
+                  <th scope="col" class="nhsw-table__header">Item</th>
+                  <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Current charge</th>
+                  <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">New charge</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body">
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">3-month</th>
+                  <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;31.25</td>
+                  <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;32.05</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">12-month</th>
+                  <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;111.60</td>
+                  <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;114.50</td>
+                </tr>
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">HRT</th>
+                  <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;19.30</td>
+                  <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;19.80</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-5" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-5">Responsive variant stays usable on a narrow screen</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-5-hint">Given the responsive table variant. When viewed on a narrow screen. Then each row's data is still clearly labelled and readable, not just a wall of numbers.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table-responsive" role="table">
+              <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccination schedule</caption>
+              <thead class="nhsw-table__head" role="rowgroup">
+                <tr class="nhsw-table__row" role="row">
+                  <th scope="col" class="nhsw-table__header" role="columnheader">Age</th>
+                  <th scope="col" class="nhsw-table__header" role="columnheader">Vaccine</th>
+                  <th scope="col" class="nhsw-table__header" role="columnheader">How it is given</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body" role="rowgroup">
+                <tr class="nhsw-table__row" role="row">
+                  <th scope="row" class="nhsw-table__header" role="rowheader">
+                    <span class="nhsw-table-responsive__heading" aria-hidden="true">Age </span>
+                    8 weeks
+                  </th>
+                  <td class="nhsw-table__cell" role="cell">
+                    <span class="nhsw-table-responsive__heading" aria-hidden="true">Vaccine </span>
+                    6-in-1 vaccine
+                  </td>
+                  <td class="nhsw-table__cell" role="cell">
+                    <span class="nhsw-table-responsive__heading" aria-hidden="true">How it is given </span>
+                    Injection into the thigh
+                  </td>
+                </tr>
+                <tr class="nhsw-table__row" role="row">
+                  <th scope="row" class="nhsw-table__header" role="rowheader">
+                    <span class="nhsw-table-responsive__heading" aria-hidden="true">Age </span>
+                    12 weeks
+                  </th>
+                  <td class="nhsw-table__cell" role="cell">
+                    <span class="nhsw-table-responsive__heading" aria-hidden="true">Vaccine </span>
+                    Rotavirus
+                  </td>
+                  <td class="nhsw-table__cell" role="cell">
+                    <span class="nhsw-table-responsive__heading" aria-hidden="true">How it is given </span>
+                    Drops into the mouth
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-6" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-6">Session-row icons aren't read aloud by a screen reader</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-6-hint">Given a table using the session-row icon variant. When a screen reader reads a row. Then the decorative icon isn't read out as text.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-session-row" href="#">
+              <div class="nhsw-session-row__main">
+                <span class="nhsw-session-row__title">Children routine imms morning</span>
+                <span class="nhsw-session-row__meta">8am to 5pm &nbsp;|&nbsp; Recurring session</span>
+              </div>
+              <div class="nhsw-session-row__detail">Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus</div>
+              <div class="nhsw-session-row__badges">
+                <span class="nhsw-session-row__badge">To do<br>21 of 87</span>
+                <span class="nhsw-session-row__badge">Free<br>11</span>
+              </div>
+              <svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-7" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-7">Keyboard focus is visible on interactive table content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-7-hint">Given a table containing interactive elements (links, buttons, or actions). When a keyboard user tabs through them. Then each interactive element displays a clear visible focus indicator.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table">
+              <caption class="nhsw-table__caption nhsw-table__caption--m">Upcoming appointments</caption>
+              <thead class="nhsw-table__head">
+                <tr class="nhsw-table__row">
+                  <th scope="col" class="nhsw-table__header">Date</th>
+                  <th scope="col" class="nhsw-table__header">Clinic</th>
+                  <th scope="col" class="nhsw-table__header">Action</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body">
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">15 March 2027</th>
+                  <td class="nhsw-table__cell">Cardiology</td>
+                  <td class="nhsw-table__cell"><a class="nhsw-link" href="#">Change<span class="nhsw-visually-hidden"> 15 March 2027 appointment</span></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-8" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-8">Tables remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-8-hint">Given a table. When browser zoom is increased to 200% or 400%. Then the table remains readable and usable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <table class="nhsw-table">
+              <caption class="nhsw-table__caption nhsw-table__caption--l">Months and rates</caption>
+              <thead class="nhsw-table__head">
+                <tr class="nhsw-table__row">
+                  <th scope="col" class="nhsw-table__header">Month you apply</th>
+                  <th scope="col" class="nhsw-table__header">Rate for vehicles</th>
+                </tr>
+              </thead>
+              <tbody class="nhsw-table__body">
+                <tr class="nhsw-table__row">
+                  <th scope="row" class="nhsw-table__header">January</th>
+                  <td class="nhsw-table__cell">&pound;95</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-9" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-9">Long cell content wraps correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-9-hint">Given a table containing long cell values. When viewed on a narrow screen or at high zoom levels. Then cell content wraps correctly without overlapping, clipping or becoming unreadable.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <table class="nhsw-table">
+                <caption class="nhsw-table__caption nhsw-table__caption--m">Skin symptoms and possible causes</caption>
+                <thead class="nhsw-table__head">
+                  <tr class="nhsw-table__row">
+                    <th scope="col" class="nhsw-table__header">Skin symptoms</th>
+                    <th scope="col" class="nhsw-table__header">Possible cause</th>
+                  </tr>
+                </thead>
+                <tbody class="nhsw-table__body">
+                  <tr class="nhsw-table__row">
+                    <td class="nhsw-table__cell">Blisters on lips or around the mouth that weep fluid and then crust over after a few days</td>
+                    <td class="nhsw-table__cell">Cold sores</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-10" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-10">Long column headings remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-10-hint">Given a table with long column headers. When viewed on a small screen. Then the headers remain readable and continue to identify the associated data correctly.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <table class="nhsw-table">
+                <caption class="nhsw-table__caption nhsw-table__caption--m">Prescription prepayment certificate (PPC) charges</caption>
+                <thead class="nhsw-table__head">
+                  <tr class="nhsw-table__row">
+                    <th scope="col" class="nhsw-table__header">Item</th>
+                    <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Current charge before the increase</th>
+                  </tr>
+                </thead>
+                <tbody class="nhsw-table__body">
+                  <tr class="nhsw-table__row">
+                    <th scope="row" class="nhsw-table__header">3-month</th>
+                    <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;31.25</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="table-manual-11" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-11">Data remains associated after responsive transformation</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-11-hint">Given the responsive table variant. When viewed on a narrow screen. Then each value remains clearly associated with its row or column heading.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div style="max-width: 300px;">
+              <table class="nhsw-table-responsive" role="table">
+                <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccination schedule</caption>
+                <thead class="nhsw-table__head" role="rowgroup">
+                  <tr class="nhsw-table__row" role="row">
+                    <th scope="col" class="nhsw-table__header" role="columnheader">Age</th>
+                    <th scope="col" class="nhsw-table__header" role="columnheader">Vaccine</th>
+                  </tr>
+                </thead>
+                <tbody class="nhsw-table__body" role="rowgroup">
+                  <tr class="nhsw-table__row" role="row">
+                    <th scope="row" class="nhsw-table__header" role="rowheader">
+                      <span class="nhsw-table-responsive__heading" aria-hidden="true">Age </span>
+                      8 weeks
+                    </th>
+                    <td class="nhsw-table__cell" role="cell">
+                      <span class="nhsw-table-responsive__heading" aria-hidden="true">Vaccine </span>
+                      6-in-1 vaccine
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

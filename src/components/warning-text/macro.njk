@@ -1,0 +1,19 @@
+{#
+  nhswWarningText(params)
+
+  params:
+    text              string  (required) - warning text (used if html is not set)
+    html              string  - warning HTML (takes precedence over text)
+    iconFallbackText  string  - visually-hidden prefix, defaults to "Warning"
+    classes           string  - extra classes, e.g. "nhsw-warning-text--reverse"
+    attributes        object  - extra HTML attributes
+#}
+{%- macro nhswWarningText(params) -%}
+<div class="nhsw-warning-text{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="nhsw-warning-text__text">
+    <span class="nhsw-visually-hidden">{{ params.iconFallbackText or "Warning" }}</span>
+    {{ params.html | safe if params.html else params.text }}
+  </strong>
+</div>
+{%- endmacro -%}

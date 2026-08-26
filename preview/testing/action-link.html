@@ -1,0 +1,289 @@
+---
+layout: simple
+title: Action link — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Action link</h1>
+<p class="nhsw-body">Manual QA checklist for the action link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/action-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/action-link-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see action link used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/action-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Action link documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/action-link-default.html' | relative_url }}" target="_blank" rel="noopener">action-link-default.html</a>, <a class="nhsw-link" href="{{ '/examples/action-link-dark.html' | relative_url }}" target="_blank" rel="noopener">action-link-dark.html</a>, <a class="nhsw-link" href="{{ '/examples/action-link-group.html' | relative_url }}" target="_blank" rel="noopener">action-link-group.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="action-link">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 16 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-1" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-1">Icon and label read as one action, with a clear gap between them</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-1-hint">Given an action link. Then a blue circular arrow icon sits immediately before the text. And there is a clear gap between the icon and the text, not crammed together.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-2" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-2">Default colour is consistent — icon and text match</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-2-hint">Given an action link in its default state. Then the icon and the text are the same link-blue colour.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-3" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-3">Hover only recolours the text, not the icon</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-3-hint">Given an action link. When you hover over it with a mouse. Then the text changes colour. And the icon stays link-blue.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-4" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-4">Text is easy to read against its background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-4-hint">Given an action link in its default state. Then the text is clearly readable against the white page background.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-5" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-5">Stays readable on a dark background (WCAG 2.2 SC 1.4.3)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-5-hint">Given an action link placed on a dark/navy background. Then both the icon and the text remain clearly visible.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <div class="nhsw-example-preview__body nhsw-example-preview__body--dark">
+              <a class="nhsw-action-link nhsw-action-link--reverse" href="#">
+                <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                  <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+                </svg>
+                <span class="nhsw-action-link__text">Action link</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-6" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-6">Screen reader only announces the link text, not the icon (WCAG 2.2 SC 4.1.2)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-6-hint">Given an action link with a decorative icon. When a screen reader reads it out. Then only the link text is announced, with no extra description of the icon.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-7" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-7">Text wraps correctly on smaller screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-7-hint">Given an action link with a long label. When it is viewed on a narrow viewport (try narrowing this browser window). Then the text wraps onto multiple lines instead of being cut off or running off the edge of the screen.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">View available appointments and booking information for your local hospital</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-8" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-8">Icon stays aligned with the first line when the label wraps</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-8-hint">Given an action link with a long label that wraps onto multiple lines. Then the icon lines up with the top of the first line of text — it does not float in the vertical centre of the whole wrapped block.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">View available appointments and booking information for your local hospital</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-9" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-9">Action link does not overflow its container</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-9-hint">Given an action link whose label is a single very long word with no spaces (a service name, URL, or reference number). Then it breaks within the word rather than pushing the page into horizontal scroll.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">ViewAvailableAppointmentsAndBookingInformationForYourLocalHospitalService</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-10" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-10">Touch target remains usable on mobile</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-10-hint">Given an action link on a touch device, or with the browser narrowed to a mobile width. Then the whole icon-plus-text area is easy to tap accurately, without accidentally hitting a neighbouring link.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-11" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-11-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-11">Keyboard focus is clearly visible around the whole link (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-11-hint">Given an action link. When it receives keyboard focus (press Tab to reach it). Then a solid yellow focus highlight covers the full icon-plus-text area, and the text gets a dark underline matching the icon colour.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-12" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-12-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-12">Visited links are visually distinguishable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-12-hint">Open the demo link below in a new tab, then come back to this page. Given the link has now been visited. Then its text is a darker, distinct colour compared to an unvisited action link, so users can tell they've already been there.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="{{ '/testing/action-link.html' | relative_url }}" target="_blank" rel="noopener">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Open in a new tab, then revisit this page</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-13" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-13-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-13">A pressed/active state is visible</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-13-hint">Given an action link. When you press and hold it with a mouse, or activate it on a touch device. Then the text underlines immediately, giving a visible cue that the press registered before navigation happens.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-14" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-14-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-14">Icon and text act as a single interactive target</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-14-hint">Given an action link containing an icon and text. When a user clicks or taps either the icon or the text. Then the same link action is triggered — there is no gap between them where a click does nothing.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-15" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-15-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-15">Remains usable at 200% and 400% browser zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-15-hint">Given the action link example below. When the browser is zoomed to 200%, then 400%. Then the link stays fully readable and clickable, and does not overlap neighbouring content.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Action link</span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="action-link-manual-16" name="action-link-manual-tests" type="checkbox" aria-describedby="action-link-manual-16-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="action-link-manual-16">Link length stress test — short, medium and very long labels all look right</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="action-link-manual-16-hint">Given the three action links below (short, medium, very long labels). Then all three keep the same icon-to-text gap, the same alignment rules, and none of them look visually broken next to each other.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">Apply</span>
+            </a>
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">View appointments</span>
+            </a>
+            <a class="nhsw-action-link" href="#">
+              <svg class="nhsw-action-link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+              </svg>
+              <span class="nhsw-action-link__text">View available appointments and booking information</span>
+            </a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>

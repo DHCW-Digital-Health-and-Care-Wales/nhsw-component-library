@@ -1,0 +1,253 @@
+---
+layout: simple
+title: Footer — manual test checklist
+container: fluid
+extra_scripts:
+  - /assets/nhsw-test-tracker.js
+---
+<p class="nhsw-body"><a class="nhsw-link" href="{{ '/testing/index.html' | relative_url }}">&larr; All manual test checklists</a></p>
+
+<h1 class="nhsw-h1">Footer</h1>
+<p class="nhsw-body">Manual QA checklist for the footer component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/footer.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically. Each check below has a real, working example directly underneath it to click into — no need to go hunting for one.</p>
+
+<p class="nhsw-body">
+  <a class="nhsw-button nhsw-button--secondary nhsw-button--inline" href="{{ '/examples/footer-default.html' | relative_url }}" target="_blank" rel="noopener">View a full demo page</a>
+  &mdash; see footer used in context, on a real page with header and footer, not just an isolated snippet.
+</p>
+
+<div class="nhsw-inset-text">
+  <p class="nhsw-body"><a class="nhsw-link" href="{{ '/site/footer.html' | relative_url }}" target="_blank" rel="noopener">Open the Footer documentation page</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/footer-default.html' | relative_url }}" target="_blank" rel="noopener">footer-default.html</a>, <a class="nhsw-link" href="{{ '/examples/footer-no-links.html' | relative_url }}" target="_blank" rel="noopener">footer-no-links.html</a>, <a class="nhsw-link" href="{{ '/examples/footer-navigation.html' | relative_url }}" target="_blank" rel="noopener">footer-navigation.html</a>, <a class="nhsw-link" href="{{ '/examples/footer-licence.html' | relative_url }}" target="_blank" rel="noopener">footer-licence.html</a></p>
+</div>
+
+<div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="footer">
+  <p class="nhsw-body"><strong data-tracker-count>0 of 9 checks complete</strong></p>
+
+  <fieldset class="nhsw-fieldset">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
+    <div class="nhsw-checkboxes">
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-1" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-1-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-1">"No links" variant still looks tidy</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-1-hint">Given the footer variant with no navigation links. Then the copyright/branding content is well-spaced, with no leftover empty gaps.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <p class="nhsw-body-s nhsw-site-footer__org">Digital Health and Care Wales</p>
+                <p class="nhsw-body-s nhsw-site-footer__version">Product version information</p>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-2" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-2-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-2">Every footer link is reachable by keyboard</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-2-hint">Given the footer navigation variant. When a user tabs through it. Then every link receives visible focus in a sensible order.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <div class="nhsw-site-footer__nav">
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Book an appointment</a></li>
+                      <li><a class="nhsw-link" href="#">Order a repeat prescription</a></li>
+                    </ul>
+                  </div>
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Support</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Contact us</a></li>
+                      <li><a class="nhsw-link" href="#">Help using this service</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="nhsw-site-footer__meta">
+                  <ul class="nhsw-site-footer__links">
+                    <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+                    <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+                  </ul>
+                  <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-3" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-3-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-3">Footer links have a visible focus state (WCAG 2.2 SC 2.4.7)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-3-hint">Given a footer containing links. When a keyboard user tabs through them. Then each link displays a clear visible focus indicator.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <div class="nhsw-site-footer__nav">
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Book an appointment</a></li>
+                      <li><a class="nhsw-link" href="#">Order a repeat prescription</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="nhsw-site-footer__meta">
+                  <ul class="nhsw-site-footer__links">
+                    <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+                  </ul>
+                  <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-4" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-4-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-4">Footer is identifiable as a footer landmark</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-4-hint">Given a screen reader user navigates page landmarks. When the footer is encountered. Then it is identified as the page footer or content information region (the &lt;footer&gt; element).</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <p class="nhsw-body-s nhsw-site-footer__org">Digital Health and Care Wales</p>
+                <p class="nhsw-body-s nhsw-site-footer__version">Product version information</p>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-5" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-5-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-5">Footer remains readable on small screens</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-5-hint">Given a footer containing multiple link groups. When viewed on a narrow viewport. Then all links remain readable and usable without overlapping or horizontal scrolling.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <div class="nhsw-site-footer__nav">
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Book an appointment</a></li>
+                      <li><a class="nhsw-link" href="#">Order a repeat prescription</a></li>
+                    </ul>
+                  </div>
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Support</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Contact us</a></li>
+                      <li><a class="nhsw-link" href="#">Help using this service</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-6" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-6">Footer remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-6-hint">Given a footer. When browser zoom is increased to 200% or 400%. Then links, headings and supporting content remain readable and operable without loss of information.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <p class="nhsw-body-s nhsw-site-footer__org">Digital Health and Care Wales</p>
+                <p class="nhsw-body-s nhsw-site-footer__version">Product version information</p>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-7" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-7">Long link text wraps correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-7-hint">Given a footer containing long link labels. When viewed on a small screen or at high zoom levels. Then link text wraps correctly without overlapping or becoming truncated.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <div class="nhsw-site-footer__nav">
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Book, reschedule, or cancel an appointment for you or someone you care for</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-8" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-8">Link groups remain visually distinct</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-8-hint">Given a footer with multiple navigation sections. When it is displayed. Then users can easily distinguish between the different groups of links.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <div class="nhsw-site-footer__nav">
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Book an appointment</a></li>
+                      <li><a class="nhsw-link" href="#">Order a repeat prescription</a></li>
+                    </ul>
+                  </div>
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Support</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Contact us</a></li>
+                      <li><a class="nhsw-link" href="#">Help using this service</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="footer-manual-9" name="footer-manual-tests" type="checkbox" aria-describedby="footer-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="footer-manual-9">Links are understandable out of context (WCAG 2.2 SC 2.4.4)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="footer-manual-9-hint">Given a footer containing navigation links. When assistive technology presents a list of links. Then each link clearly describes its destination or purpose.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body">
+            <footer class="nhsw-site-footer">
+              <div class="nhsw-site-footer__container">
+                <div class="nhsw-site-footer__nav">
+                  <div class="nhsw-site-footer__nav-column">
+                    <p class="nhsw-body-s nhsw-site-footer__nav-heading">Services</p>
+                    <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+                      <li><a class="nhsw-link" href="#">Book an appointment</a></li>
+                      <li><a class="nhsw-link" href="#">Order a repeat prescription</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        </div>
+    </div>
+  </fieldset>
+
+  <p class="nhsw-body">
+    <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button" data-tracker-reset>Reset checklist</button>
+  </p>
+</div>
+
+<div class="nhsw-inset-text">
+  <h2 class="nhsw-h2">Additional implementation advice</h2>
+  <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
+  <ul class="nhsw-body">
+        <li><strong>Help links sit in the same place and behave the same on every page</strong> (WCAG 2.2 SC 3.2.6) — a cross-page consistency concern for the service as a whole, not verifiable from a single footer instance.</li>
+  </ul>
+</div>

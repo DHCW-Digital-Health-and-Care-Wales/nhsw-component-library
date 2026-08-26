@@ -1,0 +1,89 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
+@use "../../utilities/focus-ring" as u;
+
+$nhsw-colour-breadcrumb-link-hover: #7c2855;
+
+.nhsw-breadcrumb {
+  margin-bottom: 16px;
+
+  &__mobile-back {
+    display: block;
+
+    @include b.nhsw-from-desktop {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include b.nhsw-from-desktop {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__list-item {
+    min-width: 0;
+    max-width: 100%;
+    font-size: t.$nhsw-font-size-body-small;
+    color: c.$nhsw-colour-text-secondary;
+    overflow-wrap: break-word;
+
+    &:not(:last-child)::after {
+      content: "\203A";
+      display: inline-block;
+      margin: 0 8px;
+      color: c.$nhsw-colour-text-secondary;
+    }
+  }
+
+  &__link {
+    color: c.$nhsw-colour-link;
+
+    &:hover {
+      color: $nhsw-colour-breadcrumb-link-hover;
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: none;
+      @include u.nhsw-link-focus-state(c.$nhsw-colour-focus-text);
+      text-decoration: none;
+    }
+  }
+
+  &__current {
+    color: c.$nhsw-colour-text-secondary;
+  }
+
+  &--reverse {
+    .nhsw-breadcrumb__list-item,
+    .nhsw-breadcrumb__list-item:not(:last-child)::after,
+    .nhsw-breadcrumb__current {
+      color: c.$nhsw-colour-background-white;
+    }
+
+    .nhsw-breadcrumb__link {
+      color: c.$nhsw-colour-background-white;
+
+      &:hover {
+        color: c.$nhsw-colour-background-white;
+        text-decoration: none;
+      }
+
+      &:focus {
+        outline: none;
+        background-color: c.$nhsw-colour-focus;
+        color: c.$nhsw-colour-focus-text;
+        text-decoration: none;
+        border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
+      }
+    }
+  }
+}

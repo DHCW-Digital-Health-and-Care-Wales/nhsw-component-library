@@ -1,0 +1,29 @@
+---
+layout: example
+title: Checkboxes with none option example
+---
+<div class="nhsw-form-group">
+  <fieldset class="nhsw-fieldset" aria-describedby="symptoms-hint">
+    <legend class="nhsw-fieldset__legend nhsw-h2">Do you have any of these symptoms?</legend>
+    <div class="nhsw-hint" id="symptoms-hint">Select all the symptoms you have</div>
+    <div class="nhsw-checkboxes">
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="symptoms-1" name="symptoms" type="checkbox" value="sore-throat">
+        <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1">Sore throat</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="symptoms-2" name="symptoms" type="checkbox" value="runny-nose">
+        <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2">Runny nose</label>
+      </div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="symptoms-3" name="symptoms" type="checkbox" value="joint-pain">
+        <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3">Muscle or joint pain</label>
+      </div>
+      <div class="nhsw-checkboxes__divider">or</div>
+      <div class="nhsw-checkboxes__item">
+        <input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive>
+        <label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none">No, I do not have any of these symptoms</label>
+      </div>
+    </div>
+  </fieldset>
+</div>

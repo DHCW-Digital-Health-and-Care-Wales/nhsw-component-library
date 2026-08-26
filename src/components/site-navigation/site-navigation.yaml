@@ -1,0 +1,55 @@
+name: Site navigation
+macro: nhswSiteNavigation
+description: >
+  Primary navigation for the site header, rendered as a horizontal list of
+  links. Supports a current-page state and per-item badges, and a reverse
+  variant for use on dark header backgrounds.
+params:
+  - name: items
+    type: array
+    required: true
+    description: >
+      [{ text, href, current, badge }] navigation items. current adds the
+      current-page styling and aria-current="page"; badge appends a small
+      badge inside the link.
+  - name: ariaLabel
+    type: string
+    required: false
+    description: aria-label for the nav element. Defaults to "Primary navigation".
+  - name: classes
+    type: string
+    required: false
+    description: >
+      Extra classes, e.g. "nhsw-site-header__nav--reverse" for the reverse
+      variant.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      items:
+        - text: "Navigation Item 1"
+          href: "/item-1"
+          current: true
+        - text: "Navigation Item 2"
+          href: "/item-2"
+  - name: reverse
+    data:
+      items:
+        - text: "Navigation Item 1"
+          href: "/item-1"
+          current: true
+        - text: "Navigation Item 2"
+          href: "/item-2"
+      classes: "nhsw-site-header__nav--reverse"
+  - name: with-badge
+    data:
+      items:
+        - text: "Navigation Item 1"
+          href: "/item-1"
+          current: true
+          badge: "3"
+        - text: "Navigation Item 2"
+          href: "/item-2"

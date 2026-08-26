@@ -1,0 +1,124 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
+@use "../../utilities/focus-ring" as u;
+
+$nhsw-colour-action-link-hover-text: #7c2855;
+
+.nhsw-action-link {
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 24px;
+  color: c.$nhsw-colour-link;
+  text-decoration: none;
+
+  &:hover {
+    .nhsw-action-link__text {
+      color: $nhsw-colour-action-link-hover-text;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.12em;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    @include u.nhsw-link-focus-state;
+
+    .nhsw-action-link__text {
+      color: c.$nhsw-colour-focus-text;
+    }
+
+    .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-focus-text;
+    }
+  }
+
+  &:visited {
+    color: c.$nhsw-colour-text-primary;
+  }
+
+  &:active {
+    .nhsw-action-link__text {
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    fill: c.$nhsw-colour-link;
+  }
+
+  &__text {
+    color: inherit;
+    font-size: t.$nhsw-font-size-h4-mobile;
+    font-weight: t.$nhsw-font-weight-bold;
+    line-height: t.$nhsw-line-height-h4-mobile;
+    overflow-wrap: anywhere;
+    min-width: 0;
+
+    @include b.nhsw-from-tablet {
+      font-size: t.$nhsw-font-size-h4;
+      line-height: t.$nhsw-line-height-h4;
+    }
+  }
+
+  &--navy {
+    .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-button-primary;
+    }
+
+    &:hover .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-button-primary-hover;
+    }
+  }
+
+  &--red {
+    .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-button-delete;
+    }
+
+    &:hover .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-button-delete-hover;
+    }
+  }
+
+  &--reverse {
+    color: c.$nhsw-colour-text-exceptional;
+
+    .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-background-white;
+    }
+
+    &:visited {
+      color: c.$nhsw-colour-text-exceptional;
+    }
+
+    &:hover .nhsw-action-link__icon {
+      fill: c.$nhsw-colour-background-white;
+    }
+
+    &:hover .nhsw-action-link__text {
+      color: c.$nhsw-colour-text-exceptional;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.12em;
+    }
+
+    &:focus {
+      .nhsw-action-link__text {
+        color: c.$nhsw-colour-focus-text;
+        text-decoration: none;
+      }
+
+      .nhsw-action-link__icon {
+        fill: c.$nhsw-colour-focus-text;
+      }
+    }
+  }
+}

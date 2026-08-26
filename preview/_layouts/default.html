@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} – {% endif %}NHSW Design System</title>
+  <link rel="stylesheet" href="{{ '/dist/nhsw.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
+  {% if page.extra_head %}{{ page.extra_head }}{% endif %}
+</head>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+  <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
+  {% include site-header.html %}
+  {% include primary-nav.html %}
+
+  {{ content }}
+
+  {% include site-footer.html %}
+
+  {% if page.after_footer %}{{ page.after_footer }}{% endif %}
+
+  <script src="{{ '/dist/nhsw-behaviours.js' | relative_url }}"></script>
+  <script src="{{ '/assets/nhsw-docs.js' | relative_url }}"></script>
+  {% if page.extra_scripts %}
+    {% for s in page.extra_scripts %}<script src="{{ s | relative_url }}"></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>

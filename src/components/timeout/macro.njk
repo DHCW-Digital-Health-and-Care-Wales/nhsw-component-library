@@ -1,0 +1,29 @@
+{#
+  nhswTimeout(params) - a session timeout warning dialog. Renders correct static
+  initial markup only; the shipped JS drives the countdown, live region and
+  dismiss button.
+
+  params:
+    titleText           string  (required) - dialog title
+    countdownSeconds    integer (required) - initial seconds remaining, written
+                                              to data-seconds for the JS timer
+    countdownText       string  (required) - human-readable initial countdown
+                                              text, e.g. "1 minute and 49 seconds"
+    dismissButtonText   string  - defaults to "Stay logged in"
+    id                  string  - base id for the dialog's title/description,
+                                   defaults to "timeout"
+    classes             string  - extra classes
+    attributes          object  - extra HTML attributes
+#}
+{%- macro nhswTimeout(params) -%}
+{%- set id = params.id or "timeout" -%}
+<dialog class="nhsw-timeout-modal{% if params.classes %} {{ params.classes }}{% endif %}" open role="dialog" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-description"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <h2 class="nhsw-h3 nhsw-timeout-modal__title" id="{{ id }}-title">{{ params.titleText }}</h2>
+  <p class="nhsw-body nhsw-timeout-modal__text" id="{{ id }}-description">
+    For your security, you will be logged out in
+    <span aria-hidden="true" data-nhsw-timeout-countdown data-seconds="{{ params.countdownSeconds }}">{{ params.countdownText }}</span>.
+    <span class="nhsw-visually-hidden" role="status" aria-live="polite" data-nhsw-timeout-live></span>
+  </p>
+  <button class="nhsw-button nhsw-button--inline" type="button" data-nhsw-timeout-dismiss>{{ params.dismissButtonText or "Stay logged in" }}</button>
+</dialog>
+{%- endmacro -%}

@@ -1,0 +1,40 @@
+@use "../utilities/focus-ring" as u;
+@use "../tokens/colours" as c;
+
+@mixin nhsw-button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    vertical-align: top;
+
+    &:focus:not(:active) {
+        outline: none;
+        background-color: c.$nhsw-colour-focus;
+        color: c.$nhsw-colour-text-primary;
+        border: none;
+        box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
+    }
+
+    &:disabled,
+    &[disabled],
+    &.nhsw-button--disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        box-shadow: none;
+        transform: none;
+    }
+}

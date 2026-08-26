@@ -1,0 +1,36 @@
+@use "../../tokens/spacing" as s;
+@use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
+
+.nhsw-form-group {
+  margin-bottom: s.$nhsw-form-group-margin-mobile;
+
+  @include b.nhsw-from-tablet {
+    margin-bottom: s.$nhsw-form-group-margin-tablet;
+  }
+
+  .nhsw-form-group:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &--error {
+    padding-left: s.$nhsw-form-group-error-padding;
+    border-left: s.$nhsw-form-group-error-border solid #d5281b;
+
+    .nhsw-form-group {
+      border: 0;
+      padding: 0;
+    }
+
+    .nhsw-label {
+      font-weight: t.$nhsw-font-weight-regular;
+      font-size: t.$nhsw-font-size-body-mobile;
+      line-height: t.$nhsw-line-height-body-mobile;
+
+      @include b.nhsw-from-tablet {
+        font-size: t.$nhsw-font-size-body;
+        line-height: t.$nhsw-line-height-body;
+      }
+    }
+  }
+}

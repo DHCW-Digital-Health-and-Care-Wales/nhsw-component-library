@@ -1,0 +1,61 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
+@use "../../utilities/focus-ring" as u;
+
+$nhsw-colour-back-link-hover: #7c2855;
+
+.nhsw-back-link {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  padding-left: 14px;
+  overflow-wrap: anywhere;
+  color: c.$nhsw-colour-link;
+  font-size: t.$nhsw-font-size-body;
+  text-decoration: underline;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    margin-top: -5px;
+    border-left: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  &:hover {
+    color: $nhsw-colour-back-link-hover;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    @include u.nhsw-link-focus-state(c.$nhsw-colour-text-primary);
+    text-decoration: none;
+  }
+
+  &--button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  &--reverse {
+    color: c.$nhsw-colour-background-white;
+
+    &:hover {
+      color: c.$nhsw-colour-background-white;
+      text-decoration: none;
+    }
+
+    &:focus {
+      color: c.$nhsw-colour-text-primary;
+    }
+  }
+}

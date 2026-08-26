@@ -1,0 +1,13 @@
+{#
+  nhswHint(params)
+
+  params:
+    text        string  - hint text (used if html is not set)
+    html        string  - hint HTML (takes precedence over text)
+    id          string  - id, referenced by the field's aria-describedby
+    classes     string  - extra classes, e.g. "nhsw-checkboxes__hint" for per-item hints
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswHint(params) -%}
+<div class="nhsw-hint{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</div>
+{%- endmacro -%}

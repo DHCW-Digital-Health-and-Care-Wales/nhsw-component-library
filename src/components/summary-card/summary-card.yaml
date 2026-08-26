@@ -1,0 +1,85 @@
+name: Summary card
+macro: nhswSummaryCard
+description: >
+  Wraps a summary list with a header (title and card-level actions), or, when
+  sections is given, repeats a subheading and summary list for each section
+  within the same card.
+params:
+  - name: title
+    type: string
+    required: false
+    description: Card title, shown in the header.
+  - name: headingLevel
+    type: integer
+    required: false
+    description: >
+      Heading level for the title, defaults to 2. The class is always
+      "nhsw-h3 nhsw-summary-card__title" regardless of the tag used.
+  - name: actions
+    type: array
+    required: false
+    description: >
+      List of { text, html, href }, shown as card-level actions in the
+      header. Only used with the single summary list form.
+  - name: rows
+    type: array
+    required: false
+    description: >
+      Rows for a single summary list (see nhswSummaryList). Used when
+      sections is not given.
+  - name: sections
+    type: array
+    required: false
+    description: >
+      List of { subheading, rows } - when given, renders a repeated
+      subheader and summary list for each section instead of a single body.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: with-actions
+    data:
+      title: "Karen Francis"
+      actions:
+        - { text: "Cancel", href: "#" }
+        - { text: "Reschedule", href: "#" }
+      rows:
+        - key: { text: "Name" }
+          value: { text: "Karen Francis" }
+          actions:
+            items:
+              - { href: "#", text: "Change", visuallyHiddenText: "name" }
+        - key: { text: "Appointment date" }
+          value: { text: "15 March 2027" }
+          actions:
+            items:
+              - { href: "#", text: "Change", visuallyHiddenText: "appointment date" }
+  - name: no-actions
+    data:
+      title: "Summary card header"
+      rows:
+        - key: { text: "Key" }
+          value: { text: "Details" }
+  - name: grouped-sections
+    data:
+      title: "Summary card header"
+      sections:
+        - subheading: "Sub header"
+          rows:
+            - key: { text: "Key" }
+              value: { text: "Details" }
+              actions:
+                items:
+                  - { href: "#", text: "Text link" }
+        - subheading: "Sub header"
+          rows:
+            - key: { text: "Key" }
+              value: { text: "Details" }
+              actions:
+                items:
+                  - { href: "#", text: "Text link" }

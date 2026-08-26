@@ -1,0 +1,115 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
+
+.nhsw-tabs__list {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0 0 0;
+  padding: 0;
+  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+}
+
+.nhsw-tabs__tab {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  color: c.$nhsw-colour-text-primary;
+  font-family: t.$nhsw-font-family-base;
+  font-size: t.$nhsw-font-size-body-small;
+  line-height: 1.6875rem;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: c.$nhsw-colour-border-grey;
+    z-index: -1;
+  }
+
+  &:hover .nhsw-tabs__tab-text {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+
+    .nhsw-tabs__tab-text {
+      background-color: c.$nhsw-colour-focus;
+      color: c.$nhsw-colour-focus-text;
+      text-decoration-thickness: 3px;
+    }
+  }
+
+  &--selected {
+    padding: 0.5rem 1rem 0.875rem;
+    margin-bottom: -1px;
+    font-weight: t.$nhsw-font-weight-regular;
+
+    &::before {
+      background-color: c.$nhsw-colour-background-white;
+      border: 1px solid c.$nhsw-colour-border-grey;
+      border-bottom: 1px solid c.$nhsw-colour-background-white;
+    }
+
+    .nhsw-tabs__tab-text {
+      text-decoration: none;
+    }
+  }
+}
+
+.nhsw-tabs__tab-text {
+  text-decoration: underline;
+}
+
+.nhsw-tabs__count {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0 0.375rem;
+  border: 1px solid c.$nhsw-colour-link;
+  border-radius: 4px;
+  color: c.$nhsw-colour-link;
+  font-size: 0.8125rem;
+  font-weight: t.$nhsw-font-weight-bold;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.nhsw-tabs__panel {
+  background-color: c.$nhsw-colour-background-white;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  border-top: none;
+  padding: 2rem;
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.nhsw-tabs__pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid c.$nhsw-colour-border-grey;
+}
+
+.nhsw-tabs__pagination-link {
+  display: inline-block;
+
+  &--prev {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  &--next {
+    text-align: right;
+  }
+}

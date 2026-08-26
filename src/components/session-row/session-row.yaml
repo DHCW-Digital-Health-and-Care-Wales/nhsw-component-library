@@ -1,0 +1,57 @@
+name: Session row
+macro: nhswSessionRow
+description: >
+  A clickable row summarising a clinic session, with a title, meta line,
+  detail text, optional location link and status badges.
+params:
+  - name: title
+    type: string
+    required: true
+    description: Session title.
+  - name: meta
+    type: string
+    required: false
+    description: Meta line, e.g. "8am to 5pm | Recurring session".
+  - name: detail
+    type: string
+    required: false
+    description: Detail text shown before the optional location link.
+  - name: location
+    type: object
+    required: false
+    description: Optional location link shown after detail, as { text, href }.
+  - name: badges
+    type: array
+    required: false
+    description: List of { label, value }, each rendered as a badge.
+  - name: href
+    type: string
+    required: true
+    description: Link target for the whole row.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: standard
+    data:
+      title: "Children routine imms morning"
+      meta: "8am to 5pm | Recurring session"
+      detail: "Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus"
+      href: "/sessions/1"
+  - name: with-location-and-badges
+    data:
+      title: "Children routine imms morning"
+      meta: "8am to 5pm | Recurring session"
+      detail: "Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus"
+      location:
+        text: "Four Elms Medical Centre"
+        href: "/locations/four-elms"
+      badges:
+        - { label: "To do", value: "21 of 87" }
+        - { label: "Free", value: "11" }
+      href: "/sessions/1"

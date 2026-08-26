@@ -1,0 +1,80 @@
+{#
+  nhswFooter(params)
+
+  params:
+    links          array   - [{text, href}] links, default copyright/links mode
+    copyrightText  string  - defaults to "© Digital Health and Care Wales"
+    navigation     array   - [{ heading, items: [{text, href}] }] nav columns, optional,
+                             only meaningful alongside links mode
+    organisation   string  - org/version mode (mutually exclusive with links/navigation)
+    versionText    string  - org/version mode (mutually exclusive with links/navigation)
+    licence        object  - { text, href, badge } open-licence mode: renders links,
+                              then a licence line (badge + text with a link at href),
+                              then copyright, each as their own full-width row.
+                              badge defaults to "OGL". Mutually exclusive with
+                              organisation/versionText/navigation.
+    classes        string  - extra classes
+    attributes     object  - extra HTML attributes
+
+  If organisation or versionText is set, renders the no-links org/version block
+  instead of the links/copyright block. Otherwise renders links/copyright
+  (default copyright text "© Digital Health and Care Wales"), optionally
+  preceded by navigation columns wrapped together with the links block in
+  .nhsw-site-footer__meta when navigation is given, or followed by an open
+  licence line when licence is given.
+#}
+{%- macro nhswFooter(params) -%}
+<footer class="nhsw-site-footer{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-site-footer__container{% if params.licence %} nhsw-site-footer__container--stacked{% endif %}">
+{%- if params.organisation or params.versionText %}
+{%- if params.organisation %}
+    <p class="nhsw-body-s nhsw-site-footer__org">{{ params.organisation }}</p>
+{%- endif %}
+{%- if params.versionText %}
+    <p class="nhsw-body-s nhsw-site-footer__version">{{ params.versionText }}</p>
+{%- endif %}
+{%- elif params.licence %}
+    <ul class="nhsw-site-footer__links">
+{%- for link in (params.links or []) %}
+      <li><a class="nhsw-link" href="{{ link.href }}">{{ link.text }}</a></li>
+{%- endfor %}
+    </ul>
+    <div class="nhsw-site-footer__licence">
+      <span class="nhsw-site-footer__licence-badge" aria-hidden="true">{{ params.licence.badge or "OGL" }}</span>
+      <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="{{ params.licence.href }}">{{ params.licence.text }}</a>, except where otherwise stated.</p>
+    </div>
+    <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>
+{%- else %}
+{%- if params.navigation %}
+    <div class="nhsw-site-footer__nav">
+{%- for column in params.navigation %}
+      <div class="nhsw-site-footer__nav-column">
+        <p class="nhsw-body-s nhsw-site-footer__nav-heading">{{ column.heading }}</p>
+        <ul class="nhsw-body-s nhsw-site-footer__nav-list">
+{%- for item in (column.items or []) %}
+          <li><a class="nhsw-link" href="{{ item.href }}">{{ item.text }}</a></li>
+{%- endfor %}
+        </ul>
+      </div>
+{%- endfor %}
+    </div>
+    <div class="nhsw-site-footer__meta">
+      <ul class="nhsw-site-footer__links">
+{%- for link in (params.links or []) %}
+        <li><a class="nhsw-link" href="{{ link.href }}">{{ link.text }}</a></li>
+{%- endfor %}
+      </ul>
+      <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>
+    </div>
+{%- else %}
+    <ul class="nhsw-site-footer__links">
+{%- for link in (params.links or []) %}
+      <li><a class="nhsw-link" href="{{ link.href }}">{{ link.text }}</a></li>
+{%- endfor %}
+    </ul>
+    <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>
+{%- endif %}
+{%- endif %}
+  </div>
+</footer>
+{%- endmacro -%}
