@@ -210,6 +210,13 @@ Supports:
 - nhsw-details__text
 - `open` attribute (via the `open` param)
 
+## nhsw-example-screenshot
+Bordered frame for a real product screenshot used on component "Examples" tabs, with a caption below (replaces `nhsw-screenshot-placeholder` once a real image is available). Rendered via the `example-screenshot.html` include (`src`, `text` params) rather than a macro.
+
+Supports:
+- nhsw-example-screenshot__image
+- nhsw-example-screenshot__caption
+
 ## nhsw-expander
 Collapsible content block toggled by a button. Renders correct static/initial markup only — the click-to-toggle behaviour (aria-expanded/hidden) is provided by existing JS keyed off `.nhsw-expander__button`'s `aria-controls`.
 

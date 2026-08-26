@@ -1,0 +1,21 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-example-screenshot {
+  margin: 0;
+  padding: 24px;
+  background-color: c.$nhsw-colour-background-grey;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  text-align: center;
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid c.$nhsw-colour-border-grey;
+  }
+
+  &__caption {
+    margin-top: 8px;
+    color: c.$nhsw-colour-text-secondary;
+    font-size: 0.9375rem;
+  }
+}
