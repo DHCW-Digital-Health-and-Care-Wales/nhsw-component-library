@@ -348,13 +348,13 @@ Supports:
 ### Navigation
 
 ## nhsw-breadcrumb
-Breadcrumb trail. When there are 2 or more items, an automatic mobile-only "Back to &lt;parent&gt;" link is rendered above the full list.
+Breadcrumb trail. When there is 1 or more items, an automatic mobile-only "Back to &lt;parent&gt;" link is rendered above the full list, pointing at the last item. Every item, including the last, renders as a real link — the trail should stop at the current page's parent, not include the current page itself.
 
 Supports:
 - nhsw-breadcrumb__list
 - nhsw-breadcrumb__list-item
 - nhsw-breadcrumb__link
-- nhsw-breadcrumb__current (the final, non-linked item)
+- nhsw-breadcrumb__current (styling kept in the stylesheet, no longer emitted by the macro)
 - nhsw-breadcrumb__mobile-back
 - nhsw-breadcrumb--reverse
 

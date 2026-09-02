@@ -63,17 +63,13 @@
   .nhsw-icon {
     position: absolute;
     top: -2px;
-    height: 34px;
     width: 34px;
-    fill: currentColor;
+    height: auto;
+    fill: c.$nhsw-colour-text-primary;
   }
 
   &:hover {
     color: #7c2855;
-
-    .nhsw-icon {
-      fill: #7c2855;
-    }
 
     .nhsw-pagination__page {
       text-decoration: none;
@@ -90,22 +86,6 @@
     .nhsw-pagination__page {
       text-decoration: none;
     }
-
-    .nhsw-icon {
-      fill: c.$nhsw-colour-text-primary;
-    }
-  }
-
-  &:visited .nhsw-icon {
-    fill: c.$nhsw-colour-link-visited;
-  }
-
-  &:visited:hover .nhsw-icon {
-    fill: #7c2855;
-  }
-
-  &:visited:focus .nhsw-icon {
-    fill: c.$nhsw-colour-text-primary;
   }
 }
 
@@ -136,13 +116,14 @@
 .nhsw-pagination--numbered {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 0;
   font-size: 1rem;
   line-height: 1.5;
 
   @include b.nhsw-from-tablet {
+    justify-content: center;
     font-size: 1.1875rem;
     line-height: 1.47368;
   }
@@ -171,10 +152,26 @@
     }
   }
 
+  .nhsw-pagination__previous {
+    order: 1;
+
+    @include b.nhsw-from-tablet {
+      order: initial;
+    }
+  }
+
+  .nhsw-pagination__next {
+    order: 2;
+
+    @include b.nhsw-from-tablet {
+      order: initial;
+    }
+  }
+
   .nhsw-pagination__icon {
     width: 16px;
-    height: 16px;
-    fill: currentColor;
+    height: auto;
+    fill: c.$nhsw-colour-text-primary;
   }
 
   .nhsw-pagination__previous .nhsw-pagination__icon {
@@ -188,13 +185,22 @@
   .nhsw-pagination__list {
     display: flex;
     align-items: stretch;
+    justify-content: center;
     gap: 0;
     list-style: none;
-    margin: 0;
+    margin: 8px 0 0;
     padding: 0;
+    order: 3;
+    flex-basis: 100%;
 
     &::after {
       display: none;
+    }
+
+    @include b.nhsw-from-tablet {
+      order: initial;
+      flex-basis: auto;
+      margin-top: 0;
     }
   }
 

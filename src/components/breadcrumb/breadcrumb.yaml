@@ -8,7 +8,9 @@ params:
   - name: items
     type: array
     required: true
-    description: "[{ text, href }], ordered root-to-current."
+    description: >
+      [{ text, href }], ordered root-to-parent. Do not include the current
+      page — it belongs in the page's H1, not the breadcrumb trail.
   - name: mobileBackText
     type: string
     required: false
@@ -52,4 +54,4 @@ examples:
           href: "/nhs-services"
         - text: "Hospitals"
           href: "/hospitals"
-      mobileBackText: "NHS services"
+      mobileBackText: "All services"

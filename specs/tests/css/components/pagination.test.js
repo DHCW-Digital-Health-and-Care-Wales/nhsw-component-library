@@ -35,23 +35,22 @@ describe('pagination colour coverage (Figma tokens)', () => {
     expect(base).toMatch(/border-top:\s*1px solid #d8dde0/);
   });
 
-  it('legacy prev/next link is link-blue, recolours on hover, and inherits into its icon', () => {
+  it('legacy prev/next link is link-blue and recolours on hover, but its arrow icon stays a fixed black fill regardless of link state', () => {
     const base = block(css, '\\.nhsw-pagination__link');
     expect(base).toMatch(/color:\s*#005aa8/);
 
+    const icon = block(css, '\\.nhsw-pagination__link \\.nhsw-icon');
+    expect(icon).toMatch(/fill:\s*#212b32/);
+
     const hover = block(css, '\\.nhsw-pagination__link:hover');
     expect(hover).toMatch(/color:\s*#7c2855/);
-    const hoverIcon = block(css, '\\.nhsw-pagination__link:hover \\.nhsw-icon');
-    expect(hoverIcon).toMatch(/fill:\s*#7c2855/);
 
     const focus = block(css, '\\.nhsw-pagination__link:focus');
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
     expect(focus).toMatch(/box-shadow:\s*0 -2px #ffeb3b, 0 4px #212b32/);
 
-    const visitedIcon = block(css, '\\.nhsw-pagination__link:visited \\.nhsw-icon');
-    expect(visitedIcon).toMatch(/fill:\s*#7c2855/);
-    const visitedHoverIcon = block(css, '\\.nhsw-pagination__link:visited:hover \\.nhsw-icon');
-    expect(visitedHoverIcon).toMatch(/fill:\s*#7c2855/);
+    expect(block(css, '\\.nhsw-pagination__link:hover \\.nhsw-icon')).toBe('');
+    expect(block(css, '\\.nhsw-pagination__link:visited \\.nhsw-icon')).toBe('');
   });
 
   it('numbered previous/next colour, hover and focus states', () => {
@@ -93,5 +92,45 @@ describe('pagination colour coverage (Figma tokens)', () => {
     const currentHover = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__item--current \\.nhsw-pagination__number-link:hover');
     expect(currentHover).toMatch(/background-color:\s*#005aa8/);
     expect(currentHover).toMatch(/color:\s*#ffffff/);
+  });
+
+  it('numbered previous/next arrow icon is a fixed black fill, not a stroke', () => {
+    const icon = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__icon');
+    expect(icon).toMatch(/fill:\s*#212b32/);
+    expect(icon).not.toMatch(/stroke/);
+  });
+});
+
+describe('numbered pagination: on mobile, previous/next sit at the top with the number list wrapping below', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/pagination";`);
+  });
+
+  it('mobile: previous is pinned to the start and next to the end of the top row', () => {
+    const base = block(css, '\\.nhsw-pagination--numbered');
+    expect(base).toMatch(/justify-content:\s*space-between/);
+
+    // .nhsw-pagination__previous/__next share an earlier combined-selector
+    // block for hover/focus styles, so block() (which returns the first
+    // match) can't isolate the later, dedicated `order` rule - check the
+    // compiled output directly instead.
+    expect(css).toContain('.nhsw-pagination--numbered .nhsw-pagination__previous {\n  order: 1;\n}');
+    expect(css).toContain('.nhsw-pagination--numbered .nhsw-pagination__next {\n  order: 2;\n}');
+  });
+
+  it('mobile: the number list is forced onto its own full-width row below previous/next', () => {
+    const list = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__list');
+    expect(list).toMatch(/order:\s*3/);
+    expect(list).toMatch(/flex-basis:\s*100%/);
+  });
+
+  it('desktop (from-tablet): reverts to a single centred row in natural source order', () => {
+    const fromTablet = css.match(/@media \(min-width: 40\.0625em\)[\s\S]*/)[0];
+    expect(fromTablet).toMatch(/\.nhsw-pagination--numbered\s*\{\s*justify-content:\s*center/);
+    expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__previous\s*\{\s*order:\s*initial/);
+    expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__next\s*\{\s*order:\s*initial/);
+    expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__list\s*\{\s*order:\s*initial;\s*flex-basis:\s*auto/);
   });
 });

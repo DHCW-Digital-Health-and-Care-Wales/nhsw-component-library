@@ -21,7 +21,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="warning-text">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 5 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 6 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -98,6 +98,22 @@ extra_scripts:
           <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-text-manual-5-hint">Given warning text containing a long message. When viewed on a narrow viewport. Then the text wraps correctly and does not overlap the warning icon.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
+            <div class="nhsw-warning-text">
+              <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="nhsw-warning-text__text">
+                <span class="nhsw-visually-hidden">Warning</span>
+                You must appeal within 1 year of getting your decision letter, in writing, using the appeal form sent to you along with your original decision.
+              </strong>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="nhsw-checkboxes__item">
+          <input class="nhsw-checkboxes__input" id="warning-text-manual-6" name="warning-text-manual-tests" type="checkbox" aria-describedby="warning-text-manual-6-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="warning-text-manual-6">Icon remains aligned with the warning text</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="warning-text-manual-6-hint">Given warning text spans multiple lines. When the message wraps onto additional lines. Then the warning icon remains aligned with the first line of text and does not become vertically centred or misaligned. The box below is deliberately narrowed to force wrapping, so it's visible without resizing your browser.</div>
+        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
+          <div class="nhsw-example-preview__body" style="max-width: 320px;">
             <div class="nhsw-warning-text">
               <span class="nhsw-warning-text__icon" aria-hidden="true">!</span>
               <strong class="nhsw-warning-text__text">

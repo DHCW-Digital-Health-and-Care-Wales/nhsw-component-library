@@ -14,10 +14,10 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     expect(hover).toMatch(/text-decoration:\s*none/);
   });
 
-  it('card border/shadow on title-link hover uses the secondary border colour, not the primary border colour', () => {
+  it('card border on title-link hover uses the secondary border colour; the bottom box-shadow colour stays fixed', () => {
     const cardHover = block(css, '\\.nhsw-card:has\\(\\.nhsw-card__title-link:hover\\)');
     expect(cardHover).toMatch(/border-color:\s*#4c6272/);
-    expect(cardHover).toMatch(/box-shadow:\s*0 4px 0 #4c6272/);
+    expect(cardHover).not.toMatch(/box-shadow/);
   });
 
   it('title-link focus highlights just the heading text with a yellow background, not the whole card', () => {
@@ -35,18 +35,33 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     expect(linkHover).toMatch(/color:\s*#7c2855/);
   });
 
-  it('chevron variant renders a filled circle badge (link blue, matching the icon-badge variant) with a white arrow glyph, not a thin border arrow', () => {
+  it('chevron variant renders a filled circle badge (link blue) with a rounded-stroke SVG arrow, not a thin border arrow', () => {
     const chevron = block(css, '\\.nhsw-card--chevron \\.nhsw-card__title-link::before');
     expect(chevron).toMatch(/border-radius:\s*50%/);
     expect(chevron).toMatch(/background-color:\s*#005aa8/);
-    expect(chevron).toMatch(/color:\s*#ffffff/);
+    expect(chevron).toMatch(/background-image:\s*url/);
     expect(chevron).not.toMatch(/border-top:/);
+  });
+
+  it('chevron badge recolours to the maroon hover colour when the card is hovered', () => {
+    const chevronHover = block(css, '\\.nhsw-card:has\\(\\.nhsw-card__title-link:hover\\)\\.nhsw-card--chevron \\.nhsw-card__title-link::before');
+    expect(chevronHover).toMatch(/background-color:\s*#7c2855/);
   });
 
   it('header wraps the title and actions list on the same row, space-between', () => {
     const header = block(css, '\\.nhsw-card__header');
     expect(header).toMatch(/display:\s*flex/);
     expect(header).toMatch(/justify-content:\s*space-between/);
+  });
+
+  it('header has a 24px bottom margin, matching the NHS.UK card heading spacing', () => {
+    const header = block(css, '\\.nhsw-card__header');
+    expect(header).toMatch(/margin:\s*0 0 1\.5rem/);
+  });
+
+  it('description (the first p tag in a card body) has a 24px bottom margin', () => {
+    const description = block(css, '\\.nhsw-card__description\\b');
+    expect(description).toMatch(/margin:\s*0 0 1\.5rem/);
   });
 
   it('a title-only card (no description) centres the heading vertically', () => {
@@ -57,10 +72,13 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     expect(onlyChildTitle).toMatch(/margin:\s*0\b/);
   });
 
-  it('base card has a grey 1px border with a matching drop shadow', () => {
+  it('base card has a grey 1px border; the drop shadow only applies to clickable cards', () => {
     const base = block(css, '\\.nhsw-card');
     expect(base).toMatch(/border:\s*1px solid #d8dde0/);
-    expect(base).toMatch(/box-shadow:\s*0 4px 0 #d8dde0/);
+    expect(base).not.toMatch(/box-shadow/);
+
+    const clickable = block(css, '\\.nhsw-card:has\\(\\.nhsw-card__title-link\\)');
+    expect(clickable).toMatch(/box-shadow:\s*0 4px 0 #d8dde0/);
   });
 
   it('preview panel has a grey 1px border', () => {
