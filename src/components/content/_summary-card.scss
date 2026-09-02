@@ -4,6 +4,10 @@
 .nhsw-summary-card {
   margin: 0 0 24px;
   border: 1px solid c.$nhsw-colour-border-grey;
+
+  &:has(> .nhsw-summary-card__header) {
+    background-color: c.$nhsw-colour-background-white;
+  }
 }
 
 .nhsw-summary-card__header {

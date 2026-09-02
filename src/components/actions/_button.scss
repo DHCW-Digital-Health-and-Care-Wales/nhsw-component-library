@@ -131,12 +131,17 @@
         color: c.$nhsw-colour-link;
         font-weight: t.$nhsw-font-weight-regular;
         text-decoration: underline;
-        text-decoration-thickness: 2px;
+        text-decoration-thickness: 1px;
         text-underline-offset: 0.12em;
 
         &:not(:disabled):not(:focus):hover {
             background: none;
             color: c.$nhsw-colour-link-hover;
+        }
+
+        &:focus:not(:active) {
+            border-radius: 0;
+            text-decoration: none;
         }
 
         &:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {

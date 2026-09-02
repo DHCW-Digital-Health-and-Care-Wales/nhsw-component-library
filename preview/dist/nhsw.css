@@ -949,10 +949,6 @@
 .nhsw-file-upload:hover {
   background-color: #ffffff;
 }
-.nhsw-file-upload:hover .nhsw-file-upload__button {
-  background-color: #F2F2F2;
-  box-shadow: 0 2px 0 #1B2A49;
-}
 .nhsw-file-upload--has-file {
   background-color: #ffffff;
   border-style: solid;
@@ -1359,6 +1355,9 @@ body {
 .nhsw-summary-card {
   margin: 0 0 24px;
   border: 1px solid #d8dde0;
+}
+.nhsw-summary-card:has(> .nhsw-summary-card__header) {
+  background-color: #ffffff;
 }
 
 .nhsw-summary-card__header {
@@ -1829,15 +1828,12 @@ body {
 .nhsw-pagination__link .nhsw-icon {
   position: absolute;
   top: -2px;
-  height: 34px;
   width: 34px;
-  fill: currentColor;
+  height: auto;
+  fill: #212b32;
 }
 .nhsw-pagination__link:hover {
   color: #7c2855;
-}
-.nhsw-pagination__link:hover .nhsw-icon {
-  fill: #7c2855;
 }
 .nhsw-pagination__link:hover .nhsw-pagination__page {
   text-decoration: none;
@@ -1851,18 +1847,6 @@ body {
 }
 .nhsw-pagination__link:focus .nhsw-pagination__page {
   text-decoration: none;
-}
-.nhsw-pagination__link:focus .nhsw-icon {
-  fill: #212b32;
-}
-.nhsw-pagination__link:visited .nhsw-icon {
-  fill: #7c2855;
-}
-.nhsw-pagination__link:visited:hover .nhsw-icon {
-  fill: #7c2855;
-}
-.nhsw-pagination__link:visited:focus .nhsw-icon {
-  fill: #212b32;
 }
 
 .nhsw-pagination__title {
@@ -1894,7 +1878,7 @@ body {
 .nhsw-pagination--numbered {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 0;
   font-size: 1rem;
@@ -1902,6 +1886,7 @@ body {
 }
 @media (min-width: 40.0625em) {
   .nhsw-pagination--numbered {
+    justify-content: center;
     font-size: 1.1875rem;
     line-height: 1.47368;
   }
@@ -1929,10 +1914,26 @@ body {
   color: #212b32;
   outline: 4px solid transparent;
 }
+.nhsw-pagination--numbered .nhsw-pagination__previous {
+  order: 1;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-pagination--numbered .nhsw-pagination__previous {
+    order: initial;
+  }
+}
+.nhsw-pagination--numbered .nhsw-pagination__next {
+  order: 2;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-pagination--numbered .nhsw-pagination__next {
+    order: initial;
+  }
+}
 .nhsw-pagination--numbered .nhsw-pagination__icon {
   width: 16px;
-  height: 16px;
-  fill: currentColor;
+  height: auto;
+  fill: #212b32;
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous .nhsw-pagination__icon {
   margin-right: 8px;
@@ -1943,13 +1944,23 @@ body {
 .nhsw-pagination--numbered .nhsw-pagination__list {
   display: flex;
   align-items: stretch;
+  justify-content: center;
   gap: 0;
   list-style: none;
-  margin: 0;
+  margin: 8px 0 0;
   padding: 0;
+  order: 3;
+  flex-basis: 100%;
 }
 .nhsw-pagination--numbered .nhsw-pagination__list::after {
   display: none;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-pagination--numbered .nhsw-pagination__list {
+    order: initial;
+    flex-basis: auto;
+    margin-top: 0;
+  }
 }
 .nhsw-pagination--numbered .nhsw-pagination__item {
   display: block;
@@ -2644,12 +2655,16 @@ body {
   color: #005aa8;
   font-weight: 400;
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.12em;
 }
 .nhsw-button--link:not(:disabled):not(:focus):hover {
   background: none;
   color: #003087;
+}
+.nhsw-button--link:focus:not(:active) {
+  border-radius: 0;
+  text-decoration: none;
 }
 .nhsw-button--link:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
   box-shadow: none;
@@ -2994,7 +3009,7 @@ body {
   position: relative;
   z-index: 2;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.625rem;
   margin: 0;
   padding: 0.5rem 2rem;
@@ -3076,13 +3091,14 @@ body {
   padding: 16px;
   overflow-wrap: break-word;
   color: #212b32;
+  font-size: 1.1875rem;
 }
 .nhsw-notification-banner__content > :last-child {
   margin-bottom: 0;
 }
 .nhsw-notification-banner__heading {
   margin: 0 0 8px;
-  font-size: 1.1875rem;
+  font-size: 1.625rem;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -3102,15 +3118,16 @@ body {
   position: relative;
   background-color: #ffffff;
   border: 1px solid #d8dde0;
-  box-shadow: 0 4px 0 #d8dde0;
   padding: 2rem;
   height: calc(100% - 2rem);
   margin-bottom: 2rem;
   box-sizing: border-box;
 }
+.nhsw-card:has(.nhsw-card__title-link) {
+  box-shadow: 0 4px 0 #d8dde0;
+}
 .nhsw-card:has(.nhsw-card__title-link:hover) {
   border-color: #4c6272;
-  box-shadow: 0 4px 0 #4c6272;
   cursor: pointer;
 }
 .nhsw-card:has(> .nhsw-card__title:only-child) {
@@ -3142,9 +3159,11 @@ body {
   text-decoration: none;
 }
 .nhsw-card__title-link:focus {
+  display: inline-block;
   outline: none;
   background-color: #ffeb3b;
   color: #0b0c0c;
+  line-height: 1;
   text-decoration: underline;
   text-decoration-thickness: 3px;
 }
@@ -3154,7 +3173,7 @@ body {
 }
 
 .nhsw-card__description {
-  margin: 0;
+  margin: 0 0 1.5rem;
   color: #212b32;
   font-size: 1.1875rem;
   line-height: 1.75rem;
@@ -3227,7 +3246,7 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.5rem 1rem;
-  margin: 0 0 0.5rem;
+  margin: 0 0 1.5rem;
 }
 .nhsw-card__header .nhsw-card__title {
   margin: 0;
@@ -3247,22 +3266,24 @@ body {
   padding-right: 3.5rem;
 }
 .nhsw-card--chevron .nhsw-card__title-link::before {
-  content: "❯";
+  content: "";
   position: absolute;
   right: 1.25rem;
   top: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 2rem;
   height: 2rem;
   margin-top: -1rem;
   border-radius: 50%;
   background-color: #005aa8;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 700;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.11 -0.11 6.94 11.22' fill='none'%3E%3Cpath d='M2.09311 10.4268C1.6622 10.8575 1.00449 10.8575 0.573578 10.4268C0.142613 9.99579 0.142613 9.33721 0.573578 8.90625L3.97983 5.5L0.573577 2.09375C0.142613 1.66279 0.142613 1.00421 0.573577 0.573243C1.00449 0.142495 1.66219 0.142496 2.09311 0.573243L6.2601 4.74023C6.35805 4.83821 6.44182 4.94585 6.49936 5.0752C6.55742 5.20582 6.58334 5.34583 6.58334 5.5C6.58334 5.65417 6.55742 5.79418 6.49936 5.9248C6.44182 6.05415 6.35805 6.16179 6.2601 6.25977L2.09311 10.4268Z' fill='white' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 7px 11.2px;
   text-decoration: none;
+}
+
+.nhsw-card:has(.nhsw-card__title-link:hover).nhsw-card--chevron .nhsw-card__title-link::before {
+  background-color: #7c2855;
 }
 
 .nhsw-site-header {

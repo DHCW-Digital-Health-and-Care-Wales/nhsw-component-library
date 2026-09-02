@@ -17,6 +17,14 @@ Feature: Warning text — automated coverage
     Scenario: Icon-to-text gap
       Given the compiled CSS for .nhsw-warning-text
       Then there is a 12px gap between the icon and the text
+
+    @automated
+    # specs/tests/css/components/warning-text.test.js
+    Scenario: Icon remains aligned with the warning text
+      Given warning text spans multiple lines
+      When the message wraps onto additional lines
+      Then the warning icon remains aligned with the first line of text
+      And does not become vertically centred or misaligned
 ```
 
 > Note: like warning callout, warning text's icon is rendered via CSS, not an inline `<svg>`, so `accessibility.test.js`'s decorative-SVG-must-be-aria-hidden check does not exercise this component's fixtures.

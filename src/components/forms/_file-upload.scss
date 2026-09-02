@@ -9,11 +9,6 @@
 
   &:hover {
     background-color: c.$nhsw-colour-background-white;
-
-    .nhsw-file-upload__button {
-      background-color: c.$nhsw-colour-button-secondary-hover;
-      box-shadow: 0 2px 0 c.$nhsw-colour-button-primary-hover-box-shadow;
-    }
   }
 
   &--has-file {

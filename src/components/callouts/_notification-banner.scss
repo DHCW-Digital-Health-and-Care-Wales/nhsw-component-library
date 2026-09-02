@@ -26,6 +26,7 @@ $nhsw-colour-notification-success: #00703c;
     padding: 16px;
     overflow-wrap: break-word;
     color: c.$nhsw-colour-text-primary;
+    font-size: 1.1875rem;
 
     > :last-child {
       margin-bottom: 0;
@@ -34,7 +35,7 @@ $nhsw-colour-notification-success: #00703c;
 
   &__heading {
     margin: 0 0 8px;
-    font-size: 1.1875rem;
+    font-size: 1.625rem;
     font-weight: 700;
     line-height: 1.5;
   }

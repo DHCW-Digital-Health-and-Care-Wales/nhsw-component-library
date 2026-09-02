@@ -34,12 +34,12 @@ describe('file upload hover/uploaded/focus states', () => {
     css = compileProbe(`@use "components/forms/file-upload";`);
   });
 
-  it('hover turns the whole box white, and the Choose file button matches our own secondary button hover state', () => {
+  it('hover turns the whole box white, without a separate rule forcing the Choose file button to look hovered from elsewhere in the box', () => {
     const hover = block(css, '\\.nhsw-file-upload:hover');
     expect(hover).toMatch(/background-color:\s*#ffffff/);
+    // Button hover now comes only from its own .nhsw-button--secondary:hover rule.
     const hoverButton = block(css, '\\.nhsw-file-upload:hover \\.nhsw-file-upload__button');
-    expect(hoverButton).toMatch(/background-color:\s*#f2f2f2/i);
-    expect(hoverButton).toMatch(/box-shadow:\s*0 2px 0 #1b2a49/i);
+    expect(hoverButton).toBe('');
   });
 
   it('an error state shows a red border around the box', () => {

@@ -29,10 +29,14 @@ describe('buttons: new warning-outline variant, link variant fixes, group layout
     expect(reverseHover).toMatch(/text-decoration:\s*none/);
   });
 
-  it('link variant underline thickness matches the action link component', () => {
+  it('link variant underline is thin, and focus drops the underline and corner radius', () => {
     const base = block(css, '\\.nhsw-button--link');
-    expect(base).toMatch(/text-decoration-thickness:\s*2px/);
+    expect(base).toMatch(/text-decoration-thickness:\s*1px/);
     expect(base).toMatch(/text-underline-offset:\s*0\.12em/);
+
+    const focus = block(css, '\\.nhsw-button--link:focus:not\\(:active\\)');
+    expect(focus).toMatch(/border-radius:\s*0/);
+    expect(focus).toMatch(/text-decoration:\s*none/);
   });
 
   it('button group stays in a row and wraps at any screen size, and its buttons are not forced full-width', () => {
