@@ -11,8 +11,9 @@ test.describe('Homepage', () => {
   test('"What\'s new" shows exactly 3 section cards, not 6', async ({ page }) => {
     await page.goto('/index.html');
     const cards = page.locator('section[aria-label="Design system sections"] .nhsw-card');
+    const cardLinks = cards.locator('.nhsw-card__title-link');
     await expect(cards).toHaveCount(3);
-    await expect(cards).toContainText(['Design principles', 'Content guide', 'Styles', 'Components', 'Patterns']);
+    await expect(cardLinks).toHaveText(['Design principles', 'Styles', 'Components']);
   });
 
   test('closing section is titled "Support", not "Contact us"', async ({ page }) => {
