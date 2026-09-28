@@ -177,9 +177,88 @@ tabs:
 <!-- Variants -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Tabs variants</h2>
-  <p class="nhsw-body">There are no variants available for this component.</p>
-  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
-  <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
+
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-tabs">
+      <ul class="nhsw-tabs__list" role="tablist">
+        <li role="presentation">
+          <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="demo-count-panel-day" id="demo-count-tab-day"><span class="nhsw-tabs__tab-text">Past day</span> <strong class="nhsw-tag nhsw-tag--blue">112</strong></button>
+        </li>
+        <li role="presentation">
+          <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-count-panel-week" id="demo-count-tab-week"><span class="nhsw-tabs__tab-text">Past week</span></button>
+        </li>
+        <li role="presentation">
+          <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-count-panel-month" id="demo-count-tab-month"><span class="nhsw-tabs__tab-text">Past month</span></button>
+        </li>
+        <li role="presentation">
+          <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="demo-count-panel-year" id="demo-count-tab-year"><span class="nhsw-tabs__tab-text">Past year</span></button>
+        </li>
+      </ul>
+      <div class="nhsw-tabs__panel" id="demo-count-panel-day" role="tabpanel" aria-labelledby="demo-count-tab-day">
+        <h2 class="nhsw-h2">Past day</h2>
+        <table class="nhsw-table">
+          <thead class="nhsw-table__head">
+            <tr class="nhsw-table__row">
+              <th scope="col" class="nhsw-table__header">Case manager</th>
+              <th scope="col" class="nhsw-table__header">Cases opened</th>
+              <th scope="col" class="nhsw-table__header">Cases closed</th>
+            </tr>
+          </thead>
+          <tbody class="nhsw-table__body">
+            <tr class="nhsw-table__row">
+              <td class="nhsw-table__cell">David Francis</td>
+              <td class="nhsw-table__cell">3</td>
+              <td class="nhsw-table__cell">0</td>
+            </tr>
+            <tr class="nhsw-table__row">
+              <td class="nhsw-table__cell">Paul Farmer</td>
+              <td class="nhsw-table__cell">1</td>
+              <td class="nhsw-table__cell">0</td>
+            </tr>
+            <tr class="nhsw-table__row">
+              <td class="nhsw-table__cell">Rita Patel</td>
+              <td class="nhsw-table__cell">2</td>
+              <td class="nhsw-table__cell">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-count-panel-week" role="tabpanel" aria-labelledby="demo-count-tab-week">
+        <h2 class="nhsw-h2">Past week</h2>
+        <p class="nhsw-body">Case activity for the past week.</p>
+      </div>
+      <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-count-panel-month" role="tabpanel" aria-labelledby="demo-count-tab-month">
+        <h2 class="nhsw-h2">Past month</h2>
+        <p class="nhsw-body">Case activity for the past month.</p>
+      </div>
+      <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="demo-count-panel-year" role="tabpanel" aria-labelledby="demo-count-tab-year">
+        <h2 class="nhsw-h2">Past year</h2>
+        <p class="nhsw-body">Case activity for the past year.</p>
+      </div>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tb-count" open_url="/examples/tabs-count.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-day" id="tab-day"&gt;
+  &lt;span class="nhsw-tabs__tab-text"&gt;Past day&lt;/span&gt; &lt;strong class="nhsw-tag nhsw-tag--blue"&gt;112&lt;/strong&gt;
+&lt;/button&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "tabs/macro.njk" import nhswTabs %}
+
+{{ nhswTabs({
+  items: [
+    { label: "Past day", id: "day", count: "112", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past day&lt;/h2&gt;" },
+    { label: "Past week", id: "week", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past week&lt;/h2&gt;" }
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tb-count" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">Add a tag to a tab label when you need to draw attention to a quantity, status or update. It provides additional context about a section, for example:</p>
+  <ul class="nhsw-body">
+    <li>unread notifications</li>
+    <li>pending actions</li>
+    <li>total number of records</li>
+    <li>filtered results</li>
+  </ul>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">

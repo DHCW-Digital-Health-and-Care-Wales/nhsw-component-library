@@ -73,12 +73,6 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(before).toMatch(/inset:\s*0/);
   });
 
-  it('count badge is a bordered, link-coloured inline label', () => {
-    const count = block(css, '\\.nhsw-tabs__count');
-    expect(count).toMatch(/border:\s*1px solid #005aa8/);
-    expect(count).toMatch(/color:\s*#005aa8/);
-  });
-
   it('tab list has a grey bottom border, and the unselected tab background is drawn the same grey', () => {
     const list = block(css, '\\.nhsw-tabs__list');
     expect(list).toMatch(/border-bottom:\s*1px solid #d8dde0/);

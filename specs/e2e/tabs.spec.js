@@ -32,3 +32,15 @@ test.describe('Tabs focus state', () => {
     expect(style.thickness).toBe('3px');
   });
 });
+
+test.describe('Tabs count badge variant', () => {
+  test('renders a visible count badge alongside the tab label', async ({ page }) => {
+    await page.goto('/examples/tabs-count.html');
+
+    const tab = page.locator('#demo-tab-day');
+    const badge = tab.locator('.nhsw-tag');
+    await expect(badge).toBeVisible();
+    await expect(badge).toHaveText('112');
+    await expect(tab.locator('.nhsw-tabs__tab-text')).toHaveText('Past day');
+  });
+});

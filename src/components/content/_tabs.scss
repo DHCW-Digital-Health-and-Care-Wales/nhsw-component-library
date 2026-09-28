@@ -18,6 +18,7 @@
   flex-shrink: 0;
   display: flex;
   align-items: flex-start;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
   background: none;
   border: none;
@@ -70,19 +71,6 @@
 
 .nhsw-tabs__tab-text {
   text-decoration: underline;
-}
-
-.nhsw-tabs__count {
-  display: inline-block;
-  margin-left: 0.5rem;
-  padding: 0 0.375rem;
-  border: 1px solid c.$nhsw-colour-link;
-  border-radius: 4px;
-  color: c.$nhsw-colour-link;
-  font-size: 0.8125rem;
-  font-weight: t.$nhsw-font-weight-bold;
-  line-height: 1.5;
-  text-decoration: none;
 }
 
 .nhsw-tabs__panel {
