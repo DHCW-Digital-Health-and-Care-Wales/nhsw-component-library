@@ -52,6 +52,7 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(focusText).toMatch(/background-color:\s*#ffeb3b/);
     expect(focusText).toMatch(/color:\s*#0b0c0c/);
     // Matches the 3px focus underline used on .nhsw-card__title-link:focus.
+    expect(focusText).toMatch(/text-decoration:\s*underline/);
     expect(focusText).toMatch(/text-decoration-thickness:\s*3px/);
   });
 

@@ -1241,6 +1241,7 @@ body {
 .nhsw-tabs__tab:focus .nhsw-tabs__tab-text {
   background-color: #ffeb3b;
   color: #0b0c0c;
+  text-decoration: underline;
   text-decoration-thickness: 3px;
 }
 .nhsw-tabs__tab--selected {
