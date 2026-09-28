@@ -9,11 +9,13 @@
   margin: 0 0 0;
   padding: 0;
   border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  overflow-x: auto;
 }
 
 .nhsw-tabs__tab {
   position: relative;
   z-index: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: flex-start;
   padding: 0.5rem 1rem;
@@ -23,6 +25,7 @@
   font-family: t.$nhsw-font-family-base;
   font-size: t.$nhsw-font-size-body-small;
   line-height: 1.6875rem;
+  white-space: nowrap;
   cursor: pointer;
 
   &::before {

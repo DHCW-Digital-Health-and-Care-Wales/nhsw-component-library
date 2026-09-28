@@ -88,7 +88,7 @@ tabs:
     <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
       <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
       <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
-      <p class="nhsw-error-message" id="cb-contact3-error">Select how you want to be contacted</p>
+      <p class="nhsw-error-message" id="cb-contact3-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
       <div class="nhsw-checkboxes">
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
@@ -330,7 +330,7 @@ tabs:
             <input class="nhsw-checkboxes__input" id="cb-contact2-1" name="cb-contact2" type="checkbox" value="email" data-aria-controls="conditional-cb2-1" checked>
             <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-1">Email</label>
           </div>
-          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1">
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1" aria-live="polite">
             <div class="nhsw-form-group">
               <label class="nhsw-label" for="cb2-email">Email address</label>
               <input class="nhsw-input" id="cb2-email" name="cb2-email" type="email">
@@ -340,7 +340,7 @@ tabs:
             <input class="nhsw-checkboxes__input" id="cb-contact2-2" name="cb-contact2" type="checkbox" value="phone" data-aria-controls="conditional-cb2-2" checked>
             <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-2">Phone</label>
           </div>
-          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2">
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2" aria-live="polite">
             <div class="nhsw-form-group">
               <label class="nhsw-label" for="cb2-phone">Phone number</label>
               <input class="nhsw-input" id="cb2-phone" name="cb2-phone" type="tel">
@@ -350,7 +350,7 @@ tabs:
             <input class="nhsw-checkboxes__input" id="cb-contact2-3" name="cb-contact2" type="checkbox" value="text" data-aria-controls="conditional-cb2-3" checked>
             <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-3">Text message</label>
           </div>
-          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3">
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3" aria-live="polite">
             <div class="nhsw-form-group">
               <label class="nhsw-label" for="cb2-mobile">Mobile phone number</label>
               <input class="nhsw-input" id="cb2-mobile" name="cb2-mobile" type="tel">
@@ -365,7 +365,7 @@ tabs:
   &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact-1"&gt;
   &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="nhsw-checkboxes__conditional" id="conditional-contact-1"&gt;
+&lt;div class="nhsw-checkboxes__conditional" id="conditional-contact-1" aria-live="polite"&gt;
   &lt;div class="nhsw-form-group"&gt;
     &lt;label class="nhsw-label" for="email"&gt;Email address&lt;/label&gt;
     &lt;input class="nhsw-input" id="email" name="email" type="email"&gt;

@@ -17,13 +17,13 @@ tabs:
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
-    <div class="nhsw-inset-text">
+    <div class="nhsw-inset-text" role="note">
       <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="inset-overview" open_url="/examples/inset-text-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-inset-text"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-inset-text" role="note"&gt;
   &lt;p class="nhsw-body"&gt;It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "inset-text/macro.njk" import nhswInsetText %}
@@ -73,14 +73,14 @@ tabs:
   <h3 class="nhsw-h3">With heading</h3>
 
   {% capture example_body %}{% raw %}
-    <div class="nhsw-inset-text">
+    <div class="nhsw-inset-text" role="note">
       <h3 class="nhsw-h3">Note</h3>
       <p class="nhsw-body">It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.</p>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="inset-heading" open_url="/examples/inset-text-heading.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-inset-text"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-inset-text" role="note"&gt;
   &lt;h3 class="nhsw-h3"&gt;Note&lt;/h3&gt;
   &lt;p class="nhsw-body"&gt;It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}

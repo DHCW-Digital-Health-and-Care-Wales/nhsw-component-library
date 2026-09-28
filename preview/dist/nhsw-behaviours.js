@@ -29,11 +29,24 @@
     // attribute on the checkbox/radio role, and axe-core flags it as a
     // critical violation. aria-controls (a global attribute) is enough.
     input.setAttribute('aria-controls', input.getAttribute('data-aria-controls'));
-    target.classList.toggle('nhsw-checkboxes__conditional--hidden', !input.checked);
 
-    input.addEventListener('change', function () {
-      target.classList.toggle('nhsw-checkboxes__conditional--hidden', !input.checked);
+    var conditionalClass = Array.prototype.find.call(target.classList, function (cls) {
+      return /__conditional$/.test(cls);
     });
+    var hiddenClass = conditionalClass ? conditionalClass + '--hidden' : 'nhsw-checkboxes__conditional--hidden';
+
+    function sync() {
+      target.classList.toggle(hiddenClass, !input.checked);
+    }
+    sync();
+
+    if (input.type === 'radio') {
+      document.querySelectorAll('input[type="radio"][name="' + input.name + '"]').forEach(function (radio) {
+        radio.addEventListener('change', sync);
+      });
+    } else {
+      input.addEventListener('change', sync);
+    }
   });
 
   document.querySelectorAll('[data-checkbox-exclusive]').forEach(function (exclusive) {
