@@ -308,7 +308,8 @@ Supports:
 - nhsw-tabs__list
 - nhsw-tabs__tab (+ --selected)
 - nhsw-tabs__panel (+ --hidden)
-- nhsw-tabs__count, __pagination, __pagination-link — styled in Sass for a scrollable-tabs-with-count pattern, but not currently emitted by the macro; only relevant to hand-authored markup
+- nhsw-tabs__pagination, __pagination-link
+- count badge: pass `count` on an item to render an `nhsw-tag nhsw-tag--blue` badge after the tab label (reuses the Tag component, not a tabs-specific class)
 
 ## nhsw-tag
 Status indicator tag.

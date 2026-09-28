@@ -81,6 +81,11 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     expect(item).toMatch(/margin-bottom:\s*6px/);
   });
 
+  it('the label itself carries no bottom margin, so item spacing is controlled only by the item, not by the shared .nhsw-label hint-aware margin', () => {
+    const label = block(css, '\\.nhsw-checkboxes__label\\.nhsw-label');
+    expect(label).toMatch(/margin-bottom:\s*0/);
+  });
+
   it('conditional content indents 52px total (margin + border + padding), aligning with the 52px item label', () => {
     const conditional = block(css, '\\.nhsw-checkboxes__conditional\\b');
     expect(conditional).toMatch(/margin-left:\s*18px/);

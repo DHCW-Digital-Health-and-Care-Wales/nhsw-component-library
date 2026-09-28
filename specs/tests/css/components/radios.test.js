@@ -39,6 +39,11 @@ describe('radios: regular-weight labels, tighter item spacing, row hover, thicke
     expect(item).toMatch(/margin-bottom:\s*6px/);
   });
 
+  it('the label itself carries no bottom margin, so item spacing is controlled only by the item, not by the shared .nhsw-label hint-aware margin', () => {
+    const label = block(css, '\\.nhsw-radios__label\\.nhsw-label');
+    expect(label).toMatch(/margin-bottom:\s*0/);
+  });
+
   it('item row highlights on hover', () => {
     const hover = block(css, '\\.nhsw-radios__item:hover');
     expect(hover).toMatch(/background-color:\s*#f0f4f5/);

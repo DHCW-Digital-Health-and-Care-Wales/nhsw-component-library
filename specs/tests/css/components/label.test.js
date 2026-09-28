@@ -12,8 +12,15 @@ describe('label grows to 19px at tablet, matching hint/error-message', () => {
     expect(css).toMatch(/@media \(min-width: 40\.0625em\)[\s\S]*?\.nhsw-label\s*\{[^}]*font-size:\s*1\.1875rem/);
   });
 
-  it('the xl label variant (used as a page-heading-style question) has a 16px margin-bottom, not the base 4px', () => {
+  it('the xl label variant (used as a page-heading-style question) always has a 16px margin-bottom, regardless of a following hint', () => {
     const xl = block(css, '\\.nhsw-label--xl');
     expect(xl).toMatch(/margin-bottom:\s*16px/);
+  });
+
+  it('base label margin-bottom is 0 by default, 16px when no hint immediately follows', () => {
+    const base = block(css, '\\.nhsw-label\\b');
+    expect(base).toMatch(/margin-bottom:\s*0/);
+    const noHint = block(css, '\\.nhsw-label:not\\(:has\\(\\+ \\.nhsw-hint\\)\\)');
+    expect(noHint).toMatch(/margin-bottom:\s*16px/);
   });
 });
