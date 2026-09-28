@@ -8,10 +8,10 @@ test.describe('Homepage', () => {
     await expect(getStarted).toHaveAttribute('href', '/get-started/index.html');
   });
 
-  test('"What\'s new" shows exactly 5 section cards, not 6', async ({ page }) => {
+  test('"What\'s new" shows exactly 3 section cards, not 6', async ({ page }) => {
     await page.goto('/index.html');
     const cards = page.locator('section[aria-label="Design system sections"] .nhsw-card');
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(3);
     await expect(cards).toContainText(['Design principles', 'Content guide', 'Styles', 'Components', 'Patterns']);
   });
 

@@ -63,12 +63,12 @@ tabs:
   <h2 class="nhsw-h2">When to use checkboxes</h2>
   <p class="nhsw-body">Use checkboxes when you need to help users:</p>
   <ul class="nhsw-body">
-    <li>select more than 1 option from a list</li>
+    <li>select more than one option from a list</li>
     <li>toggle a single option on or off</li>
   </ul>
 
   <h2 class="nhsw-h2">When not to use checkboxes</h2>
-  <p class="nhsw-body">Do not use the checkboxes component if users can only choose 1 option from a selection. In this case, use a radio.</p>
+  <p class="nhsw-body">Do not use the checkboxes component if users can only choose one option from a selection. In this case, use a radio.</p>
 
   <h2 class="nhsw-h2">How to use checkboxes</h2>
   <p class="nhsw-body">Position checkboxes to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.</p>
@@ -158,13 +158,13 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Inline checkboxes</h3>
-    <p class="nhsw-body">In some cases, you can choose to display checkboxes "inline" beside one another (horizontally).</p>
-    <p class="nhsw-body">Only use inline checkboxes when:</p>
+    <p class="nhsw-body">Use inline checkboxes when users need to choose from only 2 options and both option labels are short. Displaying checkboxes horizontally can reduce the amount of space needed and make related options easier to compare.</p>
+    <p class="nhsw-body">Do not use inline checkboxes if:</p>
     <ul class="nhsw-body">
-      <li>the question only has 2 options</li>
-      <li>both options are short</li>
+      <li>there are more than 2 options</li>
+      <li>either option label is long or may wrap onto multiple lines</li>
     </ul>
-    <p class="nhsw-body">On small screens such as mobile devices, the checkboxes will still be "stacked" on top of one another (vertically).</p>
+    <p class="nhsw-body">On small screens, such as mobile devices, inline checkboxes automatically stack on top of each other (vertically) to maintain readability and usability.</p>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset">
