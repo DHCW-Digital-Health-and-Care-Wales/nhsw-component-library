@@ -1156,6 +1156,50 @@ body {
   }
 }
 
+.nhsw-caption-xl {
+  font-family: Roboto, Arial, sans-serif;
+  color: #212b32;
+  color: #4c6272;
+  font-size: 1.375rem;
+  line-height: 1.8125rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  display: block;
+}
+
+.nhsw-caption-l {
+  font-family: Roboto, Arial, sans-serif;
+  color: #212b32;
+  color: #4c6272;
+  font-size: 1.1875rem;
+  line-height: 1.6875rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  display: block;
+}
+
+.nhsw-caption-m {
+  font-family: Roboto, Arial, sans-serif;
+  color: #212b32;
+  color: #4c6272;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  display: block;
+}
+
+.nhsw-caption-s {
+  font-family: Roboto, Arial, sans-serif;
+  color: #212b32;
+  color: #4c6272;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  display: block;
+}
+
 .nhsw-body {
   font-family: Roboto, Arial, sans-serif;
   color: #212b32;
@@ -3411,12 +3455,15 @@ body {
 .nhsw-site-header__title {
   display: inline-flex;
   align-items: center;
+  min-width: 0;
   padding-left: 1.25rem;
   color: #ffffff;
   font-family: Roboto, Arial, sans-serif;
   font-size: 1.375rem;
   line-height: 1.1;
   font-weight: 400;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 40.0625em) {
@@ -3442,8 +3489,11 @@ body {
   font-size: 1rem;
 }
 .nhsw-site-header__search-input:focus {
+  position: relative;
+  z-index: 1;
   outline: 3px solid #ffeb3b;
   outline-offset: 0;
+  box-shadow: inset 0 0 0 4px #212b32;
 }
 .nhsw-site-header__search-input::-webkit-search-cancel-button, .nhsw-site-header__search-input::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -3551,7 +3601,7 @@ body {
 }
 
 .nhsw-site-header__nav-badge {
-  margin-left: 0.375rem;
+  margin-left: 0.8rem;
   vertical-align: middle;
 }
 
@@ -3621,13 +3671,11 @@ body {
     padding-left: 0;
   }
   .nhsw-site-header__search {
-    flex-basis: 100%;
-    margin-bottom: 1rem;
+    display: none;
   }
 }
 .nhsw-site-footer {
   margin-top: 4rem;
-  border-top: 0.25rem solid #005eb8;
   background-color: #ffffff;
 }
 
@@ -3661,28 +3709,24 @@ body {
 
 .nhsw-site-footer__copyright {
   margin: 0;
+  color: #4c6272;
 }
 
 .nhsw-site-footer__licence {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
 }
 
 .nhsw-site-footer__licence-badge {
   flex: 0 0 auto;
-  padding: 2px 6px;
-  border: 1px solid #212b32;
-  color: #212b32;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.4;
 }
 
 .nhsw-site-footer__licence-text {
   margin: 0;
   color: #4c6272;
+  font-size: 1.1875rem;
 }
 
 .nhsw-site-footer__org {

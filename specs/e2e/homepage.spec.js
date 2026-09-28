@@ -30,6 +30,8 @@ test.describe('Homepage', () => {
     await page.goto('/index.html');
     const footerLinks = page.locator('.nhsw-site-footer__links a');
     await expect(footerLinks).toHaveCount(5);
-    await expect(page.locator('.nhsw-site-footer__licence-badge')).toHaveText('OGL');
+    const badge = page.locator('.nhsw-site-footer__licence-badge');
+    await expect(badge).toHaveAttribute('src', /ogl-logo\.svg$/);
+    await expect(badge).toBeVisible();
   });
 });
