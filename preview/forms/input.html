@@ -19,7 +19,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label nhsw-label--xl" for="ti-ov-name">What is your full name?</label>
-      <input id="ti-ov-name" name="ti-ov-name" class="nhsw-input" type="text" value="Text">
+      <input id="ti-ov-name" name="ti-ov-name" class="nhsw-input" type="text">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-overview" open_url="/examples/input-page-question.html" body=example_body %}
@@ -61,7 +61,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label nhsw-label--xl" for="ti-how-name">What is your full name?</label>
-      <input id="ti-how-name" name="ti-how-name" class="nhsw-input" type="text" value="Text">
+      <input id="ti-how-name" name="ti-how-name" class="nhsw-input" type="text">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-page-question" open_url="/examples/input-page-question.html" body=example_body %}
@@ -83,7 +83,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ti-multi-name">What is your full name?</label>
-      <input id="ti-multi-name" name="ti-multi-name" class="nhsw-input" type="text" value="Text">
+      <input id="ti-multi-name" name="ti-multi-name" class="nhsw-input" type="text">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-multi-question" open_url="/examples/input-multi-question.html" body=example_body %}
@@ -108,27 +108,27 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-20">20 character width</label>
-        <input id="fw-20" name="fw-20" class="nhsw-input nhsw-input--width-20" type="text" value="Text">
+        <input id="fw-20" name="fw-20" class="nhsw-input nhsw-input--width-20" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-10">10 character width</label>
-        <input id="fw-10" name="fw-10" class="nhsw-input nhsw-input--width-10" type="text" value="Text">
+        <input id="fw-10" name="fw-10" class="nhsw-input nhsw-input--width-10" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-5">5 character width</label>
-        <input id="fw-5" name="fw-5" class="nhsw-input nhsw-input--width-5" type="text" value="Text">
+        <input id="fw-5" name="fw-5" class="nhsw-input nhsw-input--width-5" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-4">4 character width</label>
-        <input id="fw-4" name="fw-4" class="nhsw-input nhsw-input--width-4" type="text" value="Text">
+        <input id="fw-4" name="fw-4" class="nhsw-input nhsw-input--width-4" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-3">3 character width</label>
-        <input id="fw-3" name="fw-3" class="nhsw-input nhsw-input--width-3" type="text" value="Text">
+        <input id="fw-3" name="fw-3" class="nhsw-input nhsw-input--width-3" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-2">2 character width</label>
-        <input id="fw-2" name="fw-2" class="nhsw-input nhsw-input--width-2" type="text" value="Te">
+        <input id="fw-2" name="fw-2" class="nhsw-input nhsw-input--width-2" type="text">
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="ti-fixed" open_url="/examples/input-fixed-widths.html" body=example_body %}
@@ -189,7 +189,7 @@ tabs:
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ti-hint">10 character width</label>
       <div class="nhsw-hint" id="ti-hint-hint">Hint text goes here</div>
-      <input id="ti-hint" name="ti-hint" class="nhsw-input nhsw-input--width-10" type="text" value="Text" aria-describedby="ti-hint-hint">
+      <input id="ti-hint" name="ti-hint" class="nhsw-input nhsw-input--width-10" type="text" aria-describedby="ti-hint-hint">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-hint" open_url="/examples/input-hint.html" body=example_body %}

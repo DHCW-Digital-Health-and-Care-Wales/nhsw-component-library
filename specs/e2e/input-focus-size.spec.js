@@ -24,3 +24,25 @@ test.describe('Inputs do not resize on focus', () => {
     });
   }
 });
+
+test.describe('Prefix/suffix input focus ring', () => {
+  test('a focused input with a prefix and suffix paints its outline above the suffix, not underneath it', async ({ page }) => {
+    await page.goto('/examples/input-prefix-suffix.html');
+    const input = page.locator('.nhsw-input-wrapper .nhsw-input');
+    await input.focus();
+
+    const style = await input.evaluate((el) => {
+      const s = getComputedStyle(el);
+      return { position: s.position, zIndex: s.zIndex };
+    });
+    expect(style.position).toBe('relative');
+    expect(style.zIndex).toBe('1');
+
+    const inputBox = await input.boundingBox();
+    const topElement = await page.evaluate(
+      ({ x, y }) => document.elementFromPoint(x, y) === document.activeElement,
+      { x: inputBox.x + inputBox.width - 1, y: inputBox.y + inputBox.height / 2 },
+    );
+    expect(topElement).toBe(true);
+  });
+});

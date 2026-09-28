@@ -959,6 +959,10 @@
   flex: 0 1 auto;
   min-width: 0;
 }
+.nhsw-input-wrapper .nhsw-input:focus {
+  position: relative;
+  z-index: 1;
+}
 .nhsw-input-wrapper__prefix, .nhsw-input-wrapper__suffix {
   display: flex;
   align-items: center;

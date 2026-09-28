@@ -9,6 +9,11 @@
   .nhsw-input {
     flex: 0 1 auto;
     min-width: 0;
+
+    &:focus {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   &__prefix,
