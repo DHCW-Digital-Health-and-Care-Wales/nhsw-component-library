@@ -11,5 +11,9 @@
 
   &.nhsw-h2 {
     margin-bottom: 0;
+
+    &:not(:has(+ .nhsw-hint)) {
+      margin-bottom: 16px;
+    }
   }
 }

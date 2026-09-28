@@ -44,6 +44,9 @@
 .nhsw-fieldset__legend.nhsw-h2 {
   margin-bottom: 0;
 }
+.nhsw-fieldset__legend.nhsw-h2:not(:has(+ .nhsw-hint)) {
+  margin-bottom: 16px;
+}
 
 .nhsw-label {
   display: block;
@@ -97,7 +100,7 @@
 
 .nhsw-hint {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   color: #4c6272;
   font-size: 1rem;
   font-weight: 400;
@@ -793,7 +796,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   padding-left: 52px;
   position: relative;
 }
@@ -884,7 +887,7 @@
 .nhsw-checkboxes__conditional {
   margin-bottom: 16px;
   margin-left: 18px;
-  padding-left: 20px;
+  padding-left: 30px;
   border-left: 4px solid #4c6272;
 }
 .nhsw-checkboxes__conditional--hidden {

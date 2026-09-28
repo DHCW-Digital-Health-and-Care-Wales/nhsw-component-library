@@ -75,4 +75,16 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     const divider = block(css, '\\.nhsw-checkboxes__divider');
     expect(divider).toMatch(/color:\s*#212b32/);
   });
+
+  it('items are spaced 6px apart, narrower than the 16px used elsewhere', () => {
+    const item = block(css, '\\.nhsw-checkboxes__item\\b');
+    expect(item).toMatch(/margin-bottom:\s*6px/);
+  });
+
+  it('conditional content indents 52px total (margin + border + padding), aligning with the 52px item label', () => {
+    const conditional = block(css, '\\.nhsw-checkboxes__conditional\\b');
+    expect(conditional).toMatch(/margin-left:\s*18px/);
+    expect(conditional).toMatch(/padding-left:\s*30px/);
+    expect(conditional).toMatch(/border-left:\s*4px/);
+  });
 });

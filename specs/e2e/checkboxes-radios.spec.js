@@ -15,3 +15,40 @@ test.describe('Small variant tap targets', () => {
     expect(box.height).toBe(24);
   });
 });
+
+test.describe('Fieldset legend spacing', () => {
+  test('legend sits flush against a following hint (0px gap)', async ({ page }) => {
+    await page.goto('/examples/checkboxes-hints.html');
+    const gap = await page.evaluate(() => {
+      const legend = document.querySelector('.nhsw-fieldset__legend');
+      const hint = document.querySelector('.nhsw-hint');
+      return hint.getBoundingClientRect().top - legend.getBoundingClientRect().bottom;
+    });
+    expect(gap).toBe(0);
+  });
+
+  test('legend gets a 16px gap before the checkboxes when there is no hint', async ({ page }) => {
+    await page.goto('/examples/checkboxes-hints.html');
+    await page.evaluate(() => document.querySelector('#conditions-hint').remove());
+
+    const gap = await page.evaluate(() => {
+      const legend = document.querySelector('.nhsw-fieldset__legend');
+      const checkboxes = document.querySelector('.nhsw-checkboxes');
+      return checkboxes.getBoundingClientRect().top - legend.getBoundingClientRect().bottom;
+    });
+    expect(gap).toBe(16);
+  });
+});
+
+test.describe('Conditional reveal alignment', () => {
+  test('checkboxes conditional content left-aligns with the item label, not the checkbox square', async ({ page }) => {
+    await page.goto('/examples/checkboxes-conditional.html');
+    await page.locator('#cb-contact2-1').check({ force: true });
+
+    const label = page.locator('.nhsw-checkboxes__item').first().locator('.nhsw-checkboxes__label');
+    const conditionalLabel = page.locator('.nhsw-checkboxes__conditional').first().locator('.nhsw-label');
+
+    const [labelBox, conditionalLabelBox] = await Promise.all([label.boundingBox(), conditionalLabel.boundingBox()]);
+    expect(conditionalLabelBox.x).toBe(labelBox.x);
+  });
+});

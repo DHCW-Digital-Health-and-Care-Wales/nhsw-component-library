@@ -12,4 +12,9 @@ describe('fieldset legend margin: a heading class combined onto the legend does 
     const compound = block(css, '\\.nhsw-fieldset__legend\\.nhsw-h2');
     expect(compound).toMatch(/margin-bottom:\s*0/);
   });
+
+  it('legend + nhsw-h2 gets a 16px margin-bottom when no hint follows it', () => {
+    const noHint = block(css, '\\.nhsw-fieldset__legend\\.nhsw-h2:not\\(:has\\(\\+ \\.nhsw-hint\\)\\)');
+    expect(noHint).toMatch(/margin-bottom:\s*16px/);
+  });
 });
