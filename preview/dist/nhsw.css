@@ -2696,12 +2696,18 @@ body {
   background: none;
   color: #003087;
 }
-.nhsw-button--link:focus:not(:active) {
+.nhsw-button--link:focus {
   border-radius: 0;
   text-decoration: none;
 }
 .nhsw-button--link:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
   box-shadow: none;
+}
+.nhsw-button--link:focus:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+  background-color: #ffeb3b;
+  color: #212b32;
+  border-color: transparent;
+  box-shadow: 0 2px 0 #212b32;
 }
 .nhsw-button--link.nhsw-button--reverse {
   color: #ffffff;
