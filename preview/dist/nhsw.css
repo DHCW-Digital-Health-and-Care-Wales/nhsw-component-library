@@ -893,6 +893,9 @@
 .nhsw-checkboxes__conditional--hidden {
   display: none;
 }
+.nhsw-checkboxes__conditional .nhsw-label {
+  font-weight: 400;
+}
 .nhsw-checkboxes--inline {
   display: flex;
   flex-wrap: wrap;

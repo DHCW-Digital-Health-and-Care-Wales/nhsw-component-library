@@ -87,4 +87,9 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     expect(conditional).toMatch(/padding-left:\s*30px/);
     expect(conditional).toMatch(/border-left:\s*4px/);
   });
+
+  it('a nested field label inside conditional content is regular weight, matching the checkbox label rather than the bold default', () => {
+    const conditionalLabel = block(css, '\\.nhsw-checkboxes__conditional \\.nhsw-label');
+    expect(conditionalLabel).toMatch(/font-weight:\s*400/);
+  });
 });

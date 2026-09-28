@@ -51,4 +51,18 @@ test.describe('Conditional reveal alignment', () => {
     const [labelBox, conditionalLabelBox] = await Promise.all([label.boundingBox(), conditionalLabel.boundingBox()]);
     expect(conditionalLabelBox.x).toBe(labelBox.x);
   });
+
+  test('conditional field label is the same font weight as the checkbox label', async ({ page }) => {
+    await page.goto('/examples/checkboxes-conditional.html');
+    await page.locator('#cb-contact2-1').check({ force: true });
+
+    const label = page.locator('.nhsw-checkboxes__item').first().locator('.nhsw-checkboxes__label');
+    const conditionalLabel = page.locator('.nhsw-checkboxes__conditional').first().locator('.nhsw-label');
+
+    const [labelWeight, conditionalLabelWeight] = await Promise.all([
+      label.evaluate((el) => getComputedStyle(el).fontWeight),
+      conditionalLabel.evaluate((el) => getComputedStyle(el).fontWeight),
+    ]);
+    expect(conditionalLabelWeight).toBe(labelWeight);
+  });
 });

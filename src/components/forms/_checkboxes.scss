@@ -107,6 +107,10 @@
     &--hidden {
       display: none;
     }
+
+    .nhsw-label {
+      font-weight: t.$nhsw-font-weight-regular;
+    }
   }
 
   &--inline {
