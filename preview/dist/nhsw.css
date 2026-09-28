@@ -663,8 +663,11 @@
   padding-left: 52px;
   position: relative;
 }
-.nhsw-radios__item:hover {
-  background-color: #f0f4f5;
+.nhsw-radios__item:hover .nhsw-radios__label::before {
+  box-shadow: 0 0 0 4px #afb8bf;
+}
+.nhsw-radios__item:hover .nhsw-radios__input:focus + .nhsw-radios__label::before {
+  box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #afb8bf;
 }
 .nhsw-radios__input {
   position: absolute;
@@ -742,7 +745,7 @@
 }
 .nhsw-radios__divider {
   width: 40px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   color: #212b32;
   font-size: 1.1875rem;
   font-weight: 400;
@@ -751,11 +754,14 @@
 .nhsw-radios__conditional {
   margin-bottom: 16px;
   margin-left: 18px;
-  padding-left: 20px;
+  padding-left: 30px;
   border-left: 4px solid #4c6272;
 }
 .nhsw-radios__conditional--hidden {
   display: none;
+}
+.nhsw-radios__conditional .nhsw-label {
+  font-weight: 400;
 }
 .nhsw-radios--inline {
   display: flex;

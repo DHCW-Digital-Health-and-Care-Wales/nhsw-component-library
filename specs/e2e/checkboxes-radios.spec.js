@@ -56,6 +56,42 @@ test.describe('Item spacing stays 6px regardless of the shared label spacing rul
   });
 });
 
+test.describe('Radio circle hover/focus rings', () => {
+  test('hover shows a 4px grey ring around the circle, no row background change', async ({ page }) => {
+    await page.goto('/examples/radios-default.html');
+    const item = page.locator('.nhsw-radios__item').first();
+
+    const bgBefore = await item.evaluate((el) => getComputedStyle(el).backgroundColor);
+    await item.hover();
+    const [bgAfter, boxShadow] = await Promise.all([
+      item.evaluate((el) => getComputedStyle(el).backgroundColor),
+      item.locator('.nhsw-radios__label').evaluate((el) => getComputedStyle(el, '::before').boxShadow),
+    ]);
+
+    expect(bgAfter).toBe(bgBefore);
+    expect(boxShadow).toBe('rgb(175, 184, 191) 0px 0px 0px 4px');
+  });
+
+  test('focus alone keeps the plain 4px yellow ring', async ({ page }) => {
+    await page.goto('/examples/radios-default.html');
+    const item = page.locator('.nhsw-radios__item').first();
+    await item.locator('.nhsw-radios__input').focus();
+
+    const boxShadow = await item.locator('.nhsw-radios__label').evaluate((el) => getComputedStyle(el, '::before').boxShadow);
+    expect(boxShadow).toBe('rgb(255, 235, 59) 0px 0px 0px 4px');
+  });
+
+  test('hover + focus together layer a 4px grey ring around the outside of the 4px yellow ring', async ({ page }) => {
+    await page.goto('/examples/radios-default.html');
+    const item = page.locator('.nhsw-radios__item').first();
+    await item.locator('.nhsw-radios__input').focus();
+    await item.hover();
+
+    const boxShadow = await item.locator('.nhsw-radios__label').evaluate((el) => getComputedStyle(el, '::before').boxShadow);
+    expect(boxShadow).toBe('rgb(255, 235, 59) 0px 0px 0px 4px, rgb(175, 184, 191) 0px 0px 0px 8px');
+  });
+});
+
 test.describe('Conditional reveal alignment', () => {
   test('checkboxes conditional content left-aligns with the item label, not the checkbox square', async ({ page }) => {
     await page.goto('/examples/checkboxes-conditional.html');
@@ -80,5 +116,42 @@ test.describe('Conditional reveal alignment', () => {
       conditionalLabel.evaluate((el) => getComputedStyle(el).fontWeight),
     ]);
     expect(conditionalLabelWeight).toBe(labelWeight);
+  });
+
+  test('radios conditional content left-aligns with the item label, not the circle', async ({ page }) => {
+    await page.goto('/examples/radios-conditional.html');
+    await page.locator('#hpv-ready-no').check({ force: true });
+
+    const label = page.locator('.nhsw-radios__item').nth(1).locator('.nhsw-radios__label');
+    const conditionalLabel = page.locator('.nhsw-radios__conditional').locator('.nhsw-label');
+
+    const [labelBox, conditionalLabelBox] = await Promise.all([label.boundingBox(), conditionalLabel.boundingBox()]);
+    expect(conditionalLabelBox.x).toBe(labelBox.x);
+  });
+
+  test('radios conditional field label is the same font weight as the radio label', async ({ page }) => {
+    await page.goto('/examples/radios-conditional.html');
+    await page.locator('#hpv-ready-no').check({ force: true });
+
+    const label = page.locator('.nhsw-radios__item').nth(1).locator('.nhsw-radios__label');
+    const conditionalLabel = page.locator('.nhsw-radios__conditional').locator('.nhsw-label');
+
+    const [labelWeight, conditionalLabelWeight] = await Promise.all([
+      label.evaluate((el) => getComputedStyle(el).fontWeight),
+      conditionalLabel.evaluate((el) => getComputedStyle(el).fontWeight),
+    ]);
+    expect(conditionalLabelWeight).toBe(labelWeight);
+  });
+
+  test('radios conditional textarea has a live character count, matching every other textarea on the site', async ({ page }) => {
+    await page.goto('/examples/radios-conditional.html');
+    await page.locator('#hpv-ready-no').check({ force: true });
+
+    const textarea = page.locator('#hpv-ready-reason');
+    const count = page.locator('#hpv-ready-reason-count');
+    await expect(count).toHaveText('You have 150 characters remaining');
+
+    await textarea.fill('12345');
+    await expect(count).toHaveText('You have 145 characters remaining');
   });
 });
