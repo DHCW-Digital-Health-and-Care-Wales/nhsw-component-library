@@ -136,11 +136,18 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="sn-tag" open_url="/examples/site-navigation-tag.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;
-  &lt;span&gt;Navigation Item 3&lt;/span&gt;
-  &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;
-&lt;/a&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "site-navigation/macro.njk" import nhswSiteNavigation %}
+
+{{ nhswSiteNavigation({
   items: [
     { text: "Navigation Item 1", href: "/item-1", current: true },
     { text: "Navigation Item 2", href: "/item-2" },

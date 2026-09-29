@@ -12,7 +12,7 @@
   <div class="nhsw-site-header__nav-container">
     <ul class="nhsw-site-header__nav-list">
 {%- for item in (params.items or []) %}
-      <li><a class="nhsw-site-header__nav-link{% if item.current %} nhsw-site-header__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span>{{ item.text }}</span>{% if item.badge %}<span class="nhsw-site-header__nav-badge">{{ item.badge }}</span>{% endif %}</a></li>
+      <li><a class="nhsw-site-header__nav-link{% if item.current %} nhsw-site-header__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span>{{ item.text }}</span>{% if item.badge != undefined and item.badge != null %}<span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">{{ item.badge }}</span>{% endif %}</a></li>
 {%- endfor %}
     </ul>
   </div>
