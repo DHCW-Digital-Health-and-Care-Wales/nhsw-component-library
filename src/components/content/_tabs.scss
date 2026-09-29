@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-tabs__list {
   display: flex;
@@ -77,7 +78,11 @@
   background-color: c.$nhsw-colour-background-white;
   border: 1px solid c.$nhsw-colour-border-grey;
   border-top: none;
-  padding: 2rem;
+  padding: 1rem;
+
+  @include b.nhsw-from-tablet {
+    padding: 2rem;
+  }
 
   &--hidden {
     display: none;

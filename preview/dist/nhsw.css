@@ -42,22 +42,22 @@
   padding: 0;
 }
 .nhsw-fieldset__legend.nhsw-h2 {
-  margin-bottom: 0;
-}
-.nhsw-fieldset__legend.nhsw-h2:not(:has(+ .nhsw-hint)) {
   margin-bottom: 16px;
+}
+.nhsw-fieldset__legend.nhsw-h2:has(+ .nhsw-hint) {
+  margin-bottom: 0;
 }
 
 .nhsw-label {
   display: block;
-  margin-bottom: 0;
+  margin-bottom: 16px;
   color: #212b32;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5rem;
 }
-.nhsw-label:not(:has(+ .nhsw-hint)) {
-  margin-bottom: 16px;
+.nhsw-label:has(+ .nhsw-hint) {
+  margin-bottom: 0;
 }
 @media (min-width: 40.0625em) {
   .nhsw-label {
@@ -702,6 +702,8 @@
 }
 .nhsw-radios__label {
   display: inline-block;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 8px 16px 0 0;
   cursor: pointer;
   -ms-user-select: none;
@@ -736,6 +738,8 @@
 .nhsw-radios__hint {
   display: block;
   width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 0 16px 4px 0;
   margin: 0;
   color: #4c6272;
@@ -848,6 +852,8 @@
 }
 .nhsw-checkboxes__label {
   display: inline-block;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 8px 16px 0 0;
   cursor: pointer;
   -ms-user-select: none;
@@ -884,6 +890,8 @@
 .nhsw-checkboxes__hint {
   display: block;
   width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 0 16px 4px 0;
   margin: 0;
   color: #4c6272;
@@ -1336,7 +1344,12 @@ body {
   background-color: #ffffff;
   border: 1px solid #d8dde0;
   border-top: none;
-  padding: 2rem;
+  padding: 1rem;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-tabs__panel {
+    padding: 2rem;
+  }
 }
 .nhsw-tabs__panel--hidden {
   display: none;
@@ -2534,8 +2547,13 @@ body {
 }
 .nhsw-example-preview__body {
   position: relative;
-  padding: 32px 24px;
+  padding: 16px;
   background-color: #ffffff;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-example-preview__body {
+    padding: 32px 24px;
+  }
 }
 .nhsw-example-preview__body--dark {
   background-color: #1b365d;
@@ -3145,6 +3163,10 @@ body {
   font-size: 1rem;
   font-weight: 700;
   font-style: normal;
+}
+
+.nhsw-warning-callout__heading-text {
+  min-width: 0;
 }
 
 .nhsw-warning-callout__content {
@@ -3931,8 +3953,14 @@ body {
 
 .nhsw-layout__content {
   flex: 1 1 15rem;
-  min-width: 15rem;
-  padding: 2.5rem 2.5rem 2.5rem 1.25rem;
+  min-width: 0;
+  padding: 1.25rem 1rem;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-layout__content {
+    min-width: 15rem;
+    padding: 2.5rem 2.5rem 2.5rem 1.25rem;
+  }
 }
 
 .nhsw-breadcrumb {

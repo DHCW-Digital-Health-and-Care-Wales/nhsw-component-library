@@ -34,29 +34,56 @@ tabs:
       </ul>
       <div class="nhsw-tabs__panel" id="demo-panel-day" role="tabpanel" aria-labelledby="demo-tab-day">
         <h2 class="nhsw-h2">Past day</h2>
-        <table class="nhsw-table">
-          <thead class="nhsw-table__head">
-            <tr class="nhsw-table__row">
-              <th scope="col" class="nhsw-table__header">Case manager</th>
-              <th scope="col" class="nhsw-table__header">Cases opened</th>
-              <th scope="col" class="nhsw-table__header">Cases closed</th>
+        <table class="nhsw-table-responsive" role="table">
+          <thead class="nhsw-table__head" role="rowgroup">
+            <tr class="nhsw-table__row" role="row">
+              <th scope="col" class="nhsw-table__header" role="columnheader">Case manager</th>
+              <th scope="col" class="nhsw-table__header" role="columnheader">Cases opened</th>
+              <th scope="col" class="nhsw-table__header" role="columnheader">Cases closed</th>
             </tr>
           </thead>
-          <tbody class="nhsw-table__body">
-            <tr class="nhsw-table__row">
-              <td class="nhsw-table__cell">David Francis</td>
-              <td class="nhsw-table__cell">3</td>
-              <td class="nhsw-table__cell">0</td>
+          <tbody class="nhsw-table__body" role="rowgroup">
+            <tr class="nhsw-table__row" role="row">
+              <th scope="row" class="nhsw-table__header" role="rowheader">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+                David Francis
+              </th>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+                3
+              </td>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+                0
+              </td>
             </tr>
-            <tr class="nhsw-table__row">
-              <td class="nhsw-table__cell">Paul Farmer</td>
-              <td class="nhsw-table__cell">1</td>
-              <td class="nhsw-table__cell">0</td>
+            <tr class="nhsw-table__row" role="row">
+              <th scope="row" class="nhsw-table__header" role="rowheader">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+                Paul Farmer
+              </th>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+                1
+              </td>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+                0
+              </td>
             </tr>
-            <tr class="nhsw-table__row">
-              <td class="nhsw-table__cell">Rita Patel</td>
-              <td class="nhsw-table__cell">2</td>
-              <td class="nhsw-table__cell">0</td>
+            <tr class="nhsw-table__row" role="row">
+              <th scope="row" class="nhsw-table__header" role="rowheader">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+                Rita Patel
+              </th>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+                2
+              </td>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+                0
+              </td>
             </tr>
           </tbody>
         </table>
@@ -94,29 +121,56 @@ tabs:
   &lt;/ul&gt;
   &lt;div class="nhsw-tabs__panel" id="panel-day" role="tabpanel" aria-labelledby="tab-day"&gt;
     &lt;h2 class="nhsw-h2"&gt;Past day&lt;/h2&gt;
-    &lt;table class="nhsw-table"&gt;
-      &lt;thead class="nhsw-table__head"&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;th scope="col" class="nhsw-table__header"&gt;Case manager&lt;/th&gt;
-          &lt;th scope="col" class="nhsw-table__header"&gt;Cases opened&lt;/th&gt;
-          &lt;th scope="col" class="nhsw-table__header"&gt;Cases closed&lt;/th&gt;
+    &lt;table class="nhsw-table-responsive" role="table"&gt;
+      &lt;thead class="nhsw-table__head" role="rowgroup"&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Case manager&lt;/th&gt;
+          &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Cases opened&lt;/th&gt;
+          &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Cases closed&lt;/th&gt;
         &lt;/tr&gt;
       &lt;/thead&gt;
-      &lt;tbody class="nhsw-table__body"&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;td class="nhsw-table__cell"&gt;David Francis&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;3&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;0&lt;/td&gt;
+      &lt;tbody class="nhsw-table__body" role="rowgroup"&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Case manager &lt;/span&gt;
+            David Francis
+          &lt;/th&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases opened &lt;/span&gt;
+            3
+          &lt;/td&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases closed &lt;/span&gt;
+            0
+          &lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;td class="nhsw-table__cell"&gt;Paul Farmer&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;1&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;0&lt;/td&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Case manager &lt;/span&gt;
+            Paul Farmer
+          &lt;/th&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases opened &lt;/span&gt;
+            1
+          &lt;/td&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases closed &lt;/span&gt;
+            0
+          &lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;td class="nhsw-table__cell"&gt;Rita Patel&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;2&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;0&lt;/td&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Case manager &lt;/span&gt;
+            Rita Patel
+          &lt;/th&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases opened &lt;/span&gt;
+            2
+          &lt;/td&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases closed &lt;/span&gt;
+            0
+          &lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
@@ -141,7 +195,7 @@ tabs:
     {
       label: "Past day",
       id: "day",
-      html: "&lt;h2 class=\"nhsw-h2\"&gt;Past day&lt;/h2&gt;&lt;table class=\"nhsw-table\"&gt;&lt;thead class=\"nhsw-table__head\"&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\"&gt;Case manager&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\"&gt;Cases opened&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\"&gt;Cases closed&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody class=\"nhsw-table__body\"&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;td class=\"nhsw-table__cell\"&gt;David Francis&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;3&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;td class=\"nhsw-table__cell\"&gt;Paul Farmer&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;1&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;td class=\"nhsw-table__cell\"&gt;Rita Patel&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;2&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;"
+      html: "&lt;h2 class=\"nhsw-h2\"&gt;Past day&lt;/h2&gt;&lt;table class=\"nhsw-table-responsive\" role=\"table\"&gt;&lt;thead class=\"nhsw-table__head\" role=\"rowgroup\"&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\" role=\"columnheader\"&gt;Case manager&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\" role=\"columnheader\"&gt;Cases opened&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\" role=\"columnheader\"&gt;Cases closed&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody class=\"nhsw-table__body\" role=\"rowgroup\"&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"row\" class=\"nhsw-table__header\" role=\"rowheader\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Case manager &lt;/span&gt;David Francis&lt;/th&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases opened &lt;/span&gt;3&lt;/td&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases closed &lt;/span&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"row\" class=\"nhsw-table__header\" role=\"rowheader\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Case manager &lt;/span&gt;Paul Farmer&lt;/th&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases opened &lt;/span&gt;1&lt;/td&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases closed &lt;/span&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"row\" class=\"nhsw-table__header\" role=\"rowheader\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Case manager &lt;/span&gt;Rita Patel&lt;/th&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases opened &lt;/span&gt;2&lt;/td&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases closed &lt;/span&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;"
     },
     { label: "Past week", id: "week", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past week&lt;/h2&gt;&lt;p class=\"nhsw-body\"&gt;Case activity for the past week.&lt;/p&gt;" },
     { label: "Past month", id: "month", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past month&lt;/h2&gt;&lt;p class=\"nhsw-body\"&gt;Case activity for the past month.&lt;/p&gt;" },
@@ -241,29 +295,56 @@ tabs:
       </ul>
       <div class="nhsw-tabs__panel" id="demo-count-panel-day" role="tabpanel" aria-labelledby="demo-count-tab-day">
         <h2 class="nhsw-h2">Past day</h2>
-        <table class="nhsw-table">
-          <thead class="nhsw-table__head">
-            <tr class="nhsw-table__row">
-              <th scope="col" class="nhsw-table__header">Case manager</th>
-              <th scope="col" class="nhsw-table__header">Cases opened</th>
-              <th scope="col" class="nhsw-table__header">Cases closed</th>
+        <table class="nhsw-table-responsive" role="table">
+          <thead class="nhsw-table__head" role="rowgroup">
+            <tr class="nhsw-table__row" role="row">
+              <th scope="col" class="nhsw-table__header" role="columnheader">Case manager</th>
+              <th scope="col" class="nhsw-table__header" role="columnheader">Cases opened</th>
+              <th scope="col" class="nhsw-table__header" role="columnheader">Cases closed</th>
             </tr>
           </thead>
-          <tbody class="nhsw-table__body">
-            <tr class="nhsw-table__row">
-              <td class="nhsw-table__cell">David Francis</td>
-              <td class="nhsw-table__cell">3</td>
-              <td class="nhsw-table__cell">0</td>
+          <tbody class="nhsw-table__body" role="rowgroup">
+            <tr class="nhsw-table__row" role="row">
+              <th scope="row" class="nhsw-table__header" role="rowheader">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+                David Francis
+              </th>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+                3
+              </td>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+                0
+              </td>
             </tr>
-            <tr class="nhsw-table__row">
-              <td class="nhsw-table__cell">Paul Farmer</td>
-              <td class="nhsw-table__cell">1</td>
-              <td class="nhsw-table__cell">0</td>
+            <tr class="nhsw-table__row" role="row">
+              <th scope="row" class="nhsw-table__header" role="rowheader">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+                Paul Farmer
+              </th>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+                1
+              </td>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+                0
+              </td>
             </tr>
-            <tr class="nhsw-table__row">
-              <td class="nhsw-table__cell">Rita Patel</td>
-              <td class="nhsw-table__cell">2</td>
-              <td class="nhsw-table__cell">0</td>
+            <tr class="nhsw-table__row" role="row">
+              <th scope="row" class="nhsw-table__header" role="rowheader">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+                Rita Patel
+              </th>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+                2
+              </td>
+              <td class="nhsw-table__cell" role="cell">
+                <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+                0
+              </td>
             </tr>
           </tbody>
         </table>
@@ -301,29 +382,56 @@ tabs:
   &lt;/ul&gt;
   &lt;div class="nhsw-tabs__panel" id="panel-day" role="tabpanel" aria-labelledby="tab-day"&gt;
     &lt;h2 class="nhsw-h2"&gt;Past day&lt;/h2&gt;
-    &lt;table class="nhsw-table"&gt;
-      &lt;thead class="nhsw-table__head"&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;th scope="col" class="nhsw-table__header"&gt;Case manager&lt;/th&gt;
-          &lt;th scope="col" class="nhsw-table__header"&gt;Cases opened&lt;/th&gt;
-          &lt;th scope="col" class="nhsw-table__header"&gt;Cases closed&lt;/th&gt;
+    &lt;table class="nhsw-table-responsive" role="table"&gt;
+      &lt;thead class="nhsw-table__head" role="rowgroup"&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Case manager&lt;/th&gt;
+          &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Cases opened&lt;/th&gt;
+          &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Cases closed&lt;/th&gt;
         &lt;/tr&gt;
       &lt;/thead&gt;
-      &lt;tbody class="nhsw-table__body"&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;td class="nhsw-table__cell"&gt;David Francis&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;3&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;0&lt;/td&gt;
+      &lt;tbody class="nhsw-table__body" role="rowgroup"&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Case manager &lt;/span&gt;
+            David Francis
+          &lt;/th&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases opened &lt;/span&gt;
+            3
+          &lt;/td&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases closed &lt;/span&gt;
+            0
+          &lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;td class="nhsw-table__cell"&gt;Paul Farmer&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;1&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;0&lt;/td&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Case manager &lt;/span&gt;
+            Paul Farmer
+          &lt;/th&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases opened &lt;/span&gt;
+            1
+          &lt;/td&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases closed &lt;/span&gt;
+            0
+          &lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr class="nhsw-table__row"&gt;
-          &lt;td class="nhsw-table__cell"&gt;Rita Patel&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;2&lt;/td&gt;
-          &lt;td class="nhsw-table__cell"&gt;0&lt;/td&gt;
+        &lt;tr class="nhsw-table__row" role="row"&gt;
+          &lt;th scope="row" class="nhsw-table__header" role="rowheader"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Case manager &lt;/span&gt;
+            Rita Patel
+          &lt;/th&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases opened &lt;/span&gt;
+            2
+          &lt;/td&gt;
+          &lt;td class="nhsw-table__cell" role="cell"&gt;
+            &lt;span class="nhsw-table-responsive__heading" aria-hidden="true"&gt;Cases closed &lt;/span&gt;
+            0
+          &lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
@@ -349,7 +457,7 @@ tabs:
       label: "Past day",
       id: "day",
       count: "112",
-      html: "&lt;h2 class=\"nhsw-h2\"&gt;Past day&lt;/h2&gt;&lt;table class=\"nhsw-table\"&gt;&lt;thead class=\"nhsw-table__head\"&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\"&gt;Case manager&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\"&gt;Cases opened&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\"&gt;Cases closed&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody class=\"nhsw-table__body\"&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;td class=\"nhsw-table__cell\"&gt;David Francis&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;3&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;td class=\"nhsw-table__cell\"&gt;Paul Farmer&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;1&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\"&gt;&lt;td class=\"nhsw-table__cell\"&gt;Rita Patel&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;2&lt;/td&gt;&lt;td class=\"nhsw-table__cell\"&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;"
+      html: "&lt;h2 class=\"nhsw-h2\"&gt;Past day&lt;/h2&gt;&lt;table class=\"nhsw-table-responsive\" role=\"table\"&gt;&lt;thead class=\"nhsw-table__head\" role=\"rowgroup\"&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\" role=\"columnheader\"&gt;Case manager&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\" role=\"columnheader\"&gt;Cases opened&lt;/th&gt;&lt;th scope=\"col\" class=\"nhsw-table__header\" role=\"columnheader\"&gt;Cases closed&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody class=\"nhsw-table__body\" role=\"rowgroup\"&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"row\" class=\"nhsw-table__header\" role=\"rowheader\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Case manager &lt;/span&gt;David Francis&lt;/th&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases opened &lt;/span&gt;3&lt;/td&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases closed &lt;/span&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"row\" class=\"nhsw-table__header\" role=\"rowheader\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Case manager &lt;/span&gt;Paul Farmer&lt;/th&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases opened &lt;/span&gt;1&lt;/td&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases closed &lt;/span&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr class=\"nhsw-table__row\" role=\"row\"&gt;&lt;th scope=\"row\" class=\"nhsw-table__header\" role=\"rowheader\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Case manager &lt;/span&gt;Rita Patel&lt;/th&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases opened &lt;/span&gt;2&lt;/td&gt;&lt;td class=\"nhsw-table__cell\" role=\"cell\"&gt;&lt;span class=\"nhsw-table-responsive__heading\" aria-hidden=\"true\"&gt;Cases closed &lt;/span&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;"
     },
     { label: "Past week", id: "week", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past week&lt;/h2&gt;&lt;p class=\"nhsw-body\"&gt;Case activity for the past week.&lt;/p&gt;" },
     { label: "Past month", id: "month", html: "&lt;h2 class=\"nhsw-h2\"&gt;Past month&lt;/h2&gt;&lt;p class=\"nhsw-body\"&gt;Case activity for the past month.&lt;/p&gt;" },

@@ -46,6 +46,8 @@
 
   &__label {
     display: inline-block;
+    min-width: 0;
+    overflow-wrap: break-word;
     padding: 8px 16px 0 0;
     cursor: pointer;
     -ms-user-select: none;
@@ -85,6 +87,8 @@
   &__hint {
     display: block;
     width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
     padding: 0 16px 4px 0;
     margin: 0;
     color: c.$nhsw-colour-text-secondary;

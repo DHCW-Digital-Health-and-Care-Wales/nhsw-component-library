@@ -4,14 +4,14 @@
 
 .nhsw-label {
   display: block;
-  margin-bottom: 0;
+  margin-bottom: 16px;
   color: c.$nhsw-colour-text-primary;
   font-size: t.$nhsw-font-size-body-small;
   font-weight: t.$nhsw-font-weight-bold;
   line-height: t.$nhsw-line-height-body-small;
 
-  &:not(:has(+ .nhsw-hint)) {
-    margin-bottom: 16px;
+  &:has(+ .nhsw-hint) {
+    margin-bottom: 0;
   }
 
   @include b.nhsw-from-tablet {

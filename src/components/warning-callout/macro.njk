@@ -16,8 +16,7 @@
 <div class="nhsw-warning-callout{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
   <h3 class="nhsw-warning-callout__heading">
     <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-    <span class="nhsw-visually-hidden">{{ prefixText }}: </span>
-    {{ params.headingHtml | safe if params.headingHtml else params.heading }}
+    <span class="nhsw-warning-callout__heading-text"><span class="nhsw-visually-hidden">{{ prefixText }}: </span>{{ params.headingHtml | safe if params.headingHtml else params.heading }}</span>
   </h3>
   <div class="nhsw-warning-callout__content">
 {%- if params.html %}
