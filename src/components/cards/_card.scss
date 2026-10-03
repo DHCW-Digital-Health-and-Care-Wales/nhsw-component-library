@@ -184,3 +184,14 @@
 .nhsw-card:has(.nhsw-card__title-link:hover).nhsw-card--chevron .nhsw-card__title-link::before {
   background-color: c.$nhsw-colour-link-visited;
 }
+
+.nhsw-card-group {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nhsw-card-group__item {
+  list-style: none;
+}

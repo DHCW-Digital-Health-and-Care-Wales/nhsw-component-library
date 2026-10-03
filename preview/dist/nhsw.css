@@ -3423,6 +3423,17 @@ body {
   background-color: #7c2855;
 }
 
+.nhsw-card-group {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nhsw-card-group__item {
+  list-style: none;
+}
+
 .nhsw-site-header {
   background-color: #1b365d;
   color: #ffffff;
