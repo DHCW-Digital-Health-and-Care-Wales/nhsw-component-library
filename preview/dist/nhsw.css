@@ -3963,6 +3963,44 @@ body {
   }
 }
 
+.nhsw-cookie-banner {
+  padding: 1.5rem 0 0.5rem;
+  background-color: #ffffff;
+}
+.nhsw-cookie-banner[hidden] {
+  display: none;
+}
+
+.nhsw-cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.nhsw-cookie-banner__confirmation {
+  margin: 0 0 1rem;
+}
+
+.nhsw-cookie-settings-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: #005aa8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.nhsw-cookie-settings-link:hover {
+  color: #003087;
+}
+.nhsw-cookie-settings-link:focus {
+  background-color: #ffeb3b;
+  color: #0b0c0c;
+  outline: 3px solid #ffeb3b;
+}
+
 .nhsw-breadcrumb {
   margin-bottom: 16px;
 }
