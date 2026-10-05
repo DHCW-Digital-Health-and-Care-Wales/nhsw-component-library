@@ -1277,13 +1277,13 @@ body {
 
 .nhsw-tabs__list {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.25rem;
   list-style: none;
   margin: 0 0 0;
   padding: 0;
   border-bottom: 1px solid #d8dde0;
-  overflow-x: auto;
 }
 
 .nhsw-tabs__tab {
@@ -1375,6 +1375,35 @@ body {
   text-align: right;
 }
 
+@media (max-width: 40.0624em) {
+  .nhsw-tabs__list {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 0;
+  }
+  .nhsw-tabs__tab,
+  .nhsw-tabs__tab--selected {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 0.25rem 0;
+    color: #005aa8;
+  }
+  .nhsw-tabs__tab::before,
+  .nhsw-tabs__tab--selected::before {
+    content: none;
+  }
+  .nhsw-tabs__tab-text,
+  .nhsw-tabs__tab--selected .nhsw-tabs__tab-text {
+    text-decoration: underline;
+  }
+  .nhsw-tabs__panel {
+    margin-top: 1rem;
+    border-top: 1px solid #d8dde0;
+  }
+  .nhsw-tabs__panel:focus {
+    outline: none;
+  }
+}
 .nhsw-summary-list {
   margin: 0 0 20px;
   padding: 0;
@@ -1577,6 +1606,14 @@ body {
   background-color: #004281;
   border-color: #004281;
   color: #ffffff;
+}
+.nhsw-tag--no-colour {
+  background-color: transparent;
+  border-color: #aeb7bd;
+  color: inherit;
+}
+.nhsw-tag--no-border {
+  border-color: transparent;
 }
 
 .nhsw-tag-group {

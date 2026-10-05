@@ -189,41 +189,154 @@
     });
   });
 
+  // Tabs behave as in the NHS.UK frontend: from the tablet breakpoint up they are
+  // a tablist (Left/Right arrows switch tab, only the selected tab is a tab
+  // stop). Below it the roles are removed, every panel is shown, and the tabs
+  // become a list of controls that jump to their section.
+  var TABS_MEDIA_QUERY = '(min-width: 40.0625em)';
+
   document.querySelectorAll('.nhsw-tabs').forEach(function (tabGroup) {
     // Scoped to direct children so a demo `.nhsw-tabs` nested inside a panel
     // (e.g. on the Tabs component doc page) doesn't get wired up twice.
+    var list = tabGroup.querySelector(':scope > .nhsw-tabs__list');
     var tabs = tabGroup.querySelectorAll(':scope > .nhsw-tabs__list .nhsw-tabs__tab');
-    var panels = tabGroup.querySelectorAll(':scope > .nhsw-tabs__panel');
+    var mediaQuery = window.matchMedia ? window.matchMedia(TABS_MEDIA_QUERY) : null;
+    var tabsMode = null;
 
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) {
-          t.classList.remove('nhsw-tabs__tab--selected');
-          t.setAttribute('aria-selected', 'false');
-        });
-        panels.forEach(function (p) {
-          p.classList.add('nhsw-tabs__panel--hidden');
-        });
-
-        tab.classList.add('nhsw-tabs__tab--selected');
-        tab.setAttribute('aria-selected', 'true');
-        tabGroup.querySelector('#' + tab.getAttribute('aria-controls')).classList.remove('nhsw-tabs__panel--hidden');
-      });
-
-      tab.addEventListener('keydown', function (event) {
-        var currentIndex = Array.prototype.indexOf.call(tabs, tab);
-        var newIndex;
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-          newIndex = (currentIndex + 1) % tabs.length;
-        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-          newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-        } else {
-          return;
-        }
-        event.preventDefault();
-        tabs[newIndex].focus();
-        tabs[newIndex].click();
-      });
+    // Remembered up front, because aria-controls is removed on small screens.
+    var panelIds = Array.prototype.map.call(tabs, function (tab) {
+      return tab.getAttribute('aria-controls');
     });
+    var tabListeners = [];
+
+    function panelAt(index) {
+      return panelIds[index] ? tabGroup.querySelector('#' + panelIds[index]) : null;
+    }
+
+    function selectedIndex() {
+      for (var i = 0; i < tabs.length; i++) {
+        if (tabs[i].classList.contains('nhsw-tabs__tab--selected')) return i;
+      }
+      return 0;
+    }
+
+    function activate(index) {
+      tabs.forEach(function (tab, i) {
+        var selected = i === index;
+        tab.classList.toggle('nhsw-tabs__tab--selected', selected);
+        tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+        tab.setAttribute('tabindex', selected ? '0' : '-1');
+        var panel = panelAt(i);
+        if (panel) panel.classList.toggle('nhsw-tabs__panel--hidden', !selected);
+      });
+    }
+
+    function moveTo(index) {
+      if (index < 0 || index >= tabs.length) return;
+      activate(index);
+      tabs[index].focus();
+    }
+
+    function addTabListener(tab, index, type, handler) {
+      tab.addEventListener(type, handler);
+      tabListeners.push({ tab: tab, type: type, handler: handler });
+    }
+
+    function removeTabListeners() {
+      tabListeners.forEach(function (l) {
+        l.tab.removeEventListener(l.type, l.handler);
+      });
+      tabListeners = [];
+    }
+
+    function setup() {
+      removeTabListeners();
+      if (list) {
+        list.setAttribute('role', 'tablist');
+        Array.prototype.forEach.call(list.children, function (item) {
+          item.setAttribute('role', 'presentation');
+        });
+      }
+
+      tabs.forEach(function (tab, index) {
+        tab.setAttribute('role', 'tab');
+        if (panelIds[index]) tab.setAttribute('aria-controls', panelIds[index]);
+        var panel = panelAt(index);
+        if (panel) {
+          panel.setAttribute('role', 'tabpanel');
+          panel.removeAttribute('tabindex');
+          if (tab.id) panel.setAttribute('aria-labelledby', tab.id);
+        }
+
+        addTabListener(tab, index, 'click', function (event) {
+          event.preventDefault();
+          activate(index);
+        });
+
+        addTabListener(tab, index, 'keydown', function (event) {
+          if (event.key === 'ArrowLeft' || event.key === 'Left') {
+            event.preventDefault();
+            moveTo(index - 1);
+          } else if (event.key === 'ArrowRight' || event.key === 'Right') {
+            event.preventDefault();
+            moveTo(index + 1);
+          }
+        });
+      });
+
+      activate(selectedIndex());
+    }
+
+    function teardown() {
+      removeTabListeners();
+      if (list) {
+        list.removeAttribute('role');
+        Array.prototype.forEach.call(list.children, function (item) {
+          item.removeAttribute('role');
+        });
+      }
+
+      tabs.forEach(function (tab, index) {
+        tab.removeAttribute('role');
+        tab.removeAttribute('aria-selected');
+        tab.removeAttribute('aria-controls');
+        tab.removeAttribute('tabindex');
+        var panel = panelAt(index);
+        if (panel) {
+          panel.removeAttribute('role');
+          panel.removeAttribute('aria-labelledby');
+          panel.classList.remove('nhsw-tabs__panel--hidden');
+        }
+
+        addTabListener(tab, index, 'click', function (event) {
+          var target = panelAt(index);
+          if (!target) return;
+          event.preventDefault();
+          target.setAttribute('tabindex', '-1');
+          target.focus();
+        });
+      });
+    }
+
+    function checkMode() {
+      var wide = !mediaQuery || mediaQuery.matches;
+      if (wide === tabsMode) return;
+      tabsMode = wide;
+      if (wide) {
+        setup();
+      } else {
+        teardown();
+      }
+    }
+
+    if (mediaQuery) {
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', checkMode);
+      } else if (mediaQuery.addListener) {
+        mediaQuery.addListener(checkMode);
+      }
+    }
+
+    checkMode();
   });
 }());

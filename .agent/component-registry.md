@@ -326,6 +326,8 @@ Supports:
 - nhsw-tag--orange
 - nhsw-tag--yellow
 - nhsw-tag--dhcw-blue
+- nhsw-tag--no-colour (transparent background, grey border, inherited text colour)
+- nhsw-tag--no-border (transparent border)
 - nhsw-tag-group (wraps multiple tags with consistent spacing)
 
 ## nhsw-timeout-modal

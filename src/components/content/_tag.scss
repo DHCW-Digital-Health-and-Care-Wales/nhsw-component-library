@@ -84,6 +84,16 @@
     border-color: #004281;
     color: c.$nhsw-colour-text-exceptional;
   }
+
+  &--no-colour {
+    background-color: transparent;
+    border-color: #aeb7bd;
+    color: inherit;
+  }
+
+  &--no-border {
+    border-color: transparent;
+  }
 }
 
 .nhsw-tag-group {

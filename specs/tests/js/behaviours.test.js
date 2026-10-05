@@ -365,88 +365,259 @@ describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
     });
   });
 
-  describe('tabs (.nhsw-tabs)', () => {
-    beforeEach(() => {
-      setBody(`
-        <div class="nhsw-tabs">
-          <ul class="nhsw-tabs__list">
-            <li><button class="nhsw-tabs__tab nhsw-tabs__tab--selected" aria-selected="true" aria-controls="panel-1">One</button></li>
-            <li><button class="nhsw-tabs__tab" aria-selected="false" aria-controls="panel-2">Two</button></li>
-            <li><button class="nhsw-tabs__tab" aria-selected="false" aria-controls="panel-3">Three</button></li>
-          </ul>
-          <div id="panel-1" class="nhsw-tabs__panel">Panel one</div>
-          <div id="panel-2" class="nhsw-tabs__panel nhsw-tabs__panel--hidden">Panel two</div>
-          <div id="panel-3" class="nhsw-tabs__panel nhsw-tabs__panel--hidden">Panel three</div>
-        </div>
-      `);
-      runScript(SCRIPT);
+  describe('tabs (.nhsw-tabs), matching the NHS.UK tabs', () => {
+    const TABS_HTML = `
+      <div class="nhsw-tabs">
+        <ul class="nhsw-tabs__list" role="tablist">
+          <li role="presentation"><button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">One</button></li>
+          <li role="presentation"><button class="nhsw-tabs__tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2">Two</button></li>
+          <li role="presentation"><button class="nhsw-tabs__tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3">Three</button></li>
+        </ul>
+        <div id="panel-1" class="nhsw-tabs__panel" role="tabpanel" aria-labelledby="tab-1">Panel one</div>
+        <div id="panel-2" class="nhsw-tabs__panel nhsw-tabs__panel--hidden" role="tabpanel" aria-labelledby="tab-2">Panel two</div>
+        <div id="panel-3" class="nhsw-tabs__panel nhsw-tabs__panel--hidden" role="tabpanel" aria-labelledby="tab-3">Panel three</div>
+      </div>
+    `;
+    const tabs = () => [...document.querySelectorAll('.nhsw-tabs__tab')];
+    const panel = (n) => document.getElementById(`panel-${n}`);
+    const isHidden = (n) => panel(n).classList.contains('nhsw-tabs__panel--hidden');
+    const isSelected = (tab) => tab.classList.contains('nhsw-tabs__tab--selected');
+    const press = (tab, key) => {
+      const event = new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true });
+      tab.dispatchEvent(event);
+      return event;
+    };
+
+    // jsdom has no matchMedia, so the script treats it as a wide screen unless a
+    // test supplies one. `setWide` plays a viewport resize across the breakpoint.
+    function stubMatchMedia(wide) {
+      const listeners = [];
+      const mediaQuery = {
+        matches: wide,
+        addEventListener: (_type, listener) => listeners.push(listener),
+        removeEventListener: () => {},
+      };
+      window.matchMedia = vi.fn(() => mediaQuery);
+      return {
+        setWide(next) {
+          mediaQuery.matches = next;
+          listeners.forEach((listener) => listener());
+        },
+      };
+    }
+
+    afterEach(() => {
+      delete window.matchMedia;
     });
 
-    it('activates the clicked tab and shows only its panel', () => {
-      const [tab1, tab2] = document.querySelectorAll('.nhsw-tabs__tab');
-      tab2.dispatchEvent(new Event('click'));
+    describe('from the tablet breakpoint up (tabs)', () => {
+      beforeEach(() => {
+        setBody(TABS_HTML);
+        runScript(SCRIPT);
+      });
 
-      expect(tab2.classList.contains('nhsw-tabs__tab--selected')).toBe(true);
-      expect(tab1.classList.contains('nhsw-tabs__tab--selected')).toBe(false);
-      expect(document.getElementById('panel-2').classList.contains('nhsw-tabs__panel--hidden')).toBe(false);
-      expect(document.getElementById('panel-1').classList.contains('nhsw-tabs__panel--hidden')).toBe(true);
-    });
+      it('asks for the same breakpoint the stylesheet uses (40.0625em)', () => {
+        const media = stubMatchMedia(true);
+        setBody(TABS_HTML);
+        runScript(SCRIPT);
+        expect(window.matchMedia).toHaveBeenCalledWith('(min-width: 40.0625em)');
+        expect(media).toBeDefined();
+      });
 
-    it('moves focus to the next tab and activates it on ArrowRight, wrapping at the end', () => {
-      const tabs = document.querySelectorAll('.nhsw-tabs__tab');
-      tabs[2].focus();
-      tabs[2].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+      it('exposes the tablist, tab and tabpanel roles and links each panel back to its tab', () => {
+        expect(document.querySelector('.nhsw-tabs__list').getAttribute('role')).toBe('tablist');
+        expect(tabs().map((t) => t.getAttribute('role'))).toEqual(['tab', 'tab', 'tab']);
+        expect(tabs().map((t) => t.getAttribute('aria-selected'))).toEqual(['true', 'false', 'false']);
+        expect([1, 2, 3].map((n) => panel(n).getAttribute('role'))).toEqual(['tabpanel', 'tabpanel', 'tabpanel']);
+        expect([1, 2, 3].map((n) => panel(n).getAttribute('aria-labelledby'))).toEqual(['tab-1', 'tab-2', 'tab-3']);
+      });
 
-      expect(document.activeElement).toBe(tabs[0]);
-      expect(tabs[0].classList.contains('nhsw-tabs__tab--selected')).toBe(true);
-    });
+      it('makes only the selected tab a tab stop, so Tab leaves the tab list for the panel (roving tabindex)', () => {
+        expect(tabs().map((t) => t.getAttribute('tabindex'))).toEqual(['0', '-1', '-1']);
+      });
 
-    it('moves focus to the previous tab on ArrowLeft, wrapping at the start', () => {
-      const tabs = document.querySelectorAll('.nhsw-tabs__tab');
-      tabs[0].focus();
-      tabs[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
+      it('activates the clicked tab, shows only its panel and moves the tab stop with it', () => {
+        const [tab1, tab2] = tabs();
+        tab2.dispatchEvent(new Event('click'));
 
-      expect(document.activeElement).toBe(tabs[2]);
-      expect(tabs[2].classList.contains('nhsw-tabs__tab--selected')).toBe(true);
-    });
+        expect(isSelected(tab2)).toBe(true);
+        expect(isSelected(tab1)).toBe(false);
+        expect(tab2.getAttribute('aria-selected')).toBe('true');
+        expect(tab1.getAttribute('aria-selected')).toBe('false');
+        expect(tabs().map((t) => t.getAttribute('tabindex'))).toEqual(['-1', '0', '-1']);
+        expect(isHidden(2)).toBe(false);
+        expect(isHidden(1)).toBe(true);
+      });
 
-    it('does not respond to unrelated keys', () => {
-      const tabs = document.querySelectorAll('.nhsw-tabs__tab');
-      tabs[0].focus();
-      tabs[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }));
+      it('moves focus to the next tab and activates it on ArrowRight', () => {
+        tabs()[0].focus();
+        const event = press(tabs()[0], 'ArrowRight');
 
-      expect(tabs[0].classList.contains('nhsw-tabs__tab--selected')).toBe(true);
-    });
+        expect(event.defaultPrevented).toBe(true);
+        expect(document.activeElement).toBe(tabs()[1]);
+        expect(isSelected(tabs()[1])).toBe(true);
+        expect(isHidden(2)).toBe(false);
+        expect(tabs().map((t) => t.getAttribute('tabindex'))).toEqual(['-1', '0', '-1']);
+      });
 
-    it('does not wire up a nested .nhsw-tabs demo inside a panel a second time', () => {
-      // Regression guard for the :scope-qualified selectors in
-      // nhsw-behaviours.js — without :scope, a nested demo (like the one on
-      // the Tabs doc page itself) would have its tabs double-bound by both
-      // the outer and inner querySelectorAll.
-      setBody(`
-        <div class="nhsw-tabs" id="outer">
-          <ul class="nhsw-tabs__list">
-            <li><button class="nhsw-tabs__tab nhsw-tabs__tab--selected" aria-selected="true" aria-controls="outer-panel">Outer tab</button></li>
-          </ul>
-          <div id="outer-panel" class="nhsw-tabs__panel">
-            <div class="nhsw-tabs" id="inner">
-              <ul class="nhsw-tabs__list">
-                <li><button class="nhsw-tabs__tab nhsw-tabs__tab--selected" aria-selected="true" aria-controls="inner-panel">Inner tab</button></li>
-              </ul>
-              <div id="inner-panel" class="nhsw-tabs__panel">Inner content</div>
+      it('moves focus to the previous tab on ArrowLeft', () => {
+        tabs()[1].dispatchEvent(new Event('click'));
+        tabs()[1].focus();
+        press(tabs()[1], 'ArrowLeft');
+
+        expect(document.activeElement).toBe(tabs()[0]);
+        expect(isSelected(tabs()[0])).toBe(true);
+      });
+
+      it('stops at the last tab on ArrowRight and the first tab on ArrowLeft, without wrapping (as NHS.UK does)', () => {
+        tabs()[2].dispatchEvent(new Event('click'));
+        tabs()[2].focus();
+        press(tabs()[2], 'ArrowRight');
+        expect(document.activeElement).toBe(tabs()[2]);
+        expect(isSelected(tabs()[2])).toBe(true);
+
+        tabs()[0].dispatchEvent(new Event('click'));
+        tabs()[0].focus();
+        press(tabs()[0], 'ArrowLeft');
+        expect(document.activeElement).toBe(tabs()[0]);
+        expect(isSelected(tabs()[0])).toBe(true);
+      });
+
+      it('leaves ArrowDown and ArrowUp alone, so a screen reader user can move down into the panel content', () => {
+        tabs()[0].focus();
+        for (const key of ['ArrowDown', 'ArrowUp']) {
+          const event = press(tabs()[0], key);
+          expect(event.defaultPrevented, `${key} must not be intercepted`).toBe(false);
+          expect(isSelected(tabs()[0])).toBe(true);
+          expect(document.activeElement).toBe(tabs()[0]);
+        }
+      });
+
+      it('does not respond to unrelated keys', () => {
+        tabs()[0].focus();
+        const event = press(tabs()[0], 'Tab');
+        expect(event.defaultPrevented).toBe(false);
+        expect(isSelected(tabs()[0])).toBe(true);
+      });
+
+      it('does not wire up a nested .nhsw-tabs demo inside a panel a second time', () => {
+        // Regression guard for the :scope-qualified selectors in
+        // nhsw-behaviours.js — without :scope, a nested demo (like the one on
+        // the Tabs doc page itself) would have its tabs double-bound by both
+        // the outer and inner querySelectorAll.
+        setBody(`
+          <div class="nhsw-tabs" id="outer">
+            <ul class="nhsw-tabs__list">
+              <li><button class="nhsw-tabs__tab nhsw-tabs__tab--selected" aria-selected="true" aria-controls="outer-panel">Outer tab</button></li>
+            </ul>
+            <div id="outer-panel" class="nhsw-tabs__panel">
+              <div class="nhsw-tabs" id="inner">
+                <ul class="nhsw-tabs__list">
+                  <li><button class="nhsw-tabs__tab nhsw-tabs__tab--selected" aria-selected="true" aria-controls="inner-panel">Inner tab</button></li>
+                </ul>
+                <div id="inner-panel" class="nhsw-tabs__panel">Inner content</div>
+              </div>
             </div>
           </div>
-        </div>
-      `);
-      runScript(SCRIPT);
+        `);
+        runScript(SCRIPT);
 
-      const clickSpy = vi.fn();
-      const innerTab = document.querySelector('#inner .nhsw-tabs__tab');
-      innerTab.addEventListener('click', clickSpy);
-      innerTab.dispatchEvent(new Event('click'));
+        const clickSpy = vi.fn();
+        const innerTab = document.querySelector('#inner .nhsw-tabs__tab');
+        innerTab.addEventListener('click', clickSpy);
+        innerTab.dispatchEvent(new Event('click'));
 
-      // one listener from the behaviours script + our spy = spy called exactly once
-      expect(clickSpy).toHaveBeenCalledTimes(1);
+        // one listener from the behaviours script + our spy = spy called exactly once
+        expect(clickSpy).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    describe('below the tablet breakpoint (tabs switched off, all content shown)', () => {
+      beforeEach(() => {
+        stubMatchMedia(false);
+        setBody(TABS_HTML);
+        runScript(SCRIPT);
+      });
+
+      it('removes every tab role and state, so the tabs are announced as a plain list of controls', () => {
+        const list = document.querySelector('.nhsw-tabs__list');
+        expect(list.hasAttribute('role')).toBe(false);
+        expect([...list.children].every((li) => !li.hasAttribute('role'))).toBe(true);
+        for (const tab of tabs()) {
+          for (const attribute of ['role', 'aria-selected', 'aria-controls', 'tabindex']) {
+            expect(tab.hasAttribute(attribute), `${tab.id} should not have ${attribute}`).toBe(false);
+          }
+        }
+        for (const n of [1, 2, 3]) {
+          expect(panel(n).hasAttribute('role')).toBe(false);
+          expect(panel(n).hasAttribute('aria-labelledby')).toBe(false);
+        }
+      });
+
+      it('shows every panel', () => {
+        expect([1, 2, 3].map(isHidden)).toEqual([false, false, false]);
+      });
+
+      it('keeps the tab ids, which other links on the page can point at', () => {
+        expect(tabs().map((t) => t.id)).toEqual(['tab-1', 'tab-2', 'tab-3']);
+      });
+
+      it('jumps to the section when a tab is pressed, moving focus to its panel, and leaves every panel visible', () => {
+        const event = new Event('click', { cancelable: true });
+        tabs()[1].dispatchEvent(event);
+
+        expect(event.defaultPrevented).toBe(true);
+        expect(document.activeElement).toBe(panel(2));
+        expect(panel(2).getAttribute('tabindex')).toBe('-1');
+        expect([1, 2, 3].map(isHidden)).toEqual([false, false, false]);
+        expect(isSelected(tabs()[0])).toBe(true);
+      });
+
+      it('ignores the arrow keys, because there are no tabs to move between', () => {
+        tabs()[0].focus();
+        const event = press(tabs()[0], 'ArrowRight');
+        expect(event.defaultPrevented).toBe(false);
+        expect(document.activeElement).toBe(tabs()[0]);
+      });
+    });
+
+    describe('resizing across the breakpoint', () => {
+      it('switches the tabs on and off, remembering which tab was selected', () => {
+        const media = stubMatchMedia(true);
+        setBody(TABS_HTML);
+        runScript(SCRIPT);
+
+        tabs()[2].dispatchEvent(new Event('click'));
+        expect([1, 2, 3].map(isHidden)).toEqual([true, true, false]);
+
+        media.setWide(false);
+        expect(document.querySelector('.nhsw-tabs__list').hasAttribute('role')).toBe(false);
+        expect([1, 2, 3].map(isHidden)).toEqual([false, false, false]);
+
+        media.setWide(true);
+        expect(document.querySelector('.nhsw-tabs__list').getAttribute('role')).toBe('tablist');
+        expect(isSelected(tabs()[2])).toBe(true);
+        expect([1, 2, 3].map(isHidden)).toEqual([true, true, false]);
+        expect(tabs().map((t) => t.getAttribute('tabindex'))).toEqual(['-1', '-1', '0']);
+        expect(tabs().map((t) => t.getAttribute('aria-selected'))).toEqual(['false', 'false', 'true']);
+      });
+
+      it('does not stack up duplicate listeners as it switches back and forth', () => {
+        const media = stubMatchMedia(true);
+        setBody(TABS_HTML);
+        runScript(SCRIPT);
+
+        media.setWide(false);
+        media.setWide(true);
+        media.setWide(false);
+        media.setWide(true);
+
+        tabs()[0].focus();
+        press(tabs()[0], 'ArrowRight');
+        expect(isSelected(tabs()[1])).toBe(true);
+        expect(isSelected(tabs()[2])).toBe(false);
+        expect(document.activeElement).toBe(tabs()[1]);
+      });
     });
   });
 });
