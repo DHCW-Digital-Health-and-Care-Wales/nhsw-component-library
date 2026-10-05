@@ -21,58 +21,166 @@ function setBody(html) {
 
 describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
   describe('character counter (data-max-length)', () => {
+    const COUNT_HTML = `
+      <textarea id="ta" maxlength="10" aria-describedby="ta-count" data-max-length="10" data-max-length-target="ta-count"></textarea>
+      <div class="nhsw-hint nhsw-textarea__count" id="ta-count">You have 10 characters remaining</div>
+    `;
+    const field = () => document.getElementById('ta');
+    const description = () => document.getElementById('ta-count');
+    const visible = () => document.querySelector('.nhsw-character-count__status');
+    const screenReader = () => document.querySelector('.nhsw-character-count__sr-status');
+    const type = (value) => {
+      field().value = value;
+      field().dispatchEvent(new Event('input'));
+    };
+
     beforeEach(() => {
-      setBody(`
-        <textarea id="ta" data-max-length="10" data-max-length-target="ta-count"></textarea>
-        <span id="ta-count"></span>
-      `);
+      setBody(COUNT_HTML);
       runScript(SCRIPT);
     });
 
-    it('shows the full count with no input', () => {
-      expect(document.getElementById('ta-count').textContent).toBe('You have 10 characters remaining');
+    afterEach(() => {
+      vi.useRealTimers();
     });
 
-    it('counts down as the user types', () => {
-      const field = document.getElementById('ta');
-      field.value = 'hello';
-      field.dispatchEvent(new Event('input'));
-      expect(document.getElementById('ta-count').textContent).toBe('You have 5 characters remaining');
+    describe('structure, matching the NHS.UK character count', () => {
+      it('creates its single live region from script, so the page never loads with a live region that then changes', () => {
+        setBody(COUNT_HTML);
+        expect(document.querySelectorAll('[aria-live]')).toHaveLength(0);
+        runScript(SCRIPT);
+        const regions = document.querySelectorAll('[aria-live]');
+        expect(regions).toHaveLength(1);
+        expect(regions[0]).toBe(screenReader());
+        expect(regions[0].getAttribute('aria-live')).toBe('polite');
+        expect(regions[0].classList.contains('nhsw-visually-hidden')).toBe(true);
+      });
+
+      it('hides the visible count from assistive technology, so the count is not read twice', () => {
+        expect(visible().getAttribute('aria-hidden')).toBe('true');
+        expect(visible().classList.contains('nhsw-textarea__count')).toBe(true);
+        expect(visible().textContent).toBe('You have 10 characters remaining');
+      });
+
+      it('keeps the original count element as the textarea description, visually hidden, so it is read when the field is focused', () => {
+        expect(field().getAttribute('aria-describedby')).toBe('ta-count');
+        expect(description().classList.contains('nhsw-visually-hidden')).toBe(true);
+        expect(description().hasAttribute('aria-live')).toBe(false);
+        expect(description().hasAttribute('aria-hidden')).toBe(false);
+      });
+
+      it('removes the hard maxlength, so users can go over and are told, rather than being silently cut off', () => {
+        expect(field().hasAttribute('maxlength')).toBe(false);
+      });
     });
 
-    it('uses the singular "character" when exactly 1 remains', () => {
-      const field = document.getElementById('ta');
-      field.value = '123456789';
-      field.dispatchEvent(new Event('input'));
-      expect(document.getElementById('ta-count').textContent).toBe('You have 1 character remaining');
+    describe('visible count', () => {
+      it('shows the full count with no input', () => {
+        expect(visible().textContent).toBe('You have 10 characters remaining');
+      });
+
+      it('counts down as the user types', () => {
+        type('hello');
+        expect(visible().textContent).toBe('You have 5 characters remaining');
+      });
+
+      it('uses the singular "character" when exactly 1 remains', () => {
+        type('123456789');
+        expect(visible().textContent).toBe('You have 1 character remaining');
+      });
+
+      it('switches to "too many" wording once the limit is exceeded, without throwing', () => {
+        type('12345678901234');
+        expect(visible().textContent).toBe('You have 4 characters too many');
+      });
+
+      it('uses the singular "character" when exactly 1 over the limit', () => {
+        type('12345678901');
+        expect(visible().textContent).toBe('You have 1 character too many');
+      });
+
+      it('adds the error class once over the limit, and removes it again if the user deletes back under', () => {
+        expect(visible().classList.contains('nhsw-textarea__count--error')).toBe(false);
+        type('12345678901234');
+        expect(visible().classList.contains('nhsw-textarea__count--error')).toBe(true);
+        type('hello');
+        expect(visible().classList.contains('nhsw-textarea__count--error')).toBe(false);
+      });
+
+      it('keeps the description text current, silently, so returning to the field reads the real count and not a stale one', () => {
+        type('hello');
+        expect(description().textContent).toBe('You have 5 characters remaining');
+      });
     });
 
-    it('goes negative once the limit is exceeded, without throwing', () => {
-      const field = document.getElementById('ta');
-      field.value = '12345678901234';
-      field.dispatchEvent(new Event('input'));
-      expect(document.getElementById('ta-count').textContent).toBe('You have 4 characters too many');
-    });
+    describe('screen reader announcements (same timing as NHS.UK: checked every 1000ms while focused, once typing has paused for 500ms)', () => {
+      it('writes the starting count into the live region when the script runs', () => {
+        expect(screenReader().textContent).toBe('You have 10 characters remaining');
+      });
 
-    it('uses the singular "character" when exactly 1 over the limit', () => {
-      const field = document.getElementById('ta');
-      field.value = '12345678901';
-      field.dispatchEvent(new Event('input'));
-      expect(document.getElementById('ta-count').textContent).toBe('You have 1 character too many');
-    });
+      it('does not announce on every keystroke', () => {
+        vi.useFakeTimers();
+        field().dispatchEvent(new Event('focus'));
+        type('h');
+        type('he');
+        type('hel');
+        expect(screenReader().textContent).toBe('You have 10 characters remaining');
+        vi.advanceTimersByTime(999);
+        expect(screenReader().textContent).toBe('You have 10 characters remaining');
+      });
 
-    it('adds the error class once over the limit, and removes it again if the user deletes back under', () => {
-      const field = document.getElementById('ta');
-      const counter = document.getElementById('ta-count');
-      expect(counter.classList.contains('nhsw-textarea__count--error')).toBe(false);
+      it('announces the current count once typing has stopped', () => {
+        vi.useFakeTimers();
+        field().dispatchEvent(new Event('focus'));
+        type('hello');
+        vi.advanceTimersByTime(1000);
+        expect(screenReader().textContent).toBe('You have 5 characters remaining');
+      });
 
-      field.value = '12345678901234';
-      field.dispatchEvent(new Event('input'));
-      expect(counter.classList.contains('nhsw-textarea__count--error')).toBe(true);
+      it('waits while the user is still typing, then announces the latest count after they pause', () => {
+        vi.useFakeTimers();
+        field().dispatchEvent(new Event('focus'));
+        type('hel');
+        vi.advanceTimersByTime(900);
+        type('hello w');
+        vi.advanceTimersByTime(100);
+        expect(screenReader().textContent).toBe('You have 10 characters remaining');
+        vi.advanceTimersByTime(1000);
+        expect(screenReader().textContent).toBe('You have 3 characters remaining');
+      });
 
-      field.value = 'hello';
-      field.dispatchEvent(new Event('input'));
-      expect(counter.classList.contains('nhsw-textarea__count--error')).toBe(false);
+      it('announces "too many" wording through the live region once over the limit', () => {
+        vi.useFakeTimers();
+        field().dispatchEvent(new Event('focus'));
+        type('12345678901234');
+        vi.advanceTimersByTime(1000);
+        expect(screenReader().textContent).toBe('You have 4 characters too many');
+      });
+
+      it('does not announce when the field is not focused', () => {
+        vi.useFakeTimers();
+        type('hello');
+        vi.advanceTimersByTime(5000);
+        expect(screenReader().textContent).toBe('You have 10 characters remaining');
+      });
+
+      it('stops checking once the field loses focus', () => {
+        vi.useFakeTimers();
+        field().dispatchEvent(new Event('focus'));
+        field().dispatchEvent(new Event('blur'));
+        type('hello');
+        vi.advanceTimersByTime(5000);
+        expect(screenReader().textContent).toBe('You have 10 characters remaining');
+      });
+
+      it('does not announce again if nothing has changed', () => {
+        vi.useFakeTimers();
+        field().dispatchEvent(new Event('focus'));
+        type('hello');
+        vi.advanceTimersByTime(1000);
+        screenReader().textContent = 'sentinel';
+        vi.advanceTimersByTime(3000);
+        expect(screenReader().textContent).toBe('sentinel');
+      });
     });
   });
 

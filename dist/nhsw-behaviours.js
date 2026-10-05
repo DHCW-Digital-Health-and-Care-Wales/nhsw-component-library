@@ -1,25 +1,84 @@
 (function () {
   'use strict';
 
+  var COUNT_POLL_MS = 1000;
+  var COUNT_IDLE_MS = 500;
+
   document.querySelectorAll('[data-max-length]').forEach(function (field) {
     var maxLength = parseInt(field.getAttribute('data-max-length'), 10);
-    var counter = document.getElementById(field.getAttribute('data-max-length-target'));
-    if (!counter) return;
+    var description = document.getElementById(field.getAttribute('data-max-length-target'));
+    if (!description) return;
 
-    function update() {
+    var screenReaderStatus = document.createElement('div');
+    screenReaderStatus.setAttribute('aria-live', 'polite');
+    screenReaderStatus.className = 'nhsw-visually-hidden nhsw-character-count__sr-status';
+
+    var visibleStatus = document.createElement('div');
+    visibleStatus.setAttribute('aria-hidden', 'true');
+    visibleStatus.className = description.className + ' nhsw-character-count__status';
+
+    description.insertAdjacentElement('afterend', screenReaderStatus);
+    description.insertAdjacentElement('afterend', visibleStatus);
+    description.classList.add('nhsw-visually-hidden');
+    field.removeAttribute('maxlength');
+
+    var lastInputTimestamp = null;
+    var lastInputValue = '';
+    var valueChecker = null;
+
+    function getCountMessage() {
       var remaining = maxLength - field.value.length;
-      var over = remaining < 0;
-      counter.classList.toggle('nhsw-textarea__count--error', over);
-      if (over) {
-        var overBy = Math.abs(remaining);
-        counter.textContent = 'You have ' + overBy + ' character' + (overBy === 1 ? '' : 's') + ' too many';
-      } else {
-        counter.textContent = 'You have ' + remaining + ' character' + (remaining === 1 ? '' : 's') + ' remaining';
+      var count = Math.abs(remaining);
+      var noun = 'character' + (count === 1 ? '' : 's');
+      return 'You have ' + count + ' ' + noun + (remaining < 0 ? ' too many' : ' remaining');
+    }
+
+    function updateVisibleStatus() {
+      var message = getCountMessage();
+      visibleStatus.classList.toggle('nhsw-textarea__count--error', maxLength - field.value.length < 0);
+      visibleStatus.textContent = message;
+      description.textContent = message;
+    }
+
+    function updateScreenReaderStatus() {
+      screenReaderStatus.textContent = getCountMessage();
+    }
+
+    function updateIfValueChanged() {
+      if (field.value !== lastInputValue) {
+        lastInputValue = field.value;
+        updateVisibleStatus();
+        updateScreenReaderStatus();
       }
     }
 
-    field.addEventListener('input', update);
-    update();
+    field.addEventListener('input', function () {
+      updateVisibleStatus();
+      lastInputTimestamp = Date.now();
+    });
+
+    field.addEventListener('focus', function () {
+      clearInterval(valueChecker);
+      valueChecker = setInterval(function () {
+        if (!lastInputTimestamp || Date.now() - COUNT_IDLE_MS >= lastInputTimestamp) {
+          updateIfValueChanged();
+        }
+      }, COUNT_POLL_MS);
+    });
+
+    field.addEventListener('blur', function () {
+      clearInterval(valueChecker);
+    });
+
+    window.addEventListener('pageshow', function () {
+      if (field.value !== field.textContent) {
+        updateVisibleStatus();
+        updateScreenReaderStatus();
+      }
+    });
+
+    updateVisibleStatus();
+    updateScreenReaderStatus();
   });
 
   document.querySelectorAll('[data-aria-controls]').forEach(function (input) {

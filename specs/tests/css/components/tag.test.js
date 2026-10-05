@@ -49,9 +49,10 @@ describe('tag centres multi-line text and can be grouped with no gap between two
     expect(base).toMatch(/text-align:\s*center/);
   });
 
-  it('a tag-group removes the border between its first and second tag so they sit flush', () => {
-    const firstChild = block(css, '\\.nhsw-tag-group \\.nhsw-tag:first-child');
-    expect(firstChild).toMatch(/border-right:\s*none/);
+  it('a tag-group removes the border between its first and second tag so they sit flush, even though visually hidden text now comes before the first tag', () => {
+    expect(css).not.toMatch(/\.nhsw-tag-group \.nhsw-tag:first-child/);
+    const firstTag = block(css, '\\.nhsw-tag-group \\.nhsw-tag:first-of-type');
+    expect(firstTag).toMatch(/border-right:\s*none/);
   });
 });
 

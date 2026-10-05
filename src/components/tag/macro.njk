@@ -11,3 +11,24 @@
 {%- macro nhswTag(params) -%}
 <strong class="nhsw-tag{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</strong>
 {%- endmacro -%}
+
+{#
+  nhswTagGroup(params)
+
+  A two-part (compound) tag, e.g. a category with its status. Screen readers
+  read it as one phrase, "Tag: Flu: Due vaccination", using visually hidden
+  text, so the two parts are announced as a tag and as belonging together.
+
+  params:
+    category    object  (required) - first part: { text, html, classes }, usually
+                                      with classes "nhsw-tag--white"
+    status      object  (required) - second part: { text, html, classes }
+    prefixText  string  - visually-hidden text announced before the tag, defaults to
+                           "Tag"; pass "" to omit
+    classes     string  - extra classes on the group
+    attributes  object  - extra HTML attributes on the group
+#}
+{%- macro nhswTagGroup(params) -%}
+{%- set prefixText = "Tag" if params.prefixText == undefined else params.prefixText -%}
+<span class="nhsw-tag-group{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{% if prefixText %}<span class="nhsw-visually-hidden">{{ prefixText }}: </span>{% endif %}<strong class="nhsw-tag{% if params.category.classes %} {{ params.category.classes }}{% endif %}">{{ params.category.html | safe if params.category.html else params.category.text }}</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag{% if params.status.classes %} {{ params.status.classes }}{% endif %}">{{ params.status.html | safe if params.status.html else params.status.text }}</strong></span>
+{%- endmacro -%}

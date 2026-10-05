@@ -1,7 +1,10 @@
 name: Tag
 macro: nhswTag
 description: >
-  A small piece of inline text, often used to indicate status.
+  A small piece of inline text, often used to indicate status. For a two-part
+  tag, such as a category with its status, use the nhswTagGroup macro in the
+  same file: it adds visually hidden text so screen readers announce
+  "Tag: Flu: Due vaccination" as one phrase.
 params:
   - name: text
     type: string
