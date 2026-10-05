@@ -460,6 +460,11 @@ Supports:
 - nhsw-site-header__nav-link (+ --current)
 - nhsw-site-header__nav-badge
 - nhsw-site-header__nav--reverse
+- nhsw-site-header__nav--overflow (variant: never hidden on small screens; items that do not fit move into a "More" menu)
+- nhsw-site-header__nav--enhanced (added by the behaviour script: the bar stops wrapping and overflow goes to the menu)
+- nhsw-site-header__menu (hidden list item holding the "More" button, shown by the script when items overflow)
+- nhsw-site-header__menu-toggle
+- nhsw-site-header__menu-list (the drop-down of items that did not fit)
 
 Requires:
 - nhsw-site-header

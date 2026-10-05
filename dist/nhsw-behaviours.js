@@ -339,4 +339,155 @@
 
     checkMode();
   });
+
+  // Site navigation: items that do not fit the available width move into a "More"
+  // menu, as in the NHS.UK header, so the navigation never disappears on a small
+  // screen or at high zoom. The menu button stays hidden while everything fits.
+  document.querySelectorAll('.nhsw-site-header__nav').forEach(function (nav) {
+    var list = nav.querySelector('.nhsw-site-header__nav-list');
+    var menu = nav.querySelector('.nhsw-site-header__menu');
+    var toggle = menu && menu.querySelector('.nhsw-site-header__menu-toggle');
+    if (!list || !menu || !toggle) return;
+
+    var items = Array.prototype.filter.call(list.children, function (item) {
+      return item !== menu;
+    });
+    if (!items.length) return;
+
+    var menuList = document.createElement('ul');
+    menuList.className = 'nhsw-site-header__menu-list';
+    menuList.setAttribute('hidden', '');
+
+    var rights = [];
+    var listWidth = 0;
+    var menuEnabled = false;
+    var menuOpen = false;
+    var updateTimer = null;
+
+    nav.classList.add('nhsw-site-header__nav--enhanced');
+
+    // Put every item back in the list and record where each one ends
+    function resetNavigation() {
+      items.forEach(function (item, index) {
+        list.insertBefore(item, menu);
+        rights[index] = item.offsetLeft + item.offsetWidth;
+      });
+      listWidth = list.offsetWidth;
+    }
+
+    function columnGap() {
+      var gap = parseFloat(window.getComputedStyle(list).columnGap);
+      return isNaN(gap) ? 0 : gap;
+    }
+
+    function closeMenu() {
+      if (!menuOpen) return;
+      menuOpen = false;
+      menuList.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.style.removeProperty('border-bottom-width');
+      document.removeEventListener('click', onDocumentClick, true);
+      document.removeEventListener('keydown', onDocumentKeydown, true);
+    }
+
+    function openMenu() {
+      if (!menuEnabled || menuOpen) return;
+      menuOpen = true;
+      menuList.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      // The menu is absolutely positioned, so make room for it below the nav
+      nav.style.setProperty('border-bottom-width', menuList.offsetHeight + 'px');
+      document.addEventListener('click', onDocumentClick, true);
+      document.addEventListener('keydown', onDocumentKeydown, true);
+    }
+
+    function onToggleClick(event) {
+      event.preventDefault();
+      if (menuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Close when clicking outside the navigation, or on a link inside it
+    function onDocumentClick(event) {
+      var target = event.target;
+      if (!(target instanceof Element)) return;
+      if (!nav.contains(target) || (target.closest('a, button') && !toggle.contains(target))) {
+        closeMenu();
+      }
+    }
+
+    function onDocumentKeydown(event) {
+      if (event.key !== 'Escape' || !menuOpen) return;
+      var focusWasInMenu = menuList.contains(document.activeElement);
+      closeMenu();
+      if (focusWasInMenu) toggle.focus();
+    }
+
+    function enableMenu() {
+      if (menuEnabled) return;
+      menuEnabled = true;
+      menu.removeAttribute('hidden');
+      toggle.addEventListener('click', onToggleClick);
+    }
+
+    function disableMenu() {
+      if (!menuEnabled) return;
+      closeMenu();
+      menuEnabled = false;
+      menu.setAttribute('hidden', '');
+      toggle.removeEventListener('click', onToggleClick);
+    }
+
+    function updateNavigation() {
+      resetNavigation();
+
+      var overflowing = items.filter(function (item, index) {
+        return rights[index] > listWidth;
+      });
+      if (!overflowing.length) {
+        disableMenu();
+        return;
+      }
+
+      if (!menuList.parentNode) menu.appendChild(menuList);
+      enableMenu();
+
+      // Leave room for the menu button, and the gap before it
+      var available = listWidth - menu.offsetWidth - columnGap();
+      items.forEach(function (item, index) {
+        if (rights[index] > available) menuList.appendChild(item);
+      });
+
+      if (menuOpen) {
+        nav.style.setProperty('border-bottom-width', menuList.offsetHeight + 'px');
+      }
+    }
+
+    function updateSoon() {
+      if (updateTimer && window.cancelAnimationFrame) window.cancelAnimationFrame(updateTimer);
+      if (window.requestAnimationFrame) {
+        updateTimer = window.requestAnimationFrame(updateNavigation);
+      } else {
+        updateNavigation();
+      }
+    }
+
+    window.addEventListener('resize', updateSoon);
+    // Text-only zoom and web fonts change the width of the items, not the list
+    if (typeof ResizeObserver === 'function') {
+      new ResizeObserver(updateSoon).observe(list);
+    }
+    window.addEventListener('load', updateNavigation);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(updateNavigation);
+    }
+    window.addEventListener('pageshow', function (event) {
+      if (menuOpen && event.persisted) closeMenu();
+    });
+
+    updateNavigation();
+  });
 }());

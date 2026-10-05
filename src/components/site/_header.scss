@@ -146,6 +146,22 @@
   }
 }
 
+// Overflow menu variant: the navigation is never hidden. nhsw-behaviours.js moves
+// items that do not fit into a "More" menu instead. While that menu is open the
+// script gives the nav a bottom border as tall as the menu, in the nav's own
+// colour, so the menu does not cover the content below it.
+.nhsw-site-header__nav--overflow {
+  border: 0 solid c.$nhsw-colour-background-white;
+
+  @media (max-width: 40rem) {
+    display: block;
+  }
+
+  .nhsw-site-header__nav-list {
+    position: relative;
+  }
+}
+
 .nhsw-site-header__nav-container {
   padding: 0 1rem;
 
@@ -170,6 +186,12 @@
 
   li {
     display: flex;
+  }
+
+  // With the script running, items that do not fit move into the menu rather
+  // than wrapping onto a second row.
+  .nhsw-site-header__nav--enhanced & {
+    flex-wrap: nowrap;
   }
 }
 
@@ -219,11 +241,99 @@
   vertical-align: middle;
 }
 
+// "More" menu: shown by the script only when some items do not fit
+.nhsw-site-header__menu {
+  align-self: center;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.nhsw-site-header__menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+  }
+
+  &[aria-expanded="true"]::after {
+    transform: translateY(2px) rotate(-135deg);
+  }
+}
+
+.nhsw-site-header__menu-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: c.$nhsw-colour-background-white;
+
+  li {
+    display: block;
+    border-bottom: 1px solid c.$nhsw-colour-border-grey;
+
+    &:last-child {
+      border-bottom-color: transparent;
+    }
+  }
+
+  .nhsw-site-header__nav-link {
+    display: block;
+    padding: 1rem 0.25rem;
+    white-space: normal;
+  }
+
+  .nhsw-site-header__nav-link--current {
+    padding-left: 1rem;
+    box-shadow: inset 4px 0 0 0 c.$nhsw-colour-border-primary;
+  }
+}
+
 .nhsw-site-header__nav--reverse {
   background-color: c.$nhsw-colour-background-blue;
 
+  &.nhsw-site-header__nav--overflow {
+    border-color: c.$nhsw-colour-background-blue;
+  }
+
   .nhsw-site-header__nav-list {
     box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-background-blue;
+  }
+
+  .nhsw-site-header__menu-list {
+    background-color: c.$nhsw-colour-background-blue;
+
+    li {
+      border-bottom-color: c.$nhsw-colour-site-header-border;
+
+      &:last-child {
+        border-bottom-color: transparent;
+      }
+    }
+
+    .nhsw-site-header__nav-link--current {
+      box-shadow: inset 4px 0 0 0 c.$nhsw-colour-background-white;
+    }
   }
 
   .nhsw-site-header__nav-link {

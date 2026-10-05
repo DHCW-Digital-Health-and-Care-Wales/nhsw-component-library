@@ -34,8 +34,10 @@ $nhsw-select-widths: (
   padding: $nhsw-select-padding-y $nhsw-select-padding-right $nhsw-select-padding-y $nhsw-select-padding-left;
   cursor: pointer;
 
+  // A minimum width beats max-width, so cap it at the container's width too:
+  // otherwise the select spills out of a column narrower than its minimum width.
   @include b.nhsw-from-tablet {
-    min-width: $nhsw-select-min-width;
+    min-width: min(#{$nhsw-select-min-width}, 100%);
   }
 
   &--full {
@@ -45,7 +47,7 @@ $nhsw-select-widths: (
   @each $name, $width in $nhsw-select-widths {
     &--#{$name} {
       @include b.nhsw-from-tablet {
-        min-width: $width;
+        min-width: min(#{$width}, 100%);
       }
     }
   }

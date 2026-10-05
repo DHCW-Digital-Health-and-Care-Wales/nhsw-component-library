@@ -620,4 +620,192 @@ describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
       });
     });
   });
+
+  describe('site navigation overflow menu (.nhsw-site-header__nav), matching the NHS.UK header', () => {
+    const NAV_HTML = `
+      <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+        <div class="nhsw-site-header__nav-container">
+          <ul class="nhsw-site-header__nav-list">
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/1" aria-current="page"><span>One</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="/2"><span>Two</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="/3"><span>Three</span></a></li>
+            <li class="nhsw-site-header__menu" hidden><button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false"><span><span class="nhsw-visually-hidden">Browse </span>More</span></button></li>
+          </ul>
+        </div>
+      </nav>
+      <a id="outside" href="/outside">Outside</a>
+    `;
+
+    // jsdom does no layout, so the measurements the script reads are supplied here.
+    // Each item is 150px wide, so the three end at 150, 300 and 450px, and the "More"
+    // button is 80px. With a list `listWidth` wide, any item ending past
+    // (listWidth - 80) moves into the menu, once the list is too narrow for all three.
+    const layout = { listWidth: 1000 };
+    function stubLayout() {
+      const list = document.querySelector('.nhsw-site-header__nav-list');
+      const menu = document.querySelector('.nhsw-site-header__menu');
+      Object.defineProperty(list, 'offsetWidth', { configurable: true, get: () => layout.listWidth });
+      Object.defineProperty(menu, 'offsetWidth', { configurable: true, get: () => 80 });
+      [...list.children].filter((li) => li !== menu).forEach((item, index) => {
+        Object.defineProperty(item, 'offsetLeft', { configurable: true, get: () => index * 150 });
+        Object.defineProperty(item, 'offsetWidth', { configurable: true, get: () => 150 });
+      });
+    }
+
+    const nav = () => document.querySelector('.nhsw-site-header__nav');
+    const menuItem = () => document.querySelector('.nhsw-site-header__menu');
+    const toggle = () => document.querySelector('.nhsw-site-header__menu-toggle');
+    const menuList = () => document.querySelector('.nhsw-site-header__menu-list');
+    const textOf = (container) => [...container.querySelectorAll('a')].map((a) => a.textContent);
+    const inBar = () => [...document.querySelectorAll('.nhsw-site-header__nav-list > li:not(.nhsw-site-header__menu) a')].map((a) => a.textContent);
+    const inMenu = () => (menuList() ? textOf(menuList()) : []);
+    const isMenuButtonShown = () => !menuItem().hasAttribute('hidden');
+
+    function start(listWidth) {
+      layout.listWidth = listWidth;
+      setBody(NAV_HTML);
+      stubLayout();
+      runScript(SCRIPT);
+    }
+    function resizeTo(listWidth) {
+      layout.listWidth = listWidth;
+      window.dispatchEvent(new Event('resize'));
+    }
+
+    let realRequestAnimationFrame;
+    beforeEach(() => {
+      realRequestAnimationFrame = window.requestAnimationFrame;
+      window.requestAnimationFrame = (callback) => {
+        callback();
+        return 1;
+      };
+    });
+    afterEach(() => {
+      window.requestAnimationFrame = realRequestAnimationFrame;
+    });
+
+    it('keeps every item in the bar, and the menu button hidden, when everything fits', () => {
+      start(1000);
+      expect(inBar()).toEqual(['One', 'Two', 'Three']);
+      expect(isMenuButtonShown()).toBe(false);
+      expect(menuList()).toBeNull();
+    });
+
+    it('moves the items that do not fit into a "More" menu, in order, and shows the button', () => {
+      start(400);
+      expect(inBar()).toEqual(['One', 'Two']);
+      expect(inMenu()).toEqual(['Three']);
+      expect(isMenuButtonShown()).toBe(true);
+    });
+
+    it('leaves nothing but the menu button when no item fits, as at 400% zoom, so the navigation never disappears', () => {
+      start(150);
+      expect(inBar()).toEqual([]);
+      expect(inMenu()).toEqual(['One', 'Two', 'Three']);
+      expect(isMenuButtonShown()).toBe(true);
+    });
+
+    it('keeps the current page marked when its link is in the menu', () => {
+      start(150);
+      const current = menuList().querySelector('a[aria-current="page"]');
+      expect(current.textContent).toBe('One');
+      expect(current.classList.contains('nhsw-site-header__nav-link--current')).toBe(true);
+    });
+
+    it('marks the nav as enhanced, so the bar stops wrapping onto a second row', () => {
+      start(1000);
+      expect(nav().classList.contains('nhsw-site-header__nav--enhanced')).toBe(true);
+    });
+
+    it('opens and closes the menu from the button, keeping aria-expanded in step and making room below the nav', () => {
+      start(400);
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+      expect(menuList().hasAttribute('hidden')).toBe(true);
+
+      toggle().click();
+      expect(toggle().getAttribute('aria-expanded')).toBe('true');
+      expect(menuList().hasAttribute('hidden')).toBe(false);
+      expect(nav().style.borderBottomWidth).not.toBe('');
+
+      toggle().click();
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+      expect(menuList().hasAttribute('hidden')).toBe(true);
+      expect(nav().style.borderBottomWidth).toBe('');
+    });
+
+    it('closes on Escape and returns focus to the button when it was inside the menu', () => {
+      start(400);
+      toggle().click();
+      menuList().querySelector('a').focus();
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+      expect(document.activeElement).toBe(toggle());
+    });
+
+    it('ignores other keys', () => {
+      start(400);
+      toggle().click();
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'a', bubbles: true }));
+      expect(toggle().getAttribute('aria-expanded')).toBe('true');
+    });
+
+    it('closes when something outside the navigation is clicked', () => {
+      start(400);
+      toggle().click();
+      document.getElementById('outside').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+    });
+
+    it('closes when a link in the menu is chosen', () => {
+      start(400);
+      toggle().click();
+      menuList().querySelector('a').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+    });
+
+    it('moves items back into the bar and hides the button when the width grows', () => {
+      start(150);
+      resizeTo(1000);
+      expect(inBar()).toEqual(['One', 'Two', 'Three']);
+      expect(isMenuButtonShown()).toBe(false);
+      expect(inMenu()).toEqual([]);
+    });
+
+    it('moves items into the menu again when the width shrinks, closing an open menu it no longer needs', () => {
+      start(400);
+      toggle().click();
+      resizeTo(1000);
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+      expect(nav().style.borderBottomWidth).toBe('');
+
+      resizeTo(300);
+      expect(inBar()).toEqual(['One']);
+      expect(inMenu()).toEqual(['Two', 'Three']);
+    });
+
+    it('does not stack up listeners as it switches back and forth, so one press toggles once', () => {
+      start(400);
+      resizeTo(1000);
+      resizeTo(400);
+      resizeTo(1000);
+      resizeTo(400);
+
+      toggle().click();
+      expect(toggle().getAttribute('aria-expanded')).toBe('true');
+      toggle().click();
+      expect(toggle().getAttribute('aria-expanded')).toBe('false');
+    });
+
+    it('leaves a navigation without the menu markup alone', () => {
+      setBody(`
+        <nav class="nhsw-site-header__nav">
+          <ul class="nhsw-site-header__nav-list"><li><a class="nhsw-site-header__nav-link" href="/1">One</a></li></ul>
+        </nav>
+      `);
+      runScript(SCRIPT);
+      expect(nav().classList.contains('nhsw-site-header__nav--enhanced')).toBe(false);
+      expect(menuList()).toBeNull();
+    });
+  });
 });
