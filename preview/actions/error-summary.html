@@ -33,7 +33,7 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-overview" open_url="/examples/error-summary-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name"&gt;Enter your full name&lt;/a&gt;&lt;/li&gt;
@@ -74,7 +74,7 @@ tabs:
   <ul class="nhsw-body">
     <li>add "Error: " to the beginning of the <code>&lt;title&gt;</code> so screen readers read it out as soon as possible</li>
     <li>show an error summary at the top of a page</li>
-    <li>move the keyboard focus to the error summary (the NHS.UK frontend JavaScript will do this for you)</li>
+    <li>move the keyboard focus to the error summary (<code>nhsw-behaviours.js</code> does this for you when the summary has <code>data-module="nhsw-error-summary"</code>, which the macro adds)</li>
     <li>include the heading "There is a problem"</li>
     <li>link to each of the answers that have validation errors</li>
     <li>show the same error messages next to the inputs with errors</li>
@@ -118,7 +118,7 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-date" open_url="/examples/error-summary-date.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-date" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-date" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-date"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#dob-year"&gt;Date of birth must include a year&lt;/a&gt;&lt;/li&gt;
@@ -201,7 +201,7 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-checkboxes" open_url="/examples/error-summary-checkboxes.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-checkboxes" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-checkboxes" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-checkboxes"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#contact-1"&gt;Select how you want to be contacted&lt;/a&gt;&lt;/li&gt;
@@ -273,7 +273,7 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-timeout" open_url="/examples/error-summary-timeout.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-timeout"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name"&gt;Your login attempt timed out. Login will start from the beginning.&lt;/a&gt;&lt;/li&gt;

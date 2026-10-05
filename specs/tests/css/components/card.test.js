@@ -98,4 +98,8 @@ describe('card hover/focus states, chevron icon and actions header', () => {
   it('card group item has no list marker', () => {
     expect(block(css, '\\.nhsw-card-group__item')).toMatch(/list-style:\s*none/);
   });
+
+  it('long unbroken text such as an email address wraps inside the card, so it never pushes out of it', () => {
+    expect(block(css, '\\.nhsw-card\\b')).toMatch(/overflow-wrap:\s*anywhere/);
+  });
 });

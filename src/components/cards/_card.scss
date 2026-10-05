@@ -10,6 +10,10 @@
   margin-bottom: 2rem;
   box-sizing: border-box;
 
+  // Long unbroken text, such as an email address or a long word, wraps inside the
+  // card instead of pushing out of it (and off the page at high zoom).
+  overflow-wrap: anywhere;
+
   &:has(.nhsw-card__title-link) {
     box-shadow: 0 4px 0 c.$nhsw-colour-border-grey;
   }

@@ -131,6 +131,9 @@
     line-height: 1.47368;
   }
 }
+.nhsw-error-message[hidden] {
+  display: none;
+}
 
 .nhsw-error-summary {
   margin-bottom: 24px;
@@ -3299,6 +3302,7 @@ body {
   height: calc(100% - 2rem);
   margin-bottom: 2rem;
   box-sizing: border-box;
+  overflow-wrap: anywhere;
 }
 .nhsw-card:has(.nhsw-card__title-link) {
   box-shadow: 0 4px 0 #d8dde0;

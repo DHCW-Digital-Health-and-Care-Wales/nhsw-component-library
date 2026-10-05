@@ -808,4 +808,96 @@ describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
       expect(menuList()).toBeNull();
     });
   });
+
+  describe('error summary (.nhsw-error-summary), matching the NHS.UK error summary', () => {
+    const SUMMARY_HTML = (attributes = 'data-module="nhsw-error-summary"') => `
+      <div class="nhsw-error-summary" role="alert" tabindex="-1" aria-labelledby="t" ${attributes}>
+        <h2 id="t">There is a problem</h2>
+        <ul>
+          <li><a href="#name">Enter your name</a></li>
+          <li><a href="#contact">Select a contact method</a></li>
+          <li><a href="#nowhere">Points at nothing</a></li>
+        </ul>
+      </div>
+      <form>
+        <label for="name">Name</label><input id="name" type="text">
+        <fieldset>
+          <legend>How do you want to be contacted?</legend>
+          <input id="contact" name="contact" type="radio"><label for="contact">Email</label>
+        </fieldset>
+      </form>
+    `;
+    let scrollIntoView;
+
+    beforeEach(() => {
+      scrollIntoView = vi.fn();
+      Element.prototype.scrollIntoView = scrollIntoView;
+    });
+    afterEach(() => {
+      delete Element.prototype.scrollIntoView;
+    });
+
+    it('takes focus when the page loads with it, so keyboard and screen reader users are told straight away (SCEN-ERROR-003)', () => {
+      setBody(SUMMARY_HTML());
+      runScript(SCRIPT);
+      expect(document.activeElement).toBe(document.querySelector('.nhsw-error-summary'));
+    });
+
+    it('does not take focus unless it is marked data-module="nhsw-error-summary", so a page showing many summaries does not jump', () => {
+      setBody(SUMMARY_HTML(''));
+      runScript(SCRIPT);
+      expect(document.activeElement).toBe(document.body);
+    });
+
+    it('can be told not to take focus with data-disable-auto-focus="true"', () => {
+      setBody(SUMMARY_HTML('data-module="nhsw-error-summary" data-disable-auto-focus="true"'));
+      runScript(SCRIPT);
+      expect(document.activeElement).toBe(document.body);
+    });
+
+    it('gives itself tabindex="-1" if it has none, so it can be focused', () => {
+      setBody(`<div class="nhsw-error-summary" data-module="nhsw-error-summary"><a href="#x">x</a></div>`);
+      runScript(SCRIPT);
+      const summary = document.querySelector('.nhsw-error-summary');
+      expect(summary.getAttribute('tabindex')).toBe('-1');
+      expect(document.activeElement).toBe(summary);
+    });
+
+    it('a link moves focus to the field it points at, scrolling its label into view, instead of just jumping to it', () => {
+      setBody(SUMMARY_HTML());
+      runScript(SCRIPT);
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      document.querySelector('a[href="#name"]').dispatchEvent(click);
+
+      expect(document.activeElement).toBe(document.getElementById('name'));
+      expect(click.defaultPrevented).toBe(true);
+      expect(scrollIntoView).toHaveBeenCalledTimes(1);
+      expect(scrollIntoView.mock.instances[0]).toBe(document.querySelector('label[for="name"]'));
+    });
+
+    it('a link to a radio or checkbox group focuses it and brings the group legend into view', () => {
+      setBody(SUMMARY_HTML());
+      runScript(SCRIPT);
+      document.querySelector('a[href="#contact"]').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+
+      expect(document.activeElement).toBe(document.getElementById('contact'));
+      expect(scrollIntoView.mock.instances[0]).toBe(document.querySelector('legend'));
+    });
+
+    it('leaves a link alone when its target does not exist, so the browser handles it as normal', () => {
+      setBody(SUMMARY_HTML());
+      runScript(SCRIPT);
+      const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+      document.querySelector('a[href="#nowhere"]').dispatchEvent(click);
+      expect(click.defaultPrevented).toBe(false);
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('does nothing for a summary link click when the summary has no data-module, other than the link behaviour', () => {
+      setBody(SUMMARY_HTML(''));
+      runScript(SCRIPT);
+      document.querySelector('a[href="#name"]').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      expect(document.activeElement).toBe(document.getElementById('name'));
+    });
+  });
 });

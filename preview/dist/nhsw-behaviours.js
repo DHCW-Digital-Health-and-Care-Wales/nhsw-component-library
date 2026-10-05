@@ -490,4 +490,46 @@
 
     updateNavigation();
   });
+
+  // Error summary, as in the NHS.UK frontend. A summary marked data-module="nhsw-error-summary"
+  // takes focus when the page loads with errors, so keyboard and screen reader users are told
+  // straight away (add data-disable-auto-focus="true" to switch that off). A link in any summary
+  // focuses the field it points at, scrolling the field's label or legend into view.
+  function legendOrLabelFor(input) {
+    var fieldset = input.closest('fieldset');
+    var legend = fieldset && fieldset.getElementsByTagName('legend')[0];
+    if (legend) {
+      if (input instanceof HTMLInputElement && (input.type === 'checkbox' || input.type === 'radio')) {
+        return legend;
+      }
+      var rect = input.getBoundingClientRect();
+      if (rect.height && window.innerHeight) {
+        var inputBottom = rect.top + rect.height;
+        if (inputBottom - legend.getBoundingClientRect().top < window.innerHeight / 2) return legend;
+      }
+    }
+    var id = input.getAttribute('id');
+    return (id && document.querySelector('label[for="' + id + '"]')) || input.closest('label');
+  }
+
+  document.querySelectorAll('.nhsw-error-summary').forEach(function (summary) {
+    if (
+      summary.getAttribute('data-module') === 'nhsw-error-summary' &&
+      summary.getAttribute('data-disable-auto-focus') !== 'true'
+    ) {
+      if (!summary.hasAttribute('tabindex')) summary.setAttribute('tabindex', '-1');
+      summary.focus();
+    }
+
+    summary.addEventListener('click', function (event) {
+      var link = event.target instanceof Element ? event.target.closest('a') : null;
+      if (!link || !summary.contains(link) || !link.hash) return;
+      var input = document.getElementById(link.hash.replace('#', ''));
+      var anchor = input && legendOrLabelFor(input);
+      if (!anchor) return;
+      anchor.scrollIntoView();
+      input.focus({ preventScroll: true });
+      event.preventDefault();
+    });
+  });
 }());
